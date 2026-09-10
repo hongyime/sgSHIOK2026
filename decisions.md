@@ -3385,3 +3385,32 @@ Next isolate response-body completion and worker-target ownership before another
 bounded replay. Do not rebuild missing protected artifacts or weaken the audit
 to obtain PASS. The source/runtime preview is deliberately pre-dependency-merge;
 it cannot validate the newer lock. Evidence: qa/revamp-r1/request-audit-20260910/summary.json.
+
+## 2026-09-10: Network Notification Completeness Is Not Download Progress
+
+A missing page Network.loadingFinished notification is insufficient evidence of
+an unfinished download or broken worker. The isolated Chromium fixture retained
+six404 Response bodies, then drained or canceled them using the same response
+objects. Notifications appeared after handling. Four loadingFinished messages
+carried CDP timestamps earlier than their response notifications, despite arriving
+later at the observer. Keep protocol timestamps and host arrival times separate;
+do not use notification arrival as a transfer-completion or app-latency measure.
+
+The same fixture observes a worker entry request beginning in the page session
+and completing in an attached child session. Correlate only explicit parent,
+target, session, request, URL and event-order evidence. Never join arbitrary IDs
+or URLs across sessions. This is an observed Chromium handoff, not a blanket
+guarantee across browsers. Worker Network/Runtime observation succeeds here;
+Fetch.enable on this worker target is unsupported. The parent interception agent
+still observed all three fixture worker resources. A future real-app audit must
+verify its own boundary, not assume this fixture covers every worker request.
+
+The first probe's unsupported command and timeout remain failures. The corrected
+synthetic probe passes, but neither run repairs or retroactively clears the old
+app receipts. Do not regenerate protected gzip variants or add an app workaround
+solely to turn a diagnostic PASS. Unused error-body cleanup may be appropriate
+resource handling; no speed benefit or production leak has been measured here.
+Next prioritize bounded coverage-register cost reduction while dependency/worker
+installation remains owner-gated. Evidence: qa/revamp-r1/lifecycle-probe-20260910/summary.json.
+Protocol reference: https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-setAutoAttach
+and https://fetch.spec.whatwg.org/#concept-body-consume-body.

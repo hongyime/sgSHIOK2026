@@ -1,0 +1,198 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "PRAWN-E14",
+  "base": "93e72b7b095014eab80d697a6925e7117c40f2c0",
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "--test",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\lifecycle-probe-20260910\\server.test.mjs",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\lifecycle-probe-20260910\\worker-session.test.mjs",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\lifecycle-probe-20260910\\analyze.test.mjs"
+  ],
+  "elapsedMs": 8358.466900000001,
+  "exitCode": 0,
+  "stdout": "✔ real body trace separates notification arrival from its earlier network timestamp (97.3693ms)\n✔ real worker entry starts in page session and finishes in explicitly attached child session (15.7359ms)\n✔ missing body phases or changed request identities cannot produce an analysis (37.8557ms)\n✔ missing attachment cannot authorize a worker handoff (50.5692ms)\n✔ wrong parent target cannot authorize a worker handoff (11.3347ms)\n✔ wrong target identity cannot authorize a worker handoff (11.3496ms)\n✔ wrong entry URL cannot authorize a worker handoff (61.226ms)\n✔ duplicate attachment cannot authorize a worker handoff (160.1852ms)\n✔ completion in unrelated session cannot authorize a worker handoff (107.2ms)\n✔ worker failure cannot authorize a worker handoff (14.9922ms)\n✔ contradictory terminal events cannot authorize a worker handoff (40.9954ms)\n✔ failed worker entry response cannot authorize a worker handoff (53.8442ms)\n✔ response URL mismatch cannot authorize a worker handoff (151.7141ms)\n✔ completion before attachment cannot authorize a worker handoff (68.4053ms)\n✔ small/ignored returns an exact bounded404 response (1389.0974ms)\n✔ small/cancel returns an exact bounded404 response (631.2907ms)\n✔ small/drain returns an exact bounded404 response (223.7403ms)\n✔ large/ignored returns an exact bounded404 response (293.7238ms)\n✔ large/cancel returns an exact bounded404 response (187.793ms)\n✔ large/drain returns an exact bounded404 response (130.2167ms)\n✔ only named fixture resources are served; no filesystem fallback or POST (409.5961ms)\n✔ worker observation binds every command to the child and resumes only after observers (18.7989ms)\n✔ observer failure is not swallowed: Network.enable (23.379ms)\n✔ observer failure is not swallowed: Runtime.enable (72.6735ms)\n✔ missing worker identity cannot send to the browser session by accident (2.8245ms)\nℹ tests 25\nℹ suites 0\nℹ pass 25\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 5807.1312\n",
+  "stderr": "",
+  "sourceBefore": [
+    {
+      "path": "qa/revamp-r1/lifecycle-probe-20260910/browser.mjs",
+      "sha256": "4588ff23f47a14d51f2edca0e11a90fb241fdfa633dbe54697268780adec773a"
+    },
+    {
+      "path": "qa/revamp-r1/lifecycle-probe-20260910/server.mjs",
+      "sha256": "07d290c7d86df9044774808f07901b581ecb1a94657e401e61f7ea1cf0903757"
+    },
+    {
+      "path": "qa/revamp-r1/lifecycle-probe-20260910/page.mjs",
+      "sha256": "69757cf5cd63c96798dbe0d784fd05f2e79796071cba24693f84dc2a7dabe3a1"
+    },
+    {
+      "path": "qa/revamp-r1/lifecycle-probe-20260910/server.test.mjs",
+      "sha256": "8ea03fe8ef1f649b429ca8469600cc8954ddc985a704cfa89f3ccfcda9ef0db6"
+    },
+    {
+      "path": "qa/revamp-r1/lifecycle-probe-20260910/worker-session.mjs",
+      "sha256": "dc995a19c0f22ba96ed7ec4ebca1c7ded810e5295a0938775332f5726764c10e"
+    },
+    {
+      "path": "qa/revamp-r1/lifecycle-probe-20260910/worker-session.test.mjs",
+      "sha256": "2c01fb068d3f30980a5e75118ac32406463ef82f52667988ddd2d389bedbda0a"
+    },
+    {
+      "path": "qa/revamp-r1/lifecycle-probe-20260910/analyze.mjs",
+      "sha256": "16fdb625f925b304981efa9dd91c6a7e707af9d475977aa080b9d4a687249860"
+    },
+    {
+      "path": "qa/revamp-r1/lifecycle-probe-20260910/analyze.test.mjs",
+      "sha256": "6c1ee58105f735be5275d5b5767d7995390055e8ce3e049ebedc51a387af6a65"
+    }
+  ],
+  "sourceAfter": [
+    {
+      "path": "qa/revamp-r1/lifecycle-probe-20260910/browser.mjs",
+      "sha256": "4588ff23f47a14d51f2edca0e11a90fb241fdfa633dbe54697268780adec773a"
+    },
+    {
+      "path": "qa/revamp-r1/lifecycle-probe-20260910/server.mjs",
+      "sha256": "07d290c7d86df9044774808f07901b581ecb1a94657e401e61f7ea1cf0903757"
+    },
+    {
+      "path": "qa/revamp-r1/lifecycle-probe-20260910/page.mjs",
+      "sha256": "69757cf5cd63c96798dbe0d784fd05f2e79796071cba24693f84dc2a7dabe3a1"
+    },
+    {
+      "path": "qa/revamp-r1/lifecycle-probe-20260910/server.test.mjs",
+      "sha256": "8ea03fe8ef1f649b429ca8469600cc8954ddc985a704cfa89f3ccfcda9ef0db6"
+    },
+    {
+      "path": "qa/revamp-r1/lifecycle-probe-20260910/worker-session.mjs",
+      "sha256": "dc995a19c0f22ba96ed7ec4ebca1c7ded810e5295a0938775332f5726764c10e"
+    },
+    {
+      "path": "qa/revamp-r1/lifecycle-probe-20260910/worker-session.test.mjs",
+      "sha256": "2c01fb068d3f30980a5e75118ac32406463ef82f52667988ddd2d389bedbda0a"
+    },
+    {
+      "path": "qa/revamp-r1/lifecycle-probe-20260910/analyze.mjs",
+      "sha256": "16fdb625f925b304981efa9dd91c6a7e707af9d475977aa080b9d4a687249860"
+    },
+    {
+      "path": "qa/revamp-r1/lifecycle-probe-20260910/analyze.test.mjs",
+      "sha256": "6c1ee58105f735be5275d5b5767d7995390055e8ce3e049ebedc51a387af6a65"
+    }
+  ],
+  "anchorsBefore": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "expected": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "actual": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "expected": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "actual": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "expected": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "actual": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "expected": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "actual": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "expected": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "actual": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "expected": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "actual": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "expected": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "actual": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "expected": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "actual": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "expected": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "actual": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "expected": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "actual": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "expected": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "actual": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "anchorsAfter": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "expected": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "actual": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "expected": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "actual": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "expected": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "actual": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "expected": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "actual": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "expected": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "actual": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "expected": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "actual": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "expected": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "actual": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "expected": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "actual": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "expected": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "actual": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "expected": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "actual": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "expected": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "actual": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ]
+}

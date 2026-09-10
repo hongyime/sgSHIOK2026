@@ -1,0 +1,3296 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "PRAWN-E14",
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\lifecycle-probe-20260910\\lifecycle-1-nUrUdV",
+  "profile": "C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-PAqENz",
+  "startedAt": "2026-09-10T10:07:15.966Z",
+  "entries": [
+    {
+      "sequence": 0,
+      "timeMs": 6213,
+      "kind": "send",
+      "id": 1,
+      "method": "Target.getTargets",
+      "sessionId": "",
+      "params": {}
+    },
+    {
+      "sequence": 1,
+      "timeMs": 7187,
+      "kind": "reply",
+      "id": 1,
+      "sessionId": "",
+      "result": {
+        "targetInfos": [
+          {
+            "targetId": "12F3461FCA566FE0C3FFB004DF1ECF93",
+            "type": "page",
+            "title": "",
+            "url": "about:blank",
+            "attached": false,
+            "canAccessOpener": false,
+            "browserContextId": "71E7622C73AAB03BAFDC296B7B717554"
+          },
+          {
+            "targetId": "A64E6EB66A281AA345C27334AC894F15",
+            "type": "browser_ui",
+            "title": "",
+            "url": "chrome://omnibox-popup.top-chrome/omnibox_popup_aim.html",
+            "attached": false,
+            "canAccessOpener": false,
+            "browserContextId": "71E7622C73AAB03BAFDC296B7B717554"
+          },
+          {
+            "targetId": "314C7BD8658724D3EA16DA040456B807",
+            "type": "browser_ui",
+            "title": "",
+            "url": "chrome://omnibox-popup.top-chrome/",
+            "attached": false,
+            "canAccessOpener": false,
+            "browserContextId": "71E7622C73AAB03BAFDC296B7B717554"
+          },
+          {
+            "targetId": "4BE884934753087F4A5FF10436606A37",
+            "type": "background_page",
+            "title": "Google Hangouts",
+            "url": "chrome-extension://nkeimhogjdpnpccoofpliimaahmaaome/background.html",
+            "attached": false,
+            "canAccessOpener": false,
+            "browserContextId": "71E7622C73AAB03BAFDC296B7B717554"
+          }
+        ]
+      }
+    },
+    {
+      "sequence": 2,
+      "timeMs": 7189,
+      "kind": "send",
+      "id": 2,
+      "method": "Target.attachToTarget",
+      "sessionId": "",
+      "params": {
+        "targetId": "12F3461FCA566FE0C3FFB004DF1ECF93",
+        "flatten": true
+      }
+    },
+    {
+      "sequence": 3,
+      "timeMs": 7200,
+      "kind": "event",
+      "method": "Target.attachedToTarget",
+      "sessionId": "",
+      "params": {
+        "sessionId": "13C122B04936184B7F3F59B25755AC75",
+        "targetInfo": {
+          "targetId": "12F3461FCA566FE0C3FFB004DF1ECF93",
+          "type": "page",
+          "title": "about:blank",
+          "url": "about:blank",
+          "attached": true,
+          "canAccessOpener": false,
+          "browserContextId": "71E7622C73AAB03BAFDC296B7B717554"
+        },
+        "waitingForDebugger": false
+      }
+    },
+    {
+      "sequence": 4,
+      "timeMs": 7201,
+      "kind": "reply",
+      "id": 2,
+      "sessionId": "",
+      "result": {
+        "sessionId": "13C122B04936184B7F3F59B25755AC75"
+      }
+    },
+    {
+      "sequence": 5,
+      "timeMs": 7201,
+      "kind": "send",
+      "id": 3,
+      "method": "Page.enable",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {}
+    },
+    {
+      "sequence": 6,
+      "timeMs": 7208,
+      "kind": "reply",
+      "id": 3,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {}
+    },
+    {
+      "sequence": 7,
+      "timeMs": 7208,
+      "kind": "send",
+      "id": 4,
+      "method": "Runtime.enable",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {}
+    },
+    {
+      "sequence": 8,
+      "timeMs": 7228,
+      "kind": "reply",
+      "id": 4,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {}
+    },
+    {
+      "sequence": 9,
+      "timeMs": 7228,
+      "kind": "send",
+      "id": 5,
+      "method": "Network.enable",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {}
+    },
+    {
+      "sequence": 10,
+      "timeMs": 7233,
+      "kind": "reply",
+      "id": 5,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {}
+    },
+    {
+      "sequence": 11,
+      "timeMs": 7233,
+      "kind": "send",
+      "id": 6,
+      "method": "Network.setCacheDisabled",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "cacheDisabled": true
+      }
+    },
+    {
+      "sequence": 12,
+      "timeMs": 7248,
+      "kind": "reply",
+      "id": 6,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {}
+    },
+    {
+      "sequence": 13,
+      "timeMs": 7248,
+      "kind": "send",
+      "id": 7,
+      "method": "Network.setBypassServiceWorker",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "bypass": true
+      }
+    },
+    {
+      "sequence": 14,
+      "timeMs": 7257,
+      "kind": "reply",
+      "id": 7,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {}
+    },
+    {
+      "sequence": 15,
+      "timeMs": 7257,
+      "kind": "send",
+      "id": 8,
+      "method": "Fetch.enable",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "patterns": [
+          {
+            "urlPattern": "*",
+            "requestStage": "Request"
+          }
+        ]
+      }
+    },
+    {
+      "sequence": 16,
+      "timeMs": 7264,
+      "kind": "reply",
+      "id": 8,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {}
+    },
+    {
+      "sequence": 17,
+      "timeMs": 7264,
+      "kind": "send",
+      "id": 9,
+      "method": "Target.setAutoAttach",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "autoAttach": true,
+        "waitForDebuggerOnStart": true,
+        "flatten": true
+      }
+    },
+    {
+      "sequence": 18,
+      "timeMs": 7268,
+      "kind": "reply",
+      "id": 9,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {}
+    },
+    {
+      "sequence": 19,
+      "timeMs": 7268,
+      "kind": "send",
+      "id": 10,
+      "method": "Page.navigate",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "url": "http://127.0.0.1:64236/"
+      }
+    },
+    {
+      "sequence": 20,
+      "timeMs": 7300,
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "5E37BAC4019675D9A360F1F96F757BE6",
+        "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+        "timestamp": 1105540.575209,
+        "type": "Document",
+        "request": {
+          "url": "http://127.0.0.1:64236/",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "sequence": 21,
+      "timeMs": 7399,
+      "kind": "event",
+      "method": "Fetch.requestPaused",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "interception-job-1.0",
+        "networkId": "5E37BAC4019675D9A360F1F96F757BE6",
+        "frameId": "12F3461FCA566FE0C3FFB004DF1ECF93",
+        "resourceType": "Document",
+        "request": {
+          "url": "http://127.0.0.1:64236/",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "sequence": 22,
+      "timeMs": 7399,
+      "kind": "send",
+      "id": 11,
+      "method": "Fetch.continueRequest",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "interception-job-1.0"
+      }
+    },
+    {
+      "sequence": 23,
+      "timeMs": 7451,
+      "kind": "reply",
+      "id": 11,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {}
+    },
+    {
+      "sequence": 24,
+      "timeMs": 7730,
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "5E37BAC4019675D9A360F1F96F757BE6",
+        "type": "Document",
+        "timestamp": 1105541.0086,
+        "response": {
+          "url": "http://127.0.0.1:64236/",
+          "status": 200
+        }
+      }
+    },
+    {
+      "sequence": 25,
+      "timeMs": 7731,
+      "kind": "reply",
+      "id": 10,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {
+        "frameId": "12F3461FCA566FE0C3FFB004DF1ECF93",
+        "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+        "isDownload": false
+      }
+    },
+    {
+      "sequence": 26,
+      "timeMs": 7732,
+      "kind": "send",
+      "id": 12,
+      "method": "Runtime.evaluate",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "expression": "(() => ({ ready: !!window.fixture, title: document.title }))(null)",
+        "returnByValue": true,
+        "awaitPromise": true
+      }
+    },
+    {
+      "sequence": 27,
+      "timeMs": 7828,
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "114292.2",
+        "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+        "timestamp": 1105541.074845,
+        "type": "Script",
+        "request": {
+          "url": "http://127.0.0.1:64236/page.mjs",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "sequence": 28,
+      "timeMs": 7833,
+      "kind": "event",
+      "method": "Network.loadingFinished",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "5E37BAC4019675D9A360F1F96F757BE6",
+        "timestamp": 1105540.995382,
+        "encodedDataLength": 465
+      }
+    },
+    {
+      "sequence": 29,
+      "timeMs": 7841,
+      "kind": "event",
+      "method": "Fetch.requestPaused",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "interception-job-2.0",
+        "networkId": "114292.2",
+        "frameId": "12F3461FCA566FE0C3FFB004DF1ECF93",
+        "resourceType": "Script",
+        "request": {
+          "url": "http://127.0.0.1:64236/page.mjs",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "sequence": 30,
+      "timeMs": 7841,
+      "kind": "send",
+      "id": 13,
+      "method": "Fetch.continueRequest",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "interception-job-2.0"
+      }
+    },
+    {
+      "sequence": 31,
+      "timeMs": 7843,
+      "kind": "reply",
+      "id": 12,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {
+        "result": {
+          "type": "object",
+          "value": {
+            "ready": false,
+            "title": "Local lifecycle fixture"
+          }
+        }
+      }
+    },
+    {
+      "sequence": 32,
+      "timeMs": 7844,
+      "kind": "reply",
+      "id": 13,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {}
+    },
+    {
+      "sequence": 33,
+      "timeMs": 7876,
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "114292.2",
+        "type": "Script",
+        "timestamp": 1105541.162813,
+        "response": {
+          "url": "http://127.0.0.1:64236/page.mjs",
+          "status": 200
+        }
+      }
+    },
+    {
+      "sequence": 34,
+      "timeMs": 7878,
+      "kind": "event",
+      "method": "Network.loadingFinished",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "114292.2",
+        "timestamp": 1105541.153314,
+        "encodedDataLength": 1264
+      }
+    },
+    {
+      "sequence": 35,
+      "timeMs": 8043,
+      "kind": "send",
+      "id": 14,
+      "method": "Runtime.evaluate",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "expression": "(() => ({ ready: !!window.fixture, title: document.title }))(null)",
+        "returnByValue": true,
+        "awaitPromise": true
+      }
+    },
+    {
+      "sequence": 36,
+      "timeMs": 8046,
+      "kind": "reply",
+      "id": 14,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {
+        "result": {
+          "type": "object",
+          "value": {
+            "ready": true,
+            "title": "Local lifecycle fixture"
+          }
+        }
+      }
+    },
+    {
+      "sequence": 37,
+      "timeMs": 8046,
+      "kind": "send",
+      "id": 15,
+      "method": "Runtime.evaluate",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "expression": "(path => window.fixture.retain(path))(\"/body/small/ignored\")",
+        "returnByValue": true,
+        "awaitPromise": true
+      }
+    },
+    {
+      "sequence": 38,
+      "timeMs": 8057,
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "114292.4",
+        "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+        "timestamp": 1105541.342291,
+        "type": "Fetch",
+        "request": {
+          "url": "http://127.0.0.1:64236/body/small/ignored",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "sequence": 39,
+      "timeMs": 8063,
+      "kind": "event",
+      "method": "Fetch.requestPaused",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "interception-job-3.0",
+        "networkId": "114292.4",
+        "frameId": "12F3461FCA566FE0C3FFB004DF1ECF93",
+        "resourceType": "XHR",
+        "request": {
+          "url": "http://127.0.0.1:64236/body/small/ignored",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "sequence": 40,
+      "timeMs": 8063,
+      "kind": "send",
+      "id": 16,
+      "method": "Fetch.continueRequest",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "interception-job-3.0"
+      }
+    },
+    {
+      "sequence": 41,
+      "timeMs": 8073,
+      "kind": "reply",
+      "id": 16,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {}
+    },
+    {
+      "sequence": 42,
+      "timeMs": 8098,
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "114292.4",
+        "type": "Fetch",
+        "timestamp": 1105541.373203,
+        "response": {
+          "url": "http://127.0.0.1:64236/body/small/ignored",
+          "status": 404
+        }
+      }
+    },
+    {
+      "sequence": 43,
+      "timeMs": 8099,
+      "kind": "reply",
+      "id": 15,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {
+        "result": {
+          "type": "object",
+          "value": {
+            "path": "/body/small/ignored",
+            "status": 404,
+            "bodyUsed": false,
+            "locked": false
+          }
+        }
+      }
+    },
+    {
+      "sequence": 44,
+      "timeMs": 8100,
+      "kind": "send",
+      "id": 17,
+      "method": "Runtime.evaluate",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "expression": "(path => window.fixture.retain(path))(\"/body/small/cancel\")",
+        "returnByValue": true,
+        "awaitPromise": true
+      }
+    },
+    {
+      "sequence": 45,
+      "timeMs": 8108,
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "114292.5",
+        "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+        "timestamp": 1105541.391219,
+        "type": "Fetch",
+        "request": {
+          "url": "http://127.0.0.1:64236/body/small/cancel",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "sequence": 46,
+      "timeMs": 8111,
+      "kind": "event",
+      "method": "Fetch.requestPaused",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "interception-job-4.0",
+        "networkId": "114292.5",
+        "frameId": "12F3461FCA566FE0C3FFB004DF1ECF93",
+        "resourceType": "XHR",
+        "request": {
+          "url": "http://127.0.0.1:64236/body/small/cancel",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "sequence": 47,
+      "timeMs": 8111,
+      "kind": "send",
+      "id": 18,
+      "method": "Fetch.continueRequest",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "interception-job-4.0"
+      }
+    },
+    {
+      "sequence": 48,
+      "timeMs": 8116,
+      "kind": "reply",
+      "id": 18,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {}
+    },
+    {
+      "sequence": 49,
+      "timeMs": 8135,
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "114292.5",
+        "type": "Fetch",
+        "timestamp": 1105541.415808,
+        "response": {
+          "url": "http://127.0.0.1:64236/body/small/cancel",
+          "status": 404
+        }
+      }
+    },
+    {
+      "sequence": 50,
+      "timeMs": 8136,
+      "kind": "reply",
+      "id": 17,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {
+        "result": {
+          "type": "object",
+          "value": {
+            "path": "/body/small/cancel",
+            "status": 404,
+            "bodyUsed": false,
+            "locked": false
+          }
+        }
+      }
+    },
+    {
+      "sequence": 51,
+      "timeMs": 8136,
+      "kind": "send",
+      "id": 19,
+      "method": "Runtime.evaluate",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "expression": "(path => window.fixture.retain(path))(\"/body/small/drain\")",
+        "returnByValue": true,
+        "awaitPromise": true
+      }
+    },
+    {
+      "sequence": 52,
+      "timeMs": 8147,
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "114292.6",
+        "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+        "timestamp": 1105541.430663,
+        "type": "Fetch",
+        "request": {
+          "url": "http://127.0.0.1:64236/body/small/drain",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "sequence": 53,
+      "timeMs": 8148,
+      "kind": "event",
+      "method": "Fetch.requestPaused",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "interception-job-5.0",
+        "networkId": "114292.6",
+        "frameId": "12F3461FCA566FE0C3FFB004DF1ECF93",
+        "resourceType": "XHR",
+        "request": {
+          "url": "http://127.0.0.1:64236/body/small/drain",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "sequence": 54,
+      "timeMs": 8148,
+      "kind": "send",
+      "id": 20,
+      "method": "Fetch.continueRequest",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "interception-job-5.0"
+      }
+    },
+    {
+      "sequence": 55,
+      "timeMs": 8155,
+      "kind": "reply",
+      "id": 20,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {}
+    },
+    {
+      "sequence": 56,
+      "timeMs": 8162,
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "114292.6",
+        "type": "Fetch",
+        "timestamp": 1105541.447342,
+        "response": {
+          "url": "http://127.0.0.1:64236/body/small/drain",
+          "status": 404
+        }
+      }
+    },
+    {
+      "sequence": 57,
+      "timeMs": 8163,
+      "kind": "reply",
+      "id": 19,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {
+        "result": {
+          "type": "object",
+          "value": {
+            "path": "/body/small/drain",
+            "status": 404,
+            "bodyUsed": false,
+            "locked": false
+          }
+        }
+      }
+    },
+    {
+      "sequence": 58,
+      "timeMs": 8163,
+      "kind": "send",
+      "id": 21,
+      "method": "Runtime.evaluate",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "expression": "(path => window.fixture.retain(path))(\"/body/large/ignored\")",
+        "returnByValue": true,
+        "awaitPromise": true
+      }
+    },
+    {
+      "sequence": 59,
+      "timeMs": 8168,
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "114292.7",
+        "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+        "timestamp": 1105541.454481,
+        "type": "Fetch",
+        "request": {
+          "url": "http://127.0.0.1:64236/body/large/ignored",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "sequence": 60,
+      "timeMs": 8169,
+      "kind": "event",
+      "method": "Fetch.requestPaused",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "interception-job-6.0",
+        "networkId": "114292.7",
+        "frameId": "12F3461FCA566FE0C3FFB004DF1ECF93",
+        "resourceType": "XHR",
+        "request": {
+          "url": "http://127.0.0.1:64236/body/large/ignored",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "sequence": 61,
+      "timeMs": 8169,
+      "kind": "send",
+      "id": 22,
+      "method": "Fetch.continueRequest",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "interception-job-6.0"
+      }
+    },
+    {
+      "sequence": 62,
+      "timeMs": 8172,
+      "kind": "reply",
+      "id": 22,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {}
+    },
+    {
+      "sequence": 63,
+      "timeMs": 8180,
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "114292.7",
+        "type": "Fetch",
+        "timestamp": 1105541.467647,
+        "response": {
+          "url": "http://127.0.0.1:64236/body/large/ignored",
+          "status": 404
+        }
+      }
+    },
+    {
+      "sequence": 64,
+      "timeMs": 8180,
+      "kind": "reply",
+      "id": 21,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {
+        "result": {
+          "type": "object",
+          "value": {
+            "path": "/body/large/ignored",
+            "status": 404,
+            "bodyUsed": false,
+            "locked": false
+          }
+        }
+      }
+    },
+    {
+      "sequence": 65,
+      "timeMs": 8181,
+      "kind": "send",
+      "id": 23,
+      "method": "Runtime.evaluate",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "expression": "(path => window.fixture.retain(path))(\"/body/large/cancel\")",
+        "returnByValue": true,
+        "awaitPromise": true
+      }
+    },
+    {
+      "sequence": 66,
+      "timeMs": 8188,
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "114292.8",
+        "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+        "timestamp": 1105541.472466,
+        "type": "Fetch",
+        "request": {
+          "url": "http://127.0.0.1:64236/body/large/cancel",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "sequence": 67,
+      "timeMs": 8188,
+      "kind": "event",
+      "method": "Fetch.requestPaused",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "interception-job-7.0",
+        "networkId": "114292.8",
+        "frameId": "12F3461FCA566FE0C3FFB004DF1ECF93",
+        "resourceType": "XHR",
+        "request": {
+          "url": "http://127.0.0.1:64236/body/large/cancel",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "sequence": 68,
+      "timeMs": 8189,
+      "kind": "send",
+      "id": 24,
+      "method": "Fetch.continueRequest",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "interception-job-7.0"
+      }
+    },
+    {
+      "sequence": 69,
+      "timeMs": 8194,
+      "kind": "reply",
+      "id": 24,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {}
+    },
+    {
+      "sequence": 70,
+      "timeMs": 8204,
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "114292.8",
+        "type": "Fetch",
+        "timestamp": 1105541.491206,
+        "response": {
+          "url": "http://127.0.0.1:64236/body/large/cancel",
+          "status": 404
+        }
+      }
+    },
+    {
+      "sequence": 71,
+      "timeMs": 8205,
+      "kind": "reply",
+      "id": 23,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {
+        "result": {
+          "type": "object",
+          "value": {
+            "path": "/body/large/cancel",
+            "status": 404,
+            "bodyUsed": false,
+            "locked": false
+          }
+        }
+      }
+    },
+    {
+      "sequence": 72,
+      "timeMs": 8205,
+      "kind": "send",
+      "id": 25,
+      "method": "Runtime.evaluate",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "expression": "(path => window.fixture.retain(path))(\"/body/large/drain\")",
+        "returnByValue": true,
+        "awaitPromise": true
+      }
+    },
+    {
+      "sequence": 73,
+      "timeMs": 8209,
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "114292.9",
+        "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+        "timestamp": 1105541.496176,
+        "type": "Fetch",
+        "request": {
+          "url": "http://127.0.0.1:64236/body/large/drain",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "sequence": 74,
+      "timeMs": 8210,
+      "kind": "event",
+      "method": "Fetch.requestPaused",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "interception-job-8.0",
+        "networkId": "114292.9",
+        "frameId": "12F3461FCA566FE0C3FFB004DF1ECF93",
+        "resourceType": "XHR",
+        "request": {
+          "url": "http://127.0.0.1:64236/body/large/drain",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "sequence": 75,
+      "timeMs": 8210,
+      "kind": "send",
+      "id": 26,
+      "method": "Fetch.continueRequest",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "interception-job-8.0"
+      }
+    },
+    {
+      "sequence": 76,
+      "timeMs": 8220,
+      "kind": "reply",
+      "id": 26,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {}
+    },
+    {
+      "sequence": 77,
+      "timeMs": 8239,
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "114292.9",
+        "type": "Fetch",
+        "timestamp": 1105541.516818,
+        "response": {
+          "url": "http://127.0.0.1:64236/body/large/drain",
+          "status": 404
+        }
+      }
+    },
+    {
+      "sequence": 78,
+      "timeMs": 8240,
+      "kind": "reply",
+      "id": 25,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {
+        "result": {
+          "type": "object",
+          "value": {
+            "path": "/body/large/drain",
+            "status": 404,
+            "bodyUsed": false,
+            "locked": false
+          }
+        }
+      }
+    },
+    {
+      "sequence": 79,
+      "timeMs": 9268,
+      "kind": "send",
+      "id": 27,
+      "method": "Runtime.evaluate",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "expression": "(path => window.fixture.consume(path, path.endsWith('/cancel') ? 'cancel' : 'drain'))(\"/body/small/cancel\")",
+        "returnByValue": true,
+        "awaitPromise": true
+      }
+    },
+    {
+      "sequence": 80,
+      "timeMs": 9297,
+      "kind": "reply",
+      "id": 27,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {
+        "result": {
+          "type": "object",
+          "value": {
+            "path": "/body/small/cancel",
+            "action": "cancel",
+            "bodyUsed": true
+          }
+        }
+      }
+    },
+    {
+      "sequence": 81,
+      "timeMs": 9297,
+      "kind": "send",
+      "id": 28,
+      "method": "Runtime.evaluate",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "expression": "(path => window.fixture.consume(path, path.endsWith('/cancel') ? 'cancel' : 'drain'))(\"/body/small/drain\")",
+        "returnByValue": true,
+        "awaitPromise": true
+      }
+    },
+    {
+      "sequence": 82,
+      "timeMs": 9298,
+      "kind": "event",
+      "method": "Network.loadingFailed",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "114292.5",
+        "timestamp": 1105542.577794,
+        "type": "Fetch",
+        "errorText": "net::ERR_ABORTED",
+        "canceled": true
+      }
+    },
+    {
+      "sequence": 83,
+      "timeMs": 9330,
+      "kind": "event",
+      "method": "Network.loadingFinished",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "114292.6",
+        "timestamp": 1105541.445283,
+        "encodedDataLength": 348
+      }
+    },
+    {
+      "sequence": 84,
+      "timeMs": 9331,
+      "kind": "reply",
+      "id": 28,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {
+        "result": {
+          "type": "object",
+          "value": {
+            "path": "/body/small/drain",
+            "action": "drain",
+            "bytes": 64,
+            "bodyUsed": true
+          }
+        }
+      }
+    },
+    {
+      "sequence": 85,
+      "timeMs": 9331,
+      "kind": "send",
+      "id": 29,
+      "method": "Runtime.evaluate",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "expression": "(path => window.fixture.consume(path, path.endsWith('/cancel') ? 'cancel' : 'drain'))(\"/body/large/cancel\")",
+        "returnByValue": true,
+        "awaitPromise": true
+      }
+    },
+    {
+      "sequence": 86,
+      "timeMs": 9361,
+      "kind": "reply",
+      "id": 29,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {
+        "result": {
+          "type": "object",
+          "value": {
+            "path": "/body/large/cancel",
+            "action": "cancel",
+            "bodyUsed": true
+          }
+        }
+      }
+    },
+    {
+      "sequence": 87,
+      "timeMs": 9361,
+      "kind": "send",
+      "id": 30,
+      "method": "Runtime.evaluate",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "expression": "(path => window.fixture.consume(path, path.endsWith('/cancel') ? 'cancel' : 'drain'))(\"/body/large/drain\")",
+        "returnByValue": true,
+        "awaitPromise": true
+      }
+    },
+    {
+      "sequence": 88,
+      "timeMs": 9363,
+      "kind": "event",
+      "method": "Network.loadingFailed",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "114292.8",
+        "timestamp": 1105542.638006,
+        "type": "Fetch",
+        "errorText": "net::ERR_ABORTED",
+        "canceled": true
+      }
+    },
+    {
+      "sequence": 89,
+      "timeMs": 9381,
+      "kind": "event",
+      "method": "Network.loadingFinished",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "114292.9",
+        "timestamp": 1105541.52388,
+        "encodedDataLength": 262432
+      }
+    },
+    {
+      "sequence": 90,
+      "timeMs": 9382,
+      "kind": "reply",
+      "id": 30,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {
+        "result": {
+          "type": "object",
+          "value": {
+            "path": "/body/large/drain",
+            "action": "drain",
+            "bytes": 262144,
+            "bodyUsed": true
+          }
+        }
+      }
+    },
+    {
+      "sequence": 91,
+      "timeMs": 10388,
+      "kind": "send",
+      "id": 31,
+      "method": "Runtime.evaluate",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "expression": "(path => window.fixture.consume(path, 'drain'))(\"/body/small/ignored\")",
+        "returnByValue": true,
+        "awaitPromise": true
+      }
+    },
+    {
+      "sequence": 92,
+      "timeMs": 10400,
+      "kind": "event",
+      "method": "Network.loadingFinished",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "114292.4",
+        "timestamp": 1105541.368897,
+        "encodedDataLength": 348
+      }
+    },
+    {
+      "sequence": 93,
+      "timeMs": 10400,
+      "kind": "reply",
+      "id": 31,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {
+        "result": {
+          "type": "object",
+          "value": {
+            "path": "/body/small/ignored",
+            "action": "drain",
+            "bytes": 64,
+            "bodyUsed": true
+          }
+        }
+      }
+    },
+    {
+      "sequence": 94,
+      "timeMs": 10400,
+      "kind": "send",
+      "id": 32,
+      "method": "Runtime.evaluate",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "expression": "(path => window.fixture.consume(path, 'drain'))(\"/body/large/ignored\")",
+        "returnByValue": true,
+        "awaitPromise": true
+      }
+    },
+    {
+      "sequence": 95,
+      "timeMs": 10414,
+      "kind": "event",
+      "method": "Network.loadingFinished",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "114292.7",
+        "timestamp": 1105541.476773,
+        "encodedDataLength": 262432
+      }
+    },
+    {
+      "sequence": 96,
+      "timeMs": 10414,
+      "kind": "reply",
+      "id": 32,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {
+        "result": {
+          "type": "object",
+          "value": {
+            "path": "/body/large/ignored",
+            "action": "drain",
+            "bytes": 262144,
+            "bodyUsed": true
+          }
+        }
+      }
+    },
+    {
+      "sequence": 97,
+      "timeMs": 10416,
+      "kind": "send",
+      "id": 33,
+      "method": "Runtime.evaluate",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "expression": "(() => window.fixture.worker())(null)",
+        "returnByValue": true,
+        "awaitPromise": true
+      }
+    },
+    {
+      "sequence": 98,
+      "timeMs": 10447,
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "BBC9595122B2FC9190604E7AC408C9E4",
+        "loaderId": "",
+        "timestamp": 1105543.722676,
+        "type": "Script",
+        "request": {
+          "url": "http://127.0.0.1:64236/worker.mjs",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "sequence": 99,
+      "timeMs": 10448,
+      "kind": "event",
+      "method": "Fetch.requestPaused",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "interception-job-9.0",
+        "networkId": "BBC9595122B2FC9190604E7AC408C9E4",
+        "frameId": "12F3461FCA566FE0C3FFB004DF1ECF93",
+        "resourceType": "Other",
+        "request": {
+          "url": "http://127.0.0.1:64236/worker.mjs",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "sequence": 100,
+      "timeMs": 10448,
+      "kind": "send",
+      "id": 34,
+      "method": "Fetch.continueRequest",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "requestId": "interception-job-9.0"
+      }
+    },
+    {
+      "sequence": 101,
+      "timeMs": 10454,
+      "kind": "reply",
+      "id": 34,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "result": {}
+    },
+    {
+      "sequence": 102,
+      "timeMs": 10474,
+      "kind": "event",
+      "method": "Target.attachedToTarget",
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "params": {
+        "sessionId": "99981E95FE4D0B8ED334FAADA764A945",
+        "targetInfo": {
+          "targetId": "BBC9595122B2FC9190604E7AC408C9E4",
+          "type": "worker",
+          "title": "http://127.0.0.1:64236/worker.mjs",
+          "url": "http://127.0.0.1:64236/worker.mjs",
+          "attached": true,
+          "parentId": "12F3461FCA566FE0C3FFB004DF1ECF93",
+          "canAccessOpener": false,
+          "parentFrameId": "12F3461FCA566FE0C3FFB004DF1ECF93",
+          "browserContextId": "71E7622C73AAB03BAFDC296B7B717554"
+        },
+        "waitingForDebugger": true
+      }
+    },
+    {
+      "sequence": 103,
+      "timeMs": 10474,
+      "kind": "send",
+      "id": 35,
+      "method": "Network.enable",
+      "sessionId": "99981E95FE4D0B8ED334FAADA764A945",
+      "params": {}
+    },
+    {
+      "sequence": 104,
+      "timeMs": 10536,
+      "kind": "reply",
+      "id": 35,
+      "sessionId": "99981E95FE4D0B8ED334FAADA764A945",
+      "result": {}
+    },
+    {
+      "sequence": 105,
+      "timeMs": 10536,
+      "kind": "send",
+      "id": 36,
+      "method": "Runtime.enable",
+      "sessionId": "99981E95FE4D0B8ED334FAADA764A945",
+      "params": {}
+    },
+    {
+      "sequence": 106,
+      "timeMs": 10540,
+      "kind": "reply",
+      "id": 36,
+      "sessionId": "99981E95FE4D0B8ED334FAADA764A945",
+      "result": {}
+    },
+    {
+      "sequence": 107,
+      "timeMs": 10540,
+      "kind": "send",
+      "id": 37,
+      "method": "Fetch.enable",
+      "sessionId": "99981E95FE4D0B8ED334FAADA764A945",
+      "params": {
+        "patterns": [
+          {
+            "urlPattern": "*",
+            "requestStage": "Request"
+          }
+        ]
+      }
+    },
+    {
+      "sequence": 108,
+      "timeMs": 10561,
+      "kind": "reply",
+      "id": 37,
+      "sessionId": "99981E95FE4D0B8ED334FAADA764A945",
+      "error": {
+        "kind": "cdp",
+        "code": -32601,
+        "message": "'Fetch.enable' wasn't found"
+      }
+    },
+    {
+      "sequence": 109,
+      "timeMs": 30425,
+      "kind": "reply",
+      "id": 33,
+      "sessionId": "13C122B04936184B7F3F59B25755AC75",
+      "error": {
+        "kind": "timeout",
+        "message": "CDP timeout: Runtime.evaluate"
+      }
+    },
+    {
+      "sequence": 110,
+      "timeMs": 30429,
+      "kind": "send",
+      "id": 38,
+      "method": "Browser.close",
+      "sessionId": "",
+      "params": {}
+    },
+    {
+      "sequence": 111,
+      "timeMs": 30434,
+      "kind": "reply",
+      "id": 38,
+      "sessionId": "",
+      "result": {}
+    }
+  ],
+  "serverEvents": [
+    {
+      "timeMs": 7627,
+      "kind": "server-request",
+      "path": "/",
+      "method": "GET"
+    },
+    {
+      "timeMs": 7637,
+      "kind": "server-finish",
+      "path": "/",
+      "status": 200
+    },
+    {
+      "timeMs": 7637,
+      "kind": "server-close",
+      "path": "/",
+      "complete": true
+    },
+    {
+      "timeMs": 7845,
+      "kind": "server-request",
+      "path": "/page.mjs",
+      "method": "GET"
+    },
+    {
+      "timeMs": 7848,
+      "kind": "server-finish",
+      "path": "/page.mjs",
+      "status": 200
+    },
+    {
+      "timeMs": 7848,
+      "kind": "server-close",
+      "path": "/page.mjs",
+      "complete": true
+    },
+    {
+      "timeMs": 8076,
+      "kind": "server-request",
+      "path": "/body/small/ignored",
+      "method": "GET"
+    },
+    {
+      "timeMs": 8078,
+      "kind": "server-finish",
+      "path": "/body/small/ignored",
+      "status": 404
+    },
+    {
+      "timeMs": 8078,
+      "kind": "server-close",
+      "path": "/body/small/ignored",
+      "complete": true
+    },
+    {
+      "timeMs": 8118,
+      "kind": "server-request",
+      "path": "/body/small/cancel",
+      "method": "GET"
+    },
+    {
+      "timeMs": 8119,
+      "kind": "server-finish",
+      "path": "/body/small/cancel",
+      "status": 404
+    },
+    {
+      "timeMs": 8119,
+      "kind": "server-close",
+      "path": "/body/small/cancel",
+      "complete": true
+    },
+    {
+      "timeMs": 8153,
+      "kind": "server-request",
+      "path": "/body/small/drain",
+      "method": "GET"
+    },
+    {
+      "timeMs": 8154,
+      "kind": "server-finish",
+      "path": "/body/small/drain",
+      "status": 404
+    },
+    {
+      "timeMs": 8154,
+      "kind": "server-close",
+      "path": "/body/small/drain",
+      "complete": true
+    },
+    {
+      "timeMs": 8173,
+      "kind": "server-request",
+      "path": "/body/large/ignored",
+      "method": "GET"
+    },
+    {
+      "timeMs": 8175,
+      "kind": "server-finish",
+      "path": "/body/large/ignored",
+      "status": 404
+    },
+    {
+      "timeMs": 8176,
+      "kind": "server-close",
+      "path": "/body/large/ignored",
+      "complete": true
+    },
+    {
+      "timeMs": 8195,
+      "kind": "server-request",
+      "path": "/body/large/cancel",
+      "method": "GET"
+    },
+    {
+      "timeMs": 8197,
+      "kind": "server-finish",
+      "path": "/body/large/cancel",
+      "status": 404
+    },
+    {
+      "timeMs": 8197,
+      "kind": "server-close",
+      "path": "/body/large/cancel",
+      "complete": true
+    },
+    {
+      "timeMs": 8222,
+      "kind": "server-request",
+      "path": "/body/large/drain",
+      "method": "GET"
+    },
+    {
+      "timeMs": 8224,
+      "kind": "server-finish",
+      "path": "/body/large/drain",
+      "status": 404
+    },
+    {
+      "timeMs": 8224,
+      "kind": "server-close",
+      "path": "/body/large/drain",
+      "complete": true
+    },
+    {
+      "timeMs": 10456,
+      "kind": "server-request",
+      "path": "/worker.mjs",
+      "method": "GET"
+    },
+    {
+      "timeMs": 10457,
+      "kind": "server-finish",
+      "path": "/worker.mjs",
+      "status": 200
+    },
+    {
+      "timeMs": 10457,
+      "kind": "server-close",
+      "path": "/worker.mjs",
+      "complete": true
+    }
+  ],
+  "phases": [
+    {
+      "name": "retained",
+      "timeMs": 9259,
+      "actions": [
+        {
+          "path": "/body/small/ignored",
+          "status": 404,
+          "bodyUsed": false,
+          "locked": false
+        },
+        {
+          "path": "/body/small/cancel",
+          "status": 404,
+          "bodyUsed": false,
+          "locked": false
+        },
+        {
+          "path": "/body/small/drain",
+          "status": 404,
+          "bodyUsed": false,
+          "locked": false
+        },
+        {
+          "path": "/body/large/ignored",
+          "status": 404,
+          "bodyUsed": false,
+          "locked": false
+        },
+        {
+          "path": "/body/large/cancel",
+          "status": 404,
+          "bodyUsed": false,
+          "locked": false
+        },
+        {
+          "path": "/body/large/drain",
+          "status": 404,
+          "bodyUsed": false,
+          "locked": false
+        }
+      ],
+      "requests": [
+        {
+          "path": "/body/small/ignored",
+          "states": [
+            {
+              "requestId": "114292.4",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "request": {
+                "sequence": 38,
+                "timeMs": 8057,
+                "kind": "event",
+                "method": "Network.requestWillBeSent",
+                "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                "params": {
+                  "requestId": "114292.4",
+                  "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+                  "timestamp": 1105541.342291,
+                  "type": "Fetch",
+                  "request": {
+                    "url": "http://127.0.0.1:64236/body/small/ignored",
+                    "method": "GET"
+                  }
+                }
+              },
+              "responses": [
+                {
+                  "sequence": 42,
+                  "timeMs": 8098,
+                  "kind": "event",
+                  "method": "Network.responseReceived",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.4",
+                    "type": "Fetch",
+                    "timestamp": 1105541.373203,
+                    "response": {
+                      "url": "http://127.0.0.1:64236/body/small/ignored",
+                      "status": 404
+                    }
+                  }
+                }
+              ],
+              "terminal": []
+            }
+          ]
+        },
+        {
+          "path": "/body/small/cancel",
+          "states": [
+            {
+              "requestId": "114292.5",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "request": {
+                "sequence": 45,
+                "timeMs": 8108,
+                "kind": "event",
+                "method": "Network.requestWillBeSent",
+                "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                "params": {
+                  "requestId": "114292.5",
+                  "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+                  "timestamp": 1105541.391219,
+                  "type": "Fetch",
+                  "request": {
+                    "url": "http://127.0.0.1:64236/body/small/cancel",
+                    "method": "GET"
+                  }
+                }
+              },
+              "responses": [
+                {
+                  "sequence": 49,
+                  "timeMs": 8135,
+                  "kind": "event",
+                  "method": "Network.responseReceived",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.5",
+                    "type": "Fetch",
+                    "timestamp": 1105541.415808,
+                    "response": {
+                      "url": "http://127.0.0.1:64236/body/small/cancel",
+                      "status": 404
+                    }
+                  }
+                }
+              ],
+              "terminal": []
+            }
+          ]
+        },
+        {
+          "path": "/body/small/drain",
+          "states": [
+            {
+              "requestId": "114292.6",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "request": {
+                "sequence": 52,
+                "timeMs": 8147,
+                "kind": "event",
+                "method": "Network.requestWillBeSent",
+                "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                "params": {
+                  "requestId": "114292.6",
+                  "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+                  "timestamp": 1105541.430663,
+                  "type": "Fetch",
+                  "request": {
+                    "url": "http://127.0.0.1:64236/body/small/drain",
+                    "method": "GET"
+                  }
+                }
+              },
+              "responses": [
+                {
+                  "sequence": 56,
+                  "timeMs": 8162,
+                  "kind": "event",
+                  "method": "Network.responseReceived",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.6",
+                    "type": "Fetch",
+                    "timestamp": 1105541.447342,
+                    "response": {
+                      "url": "http://127.0.0.1:64236/body/small/drain",
+                      "status": 404
+                    }
+                  }
+                }
+              ],
+              "terminal": []
+            }
+          ]
+        },
+        {
+          "path": "/body/large/ignored",
+          "states": [
+            {
+              "requestId": "114292.7",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "request": {
+                "sequence": 59,
+                "timeMs": 8168,
+                "kind": "event",
+                "method": "Network.requestWillBeSent",
+                "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                "params": {
+                  "requestId": "114292.7",
+                  "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+                  "timestamp": 1105541.454481,
+                  "type": "Fetch",
+                  "request": {
+                    "url": "http://127.0.0.1:64236/body/large/ignored",
+                    "method": "GET"
+                  }
+                }
+              },
+              "responses": [
+                {
+                  "sequence": 63,
+                  "timeMs": 8180,
+                  "kind": "event",
+                  "method": "Network.responseReceived",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.7",
+                    "type": "Fetch",
+                    "timestamp": 1105541.467647,
+                    "response": {
+                      "url": "http://127.0.0.1:64236/body/large/ignored",
+                      "status": 404
+                    }
+                  }
+                }
+              ],
+              "terminal": []
+            }
+          ]
+        },
+        {
+          "path": "/body/large/cancel",
+          "states": [
+            {
+              "requestId": "114292.8",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "request": {
+                "sequence": 66,
+                "timeMs": 8188,
+                "kind": "event",
+                "method": "Network.requestWillBeSent",
+                "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                "params": {
+                  "requestId": "114292.8",
+                  "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+                  "timestamp": 1105541.472466,
+                  "type": "Fetch",
+                  "request": {
+                    "url": "http://127.0.0.1:64236/body/large/cancel",
+                    "method": "GET"
+                  }
+                }
+              },
+              "responses": [
+                {
+                  "sequence": 70,
+                  "timeMs": 8204,
+                  "kind": "event",
+                  "method": "Network.responseReceived",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.8",
+                    "type": "Fetch",
+                    "timestamp": 1105541.491206,
+                    "response": {
+                      "url": "http://127.0.0.1:64236/body/large/cancel",
+                      "status": 404
+                    }
+                  }
+                }
+              ],
+              "terminal": []
+            }
+          ]
+        },
+        {
+          "path": "/body/large/drain",
+          "states": [
+            {
+              "requestId": "114292.9",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "request": {
+                "sequence": 73,
+                "timeMs": 8209,
+                "kind": "event",
+                "method": "Network.requestWillBeSent",
+                "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                "params": {
+                  "requestId": "114292.9",
+                  "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+                  "timestamp": 1105541.496176,
+                  "type": "Fetch",
+                  "request": {
+                    "url": "http://127.0.0.1:64236/body/large/drain",
+                    "method": "GET"
+                  }
+                }
+              },
+              "responses": [
+                {
+                  "sequence": 77,
+                  "timeMs": 8239,
+                  "kind": "event",
+                  "method": "Network.responseReceived",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.9",
+                    "type": "Fetch",
+                    "timestamp": 1105541.516818,
+                    "response": {
+                      "url": "http://127.0.0.1:64236/body/large/drain",
+                      "status": 404
+                    }
+                  }
+                }
+              ],
+              "terminal": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "drained-or-canceled",
+      "timeMs": 10387,
+      "actions": [
+        {
+          "path": "/body/small/cancel",
+          "action": "cancel",
+          "bodyUsed": true
+        },
+        {
+          "path": "/body/small/drain",
+          "action": "drain",
+          "bytes": 64,
+          "bodyUsed": true
+        },
+        {
+          "path": "/body/large/cancel",
+          "action": "cancel",
+          "bodyUsed": true
+        },
+        {
+          "path": "/body/large/drain",
+          "action": "drain",
+          "bytes": 262144,
+          "bodyUsed": true
+        }
+      ],
+      "requests": [
+        {
+          "path": "/body/small/ignored",
+          "states": [
+            {
+              "requestId": "114292.4",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "request": {
+                "sequence": 38,
+                "timeMs": 8057,
+                "kind": "event",
+                "method": "Network.requestWillBeSent",
+                "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                "params": {
+                  "requestId": "114292.4",
+                  "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+                  "timestamp": 1105541.342291,
+                  "type": "Fetch",
+                  "request": {
+                    "url": "http://127.0.0.1:64236/body/small/ignored",
+                    "method": "GET"
+                  }
+                }
+              },
+              "responses": [
+                {
+                  "sequence": 42,
+                  "timeMs": 8098,
+                  "kind": "event",
+                  "method": "Network.responseReceived",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.4",
+                    "type": "Fetch",
+                    "timestamp": 1105541.373203,
+                    "response": {
+                      "url": "http://127.0.0.1:64236/body/small/ignored",
+                      "status": 404
+                    }
+                  }
+                }
+              ],
+              "terminal": []
+            }
+          ]
+        },
+        {
+          "path": "/body/small/cancel",
+          "states": [
+            {
+              "requestId": "114292.5",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "request": {
+                "sequence": 45,
+                "timeMs": 8108,
+                "kind": "event",
+                "method": "Network.requestWillBeSent",
+                "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                "params": {
+                  "requestId": "114292.5",
+                  "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+                  "timestamp": 1105541.391219,
+                  "type": "Fetch",
+                  "request": {
+                    "url": "http://127.0.0.1:64236/body/small/cancel",
+                    "method": "GET"
+                  }
+                }
+              },
+              "responses": [
+                {
+                  "sequence": 49,
+                  "timeMs": 8135,
+                  "kind": "event",
+                  "method": "Network.responseReceived",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.5",
+                    "type": "Fetch",
+                    "timestamp": 1105541.415808,
+                    "response": {
+                      "url": "http://127.0.0.1:64236/body/small/cancel",
+                      "status": 404
+                    }
+                  }
+                }
+              ],
+              "terminal": [
+                {
+                  "sequence": 82,
+                  "timeMs": 9298,
+                  "kind": "event",
+                  "method": "Network.loadingFailed",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.5",
+                    "timestamp": 1105542.577794,
+                    "type": "Fetch",
+                    "errorText": "net::ERR_ABORTED",
+                    "canceled": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/body/small/drain",
+          "states": [
+            {
+              "requestId": "114292.6",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "request": {
+                "sequence": 52,
+                "timeMs": 8147,
+                "kind": "event",
+                "method": "Network.requestWillBeSent",
+                "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                "params": {
+                  "requestId": "114292.6",
+                  "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+                  "timestamp": 1105541.430663,
+                  "type": "Fetch",
+                  "request": {
+                    "url": "http://127.0.0.1:64236/body/small/drain",
+                    "method": "GET"
+                  }
+                }
+              },
+              "responses": [
+                {
+                  "sequence": 56,
+                  "timeMs": 8162,
+                  "kind": "event",
+                  "method": "Network.responseReceived",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.6",
+                    "type": "Fetch",
+                    "timestamp": 1105541.447342,
+                    "response": {
+                      "url": "http://127.0.0.1:64236/body/small/drain",
+                      "status": 404
+                    }
+                  }
+                }
+              ],
+              "terminal": [
+                {
+                  "sequence": 83,
+                  "timeMs": 9330,
+                  "kind": "event",
+                  "method": "Network.loadingFinished",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.6",
+                    "timestamp": 1105541.445283,
+                    "encodedDataLength": 348
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/body/large/ignored",
+          "states": [
+            {
+              "requestId": "114292.7",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "request": {
+                "sequence": 59,
+                "timeMs": 8168,
+                "kind": "event",
+                "method": "Network.requestWillBeSent",
+                "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                "params": {
+                  "requestId": "114292.7",
+                  "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+                  "timestamp": 1105541.454481,
+                  "type": "Fetch",
+                  "request": {
+                    "url": "http://127.0.0.1:64236/body/large/ignored",
+                    "method": "GET"
+                  }
+                }
+              },
+              "responses": [
+                {
+                  "sequence": 63,
+                  "timeMs": 8180,
+                  "kind": "event",
+                  "method": "Network.responseReceived",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.7",
+                    "type": "Fetch",
+                    "timestamp": 1105541.467647,
+                    "response": {
+                      "url": "http://127.0.0.1:64236/body/large/ignored",
+                      "status": 404
+                    }
+                  }
+                }
+              ],
+              "terminal": []
+            }
+          ]
+        },
+        {
+          "path": "/body/large/cancel",
+          "states": [
+            {
+              "requestId": "114292.8",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "request": {
+                "sequence": 66,
+                "timeMs": 8188,
+                "kind": "event",
+                "method": "Network.requestWillBeSent",
+                "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                "params": {
+                  "requestId": "114292.8",
+                  "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+                  "timestamp": 1105541.472466,
+                  "type": "Fetch",
+                  "request": {
+                    "url": "http://127.0.0.1:64236/body/large/cancel",
+                    "method": "GET"
+                  }
+                }
+              },
+              "responses": [
+                {
+                  "sequence": 70,
+                  "timeMs": 8204,
+                  "kind": "event",
+                  "method": "Network.responseReceived",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.8",
+                    "type": "Fetch",
+                    "timestamp": 1105541.491206,
+                    "response": {
+                      "url": "http://127.0.0.1:64236/body/large/cancel",
+                      "status": 404
+                    }
+                  }
+                }
+              ],
+              "terminal": [
+                {
+                  "sequence": 88,
+                  "timeMs": 9363,
+                  "kind": "event",
+                  "method": "Network.loadingFailed",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.8",
+                    "timestamp": 1105542.638006,
+                    "type": "Fetch",
+                    "errorText": "net::ERR_ABORTED",
+                    "canceled": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/body/large/drain",
+          "states": [
+            {
+              "requestId": "114292.9",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "request": {
+                "sequence": 73,
+                "timeMs": 8209,
+                "kind": "event",
+                "method": "Network.requestWillBeSent",
+                "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                "params": {
+                  "requestId": "114292.9",
+                  "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+                  "timestamp": 1105541.496176,
+                  "type": "Fetch",
+                  "request": {
+                    "url": "http://127.0.0.1:64236/body/large/drain",
+                    "method": "GET"
+                  }
+                }
+              },
+              "responses": [
+                {
+                  "sequence": 77,
+                  "timeMs": 8239,
+                  "kind": "event",
+                  "method": "Network.responseReceived",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.9",
+                    "type": "Fetch",
+                    "timestamp": 1105541.516818,
+                    "response": {
+                      "url": "http://127.0.0.1:64236/body/large/drain",
+                      "status": 404
+                    }
+                  }
+                }
+              ],
+              "terminal": [
+                {
+                  "sequence": 89,
+                  "timeMs": 9381,
+                  "kind": "event",
+                  "method": "Network.loadingFinished",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.9",
+                    "timestamp": 1105541.52388,
+                    "encodedDataLength": 262432
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ignored-now-drained",
+      "timeMs": 10415,
+      "actions": [
+        {
+          "path": "/body/small/ignored",
+          "action": "drain",
+          "bytes": 64,
+          "bodyUsed": true
+        },
+        {
+          "path": "/body/large/ignored",
+          "action": "drain",
+          "bytes": 262144,
+          "bodyUsed": true
+        }
+      ],
+      "requests": [
+        {
+          "path": "/body/small/ignored",
+          "states": [
+            {
+              "requestId": "114292.4",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "request": {
+                "sequence": 38,
+                "timeMs": 8057,
+                "kind": "event",
+                "method": "Network.requestWillBeSent",
+                "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                "params": {
+                  "requestId": "114292.4",
+                  "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+                  "timestamp": 1105541.342291,
+                  "type": "Fetch",
+                  "request": {
+                    "url": "http://127.0.0.1:64236/body/small/ignored",
+                    "method": "GET"
+                  }
+                }
+              },
+              "responses": [
+                {
+                  "sequence": 42,
+                  "timeMs": 8098,
+                  "kind": "event",
+                  "method": "Network.responseReceived",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.4",
+                    "type": "Fetch",
+                    "timestamp": 1105541.373203,
+                    "response": {
+                      "url": "http://127.0.0.1:64236/body/small/ignored",
+                      "status": 404
+                    }
+                  }
+                }
+              ],
+              "terminal": [
+                {
+                  "sequence": 92,
+                  "timeMs": 10400,
+                  "kind": "event",
+                  "method": "Network.loadingFinished",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.4",
+                    "timestamp": 1105541.368897,
+                    "encodedDataLength": 348
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/body/small/cancel",
+          "states": [
+            {
+              "requestId": "114292.5",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "request": {
+                "sequence": 45,
+                "timeMs": 8108,
+                "kind": "event",
+                "method": "Network.requestWillBeSent",
+                "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                "params": {
+                  "requestId": "114292.5",
+                  "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+                  "timestamp": 1105541.391219,
+                  "type": "Fetch",
+                  "request": {
+                    "url": "http://127.0.0.1:64236/body/small/cancel",
+                    "method": "GET"
+                  }
+                }
+              },
+              "responses": [
+                {
+                  "sequence": 49,
+                  "timeMs": 8135,
+                  "kind": "event",
+                  "method": "Network.responseReceived",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.5",
+                    "type": "Fetch",
+                    "timestamp": 1105541.415808,
+                    "response": {
+                      "url": "http://127.0.0.1:64236/body/small/cancel",
+                      "status": 404
+                    }
+                  }
+                }
+              ],
+              "terminal": [
+                {
+                  "sequence": 82,
+                  "timeMs": 9298,
+                  "kind": "event",
+                  "method": "Network.loadingFailed",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.5",
+                    "timestamp": 1105542.577794,
+                    "type": "Fetch",
+                    "errorText": "net::ERR_ABORTED",
+                    "canceled": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/body/small/drain",
+          "states": [
+            {
+              "requestId": "114292.6",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "request": {
+                "sequence": 52,
+                "timeMs": 8147,
+                "kind": "event",
+                "method": "Network.requestWillBeSent",
+                "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                "params": {
+                  "requestId": "114292.6",
+                  "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+                  "timestamp": 1105541.430663,
+                  "type": "Fetch",
+                  "request": {
+                    "url": "http://127.0.0.1:64236/body/small/drain",
+                    "method": "GET"
+                  }
+                }
+              },
+              "responses": [
+                {
+                  "sequence": 56,
+                  "timeMs": 8162,
+                  "kind": "event",
+                  "method": "Network.responseReceived",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.6",
+                    "type": "Fetch",
+                    "timestamp": 1105541.447342,
+                    "response": {
+                      "url": "http://127.0.0.1:64236/body/small/drain",
+                      "status": 404
+                    }
+                  }
+                }
+              ],
+              "terminal": [
+                {
+                  "sequence": 83,
+                  "timeMs": 9330,
+                  "kind": "event",
+                  "method": "Network.loadingFinished",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.6",
+                    "timestamp": 1105541.445283,
+                    "encodedDataLength": 348
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/body/large/ignored",
+          "states": [
+            {
+              "requestId": "114292.7",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "request": {
+                "sequence": 59,
+                "timeMs": 8168,
+                "kind": "event",
+                "method": "Network.requestWillBeSent",
+                "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                "params": {
+                  "requestId": "114292.7",
+                  "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+                  "timestamp": 1105541.454481,
+                  "type": "Fetch",
+                  "request": {
+                    "url": "http://127.0.0.1:64236/body/large/ignored",
+                    "method": "GET"
+                  }
+                }
+              },
+              "responses": [
+                {
+                  "sequence": 63,
+                  "timeMs": 8180,
+                  "kind": "event",
+                  "method": "Network.responseReceived",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.7",
+                    "type": "Fetch",
+                    "timestamp": 1105541.467647,
+                    "response": {
+                      "url": "http://127.0.0.1:64236/body/large/ignored",
+                      "status": 404
+                    }
+                  }
+                }
+              ],
+              "terminal": [
+                {
+                  "sequence": 95,
+                  "timeMs": 10414,
+                  "kind": "event",
+                  "method": "Network.loadingFinished",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.7",
+                    "timestamp": 1105541.476773,
+                    "encodedDataLength": 262432
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/body/large/cancel",
+          "states": [
+            {
+              "requestId": "114292.8",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "request": {
+                "sequence": 66,
+                "timeMs": 8188,
+                "kind": "event",
+                "method": "Network.requestWillBeSent",
+                "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                "params": {
+                  "requestId": "114292.8",
+                  "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+                  "timestamp": 1105541.472466,
+                  "type": "Fetch",
+                  "request": {
+                    "url": "http://127.0.0.1:64236/body/large/cancel",
+                    "method": "GET"
+                  }
+                }
+              },
+              "responses": [
+                {
+                  "sequence": 70,
+                  "timeMs": 8204,
+                  "kind": "event",
+                  "method": "Network.responseReceived",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.8",
+                    "type": "Fetch",
+                    "timestamp": 1105541.491206,
+                    "response": {
+                      "url": "http://127.0.0.1:64236/body/large/cancel",
+                      "status": 404
+                    }
+                  }
+                }
+              ],
+              "terminal": [
+                {
+                  "sequence": 88,
+                  "timeMs": 9363,
+                  "kind": "event",
+                  "method": "Network.loadingFailed",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.8",
+                    "timestamp": 1105542.638006,
+                    "type": "Fetch",
+                    "errorText": "net::ERR_ABORTED",
+                    "canceled": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/body/large/drain",
+          "states": [
+            {
+              "requestId": "114292.9",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "request": {
+                "sequence": 73,
+                "timeMs": 8209,
+                "kind": "event",
+                "method": "Network.requestWillBeSent",
+                "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                "params": {
+                  "requestId": "114292.9",
+                  "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+                  "timestamp": 1105541.496176,
+                  "type": "Fetch",
+                  "request": {
+                    "url": "http://127.0.0.1:64236/body/large/drain",
+                    "method": "GET"
+                  }
+                }
+              },
+              "responses": [
+                {
+                  "sequence": 77,
+                  "timeMs": 8239,
+                  "kind": "event",
+                  "method": "Network.responseReceived",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.9",
+                    "type": "Fetch",
+                    "timestamp": 1105541.516818,
+                    "response": {
+                      "url": "http://127.0.0.1:64236/body/large/drain",
+                      "status": 404
+                    }
+                  }
+                }
+              ],
+              "terminal": [
+                {
+                  "sequence": 89,
+                  "timeMs": 9381,
+                  "kind": "event",
+                  "method": "Network.loadingFinished",
+                  "sessionId": "13C122B04936184B7F3F59B25755AC75",
+                  "params": {
+                    "requestId": "114292.9",
+                    "timestamp": 1105541.52388,
+                    "encodedDataLength": 262432
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "name": "owned blank page found",
+      "passed": true
+    },
+    {
+      "name": "fixture title is visible",
+      "passed": true
+    },
+    {
+      "name": "six404 responses retained without consuming bodies",
+      "passed": true,
+      "detail": [
+        {
+          "path": "/body/small/ignored",
+          "status": 404,
+          "bodyUsed": false,
+          "locked": false
+        },
+        {
+          "path": "/body/small/cancel",
+          "status": 404,
+          "bodyUsed": false,
+          "locked": false
+        },
+        {
+          "path": "/body/small/drain",
+          "status": 404,
+          "bodyUsed": false,
+          "locked": false
+        },
+        {
+          "path": "/body/large/ignored",
+          "status": 404,
+          "bodyUsed": false,
+          "locked": false
+        },
+        {
+          "path": "/body/large/cancel",
+          "status": 404,
+          "bodyUsed": false,
+          "locked": false
+        },
+        {
+          "path": "/body/large/drain",
+          "status": 404,
+          "bodyUsed": false,
+          "locked": false
+        }
+      ]
+    },
+    {
+      "name": "all drained response lengths match fixture bytes",
+      "passed": true
+    }
+  ],
+  "denied": [],
+  "errors": [
+    {
+      "workerSetup": "'Fetch.enable' wasn't found",
+      "cdp": {
+        "id": 37,
+        "method": "Fetch.enable",
+        "sessionId": "99981E95FE4D0B8ED334FAADA764A945",
+        "error": {
+          "kind": "cdp",
+          "code": -32601,
+          "message": "'Fetch.enable' wasn't found"
+        }
+      }
+    }
+  ],
+  "sources": [
+    {
+      "path": "qa/revamp-r1/lifecycle-probe-20260910/browser.mjs",
+      "sha256": "0d5fb1b511dc71e035b15f0d99dcc468d386b5d405d0c1d8d4d9af0b98171adc"
+    },
+    {
+      "path": "qa/revamp-r1/lifecycle-probe-20260910/server.mjs",
+      "sha256": "07d290c7d86df9044774808f07901b581ecb1a94657e401e61f7ea1cf0903757"
+    },
+    {
+      "path": "qa/revamp-r1/lifecycle-probe-20260910/page.mjs",
+      "sha256": "69757cf5cd63c96798dbe0d784fd05f2e79796071cba24693f84dc2a7dabe3a1"
+    }
+  ],
+  "anchorsBefore": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "expected": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "actual": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "expected": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "actual": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "expected": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "actual": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "expected": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "actual": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "expected": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "actual": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "expected": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "actual": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "expected": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "actual": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "expected": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "actual": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "expected": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "actual": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "expected": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "actual": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "expected": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "actual": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "origin": "http://127.0.0.1:64236",
+  "chromePid": 101876,
+  "last": {
+    "name": "body requests terminal after deliberate handling",
+    "value": [
+      [
+        {
+          "requestId": "114292.4",
+          "sessionId": "13C122B04936184B7F3F59B25755AC75",
+          "request": {
+            "sequence": 38,
+            "timeMs": 8057,
+            "kind": "event",
+            "method": "Network.requestWillBeSent",
+            "sessionId": "13C122B04936184B7F3F59B25755AC75",
+            "params": {
+              "requestId": "114292.4",
+              "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+              "timestamp": 1105541.342291,
+              "type": "Fetch",
+              "request": {
+                "url": "http://127.0.0.1:64236/body/small/ignored",
+                "method": "GET"
+              }
+            }
+          },
+          "responses": [
+            {
+              "sequence": 42,
+              "timeMs": 8098,
+              "kind": "event",
+              "method": "Network.responseReceived",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "params": {
+                "requestId": "114292.4",
+                "type": "Fetch",
+                "timestamp": 1105541.373203,
+                "response": {
+                  "url": "http://127.0.0.1:64236/body/small/ignored",
+                  "status": 404
+                }
+              }
+            }
+          ],
+          "terminal": [
+            {
+              "sequence": 92,
+              "timeMs": 10400,
+              "kind": "event",
+              "method": "Network.loadingFinished",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "params": {
+                "requestId": "114292.4",
+                "timestamp": 1105541.368897,
+                "encodedDataLength": 348
+              }
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "requestId": "114292.5",
+          "sessionId": "13C122B04936184B7F3F59B25755AC75",
+          "request": {
+            "sequence": 45,
+            "timeMs": 8108,
+            "kind": "event",
+            "method": "Network.requestWillBeSent",
+            "sessionId": "13C122B04936184B7F3F59B25755AC75",
+            "params": {
+              "requestId": "114292.5",
+              "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+              "timestamp": 1105541.391219,
+              "type": "Fetch",
+              "request": {
+                "url": "http://127.0.0.1:64236/body/small/cancel",
+                "method": "GET"
+              }
+            }
+          },
+          "responses": [
+            {
+              "sequence": 49,
+              "timeMs": 8135,
+              "kind": "event",
+              "method": "Network.responseReceived",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "params": {
+                "requestId": "114292.5",
+                "type": "Fetch",
+                "timestamp": 1105541.415808,
+                "response": {
+                  "url": "http://127.0.0.1:64236/body/small/cancel",
+                  "status": 404
+                }
+              }
+            }
+          ],
+          "terminal": [
+            {
+              "sequence": 82,
+              "timeMs": 9298,
+              "kind": "event",
+              "method": "Network.loadingFailed",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "params": {
+                "requestId": "114292.5",
+                "timestamp": 1105542.577794,
+                "type": "Fetch",
+                "errorText": "net::ERR_ABORTED",
+                "canceled": true
+              }
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "requestId": "114292.6",
+          "sessionId": "13C122B04936184B7F3F59B25755AC75",
+          "request": {
+            "sequence": 52,
+            "timeMs": 8147,
+            "kind": "event",
+            "method": "Network.requestWillBeSent",
+            "sessionId": "13C122B04936184B7F3F59B25755AC75",
+            "params": {
+              "requestId": "114292.6",
+              "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+              "timestamp": 1105541.430663,
+              "type": "Fetch",
+              "request": {
+                "url": "http://127.0.0.1:64236/body/small/drain",
+                "method": "GET"
+              }
+            }
+          },
+          "responses": [
+            {
+              "sequence": 56,
+              "timeMs": 8162,
+              "kind": "event",
+              "method": "Network.responseReceived",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "params": {
+                "requestId": "114292.6",
+                "type": "Fetch",
+                "timestamp": 1105541.447342,
+                "response": {
+                  "url": "http://127.0.0.1:64236/body/small/drain",
+                  "status": 404
+                }
+              }
+            }
+          ],
+          "terminal": [
+            {
+              "sequence": 83,
+              "timeMs": 9330,
+              "kind": "event",
+              "method": "Network.loadingFinished",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "params": {
+                "requestId": "114292.6",
+                "timestamp": 1105541.445283,
+                "encodedDataLength": 348
+              }
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "requestId": "114292.7",
+          "sessionId": "13C122B04936184B7F3F59B25755AC75",
+          "request": {
+            "sequence": 59,
+            "timeMs": 8168,
+            "kind": "event",
+            "method": "Network.requestWillBeSent",
+            "sessionId": "13C122B04936184B7F3F59B25755AC75",
+            "params": {
+              "requestId": "114292.7",
+              "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+              "timestamp": 1105541.454481,
+              "type": "Fetch",
+              "request": {
+                "url": "http://127.0.0.1:64236/body/large/ignored",
+                "method": "GET"
+              }
+            }
+          },
+          "responses": [
+            {
+              "sequence": 63,
+              "timeMs": 8180,
+              "kind": "event",
+              "method": "Network.responseReceived",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "params": {
+                "requestId": "114292.7",
+                "type": "Fetch",
+                "timestamp": 1105541.467647,
+                "response": {
+                  "url": "http://127.0.0.1:64236/body/large/ignored",
+                  "status": 404
+                }
+              }
+            }
+          ],
+          "terminal": [
+            {
+              "sequence": 95,
+              "timeMs": 10414,
+              "kind": "event",
+              "method": "Network.loadingFinished",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "params": {
+                "requestId": "114292.7",
+                "timestamp": 1105541.476773,
+                "encodedDataLength": 262432
+              }
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "requestId": "114292.8",
+          "sessionId": "13C122B04936184B7F3F59B25755AC75",
+          "request": {
+            "sequence": 66,
+            "timeMs": 8188,
+            "kind": "event",
+            "method": "Network.requestWillBeSent",
+            "sessionId": "13C122B04936184B7F3F59B25755AC75",
+            "params": {
+              "requestId": "114292.8",
+              "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+              "timestamp": 1105541.472466,
+              "type": "Fetch",
+              "request": {
+                "url": "http://127.0.0.1:64236/body/large/cancel",
+                "method": "GET"
+              }
+            }
+          },
+          "responses": [
+            {
+              "sequence": 70,
+              "timeMs": 8204,
+              "kind": "event",
+              "method": "Network.responseReceived",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "params": {
+                "requestId": "114292.8",
+                "type": "Fetch",
+                "timestamp": 1105541.491206,
+                "response": {
+                  "url": "http://127.0.0.1:64236/body/large/cancel",
+                  "status": 404
+                }
+              }
+            }
+          ],
+          "terminal": [
+            {
+              "sequence": 88,
+              "timeMs": 9363,
+              "kind": "event",
+              "method": "Network.loadingFailed",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "params": {
+                "requestId": "114292.8",
+                "timestamp": 1105542.638006,
+                "type": "Fetch",
+                "errorText": "net::ERR_ABORTED",
+                "canceled": true
+              }
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "requestId": "114292.9",
+          "sessionId": "13C122B04936184B7F3F59B25755AC75",
+          "request": {
+            "sequence": 73,
+            "timeMs": 8209,
+            "kind": "event",
+            "method": "Network.requestWillBeSent",
+            "sessionId": "13C122B04936184B7F3F59B25755AC75",
+            "params": {
+              "requestId": "114292.9",
+              "loaderId": "5E37BAC4019675D9A360F1F96F757BE6",
+              "timestamp": 1105541.496176,
+              "type": "Fetch",
+              "request": {
+                "url": "http://127.0.0.1:64236/body/large/drain",
+                "method": "GET"
+              }
+            }
+          },
+          "responses": [
+            {
+              "sequence": 77,
+              "timeMs": 8239,
+              "kind": "event",
+              "method": "Network.responseReceived",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "params": {
+                "requestId": "114292.9",
+                "type": "Fetch",
+                "timestamp": 1105541.516818,
+                "response": {
+                  "url": "http://127.0.0.1:64236/body/large/drain",
+                  "status": 404
+                }
+              }
+            }
+          ],
+          "terminal": [
+            {
+              "sequence": 89,
+              "timeMs": 9381,
+              "kind": "event",
+              "method": "Network.loadingFinished",
+              "sessionId": "13C122B04936184B7F3F59B25755AC75",
+              "params": {
+                "requestId": "114292.9",
+                "timestamp": 1105541.52388,
+                "encodedDataLength": 262432
+              }
+            }
+          ]
+        }
+      ]
+    ]
+  },
+  "pageTarget": "12F3461FCA566FE0C3FFB004DF1ECF93",
+  "mainSession": "13C122B04936184B7F3F59B25755AC75",
+  "failure": "Error: CDP timeout: Runtime.evaluate\n    at finish (file:///C:/sgSHIOK2026/qa/revamp-r1/lifecycle-probe-20260910/browser.mjs:42:36)\n    at Timeout.<anonymous> (file:///C:/sgSHIOK2026/qa/revamp-r1/lifecycle-probe-20260910/browser.mjs:38:36)\n    at listOnTimeout (node:internal/timers:635:17)\n    at process.processTimers (node:internal/timers:571:7)",
+  "failureCommand": {
+    "id": 33,
+    "method": "Runtime.evaluate",
+    "sessionId": "13C122B04936184B7F3F59B25755AC75",
+    "error": {
+      "kind": "timeout",
+      "message": "CDP timeout: Runtime.evaluate"
+    }
+  },
+  "cleanup": {
+    "command": "$ErrorActionPreference='Stop'; $profile='C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-PAqENz'; function Owned { @(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | Where-Object { $_.CommandLine -and $_.CommandLine.Contains($profile) }) }; $before=@(Owned | Select-Object ProcessId,Name,CommandLine); foreach($p in @(Owned)){ $live=Get-Process -Id $p.ProcessId -ErrorAction SilentlyContinue; if($live -and -not $live.HasExited){Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue} }; $until=[DateTime]::UtcNow.AddSeconds(20); do { $remaining=@(Owned | Where-Object { $p=Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue; $p -and -not $p.HasExited }); if($remaining.Count -eq 0){break}; Start-Sleep -Milliseconds 250 } while([DateTime]::UtcNow -lt $until); @{before=$before;remaining=@($remaining | Select-Object ProcessId,Name,CommandLine)} | ConvertTo-Json -Depth 4 -Compress",
+    "exitCode": 0,
+    "stdout": "{\"before\":[{\"ProcessId\":101876,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:/Program Files/Google/Chrome/Application/chrome.exe\\\" --headless=new --no-first-run --no-sandbox --disable-background-networking --disable-component-update --disable-sync --remote-debugging-port=0 --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-PAqENz about:blank\"},{\"ProcessId\":106240,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=crashpad-handler --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-PAqENz /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-PAqENz\\\\Crashpad --metrics-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-PAqENz --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=152.0.7977.83 --initial-client-data=0x120,0x124,0x128,0x100,0x12c,0x7fff425a7e60,0x7fff425a7e70,0x7fff425a7e80\"},{\"ProcessId\":92648,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=gpu-process --no-sandbox --headless=new --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-PAqENz\\\" --no-pre-read-main-dll --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=1788,i,17403128330006274221,3733157911708337720,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1792,i,2929005092726521873,1956963403432102078,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1776 /prefetch:2\"},{\"ProcessId\":102276,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-PAqENz\\\" --no-pre-read-main-dll --field-trial-handle=1788,i,17403128330006274221,3733157911708337720,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1792,i,2929005092726521873,1956963403432102078,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2024 /prefetch:11\"},{\"ProcessId\":110160,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=en-US --service-sandbox-type=service --no-sandbox --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-PAqENz\\\" --no-pre-read-main-dll --field-trial-handle=1788,i,17403128330006274221,3733157911708337720,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1792,i,2929005092726521873,1956963403432102078,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2504 /prefetch:13\"},{\"ProcessId\":109712,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-PAqENz\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=1105539082822 --field-trial-handle=1788,i,17403128330006274221,3733157911708337720,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1792,i,2929005092726521873,1956963403432102078,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3172 /prefetch:1\"},{\"ProcessId\":99168,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-PAqENz\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --launch-time-ticks=1105539381442 --field-trial-handle=1788,i,17403128330006274221,3733157911708337720,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1792,i,2929005092726521873,1956963403432102078,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=3668 /prefetch:1\"},{\"ProcessId\":113212,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-PAqENz\\\" --extension-process --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9 --launch-time-ticks=1105539407253 --field-trial-handle=1788,i,17403128330006274221,3733157911708337720,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1792,i,2929005092726521873,1956963403432102078,4 --trace-process-track-uuid=3190708994745248135 --mojo-platform-channel-handle=3724 /prefetch:9\"},{\"ProcessId\":111628,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-PAqENz\\\" --extension-process --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1.5 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --launch-time-ticks=1105539950552 --field-trial-handle=1788,i,17403128330006274221,3733157911708337720,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1792,i,2929005092726521873,1956963403432102078,4 --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=4276 /prefetch:9\"}],\"remaining\":[]}\r\n",
+    "stderr": "",
+    "verified": true
+  },
+  "serverClosed": true,
+  "chromeStderr": "\r\nDevTools listening on ws://127.0.0.1:64241/devtools/browser/f28bdddd-5c26-4e2b-8223-c3111bddb287\r\n",
+  "elapsedMs": 36830,
+  "anchorsAfter": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "expected": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "actual": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "expected": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "actual": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "expected": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "actual": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "expected": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "actual": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "expected": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "actual": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "expected": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "actual": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "expected": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "actual": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "expected": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "actual": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "expected": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "actual": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "expected": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "actual": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "expected": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "actual": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "anchorsUnchanged": true,
+  "ok": false,
+  "limits": "Synthetic localhost-only response/worker lifecycle experiment, not application behavior, current-lock validation, map screenshots, full browser audit or representative performance. Existing previews untouched. No pipeline/install/build/deploy."
+}

@@ -4120,3 +4120,50 @@ Corrected browser attempt's terminal output, exit1:
 
 1. Explaining16 newly induced tile cancellations is not permission to dismiss the earlier five errors or every future interception error. This run is still failed, not all tasks complete.
 2. HTTP404s with completed plain fallback and missing worker-target telemetry must not be described as proof that the selected map is broken. They require scoped diagnosis, not protected-data regeneration or another replay merely to obtain PASS.
+
+## 2026-09-10: Isolated Response and Worker Lifecycle Probe
+
+Base:93e72b7b095014eab80d697a6925e7117c40f2c0. Prior lines are unchanged.
+New receipts are under `qa/revamp-r1/lifecycle-probe-20260910/`: contracts-1..4,
+integrity-1, lifecycle-1-nUrUdV (failed), lifecycle-2-qhnLlG (corrected), and
+analysis.json. Each browser attempt preserves executed sources and raw namespaced
+protocol events. summary.json audits source hashes and this append-only boundary.
+
+Final native contracts (contracts-4), exit0:
+
+```text
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8496.0537
+```
+
+Integrity, exit0:
+
+```text
+repo_integrity=ok
+```
+
+Corrected synthetic browser terminal output, exit0:
+
+```text
+{"out":"C:\\sgSHIOK2026\\qa\\revamp-r1\\lifecycle-probe-20260910\\lifecycle-2-qhnLlG","ok":true,"checks":7,"elapsedMs":18495,"cleanup":true,"serverClosed":true}
+```
+
+### FINDINGS
+
+1. Six bounded404 responses (64B/262144B, each retained/canceled/drained) had no terminal notifications in the retained phase. Explicit handling produced4 loadingFinished notifications and2 canceled ERR_ABORTED notifications. Same request/session identities are preserved across all phases.
+2. The four loadingFinished messages arrived later but carried CDP timestamps earlier than their response notifications. Missing notifications alone therefore cannot establish a continuing download, a stalled app or a speed problem. This is a synthetic mechanism observation, not a measurement of application transfer time.
+3. One worker entry request starts in the page session and completes with200/loadingFinished in an explicitly attached child. Its import and JSON fetch also finish in that child, and its actual message confirms execution. All3worker resources were intercepted by the parent Fetch boundary in this fixture.
+4. The first probe incorrectly called Fetch.enable on a worker target that rejected it with-32601. That setup failure caused the subsequent Runtime.evaluate timeout. The source was corrected to enable Network/Runtime before resuming the worker;4setup contracts cover ordering and failures. The original probe remains exit1, not erased.
+5. Native coverage is7server+4worker-setup+15analysis=26tests. Analysis tests use the recorded browser trace and reject missing/duplicate/wrong targets, sessions, URLs, chronology and failed/contradictory completion. The corrected browser has7passing checks. Both owned browser processes and synthetic servers were stopped; profiles and receipts are retained.
+6. All11checked protected anchors match. There are no app source changes, new app builds/screenshots, dependency installs, pipeline runs or deployments. Parent-only review; peer quota remains exhausted. Existing4354 preview is untouched and still pre-merge. No new-lock/full-suite/T25/M17 acceptance follows from this synthetic fixture.
+
+### DISAGREEMENTS
+
+1. Page-only terminal-event absence is not proof of worker failure or an active download. The previous audit correctly refused insufficient evidence, but its incomplete-record count must not be presented as a count of broken app requests.
+2. Do not fix or regenerate protected payloads merely to silence diagnostic404s. Do not claim performance improvement from this experiment. Apply explicit worker ownership and semantic fallback/body handling to a future scoped app audit; preserve the old failures.
