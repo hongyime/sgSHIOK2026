@@ -1,0 +1,25 @@
+import { readFileSync, copyFileSync, mkdirSync, writeFileSync, constants } from 'node:fs';
+import { resolve } from 'node:path';
+import { createHash } from 'node:crypto';
+import { reportInstalledDependencies } from '../../../web/scripts/check-installed-dependencies.mjs';
+const root = 'C:\\sgSHIOK2026';
+if (process.cwd() !== root) throw Error('Working root guard');
+const web = resolve(root, 'web');
+if (!reportInstalledDependencies(web).ok) throw Error('Dependencies must be aligned first');
+const sha = path => createHash('sha256').update(readFileSync(path)).digest('hex');
+const entries = ['maplibre-gl-worker.mjs', 'maplibre-gl-shared.mjs', 'LICENSE.txt'];
+const old = entries.map(name => { const path = resolve(web, 'public/maplibre/6.1.0', name); return { path, sha256: sha(path) }; });
+const destination = resolve(web, 'public/maplibre/6.4.1');
+mkdirSync(destination);
+const files = entries.map(name => {
+  const source = resolve(web, 'node_modules/maplibre-gl', name === 'LICENSE.txt' ? name : 'dist/' + name);
+  const target = resolve(destination, name);
+  copyFileSync(source, target, constants.COPYFILE_EXCL);
+  const result = { source, target, bytes: readFileSync(target).length, sha256: sha(target), packageSha256: sha(source) };
+  if (result.sha256 !== result.packageSha256) throw Error('Vendor byte identity failure');
+  return result;
+});
+if (old.some(file => sha(file.path) !== file.sha256)) throw Error('Retained worker changed');
+const result = { version: '6.4.1', files, retained: old, retainedUnchanged: true };
+writeFileSync(resolve(root, 'qa/revamp-r1/worker-alignment-20260910/vendor.json'), JSON.stringify(result, null, 2) + '\n', { flag: 'wx' });
+console.log(JSON.stringify(result, null, 2));

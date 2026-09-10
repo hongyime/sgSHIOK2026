@@ -1,0 +1,41 @@
+{
+  "version": "6.4.1",
+  "files": [
+    {
+      "source": "C:\\sgSHIOK2026\\web\\node_modules\\maplibre-gl\\dist\\maplibre-gl-worker.mjs",
+      "target": "C:\\sgSHIOK2026\\web\\public\\maplibre\\6.4.1\\maplibre-gl-worker.mjs",
+      "bytes": 18592,
+      "sha256": "ce4957017fe705ac2f9ebef206cca966d08d8621756c39326a78cf09757e7d75",
+      "packageSha256": "ce4957017fe705ac2f9ebef206cca966d08d8621756c39326a78cf09757e7d75"
+    },
+    {
+      "source": "C:\\sgSHIOK2026\\web\\node_modules\\maplibre-gl\\dist\\maplibre-gl-shared.mjs",
+      "target": "C:\\sgSHIOK2026\\web\\public\\maplibre\\6.4.1\\maplibre-gl-shared.mjs",
+      "bytes": 482036,
+      "sha256": "fcf4d81450df235da0aea74897cc23926774b5228d38ae1de6a7d701c5905785",
+      "packageSha256": "fcf4d81450df235da0aea74897cc23926774b5228d38ae1de6a7d701c5905785"
+    },
+    {
+      "source": "C:\\sgSHIOK2026\\web\\node_modules\\maplibre-gl\\LICENSE.txt",
+      "target": "C:\\sgSHIOK2026\\web\\public\\maplibre\\6.4.1\\LICENSE.txt",
+      "bytes": 5984,
+      "sha256": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2",
+      "packageSha256": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2"
+    }
+  ],
+  "retained": [
+    {
+      "path": "C:\\sgSHIOK2026\\web\\public\\maplibre\\6.1.0\\maplibre-gl-worker.mjs",
+      "sha256": "5a77b4637ea5ae64f0b1f208e4b1f4d9c681e2575d96e592f2074925597224c6"
+    },
+    {
+      "path": "C:\\sgSHIOK2026\\web\\public\\maplibre\\6.1.0\\maplibre-gl-shared.mjs",
+      "sha256": "ce66c617187b6956d878d3961aceeb7c335eec3f76ee8d80737a917d8e989860"
+    },
+    {
+      "path": "C:\\sgSHIOK2026\\web\\public\\maplibre\\6.1.0\\LICENSE.txt",
+      "sha256": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2"
+    }
+  ],
+  "retainedUnchanged": true
+}

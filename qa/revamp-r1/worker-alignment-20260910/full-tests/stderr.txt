@@ -1,0 +1,19 @@
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - ESM syntax in a file loaded as CommonJS (vitest.config.ts:1:1). Use a `.mjs` extension or set `"type": "module"` in the closest package.json
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  lib/__tests__/published-transit-choices.test.ts > T05 bounded roles, ties and ordering (synthetic metrics) > R04 final ties use canonical code-unit keys rather than locale/display-name ordering
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ lib/__tests__/published-transit-choices.test.ts:271:3
+    269|   });
+    270|
+    271|   it('R04 final ties use canonical code-unit keys rather than locale/d…
+       |   ^
+    272|     const specs = [
+    273|       { id: 'bus:a', distance: 10, coverage: 0.5 },
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

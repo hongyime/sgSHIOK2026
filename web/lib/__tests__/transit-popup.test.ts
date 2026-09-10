@@ -1,6 +1,16 @@
 import { cleanTransitPoiProperties, transitPoiLabelText, transitPoiPopupHtml } from "../transit-popup";
 
 describe("transit popup formatting", () => {
+  it.each(['bus_stop', 'mrt_station', 'mrt_exit'])("escapes adjacent event attributes and markup in every %s text field", (kind) => {
+    const payload = '<details open onload="1" ontoggle="alert(1)"><img src=x onerror="alert(2)"></details>';
+    const fields = ['name', 'code', 'road', 'services', 'service_nos', 'service_count',
+      'weekday_first_bus', 'weekday_last_bus', 'operators', 'system', 'station_codes',
+      'lines', 'line', 'station', 'exit', 'exit_count'];
+    const html = transitPoiPopupHtml({ kind, ...Object.fromEntries(fields.map(field => [field, payload])) });
+    expect(html.toLowerCase()).not.toMatch(/<(?:details|img|script)\b/);
+    expect(html.toLowerCase()).toContain('&lt;details');
+    expect(html).toContain('&quot;');
+  });
   it("shows static bus stop service details without claiming live arrivals", () => {
     const html = transitPoiPopupHtml({
       kind: "bus_stop",

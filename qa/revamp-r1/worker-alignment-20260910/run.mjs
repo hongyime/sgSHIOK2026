@@ -1,0 +1,26 @@
+import { spawn } from 'node:child_process';
+import { mkdirSync, writeFileSync, readFileSync } from 'node:fs';
+import { resolve, join } from 'node:path';
+import { createHash } from 'node:crypto';
+const root = 'C:\\sgSHIOK2026';
+if (process.cwd() !== root) throw Error('Working root guard');
+const [label, executable, ...args] = process.argv.slice(2);
+if (!/^[a-z0-9-]+$/.test(label ?? '') || !executable) throw Error('label executable args required');
+const dir = join(root, 'qa/revamp-r1/worker-alignment-20260910', label);
+mkdirSync(dir);
+const lock = join(root, 'web/package-lock.json');
+const hash = path => createHash('sha256').update(readFileSync(path)).digest('hex');
+const before = hash(lock), startedAt = new Date().toISOString(), start = performance.now();
+const child = spawn(executable, args, { cwd: root, windowsHide: true, env: { ...process.env, NEXT_TELEMETRY_DISABLED: '1' } });
+let stdout = '', stderr = '';
+child.stdout.on('data', data => { stdout += data; process.stdout.write(data); });
+child.stderr.on('data', data => { stderr += data; process.stderr.write(data); });
+child.on('error', error => { stderr += String(error); });
+child.on('close', (exitCode, signal) => {
+  const result = { executable, args, cwd: root, startedAt, seconds: (performance.now() - start) / 1000, exitCode, signal, lockBefore: before, lockAfter: hash(lock) };
+  writeFileSync(resolve(dir, 'stdout.txt'), stdout, { flag: 'wx' });
+  writeFileSync(resolve(dir, 'stderr.txt'), stderr, { flag: 'wx' });
+  writeFileSync(resolve(dir, 'result.json'), JSON.stringify(result, null, 2) + '\n', { flag: 'wx' });
+  console.log(JSON.stringify(result));
+  process.exitCode = exitCode ?? 1;
+});

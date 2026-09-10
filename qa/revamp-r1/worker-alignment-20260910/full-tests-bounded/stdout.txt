@@ -1,0 +1,76 @@
+installed_dependencies=ok
+✔ test entry refuses the real MapLibre 6.4.1 lock versus 6.1.0 install shape before Vitest (920.3681ms)
+✔ matching versions may launch the test entry (3054.2535ms)
+✔ a failing native guard contract suite prevents Vitest from starting (2966.0965ms)
+✔ build entry refuses stale dependencies before even the preparation double (1289.1799ms)
+✔ matching build reaches only the refusing preparation double, never Next (1819.7603ms)
+✔ release CLI checks dependencies before retention/build with installed 6.1.0 (1097.3857ms)
+✔ release CLI checks dependencies before retention/build with installed 6.4.1 (1101.3286ms)
+✔ reports exact resolved versions for runtime and development dependencies (262.262ms)
+✔ development dependency drift also fails (242.3789ms)
+✔ a manifest edit without matching lock-root metadata is not accepted (193.2615ms)
+✔ refuses invalid JSON in package.json (224.3039ms)
+✔ refuses null in package.json (209.1531ms)
+✔ refuses [] in package.json (200.2569ms)
+✔ refuses invalid JSON in package-lock.json (231.7485ms)
+✔ refuses null in package-lock.json (195.5701ms)
+✔ refuses [] in package-lock.json (225.1852ms)
+✔ refuses invalid JSON in node_modules/maplibre-gl/package.json (285.627ms)
+✔ refuses null in node_modules/maplibre-gl/package.json (179.4026ms)
+✔ refuses [] in node_modules/maplibre-gl/package.json (213.9463ms)
+✔ refuses malformed dependencies (355.0711ms)
+✔ refuses malformed devDependencies (212.5878ms)
+✔ unsupported lock format 1 fails closed (285.8171ms)
+✔ unsupported lock format 4 fails closed (400.9386ms)
+✔ unsupported lock format "3" fails closed (215.9536ms)
+✔ unsupported lock format null fails closed (288.1939ms)
+✔ lock v2 resolved-package metadata is supported (297.0246ms)
+✔ refuses unresolved lock entry null (303.2588ms)
+✔ refuses unresolved lock entry {} (223.0439ms)
+✔ refuses unresolved lock entry {"link":true,"version":"6.4.1"} (313.2976ms)
+✔ refuses unresolved lock entry {"version":""} (279.1503ms)
+✔ missing installed package is reported without loading or executing it (302.9187ms)
+✔ refuses unsafe dependency name ../escape (261.8386ms)
+✔ refuses unsafe dependency name @scope/../../escape (167.7879ms)
+✔ refuses unsafe dependency name C:\escape (326.274ms)
+✔ refuses unsafe dependency name /escape (183.5993ms)
+✔ refuses unsafe dependency name @scope\escape (228.6684ms)
+✔ refuses unsafe dependency name .hidden (283.9367ms)
+✔ scoped packages and a dependency listed in both sections are checked once (328.4807ms)
+✔ empty dependency metadata cannot authorize a vacuous success (339.0351ms)
+✔ matching null dependencies sections are invalid, not absent (269.8146ms)
+✔ matching null devDependencies sections are invalid, not absent (223.011ms)
+✔ package executable exports are never imported by the version check (319.8496ms)
+ℹ tests 42
+ℹ suites 0
+ℹ pass 42
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 22616.5977
+
+ RUN  v4.1.11 C:/sgSHIOK2026/tmp/test-without-data-cLMS7j/web
+
+
+ Test Files  65 passed (65)
+      Tests  1785 passed (1785)
+   Start at  20:30:24
+   Duration  435.69s (transform 61.80s, setup 0ms, import 96.36s, tests 151.30s, environment 192ms)
+
+{
+  "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-cLMS7j",
+  "copiedFiles": 227,
+  "productionDataDirectoryAbsent": true,
+  "guardProbePassed": true,
+  "forbiddenPaths": [
+    "C:\\sgSHIOK2026\\web\\public\\data",
+    "C:\\sgSHIOK2026\\tmp\\test-without-data-cLMS7j\\web\\public\\data"
+  ],
+  "dependencies": "Existing node_modules linked; no installation",
+  "testArgs": [
+    "--testTimeout",
+    "15000"
+  ],
+  "exitCode": 0
+}

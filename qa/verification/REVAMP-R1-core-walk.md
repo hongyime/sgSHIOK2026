@@ -4263,3 +4263,37 @@ installed_dependencies=failed
 
 1. Synthetic segment stress is useful mechanism evidence, not proof of the earlier pilot's bottleneck or a population speedup. Retained fixtures cannot fill that evidence gap because their segment payloads were deliberately omitted.
 2. Faster validation must not come from relaxed coordinate tolerance, cross-part matches or dropped repeated starts. Those would change which shelter/gap evidence users may see. The exact matcher index preserves these rules; broad release acceptance remains unproven until dependency/build/browser gates pass.
+
+## 2026-09-10: Owner-Approved Dependency and Worker Alignment
+
+Base4d7391b; root C:\sgSHIOK2026; Prawn-E14. Owner approved dependency/worker alignment. Receipt directory: qa/revamp-r1/worker-alignment-20260910/. summary.json records exact commands, durations, lock identity, source identity and findings. npm ci ran once with --ignore-scripts --no-audit --no-fund and a repository-local cache; exit0 after1126.1391637seconds. Lock hash before/after: d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590. No root install/build lifecycle hook ran.
+
+```text
+installed_dependencies=ok
+Test Files  3 failed | 1 passed (4)
+Tests  12 failed | 98 passed (110)
+Test Files  1 failed | 64 passed (65)
+Tests  1 failed | 1784 passed (1785)
+Error: Test timed out in 5000ms.
+Test Files  65 passed (65)
+Tests  1785 passed (1785)
+repo_integrity=ok
+```
+
+The first block's12failures is the intended pre-wiring regression run. The full default run's one failure is R04 final ties use canonical code-unit keys rather than locale/display-name ordering. Final full run used --testTimeout15000, unchanged assertions, no skipped cases. 1765+8matcher+1worker-selection+8worker-cache+3hostile-popup=1785;64+1=65files. Separately42native dependency guard cases pass. Raw output is retained in red/, full-tests/ and full-tests-bounded/; both isolation reports deny access to original and copied production-data paths. Final config formatting differs from the test snapshot only in indentation; evaluated headers and rewrites were checked equal. Build captures current final bytes.
+
+TypeScript exit0; integrity exit0; npm audit exit0 with0known vulnerabilities. New worker18592B +shared482036B +license5984B =506612B, copied from installed6.4.1 and hash-checked. Three6.1.0asset hashes remain unchanged. Four old/new worker/shared HTTP URLs return200, exact bytes and immutable headers. Build sou6pZfEMMmsCl52vdXg4 passes with156current-source hashes matched and protected data absent from the snapshot. New preview http://127.0.0.1:4362/, Next4361. The initial background-start probe raced server startup and returned ECONNREFUSED; subsequent preview/build identity checks passed. Existing previews were not stopped or replaced.
+
+### FINDINGS
+
+1. Approved alignment is implemented: installed MapLibre6.4.1, Next16.3.3 and Vitest4.1.11 match the unchanged lock; current map uses the matching versioned worker. Old versioned assets/cache paths remain usable. No deployment occurred.
+2. Tests now exercise the eight matcher cases previously only typechecked. The real pre-wiring worker/cache mismatch was corrected and the12targeted failures are explicitly reported, not silently fixed. The original full-suite timeout remains a failed receipt despite the passing bounded rerun.
+3. Attribution is a static local constant; hostile adjacent event attributes remain escaped in bus, station and exit popup tests. npm audit's zero is a point-in-time package advisory result, not proof that every input boundary is secure or old clients are upgraded.
+4. Browser acceptance FAILED. The in-app browser bootstrap returned os error3. Owned Chrome attempt1 queried tile state before style readiness; attempt2 read a transient missing document element. Both harness faults were corrected in new archived executions. Attempt3 then timed out on Runtime.evaluate with forced SwiftShader; attempt4 also timed out using default graphics. Zero screenshots and no current visual/latency/retained-client browser PASS. Successful tile responses and no app runtime exceptions in attempt3 do not establish rendering success.
+5. Attempt4's process-cleanup query exceeded its observation deadline. cleanup-final/stdout.txt subsequently reports verified:true, before:[], remaining:[] at exit0; it stopped no process. Earlier1/2parent harness sessions were interrupted only after their cleanup receipts verified no owned browser. No unrelated applications were terminated.
+6. Eleven protected source anchors match their recorded hashes. Evidence above this section is preserved. No protected payload, weights, scoring/export/input rebuild or provider configuration was changed; pipeline runs0, deployments0. Parent-only review because peer quota remains exhausted. The overall task remains incomplete.
+
+### DISAGREEMENTS
+
+1. A passing build and unit suite do not establish that the map renders correctly. T25/T29 visual acceptance remains open; do not present the current preview as visually verified.
+2. Neither hardware-only nor software-renderer-only causation explains the observed browser timeout yet. The next step is diagnosis of the page/diagnostic stall, not another unchanged acceptance loop or relaxed application timeout.

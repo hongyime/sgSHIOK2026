@@ -1,0 +1,340 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "PRAWN-E14",
+  "base": "4d7391b",
+  "commands": {
+    "install": {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "--prefix",
+        "C:\\sgSHIOK2026\\web",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund",
+        "--cache",
+        "C:\\sgSHIOK2026\\tmp\\npm-cache-approved"
+      ],
+      "cwd": "C:\\sgSHIOK2026",
+      "startedAt": "2026-09-10T11:55:34.060Z",
+      "seconds": 1126.1391637,
+      "exitCode": 0,
+      "signal": null,
+      "lockBefore": "d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590",
+      "lockAfter": "d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590"
+    },
+    "red": {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\sgSHIOK2026\\web\\scripts\\test-without-production-data.mjs",
+        "lib/__tests__/map-worker.test.ts",
+        "lib/__tests__/deployment.test.ts",
+        "lib/__tests__/service-worker-behaviour.test.ts",
+        "lib/__tests__/transit-popup.test.ts"
+      ],
+      "cwd": "C:\\sgSHIOK2026",
+      "startedAt": "2026-09-10T12:15:27.079Z",
+      "seconds": 98.41784059999999,
+      "exitCode": 1,
+      "signal": null,
+      "lockBefore": "d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590",
+      "lockAfter": "d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590"
+    },
+    "full-tests": {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\sgSHIOK2026\\web\\scripts\\test-without-production-data.mjs"
+      ],
+      "cwd": "C:\\sgSHIOK2026",
+      "startedAt": "2026-09-10T12:19:03.298Z",
+      "seconds": 481.9769299000001,
+      "exitCode": 1,
+      "signal": null,
+      "lockBefore": "d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590",
+      "lockAfter": "d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590"
+    },
+    "full-tests-bounded": {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\sgSHIOK2026\\web\\scripts\\test-without-production-data.mjs",
+        "--testTimeout",
+        "15000"
+      ],
+      "cwd": "C:\\sgSHIOK2026",
+      "startedAt": "2026-09-10T12:29:45.758Z",
+      "seconds": 475.4490814,
+      "exitCode": 0,
+      "signal": null,
+      "lockBefore": "d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590",
+      "lockAfter": "d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590"
+    },
+    "typecheck": {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\sgSHIOK2026\\web\\node_modules\\typescript\\bin\\tsc",
+        "--project",
+        "C:\\sgSHIOK2026\\web\\tsconfig.json",
+        "--noEmit",
+        "--incremental",
+        "false"
+      ],
+      "cwd": "C:\\sgSHIOK2026",
+      "startedAt": "2026-09-10T12:38:38.183Z",
+      "seconds": 105.9571594,
+      "exitCode": 0,
+      "signal": null,
+      "lockBefore": "d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590",
+      "lockAfter": "d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590"
+    },
+    "integrity": {
+      "executable": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+      "args": [
+        "-B",
+        "C:\\sgSHIOK2026\\scripts\\check_repo_integrity.py"
+      ],
+      "cwd": "C:\\sgSHIOK2026",
+      "startedAt": "2026-09-10T12:40:25.269Z",
+      "seconds": 1.2339318,
+      "exitCode": 0,
+      "signal": null,
+      "lockBefore": "d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590",
+      "lockAfter": "d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590"
+    },
+    "audit": {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+        "--prefix",
+        "C:\\sgSHIOK2026\\web",
+        "audit",
+        "--json",
+        "--cache",
+        "C:\\sgSHIOK2026\\tmp\\npm-cache-approved"
+      ],
+      "cwd": "C:\\sgSHIOK2026",
+      "startedAt": "2026-09-10T12:31:24.552Z",
+      "seconds": 35.957934,
+      "exitCode": 0,
+      "signal": null,
+      "lockBefore": "d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590",
+      "lockAfter": "d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590"
+    }
+  },
+  "buildId": "sou6pZfEMMmsCl52vdXg4",
+  "sourceFilesMatched": 156,
+  "tests": {
+    "before": 1765,
+    "matcherAdded": 8,
+    "workerSelectionAdded": 1,
+    "workerCacheAdded": 8,
+    "hostilePopupAdded": 3,
+    "total": 1785,
+    "files": 65,
+    "guardTests": 42,
+    "timeoutMs": 15000,
+    "firstFullRun": "1784 passed +1 default-five-second timeout",
+    "assertionsRelaxed": false
+  },
+  "audit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "vendor": {
+    "version": "6.4.1",
+    "files": [
+      {
+        "source": "C:\\sgSHIOK2026\\web\\node_modules\\maplibre-gl\\dist\\maplibre-gl-worker.mjs",
+        "target": "C:\\sgSHIOK2026\\web\\public\\maplibre\\6.4.1\\maplibre-gl-worker.mjs",
+        "bytes": 18592,
+        "sha256": "ce4957017fe705ac2f9ebef206cca966d08d8621756c39326a78cf09757e7d75",
+        "packageSha256": "ce4957017fe705ac2f9ebef206cca966d08d8621756c39326a78cf09757e7d75"
+      },
+      {
+        "source": "C:\\sgSHIOK2026\\web\\node_modules\\maplibre-gl\\dist\\maplibre-gl-shared.mjs",
+        "target": "C:\\sgSHIOK2026\\web\\public\\maplibre\\6.4.1\\maplibre-gl-shared.mjs",
+        "bytes": 482036,
+        "sha256": "fcf4d81450df235da0aea74897cc23926774b5228d38ae1de6a7d701c5905785",
+        "packageSha256": "fcf4d81450df235da0aea74897cc23926774b5228d38ae1de6a7d701c5905785"
+      },
+      {
+        "source": "C:\\sgSHIOK2026\\web\\node_modules\\maplibre-gl\\LICENSE.txt",
+        "target": "C:\\sgSHIOK2026\\web\\public\\maplibre\\6.4.1\\LICENSE.txt",
+        "bytes": 5984,
+        "sha256": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2",
+        "packageSha256": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2"
+      }
+    ],
+    "retained": [
+      {
+        "path": "C:\\sgSHIOK2026\\web\\public\\maplibre\\6.1.0\\maplibre-gl-worker.mjs",
+        "sha256": "5a77b4637ea5ae64f0b1f208e4b1f4d9c681e2575d96e592f2074925597224c6"
+      },
+      {
+        "path": "C:\\sgSHIOK2026\\web\\public\\maplibre\\6.1.0\\maplibre-gl-shared.mjs",
+        "sha256": "ce66c617187b6956d878d3961aceeb7c335eec3f76ee8d80737a917d8e989860"
+      },
+      {
+        "path": "C:\\sgSHIOK2026\\web\\public\\maplibre\\6.1.0\\LICENSE.txt",
+        "sha256": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2"
+      }
+    ],
+    "retainedUnchanged": true
+  },
+  "servedAssets": [
+    {
+      "version": "6.1.0",
+      "name": "maplibre-gl-worker.mjs",
+      "status": 200,
+      "sha256": "5a77b4637ea5ae64f0b1f208e4b1f4d9c681e2575d96e592f2074925597224c6",
+      "matches": true,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "version": "6.1.0",
+      "name": "maplibre-gl-shared.mjs",
+      "status": 200,
+      "sha256": "ce66c617187b6956d878d3961aceeb7c335eec3f76ee8d80737a917d8e989860",
+      "matches": true,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "version": "6.4.1",
+      "name": "maplibre-gl-worker.mjs",
+      "status": 200,
+      "sha256": "ce4957017fe705ac2f9ebef206cca966d08d8621756c39326a78cf09757e7d75",
+      "matches": true,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "version": "6.4.1",
+      "name": "maplibre-gl-shared.mjs",
+      "status": 200,
+      "sha256": "fcf4d81450df235da0aea74897cc23926774b5228d38ae1de6a7d701c5905785",
+      "matches": true,
+      "cacheControl": "public, max-age=31536000, immutable"
+    }
+  ],
+  "anchors": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "expected": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "actual": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "expected": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "actual": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "expected": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "actual": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "expected": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "actual": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "expected": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "actual": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "expected": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "actual": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "expected": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "actual": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "expected": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "actual": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "expected": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "actual": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "expected": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "actual": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "expected": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "actual": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "browser": [
+    {
+      "label": "browser",
+      "ok": false,
+      "captures": 0,
+      "error": "Error: {\"exceptionId\":1,\"text\":\"Uncaught\",\"lineNumber\":803,\"columnNumber\":117762,\"scriptId\":\"20\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"areTilesLoaded\",\"scriptId\":\"20\",\"url\":\"http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js\",\"lineNumber\":803,\"columnNumber\":117762},{\"functionName\":\"facts\",\"scriptId\":\"3\",\"url\":\"\",\"lineNumber\":5,\"columnNumber\":56},{\"functionName\":\"\",\"scriptId\":\"3\",\"url\":\"\",\"lineNumber\":10,\"columnNumber\":2}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"TypeError\",\"description\":\"TypeError: Cannot convert undefined or null to object\\n    at Object.values (<anonymous>)\\n    at g_.areTilesLoaded (http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js:804:117763)\\n    at facts (<anonymous>:6:57)\\n    at <anonymous>:11:3\",\"objectId\":\"8476415550514607944.2.2\"}}\n    at evaluate (file:///C:/sgSHIOK2026/qa/revamp-r1/worker-alignment-20260910/browser.mjs:25:38)\n    at async until (file:///C:/sgSHIOK2026/qa/revamp-r1/worker-alignment-20260910/browser.mjs:31:37)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/worker-alignment-20260910/browser.mjs:65:3",
+      "cleanupVerified": true,
+      "renderer": null,
+      "graphicsMode": "forced SwiftShader"
+    },
+    {
+      "label": "browser-2",
+      "ok": false,
+      "captures": 0,
+      "error": "Error: {\"exceptionId\":1,\"text\":\"Uncaught\",\"lineNumber\":7,\"columnNumber\":98,\"scriptId\":\"3\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"facts\",\"scriptId\":\"3\",\"url\":\"\",\"lineNumber\":7,\"columnNumber\":98},{\"functionName\":\"\",\"scriptId\":\"3\",\"url\":\"\",\"lineNumber\":11,\"columnNumber\":2}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"TypeError\",\"description\":\"TypeError: Cannot read properties of null (reading 'scrollWidth')\\n    at facts (<anonymous>:8:99)\\n    at <anonymous>:12:3\",\"objectId\":\"2490813716447302434.2.2\"}}\n    at evaluate (file:///C:/sgSHIOK2026/qa/revamp-r1/worker-alignment-20260910/browser.mjs:28:38)\n    at async until (file:///C:/sgSHIOK2026/qa/revamp-r1/worker-alignment-20260910/browser.mjs:34:37)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/worker-alignment-20260910/browser.mjs:69:3",
+      "cleanupVerified": true,
+      "renderer": null,
+      "graphicsMode": "forced SwiftShader"
+    },
+    {
+      "label": "browser-3",
+      "ok": false,
+      "captures": 0,
+      "error": "Error: CDP timeout: Runtime.evaluate\n    at Timeout._onTimeout (file:///C:/sgSHIOK2026/qa/revamp-r1/worker-alignment-20260910/browser.mjs:21:78)\n    at listOnTimeout (node:internal/timers:635:17)\n    at process.processTimers (node:internal/timers:571:7)",
+      "cleanupVerified": true,
+      "renderer": null,
+      "graphicsMode": "forced SwiftShader"
+    },
+    {
+      "label": "browser-4",
+      "ok": false,
+      "captures": 0,
+      "error": "Error: CDP timeout: Runtime.evaluate\n    at Timeout._onTimeout (file:///C:/sgSHIOK2026/qa/revamp-r1/worker-alignment-20260910/browser.mjs:21:78)\n    at listOnTimeout (node:internal/timers:635:17)\n    at process.processTimers (node:internal/timers:571:7)",
+      "cleanupVerified": false,
+      "renderer": null,
+      "graphicsMode": "Chrome default; no forced SwiftShader"
+    }
+  ],
+  "sourceCaveat": "The final next.config.js indentation differs from the test snapshot; evaluated headers and rewrites are equal. Build captures current bytes.",
+  "evidencePrefix": {
+    "path": "qa/verification/REVAMP-R1-core-walk.md",
+    "bytes": 277605,
+    "sha256": "cb5a088b36c1aaf24f37f272de66d3266f46219d250cc9f47faa2052876e6b04",
+    "preserved": true
+  },
+  "pipelineRuns": 0,
+  "dataPreparation": 0,
+  "deployments": 0,
+  "preview": "http://127.0.0.1:4362/",
+  "findings": [
+    "Approved exact-lock installation completed without lifecycle scripts or lock changes.",
+    "Current versioned worker/shared/license match MapLibre6.4.1;6.1.0 retained byte-identically.",
+    "1785 isolated web tests/65files pass with15s test timeout;42 native guard tests,TypeScript,build,integrity pass. First full run had one5s timeout.",
+    "npm audit reports zero known vulnerabilities at this check, not a blanket security guarantee.",
+    "Visual acceptance FAILED: two harness startup races followed by Runtime.evaluate timeouts in both forced software and default graphics modes. Zero screenshots; no current visual or latency PASS.",
+    "Static OneMap attribution is a local constant; popup text is escaped and three hostile-attribute fixtures pass. Current production and already-open old clients are not upgraded by this work."
+  ],
+  "disagreements": [
+    "A successful build and unit suite do not establish that the map renders correctly. T25/T29 visual acceptance remains open.",
+    "The browser timeout is not proven to be hardware-only or software-renderer-only. Do not declare either cause without diagnosis."
+  ]
+}

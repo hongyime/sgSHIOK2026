@@ -1,0 +1,13 @@
+{
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "C:\\sgSHIOK2026\\web\\scripts\\test-without-production-data.mjs"
+  ],
+  "cwd": "C:\\sgSHIOK2026",
+  "startedAt": "2026-09-10T12:19:03.298Z",
+  "seconds": 481.9769299000001,
+  "exitCode": 1,
+  "signal": null,
+  "lockBefore": "d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590",
+  "lockAfter": "d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590"
+}

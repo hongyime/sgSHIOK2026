@@ -3469,3 +3469,37 @@ alignment; installed TypeScript and repository integrity pass. No new preview,
 pipeline, installation or deployment occurred. Parent-only review; peer quota
 remains exhausted. Evidence: qa/revamp-r1/normalization-profile-20260910/summary.json.
 Profiler reference: https://nodejs.org/api/inspector.html#cpu-profiler.
+
+## 2026-09-10: Align the Patched Map Runtime Without Replacing Retained Assets
+
+The owner approved dependency and worker alignment. Routine execution of that
+approved scope proceeds without another approval question. Data preparation,
+pipeline runs, provider activation and deployment are not included.
+
+Install the exact committed lock with lifecycle scripts disabled, then vendor
+the package's worker, shared module and license under /maplibre/6.4.1/. Keep
+/maplibre/6.1.0/ byte-identical for retained clients. The current map selects the
+new worker before construction; cache and header allowlists name both versions
+explicitly rather than accepting arbitrary future paths. Do not patch minified
+vendor code or clear existing caches to force an upgrade.
+
+Validation: 1765+8matcher+1worker-selection+8worker-cache+3hostile-popup =1785
+isolated web tests in64+1=65files, plus42native dependency guard cases. The first
+full run failed one five-second timeout with1784passes; an unchanged-assertion
+rerun with a15second test timeout passed. TypeScript, integrity and the fresh
+build pass. npm audit reported zero known vulnerabilities at this check.
+Static attribution remains a local constant, not third-party HTML; popup text
+escapes markup, including adjacent dangerous-attribute payloads in all three
+transit types. These checks are not a blanket exploitability guarantee.
+
+Do not claim visual acceptance: two browser harness startup errors were fixed,
+then both forced-software and default-graphics runs timed out waiting for
+Runtime.evaluate. No screenshots were produced. Neither hardware-only nor
+software-renderer-only causation is established. The original cleanup query
+timed out; the follow-up narrowed query found no remaining owned browser and
+stopped no process. Current preview is http://127.0.0.1:4362/. Production and
+already-open old clients are not upgraded by this local work.
+
+Evidence: qa/revamp-r1/worker-alignment-20260910/summary.json and cleanup-final/.
+References: https://docs.npmjs.com/cli/v11/commands/npm-ci/ and
+https://github.com/maplibre/maplibre-gl-js/security/advisories/GHSA-jrc7-96c5-q579.

@@ -1,0 +1,5 @@
+▲ Next.js 16.3.3
+- Local:         http://127.0.0.1:4361
+- Network:       http://127.0.0.1:4361
+✓ Ready in 16.4s
+✓ Running next.config.js took 2.7s

@@ -282,6 +282,8 @@ describe("service worker release behavior (executed worker, synthetic transport)
   describe.each([
     "/maplibre/6.1.0/maplibre-gl-worker.mjs",
     "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+    "/maplibre/6.4.1/maplibre-gl-worker.mjs",
+    "/maplibre/6.4.1/maplibre-gl-shared.mjs",
   ])("versioned MapLibre module %s", (path) => {
     it.each(["503", "network rejection"] as const)("caches the first successful read and survives %s without revalidation", async (failure) => {
       const worker = createWorker();

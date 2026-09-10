@@ -1,0 +1,36 @@
+{
+  "origin": "http://127.0.0.1:4362",
+  "profile": "C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-scaZvy",
+  "checks": [
+    {
+      "name": "current preview build identity",
+      "pass": true,
+      "detail": {
+        "buildId": "sou6pZfEMMmsCl52vdXg4",
+        "snapshot": "C:\\sgSHIOK2026\\tmp\\cached-release-worker-alignment-20260910",
+        "pid": 98236
+      }
+    }
+  ],
+  "captures": [],
+  "responses": [
+    {
+      "url": "http://127.0.0.1:4362/?postal=018956&debugMap=1",
+      "status": 200
+    }
+  ],
+  "failures": [],
+  "errors": [],
+  "startedAt": "2026-09-10T12:53:54.040Z",
+  "buildId": "sou6pZfEMMmsCl52vdXg4",
+  "error": "Error: {\"exceptionId\":1,\"text\":\"Uncaught\",\"lineNumber\":7,\"columnNumber\":98,\"scriptId\":\"3\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"facts\",\"scriptId\":\"3\",\"url\":\"\",\"lineNumber\":7,\"columnNumber\":98},{\"functionName\":\"\",\"scriptId\":\"3\",\"url\":\"\",\"lineNumber\":11,\"columnNumber\":2}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"TypeError\",\"description\":\"TypeError: Cannot read properties of null (reading 'scrollWidth')\\n    at facts (<anonymous>:8:99)\\n    at <anonymous>:12:3\",\"objectId\":\"2490813716447302434.2.2\"}}\n    at evaluate (file:///C:/sgSHIOK2026/qa/revamp-r1/worker-alignment-20260910/browser.mjs:28:38)\n    at async until (file:///C:/sgSHIOK2026/qa/revamp-r1/worker-alignment-20260910/browser.mjs:34:37)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/worker-alignment-20260910/browser.mjs:69:3",
+  "ok": false,
+  "cleanup": {
+    "command": "$ErrorActionPreference='Stop'; $profile='C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-scaZvy'; function Owned { @(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | Where-Object { $_.CommandLine -and $_.CommandLine.Contains($profile) }) }; $before=@(Owned | Select-Object ProcessId,Name,CommandLine); foreach($p in @(Owned)){ $live=Get-Process -Id $p.ProcessId -ErrorAction SilentlyContinue; if($live -and -not $live.HasExited){Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue} }; $until=[DateTime]::UtcNow.AddSeconds(20); do { $remaining=@(Owned | Where-Object { $p=Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue; $p -and -not $p.HasExited }); if($remaining.Count -eq 0){break}; Start-Sleep -Milliseconds 250 } while([DateTime]::UtcNow -lt $until); @{before=$before;remaining=@($remaining | Select-Object ProcessId,Name,CommandLine)} | ConvertTo-Json -Depth 4 -Compress",
+    "exitCode": 0,
+    "stdout": "{\"before\":[{\"ProcessId\":21516,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:/Program Files/Google/Chrome/Application/chrome.exe\\\" --headless=new --no-first-run --no-sandbox --use-angle=swiftshader --enable-unsafe-swiftshader --disable-background-networking --disable-component-update --disable-sync --remote-debugging-port=0 --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-scaZvy about:blank\"},{\"ProcessId\":98456,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=crashpad-handler --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-scaZvy /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-scaZvy\\\\Crashpad --metrics-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-scaZvy --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=152.0.7977.83 --initial-client-data=0x124,0x128,0x12c,0x100,0x130,0x7fff04e97e60,0x7fff04e97e70,0x7fff04e97e80\"}],\"remaining\":[]}\r\n",
+    "stderr": "",
+    "verified": true
+  },
+  "finishedAt": "2026-09-10T12:54:42.715Z"
+}

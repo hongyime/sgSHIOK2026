@@ -1,0 +1,19 @@
+{
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+    "--prefix",
+    "C:\\sgSHIOK2026\\web",
+    "audit",
+    "--json",
+    "--cache",
+    "C:\\sgSHIOK2026\\tmp\\npm-cache-approved"
+  ],
+  "cwd": "C:\\sgSHIOK2026",
+  "startedAt": "2026-09-10T12:31:24.552Z",
+  "seconds": 35.957934,
+  "exitCode": 0,
+  "signal": null,
+  "lockBefore": "d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590",
+  "lockAfter": "d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590"
+}

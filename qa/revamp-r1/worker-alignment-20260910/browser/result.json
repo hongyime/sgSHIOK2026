@@ -1,0 +1,120 @@
+{
+  "origin": "http://127.0.0.1:4362",
+  "profile": "C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-tA10yH",
+  "checks": [
+    {
+      "name": "current preview build identity",
+      "pass": true,
+      "detail": {
+        "buildId": "sou6pZfEMMmsCl52vdXg4",
+        "snapshot": "C:\\sgSHIOK2026\\tmp\\cached-release-worker-alignment-20260910",
+        "pid": 98236
+      }
+    }
+  ],
+  "captures": [],
+  "responses": [
+    {
+      "url": "http://127.0.0.1:4362/?postal=018956&debugMap=1",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4362/_next/static/chunks/3vlrbw6gc84l7.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4362/_next/static/chunks/1bidz_3pqoxaj.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4362/_next/static/chunks/turbopack-0xfj_5xwh9c0_.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4362/_next/static/chunks/1oaw9uq-pttep.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4362/_next/static/chunks/2dn31qlrcaugz.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4362/_next/static/chunks/17f1081s5yhzn.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4362/_next/static/chunks/1c6j_lnxj8czm.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4362/_next/static/chunks/2xkd3da992cyi.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4362/_next/static/chunks/3041ut-1olh-5.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4362/_next/static/chunks/20zjq-ak3jpeu.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4362/_next/static/chunks/3u4fr6aw4uicq.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4362/icon.svg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4362/_next/static/chunks/1zyj6upfpdkbv.js",
+      "status": 200
+    },
+    {
+      "url": "https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "status": 200
+    }
+  ],
+  "failures": [],
+  "errors": [],
+  "startedAt": "2026-09-10T12:50:57.863Z",
+  "buildId": "sou6pZfEMMmsCl52vdXg4",
+  "error": "Error: {\"exceptionId\":1,\"text\":\"Uncaught\",\"lineNumber\":803,\"columnNumber\":117762,\"scriptId\":\"20\",\"stackTrace\":{\"callFrames\":[{\"functionName\":\"areTilesLoaded\",\"scriptId\":\"20\",\"url\":\"http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js\",\"lineNumber\":803,\"columnNumber\":117762},{\"functionName\":\"facts\",\"scriptId\":\"3\",\"url\":\"\",\"lineNumber\":5,\"columnNumber\":56},{\"functionName\":\"\",\"scriptId\":\"3\",\"url\":\"\",\"lineNumber\":10,\"columnNumber\":2}]},\"exception\":{\"type\":\"object\",\"subtype\":\"error\",\"className\":\"TypeError\",\"description\":\"TypeError: Cannot convert undefined or null to object\\n    at Object.values (<anonymous>)\\n    at g_.areTilesLoaded (http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js:804:117763)\\n    at facts (<anonymous>:6:57)\\n    at <anonymous>:11:3\",\"objectId\":\"8476415550514607944.2.2\"}}\n    at evaluate (file:///C:/sgSHIOK2026/qa/revamp-r1/worker-alignment-20260910/browser.mjs:25:38)\n    at async until (file:///C:/sgSHIOK2026/qa/revamp-r1/worker-alignment-20260910/browser.mjs:31:37)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/worker-alignment-20260910/browser.mjs:65:3",
+  "ok": false,
+  "cleanup": {
+    "command": "$ErrorActionPreference='Stop'; $profile='C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-tA10yH'; function Owned { @(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | Where-Object { $_.CommandLine -and $_.CommandLine.Contains($profile) }) }; $before=@(Owned | Select-Object ProcessId,Name,CommandLine); foreach($p in @(Owned)){ $live=Get-Process -Id $p.ProcessId -ErrorAction SilentlyContinue; if($live -and -not $live.HasExited){Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue} }; $until=[DateTime]::UtcNow.AddSeconds(20); do { $remaining=@(Owned | Where-Object { $p=Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue; $p -and -not $p.HasExited }); if($remaining.Count -eq 0){break}; Start-Sleep -Milliseconds 250 } while([DateTime]::UtcNow -lt $until); @{before=$before;remaining=@($remaining | Select-Object ProcessId,Name,CommandLine)} | ConvertTo-Json -Depth 4 -Compress",
+    "exitCode": 0,
+    "stdout": "{\"before\":[{\"ProcessId\":109736,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:/Program Files/Google/Chrome/Application/chrome.exe\\\" --headless=new --no-first-run --no-sandbox --use-angle=swiftshader --enable-unsafe-swiftshader --disable-background-networking --disable-component-update --disable-sync --remote-debugging-port=0 --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-tA10yH about:blank\"},{\"ProcessId\":101048,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=crashpad-handler --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-tA10yH /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-tA10yH\\\\Crashpad --metrics-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-tA10yH --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=152.0.7977.83 --initial-client-data=0x13c,0x140,0x144,0x138,0x10c,0x7fff04e97e60,0x7fff04e97e70,0x7fff04e97e80\"},{\"ProcessId\":108552,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-tA10yH\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=1115362101156 --field-trial-handle=1920,i,10065085868204157854,13720384486257260099,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1928,i,3743554356887691711,3788778243344807666,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=3644 /prefetch:1\"}],\"remaining\":[]}\r\n",
+    "stderr": "",
+    "verified": true
+  },
+  "finishedAt": "2026-09-10T12:52:05.945Z"
+}

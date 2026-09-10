@@ -111,7 +111,7 @@ describe("deployment packaging", () => {
     ]) {
       expect(serviceWorker).toContain(path);
     }
-    for (const prefix of ['"/_next/static/"', '"/data/"', '"/maplibre/6.1.0/"']) {
+    for (const prefix of ['"/_next/static/"', '"/data/"', '"/maplibre/6.1.0/"', '"/maplibre/6.4.1/"']) {
       expect(serviceWorker).toContain(prefix);
     }
     expect(serviceWorker).toContain('if (url.pathname.startsWith("/api/")) return false;');
@@ -150,12 +150,12 @@ describe("deployment packaging", () => {
   });
 
   it("gives the pinned MapLibre module directory immutable headers without broadening other versions", async () => {
-    expect(await headersFor("/maplibre/6.1.0/:path*")).toContainEqual({
+    for (const version of ['6.1.0', '6.4.1']) expect(await headersFor(`/maplibre/${version}/:path*`)).toContainEqual({
       key: "Cache-Control", value: "public, max-age=31536000, immutable",
     });
     const routes = await nextConfig.headers();
     expect(routes.filter((route: { source: string }) => route.source.startsWith("/maplibre"))
-      .map((route: { source: string }) => route.source)).toEqual(["/maplibre/6.1.0/:path*"]);
+      .map((route: { source: string }) => route.source)).toEqual(["/maplibre/6.1.0/:path*", "/maplibre/6.4.1/:path*"]);
     expect(await headersFor("/:path*")).not.toEqual(expect.arrayContaining([
       { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
     ]));

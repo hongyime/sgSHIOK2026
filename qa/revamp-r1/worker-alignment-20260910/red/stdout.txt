@@ -1,0 +1,93 @@
+installed_dependencies=ok
+✔ test entry refuses the real MapLibre 6.4.1 lock versus 6.1.0 install shape before Vitest (659.9902ms)
+✔ matching versions may launch the test entry (2237.5634ms)
+✔ a failing native guard contract suite prevents Vitest from starting (1652.0833ms)
+✔ build entry refuses stale dependencies before even the preparation double (1007.8685ms)
+✔ matching build reaches only the refusing preparation double, never Next (1324.9695ms)
+✔ release CLI checks dependencies before retention/build with installed 6.1.0 (704.2173ms)
+✔ release CLI checks dependencies before retention/build with installed 6.4.1 (975.326ms)
+✔ reports exact resolved versions for runtime and development dependencies (173.4939ms)
+✔ development dependency drift also fails (271.1088ms)
+✔ a manifest edit without matching lock-root metadata is not accepted (240.6172ms)
+✔ refuses invalid JSON in package.json (236.477ms)
+✔ refuses null in package.json (254.8311ms)
+✔ refuses [] in package.json (123.8942ms)
+✔ refuses invalid JSON in package-lock.json (272.4508ms)
+✔ refuses null in package-lock.json (263.2829ms)
+✔ refuses [] in package-lock.json (217.6633ms)
+✔ refuses invalid JSON in node_modules/maplibre-gl/package.json (131.8938ms)
+✔ refuses null in node_modules/maplibre-gl/package.json (106.6963ms)
+✔ refuses [] in node_modules/maplibre-gl/package.json (160.8102ms)
+✔ refuses malformed dependencies (195.4604ms)
+✔ refuses malformed devDependencies (173.3249ms)
+✔ unsupported lock format 1 fails closed (225.3961ms)
+✔ unsupported lock format 4 fails closed (183.9352ms)
+✔ unsupported lock format "3" fails closed (198.7552ms)
+✔ unsupported lock format null fails closed (92.8165ms)
+✔ lock v2 resolved-package metadata is supported (133.383ms)
+✔ refuses unresolved lock entry null (271.1871ms)
+✔ refuses unresolved lock entry {} (153.1999ms)
+✔ refuses unresolved lock entry {"link":true,"version":"6.4.1"} (176.7633ms)
+✔ refuses unresolved lock entry {"version":""} (160.3351ms)
+✔ missing installed package is reported without loading or executing it (222.1874ms)
+✔ refuses unsafe dependency name ../escape (137.7808ms)
+✔ refuses unsafe dependency name @scope/../../escape (164.8236ms)
+✔ refuses unsafe dependency name C:\escape (176.9648ms)
+✔ refuses unsafe dependency name /escape (193.5618ms)
+✔ refuses unsafe dependency name @scope\escape (168.2748ms)
+✔ refuses unsafe dependency name .hidden (189.2127ms)
+✔ scoped packages and a dependency listed in both sections are checked once (292.9901ms)
+✔ empty dependency metadata cannot authorize a vacuous success (182.8825ms)
+✔ matching null dependencies sections are invalid, not absent (207.5614ms)
+✔ matching null devDependencies sections are invalid, not absent (156.3248ms)
+✔ package executable exports are never imported by the version check (246.108ms)
+ℹ tests 42
+ℹ suites 0
+ℹ pass 42
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 16315.7368
+
+ RUN  v4.1.11 C:/sgSHIOK2026/tmp/test-without-data-jfoABa/web
+
+ ❯ lib/__tests__/service-worker-behaviour.test.ts (71 tests | 8 failed) 6329ms
+       × caches the first successful read and survives 503 without revalidation 255ms
+       × caches the first successful read and survives network rejection without revalidation 57ms
+       × does not cache an initial 503 and permits a successful retry 44ms
+       × does not cache an initial network rejection and permits a successful retry 218ms
+       × caches the first successful read and survives 503 without revalidation 38ms
+       × caches the first successful read and survives network rejection without revalidation 35ms
+       × does not cache an initial 503 and permits a successful retry 52ms
+       × does not cache an initial network rejection and permits a successful retry 43ms
+ ❯ lib/__tests__/deployment.test.ts (31 tests | 2 failed) 2351ms
+     × keeps service-worker caching scoped to static public assets 587ms
+     × gives the pinned MapLibre module directory immutable headers without broadening other versions 55ms
+ ❯ lib/__tests__/map-worker.test.ts (2 tests | 2 failed) 1249ms
+     × serves the exact installed worker/shared module and license without changing CSP 705ms
+     × selects the matching versioned worker before constructing the map 244ms
+
+ Test Files  3 failed | 1 passed (4)
+      Tests  12 failed | 98 passed (110)
+   Start at  20:16:05
+   Duration  53.77s (transform 6.63s, setup 0ms, import 10.90s, tests 10.65s, environment 31ms)
+
+{
+  "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-jfoABa",
+  "copiedFiles": 224,
+  "productionDataDirectoryAbsent": true,
+  "guardProbePassed": true,
+  "forbiddenPaths": [
+    "C:\\sgSHIOK2026\\web\\public\\data",
+    "C:\\sgSHIOK2026\\tmp\\test-without-data-jfoABa\\web\\public\\data"
+  ],
+  "dependencies": "Existing node_modules linked; no installation",
+  "testArgs": [
+    "lib/__tests__/map-worker.test.ts",
+    "lib/__tests__/deployment.test.ts",
+    "lib/__tests__/service-worker-behaviour.test.ts",
+    "lib/__tests__/transit-popup.test.ts"
+  ],
+  "exitCode": 1
+}

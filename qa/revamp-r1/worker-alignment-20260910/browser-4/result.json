@@ -1,0 +1,41 @@
+{
+  "origin": "http://127.0.0.1:4362",
+  "profile": "C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-yRZiLJ",
+  "graphicsMode": "Chrome default; no forced SwiftShader",
+  "checks": [
+    {
+      "name": "current preview build identity",
+      "pass": true,
+      "detail": {
+        "buildId": "sou6pZfEMMmsCl52vdXg4",
+        "snapshot": "C:\\sgSHIOK2026\\tmp\\cached-release-worker-alignment-20260910",
+        "pid": 98236
+      }
+    }
+  ],
+  "captures": [],
+  "responses": [
+    {
+      "url": "http://127.0.0.1:4362/?postal=018956&debugMap=1",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4362/_next/static/chunks/3vlrbw6gc84l7.css",
+      "status": 200
+    }
+  ],
+  "failures": [],
+  "errors": [],
+  "startedAt": "2026-09-10T13:05:41.951Z",
+  "buildId": "sou6pZfEMMmsCl52vdXg4",
+  "error": "Error: CDP timeout: Runtime.evaluate\n    at Timeout._onTimeout (file:///C:/sgSHIOK2026/qa/revamp-r1/worker-alignment-20260910/browser.mjs:21:78)\n    at listOnTimeout (node:internal/timers:635:17)\n    at process.processTimers (node:internal/timers:571:7)",
+  "ok": false,
+  "cleanup": {
+    "command": "$ErrorActionPreference='Stop'; $profile='C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-yRZiLJ'; function Owned { @(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | Where-Object { $_.CommandLine -and $_.CommandLine.Contains($profile) }) }; $before=@(Owned | Select-Object ProcessId,Name,CommandLine); foreach($p in @(Owned)){ $live=Get-Process -Id $p.ProcessId -ErrorAction SilentlyContinue; if($live -and -not $live.HasExited){Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue} }; $until=[DateTime]::UtcNow.AddSeconds(20); do { $remaining=@(Owned | Where-Object { $p=Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue; $p -and -not $p.HasExited }); if($remaining.Count -eq 0){break}; Start-Sleep -Milliseconds 250 } while([DateTime]::UtcNow -lt $until); @{before=$before;remaining=@($remaining | Select-Object ProcessId,Name,CommandLine)} | ConvertTo-Json -Depth 4 -Compress",
+    "exitCode": null,
+    "stdout": "",
+    "stderr": "",
+    "verified": false
+  },
+  "finishedAt": "2026-09-10T13:11:14.321Z"
+}

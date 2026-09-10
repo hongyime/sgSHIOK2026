@@ -1,0 +1,317 @@
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - ESM syntax in a file loaded as CommonJS (vitest.config.ts:1:1). Use a `.mjs` extension or set `"type": "module"` in the closest package.json
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 12 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  lib/__tests__/deployment.test.ts > deployment packaging > keeps service-worker caching scoped to static public assets
+AssertionError: expected 'const CACHE_NAME = "sgshiok-static-v1…' to contain '"/maplibre/6.4.1/"'
+
+- Expected
++ Received
+
+- "/maplibre/6.4.1/"
++ const CACHE_NAME = "sgshiok-static-v1";
++ const SHELL_CACHE_NAME = "sgshiok-shell-v2";
++ const SHELL_CACHE_KEY = new URL("/", self.location.origin).href;
++ const inFlight = new Map();
++ let navigationSequence = 0;
++ let latestSuccessfulNavigation = 0;
++ let shellWrite = Promise.resolve();
++ const CACHEABLE_EXACT_PATHS = new Set([
++   "/icon.svg",
++   "/favicon.ico",
++   "/apple-touch-icon.png",
++   "/apple-touch-icon-precomposed.png",
++   "/robots.txt",
++   "/sitemap.xml",
++   "/site.webmanifest",
++   "/manifest.json",
++ ]);
++ const CACHEABLE_PREFIXES = ["/_next/static/", "/data/", "/maplibre/6.1.0/"];
++ const CACHE_MAX_AGE_MS = new Map([
++   ["/robots.txt", 604_800_000],
++   ["/sitemap.xml", 604_800_000],
++   ["/site.webmanifest", 604_800_000],
++   ["/manifest.json", 604_800_000],
++ ]);
++
++ function isCacheableRequest(request) {
++   if (request.method !== "GET") return false;
++
++   const url = new URL(request.url);
++   if (url.origin !== self.location.origin) return false;
++   if (url.pathname.startsWith("/api/")) return false;
++   if (request.headers.has("RSC") || request.headers.has("Next-Router-Prefetch") ||
++       request.headers.get("Purpose") === "prefetch" || request.headers.get("Sec-Purpose")?.includes("prefetch") || url.searchParams.has("_rsc") ||
++       request.headers.has("Range")) return false;
++   if (url.pathname === "/") return request.mode === "navigate";
++
++   return CACHEABLE_EXACT_PATHS.has(url.pathname) || CACHEABLE_PREFIXES.some((prefix) => url.pathname.startsWith(prefix));
++ }
++
++ function cacheMaxAgeMs(request) {
++   const url = new URL(request.url, self.location.origin);
++   if (CACHEABLE_PREFIXES.some((prefix) => url.pathname.startsWith(prefix))) return Infinity;
++   if (
++     url.pathname === "/icon.svg" ||
++     url.pathname === "/favicon.ico" ||
++     url.pathname === "/apple-touch-icon.png" ||
++     url.pathname === "/apple-touch-icon-precomposed.png"
++   ) {
++     return Infinity;
++   }
++   return CACHE_MAX_AGE_MS.get(url.pathname) ?? 0;
++ }
++
++ function isFreshEnough(response, maxAgeMs) {
++   if (maxAgeMs === Infinity) return true;
++   const cachedAt = Date.parse(response.headers.get("date") || "");
++   if (!Number.isFinite(cachedAt)) return false;
++   return Date.now() - cachedAt < maxAgeMs;
++ }
++
++ async function readCache(name, key) {
++   try {
++     return await (await caches.open(name)).match(key);
++   } catch {
++     return undefined;
++   }
++ }
++
++ async function writeCache(name, key, response) {
++   try {
++     await (await caches.open(name)).put(key, response);
++   } catch {
++     // Storage/quota failures must never turn a successful fetch into an error.
++   }
++ }
++
++ function canStore(response) {
++   return response.status === 200 && !/\b(no-store|private)\b/i.test(response.headers.get("Cache-Control") || "");
++ }
++
++ async function navigationResponse(event) {
++   const sequence = ++navigationSequence;
++   const controller = new AbortController();
++   let settled = false;
++   const fallback = readCache(SHELL_CACHE_NAME, SHELL_CACHE_KEY);
++   const timer = setTimeout(() => {
++     // A slow first visit must not be aborted when there is nothing to show offline.
++     void fallback.then(cached => { if (cached && !settled) controller.abort(); });
++   }, 10000);
++   try {
++     const response = await fetch(event.request, { cache: "no-cache", signal: controller.signal });
++     if (response.ok) {
++       if (canStore(response) && response.headers.get("Content-Type")?.includes("text/html")) {
++         const copy = response.clone();
++         latestSuccessfulNavigation = Math.max(latestSuccessfulNavigation, sequence);
++         // Serialize shell writes so a slow previous navigation cannot overwrite a newer one.
++         shellWrite = shellWrite.then(() => sequence === latestSuccessfulNavigation
++           ? writeCache(SHELL_CACHE_NAME, SHELL_CACHE_KEY, copy) : undefined);
++         event.waitUntil(shellWrite);
++       }
++       return response;
++     }
++     return (await fallback) || response;
++   } catch (error) {
++     const cached = await fallback;
++     if (cached) return cached;
++     throw error;
++   } finally {
++     settled = true;
++     clearTimeout(timer);
++   }
++ }
++
++ async function assetResponse(event) {
++   const request = event.request;
++   const cached = await readCache(CACHE_NAME, request);
++   if (cached && isFreshEnough(cached, cacheMaxAgeMs(request))) return cached;
++   const key = `${request.cache === "only-if-cached" ? "cache-only" : "network-allowed"}:${request.url}`;
++   let pending = inFlight.get(key);
++   if (!pending) {
++     pending = fetch(request).then(response => {
++       if (canStore(response)) event.waitUntil(writeCache(CACHE_NAME, request, response.clone()));
++       return response;
++     }).finally(() => inFlight.delete(key));
++     inFlight.set(key, pending);
++   }
++   try {
++     const response = (await pending).clone();
++     return !response.ok && cached ? cached : response;
++   } catch (error) {
++     if (cached) return cached;
++     throw error;
++   }
++ }
++
++ self.addEventListener("install", (event) => {
++   event.waitUntil(self.skipWaiting());
++ });
++
++ self.addEventListener("activate", (event) => {
++   event.waitUntil(
++     caches
++       .keys()
++       // Keep immutable assets used by already-open tabs and leave unrelated applications alone.
++       .then((keys) => Promise.all(keys.filter((key) => key === "sgshiok-shell-v1").map((key) => caches.delete(key))))
++       .catch(() => undefined)
++       .then(() => self.clients.claim()),
++   );
++ });
++
++ self.addEventListener("fetch", (event) => {
++   const { request } = event;
++   if (!isCacheableRequest(request)) return;
++   event.respondWith(request.mode === "navigate" ? navigationResponse(event) : assetResponse(event));
++ });
++
+
+ ❯ lib/__tests__/deployment.test.ts:115:29
+    113|     }
+    114|     for (const prefix of ['"/_next/static/"', '"/data/"', '"/maplibre/…
+    115|       expect(serviceWorker).toContain(prefix);
+       |                             ^
+    116|     }
+    117|     expect(serviceWorker).toContain('if (url.pathname.startsWith("/api…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/12]⎯
+
+ FAIL  lib/__tests__/deployment.test.ts > deployment packaging > gives the pinned MapLibre module directory immutable headers without broadening other versions
+TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterator))
+ ❯ lib/__tests__/deployment.test.ts:153:103
+    151|
+    152|   it("gives the pinned MapLibre module directory immutable headers wit…
+    153|     for (const version of ['6.1.0', '6.4.1']) expect(await headersFor(…
+       |                                                                                                       ^
+    154|       key: "Cache-Control", value: "public, max-age=31536000, immutabl…
+    155|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/12]⎯
+
+ FAIL  lib/__tests__/map-worker.test.ts > local MapLibre module worker > serves the exact installed worker/shared module and license without changing CSP
+Error: ENOENT: no such file or directory, open 'C:\sgSHIOK2026\tmp\test-without-data-jfoABa\web\public\maplibre\6.4.1\maplibre-gl-worker.mjs'
+ ❯ Object.target.<computed> [as openSync] ../../../web/scripts/deny-production-data.cjs:31:25
+ ❯ target.<computed> ../../../web/scripts/deny-production-data.cjs:31:25
+ ❯ hash lib/__tests__/map-worker.test.ts:8:64
+      6| describe('local MapLibre module worker', () => {
+      7|   it('serves the exact installed worker/shared module and license with…
+      8|     const hash = (path: string) => createHash('sha256').update(readFil…
+       |                                                                ^
+      9|     expect(maplibrePackage.version).toBe('6.4.1');
+     10|     for (const file of ['maplibre-gl-worker.mjs','maplibre-gl-shared.m…
+ ❯ lib/__tests__/map-worker.test.ts:11:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/12]⎯
+
+ FAIL  lib/__tests__/map-worker.test.ts > local MapLibre module worker > selects the matching versioned worker before constructing the map
+AssertionError: expected -1 to be greater than -1
+ ❯ lib/__tests__/map-worker.test.ts:18:20
+     16|     const source = readFileSync('components/route-evidence-map.tsx', '…
+     17|     const worker = source.indexOf('maplibre.setWorkerUrl("/maplibre/6.…
+     18|     expect(worker).toBeGreaterThan(-1);
+       |                    ^
+     19|     expect(source.indexOf('new maplibre.Map(', worker)).toBeGreaterTha…
+     20|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/12]⎯
+
+ FAIL  lib/__tests__/service-worker-behaviour.test.ts > service worker release behavior (executed worker, synthetic transport) > versioned MapLibre module /maplibre/6.4.1/maplibre-gl-worker.mjs > caches the first successful read and survives 503 without revalidation
+ FAIL  lib/__tests__/service-worker-behaviour.test.ts > service worker release behavior (executed worker, synthetic transport) > versioned MapLibre module /maplibre/6.4.1/maplibre-gl-worker.mjs > caches the first successful read and survives network rejection without revalidation
+Error: Expected worker interception: https://shiok.test/maplibre/6.4.1/maplibre-gl-worker.mjs
+ ❯ Object.request lib/__tests__/service-worker-behaviour.test.ts:163:34
+    161|     async request(request: Request) {
+    162|       const event = dispatch("fetch", request);
+    163|       if (!event.response) throw new Error(`Expected worker intercepti…
+       |                                  ^
+    164|       return event.response;
+    165|     },
+ ❯ lib/__tests__/service-worker-behaviour.test.ts:297:34
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/12]⎯
+
+ FAIL  lib/__tests__/service-worker-behaviour.test.ts > service worker release behavior (executed worker, synthetic transport) > versioned MapLibre module /maplibre/6.4.1/maplibre-gl-worker.mjs > does not cache an initial 503 and permits a successful retry
+Error: Expected worker interception: https://shiok.test/maplibre/6.4.1/maplibre-gl-worker.mjs
+ ❯ Object.request lib/__tests__/service-worker-behaviour.test.ts:163:34
+    161|     async request(request: Request) {
+    162|       const event = dispatch("fetch", request);
+    163|       if (!event.response) throw new Error(`Expected worker intercepti…
+       |                                  ^
+    164|       return event.response;
+    165|     },
+ ❯ lib/__tests__/service-worker-behaviour.test.ts:333:39
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/12]⎯
+
+ FAIL  lib/__tests__/service-worker-behaviour.test.ts > service worker release behavior (executed worker, synthetic transport) > versioned MapLibre module /maplibre/6.4.1/maplibre-gl-worker.mjs > does not cache an initial network rejection and permits a successful retry
+AssertionError: expected Error: Expected worker interception: http… to be TypeError: origin unavailable // Object.is equality
+
+- Expected
++ Received
+
+- TypeError {
+-   "message": "origin unavailable",
++ Error {
++   "message": "Expected worker interception: https://shiok.test/maplibre/6.4.1/maplibre-gl-worker.mjs",
+  }
+
+ ❯ lib/__tests__/service-worker-behaviour.test.ts:331:46
+    329|
+    330|       if (failure === "network rejection") {
+    331|         await expect(worker.request(request)).rejects.toBe(original);
+       |                                              ^
+    332|       } else {
+    333|         const response = await worker.request(request);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/12]⎯
+
+ FAIL  lib/__tests__/service-worker-behaviour.test.ts > service worker release behavior (executed worker, synthetic transport) > versioned MapLibre module /maplibre/6.4.1/maplibre-gl-shared.mjs > caches the first successful read and survives 503 without revalidation
+ FAIL  lib/__tests__/service-worker-behaviour.test.ts > service worker release behavior (executed worker, synthetic transport) > versioned MapLibre module /maplibre/6.4.1/maplibre-gl-shared.mjs > caches the first successful read and survives network rejection without revalidation
+Error: Expected worker interception: https://shiok.test/maplibre/6.4.1/maplibre-gl-shared.mjs
+ ❯ Object.request lib/__tests__/service-worker-behaviour.test.ts:163:34
+    161|     async request(request: Request) {
+    162|       const event = dispatch("fetch", request);
+    163|       if (!event.response) throw new Error(`Expected worker intercepti…
+       |                                  ^
+    164|       return event.response;
+    165|     },
+ ❯ lib/__tests__/service-worker-behaviour.test.ts:297:34
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/12]⎯
+
+ FAIL  lib/__tests__/service-worker-behaviour.test.ts > service worker release behavior (executed worker, synthetic transport) > versioned MapLibre module /maplibre/6.4.1/maplibre-gl-shared.mjs > does not cache an initial 503 and permits a successful retry
+Error: Expected worker interception: https://shiok.test/maplibre/6.4.1/maplibre-gl-shared.mjs
+ ❯ Object.request lib/__tests__/service-worker-behaviour.test.ts:163:34
+    161|     async request(request: Request) {
+    162|       const event = dispatch("fetch", request);
+    163|       if (!event.response) throw new Error(`Expected worker intercepti…
+       |                                  ^
+    164|       return event.response;
+    165|     },
+ ❯ lib/__tests__/service-worker-behaviour.test.ts:333:39
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/12]⎯
+
+ FAIL  lib/__tests__/service-worker-behaviour.test.ts > service worker release behavior (executed worker, synthetic transport) > versioned MapLibre module /maplibre/6.4.1/maplibre-gl-shared.mjs > does not cache an initial network rejection and permits a successful retry
+AssertionError: expected Error: Expected worker interception: http… to be TypeError: origin unavailable // Object.is equality
+
+- Expected
++ Received
+
+- TypeError {
+-   "message": "origin unavailable",
++ Error {
++   "message": "Expected worker interception: https://shiok.test/maplibre/6.4.1/maplibre-gl-shared.mjs",
+  }
+
+ ❯ lib/__tests__/service-worker-behaviour.test.ts:331:46
+    329|
+    330|       if (failure === "network rejection") {
+    331|         await expect(worker.request(request)).rejects.toBe(original);
+       |                                              ^
+    332|       } else {
+    333|         const response = await worker.request(request);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/12]⎯
+

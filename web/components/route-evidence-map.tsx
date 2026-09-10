@@ -1414,7 +1414,7 @@ export function RouteEvidenceMap({
       stage = "map-construction";
       // MapLibre 6's relative worker URL is lost when Next bundles the main module.
       // These exact installed distribution files are served with their shared module.
-      maplibre.setWorkerUrl("/maplibre/6.1.0/maplibre-gl-worker.mjs");
+      maplibre.setWorkerUrl("/maplibre/6.4.1/maplibre-gl-worker.mjs");
       onStatusChangeRef.current?.("initializing");
       stage = "glyph-setup";
       await ensureLocalGlyphProtocol(maplibre);

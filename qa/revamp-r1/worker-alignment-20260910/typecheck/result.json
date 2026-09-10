@@ -1,0 +1,18 @@
+{
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "C:\\sgSHIOK2026\\web\\node_modules\\typescript\\bin\\tsc",
+    "--project",
+    "C:\\sgSHIOK2026\\web\\tsconfig.json",
+    "--noEmit",
+    "--incremental",
+    "false"
+  ],
+  "cwd": "C:\\sgSHIOK2026",
+  "startedAt": "2026-09-10T12:38:38.183Z",
+  "seconds": 105.9571594,
+  "exitCode": 0,
+  "signal": null,
+  "lockBefore": "d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590",
+  "lockAfter": "d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590"
+}
