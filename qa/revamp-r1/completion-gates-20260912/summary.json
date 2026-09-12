@@ -1,0 +1,304 @@
+{
+  "root": "C:/sgSHIOK2026/",
+  "hostname": "PRAWN-E14",
+  "base": "8a8217c",
+  "tasks": [
+    {
+      "id": "T01",
+      "title": "Make cached-release upgrades safe",
+      "markedDone": false
+    },
+    {
+      "id": "T02",
+      "title": "Reduce the next measured loading bottleneck",
+      "markedDone": false
+    },
+    {
+      "id": "T03",
+      "title": "Give failures a useful, privacy-safe diagnostic",
+      "markedDone": true
+    },
+    {
+      "id": "T04",
+      "title": "Define the usable published transit-option contract",
+      "markedDone": true
+    },
+    {
+      "id": "T05",
+      "title": "Select useful options deterministically",
+      "markedDone": true
+    },
+    {
+      "id": "T06",
+      "title": "Ship the bounded transit-choice interaction",
+      "markedDone": true
+    },
+    {
+      "id": "T07",
+      "title": "Complete the uncovered-stretch journey",
+      "markedDone": true
+    },
+    {
+      "id": "T08",
+      "title": "Define a shared home-comparison row",
+      "markedDone": true
+    },
+    {
+      "id": "T09",
+      "title": "Build the shortlist state and persistence",
+      "markedDone": true
+    },
+    {
+      "id": "T10",
+      "title": "Ship home comparison in the map-first UI",
+      "markedDone": true
+    },
+    {
+      "id": "T11",
+      "title": "Share and restore a shortlist safely",
+      "markedDone": true
+    },
+    {
+      "id": "T12",
+      "title": "Present a concrete $0 reporting proposal",
+      "markedDone": true
+    },
+    {
+      "id": "T13",
+      "title": "Owner approves the reporting service boundary",
+      "markedDone": false
+    },
+    {
+      "id": "T14",
+      "title": "Implement report validation and lifecycle contracts",
+      "markedDone": false
+    },
+    {
+      "id": "T15",
+      "title": "Persist reports and issue truthful receipts",
+      "markedDone": false
+    },
+    {
+      "id": "T16",
+      "title": "Ship the report composition and receipt flow",
+      "markedDone": false
+    },
+    {
+      "id": "T17",
+      "title": "Build the private owner moderation queue",
+      "markedDone": false
+    },
+    {
+      "id": "T18",
+      "title": "Exercise report failure, abuse and retention limits",
+      "markedDone": false
+    },
+    {
+      "id": "T19",
+      "title": "Build a read-only walk-coverage gap register",
+      "markedDone": false
+    },
+    {
+      "id": "T20",
+      "title": "Propose the smallest useful data improvement",
+      "markedDone": false
+    },
+    {
+      "id": "T21",
+      "title": "Execute only a specifically approved data job",
+      "markedDone": false
+    },
+    {
+      "id": "T22",
+      "title": "Separate source, check and release freshness",
+      "markedDone": true
+    },
+    {
+      "id": "T23",
+      "title": "Establish a bounded metadata-check routine",
+      "markedDone": false
+    },
+    {
+      "id": "T24",
+      "title": "Make maintenance ownership and recovery explicit",
+      "markedDone": true
+    },
+    {
+      "id": "T25",
+      "title": "Run cross-feature accessibility and failure acceptance",
+      "markedDone": false
+    },
+    {
+      "id": "T26",
+      "title": "Owner/device and real-user task acceptance",
+      "markedDone": false
+    },
+    {
+      "id": "T27",
+      "title": "Prepare a bounded frontend release candidate",
+      "markedDone": false
+    },
+    {
+      "id": "T28",
+      "title": "Publish an approved frontend and verify it",
+      "markedDone": false
+    },
+    {
+      "id": "T29",
+      "title": "Resolve the MapLibre security advisory before deployment",
+      "markedDone": false
+    },
+    {
+      "id": "T30",
+      "title": "Preserve postal search before hydration",
+      "markedDone": true
+    },
+    {
+      "id": "T31",
+      "title": "Make release preparation immutable before any deployment",
+      "markedDone": true
+    }
+  ],
+  "counts": {
+    "total": 31,
+    "markedDone": 14,
+    "open": 17
+  },
+  "coverage": {
+    "pilotSha256": "660cd4aa7c87110253e2760a0f4e51bc1f50a7e5a8e7ad9651124174d65fe464",
+    "originalGate": {
+      "estimateOnly": true,
+      "assumptions": "Estimate, not a guarantee. Caller owns planned IO volumes/encoding probe counts, representative samples, and non-overlapping fixed/IO/record timings; cache and workload changes can invalidate it.",
+      "p95Method": "nearest-rank",
+      "components": {
+        "fixedMs": 61457.6921,
+        "readMs": 184498.77315455562,
+        "hashMs": 173590.97174888384,
+        "decodeMs": 249680.0848409873,
+        "parseMs": 323572.3548721307,
+        "lookupMs": 788352.2353938967,
+        "normalizationMs": 4126908.580584605,
+        "serializationMs": 1356341.5899005707
+      },
+      "rates": {
+        "readMsPerRawByte": 0.000016399583419167852,
+        "hashMsPerRawByte": 0.00001543001925343663,
+        "decodeMsPerDecodedByte": 0.000020175790130691343,
+        "parseMsPerDecodedByte": 0.00002614677068918556,
+        "lookupMsPerCall": 1.5764774580338365
+      },
+      "samples": {
+        "normalization": {
+          "count": 200,
+          "meanMs": 11.50566566500397,
+          "p95Ms": 33.16304316502017,
+          "msPerRecord": 33.16304316502017
+        },
+        "serialization": {
+          "count": 200,
+          "meanMs": 2.110930999999437,
+          "p95Ms": 10.899300000004587,
+          "msPerRecord": 10.899300000004587
+        }
+      },
+      "projectedMs": 7264402.28259563,
+      "budgetSeconds": 9111,
+      "maxSeconds": 900,
+      "gate": "stop"
+    },
+    "hypothetical": "Remove all normalization and serialization cost, hold measured IO rates/volumes fixed; not a new measurement or permission.",
+    "remainingComponentsMs": [
+      [
+        "fixedMs",
+        61457.6921
+      ],
+      [
+        "readMs",
+        184498.77315455562
+      ],
+      [
+        "hashMs",
+        173590.97174888384
+      ],
+      [
+        "decodeMs",
+        249680.0848409873
+      ],
+      [
+        "parseMs",
+        323572.3548721307
+      ],
+      [
+        "lookupMs",
+        788352.2353938967
+      ]
+    ],
+    "remainingSeconds": 1781.152112110454,
+    "bufferedSeconds": 2257
+  },
+  "gates": [
+    {
+      "tasks": [
+        "T01",
+        "T27",
+        "T29"
+      ],
+      "needs": "Actual release identity and retained-old-runtime security disposition; local compatibility is not deployment security approval."
+    },
+    {
+      "tasks": [
+        "T02",
+        "T19",
+        "T20"
+      ],
+      "needs": "Materially changed performance conditions or separately agreed coverage budget. Latest host counters near100%CPU with paging; no repeated timing runs."
+    },
+    {
+      "tasks": [
+        "T13",
+        "T14",
+        "T15",
+        "T16",
+        "T17",
+        "T18"
+      ],
+      "needs": "Owner provider/privacy/retention/caps/moderator/backup decisions. Questions already sent, no answer assumed."
+    },
+    {
+      "tasks": [
+        "T21"
+      ],
+      "needs": "Named data job approval after coverage proposal; no pipeline authorized."
+    },
+    {
+      "tasks": [
+        "T23"
+      ],
+      "needs": "Owner approval of scheduled metadata checks and notification destination; local checker already implemented."
+    },
+    {
+      "tasks": [
+        "T25",
+        "T26"
+      ],
+      "needs": "Native platform/device and real-user acceptance; emulator checks do not substitute."
+    },
+    {
+      "tasks": [
+        "T28"
+      ],
+      "needs": "Exact release approval, then deployment; push alone is not authorization."
+    }
+  ],
+  "review": "Subagent quota unavailable until2026-09-15 09:34; no quota-evasion retries.",
+  "FINDINGS": [
+    "31tasks remain14marked done+17open, not full completion. Latest app fix passed1788webtests+42guards and visual checks.",
+    "CPU-only coverage optimization cannot close the current projection: residual2257s buffered still exceeds900s. No scan or input read was added.",
+    "STATE was consolidated to remove superseded next-step instructions while preserving linked immutable evidence."
+  ],
+  "DISAGREEMENTS": [
+    "Do not treat routine autonomy as approval to activate resident-data storage, run a larger scan, accept retained-runtime risk or deploy."
+  ],
+  "goalStatus": "active",
+  "blockedAudit": "First equivalent impasse observation after prior progress; not eligible for blocked status yet."
+}
