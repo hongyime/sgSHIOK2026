@@ -1095,9 +1095,9 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain('aria-label="Transit stop or exit type"');
-    expect(html).toContain("<span>Published walk</span><small>displayed walk</small>");
-    expect(html).toContain("<span>MRT/LRT exits</span><small>no published walk</small>");
-    expect(html).toContain("<span>Bus stops</span><small>published walk</small>");
+    expect(html).toContain("<span>Suggested</span>");
+    expect(html).toMatch(/disabled="" title="No saved walk for mrt\/lrt"[^>]*><span>MRT\/LRT<\/span>/);
+    expect(html).toContain("<span>Bus stops</span>");
     expect(html).not.toContain('aria-label="Transit target type"');
     expect(html).not.toContain('aria-label="Transit target"');
     expect(html).not.toContain("<span>Best transit</span><small>selected walk</small>");
@@ -1128,7 +1128,7 @@ describe("rendered accessibility output", () => {
       },
       rankingRecords: [recordWithRouteOptions],
     });
-    expect(noDisplayedWalkHtml).toContain("<span>Published walk</span><small>no published walk</small>");
+    expect(noDisplayedWalkHtml).toContain('disabled="" title="No saved walk for suggested"');
     expect(noDisplayedWalkHtml).not.toContain("<span>Published walk</span><small>unavailable</small>");
     expect(noDisplayedWalkHtml).not.toContain("<span>Auto-picked</span>");
   });

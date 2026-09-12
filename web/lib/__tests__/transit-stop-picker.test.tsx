@@ -332,7 +332,7 @@ describe("TransitStopPicker published choices", () => {
     expect(tree?.props.open).toBeUndefined();
     const summary = elements(tree).filter(element => element.type === "summary");
     expect(summary).toHaveLength(1);
-    expect(text(summary[0])).toBe("Other walks (2)");
+    expect(text(summary[0])).toBe("Other stops (2)");
     expect(elements(tree).filter(element => element.props.role === "group")
       .map(element => element.props["aria-label"])).toEqual(["Published walks"]);
     expect(html).not.toMatch(/Nearby|straight-line|farther than|all nearby|current|default/i);
@@ -393,7 +393,7 @@ describe("TransitStopPicker published choices", () => {
     const { tree, onSelect } = renderPicker(selection);
     expect(choiceButtons(tree)).toHaveLength(3);
     expect(elements(tree).filter(element => element.type === "button")).toHaveLength(4);
-    expect(text(elements(tree).find(element => element.type === "summary"))).toBe("Other walks (3)");
+    expect(text(elements(tree).find(element => element.type === "summary"))).toBe("Other stops (3)");
     resetButton(tree)!.props.onClick!();
     expect(onSelect).toHaveBeenCalledExactlyOnceWith(null);
   });

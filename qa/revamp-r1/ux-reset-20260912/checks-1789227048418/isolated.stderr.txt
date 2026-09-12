@@ -1,0 +1,116 @@
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - ESM syntax in a file loaded as CommonJS (vitest.config.ts:1:1). Use a `.mjs` extension or set `"type": "module"` in the closest package.json
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+stderr | lib/__tests__/published-walk-page.test.tsx > Home explicit preview failure and stale-response boundaries > keeps published metrics/geometry on transport failure and resets without another request
+OneMap live route fetch failed; keeping the published walk: Error: Synthetic preview transport failure
+    at C:/sgSHIOK2026/tmp/test-without-data-f60Bit/web/lib/__tests__/published-walk-page.test.tsx:1189:51
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20
+
+stderr | lib/__tests__/published-walk-page.test.tsx > Home explicit preview failure and stale-response boundaries > keeps published metrics/geometry on invalid-json failure and resets without another request
+OneMap live route fetch failed; keeping the published walk: SyntaxError: Unexpected token 'o', "not JSON" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at parseJSONFromBytes (node:internal/deps/undici/undici:4349:19)
+    at successSteps (node:internal/deps/undici/undici:6987:27)
+    at readAllBytes (node:internal/deps/undici/undici:5811:13)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+stderr | lib/__tests__/published-walk-page.test.tsx > Home explicit preview failure and stale-response boundaries > ignores late preview rejection after selecting published candidate C
+OneMap live route fetch failed; keeping the published walk: Error: Synthetic stale preview failure
+    at C:/sgSHIOK2026/tmp/test-without-data-f60Bit/web/lib/__tests__/published-walk-page.test.tsx:1256:27
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > marks successful OneMap search proxy responses cacheable
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+
+stderr | lib/__tests__/onemap-api-security.test.ts > OneMap API security helpers > rate limits spoofed forwarded prefixes at the actual search route
+OneMap credentials not set; proceeding with unauthenticated search.
+

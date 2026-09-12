@@ -4610,3 +4610,49 @@ Three consecutive equivalent impasse observations: completion gate audit, live p
 ### DISAGREEMENTS
 
 1. Further automatic status loops or extra evidence commits cannot substitute for the missing decisions/actions. Resume on actionable input or external change, without repeating completed acceptance merely to obtainPASS.
+
+## 2026-09-12: Owner-Requested Walk UI Reset
+
+Root C:\sgSHIOK2026; hostname Prawn-E14; base5f02a68402df969b3cb31abdf71615fbfac35d24.
+This is new actionable UX work, not another revalidation of the blocked broad goal.
+Evidence: qa/revamp-r1/ux-reset-20260912/summary.json and original per-attempt runners/results.
+Current local preview http://127.0.0.1:4386/; build D1Gwrtssel1Jckk93bfdo. Older preview ports do not serve this revision.
+
+Executed via checks.mjs from C:\sgSHIOK2026, child test/type cwd under web:
+node node_modules/vitest/vitest.mjs run --globals --maxWorkers 1 --no-file-parallelism lib/__tests__/published-walk-page.test.tsx lib/__tests__/accessibility-render.test.tsx lib/__tests__/transit-stop-picker.test.tsx lib/__tests__/exposure-section-explorer.test.tsx lib/__tests__/score-card-copy.test.ts
+Test Files  5 passed (5)
+Tests  250 passed (250)
+node web/scripts/test-without-production-data.mjs --reporter=dot --testTimeout=15000
+Test Files  65 passed (65)
+Tests  1791 passed (1791)
+node node_modules/typescript/bin/tsc --noEmit --incremental false
+exitCode=0
+python scripts/check_repo_integrity.py
+repo_integrity=ok
+exitCode=0
+Raw stdout/stderr and isolation metadata: checks-1789227872591 under the evidence directory.
+The earlier direct focused invocation used the wrong cwd for two relative-file tests and three old copy assertions failed; subsequent persisted runs correct cwd and intentional copy expectations. Native guard suites were not rerun.
+
+Fresh build-2/build.json records all built source hashes and the unchanged retained-asset archive identity. No public data copied into the build snapshot; the preview uses a read-only data proxy. Eleven fixture-source anchors match before and after browser work. No pipeline, install, deployment or protected artifact writes.
+
+Browser chronology is deliberately not flattened into a single PASS:
+observed-KwxHgy: switching works, but comparing render revision3 to5 wrongly failed return-to-Suggested. Geometry is the correct identity check; routeRevisionRef increments during selection.
+observed-pKQ6bM: geometry switching checks pass; a320px capture begins at initializing and ends ready. Preserved as transitional, not accepted final capture.
+observed-UeZnEw:59assertions pass across category clicks,320x667/390x667/390x844/1440x950 layouts and opt-in disclosure; one assertion wrongly demands that a nested details.open flag become false when its parent closes. One CDP continue failure also remains raw. Exact session/request mapping shows that tile5680.161 was already canceled with net::ERR_ABORTED; see summary.json.
+observed-6w3yXi: targeted actual-visibility correction and plan rendering pass13checks with no denied requests/errors; browser cleanup verified. Closing About data hides the still-open nested Technical record and restores the clean walk card. No full transport/performance claim follows.
+Screenshots were inspected with the image tool; exact inspected paths/hashes are in summary.json. The plan capture precedes its final status-text update, not an unreported app rebuild. In-app browser bootstrap failed os error3; owned Chrome/CDP fallback was used, not claimed as the plugin browser. No independent peer review was available.
+
+### FINDINGS
+
+1. Previous regression passes did not validate normal-user usability. The legacy scoring/provenance essay is now under About data > Technical record, not in the main card or Walk details. Existing evidence and score values remain unchanged.
+2. Saved MRT and bus choices switch correctly on the public018956fixture. Suggested and Bus stops share the same saved route, so identical values are not proof of an unresponsive button. Destination type is now explicit; missing raw-category paths disable that tab.
+3. Compact result actions and44px transit targets fit checked viewports. Shorter preview failure copy does not establish live preview-provider reliability or missing-category browser acceptance; those remain the next UX slice.
+4.1791=1788+2page regressions+1destination-category regression;65testfiles unchanged. Copies expecting the verbose labels were corrected explicitly, not silently claimed unchanged.
+5. postplan.html now records implemented local work, unresolved user/device acceptance and real remaining service/data/maintenance/release gates. No full-product or speedup claim; no deployment.
+
+### DISAGREEMENTS
+
+1. Do not make Suggested and its matching category artificially different. Same saved destination/geometry is a legitimate selection outcome, not a reason to recompute or fabricate a walk.
+2. Hiding technical detail improves the journey but cannot turn missing data or an unavailable live preview into a working route. Physical usability and representative map latency remain unproven.
+
+Final staging check2026-09-13:75artifact SHA256 values match their staged bytes; mismatches=[]. Scoped qa/revamp-r1/ux-reset-20260912/.gitattributes disables text conversion only for this run's .txt outputs. The first staging check caught4CRLF conversions; re-adding those new logs with --renormalize after the scoped -text rule preserves original bytes. No pipeline input hash differs. Evidence diff is44additions/0deletions before this final appended staging note. git check-ignore -v on the evidence path and postplan.html returned no output,exit1.

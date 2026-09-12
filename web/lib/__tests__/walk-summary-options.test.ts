@@ -27,6 +27,13 @@ function html(score: ScoreRecord | null, selected?: PublishedTransitOption | nul
 const valid = (value: number) => ({ status: 'valid' as const, value, sourceField: 'synthetic-test' });
 
 describe('T06 normalized walk summary', () => {
+  it('names the selected transit category instead of implying every station-named stop is an exit', () => {
+    expect(html(raw(), option('bus'))).toContain('Walk to bus stop');
+    expect(html(raw(), option('mrt_lrt'))).toContain('Walk to MRT/LRT exit');
+    expect(html(raw())).toContain('Walk to bus stop');
+    expect(html(raw(), null)).not.toContain('Walk to bus stop');
+  });
+
   it('uses selected identity and metrics without inheriting the raw default', () => {
     const selected = option('mrt_lrt');
     const before = structuredClone(selected);

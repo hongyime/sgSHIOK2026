@@ -206,7 +206,7 @@ async function startPreview() {
   map().onSelectTransitStop!(previewStopId);
   render();
   await settle();
-  expect(nodeText(tree)).toContain('Loading walking preview. Published walk shown.');
+  expect(nodeText(tree)).toContain('Checking this stop...');
 }
 
 function elements(node: ReactNode): Element[] {
@@ -1190,13 +1190,13 @@ describe('Home explicit preview failure and stale-response boundaries', () => {
       else if (failure === 'non-ok-payload') request.resolve(Response.json({ ok: false }, { status: 503 }));
       else request.resolve(new Response('not JSON', { status: 200 }));
       await settle();
-      expect(nodeText(tree)).toContain('Walking preview unavailable. Published walk shown.');
+      expect(nodeText(tree)).toContain('No route could be loaded to this stop.');
       expect(nodeText(tree)).toContain('Retry preview');
       expect(summary()).toEqual(baseline.summary);
       expect(map().routes).toEqual(baseline.routes);
       expect(fetchSpy).toHaveBeenCalledTimes(1);
-      await clickPageButton('Keep published walk');
-      expect(nodeText(tree)).not.toContain('Walking preview unavailable.');
+      await clickPageButton('Back to saved walk');
+      expect(nodeText(tree)).not.toContain('No route could be loaded to this stop.');
       expect(url.searchParams.has('stop')).toBe(false);
       expect(url.searchParams.get('transit')).toBe('mrt_lrt');
       expect(summary()).toEqual(baseline.summary);
@@ -1217,12 +1217,12 @@ describe('Home explicit preview failure and stale-response boundaries', () => {
     const second = allowPreview();
     await clickPageButton('Retry preview');
     expect(fetchSpy).toHaveBeenCalledTimes(2);
-    expect(nodeText(tree)).toContain('Loading walking preview. Published walk shown.');
+    expect(nodeText(tree)).toContain('Checking this stop...');
     second.resolve(Response.json({ ok: false }, { status: 503 }));
     await settle();
     expect(summary()).toEqual(baseline.summary);
     expect(map().routes).toEqual(baseline.routes);
-    expect(nodeText(tree)).toContain('Walking preview unavailable. Published walk shown.');
+    expect(nodeText(tree)).toContain('No route could be loaded to this stop.');
   });
 
   it('positive control: the same successful payload can create a labelled preview when the request is current', async () => {
@@ -1238,7 +1238,7 @@ describe('Home explicit preview failure and stale-response boundaries', () => {
     expect(summary().score?.best_node?.name).toBe('Synthetic preview-only exit');
     expect(summary().score?.provenance).toMatchObject({ source: 'live_onemap_preview', authoritative_score: false });
     expect(map().routes).toHaveLength(1);
-    expect(nodeText(tree)).not.toContain('Loading walking preview.');
+    expect(nodeText(tree)).not.toContain('Checking this stop...');
     expect(fetchSpy).toHaveBeenCalledTimes(1);
   });
 
@@ -1258,8 +1258,8 @@ describe('Home explicit preview failure and stale-response boundaries', () => {
       expect(summary()).toEqual(selected.summary);
       expect(map().routes).toEqual(selected.routes);
       expect(url.href).toBe(selected.href);
-      expect(nodeText(tree)).not.toContain('Walking preview unavailable.');
-      expect(nodeText(tree)).not.toContain('Loading walking preview.');
+      expect(nodeText(tree)).not.toContain('No route could be loaded to this stop.');
+      expect(nodeText(tree)).not.toContain('Checking this stop...');
       expect(fetchSpy).toHaveBeenCalledTimes(1);
     },
   );
@@ -1290,6 +1290,31 @@ describe('Home explicit preview failure and stale-response boundaries', () => {
 });
 
 describe('Home mapped-exposure selection ownership', () => {
+  it('keeps technical score content out of both collapsed and expanded walk controls', async () => {
+    await loadA();
+    const panel = () => elements(tree).find(e => e.type === 'aside')!;
+    expect(elements(panel()).some(e => e.type === ScoreCard)).toBe(false);
+    expect(elements(panel()).find(e => e.props.id === 'walk-details')?.props.hidden).toBe(true);
+    await clickPageButton('Walk details');
+    expect(elements(panel()).find(e => e.props.id === 'walk-details')?.props.hidden).toBe(false);
+    expect(elements(panel()).some(e => e.type === ScoreCard)).toBe(false);
+    const data = child<React.ComponentProps<typeof DataDetails>>(DataDetails);
+    const technical = elements(data.props.children).find(e => e.type === 'details')!;
+    expect(technical.props.open).toBeUndefined();
+    expect(elements(technical).some(e => e.type === ScoreCard)).toBe(true);
+  });
+
+  it('uses one-line transit choices and disables choices without recorded paths', async () => {
+    await loadA();
+    const c = modeControl();
+    const absent = { ...sourceScore, route_options: { ...sourceScore.route_options, mrt_lrt: undefined } };
+    const rendered = (c.type as (props: typeof c.props) => ReactNode)({ ...c.props, score: absent });
+    const buttons = elements(rendered).filter(e => e.type === 'button');
+    expect(buttons).toHaveLength(3);
+    expect(buttons.find(e => e.key === 'mrt_lrt')?.props.disabled).toBe(true);
+    expect(buttons.find(e => e.key === 'bus')?.props.disabled).toBe(false);
+    expect(elements(rendered).some(e => e.type === 'small')).toBe(false);
+  });
   it('provides the explorer a stable walk-control focus return target', async () => {
     await loadA();
     const control = elements(tree).find(element => element.type === 'button' && element.props['aria-controls'] === 'walk-details')!;
@@ -1488,8 +1513,8 @@ describe('Home URL-intent and load-completion ownership regressions', () => {
       expect(modeControl().props.mode).toBe(chosen.mode);
       expect(url.href).toBe(chosen.href);
       expect(map().chosenStopId).not.toBe(previewStopId);
-      expect(nodeText(tree)).not.toContain('Loading walking preview.');
-      expect(nodeText(tree)).not.toContain('Walking preview unavailable.');
+      expect(nodeText(tree)).not.toContain('Checking this stop...');
+      expect(nodeText(tree)).not.toContain('No route could be loaded to this stop.');
       expect(storageRead).not.toHaveBeenCalled();
     },
   );

@@ -1,0 +1,9 @@
+
+ RUN  v4.1.11 C:/sgSHIOK2026/web
+
+
+ Test Files  5 passed (5)
+      Tests  250 passed (250)
+   Start at  23:44:34
+   Duration  13.24s (transform 2.81s, setup 0ms, import 4.20s, tests 5.06s, environment 2ms)
+

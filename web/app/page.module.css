@@ -1550,10 +1550,12 @@ button.gapItem:hover,
   width: auto;
   border: 1px solid #cbd7d1;
   border-radius: 6px;
-  padding: 5px 8px;
+  min-height: 44px;
+  margin-top: 4px;
+  padding: 8px;
   background: white;
   font: inherit;
-  font-size: 11px;
+  font-size: 12px;
   cursor: pointer;
 }
 .sheetToggle:focus-visible { outline: 3px solid #147ca3; outline-offset: 2px; }
@@ -1566,8 +1568,21 @@ button.gapItem:hover,
 .walkMetrics strong { display: block; font-size: 21px; overflow-wrap: anywhere; }
 .walkMetrics strong[data-unavailable] { font-size: 12px; white-space: nowrap; overflow-wrap: normal; align-self: center; }
 .walkMetrics span { display: block; margin-top: 3px; font-size: 11px; color: #5d7069; }
-.secondaryDetails { display: none; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+.secondaryDetails { display: none; min-height: 0; }
+.secondaryDetails[hidden] { display: none !important; }
+.errorBox { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.errorBox button { min-height: 44px; padding: 8px 10px; touch-action: manipulation; }
 .sheetExpanded .secondaryDetails { display: block; margin-top: 10px; }
+.resultPanel > * { flex-shrink: 0; }
+.resultPanel .transitSegmented { margin-top: 12px; min-height: 44px; }
+.resultPanel .transitSegmented button { touch-action: manipulation; font-size: 12px; }
+.resultPanel .transitSegmented button:disabled { opacity: .55; cursor: not-allowed; }
+.walkActions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+.walkActions .addComparison, .walkActions .sheetToggle { align-self: stretch; min-height: 44px; margin: 0; padding: 6px; }
+.resultPanel .layerToggle, .resultPanel .segmented button { min-height: 44px; }
+.technicalRecord { border-top: 1px solid #cddad4; margin-top: 12px; padding-top: 8px; }
+.technicalRecord > summary { min-height: 44px; cursor: pointer; padding-block: 10px; }
+.technicalRecord .scoreCard { border: 0; box-shadow: none; padding: 0; background: transparent; backdrop-filter: none; }
 .secondaryDetails .scoreCard { padding: 8px 0; border: 0; box-shadow: none; background: transparent; backdrop-filter: none; }
 .secondaryDetails .scoreHeader { display: block; }
 .secondaryDetails .scoreHeaderRight { margin-top: 8px; }
@@ -1601,7 +1616,7 @@ button.gapItem:hover,
 @keyframes searchSpin { to { transform: rotate(360deg); } }
 .dataDock { position: absolute; z-index: 5; bottom: 32px; right: 12px; width: max-content; max-width: calc(100% - 24px); }
 .dataDock .dataLimits { padding: 0; border: 1px solid #cddad4; border-radius: 6px; background: rgba(255,255,255,.98); box-shadow: 0 2px 12px #19382a18; color: #354640; }
-.dataDock .dataLimits > summary { padding: 8px 14px; font-size: 12px; text-align: center; cursor: pointer; list-style: none; }
+.dataDock .dataLimits > summary { padding: 12px 14px; min-height: 44px; font-size: 12px; text-align: center; cursor: pointer; list-style: none; }
 .dataDock .dataLimits > summary::-webkit-details-marker { display: none; }
 .dataDock .dataLimits[open] { width: 480px; max-width: 100%; }
 .dataBody { max-height: min(55dvh, 440px); overflow-y: auto; overscroll-behavior: contain; padding: 0 16px 14px; font-size: 12px; line-height: 1.5; }

@@ -227,8 +227,8 @@ function writeLiveRoutePreviewCache(key: string, payload: LiveRoutePreviewPayloa
 }
 
 const TRANSIT_MODE_OPTIONS: Array<{ id: TransitAccessMode; label: string }> = [
-  { id: "best_transit", label: "Published walk" },
-  { id: "mrt_lrt", label: "MRT/LRT exits" },
+  { id: "best_transit", label: "Suggested" },
+  { id: "mrt_lrt", label: "MRT/LRT" },
   { id: "bus", label: "Bus stops" },
 ];
 
@@ -1066,11 +1066,6 @@ function TransitModeControl({
   setMode: (mode: TransitAccessMode) => void;
 }) {
   if (!score.route_options) return null;
-  const availabilityLabel = (option: (typeof TRANSIT_MODE_OPTIONS)[number], available: boolean) => {
-    if (option.id === "best_transit") return available ? "displayed walk" : "no published walk";
-    if (available) return "published walk";
-    return "no published walk";
-  };
   return (
     <div className={`${styles.segmented} ${styles.transitSegmented}`} aria-label="Transit stop or exit type">
       {TRANSIT_MODE_OPTIONS.map((option) => {
@@ -1083,10 +1078,11 @@ function TransitModeControl({
             className={mode === option.id ? styles.segmentedActive : undefined}
             aria-pressed={mode === option.id}
             data-empty={!available}
+            disabled={!available}
+            title={available ? `Show ${option.label.toLowerCase()} walk` : `No saved walk for ${option.label.toLowerCase()}`}
             onClick={() => setMode(option.id)}
           >
             <span>{option.label}</span>
-            <small>{availabilityLabel(option, available)}</small>
           </button>
         );
       })}
@@ -1908,7 +1904,7 @@ function Metric({ label, value }: { label: string; value: string }) {
   );
 }
 
-export function DataDetails({ manifest, onToggle }: { manifest: Manifest | null; onToggle?: React.ToggleEventHandler<HTMLDetailsElement> }) {
+export function DataDetails({ manifest, onToggle, children }: { manifest: Manifest | null; onToggle?: React.ToggleEventHandler<HTMLDetailsElement>; children?: React.ReactNode }) {
   const snapshot = DATA_BASE === `/data/${RECORDED_SOURCE_FRESHNESS.bundle}/` ? RECORDED_SOURCE_FRESHNESS : null;
   const date = (value: unknown) => {
     const parsed = parseFreshnessDate(value);
@@ -1972,6 +1968,7 @@ export function DataDetails({ manifest, onToggle }: { manifest: Manifest | null;
             </a>
           </p>
           <p>Heat estimate: shelter plus sparse nearby greenery, not measured temperature</p>
+          {children}
           </div>
         </details>
   );
@@ -2860,9 +2857,9 @@ export default function Home() {
             && <FailureDiagnosticsControl value={geometryFailure.value} snapshotKey={'geometry:' + geometryFailure.attempt} />}
         </div>}
         {!comparison.open && chosenStopId && !selectedPublishedOption && !liveRouteCache[chosenStopId] && <div className={styles.errorBox} role="status">
-          {liveRoutePreviewStatuses[chosenStopId] === "unavailable" ? "Walking preview unavailable. Published walk shown." : "Loading walking preview. Published walk shown."}
+          {liveRoutePreviewStatuses[chosenStopId] === "unavailable" ? "No route could be loaded to this stop." : "Checking this stop..."}
           {liveRoutePreviewStatuses[chosenStopId] === "unavailable" && <button type="button" onClick={() => setPreviewRetryKey(key => key + 1)}>Retry preview</button>}
-          <button type="button" onClick={() => handleStopSelect(null)}>Keep published walk</button>
+          <button type="button" onClick={() => handleStopSelect(null)}>Back to saved walk</button>
         </div>}
         {!comparison.open && primary?.score?.paths && !primary.geom && !loading && !geometryError && <div className={styles.errorBox} role="status">No route geometry is published for this walk. Record evidence is still available.</div>}
         <SearchFeedback results={results} loading={loading} error={error} searched={searchAttempted}>
@@ -2892,11 +2889,9 @@ export default function Home() {
 
         {showDetailOverlay && !aboutDataOpen && !comparison.open && (
           <aside ref={panelRef} className={`${styles.resultPanel} ${sheetExpanded ? styles.sheetExpanded : ""}`}>
-            <button ref={walkDetailsButtonRef} type="button" className={styles.sheetToggle} aria-expanded={sheetExpanded}
-              aria-controls="walk-details" onClick={() => setSheetExpanded(value => !value)}>
-              {sheetExpanded ? "Collapse walk details" : "Walk details"}
-            </button>
             <WalkSummary postal={primary!.result.POSTAL} score={activeSelection?.score ?? null} option={activeSelection?.publishedOption} shortest={mapRouteMode === "shortest" && !sameSelectedRoute} />
+            {primary?.score && <TransitModeControl score={primary.score} mode={transitMode} setMode={handleTransitModeChange} />}
+            <div className={styles.walkActions}>
             <button type="button" className={styles.addComparison}
               disabled={!comparison.state.postals.includes(primary!.result.POSTAL) && comparison.state.postals.length >= MAX_COMPARISON_POSTALS}
               onClick={() => {
@@ -2906,17 +2901,22 @@ export default function Home() {
               }}>
               {comparison.state.postals.includes(primary!.result.POSTAL) ? 'View in comparison' : comparison.state.postals.length >= MAX_COMPARISON_POSTALS ? 'Comparison full (3)' : 'Add to comparison'}
             </button>
+            <button ref={walkDetailsButtonRef} type="button" className={styles.sheetToggle} aria-expanded={sheetExpanded}
+              aria-controls="walk-details" onClick={() => setSheetExpanded(value => !value)}>
+              {sheetExpanded ? "Collapse walk details" : "Walk details"}
+            </button>
+            </div>
+            <div id="walk-details" className={styles.secondaryDetails} hidden={!sheetExpanded}>
             <ExposureSectionExplorer model={exposureModel} selectedKey={focusedExposureGap?.key ?? null}
               onSelect={handleExposureSelection} mode={mapRouteMode} onFocusedRemoval={restoreWalkControlFocus} />
-            {primary?.score && <TransitModeControl score={primary.score} mode={transitMode} setMode={handleTransitModeChange} />}
             <TransitStopPicker selection={publishedChoices} onSelect={handlePublishedChoice} />
-            <div id="walk-details" className={styles.secondaryDetails}>
+
             {activeSelection?.geom && <RouteModeControl mode={mapRouteMode} setMode={handleRouteModeChange}
               disabled={false} sameRoute={sameSelectedRoute} directBusFallback={false} />}
         <div className={styles.secondaryControls}>
           <div>
 
-            <p className={styles.srOnly}>Check how sheltered the walk to transit feels before you pick a place.</p>
+
             <div className={styles.mapLayerControls} aria-label="Map layers">
               <button
                 type="button"
@@ -2935,6 +2935,35 @@ export default function Home() {
           </div>
         </div>
 
+            </div>
+          </aside>
+        )}
+      </div>
+
+        <div id="home-comparison-view" ref={comparisonPanelRef}>
+          {comparison.open && <HomeComparison state={comparison.state} entries={comparison.entries}
+            diagnosticDataBase={DATA_BASE}
+            storageUnavailable={comparison.storageUnavailable}
+            shared={comparison.shared}
+            onShare={() => setShareOpen(true)}
+            onSaveShared={() => { if (comparisonController.saveShared()) stripComparisonFragment(); }}
+            onDiscardShared={() => { comparisonController.discardShared(); stripComparisonFragment(); }}
+            onCategory={category => dispatchComparison({ type: 'category', category })}
+            onActivate={postal => dispatchComparison({ type: 'activate', postal })}
+            onRemove={postal => dispatchComparison({ type: 'remove', postal })}
+            onRetry={postal => comparisonController.retry(postal)}
+            onClear={() => dispatchComparison({ type: 'reset' })}
+            onAdd={() => closeComparison(true)} onClose={() => closeComparison()} />}
+        </div>
+        {shareOpen && comparison.open && <ComparisonShareDialog open
+          link={buildComparisonLink(window.location.href, comparison.state)} onClose={() => setShareOpen(false)} />}
+        <footer ref={dataDockRef} className={styles.dataDock} data-map-overlay="bottom" hidden={comparison.open}>
+          <DataDetails manifest={manifest} onToggle={event => {
+            setAboutDataOpen(event.currentTarget.open);
+            if (event.currentTarget.open) setExposureSelection(null);
+          }}>
+            {primary && <details className={styles.technicalRecord}>
+              <summary>Technical record</summary>
             {primary?.score && !activeSelection?.score ? (
               activeSelection?.publishedOption?.selectedSource.selectionRef.kind === "candidate"
                 ? <p className={styles.stateNote}>No full score is recorded for this alternative walk.</p> : null
@@ -2968,33 +2997,9 @@ export default function Home() {
               hideWalkControls
               hideExposureDetails
             />}
-            </div>
-          </aside>
-        )}
-      </div>
 
-        <div id="home-comparison-view" ref={comparisonPanelRef}>
-          {comparison.open && <HomeComparison state={comparison.state} entries={comparison.entries}
-            diagnosticDataBase={DATA_BASE}
-            storageUnavailable={comparison.storageUnavailable}
-            shared={comparison.shared}
-            onShare={() => setShareOpen(true)}
-            onSaveShared={() => { if (comparisonController.saveShared()) stripComparisonFragment(); }}
-            onDiscardShared={() => { comparisonController.discardShared(); stripComparisonFragment(); }}
-            onCategory={category => dispatchComparison({ type: 'category', category })}
-            onActivate={postal => dispatchComparison({ type: 'activate', postal })}
-            onRemove={postal => dispatchComparison({ type: 'remove', postal })}
-            onRetry={postal => comparisonController.retry(postal)}
-            onClear={() => dispatchComparison({ type: 'reset' })}
-            onAdd={() => closeComparison(true)} onClose={() => closeComparison()} />}
-        </div>
-        {shareOpen && comparison.open && <ComparisonShareDialog open
-          link={buildComparisonLink(window.location.href, comparison.state)} onClose={() => setShareOpen(false)} />}
-        <footer ref={dataDockRef} className={styles.dataDock} data-map-overlay="bottom" hidden={comparison.open}>
-          <DataDetails manifest={manifest} onToggle={event => {
-            setAboutDataOpen(event.currentTarget.open);
-            if (event.currentTarget.open) setExposureSelection(null);
-          }} />
+            </details>}
+          </DataDetails>
         </footer>
     </main>
   );

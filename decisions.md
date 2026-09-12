@@ -3592,3 +3592,26 @@ awaited. Three new page regressions cover ready, missing and rejected geometry;
 the isolated full suite passes1788tests. This reduces state churn, not an accepted
 latency claim: the instrumented browser pair had heavyCPU/paging. Evidence:
 qa/revamp-r1/settled-geometry-20260912/summary.json. No pipeline or release change.
+
+### 2026-09-12: Reopen Walk Usability, Keep Technical Evidence Out Of The Main Card
+
+The owner rejected the information-heavy interface despite prior regression passes.
+The normal result now contains destination/category, four walk measurements,
+Suggested/MRT-LRT/Bus choices and two actions. Walk details holds uncovered sections,
+other stops and map display/layers, not the legacy ScoreCard. Preserve that record
+behind About data > Technical record instead of deleting evidence or recalculating
+scores. Missing raw saved-category paths disable the corresponding tab; this is not
+a guarantee that all other categories contain drawable geometry. Existing normalized
+availability and missing-metric handling remain authoritative.
+
+Suggested and a specific transit category can legitimately select the same saved
+walk. Name the destination type so a station-named bus stop is not mistaken for an
+MRT exit. Do not promise a different route merely because a different tab is pressed.
+Shorten preview failure copy and keep retry/back targets separate; this does not
+resolve online provider availability. That browser failure-flow check is the next
+free UX slice. No new data, pipeline, provider activation or deployment is implied.
+
+postplan.html is the owner's readable current plan; PRODUCT-PLAN.md retains detailed
+tickets. Implementation DONE is not owner acceptance. Local headless checks cannot
+close native-phone usability or representative performance. Current evidence:
+qa/revamp-r1/ux-reset-20260912/summary.json. Isolated tests:1788+3=1791 across65files.

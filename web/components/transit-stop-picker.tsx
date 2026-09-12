@@ -33,7 +33,7 @@ export function TransitStopPicker({ selection, onSelect }: TransitStopPickerProp
   return (
     <details className={styles.picker}>
       <summary className={styles.summary}>
-        Other walks <span className={styles.count}>({choices.length})</span>
+        Other stops <span className={styles.count}>({choices.length})</span>
       </summary>
       <div className={styles.choices} role="group" aria-label="Published walks">
         {choices.map(({ option, roles }) => {

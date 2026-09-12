@@ -1,0 +1,191 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "base": "5f02a68402df969b3cb31abdf71615fbfac35d24",
+  "createdAt": "2026-09-12T15:58:38.985Z",
+  "buildId": "D1Gwrtssel1Jckk93bfdo",
+  "preview": "http://127.0.0.1:4386/",
+  "buildSourcesMatched": 156,
+  "tests": {
+    "checks": "checks-1789227872591/checks.json",
+    "focused": 250,
+    "focusedFiles": 5,
+    "isolated": 1791,
+    "isolatedFiles": 65,
+    "arithmetic": "1788 + 2 page tests + 1 summary test = 1791",
+    "types": true,
+    "integrity": true,
+    "nativeGuardsRerun": false
+  },
+  "browser": {
+    "viewportRun": "observed-UeZnEw/browser.json",
+    "rawExit": 1,
+    "pass": 59,
+    "fail": [
+      "returned-to-walk no technical dump"
+    ],
+    "correction": "observed-6w3yXi/browser.json",
+    "correctedChecks": 13,
+    "correctedOk": true,
+    "canceledInterception": {
+      "error": {
+        "interception": "Invalid InterceptionId.",
+        "cdp": {
+          "id": 297,
+          "method": "Fetch.continueRequest",
+          "sessionId": "905D2588AEBED639E9351913B30BFD64",
+          "error": {
+            "kind": "cdp",
+            "code": -32602,
+            "message": "Invalid InterceptionId."
+          }
+        }
+      },
+      "command": {
+        "sequence": 1172,
+        "timeMs": 21852,
+        "kind": "send",
+        "id": 297,
+        "method": "Fetch.continueRequest",
+        "sessionId": "905D2588AEBED639E9351913B30BFD64",
+        "params": {
+          "requestId": "interception-job-149.0"
+        }
+      },
+      "request": {
+        "sequence": 1171,
+        "timeMs": 21852,
+        "kind": "event",
+        "method": "Fetch.requestPaused",
+        "sessionId": "905D2588AEBED639E9351913B30BFD64",
+        "params": {
+          "requestId": "interception-job-149.0",
+          "request": {
+            "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260270.png",
+            "method": "GET",
+            "headers": {
+              "Origin": "http://127.0.0.1:4386",
+              "Referer": "http://127.0.0.1:4386/",
+              "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+              "accept": "image/webp,*/*",
+              "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+              "sec-ch-ua-mobile": "?0",
+              "sec-ch-ua-platform": "\"Windows\""
+            },
+            "initialPriority": "High",
+            "referrerPolicy": "strict-origin-when-cross-origin"
+          },
+          "frameId": "C677CAD067F9FF66B12E9ECF4978186D",
+          "resourceType": "XHR",
+          "networkId": "5680.161"
+        }
+      },
+      "cancellation": {
+        "sequence": 1153,
+        "timeMs": 21759,
+        "kind": "event",
+        "method": "Network.loadingFailed",
+        "sessionId": "905D2588AEBED639E9351913B30BFD64",
+        "params": {
+          "requestId": "5680.161",
+          "timestamp": 81044.562923,
+          "type": "Fetch",
+          "errorText": "net::ERR_ABORTED",
+          "canceled": true
+        }
+      }
+    },
+    "inspected": [
+      {
+        "path": "observed-KwxHgy/mobile-suggested.png",
+        "sha256": "954eeb3007b2f1dae50debabed7d5682fe19760650d93ab0a49acf97511128b8"
+      },
+      {
+        "path": "observed-KwxHgy/mobile-mrt_lrt.png",
+        "sha256": "e0ce92ca2741f03f68acaa34b3104dfb4cf6ef05206ea7db2d42b5ac85c0c2ec"
+      },
+      {
+        "path": "observed-pKQ6bM/mobile-details.png",
+        "sha256": "4bffb491aaacc252765d735cc73cdca2593e7af6c77beb299c1cc07694d5a15a"
+      },
+      {
+        "path": "observed-pKQ6bM/collapsed-320.png",
+        "sha256": "7afe5345e1024992d6bf991006841126d9262296cc122f9540fcc1b4fa2804db"
+      },
+      {
+        "path": "observed-UeZnEw/collapsed-1440.png",
+        "sha256": "6e7719c527ba04e5a8fc313b4f178b6d7bf67089913bb260d1e4a25c52f8c9ca"
+      },
+      {
+        "path": "observed-UeZnEw/details-1440.png",
+        "sha256": "d52d4813de87cd39778a569660dc0961018c245028c6f67ef0b07a4eb0f79755"
+      },
+      {
+        "path": "observed-UeZnEw/details-320.png",
+        "sha256": "031545f3d3c1b0d46d9d5f7ca80b388b1cdb2e5f9f41488a5877f952cca71f35"
+      },
+      {
+        "path": "observed-UeZnEw/details-390.png",
+        "sha256": "743c0a302f81f4588ff8f266900f0d59b39c225e3e22f23c0361de0f8aaee122"
+      },
+      {
+        "path": "observed-UeZnEw/technical-opt-in.png",
+        "sha256": "3ca62e9f4e55750719e8d4e18b73bd57ec46678758e362246041da70a56425b6"
+      },
+      {
+        "path": "observed-UeZnEw/returned-to-walk.png",
+        "sha256": "08ed985503c80ff7d999e75a7a8a226b17b60988db6e73ff949d98052f842dfb"
+      },
+      {
+        "path": "observed-6w3yXi/postplan-mobile.png",
+        "sha256": "7532d2005572b3a09a5410fb0d80ef4127d35e5df5224d48a5eaa99682a7ccac"
+      }
+    ],
+    "anchorsUnchanged": true,
+    "cleanup": true,
+    "notes": [
+      "First run compared render revisions instead of geometry; second captured a resize transition; third tested nested open instead of actual visibility. All original runner copies/outputs preserved.",
+      "Headless Chrome/CDP fallback after in-app browser bootstrap os error3. Not a physical-phone or performance benchmark.",
+      "Plan screenshot preceded final status-text update; layout unchanged."
+    ]
+  },
+  "changes": [
+    ".agents/STATE.md",
+    "PRODUCT-PLAN.md",
+    "decisions.md",
+    "qa/verification/REVAMP-R1-core-walk.md",
+    "web/app/page.module.css",
+    "web/app/page.tsx",
+    "web/components/exposure-section-explorer.tsx",
+    "web/components/transit-stop-picker.tsx",
+    "web/components/walk-summary.tsx",
+    "web/lib/__tests__/accessibility-render.test.tsx",
+    "web/lib/__tests__/exposure-section-explorer.test.tsx",
+    "web/lib/__tests__/published-walk-page.test.tsx",
+    "web/lib/__tests__/score-card-copy.test.ts",
+    "web/lib/__tests__/transit-stop-picker.test.tsx",
+    "web/lib/__tests__/walk-summary-options.test.ts"
+  ],
+  "appendOnlyEvidence": true,
+  "scope": {
+    "pipelineRuns": 0,
+    "installations": 0,
+    "deployments": 0,
+    "protectedWrites": 0,
+    "livePreviewProviderTested": false
+  },
+  "findings": [
+    "Owner usability rejection is valid: passing regressions did not make the legacy technical score panel suitable for the normal walk journey. It is now opt-in under About data > Technical record.",
+    "MRT/LRT and bus pointer clicks update destination, metrics, URL and source geometry for the public 018956 fixture. Suggested and Bus stops legitimately share the same saved bus route. Explicit destination type makes that less misleading.",
+    "Missing raw category paths now disable tabs. Geometry absence/provider preview failures are separate conditions; no all-postal coverage or live provider reliability claim is made.",
+    "Current card and walk-details captures fit four viewport sizes. The final raw viewport run has 59 passing assertions and one wrong hidden-disclosure assertion; it is not relabelled as a clean run. A separate actual-visibility correction passes 13 checks.",
+    "One viewport-run CDP continue failure maps exactly to an already canceled OneMap tile request. This is recorded independently of the app readiness checks, not silently ignored.",
+    "1791 = 1788 + 3 isolated web tests in 65 unchanged test files. Added two page disclosure/disabled-control tests and one selected-transit-type test. Copy assertions intentionally changed with inherited verbose labels removed.",
+    "postplan.html now distinguishes checked local UX, pending owner acceptance, unsaved-stop preview work, reporting/service decisions, data gates, maintenance and release. No production deployment or pipeline execution occurred."
+  ],
+  "disagreements": [
+    "A different tab need not mean a different route: Suggested can already be the saved bus or MRT walk. Do not invent another route or recalculate values to make the button appear active.",
+    "This cleanup is not full product completion or proof of faster map loads. Physical-phone usability, live preview availability, representative performance and private reporting remain open."
+  ],
+  "next": "Browser failed/slow unsaved-stop preview and missing-category acceptance, then owner/device UX acceptance. No provider or deployment activation without specific approval."
+}

@@ -1,0 +1,302 @@
+[
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/browser.mjs",
+    "sha256": "edc058939958a09d9ea34c4de60ff40acbaa7ba44c9467734ca7a6ecd11e94ef"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/build-1/build.json",
+    "sha256": "61813a7369225bb69ae0143558807e941b00d63ad55010173923a0dfba6b6dbc"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/build-1/runner.mjs",
+    "sha256": "0a059a29f89e31b6db8ccc1b2a16ed37b88654809607f580f8987ee78c194107"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/build-1/started.json",
+    "sha256": "a7a508591228b93a0ba2b76752a11791a85c56a49b67ef6e1ddf5f7a27a8fe51"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/build-1/stderr.txt",
+    "sha256": "9ab3a3b2d688613039e0a91133a4c3c632f73251d69c79d5cb14a50230644748"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/build-1/stdout.txt",
+    "sha256": "78edce85019505a91fa52ff7a3707593c9033fffa57be14b400d4d9e2f305d32"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/build-2/build.json",
+    "sha256": "b6d4fc52a611c19ea4e07d955367e8cc731fe97ba5256dcb99359bf6aa9811a5"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/build-2/runner.mjs",
+    "sha256": "f5606dbc99c93d21c7d8e3cd5cefa60d4fe1808365dc0cbbffc1384cbcaf998e"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/build-2/started.json",
+    "sha256": "51fb50a026621152ffb9f1722da5d44759e65b86ce3349db4989a62a4a396281"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/build-2/stderr.txt",
+    "sha256": "9ab3a3b2d688613039e0a91133a4c3c632f73251d69c79d5cb14a50230644748"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/build-2/stdout.txt",
+    "sha256": "3bb6048872c00eb67e5250918ca42c1e4052c6d5eca4c5936c7c3d43f2ada727"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/build.mjs",
+    "sha256": "f5606dbc99c93d21c7d8e3cd5cefa60d4fe1808365dc0cbbffc1384cbcaf998e"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/checks-1789227048418/checks.json",
+    "sha256": "dd24c55a42a129ac467c09b0b7ffd3b0d7354260f7d759a11989692bac6f6d10"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/checks-1789227048418/focused.stderr.txt",
+    "sha256": "b4acd4f819050212c4fe3b3ed8416421330f7ff8c72cb9bb667c335f3e24a94e"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/checks-1789227048418/focused.stdout.txt",
+    "sha256": "014a6fa4f62a623fd17289b7e5442db067e101cc5de3b7e7ea42a9765b537d3d"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/checks-1789227048418/integrity.stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/checks-1789227048418/integrity.stdout.txt",
+    "sha256": "a55d5656e2f11495899c7852f15eb1388ff4233c838fb3be1fc0fc736e7fab87"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/checks-1789227048418/isolated.stderr.txt",
+    "sha256": "91d0d0a71cde97605286482b62857c45e5e35682063492eec2c8980d338a374f"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/checks-1789227048418/isolated.stdout.txt",
+    "sha256": "ec0ff0bb9d8a9e77b51310b7c6a305c2a102391bbb8e28913070f2779f0f28b1"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/checks-1789227048418/types.stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/checks-1789227048418/types.stdout.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/checks-1789227872591/checks.json",
+    "sha256": "5074afc812344f4e92c75557984a766d70ae31145b041962f479903b0af65fd4"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/checks-1789227872591/focused.stderr.txt",
+    "sha256": "b4acd4f819050212c4fe3b3ed8416421330f7ff8c72cb9bb667c335f3e24a94e"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/checks-1789227872591/focused.stdout.txt",
+    "sha256": "1c3fe7bb8ffa9bdf365c9cf491bd46ff6bc78ad2f20e4400e0f428c42471f992"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/checks-1789227872591/integrity.stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/checks-1789227872591/integrity.stdout.txt",
+    "sha256": "a55d5656e2f11495899c7852f15eb1388ff4233c838fb3be1fc0fc736e7fab87"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/checks-1789227872591/isolated.stderr.txt",
+    "sha256": "13a2d4cd00330f4ff56e3515eb8cadd3c2291767da260ddc728960ce548c146f"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/checks-1789227872591/isolated.stdout.txt",
+    "sha256": "710a3b55c5e5f2f6e1974370f624f1bef6a892e961c3d59d654d27329f2c3f7f"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/checks-1789227872591/types.stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/checks-1789227872591/types.stdout.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/checks.mjs",
+    "sha256": "874e0b48d25aca79835bd57ae7731702168116ba52f91547ad0dc2c96275d5af"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/disclosure-browser.mjs",
+    "sha256": "c9eda4661e65c7244f04849ff7c80cd6401868a38837dc203737020858ffa980"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-6w3yXi/browser.json",
+    "sha256": "5095c64c52b76c040163d19688616b72742b2f792b1e59a24af22b5619a44848"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-6w3yXi/mobile-suggested.png",
+    "sha256": "d252daccfb22050071720c00b01e72e8df775e589eae588f4152857ac23950ac"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-6w3yXi/postplan-mobile.png",
+    "sha256": "7532d2005572b3a09a5410fb0d80ef4127d35e5df5224d48a5eaa99682a7ccac"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-6w3yXi/returned-to-walk.png",
+    "sha256": "08ed985503c80ff7d999e75a7a8a226b17b60988db6e73ff949d98052f842dfb"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-6w3yXi/runner.mjs",
+    "sha256": "c9eda4661e65c7244f04849ff7c80cd6401868a38837dc203737020858ffa980"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-6w3yXi/technical-opt-in.png",
+    "sha256": "3ca62e9f4e55750719e8d4e18b73bd57ec46678758e362246041da70a56425b6"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-KwxHgy/browser.json",
+    "sha256": "30fc0553c34dc77b402eaf356d37452ab7c12d717fa7c6100844337446e44480"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-KwxHgy/mobile-best_transit.png",
+    "sha256": "954eeb3007b2f1dae50debabed7d5682fe19760650d93ab0a49acf97511128b8"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-KwxHgy/mobile-bus.png",
+    "sha256": "56870c44153cbb2f452d5e2a9245ef7efacf5cadab588fe8c675108ed397178f"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-KwxHgy/mobile-mrt_lrt.png",
+    "sha256": "e0ce92ca2741f03f68acaa34b3104dfb4cf6ef05206ea7db2d42b5ac85c0c2ec"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-KwxHgy/mobile-suggested.png",
+    "sha256": "954eeb3007b2f1dae50debabed7d5682fe19760650d93ab0a49acf97511128b8"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-KwxHgy/runner.mjs",
+    "sha256": "4450efa47947a11ce6c1a06e14147166acb54462bcd992990c1c5326e1638efb"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-pKQ6bM/browser.json",
+    "sha256": "f20c67f25459e8342ad705e79d6cd862de2ade179d94f8a3b1c615d3873fa0b9"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-pKQ6bM/collapsed-320.png",
+    "sha256": "7afe5345e1024992d6bf991006841126d9262296cc122f9540fcc1b4fa2804db"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-pKQ6bM/mobile-best_transit.png",
+    "sha256": "d252daccfb22050071720c00b01e72e8df775e589eae588f4152857ac23950ac"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-pKQ6bM/mobile-bus.png",
+    "sha256": "bccd3d296bf63729259f54f1e360ca046b3f5e3dba3ec07c5648f0d6fad5bc9a"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-pKQ6bM/mobile-details.png",
+    "sha256": "4bffb491aaacc252765d735cc73cdca2593e7af6c77beb299c1cc07694d5a15a"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-pKQ6bM/mobile-mrt_lrt.png",
+    "sha256": "d073bb92a28acb092bb738062a30f858d378ea093a57656cbdf55a6a3a456252"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-pKQ6bM/mobile-suggested.png",
+    "sha256": "d252daccfb22050071720c00b01e72e8df775e589eae588f4152857ac23950ac"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-pKQ6bM/runner.mjs",
+    "sha256": "3624e04d49c30d8fc0ad1b2d663610a6fcec33000709fbdcad788a71cdc049cd"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-UeZnEw/browser.json",
+    "sha256": "4c2ae01c4f11f4a8b14ffe4d269fbce7b650e670442eb5f20d073e3aaff6b7d0"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-UeZnEw/collapsed-1440.png",
+    "sha256": "6e7719c527ba04e5a8fc313b4f178b6d7bf67089913bb260d1e4a25c52f8c9ca"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-UeZnEw/collapsed-320.png",
+    "sha256": "7afe5345e1024992d6bf991006841126d9262296cc122f9540fcc1b4fa2804db"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-UeZnEw/collapsed-390.png",
+    "sha256": "7d88e9c83705166e12702933c91ba0e178ea491e33caf0452a0998169f3f82f6"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-UeZnEw/details-1440.png",
+    "sha256": "d52d4813de87cd39778a569660dc0961018c245028c6f67ef0b07a4eb0f79755"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-UeZnEw/details-320.png",
+    "sha256": "031545f3d3c1b0d46d9d5f7ca80b388b1cdb2e5f9f41488a5877f952cca71f35"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-UeZnEw/details-390.png",
+    "sha256": "743c0a302f81f4588ff8f266900f0d59b39c225e3e22f23c0361de0f8aaee122"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-UeZnEw/mobile-best_transit.png",
+    "sha256": "d252daccfb22050071720c00b01e72e8df775e589eae588f4152857ac23950ac"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-UeZnEw/mobile-bus.png",
+    "sha256": "bccd3d296bf63729259f54f1e360ca046b3f5e3dba3ec07c5648f0d6fad5bc9a"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-UeZnEw/mobile-details.png",
+    "sha256": "4bffb491aaacc252765d735cc73cdca2593e7af6c77beb299c1cc07694d5a15a"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-UeZnEw/mobile-mrt_lrt.png",
+    "sha256": "d073bb92a28acb092bb738062a30f858d378ea093a57656cbdf55a6a3a456252"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-UeZnEw/mobile-suggested.png",
+    "sha256": "d252daccfb22050071720c00b01e72e8df775e589eae588f4152857ac23950ac"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-UeZnEw/returned-to-walk.png",
+    "sha256": "08ed985503c80ff7d999e75a7a8a226b17b60988db6e73ff949d98052f842dfb"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-UeZnEw/runner.mjs",
+    "sha256": "7a3aa5fe8ca16e80847ac733462b735650c340a67e296c3ba75f2a7425892e64"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/observed-UeZnEw/technical-opt-in.png",
+    "sha256": "3ca62e9f4e55750719e8d4e18b73bd57ec46678758e362246041da70a56425b6"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/preview-2.json",
+    "sha256": "383d2c5ce2888130e059ff56e48e964c3660a06892c3d58ff5dade1c84444d2d"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/preview-2.mjs",
+    "sha256": "639e2129747b9beda0df5f27fe1db59c6c5bfea128a17a9a59308020ead360fa"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/preview.json",
+    "sha256": "225e0c6ac9ae4089724272b585c9aa21640b18ded6ea71bcc313e9c3b0f066d5"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/preview.mjs",
+    "sha256": "4705b8945b11cd88dd5411b45f4ce91c7fab68e717fef7a369bbea0b0da28ab0"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/record.mjs",
+    "sha256": "9d9c1f63f70b7600e5c6c40d7c840c4fc5852e827b69d1530f28e623cba54d9c"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/source-check-2.json",
+    "sha256": "eb4972883eeb056b0d65b4856829eac230984cb80fffac00472de4bcc7f31d9c"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/source-check.json",
+    "sha256": "a9c12efdfd9a16ee85b03c00673d19caefe47005e614ce4c5937f9a70b9ed95e"
+  },
+  {
+    "path": "qa/revamp-r1/ux-reset-20260912/summary.json",
+    "sha256": "a0d3de9ae372e891659912e136247ad7bf198447b49d39696f9e9c0aaba3770e"
+  }
+]

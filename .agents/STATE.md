@@ -1,28 +1,23 @@
 # Current State
 
-Date: 2026-09-12
+Date: 2026-09-13
 Working root: C:\sgSHIOK2026
 Machine: Prawn-E14
-Startup: assert cwd equals C:\sgSHIOK2026; abort otherwise. All writes use absolute C: paths. X: is a cold mirror, never a session root.
+Startup: assert cwd equals C:\sgSHIOK2026; abort otherwise. Absolute C: writes only. X: is a cold mirror, never a session root.
 
-Base: 4bddf40 on main, pushed. Last implementation:8a8217c settled-geometry fix.
-Goal BLOCKED, not complete. PRODUCT-PLAN has31tasks,14done/17open. Do not repeat completed checks to manufacture progress.
-Current preview: http://127.0.0.1:4374/ build2aYxZG6C5VyvZ5pQfNOkD; tmp/settled-geometry-20260912-build-1/web.
-Owned proxy/dataPID23948 ports4374/4322; NextPID17020 port4373. Verify live identity before cleanup. Left live for owner.
-Older4362preview/PIDs16096+16512 remains unchanged and does NOT serve the latest fix.
-Latest validation:1788webtests/65files+42native guards,TypeScript,integrity,build pass.3new ready/missing/rejected geometry cases.
-Latest browser: cold/warm3checks pass;2parent-inspected390x844captures have4current features. Warm populated route write2to1; no speedup claim.
-Evidence: qa/revamp-r1/settled-geometry-20260912/summary.json. No pending command sessions; owned browser cleaned up.
-T01 local retained-tab/current-B acceptance passed27checks/7captures: retained-current-20260912/summary.json. No replay merely forPASS.
-T25 current worker lifecycle proved in worker-lifecycle-20260912/summary.json; original raw failures retained. Native platform/physical evidence remains open.
-T02 performance gate: latest valid counters show near100%CPU/paging despite availableRAM. Stop further profiles under equivalent pressure.
-T19 full scan gate: latest200rowpilot projected9111s>900s. Even zero normalization/output leaves2257s buffered. No full scan; don't chase tiny CPU-only optimizations.
-T13 provider/privacy/caps/moderator/backup questions already sent; no reply assumed. README no-Cloudflare rule remains until explicit approval.
-T14-T18 depend onT13. T20/T21 depend on coverage register/job approval. T23 scheduler/notice activation needs owner.
-T26 needs real-device/user participation. T27 needs release identity/retained-runtime security disposition and acceptance. T28 needs explicit deployment approval.
-Peer quota unavailable until2026-09-15 09:34; do not evade. Parent review only. Browser skill bootstrap failed os error3; owned CDP fallback disclosed.
-No weights.yaml/raw/processed/existing public data/checksums/qa-p6..p10/qa-p11-d/qa-releases mutation. qa/verification append-only.
-No scoring/export/rescore/subset/check/ingest/network, dependency install, account activation or deployment without specific approval. Stop input mismatch.
-Git deployment disabled. Exact staging, coherent conventional commits, push main after each. No delete/reset/stash/amend/force/history rewrite.
-Block audit:3consecutive equivalent impasse observations after implementation (gate audit, revalidation, final revalidation). No owner replies; peer quota reset stillfuture. CPU eased55.56/63.95/73.94percent in3samples, not a stable performance window. Resume only on actionable input or external change; a resumed run starts a fresh blocked audit.
-Next: owner decisions/actions or materially changed host conditions; inspect current evidence before any restart. Full scope remains PRODUCT-PLAN/ARCHITECTURE/ARCHITECTURE-DECISIONS/decisions.
+Current owner request: simplify cluttered walk UI, verify transit choices, maintain postplan.html. Local implementation and verification complete; owner acceptance remains open.
+Base:5f02a68 on main. Current changes: compact card, explicit transit type, unavailable-tab disabling, technical record under About data, simple preview failure copy.
+Current preview: http://127.0.0.1:4386/ build D1Gwrtssel1Jckk93bfdo; tmp/ux-reset-20260912-build-2/web.
+Owned proxy/dataPID26468 ports4386/4333; NextPID18784 port4385. Verify identity before cleanup. Kept live for owner.
+Ports4384/4374/4362 are older snapshots, not current. Do not use them to assess this cleanup.
+Checks:1791webtests/65files (1788+3),250focused/5files,TypeScript,integrity,production-mode build pass. No native guard rerun claimed.
+Browser: saved MRT/bus/Suggested switching and4viewport layouts checked;13targeted disclosure/plan checks pass. Earlier failed harness assumptions and one exact canceled-tile command fault retained.
+Evidence:qa/revamp-r1/ux-reset-20260912/summary.json and append-only qa/verification/REVAMP-R1-core-walk.md.
+Readable owner plan:postplan.html. Detailed scope:PRODUCT-PLAN.md. 31original tickets/14implementation DONE does not mean owner-accepted product.
+Next free UX slice: browser failed/slow unsaved-stop preview and missing-category acceptance. Saved tabs work on the tested fixture; provider availability and representative speed remain unresolved.
+Broader goal previously BLOCKED, not complete. This new owner UX request was actionable and was implemented without reopening unrelated audits.
+T13 reporting provider/privacy/limits/moderator/backup decisions pending;T14-T18 depend. T19read-only900s gate failed; no full scan.
+T21data-job approval,T23scheduler/notice activation,T26physical/user acceptance,T27release/security identity,T28explicitdeployment remain separate.
+Peer quota unavailable until2026-09-15 09:34; no evasion. Parent review. In-app browser bootstrap failed os error3; owned Chrome/CDP fallback used and cleaned up.
+No protected inputs/weights/existing data/QA payload mutations; qa/verification append-only. No pipeline, installs, account activation or deployment.
+Git deployment disabled. Exact staging, coherent conventional commits and push main. Never delete/reset/stash/amend/force/history rewrite.

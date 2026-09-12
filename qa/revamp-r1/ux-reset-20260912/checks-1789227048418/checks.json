@@ -1,0 +1,57 @@
+[
+  {
+    "name": "focused",
+    "executable": "C:\\Program Files\\nodejs\\node.exe",
+    "args": [
+      "node_modules/vitest/vitest.mjs",
+      "run",
+      "--globals",
+      "--maxWorkers",
+      "1",
+      "--no-file-parallelism",
+      "lib/__tests__/published-walk-page.test.tsx",
+      "lib/__tests__/accessibility-render.test.tsx",
+      "lib/__tests__/transit-stop-picker.test.tsx",
+      "lib/__tests__/exposure-section-explorer.test.tsx",
+      "lib/__tests__/score-card-copy.test.ts"
+    ],
+    "cwd": "C:\\sgSHIOK2026\\web",
+    "exitCode": 0,
+    "elapsedMs": 12886
+  },
+  {
+    "name": "isolated",
+    "executable": "C:\\Program Files\\nodejs\\node.exe",
+    "args": [
+      "web/scripts/test-without-production-data.mjs",
+      "--reporter=dot",
+      "--testTimeout=15000"
+    ],
+    "cwd": "C:\\sgSHIOK2026",
+    "exitCode": 0,
+    "elapsedMs": 146514
+  },
+  {
+    "name": "types",
+    "executable": "C:\\Program Files\\nodejs\\node.exe",
+    "args": [
+      "node_modules/typescript/bin/tsc",
+      "--noEmit",
+      "--incremental",
+      "false"
+    ],
+    "cwd": "C:\\sgSHIOK2026\\web",
+    "exitCode": 0,
+    "elapsedMs": 6057
+  },
+  {
+    "name": "integrity",
+    "executable": "python",
+    "args": [
+      "scripts/check_repo_integrity.py"
+    ],
+    "cwd": "C:\\sgSHIOK2026",
+    "exitCode": 0,
+    "elapsedMs": 605
+  }
+]

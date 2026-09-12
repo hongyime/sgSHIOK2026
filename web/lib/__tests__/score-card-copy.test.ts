@@ -63,7 +63,8 @@ describe("score card copy", () => {
     expect(source).not.toContain("within the current scoring range");
     expect(source).not.toContain("Current scoring range is 1.2 km");
     expect(source).not.toContain("Outside current scoring range");
-    expect(source).toContain('if (option.id === "best_transit") return available ? "displayed walk" : "no published walk";');
+    expect(source).toContain('disabled={!available}');
+    expect(source).toContain('No saved walk for ${option.label.toLowerCase()}');
     expect(source).not.toContain('if (option.id === "best_transit") return available ? "displayed walk" : "unavailable";');
     expect(source).toContain("No verified shelter-map walk");
     expect(source).toContain("Nearby direct bus service without verified shelter-map walk");
@@ -181,7 +182,7 @@ describe("score card copy", () => {
     expect(source).not.toContain('aria-label="Transit target type"');
     expect(source).not.toContain('aria-label="Transit target"');
     const pickerSource = readFileSync(join(__dirname, "../../components/transit-stop-picker.tsx"), "utf-8");
-    expect(pickerSource).toContain("Other walks");
+    expect(pickerSource).toContain("Other stops");
     expect(pickerSource).toContain('aria-label="Published walks"');
     expect(pickerSource).not.toContain("Nearby transit stops and exits");
     expect(pickerSource).not.toContain("Nearby transit targets");
@@ -189,12 +190,12 @@ describe("score card copy", () => {
     expect(pickerSource).not.toContain('aria-label="Nearby transit targets"');
     expect(pickerSource).not.toContain('aria-label="Transit stop picker"');
     expect(pickerSource).not.toContain('aria-label="Nearby transit stops"');
-    expect(source).toContain('{ id: "best_transit", label: "Published walk" }');
+    expect(source).toContain('{ id: "best_transit", label: "Suggested" }');
     expect(source).not.toContain('{ id: "best_transit", label: "Auto-picked" }');
-    expect(source).toContain('{ id: "mrt_lrt", label: "MRT/LRT exits" }');
+    expect(source).toContain('{ id: "mrt_lrt", label: "MRT/LRT" }');
     expect(source).toContain('{ id: "bus", label: "Bus stops" }');
     expect(source).not.toContain('{ id: "best_transit", label: "Best transit" }');
-    expect(source).not.toContain('{ id: "mrt_lrt", label: "MRT/LRT" }');
+    expect(source).not.toContain('{ id: "mrt_lrt", label: "MRT/LRT exits" }');
     expect(source).not.toContain('{ id: "bus", label: "Bus" }');
     expect(source).toContain('if (mode === "mrt_lrt") return "MRT/LRT exit";');
     expect(source).toContain('if (mode === "bus") return "bus stop";');
@@ -243,7 +244,7 @@ describe("score card copy", () => {
     expect(layoutSource).toContain('url: "https://sgshiok.vercel.app/"');
     expect(layoutSource).toContain('card: "summary"');
     expect(layoutSource).not.toContain('title: "S.H.I.O.K. Index"');
-    expect(source).toContain("Check how sheltered the walk to transit feels before you pick a place.");
+    expect(source).not.toContain("Check how sheltered the walk to transit feels before you pick a place.");
     expect(source).toContain("See how much of the walk to transit is covered, and where it is exposed.");
     expect(source).not.toContain(
       "If you moved here, see covered-walkway ratio and exposed gaps on the walk to a transit stop or exit, plus the night-lighting map layer",

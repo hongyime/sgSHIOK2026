@@ -1,5 +1,16 @@
 # SHIOK Revamp Execution Plan
 Current product assessment: 2026-09-08
+Owner usability rejection: 2026-09-12. UX01-UX03 cleanup is locally verified;
+see postplan.html for the readable current plan. Existing implementation DONE
+labels below do not establish owner acceptance. Remove the main-journey technical
+dump, verify actual category clicks and small-screen layout on a fresh build,
+and distinguish unavailable saved walks from broken controls. Evidence belongs
+in qa/revamp-r1/ux-reset-20260912; production is not changed by this task.
+Fresh preview: http://127.0.0.1:4386/ build D1Gwrtssel1Jckk93bfdo.
+1791/65 isolated tests, TypeScript/integrity and built-app category/layout checks
+pass in their stated scopes. UX04 owner/device acceptance is still open. The next
+free UX slice is browser-level failed/slow unsaved-stop preview and unavailable
+category acceptance; provider reliability and representative speed are not fixed.
 Authoritative design: ARCHITECTURE.md
 Decisions: ARCHITECTURE-DECISIONS.md
 Test catalogue: qa/SHIOK-acceptance-tests.md

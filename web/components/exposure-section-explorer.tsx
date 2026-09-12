@@ -70,7 +70,7 @@ function Explorer({ model, selectedKey, onSelect, mode, onFocusedRemoval }: Expo
       }}
     >
       <summary ref={summaryRef} className={styles.summary}>
-        Mapped exposed sections <span className={styles.count}>({sections.length})</span>
+        Uncovered sections <span className={styles.count}>({sections.length})</span>
       </summary>
       {(mode === "both" || model.status === "partial") && (
         <p className={styles.context}>

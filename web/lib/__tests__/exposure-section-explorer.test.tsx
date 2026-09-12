@@ -214,7 +214,7 @@ describe("ExposureSectionExplorer", () => {
     expect(root().type).toBe("details");
     expect(root().props.open).toBeUndefined();
     const summary = elements(tree).find(element => element.type === "summary")!;
-    expect(text(summary)).toBe("Mapped exposed sections (5)");
+    expect(text(summary)).toBe("Uncovered sections (5)");
     expect(summary.props.onKeyDown).toBeUndefined();
     expect(summary.props.tabIndex).toBeUndefined();
     for (const item of elements(tree).filter(element => element.type === "button")) {
