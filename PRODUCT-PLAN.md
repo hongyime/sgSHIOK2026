@@ -223,6 +223,7 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 
 ### [ ] T13: Owner approves the reporting service boundary
 - Status: OWNER. Size: S. Parent: P1.3.
+- Owner request2026-09-12: sent concrete asynchronous questions covering the current no-Cloudflare policy exception, proposed private payload/90day-or30day retention and7day recovery residue, caps, moderator/absence handling and backup/key owner. Official Access onboarding and D1 Free-limit behaviour rechecked. No answer, provisioning, paid plan, resident storage or activation assumed. T14-T18 remain gated pending the actual decision and required setup.
 - Depends on: T12.
 - Scope: approval recorded in decisions.md; owner account/credential setup only after explicit authorization.
 - Do: obtain provider, privacy/retention, abuse-limit, access-control and moderation-cadence decisions. Identify exactly which account/secret or physical action the owner must supply.
@@ -405,6 +406,7 @@ No ticket is DONE merely because a document, mock, passing count or button exist
   project-suite or runtime release acceptance is claimed.
 
 ### [ ] T25: Run cross-feature accessibility and failure acceptance
+- Actual worker lifecycle2026-09-12: current-app trace explicitly joins page request to attached worker target/session,200response and loadingFinished there;18592observed response bytes match packaged6.4.1worker. Inspected current map remains4features. Raw4pass/1strict-error failure remains unchanged; offline analysis explains10exact canceled tile commands and leaves0unexplained errors/page requests after the worker join.20native analysis contracts pass. Fourgzip404probes remain explicit; this closes the current worker-handoff diagnosis, not full transport/platform/performance acceptance and not retroactive attribution of older traces. Evidence: qa/revamp-r1/worker-lifecycle-20260912/summary.json. No rerun solely for a green raw label.
 - Current-lock follow-up2026-09-12: first replay remains52pass/1audit failure on3uncorrelated CDP errors. New tracing records direct page ownership, Fetch command/reply IDs and raw Network events.45diagnostic contracts pass; new replay53/53 runtime/Fetch checks,14byte-verified and inspected captures, cleanup verified.4new command faults match exact canceled OneMap tiles. Complete transport remains incomplete:6gzip404s,5plain200 fallbacks,1optional transit probe without a plain request,1worker entry without page terminal. Do not relabel the old errors or close allT25. Retained-client/platform/representative-speed gates remain. Evidence: qa/revamp-r1/resume-20260912/summary.json.
 - Status: PARTIAL. Size: M. Parent: P3.1.
 - Depends on: T07, T11.

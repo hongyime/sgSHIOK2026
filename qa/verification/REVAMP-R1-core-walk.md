@@ -4485,3 +4485,42 @@ Both attempts cleaned up their owned browsers and used authenticated proxy shutd
 
 1. Local upgrade compatibility does not authorize retaining an unidentified production release or its older runtime. Separate those gates rather than rerunning this successful local sequence.
 2. Passing runtime/Fetch checks is not a complete-network claim; missing page-session worker terminals and fixture/probe404s remain explicit.
+
+## 2026-09-12: Actual-App Worker Lifecycle And Reporting Decision Request
+
+Root C:\sgSHIOK2026; hostname Prawn-E14; baseaa36d3d0eb60dca3997823a45001920bdd59cff3. Previous turn was progress: retained-tab/current-B sequence completed. No old blocked counter reused. Current state still contains17open tasks; reporting implementation T14-T18 explicitly depends on T13, not generic permission to finish.
+
+Sent owner asynchronous questions about the proposed Cloudflare Free reporting exception to the existing no-Cloudflare rule; private minimized reports, caps and retention; moderator/absence coverage and private encrypted backup/key ownership. No answer or authorization is assumed. No account, storage, secret, provider activation or deployment was created. Official docs rechecked September12: https://developers.cloudflare.com/cloudflare-one/setup/ still requires payment details during Free onboarding; https://developers.cloudflare.com/d1/platform/pricing/ says Free-limit exhaustion returns errors; https://developers.cloudflare.com/workers/platform/pricing/ lists Free limits. These checks do not verify the owner's account plan or guarantee operational cost.
+
+The actual current-app worker observation uses existing preview4362/buildsou6pZfEMMmsCl52vdXg4 and a fresh owned Chromium profile. It attaches the page and its workers separately, enables worker Network/Runtime before resuming execution, leaves full target/session IDs in the trace and reads the worker body through its owning session. No fixture worker or replacement response. Existing156source identities and11anchors match. No pipeline/build/install/data copy or preview modification. A during-run memory observation was4692.86MiB; it is not represented as a pre-launch measurement.
+
+```text
+node qa/revamp-r1/worker-lifecycle-20260912/browser.mjs
+PASS actual map worker entry completes in its attached worker session
+PASS handoff is the expected package-version worker
+PASS observed worker response bytes match versioned source
+PASS current map remains visible across capture
+FAIL no unexpected runtime/protocol failures or denied requests
+{"out":"C:\\sgSHIOK2026\\qa\\revamp-r1\\worker-lifecycle-20260912\\observed-Btxfds","ok":false,"checks":5,"cleanup":true}
+```
+
+Raw browser remains4pass+1fail=5checks,13.585seconds. Ten Invalid InterceptionId errors have complete command/Fetch/Network identities; separate offline analysis using the already-tested strict cancellation classifier accounts for all ten. No new browser run was made to obtain a green label.20native tests=15existing lifecycle contracts+5actual-trace/adversarial cases pass, with full stdout in summary.json; integrity reports repo_integrity=ok exit0.
+
+```text
+node qa/revamp-r1/worker-lifecycle-20260912/record.mjs
+{"workerLifecycleConfirmed":true,"explainedErrors":10,"unexplainedErrors":0,"remainingPageRequests":0,"originalBrowserPass":false}
+```
+
+Worker request949EDD14AE877A3A4DD05E1D4AB981D4 starts on page session94B3192044C9676389AAB02467FAA943. Explicit child attachment identifies sessionD1D2EC07CA479C8F470E30FD01DDA863 and matches page parentFFBB940D804BDF3E9CE042D98CB72D2E. Its200response and loadingFinished are in that child session. Observed18592bytes sha256ce4957017fe705ac2f9ebef206cca966d08d8621756c39326a78cf09757e7d75 match web/public/maplibre/6.4.1/maplibre-gl-worker.mjs. The inspected390x844screenshot contains the map and4current-key route features at both boundaries.
+
+This demonstrates the current-app handoff mechanism previously shown only in a fixture. It does not retrofit missing session telemetry into earlier runs. Fourgzip404probes remain in raw transport; no complete-network or representative performance claim. The owned browser cleaned up and existing preview remained untouched. Parent review only; peer quota is still unavailable until September15.
+
+### FINDINGS
+
+1. The actual app worker completes in its child session with matching package bytes. A missing page-session terminal was insufficient evidence of a worker failure.
+2. Ten exact canceled-tile command errors are separately explained; the strict raw run remains failed rather than rewritten.
+3. T13 decisions are now requested directly. Until the owner replies, resident-data storage, Cloudflare policy changes and reporting activation remain unapproved.
+
+### DISAGREEMENTS
+
+1. Page-only telemetry must not be treated as the complete lifecycle of a worker request. Capture ownership before interpreting missing events or attributing map failures.

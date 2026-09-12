@@ -1,0 +1,1127 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "base": "aa36d3d0eb60dca3997823a45001920bdd59cff3",
+  "originalBrowserPass": false,
+  "scope": "Worker lifecycle and recorded error attribution only. Original browser exit and raw transport failures are unchanged.",
+  "analysis": {
+    "workerLifecycleConfirmed": true,
+    "workers": {
+      "confirmed": [
+        {
+          "request": {
+            "sequence": 164,
+            "timeMs": 6322,
+            "kind": "event",
+            "method": "Network.requestWillBeSent",
+            "sessionId": "94B3192044C9676389AAB02467FAA943",
+            "params": {
+              "requestId": "949EDD14AE877A3A4DD05E1D4AB981D4",
+              "loaderId": "",
+              "documentURL": "http://127.0.0.1:4362/maplibre/6.4.1/maplibre-gl-worker.mjs",
+              "request": {
+                "url": "http://127.0.0.1:4362/maplibre/6.4.1/maplibre-gl-worker.mjs",
+                "method": "GET",
+                "headers": {
+                  "Accept": "*/*"
+                },
+                "initialPriority": "VeryLow",
+                "referrerPolicy": "strict-origin-when-cross-origin"
+              },
+              "timestamp": 45549.798292,
+              "wallTime": 1789192715.879954,
+              "initiator": {
+                "type": "other",
+                "url": "http://127.0.0.1:4362/?debugMap=1&postal=018956"
+              },
+              "redirectHasExtraInfo": false,
+              "type": "Script",
+              "frameId": "FFBB940D804BDF3E9CE042D98CB72D2E",
+              "hasUserGesture": false
+            }
+          },
+          "attachment": {
+            "sequence": 177,
+            "timeMs": 7187,
+            "kind": "event",
+            "method": "Target.attachedToTarget",
+            "sessionId": "94B3192044C9676389AAB02467FAA943",
+            "params": {
+              "sessionId": "D1D2EC07CA479C8F470E30FD01DDA863",
+              "targetInfo": {
+                "targetId": "949EDD14AE877A3A4DD05E1D4AB981D4",
+                "type": "worker",
+                "title": "http://127.0.0.1:4362/maplibre/6.4.1/maplibre-gl-worker.mjs",
+                "url": "http://127.0.0.1:4362/maplibre/6.4.1/maplibre-gl-worker.mjs",
+                "attached": true,
+                "parentId": "FFBB940D804BDF3E9CE042D98CB72D2E",
+                "canAccessOpener": false,
+                "parentFrameId": "FFBB940D804BDF3E9CE042D98CB72D2E",
+                "browserContextId": "45F51F9AC58E62A99083EFA5EAB05B9A"
+              },
+              "waitingForDebugger": true
+            }
+          },
+          "response": {
+            "sequence": 191,
+            "timeMs": 7244,
+            "kind": "event",
+            "method": "Network.responseReceived",
+            "sessionId": "D1D2EC07CA479C8F470E30FD01DDA863",
+            "params": {
+              "requestId": "949EDD14AE877A3A4DD05E1D4AB981D4",
+              "loaderId": "",
+              "timestamp": 45550.736074,
+              "type": "Script",
+              "response": {
+                "url": "http://127.0.0.1:4362/maplibre/6.4.1/maplibre-gl-worker.mjs",
+                "status": 200,
+                "statusText": "OK",
+                "headers": {
+                  "transfer-encoding": "chunked",
+                  "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+                  "cache-control": "public, max-age=31536000, immutable",
+                  "content-encoding": "gzip",
+                  "etag": "W/\"48a0-1a08b2f6f75\"",
+                  "connection": "keep-alive",
+                  "x-content-type-options": "nosniff",
+                  "referrer-policy": "strict-origin-when-cross-origin",
+                  "accept-ranges": "bytes",
+                  "keep-alive": "timeout=5",
+                  "date": "Sat, 12 Sep 2026 05:58:35 GMT",
+                  "last-modified": "Thu, 10 Sep 2026 11:58:56 GMT",
+                  "content-type": "application/javascript; charset=UTF-8",
+                  "vary": "Accept-Encoding"
+                },
+                "mimeType": "application/javascript",
+                "charset": "utf-8",
+                "connectionReused": false,
+                "connectionId": 0,
+                "remoteIPAddress": "127.0.0.1",
+                "remotePort": 4362,
+                "fromDiskCache": false,
+                "fromServiceWorker": false,
+                "fromPrefetchCache": false,
+                "encodedDataLength": 833,
+                "responseTime": 1789192715945.419,
+                "protocol": "http/1.1",
+                "alternateProtocolUsage": "unspecifiedReason",
+                "securityState": "unknown"
+              },
+              "hasExtraInfo": true
+            }
+          },
+          "terminal": {
+            "sequence": 192,
+            "timeMs": 7252,
+            "kind": "event",
+            "method": "Network.loadingFinished",
+            "sessionId": "D1D2EC07CA479C8F470E30FD01DDA863",
+            "params": {
+              "requestId": "949EDD14AE877A3A4DD05E1D4AB981D4",
+              "timestamp": 45550.74328,
+              "encodedDataLength": 833
+            }
+          }
+        }
+      ],
+      "unresolved": []
+    },
+    "page": {
+      "ok": false,
+      "observedRequests": 93,
+      "observedPauses": 94,
+      "fetchCommands": 94,
+      "explainedCanceledTileCommands": [
+        {
+          "command": {
+            "sequence": 279,
+            "timeMs": 8811,
+            "kind": "send",
+            "id": 65,
+            "method": "Fetch.continueRequest",
+            "sessionId": "94B3192044C9676389AAB02467FAA943",
+            "params": {
+              "requestId": "interception-job-40.0"
+            }
+          },
+          "reply": {
+            "sequence": 369,
+            "timeMs": 9132,
+            "kind": "reply",
+            "id": 65,
+            "sessionId": "94B3192044C9676389AAB02467FAA943",
+            "error": {
+              "kind": "cdp",
+              "code": -32602,
+              "message": "Invalid InterceptionId."
+            }
+          },
+          "cancellation": {
+            "networkId": "13908.51",
+            "fetchId": "interception-job-40.0",
+            "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8132.png",
+            "failure": {
+              "requestId": "13908.51",
+              "timestamp": 45551.974115,
+              "type": "Fetch",
+              "errorText": "net::ERR_ABORTED",
+              "canceled": true
+            }
+          }
+        },
+        {
+          "command": {
+            "sequence": 281,
+            "timeMs": 8819,
+            "kind": "send",
+            "id": 66,
+            "method": "Fetch.continueRequest",
+            "sessionId": "94B3192044C9676389AAB02467FAA943",
+            "params": {
+              "requestId": "interception-job-41.0"
+            }
+          },
+          "reply": {
+            "sequence": 370,
+            "timeMs": 9133,
+            "kind": "reply",
+            "id": 66,
+            "sessionId": "94B3192044C9676389AAB02467FAA943",
+            "error": {
+              "kind": "cdp",
+              "code": -32602,
+              "message": "Invalid InterceptionId."
+            }
+          },
+          "cancellation": {
+            "networkId": "13908.52",
+            "fetchId": "interception-job-41.0",
+            "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8134.png",
+            "failure": {
+              "requestId": "13908.52",
+              "timestamp": 45551.974168,
+              "type": "Fetch",
+              "errorText": "net::ERR_ABORTED",
+              "canceled": true
+            }
+          }
+        },
+        {
+          "command": {
+            "sequence": 283,
+            "timeMs": 8829,
+            "kind": "send",
+            "id": 67,
+            "method": "Fetch.continueRequest",
+            "sessionId": "94B3192044C9676389AAB02467FAA943",
+            "params": {
+              "requestId": "interception-job-42.0"
+            }
+          },
+          "reply": {
+            "sequence": 371,
+            "timeMs": 9135,
+            "kind": "reply",
+            "id": 67,
+            "sessionId": "94B3192044C9676389AAB02467FAA943",
+            "error": {
+              "kind": "cdp",
+              "code": -32602,
+              "message": "Invalid InterceptionId."
+            }
+          },
+          "cancellation": {
+            "networkId": "13908.53",
+            "fetchId": "interception-job-42.0",
+            "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8134.png",
+            "failure": {
+              "requestId": "13908.53",
+              "timestamp": 45551.974209,
+              "type": "Fetch",
+              "errorText": "net::ERR_ABORTED",
+              "canceled": true
+            }
+          }
+        },
+        {
+          "command": {
+            "sequence": 285,
+            "timeMs": 8846,
+            "kind": "send",
+            "id": 68,
+            "method": "Fetch.continueRequest",
+            "sessionId": "94B3192044C9676389AAB02467FAA943",
+            "params": {
+              "requestId": "interception-job-43.0"
+            }
+          },
+          "reply": {
+            "sequence": 372,
+            "timeMs": 9135,
+            "kind": "reply",
+            "id": 68,
+            "sessionId": "94B3192044C9676389AAB02467FAA943",
+            "error": {
+              "kind": "cdp",
+              "code": -32602,
+              "message": "Invalid InterceptionId."
+            }
+          },
+          "cancellation": {
+            "networkId": "13908.54",
+            "fetchId": "interception-job-43.0",
+            "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8131.png",
+            "failure": {
+              "requestId": "13908.54",
+              "timestamp": 45551.974273,
+              "type": "Fetch",
+              "errorText": "net::ERR_ABORTED",
+              "canceled": true
+            }
+          }
+        },
+        {
+          "command": {
+            "sequence": 287,
+            "timeMs": 8860,
+            "kind": "send",
+            "id": 69,
+            "method": "Fetch.continueRequest",
+            "sessionId": "94B3192044C9676389AAB02467FAA943",
+            "params": {
+              "requestId": "interception-job-44.0"
+            }
+          },
+          "reply": {
+            "sequence": 373,
+            "timeMs": 9136,
+            "kind": "reply",
+            "id": 69,
+            "sessionId": "94B3192044C9676389AAB02467FAA943",
+            "error": {
+              "kind": "cdp",
+              "code": -32602,
+              "message": "Invalid InterceptionId."
+            }
+          },
+          "cancellation": {
+            "networkId": "13908.55",
+            "fetchId": "interception-job-44.0",
+            "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8133.png",
+            "failure": {
+              "requestId": "13908.55",
+              "timestamp": 45551.974334,
+              "type": "Fetch",
+              "errorText": "net::ERR_ABORTED",
+              "canceled": true
+            }
+          }
+        },
+        {
+          "command": {
+            "sequence": 289,
+            "timeMs": 8865,
+            "kind": "send",
+            "id": 70,
+            "method": "Fetch.continueRequest",
+            "sessionId": "94B3192044C9676389AAB02467FAA943",
+            "params": {
+              "requestId": "interception-job-45.0"
+            }
+          },
+          "reply": {
+            "sequence": 374,
+            "timeMs": 9137,
+            "kind": "reply",
+            "id": 70,
+            "sessionId": "94B3192044C9676389AAB02467FAA943",
+            "error": {
+              "kind": "cdp",
+              "code": -32602,
+              "message": "Invalid InterceptionId."
+            }
+          },
+          "cancellation": {
+            "networkId": "13908.56",
+            "fetchId": "interception-job-45.0",
+            "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8131.png",
+            "failure": {
+              "requestId": "13908.56",
+              "timestamp": 45551.974375,
+              "type": "Fetch",
+              "errorText": "net::ERR_ABORTED",
+              "canceled": true
+            }
+          }
+        },
+        {
+          "command": {
+            "sequence": 291,
+            "timeMs": 8872,
+            "kind": "send",
+            "id": 71,
+            "method": "Fetch.continueRequest",
+            "sessionId": "94B3192044C9676389AAB02467FAA943",
+            "params": {
+              "requestId": "interception-job-46.0"
+            }
+          },
+          "reply": {
+            "sequence": 375,
+            "timeMs": 9137,
+            "kind": "reply",
+            "id": 71,
+            "sessionId": "94B3192044C9676389AAB02467FAA943",
+            "error": {
+              "kind": "cdp",
+              "code": -32602,
+              "message": "Invalid InterceptionId."
+            }
+          },
+          "cancellation": {
+            "networkId": "13908.57",
+            "fetchId": "interception-job-46.0",
+            "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8132.png",
+            "failure": {
+              "requestId": "13908.57",
+              "timestamp": 45551.97443,
+              "type": "Fetch",
+              "errorText": "net::ERR_ABORTED",
+              "canceled": true
+            }
+          }
+        },
+        {
+          "command": {
+            "sequence": 293,
+            "timeMs": 8876,
+            "kind": "send",
+            "id": 72,
+            "method": "Fetch.continueRequest",
+            "sessionId": "94B3192044C9676389AAB02467FAA943",
+            "params": {
+              "requestId": "interception-job-47.0"
+            }
+          },
+          "reply": {
+            "sequence": 376,
+            "timeMs": 9138,
+            "kind": "reply",
+            "id": 72,
+            "sessionId": "94B3192044C9676389AAB02467FAA943",
+            "error": {
+              "kind": "cdp",
+              "code": -32602,
+              "message": "Invalid InterceptionId."
+            }
+          },
+          "cancellation": {
+            "networkId": "13908.58",
+            "fetchId": "interception-job-47.0",
+            "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8131.png",
+            "failure": {
+              "requestId": "13908.58",
+              "timestamp": 45551.974498,
+              "type": "Fetch",
+              "errorText": "net::ERR_ABORTED",
+              "canceled": true
+            }
+          }
+        },
+        {
+          "command": {
+            "sequence": 295,
+            "timeMs": 8881,
+            "kind": "send",
+            "id": 73,
+            "method": "Fetch.continueRequest",
+            "sessionId": "94B3192044C9676389AAB02467FAA943",
+            "params": {
+              "requestId": "interception-job-48.0"
+            }
+          },
+          "reply": {
+            "sequence": 377,
+            "timeMs": 9139,
+            "kind": "reply",
+            "id": 73,
+            "sessionId": "94B3192044C9676389AAB02467FAA943",
+            "error": {
+              "kind": "cdp",
+              "code": -32602,
+              "message": "Invalid InterceptionId."
+            }
+          },
+          "cancellation": {
+            "networkId": "13908.59",
+            "fetchId": "interception-job-48.0",
+            "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8133.png",
+            "failure": {
+              "requestId": "13908.59",
+              "timestamp": 45551.974551,
+              "type": "Fetch",
+              "errorText": "net::ERR_ABORTED",
+              "canceled": true
+            }
+          }
+        },
+        {
+          "command": {
+            "sequence": 298,
+            "timeMs": 8889,
+            "kind": "send",
+            "id": 74,
+            "method": "Fetch.continueRequest",
+            "sessionId": "94B3192044C9676389AAB02467FAA943",
+            "params": {
+              "requestId": "interception-job-49.0"
+            }
+          },
+          "reply": {
+            "sequence": 378,
+            "timeMs": 9139,
+            "kind": "reply",
+            "id": 74,
+            "sessionId": "94B3192044C9676389AAB02467FAA943",
+            "error": {
+              "kind": "cdp",
+              "code": -32602,
+              "message": "Invalid InterceptionId."
+            }
+          },
+          "cancellation": {
+            "networkId": "13908.60",
+            "fetchId": "interception-job-49.0",
+            "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8132.png",
+            "failure": {
+              "requestId": "13908.60",
+              "timestamp": 45551.974608,
+              "type": "Fetch",
+              "errorText": "net::ERR_ABORTED",
+              "canceled": true
+            }
+          }
+        }
+      ],
+      "canceledTileRequests": [
+        {
+          "networkId": "13908.45",
+          "fetchId": "interception-job-34.0",
+          "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8133.png",
+          "failure": {
+            "requestId": "13908.45",
+            "timestamp": 45551.973653,
+            "type": "Fetch",
+            "errorText": "net::ERR_ABORTED",
+            "canceled": true
+          }
+        },
+        {
+          "networkId": "13908.46",
+          "fetchId": "interception-job-35.0",
+          "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8132.png",
+          "failure": {
+            "requestId": "13908.46",
+            "timestamp": 45551.973822,
+            "type": "Fetch",
+            "errorText": "net::ERR_ABORTED",
+            "canceled": true
+          }
+        },
+        {
+          "networkId": "13908.47",
+          "fetchId": "interception-job-36.0",
+          "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8133.png",
+          "failure": {
+            "requestId": "13908.47",
+            "timestamp": 45551.973888,
+            "type": "Fetch",
+            "errorText": "net::ERR_ABORTED",
+            "canceled": true
+          }
+        },
+        {
+          "networkId": "13908.48",
+          "fetchId": "interception-job-37.0",
+          "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8133.png",
+          "failure": {
+            "requestId": "13908.48",
+            "timestamp": 45551.973956,
+            "type": "Fetch",
+            "errorText": "net::ERR_ABORTED",
+            "canceled": true
+          }
+        },
+        {
+          "networkId": "13908.49",
+          "fetchId": "interception-job-38.0",
+          "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8132.png",
+          "failure": {
+            "requestId": "13908.49",
+            "timestamp": 45551.974002,
+            "type": "Fetch",
+            "errorText": "net::ERR_ABORTED",
+            "canceled": true
+          }
+        },
+        {
+          "networkId": "13908.50",
+          "fetchId": "interception-job-39.0",
+          "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8134.png",
+          "failure": {
+            "requestId": "13908.50",
+            "timestamp": 45551.974054,
+            "type": "Fetch",
+            "errorText": "net::ERR_ABORTED",
+            "canceled": true
+          }
+        },
+        {
+          "networkId": "13908.51",
+          "fetchId": "interception-job-40.0",
+          "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8132.png",
+          "failure": {
+            "requestId": "13908.51",
+            "timestamp": 45551.974115,
+            "type": "Fetch",
+            "errorText": "net::ERR_ABORTED",
+            "canceled": true
+          }
+        },
+        {
+          "networkId": "13908.52",
+          "fetchId": "interception-job-41.0",
+          "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8134.png",
+          "failure": {
+            "requestId": "13908.52",
+            "timestamp": 45551.974168,
+            "type": "Fetch",
+            "errorText": "net::ERR_ABORTED",
+            "canceled": true
+          }
+        },
+        {
+          "networkId": "13908.53",
+          "fetchId": "interception-job-42.0",
+          "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8134.png",
+          "failure": {
+            "requestId": "13908.53",
+            "timestamp": 45551.974209,
+            "type": "Fetch",
+            "errorText": "net::ERR_ABORTED",
+            "canceled": true
+          }
+        },
+        {
+          "networkId": "13908.54",
+          "fetchId": "interception-job-43.0",
+          "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8131.png",
+          "failure": {
+            "requestId": "13908.54",
+            "timestamp": 45551.974273,
+            "type": "Fetch",
+            "errorText": "net::ERR_ABORTED",
+            "canceled": true
+          }
+        },
+        {
+          "networkId": "13908.55",
+          "fetchId": "interception-job-44.0",
+          "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8133.png",
+          "failure": {
+            "requestId": "13908.55",
+            "timestamp": 45551.974334,
+            "type": "Fetch",
+            "errorText": "net::ERR_ABORTED",
+            "canceled": true
+          }
+        },
+        {
+          "networkId": "13908.56",
+          "fetchId": "interception-job-45.0",
+          "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8131.png",
+          "failure": {
+            "requestId": "13908.56",
+            "timestamp": 45551.974375,
+            "type": "Fetch",
+            "errorText": "net::ERR_ABORTED",
+            "canceled": true
+          }
+        },
+        {
+          "networkId": "13908.57",
+          "fetchId": "interception-job-46.0",
+          "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8132.png",
+          "failure": {
+            "requestId": "13908.57",
+            "timestamp": 45551.97443,
+            "type": "Fetch",
+            "errorText": "net::ERR_ABORTED",
+            "canceled": true
+          }
+        },
+        {
+          "networkId": "13908.58",
+          "fetchId": "interception-job-47.0",
+          "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8131.png",
+          "failure": {
+            "requestId": "13908.58",
+            "timestamp": 45551.974498,
+            "type": "Fetch",
+            "errorText": "net::ERR_ABORTED",
+            "canceled": true
+          }
+        },
+        {
+          "networkId": "13908.59",
+          "fetchId": "interception-job-48.0",
+          "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8133.png",
+          "failure": {
+            "requestId": "13908.59",
+            "timestamp": 45551.974551,
+            "type": "Fetch",
+            "errorText": "net::ERR_ABORTED",
+            "canceled": true
+          }
+        },
+        {
+          "networkId": "13908.60",
+          "fetchId": "interception-job-49.0",
+          "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8132.png",
+          "failure": {
+            "requestId": "13908.60",
+            "timestamp": 45551.974608,
+            "type": "Fetch",
+            "errorText": "net::ERR_ABORTED",
+            "canceled": true
+          }
+        }
+      ],
+      "commandFailures": [],
+      "pendingCommands": [],
+      "networkFailures": [
+        {
+          "sequence": 133,
+          "timeMs": 4319,
+          "kind": "event",
+          "method": "Network.loadingFailed",
+          "sessionId": "94B3192044C9676389AAB02467FAA943",
+          "params": {
+            "requestId": "13908.28",
+            "timestamp": 45547.67779,
+            "type": "Fetch",
+            "errorText": "net::ERR_ABORTED",
+            "canceled": true
+          }
+        },
+        {
+          "sequence": 168,
+          "timeMs": 6417,
+          "kind": "event",
+          "method": "Network.loadingFailed",
+          "sessionId": "94B3192044C9676389AAB02467FAA943",
+          "params": {
+            "requestId": "13908.31",
+            "timestamp": 45549.900158,
+            "type": "Fetch",
+            "errorText": "net::ERR_ABORTED",
+            "canceled": true
+          }
+        },
+        {
+          "sequence": 184,
+          "timeMs": 7217,
+          "kind": "event",
+          "method": "Network.loadingFailed",
+          "sessionId": "94B3192044C9676389AAB02467FAA943",
+          "params": {
+            "requestId": "13908.34",
+            "timestamp": 45550.702565,
+            "type": "Fetch",
+            "errorText": "net::ERR_ABORTED",
+            "canceled": true
+          }
+        },
+        {
+          "sequence": 241,
+          "timeMs": 7947,
+          "kind": "event",
+          "method": "Network.loadingFailed",
+          "sessionId": "94B3192044C9676389AAB02467FAA943",
+          "params": {
+            "requestId": "13908.44",
+            "timestamp": 45551.435865,
+            "type": "Fetch",
+            "errorText": "net::ERR_ABORTED",
+            "canceled": true
+          }
+        }
+      ],
+      "httpFailures": [
+        {
+          "sequence": 131,
+          "timeMs": 4314,
+          "kind": "event",
+          "method": "Network.responseReceived",
+          "sessionId": "94B3192044C9676389AAB02467FAA943",
+          "params": {
+            "requestId": "13908.28",
+            "loaderId": "EE9B17EBC75D02D7A2E2D84C0EA226DD",
+            "timestamp": 45547.67583,
+            "type": "Fetch",
+            "response": {
+              "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+              "status": 404,
+              "statusText": "Not Found",
+              "headers": {
+                "transfer-encoding": "chunked",
+                "keep-alive": "timeout=5",
+                "date": "Sat, 12 Sep 2026 05:58:33 GMT",
+                "connection": "keep-alive"
+              },
+              "mimeType": "",
+              "charset": "",
+              "connectionReused": true,
+              "connectionId": 146,
+              "remoteIPAddress": "127.0.0.1",
+              "remotePort": 4362,
+              "fromDiskCache": false,
+              "fromServiceWorker": false,
+              "fromPrefetchCache": false,
+              "encodedDataLength": 138,
+              "timing": {
+                "requestTime": 45547.565069,
+                "proxyStart": -1,
+                "proxyEnd": -1,
+                "dnsStart": -1,
+                "dnsEnd": -1,
+                "connectStart": -1,
+                "connectEnd": -1,
+                "sslStart": -1,
+                "sslEnd": -1,
+                "workerStart": -1,
+                "workerReady": -1,
+                "workerFetchStart": -1,
+                "workerRespondWithSettled": -1,
+                "sendStart": 3.296,
+                "sendEnd": 3.418,
+                "pushStart": 0,
+                "pushEnd": 0,
+                "receiveHeadersStart": 91.44,
+                "receiveHeadersEnd": 95.151
+              },
+              "responseTime": 1789192713738.15,
+              "protocol": "http/1.1",
+              "alternateProtocolUsage": "unspecifiedReason",
+              "securityState": "secure"
+            },
+            "hasExtraInfo": true,
+            "frameId": "FFBB940D804BDF3E9CE042D98CB72D2E"
+          }
+        },
+        {
+          "sequence": 156,
+          "timeMs": 5674,
+          "kind": "event",
+          "method": "Network.responseReceived",
+          "sessionId": "94B3192044C9676389AAB02467FAA943",
+          "params": {
+            "requestId": "13908.31",
+            "loaderId": "EE9B17EBC75D02D7A2E2D84C0EA226DD",
+            "timestamp": 45549.117467,
+            "type": "Fetch",
+            "response": {
+              "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+              "status": 404,
+              "statusText": "Not Found",
+              "headers": {
+                "transfer-encoding": "chunked",
+                "keep-alive": "timeout=5",
+                "date": "Sat, 12 Sep 2026 05:58:33 GMT",
+                "connection": "keep-alive"
+              },
+              "mimeType": "",
+              "charset": "",
+              "connectionReused": true,
+              "connectionId": 136,
+              "remoteIPAddress": "127.0.0.1",
+              "remotePort": 4362,
+              "fromDiskCache": false,
+              "fromServiceWorker": false,
+              "fromPrefetchCache": false,
+              "encodedDataLength": 138,
+              "timing": {
+                "requestTime": 45547.84556,
+                "proxyStart": -1,
+                "proxyEnd": -1,
+                "dnsStart": -1,
+                "dnsEnd": -1,
+                "connectStart": -1,
+                "connectEnd": -1,
+                "sslStart": -1,
+                "sslEnd": -1,
+                "workerStart": -1,
+                "workerReady": -1,
+                "workerFetchStart": -1,
+                "workerRespondWithSettled": -1,
+                "sendStart": 1.412,
+                "sendEnd": 1.611,
+                "pushStart": 0,
+                "pushEnd": 0,
+                "receiveHeadersStart": 7.457,
+                "receiveHeadersEnd": 7.811
+              },
+              "responseTime": 1789192713934.659,
+              "protocol": "http/1.1",
+              "alternateProtocolUsage": "unspecifiedReason",
+              "securityState": "secure"
+            },
+            "hasExtraInfo": true,
+            "frameId": "FFBB940D804BDF3E9CE042D98CB72D2E"
+          }
+        },
+        {
+          "sequence": 179,
+          "timeMs": 7211,
+          "kind": "event",
+          "method": "Network.responseReceived",
+          "sessionId": "94B3192044C9676389AAB02467FAA943",
+          "params": {
+            "requestId": "13908.34",
+            "loaderId": "EE9B17EBC75D02D7A2E2D84C0EA226DD",
+            "timestamp": 45550.683293,
+            "type": "Fetch",
+            "response": {
+              "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+              "status": 404,
+              "statusText": "Not Found",
+              "headers": {
+                "transfer-encoding": "chunked",
+                "keep-alive": "timeout=5",
+                "date": "Sat, 12 Sep 2026 05:58:36 GMT",
+                "connection": "keep-alive"
+              },
+              "mimeType": "",
+              "charset": "",
+              "connectionReused": true,
+              "connectionId": 136,
+              "remoteIPAddress": "127.0.0.1",
+              "remotePort": 4362,
+              "fromDiskCache": false,
+              "fromServiceWorker": false,
+              "fromPrefetchCache": false,
+              "encodedDataLength": 138,
+              "timing": {
+                "requestTime": 45549.942573,
+                "proxyStart": -1,
+                "proxyEnd": -1,
+                "dnsStart": -1,
+                "dnsEnd": -1,
+                "connectStart": -1,
+                "connectEnd": -1,
+                "sslStart": -1,
+                "sslEnd": -1,
+                "workerStart": -1,
+                "workerReady": -1,
+                "workerFetchStart": -1,
+                "workerRespondWithSettled": -1,
+                "sendStart": 17.933,
+                "sendEnd": 18.168,
+                "pushStart": 0,
+                "pushEnd": 0,
+                "receiveHeadersStart": 23.526,
+                "receiveHeadersEnd": 27.447
+              },
+              "responseTime": 1789192716047.741,
+              "protocol": "http/1.1",
+              "alternateProtocolUsage": "unspecifiedReason",
+              "securityState": "secure"
+            },
+            "hasExtraInfo": true,
+            "frameId": "FFBB940D804BDF3E9CE042D98CB72D2E"
+          }
+        },
+        {
+          "sequence": 239,
+          "timeMs": 7946,
+          "kind": "event",
+          "method": "Network.responseReceived",
+          "sessionId": "94B3192044C9676389AAB02467FAA943",
+          "params": {
+            "requestId": "13908.44",
+            "loaderId": "EE9B17EBC75D02D7A2E2D84C0EA226DD",
+            "timestamp": 45551.431825,
+            "type": "Fetch",
+            "response": {
+              "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+              "status": 404,
+              "statusText": "Not Found",
+              "headers": {
+                "transfer-encoding": "chunked",
+                "keep-alive": "timeout=5",
+                "date": "Sat, 12 Sep 2026 05:58:37 GMT",
+                "connection": "keep-alive"
+              },
+              "mimeType": "",
+              "charset": "",
+              "connectionReused": true,
+              "connectionId": 136,
+              "remoteIPAddress": "127.0.0.1",
+              "remotePort": 4362,
+              "fromDiskCache": false,
+              "fromServiceWorker": false,
+              "fromPrefetchCache": false,
+              "encodedDataLength": 138,
+              "timing": {
+                "requestTime": 45551.22565,
+                "proxyStart": -1,
+                "proxyEnd": -1,
+                "dnsStart": -1,
+                "dnsEnd": -1,
+                "connectStart": -1,
+                "connectEnd": -1,
+                "sslStart": -1,
+                "sslEnd": -1,
+                "workerStart": -1,
+                "workerReady": -1,
+                "workerFetchStart": -1,
+                "workerRespondWithSettled": -1,
+                "sendStart": 38.573,
+                "sendEnd": 38.808,
+                "pushStart": 0,
+                "pushEnd": 0,
+                "receiveHeadersStart": 158.896,
+                "receiveHeadersEnd": 185.915
+              },
+              "responseTime": 1789192717466.188,
+              "protocol": "http/1.1",
+              "alternateProtocolUsage": "unspecifiedReason",
+              "securityState": "secure"
+            },
+            "hasExtraInfo": true,
+            "frameId": "FFBB940D804BDF3E9CE042D98CB72D2E"
+          }
+        }
+      ],
+      "unfinishedPauses": [],
+      "orphanReplies": [],
+      "runtimeErrors": [],
+      "connectionFaults": [],
+      "pendingNetworkRequests": [
+        {
+          "sequence": 164,
+          "timeMs": 6322,
+          "kind": "event",
+          "method": "Network.requestWillBeSent",
+          "sessionId": "94B3192044C9676389AAB02467FAA943",
+          "params": {
+            "requestId": "949EDD14AE877A3A4DD05E1D4AB981D4",
+            "loaderId": "",
+            "documentURL": "http://127.0.0.1:4362/maplibre/6.4.1/maplibre-gl-worker.mjs",
+            "request": {
+              "url": "http://127.0.0.1:4362/maplibre/6.4.1/maplibre-gl-worker.mjs",
+              "method": "GET",
+              "headers": {
+                "Accept": "*/*"
+              },
+              "initialPriority": "VeryLow",
+              "referrerPolicy": "strict-origin-when-cross-origin"
+            },
+            "timestamp": 45549.798292,
+            "wallTime": 1789192715.879954,
+            "initiator": {
+              "type": "other",
+              "url": "http://127.0.0.1:4362/?debugMap=1&postal=018956"
+            },
+            "redirectHasExtraInfo": false,
+            "type": "Script",
+            "frameId": "FFBB940D804BDF3E9CE042D98CB72D2E",
+            "hasUserGesture": false
+          }
+        }
+      ]
+    },
+    "unexplainedErrors": [],
+    "remainingPageRequests": [],
+    "scope": "Worker lifecycle and recorded error attribution only. Original browser exit and raw transport failures are unchanged."
+  },
+  "workerBody": {
+    "bytes": 18592,
+    "sha256": "ce4957017fe705ac2f9ebef206cca966d08d8621756c39326a78cf09757e7d75",
+    "expectedSha256": "ce4957017fe705ac2f9ebef206cca966d08d8621756c39326a78cf09757e7d75"
+  },
+  "commands": [
+    {
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "--test",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\worker-lifecycle-20260912\\analyze.test.mjs",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\lifecycle-probe-20260910\\analyze.test.mjs"
+      ],
+      "stdout": "✔ real body trace separates notification arrival from its earlier network timestamp (24.8642ms)\n✔ real worker entry starts in page session and finishes in explicitly attached child session (9.1514ms)\n✔ all three synthetic worker resources still pass the parent interception boundary (5.9476ms)\n✔ missing body phases or changed request identities cannot produce an analysis (11.3242ms)\n✔ missing attachment cannot authorize a worker handoff (6.5402ms)\n✔ wrong parent target cannot authorize a worker handoff (6.1546ms)\n✔ wrong target identity cannot authorize a worker handoff (8.6523ms)\n✔ wrong entry URL cannot authorize a worker handoff (7.0685ms)\n✔ duplicate attachment cannot authorize a worker handoff (7.9524ms)\n✔ completion in unrelated session cannot authorize a worker handoff (5.9539ms)\n✔ worker failure cannot authorize a worker handoff (5.7766ms)\n✔ contradictory terminal events cannot authorize a worker handoff (5.917ms)\n✔ failed worker entry response cannot authorize a worker handoff (8.2992ms)\n✔ response URL mismatch cannot authorize a worker handoff (7.1039ms)\n✔ completion before attachment cannot authorize a worker handoff (6.3707ms)\n✔ actual current app worker has a complete owned-session handoff (46.3195ms)\n✔ wrong worker parent cannot explain a missing page terminal (34.7933ms)\n✔ a canceled worker entry is not successful loading (42.488ms)\n✔ an error from a different session remains unexplained (30.4017ms)\n✔ runtime exceptions are not tile cancellations (25.078ms)\nℹ tests 20\nℹ suites 0\nℹ pass 20\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 642.0921\n",
+      "exitCode": 0
+    },
+    {
+      "command": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+      "args": [
+        "-B",
+        "C:\\sgSHIOK2026\\scripts\\check_repo_integrity.py"
+      ],
+      "stdout": "repo_integrity=ok\r\n",
+      "exitCode": 0
+    }
+  ],
+  "capture": {
+    "path": "qa/revamp-r1/worker-lifecycle-20260912/observed-Btxfds/current-map.png",
+    "sha256": "5d54984e9a9c9d75a43da4acafb428b6635baaf23d6d816497c8396afcaf1a2b",
+    "inspected": true,
+    "reviewer": "parent",
+    "before": {
+      "status": "ready",
+      "routeKey": "3:shiokest:primary",
+      "count": 4,
+      "keys": [
+        "3:shiokest:primary"
+      ],
+      "basemap": true,
+      "tiles": true,
+      "moving": false,
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    "after": {
+      "status": "ready",
+      "routeKey": "3:shiokest:primary",
+      "count": 4,
+      "keys": [
+        "3:shiokest:primary"
+      ],
+      "basemap": true,
+      "tiles": true,
+      "moving": false,
+      "viewport": [
+        390,
+        844
+      ]
+    }
+  },
+  "anchorsUnchanged": true,
+  "cleanup": true,
+  "elapsedMs": 13585,
+  "findings": [
+    "Actual app worker request transfers from the page to its explicitly attached worker session, returns200 and loadingFinished there;18592response bytes match the packaged6.4.1worker sha256.",
+    "Ten raw Invalid InterceptionId command errors match exact canceled tile identities within this trace. The original strict browser run remains failed4pass/1fail; offline attribution is separately tested, not a changed raw result.",
+    "Current selected map has4same-key features before/after its inspected capture. Complete transport remains open with four gzip404 probes; lifecycle observation is not a speed claim or retroactive explanation of other traces.",
+    "T13 provider/privacy/caps/moderator/backup questions have now been sent to the owner asynchronously. No answer is assumed; no Cloudflare resource, credential request in chat or reporting store was created."
+  ],
+  "disagreements": [
+    "A page-only missing worker terminal is not evidence of a failed worker. Its owning session must be inspected; this current-app trace now demonstrates that mechanism."
+  ],
+  "pipelineRuns": 0,
+  "deployments": 0,
+  "installations": 0,
+  "productComplete": false
+}
