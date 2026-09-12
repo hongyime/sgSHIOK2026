@@ -1,0 +1,588 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "base": "454d8ff72a8bc178c5f2a111b405a91e3fe06abf",
+  "createdAt": "2026-09-12T05:24:30.425Z",
+  "preview": {
+    "buildId": "sou6pZfEMMmsCl52vdXg4",
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\cached-release-worker-alignment-20260910",
+    "pid": 16096,
+    "dataPort": 4321,
+    "nextPort": 4361,
+    "proxyPort": 4362,
+    "readOnly": true,
+    "nextPid": 16512
+  },
+  "sources": {
+    "buildId": "sou6pZfEMMmsCl52vdXg4",
+    "sources": 156,
+    "anchors": 11,
+    "matched": true
+  },
+  "map": {
+    "path": "qa/revamp-r1/map-stall-20260910/probe-3/result.json",
+    "ok": true,
+    "checks": 4,
+    "captures": 7,
+    "cleanup": {
+      "exitCode": 0,
+      "stdout": "{\"profile\":\"C:\\\\sgSHIOK2026\\\\tmp\\\\map-stall-browser-EQueN6\",\"verified\":true,\"before\":[{\"ProcessId\":13816,\"CommandLine\":\"\\\"C:/Program Files/Google/Chrome/Application/chrome.exe\\\" --headless=new --no-first-run --no-sandbox --disable-background-networking --disable-component-update --disable-sync --remote-debugging-address=127.0.0.1 --remote-debugging-port=0 --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\map-stall-browser-EQueN6 about:blank\"},{\"ProcessId\":24608,\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=crashpad-handler --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\map-stall-browser-EQueN6 /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\\\sgSHIOK2026\\\\tmp\\\\map-stall-browser-EQueN6\\\\Crashpad --metrics-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\map-stall-browser-EQueN6 --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=152.0.7977.84 --initial-client-data=0x124,0x128,0x12c,0x100,0x130,0x7ff992077e60,0x7ff992077e70,0x7ff992077e80\"},{\"ProcessId\":26304,\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\map-stall-browser-EQueN6\\\" --no-pre-read-main-dll --field-trial-handle=1768,i,14427529423982484456,18229516558713004257,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1756,i,2359527597162867985,2233136614790596947,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2148 /prefetch:11\"},{\"ProcessId\":20408,\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\map-stall-browser-EQueN6\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=41656346987 --field-trial-handle=1768,i,14427529423982484456,18229516558713004257,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1756,i,2359527597162867985,2233136614790596947,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3128 /prefetch:1\"},{\"ProcessId\":25400,\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\map-stall-browser-EQueN6\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=41656488942 --field-trial-handle=1768,i,14427529423982484456,18229516558713004257,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1756,i,2359527597162867985,2233136614790596947,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=3664 /prefetch:1\"},{\"ProcessId\":1860,\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\map-stall-browser-EQueN6\\\" --no-pre-read-main-dll --no-sandbox --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=19 --launch-time-ticks=41672729656 --field-trial-handle=1768,i,14427529423982484456,18229516558713004257,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1756,i,2359527597162867985,2233136614790596947,4 --trace-process-track-uuid=3190709004115666625 --mojo-platform-channel-handle=6196 /prefetch:1\"}],\"remaining\":[]}\r\n",
+      "stderr": "",
+      "verified": true
+    }
+  },
+  "browser": {
+    "first": {
+      "path": "qa/revamp-r1/cross-feature-motion-20260910/acceptance-20260912-NDm9VU/browser.json",
+      "ok": false,
+      "checks": 53,
+      "passed": 52,
+      "errors": [
+        {
+          "fault": "Invalid InterceptionId."
+        },
+        {
+          "fault": "Invalid InterceptionId."
+        },
+        {
+          "fault": "Invalid InterceptionId."
+        }
+      ],
+      "cleanup": true
+    },
+    "final": {
+      "path": "qa/revamp-r1/cross-feature-motion-20260910/correlated-20260912-0IxBOI/browser.json",
+      "ok": true,
+      "checks": 53,
+      "passed": 53,
+      "rawErrors": [
+        {
+          "fault": "Invalid InterceptionId.",
+          "commandId": 682,
+          "sessionId": "direct-page:69171125CF8541904F22DBCEB35DA0FC"
+        },
+        {
+          "fault": "Invalid InterceptionId.",
+          "commandId": 683,
+          "sessionId": "direct-page:69171125CF8541904F22DBCEB35DA0FC"
+        },
+        {
+          "fault": "Invalid InterceptionId.",
+          "commandId": 685,
+          "sessionId": "direct-page:69171125CF8541904F22DBCEB35DA0FC"
+        },
+        {
+          "fault": "Invalid InterceptionId.",
+          "commandId": 687,
+          "sessionId": "direct-page:69171125CF8541904F22DBCEB35DA0FC"
+        }
+      ],
+      "explained": [
+        {
+          "command": {
+            "timeMs": 101505,
+            "sessionId": "direct-page:69171125CF8541904F22DBCEB35DA0FC",
+            "kind": "send",
+            "id": 682,
+            "method": "Fetch.continueRequest",
+            "params": {
+              "requestId": "interception-job-355.0"
+            }
+          },
+          "reply": {
+            "timeMs": 102664,
+            "sessionId": "direct-page:69171125CF8541904F22DBCEB35DA0FC",
+            "kind": "reply",
+            "id": 682,
+            "fetchCommand": true,
+            "error": {
+              "code": -32602,
+              "message": "Invalid InterceptionId.",
+              "kind": "cdp"
+            }
+          },
+          "cancellation": {
+            "networkId": "13360.367",
+            "fetchId": "interception-job-355.0",
+            "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/18/206702/130139.png",
+            "failure": {
+              "requestId": "13360.367",
+              "timestamp": 43073.261989,
+              "type": "Fetch",
+              "errorText": "net::ERR_ABORTED",
+              "canceled": true
+            }
+          }
+        },
+        {
+          "command": {
+            "timeMs": 101506,
+            "sessionId": "direct-page:69171125CF8541904F22DBCEB35DA0FC",
+            "kind": "send",
+            "id": 683,
+            "method": "Fetch.continueRequest",
+            "params": {
+              "requestId": "interception-job-356.0"
+            }
+          },
+          "reply": {
+            "timeMs": 102669,
+            "sessionId": "direct-page:69171125CF8541904F22DBCEB35DA0FC",
+            "kind": "reply",
+            "id": 683,
+            "fetchCommand": true,
+            "error": {
+              "code": -32602,
+              "message": "Invalid InterceptionId.",
+              "kind": "cdp"
+            }
+          },
+          "cancellation": {
+            "networkId": "13360.368",
+            "fetchId": "interception-job-356.0",
+            "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/18/206702/130138.png",
+            "failure": {
+              "requestId": "13360.368",
+              "timestamp": 43073.26232,
+              "type": "Fetch",
+              "errorText": "net::ERR_ABORTED",
+              "canceled": true
+            }
+          }
+        },
+        {
+          "command": {
+            "timeMs": 101508,
+            "sessionId": "direct-page:69171125CF8541904F22DBCEB35DA0FC",
+            "kind": "send",
+            "id": 685,
+            "method": "Fetch.continueRequest",
+            "params": {
+              "requestId": "interception-job-358.0"
+            }
+          },
+          "reply": {
+            "timeMs": 102684,
+            "sessionId": "direct-page:69171125CF8541904F22DBCEB35DA0FC",
+            "kind": "reply",
+            "id": 685,
+            "fetchCommand": true,
+            "error": {
+              "code": -32602,
+              "message": "Invalid InterceptionId.",
+              "kind": "cdp"
+            }
+          },
+          "cancellation": {
+            "networkId": "13360.370",
+            "fetchId": "interception-job-358.0",
+            "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/18/206702/130140.png",
+            "failure": {
+              "requestId": "13360.370",
+              "timestamp": 43073.262385,
+              "type": "Fetch",
+              "errorText": "net::ERR_ABORTED",
+              "canceled": true
+            }
+          }
+        },
+        {
+          "command": {
+            "timeMs": 101509,
+            "sessionId": "direct-page:69171125CF8541904F22DBCEB35DA0FC",
+            "kind": "send",
+            "id": 687,
+            "method": "Fetch.continueRequest",
+            "params": {
+              "requestId": "interception-job-360.0"
+            }
+          },
+          "reply": {
+            "timeMs": 102696,
+            "sessionId": "direct-page:69171125CF8541904F22DBCEB35DA0FC",
+            "kind": "reply",
+            "id": 687,
+            "fetchCommand": true,
+            "error": {
+              "code": -32602,
+              "message": "Invalid InterceptionId.",
+              "kind": "cdp"
+            }
+          },
+          "cancellation": {
+            "networkId": "13360.372",
+            "fetchId": "interception-job-360.0",
+            "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/18/206702/130137.png",
+            "failure": {
+              "requestId": "13360.372",
+              "timestamp": 43073.262416,
+              "type": "Fetch",
+              "errorText": "net::ERR_ABORTED",
+              "canceled": true
+            }
+          }
+        }
+      ],
+      "http": [
+        {
+          "requestId": "13360.93",
+          "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+          "status": 404,
+          "failures": [
+            {
+              "requestId": "13360.93",
+              "timestamp": 42995.473673,
+              "type": "Fetch",
+              "errorText": "net::ERR_ABORTED",
+              "canceled": true
+            }
+          ],
+          "plainResponses": [
+            {
+              "id": "13360.94",
+              "status": 200
+            }
+          ]
+        },
+        {
+          "requestId": "13360.95",
+          "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+          "status": 404,
+          "failures": [
+            {
+              "requestId": "13360.95",
+              "timestamp": 42995.60557,
+              "type": "Fetch",
+              "errorText": "net::ERR_ABORTED",
+              "canceled": true
+            }
+          ],
+          "plainResponses": [
+            {
+              "id": "13360.97",
+              "status": 200
+            }
+          ]
+        },
+        {
+          "requestId": "13360.96",
+          "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+          "status": 404,
+          "failures": [
+            {
+              "requestId": "13360.96",
+              "timestamp": 42995.66618,
+              "type": "Fetch",
+              "errorText": "net::ERR_ABORTED",
+              "canceled": true
+            }
+          ],
+          "plainResponses": [
+            {
+              "id": "13360.98",
+              "status": 200
+            }
+          ]
+        },
+        {
+          "requestId": "13360.105",
+          "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+          "status": 404,
+          "failures": [
+            {
+              "requestId": "13360.105",
+              "timestamp": 42998.695112,
+              "type": "Fetch",
+              "errorText": "net::ERR_ABORTED",
+              "canceled": true
+            }
+          ],
+          "plainResponses": []
+        },
+        {
+          "requestId": "13360.157",
+          "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/geom/h3/886520db15fffff.json.gz",
+          "status": 404,
+          "failures": [
+            {
+              "requestId": "13360.157",
+              "timestamp": 43014.275116,
+              "type": "Fetch",
+              "errorText": "net::ERR_ABORTED",
+              "canceled": true
+            }
+          ],
+          "plainResponses": [
+            {
+              "id": "13360.179",
+              "status": 200
+            }
+          ]
+        },
+        {
+          "requestId": "13360.158",
+          "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/geom/h3/896520db333ffff.json.gz",
+          "status": 404,
+          "failures": [
+            {
+              "requestId": "13360.158",
+              "timestamp": 43014.277839,
+              "type": "Fetch",
+              "errorText": "net::ERR_ABORTED",
+              "canceled": true
+            }
+          ],
+          "plainResponses": [
+            {
+              "id": "13360.180",
+              "status": 200
+            }
+          ]
+        }
+      ],
+      "transportOk": false,
+      "pendingNetworkRequests": [
+        {
+          "sessionId": "direct-page:69171125CF8541904F22DBCEB35DA0FC",
+          "requestId": "B2E127C58512C14A91772FACEC04993D",
+          "url": "http://127.0.0.1:4362/maplibre/6.4.1/maplibre-gl-worker.mjs"
+        }
+      ],
+      "cleanup": true,
+      "anchorsUnchanged": true,
+      "captures": [
+        {
+          "path": "qa/revamp-r1/cross-feature-motion-20260910/correlated-20260912-0IxBOI/keyboard-map-390x844.png",
+          "sha256": "264149e28229ac7fee8384e9cab28a6993f1008b56f706d15812a6fdad7d229b",
+          "stable": true,
+          "sameAsFirstRun": true
+        },
+        {
+          "path": "qa/revamp-r1/cross-feature-motion-20260910/correlated-20260912-0IxBOI/inspect-reduced-390x844.png",
+          "sha256": "4af739c03add3dd3ece93bc0d8ec398ce06974db09974aad267ae3ddd7f56708",
+          "stable": true,
+          "sameAsFirstRun": true
+        },
+        {
+          "path": "qa/revamp-r1/cross-feature-motion-20260910/correlated-20260912-0IxBOI/inspect-expanded-390x844.png",
+          "sha256": "a3ec52d3468600ef949e171b2823180f6685930b10e64798c99493afb13c00d8",
+          "stable": true,
+          "sameAsFirstRun": true
+        },
+        {
+          "path": "qa/revamp-r1/cross-feature-motion-20260910/correlated-20260912-0IxBOI/late-background-keeps-A.png",
+          "sha256": "c4bf554b468ebbe7febcbda1a7db57444e72d0e021b2b11a5a344097f7ab79df",
+          "stable": true,
+          "sameAsFirstRun": true
+        },
+        {
+          "path": "qa/revamp-r1/cross-feature-motion-20260910/correlated-20260912-0IxBOI/comparison-1440x950.png",
+          "sha256": "ab6b8d071043e691a21013c9b019c406a1c7d8abaf2307060c9b6d34e2f8cd45",
+          "stable": true,
+          "sameAsFirstRun": true
+        },
+        {
+          "path": "qa/revamp-r1/cross-feature-motion-20260910/correlated-20260912-0IxBOI/comparison-390x844.png",
+          "sha256": "bc32e1e1232030f46430688350b01491ecb72aefae9365e7be1008dcf3f71221",
+          "stable": true,
+          "sameAsFirstRun": true
+        },
+        {
+          "path": "qa/revamp-r1/cross-feature-motion-20260910/correlated-20260912-0IxBOI/comparison-390x667.png",
+          "sha256": "bd7236a6a8779f3eaa275871da257cc280ff555a3a8380098f994daf1ceaf804",
+          "stable": true,
+          "sameAsFirstRun": true
+        },
+        {
+          "path": "qa/revamp-r1/cross-feature-motion-20260910/correlated-20260912-0IxBOI/comparison-320x667.png",
+          "sha256": "0ce0256596c0afbaa3d24283177e720a6fbeb10f7f13df077248ba79611ac7a4",
+          "stable": true,
+          "sameAsFirstRun": true
+        },
+        {
+          "path": "qa/revamp-r1/cross-feature-motion-20260910/correlated-20260912-0IxBOI/desktop-reflow-720x475-dpr2.png",
+          "sha256": "90c6ba340ed1020e2398c2752259cb41e6f64064f7ce6303686f79e2db0af99c",
+          "stable": true,
+          "sameAsFirstRun": true
+        },
+        {
+          "path": "qa/revamp-r1/cross-feature-motion-20260910/correlated-20260912-0IxBOI/comparison-text-double-320x667.png",
+          "sha256": "a9ca2ee961f664a2372b7ede08b2bb08702e03c6883e316eec5066e11171e792",
+          "stable": true,
+          "sameAsFirstRun": true
+        },
+        {
+          "path": "qa/revamp-r1/cross-feature-motion-20260910/correlated-20260912-0IxBOI/comparison-text-double-keyboard-end.png",
+          "sha256": "19f853ca812f38f66ed88ff51d0d8c39c66a7eb4f647b8bd47400887d08c3b14",
+          "stable": true,
+          "sameAsFirstRun": true
+        },
+        {
+          "path": "qa/revamp-r1/cross-feature-motion-20260910/correlated-20260912-0IxBOI/shared-close-plain-320x667.png",
+          "sha256": "05f7ea852e3f638872f4df4466b492802280bffff2cb4e371e6b912dfd3c48e3",
+          "stable": true,
+          "sameAsFirstRun": true
+        },
+        {
+          "path": "qa/revamp-r1/cross-feature-motion-20260910/correlated-20260912-0IxBOI/inspector-after-shared-close-320x667.png",
+          "sha256": "0d31340bb281d5c75ad1f4fbeed1e982e9b9bad37630a078a9d12b907cfaa34e",
+          "stable": true,
+          "sameAsFirstRun": true
+        },
+        {
+          "path": "qa/revamp-r1/cross-feature-motion-20260910/correlated-20260912-0IxBOI/about-expanded-320x667.png",
+          "sha256": "1b2402ac15f6ee5324010d2a7b693ebda7ec1e547547321fc042ae2c39fbb5a3",
+          "stable": true,
+          "sameAsFirstRun": true
+        }
+      ]
+    }
+  },
+  "visual": {
+    "reviewer": "parent only; peer quota unavailable until September15",
+    "inspected": "Four map loaded captures plus14 broad-flow captures. Four broad screenshots inspected from first run,10 from correlated run; all14 are byte-identical between runs as checked above.",
+    "result": "Visible map/selected route, usable left stack and comparison inner scroll, keyboard focus and enlarged-text end cell, About expandable. Not physical-device/native-zoom or representative-speed acceptance."
+  },
+  "pilot": {
+    "path": "qa/revamp-r1/coverage-register-20260909/resume-20260912-pilot/summary.json",
+    "rows": 200,
+    "states": {
+      "NO_TRANSIT_IN_RANGE": 5,
+      "SCORED": 160,
+      "SCORED_PARTIAL": 35
+    },
+    "rawOutput": {
+      "bytes": 251428,
+      "sha256": "9cb1e4b0fcb9d43b6f6913c6de7ca39fa559f86a764fbb4a775f2238ce4dd144"
+    },
+    "fixedSeconds": 61.4576921,
+    "readPassSeconds": 11.364983699999996,
+    "finalizationSeconds": 0.030353799999997134,
+    "totalSeconds": 72.8530296,
+    "peakRssMiB": 255.3203125,
+    "projection": {
+      "estimateOnly": true,
+      "assumptions": "Estimate, not a guarantee. Caller owns planned IO volumes/encoding probe counts, representative samples, and non-overlapping fixed/IO/record timings; cache and workload changes can invalidate it.",
+      "p95Method": "nearest-rank",
+      "components": {
+        "fixedMs": 61457.6921,
+        "readMs": 184498.77315455562,
+        "hashMs": 173590.97174888384,
+        "decodeMs": 249680.0848409873,
+        "parseMs": 323572.3548721307,
+        "lookupMs": 788352.2353938967,
+        "normalizationMs": 4126908.580584605,
+        "serializationMs": 1356341.5899005707
+      },
+      "rates": {
+        "readMsPerRawByte": 0.000016399583419167852,
+        "hashMsPerRawByte": 0.00001543001925343663,
+        "decodeMsPerDecodedByte": 0.000020175790130691343,
+        "parseMsPerDecodedByte": 0.00002614677068918556,
+        "lookupMsPerCall": 1.5764774580338365
+      },
+      "samples": {
+        "normalization": {
+          "count": 200,
+          "meanMs": 11.50566566500397,
+          "p95Ms": 33.16304316502017,
+          "msPerRecord": 33.16304316502017
+        },
+        "serialization": {
+          "count": 200,
+          "meanMs": 2.110930999999437,
+          "p95Ms": 10.899300000004587,
+          "msPerRecord": 10.899300000004587
+        }
+      },
+      "projectedMs": 7264402.28259563,
+      "budgetSeconds": 9111,
+      "maxSeconds": 900,
+      "gate": "stop"
+    },
+    "fullScanStarted": false,
+    "sourcesStable": true
+  },
+  "checks": {
+    "web": {
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\sgSHIOK2026\\web\\scripts\\test-without-production-data.mjs",
+        "--testTimeout",
+        "15000"
+      ],
+      "startedAt": "2026-09-12T05:06:20.632Z",
+      "finishedAt": "2026-09-12T05:09:17.187Z",
+      "elapsedSeconds": 176.5561169,
+      "exitCode": 0,
+      "signal": null
+    },
+    "types": {
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\sgSHIOK2026\\web\\node_modules\\typescript\\bin\\tsc",
+        "--project",
+        "C:\\sgSHIOK2026\\web\\tsconfig.json",
+        "--noEmit",
+        "--incremental",
+        "false"
+      ],
+      "startedAt": "2026-09-12T05:11:00.121Z",
+      "finishedAt": "2026-09-12T05:11:22.220Z",
+      "elapsedSeconds": 22.0989797,
+      "exitCode": 0,
+      "signal": null
+    },
+    "integrity": {
+      "command": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+      "args": [
+        "-B",
+        "C:\\sgSHIOK2026\\scripts\\check_repo_integrity.py"
+      ],
+      "startedAt": "2026-09-12T05:12:33.705Z",
+      "finishedAt": "2026-09-12T05:12:34.332Z",
+      "elapsedSeconds": 0.6271085999999999,
+      "exitCode": 0,
+      "signal": null
+    },
+    "diagnostics": {
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "--test",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\resume-20260912\\error-audit.test.mjs",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\request-audit-20260910\\transport.test.mjs"
+      ],
+      "startedAt": "2026-09-12T05:17:18.671Z",
+      "finishedAt": "2026-09-12T05:17:21.064Z",
+      "elapsedSeconds": 2.3927842,
+      "exitCode": 0,
+      "signal": null
+    }
+  },
+  "evidencePrefix": {
+    "bytes": 296320,
+    "sha256": "9564e754547d7a12beebf2b07d2f2c2bc359fb879d5b4d559a97933e1fa36963",
+    "unchanged": true
+  },
+  "findings": [
+    "Headroom recovered; the old preview was absent. Restarted the verified build with read-only data, no rebuild or copying.",
+    "Four-viewports current map acceptance passes. Full isolated web1785/65 plus42 guard contracts, TypeScript and integrity pass;45 diagnostic contracts pass.",
+    "The first broad run remains failed52/53. New identity-correlated run passes53/53 runtime/Fetch checks; four raw command errors match canceled OneMap tiles, not unclassified app faults.",
+    "Transport audit remains incomplete: six gzip404 probes; five have plain200 responses, one transit probe has no plain request. Six canceled response bodies and one worker entry without a page-session terminal remain recorded. Do not promote runtime/Fetch acceptance into transport, retained-client, release or speed acceptance.",
+    "Current indexed classifier reproduces the prior200-record register bytes. Its9111-second projected budget exceeds900seconds; no full scan or pipeline execution."
+  ],
+  "disagreements": [
+    "The old blocked-by-memory status is no longer current. Conversely, a passing current-build browser run does not close retained-client or publication gates.",
+    "Old uncorrelated CDP errors cannot be retroactively relabeled. Only the new trace supports its four exact cancellation joins.",
+    "Initial summary generation failed at record.mjs:31 because it asserted all six gzip404 probes had plain200 fallbacks. Actual trace proves five; the optional transit probe had no plain response. The failed assertion produced no summary file and no browser rerun followed."
+  ],
+  "next": [
+    "T01/M17 retained-old-client with current build and explicit old-release identity/security bounds",
+    "T25 complete transport lifecycle and remaining platform acceptance",
+    "T19 fixture-only cost work before any newly authorized bounded full read scan"
+  ],
+  "pipelineRuns": 0,
+  "installations": 0,
+  "deployments": 0,
+  "productComplete": false
+}

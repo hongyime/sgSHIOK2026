@@ -3542,3 +3542,22 @@ from this cleanup. Older previews of uncertain current purpose remain untouched.
 
 Evidence: qa/revamp-r1/preview-retirement-20260910/result.json; graceful terminal
 receipt at qa/revamp-r1/cross-feature-motion-20260910/preview-2/proxy-terminal.json.
+
+## 2026-09-12: Scope Browser Error Acceptance Precisely
+
+Preserve every raw CDP command fault. Classify Invalid InterceptionId only when
+the same owned page/session, command, Fetch ID, Network ID, URL and explicit
+canceled ERR_ABORTED event join unambiguously. Unknown, duplicate, redirected,
+cross-session, runtime, timeout and connection faults still fail. Reuse the
+existing tested transport classifier; do not blanket-ignore an error string.
+Runtime/Fetch acceptance is separate from complete HTTP/network lifecycle,
+retained-client upgrades, physical-device access and representative latency.
+The September12 replay passes53runtime/Fetch checks but retains6gzip404s and
+one worker entry without a page terminal, so complete transport remains open.
+Earlier uncorrelated failures cannot be retroactively assigned this explanation.
+
+Recovered host memory permits bounded checks again, not bypassing other gates.
+The current200-record read-only pilot reproduces prior output bytes but its
+9111-second projected budget exceeds900seconds. Do not run the full register.
+No application, scoring value, pipeline input or production bundle changed.
+Evidence: qa/revamp-r1/resume-20260912/summary.json and appended verification log.

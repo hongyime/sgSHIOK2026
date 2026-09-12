@@ -269,6 +269,7 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: T13-approved infrastructure only. Required before enabling reporting in production.
 
 ### [ ] T19: Build a read-only walk-coverage gap register
+- Current-source pilot2026-09-12: compile-4 identity passed;200records reproduce251428raw bytes at9cb1e4b0fcb9d43b6f6913c6de7ca39fa559f86a764fbb4a775f2238ce4dd144. Fixed61.4576921s + read11.3649837s + finalization0.0303538s =72.8530296s. Conservative projected7264.4022826s yields9111s budget >900s gate. Full scan NOT run. No representative speed inference from different cache/host sessions. Next remains fixture-only cost work or a separately agreed budget; do not claim national coverage from200rows.
 - Status: PARTIAL. Size: M. Parent: P2.1.
 - Depends on: none.
 - Scope: existing data/index readers and audit helpers; new analysis output only in a fresh approved QA directory.
@@ -403,6 +404,7 @@ No ticket is DONE merely because a document, mock, passing count or button exist
   project-suite or runtime release acceptance is claimed.
 
 ### [ ] T25: Run cross-feature accessibility and failure acceptance
+- Current-lock follow-up2026-09-12: first replay remains52pass/1audit failure on3uncorrelated CDP errors. New tracing records direct page ownership, Fetch command/reply IDs and raw Network events.45diagnostic contracts pass; new replay53/53 runtime/Fetch checks,14byte-verified and inspected captures, cleanup verified.4new command faults match exact canceled OneMap tiles. Complete transport remains incomplete:6gzip404s,5plain200 fallbacks,1optional transit probe without a plain request,1worker entry without page terminal. Do not relabel the old errors or close allT25. Retained-client/platform/representative-speed gates remain. Evidence: qa/revamp-r1/resume-20260912/summary.json.
 - Status: PARTIAL. Size: M. Parent: P3.1.
 - Depends on: T07, T11.
 - Scope: web regression/browser tests and existing acceptance catalogue; narrowly scoped fixes for observed blockers.
@@ -445,6 +447,7 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: OWNER deployment approval. No export/rescore, existing payload overwrite or new provider implicit.
 
 ### [ ] T29: Resolve the MapLibre security advisory before deployment
+- Current-build acceptance2026-09-12: resource gate cleared. Exact existing156-source build passes4viewports/20assertions,4loaded captures inspected and owned browser cleanup verified. Fresh isolated1785/65 plus42guard tests, TypeScript and integrity pass. Current browser runtime/Fetch checks53/53 with14visually reviewed captures; canceled tile command faults are joined by exact IDs, not ignored. This closes the four-viewport current-build slice, not retained-client/native-device/latency/release acceptance. See qa/revamp-r1/resume-20260912/summary.json.
 - Status: PARTIAL after owner approval on 2026-09-10. Exact-lock installation, matching versioned worker, 1785 isolated tests/65 files, TypeScript, build and package audit pass. Follow-up mobile observation renders correctly, but earlier stall and four-viewport/retained-client acceptance remain open. Size: S.
 - Diagnosis2026-09-10: probe1 fails during application render work before QA's feature query; its screenshot shows a route plus a route-not-visible error. Probe2 times35application queries at121.1ms combined, observes24stale-key responses rejected then4current-key features andready. No app change or speedup claim. Five captures inspected at390x844. Probe3 aborts before Chrome launch at<1024MiB free; no repeated loop. Initial cleanup failures remain failed; later exact-profile/live-handle checks report zero owned browsers. Four-viewports, retained-client and representative performance remain unaccepted. Next run requires headroom and the bounded archived --viewports checks. Evidence: `qa/revamp-r1/map-stall-20260910/analysis.json` and `terminal-observations.json`.
 - Resource follow-up2026-09-10: obsolete owned4353/4354 QA servers were verified against process creation time/command line and recorded build identity, then stopped. Current4361/4362 and data4321 remain live. The retired pair's observed resident total was only10.4140625MiB; after cleanup643.55078125MiB free remained, so no browser/coverage pilot was launched. This does not establish memory pressure's cause or map reliability. Evidence: `qa/revamp-r1/preview-retirement-20260910/result.json`. No independent free task was identified outside the outstanding headroom/owner/dependency gates in the31-task list; T13/T21/T23/T26/T28 still need their specific owner actions.

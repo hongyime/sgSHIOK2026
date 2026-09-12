@@ -1,0 +1,3966 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "Prawn-E14",
+  "profile": "C:\\sgSHIOK2026\\tmp\\map-stall-browser-EQueN6",
+  "startedAt": "2026-09-12T04:53:41.239Z",
+  "boundaries": [
+    {
+      "method": "Runtime.enable",
+      "at": 1500.8159,
+      "finished": 1903.8037999999997
+    },
+    {
+      "method": "Page.enable",
+      "at": 1903.9270999999999,
+      "finished": 1923.9901999999997
+    },
+    {
+      "method": "Network.enable",
+      "at": 1924.0412999999999,
+      "finished": 1933.0611
+    },
+    {
+      "method": "Inspector.enable",
+      "at": 1933.1299,
+      "finished": 1942.3251
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 1942.6823,
+      "params": {
+        "expression": "40 + 2",
+        "uniqueContextId": "-8013215343856812532.5200846637569831605",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 1956.7639
+    },
+    {
+      "name": "blank-page responsiveness",
+      "started": 1942.6234,
+      "finished": 1956.8779,
+      "value": 42
+    },
+    {
+      "method": "Runtime.addBinding",
+      "at": 2066.2736,
+      "finished": 2071.2424
+    },
+    {
+      "method": "Page.addScriptToEvaluateOnNewDocument",
+      "at": 2071.3442999999997,
+      "finished": 2075.9157999999998
+    },
+    {
+      "method": "Emulation.setDeviceMetricsOverride",
+      "at": 2075.9766,
+      "finished": 2082.7037
+    },
+    {
+      "method": "Page.navigate",
+      "at": 2082.757,
+      "finished": 2278.5693
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 2779.6886,
+      "params": {
+        "expression": "document.readyState",
+        "uniqueContextId": "-2335946273270460248.8243840616462904641",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 2788.6079
+    },
+    {
+      "name": "new-context DOM responsiveness",
+      "started": 2779.6367999999998,
+      "finished": 2788.6855,
+      "value": "interactive"
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 2790.6376,
+      "params": {
+        "expression": "({state:document.readyState,map:!!window.__shiokRouteMap,status:document.querySelector(\"main\")?.dataset.mapStatus})",
+        "uniqueContextId": "-2335946273270460248.8243840616462904641",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 2796.9474
+    },
+    {
+      "name": "cheap DOM/map handle",
+      "started": 2790.5951,
+      "finished": 2796.9973999999997,
+      "value": {
+        "state": "interactive",
+        "map": false,
+        "status": "idle"
+      }
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 3529.6817,
+      "params": {
+        "expression": "({state:document.readyState,map:!!window.__shiokRouteMap,status:document.querySelector(\"main\")?.dataset.mapStatus})",
+        "uniqueContextId": "-2335946273270460248.8243840616462904641",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 3935.5518
+    },
+    {
+      "name": "cheap DOM/map handle",
+      "started": 3529.6533,
+      "finished": 3971.8149999999996,
+      "value": {
+        "state": "interactive",
+        "map": false,
+        "status": "idle"
+      }
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 4536.5087,
+      "params": {
+        "expression": "({state:document.readyState,map:!!window.__shiokRouteMap,status:document.querySelector(\"main\")?.dataset.mapStatus})",
+        "uniqueContextId": "-2335946273270460248.8243840616462904641",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 4893.5135
+    },
+    {
+      "name": "cheap DOM/map handle",
+      "started": 4536.4407,
+      "finished": 4893.655,
+      "value": {
+        "state": "complete",
+        "map": false,
+        "status": "idle"
+      }
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 5396.0397,
+      "params": {
+        "expression": "({state:document.readyState,map:!!window.__shiokRouteMap,status:document.querySelector(\"main\")?.dataset.mapStatus})",
+        "uniqueContextId": "-2335946273270460248.8243840616462904641",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 5975.1983
+    },
+    {
+      "name": "cheap DOM/map handle",
+      "started": 5395.8913999999995,
+      "finished": 5975.3952,
+      "value": {
+        "state": "complete",
+        "map": false,
+        "status": "mounting"
+      }
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 6483.5743999999995,
+      "params": {
+        "expression": "({state:document.readyState,map:!!window.__shiokRouteMap,status:document.querySelector(\"main\")?.dataset.mapStatus})",
+        "uniqueContextId": "-2335946273270460248.8243840616462904641",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 6514.5239
+    },
+    {
+      "name": "cheap DOM/map handle",
+      "started": 6483.51,
+      "finished": 6514.5725999999995,
+      "value": {
+        "state": "complete",
+        "map": true,
+        "status": "initializing"
+      }
+    },
+    {
+      "method": "Page.captureScreenshot",
+      "at": 6517.0396,
+      "finished": 6605.2361
+    },
+    {
+      "method": "Page.captureScreenshot",
+      "at": 66614.093,
+      "finished": 67221.0277
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 67252.10399999999,
+      "params": {
+        "expression": "document.body.innerText.slice(0,1200)",
+        "uniqueContextId": "-2335946273270460248.8243840616462904641",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 67281.22409999999
+    },
+    {
+      "name": "visible text query",
+      "started": 67252.0119,
+      "finished": 67281.3387,
+      "value": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nSHIOK.\nCompare\n\nMap ready\n\nWalk details\nPostal 018956\n\nWalk to\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nAdd to comparison\nMapped exposed sections (3)\nPublished walk\ndisplayed walk\nMRT/LRT exits\npublished walk\nBus stops\npublished walk\nAbout data"
+    },
+    {
+      "method": "Page.captureScreenshot",
+      "at": 67291.3076,
+      "finished": 67682.783
+    },
+    {
+      "method": "Emulation.setDeviceMetricsOverride",
+      "at": 67705.0063,
+      "finished": 67717.2207
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 67717.7736,
+      "params": {
+        "expression": "(function facts() {\n  const map = window.__shiokRouteMap, debug = window.__shiokRouteDebug;\n  const rect = element => { const r = element?.getBoundingClientRect(); return r && { x:r.x, y:r.y, width:r.width, height:r.height, right:r.right, bottom:r.bottom }; };\n  const features = map.queryRenderedFeatures({ layers:['shiokest-route-line'] });\n  const style = map.isStyleLoaded();\n  return { key:debug.routeKey, count:features.filter(f => f.properties.render_key === debug.routeKey).length,\n    width:innerWidth, height:innerHeight, moving:map.isMoving(), center:map.getCenter().toArray(), zoom:map.getZoom(),\n    style, basemap:style && map.isSourceLoaded('onemap'), tiles:style && map.areTilesLoaded(),\n    status:document.querySelector('main')?.dataset.mapStatus, overflow:document.documentElement.scrollWidth > innerWidth,\n    brand:rect(document.querySelector('h1')), search:rect(document.querySelector('#postal-search-input').closest('form')),\n    sheet:rect(document.querySelector('aside')), about:rect([...document.querySelectorAll('summary')].find(n=>n.textContent==='About data')) };\n})()",
+        "uniqueContextId": "-2335946273270460248.8243840616462904641",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 67786.4215
+    },
+    {
+      "name": "viewport readiness",
+      "started": 67717.7364,
+      "finished": 67786.5383,
+      "value": {
+        "key": "3:shiokest:primary",
+        "count": 4,
+        "width": 390,
+        "height": 844,
+        "moving": false,
+        "center": [
+          103.86003,
+          1.284204529929795
+        ],
+        "zoom": 16.6,
+        "style": true,
+        "basemap": true,
+        "tiles": true,
+        "status": "ready",
+        "overflow": false,
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875,
+          "right": 84,
+          "bottom": 46.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44,
+          "right": 310,
+          "bottom": 98.6875
+        },
+        "sheet": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 327,
+          "right": 310,
+          "bottom": 433.6875
+        },
+        "about": {
+          "x": 281,
+          "y": 780,
+          "width": 96,
+          "height": 31,
+          "right": 377,
+          "bottom": 811
+        }
+      }
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 68317.9087,
+      "params": {
+        "expression": "(function facts() {\n  const map = window.__shiokRouteMap, debug = window.__shiokRouteDebug;\n  const rect = element => { const r = element?.getBoundingClientRect(); return r && { x:r.x, y:r.y, width:r.width, height:r.height, right:r.right, bottom:r.bottom }; };\n  const features = map.queryRenderedFeatures({ layers:['shiokest-route-line'] });\n  const style = map.isStyleLoaded();\n  return { key:debug.routeKey, count:features.filter(f => f.properties.render_key === debug.routeKey).length,\n    width:innerWidth, height:innerHeight, moving:map.isMoving(), center:map.getCenter().toArray(), zoom:map.getZoom(),\n    style, basemap:style && map.isSourceLoaded('onemap'), tiles:style && map.areTilesLoaded(),\n    status:document.querySelector('main')?.dataset.mapStatus, overflow:document.documentElement.scrollWidth > innerWidth,\n    brand:rect(document.querySelector('h1')), search:rect(document.querySelector('#postal-search-input').closest('form')),\n    sheet:rect(document.querySelector('aside')), about:rect([...document.querySelectorAll('summary')].find(n=>n.textContent==='About data')) };\n})()",
+        "uniqueContextId": "-2335946273270460248.8243840616462904641",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 68361.9056
+    },
+    {
+      "name": "before capture",
+      "started": 68317.8443,
+      "finished": 68361.9992,
+      "value": {
+        "key": "3:shiokest:primary",
+        "count": 4,
+        "width": 390,
+        "height": 844,
+        "moving": false,
+        "center": [
+          103.86003,
+          1.284204529929795
+        ],
+        "zoom": 16.6,
+        "style": true,
+        "basemap": true,
+        "tiles": true,
+        "status": "ready",
+        "overflow": false,
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875,
+          "right": 84,
+          "bottom": 46.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44,
+          "right": 310,
+          "bottom": 98.6875
+        },
+        "sheet": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 327,
+          "right": 310,
+          "bottom": 433.6875
+        },
+        "about": {
+          "x": 281,
+          "y": 780,
+          "width": 96,
+          "height": 31,
+          "right": 377,
+          "bottom": 811
+        }
+      }
+    },
+    {
+      "method": "Page.captureScreenshot",
+      "at": 68390.1646,
+      "finished": 68977.7152
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 69107.1631,
+      "params": {
+        "expression": "(function facts() {\n  const map = window.__shiokRouteMap, debug = window.__shiokRouteDebug;\n  const rect = element => { const r = element?.getBoundingClientRect(); return r && { x:r.x, y:r.y, width:r.width, height:r.height, right:r.right, bottom:r.bottom }; };\n  const features = map.queryRenderedFeatures({ layers:['shiokest-route-line'] });\n  const style = map.isStyleLoaded();\n  return { key:debug.routeKey, count:features.filter(f => f.properties.render_key === debug.routeKey).length,\n    width:innerWidth, height:innerHeight, moving:map.isMoving(), center:map.getCenter().toArray(), zoom:map.getZoom(),\n    style, basemap:style && map.isSourceLoaded('onemap'), tiles:style && map.areTilesLoaded(),\n    status:document.querySelector('main')?.dataset.mapStatus, overflow:document.documentElement.scrollWidth > innerWidth,\n    brand:rect(document.querySelector('h1')), search:rect(document.querySelector('#postal-search-input').closest('form')),\n    sheet:rect(document.querySelector('aside')), about:rect([...document.querySelectorAll('summary')].find(n=>n.textContent==='About data')) };\n})()",
+        "uniqueContextId": "-2335946273270460248.8243840616462904641",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 69318.0754
+    },
+    {
+      "name": "after capture",
+      "started": 69107.0979,
+      "finished": 69318.2009,
+      "value": {
+        "key": "3:shiokest:primary",
+        "count": 4,
+        "width": 390,
+        "height": 844,
+        "moving": false,
+        "center": [
+          103.86003,
+          1.284204529929795
+        ],
+        "zoom": 16.6,
+        "style": true,
+        "basemap": true,
+        "tiles": true,
+        "status": "ready",
+        "overflow": false,
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875,
+          "right": 84,
+          "bottom": 46.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44,
+          "right": 310,
+          "bottom": 98.6875
+        },
+        "sheet": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 327,
+          "right": 310,
+          "bottom": 433.6875
+        },
+        "about": {
+          "x": 281,
+          "y": 780,
+          "width": 96,
+          "height": 31,
+          "right": 377,
+          "bottom": 811
+        }
+      }
+    },
+    {
+      "method": "Emulation.setDeviceMetricsOverride",
+      "at": 69377.5526,
+      "finished": 70780.886
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 70781.1063,
+      "params": {
+        "expression": "(function facts() {\n  const map = window.__shiokRouteMap, debug = window.__shiokRouteDebug;\n  const rect = element => { const r = element?.getBoundingClientRect(); return r && { x:r.x, y:r.y, width:r.width, height:r.height, right:r.right, bottom:r.bottom }; };\n  const features = map.queryRenderedFeatures({ layers:['shiokest-route-line'] });\n  const style = map.isStyleLoaded();\n  return { key:debug.routeKey, count:features.filter(f => f.properties.render_key === debug.routeKey).length,\n    width:innerWidth, height:innerHeight, moving:map.isMoving(), center:map.getCenter().toArray(), zoom:map.getZoom(),\n    style, basemap:style && map.isSourceLoaded('onemap'), tiles:style && map.areTilesLoaded(),\n    status:document.querySelector('main')?.dataset.mapStatus, overflow:document.documentElement.scrollWidth > innerWidth,\n    brand:rect(document.querySelector('h1')), search:rect(document.querySelector('#postal-search-input').closest('form')),\n    sheet:rect(document.querySelector('aside')), about:rect([...document.querySelectorAll('summary')].find(n=>n.textContent==='About data')) };\n})()",
+        "uniqueContextId": "-2335946273270460248.8243840616462904641",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 71600.2482
+    },
+    {
+      "name": "viewport readiness",
+      "started": 70781.0958,
+      "finished": 71600.4143,
+      "value": {
+        "key": "3:shiokest:primary",
+        "count": 4,
+        "width": 1440,
+        "height": 950,
+        "moving": false,
+        "center": [
+          103.85892577084377,
+          1.2826700099267327
+        ],
+        "zoom": 16.6,
+        "style": false,
+        "basemap": false,
+        "tiles": false,
+        "status": "ready",
+        "overflow": false,
+        "brand": {
+          "x": 12,
+          "y": 14,
+          "width": 91,
+          "height": 32,
+          "right": 103,
+          "bottom": 46
+        },
+        "search": {
+          "x": 12,
+          "y": 56,
+          "width": 300,
+          "height": 44,
+          "right": 312,
+          "bottom": 100
+        },
+        "sheet": {
+          "x": 12,
+          "y": 108,
+          "width": 300,
+          "height": 437.34375,
+          "right": 312,
+          "bottom": 545.34375
+        },
+        "about": {
+          "x": 1331,
+          "y": 886,
+          "width": 96,
+          "height": 31,
+          "right": 1427,
+          "bottom": 917
+        }
+      }
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 72200.0842,
+      "params": {
+        "expression": "(function facts() {\n  const map = window.__shiokRouteMap, debug = window.__shiokRouteDebug;\n  const rect = element => { const r = element?.getBoundingClientRect(); return r && { x:r.x, y:r.y, width:r.width, height:r.height, right:r.right, bottom:r.bottom }; };\n  const features = map.queryRenderedFeatures({ layers:['shiokest-route-line'] });\n  const style = map.isStyleLoaded();\n  return { key:debug.routeKey, count:features.filter(f => f.properties.render_key === debug.routeKey).length,\n    width:innerWidth, height:innerHeight, moving:map.isMoving(), center:map.getCenter().toArray(), zoom:map.getZoom(),\n    style, basemap:style && map.isSourceLoaded('onemap'), tiles:style && map.areTilesLoaded(),\n    status:document.querySelector('main')?.dataset.mapStatus, overflow:document.documentElement.scrollWidth > innerWidth,\n    brand:rect(document.querySelector('h1')), search:rect(document.querySelector('#postal-search-input').closest('form')),\n    sheet:rect(document.querySelector('aside')), about:rect([...document.querySelectorAll('summary')].find(n=>n.textContent==='About data')) };\n})()",
+        "uniqueContextId": "-2335946273270460248.8243840616462904641",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 81158.7493
+    },
+    {
+      "name": "viewport readiness",
+      "started": 72200.0694,
+      "finished": 81158.9825,
+      "value": {
+        "key": "3:shiokest:primary",
+        "count": 4,
+        "width": 1440,
+        "height": 950,
+        "moving": false,
+        "center": [
+          103.85892577084377,
+          1.2826700099267327
+        ],
+        "zoom": 16.6,
+        "style": false,
+        "basemap": false,
+        "tiles": false,
+        "status": "ready",
+        "overflow": false,
+        "brand": {
+          "x": 12,
+          "y": 14,
+          "width": 91,
+          "height": 32,
+          "right": 103,
+          "bottom": 46
+        },
+        "search": {
+          "x": 12,
+          "y": 56,
+          "width": 300,
+          "height": 44,
+          "right": 312,
+          "bottom": 100
+        },
+        "sheet": {
+          "x": 12,
+          "y": 108,
+          "width": 300,
+          "height": 437.34375,
+          "right": 312,
+          "bottom": 545.34375
+        },
+        "about": {
+          "x": 1331,
+          "y": 886,
+          "width": 96,
+          "height": 31,
+          "right": 1427,
+          "bottom": 917
+        }
+      }
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 81683.8189,
+      "params": {
+        "expression": "(function facts() {\n  const map = window.__shiokRouteMap, debug = window.__shiokRouteDebug;\n  const rect = element => { const r = element?.getBoundingClientRect(); return r && { x:r.x, y:r.y, width:r.width, height:r.height, right:r.right, bottom:r.bottom }; };\n  const features = map.queryRenderedFeatures({ layers:['shiokest-route-line'] });\n  const style = map.isStyleLoaded();\n  return { key:debug.routeKey, count:features.filter(f => f.properties.render_key === debug.routeKey).length,\n    width:innerWidth, height:innerHeight, moving:map.isMoving(), center:map.getCenter().toArray(), zoom:map.getZoom(),\n    style, basemap:style && map.isSourceLoaded('onemap'), tiles:style && map.areTilesLoaded(),\n    status:document.querySelector('main')?.dataset.mapStatus, overflow:document.documentElement.scrollWidth > innerWidth,\n    brand:rect(document.querySelector('h1')), search:rect(document.querySelector('#postal-search-input').closest('form')),\n    sheet:rect(document.querySelector('aside')), about:rect([...document.querySelectorAll('summary')].find(n=>n.textContent==='About data')) };\n})()",
+        "uniqueContextId": "-2335946273270460248.8243840616462904641",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 86688.9295
+    },
+    {
+      "name": "viewport readiness",
+      "started": 81683.80129999999,
+      "finished": 86689.0306,
+      "value": {
+        "key": "3:shiokest:primary",
+        "count": 4,
+        "width": 1440,
+        "height": 950,
+        "moving": false,
+        "center": [
+          103.85892577084377,
+          1.2826700099267327
+        ],
+        "zoom": 16.6,
+        "style": true,
+        "basemap": true,
+        "tiles": true,
+        "status": "ready",
+        "overflow": false,
+        "brand": {
+          "x": 12,
+          "y": 14,
+          "width": 91,
+          "height": 32,
+          "right": 103,
+          "bottom": 46
+        },
+        "search": {
+          "x": 12,
+          "y": 56,
+          "width": 300,
+          "height": 44,
+          "right": 312,
+          "bottom": 100
+        },
+        "sheet": {
+          "x": 12,
+          "y": 108,
+          "width": 300,
+          "height": 437.34375,
+          "right": 312,
+          "bottom": 545.34375
+        },
+        "about": {
+          "x": 1331,
+          "y": 886,
+          "width": 96,
+          "height": 31,
+          "right": 1427,
+          "bottom": 917
+        }
+      }
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 87244.7678,
+      "params": {
+        "expression": "(function facts() {\n  const map = window.__shiokRouteMap, debug = window.__shiokRouteDebug;\n  const rect = element => { const r = element?.getBoundingClientRect(); return r && { x:r.x, y:r.y, width:r.width, height:r.height, right:r.right, bottom:r.bottom }; };\n  const features = map.queryRenderedFeatures({ layers:['shiokest-route-line'] });\n  const style = map.isStyleLoaded();\n  return { key:debug.routeKey, count:features.filter(f => f.properties.render_key === debug.routeKey).length,\n    width:innerWidth, height:innerHeight, moving:map.isMoving(), center:map.getCenter().toArray(), zoom:map.getZoom(),\n    style, basemap:style && map.isSourceLoaded('onemap'), tiles:style && map.areTilesLoaded(),\n    status:document.querySelector('main')?.dataset.mapStatus, overflow:document.documentElement.scrollWidth > innerWidth,\n    brand:rect(document.querySelector('h1')), search:rect(document.querySelector('#postal-search-input').closest('form')),\n    sheet:rect(document.querySelector('aside')), about:rect([...document.querySelectorAll('summary')].find(n=>n.textContent==='About data')) };\n})()",
+        "uniqueContextId": "-2335946273270460248.8243840616462904641",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 87328.8455
+    },
+    {
+      "name": "before capture",
+      "started": 87244.7488,
+      "finished": 87328.9027,
+      "value": {
+        "key": "3:shiokest:primary",
+        "count": 4,
+        "width": 1440,
+        "height": 950,
+        "moving": false,
+        "center": [
+          103.85892577084377,
+          1.2826700099267327
+        ],
+        "zoom": 16.6,
+        "style": true,
+        "basemap": true,
+        "tiles": true,
+        "status": "ready",
+        "overflow": false,
+        "brand": {
+          "x": 12,
+          "y": 14,
+          "width": 91,
+          "height": 32,
+          "right": 103,
+          "bottom": 46
+        },
+        "search": {
+          "x": 12,
+          "y": 56,
+          "width": 300,
+          "height": 44,
+          "right": 312,
+          "bottom": 100
+        },
+        "sheet": {
+          "x": 12,
+          "y": 108,
+          "width": 300,
+          "height": 437.34375,
+          "right": 312,
+          "bottom": 545.34375
+        },
+        "about": {
+          "x": 1331,
+          "y": 886,
+          "width": 96,
+          "height": 31,
+          "right": 1427,
+          "bottom": 917
+        }
+      }
+    },
+    {
+      "method": "Page.captureScreenshot",
+      "at": 87350.8815,
+      "finished": 88897.2728
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 88926.8764,
+      "params": {
+        "expression": "(function facts() {\n  const map = window.__shiokRouteMap, debug = window.__shiokRouteDebug;\n  const rect = element => { const r = element?.getBoundingClientRect(); return r && { x:r.x, y:r.y, width:r.width, height:r.height, right:r.right, bottom:r.bottom }; };\n  const features = map.queryRenderedFeatures({ layers:['shiokest-route-line'] });\n  const style = map.isStyleLoaded();\n  return { key:debug.routeKey, count:features.filter(f => f.properties.render_key === debug.routeKey).length,\n    width:innerWidth, height:innerHeight, moving:map.isMoving(), center:map.getCenter().toArray(), zoom:map.getZoom(),\n    style, basemap:style && map.isSourceLoaded('onemap'), tiles:style && map.areTilesLoaded(),\n    status:document.querySelector('main')?.dataset.mapStatus, overflow:document.documentElement.scrollWidth > innerWidth,\n    brand:rect(document.querySelector('h1')), search:rect(document.querySelector('#postal-search-input').closest('form')),\n    sheet:rect(document.querySelector('aside')), about:rect([...document.querySelectorAll('summary')].find(n=>n.textContent==='About data')) };\n})()",
+        "uniqueContextId": "-2335946273270460248.8243840616462904641",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 89041.1284
+    },
+    {
+      "name": "after capture",
+      "started": 88926.8582,
+      "finished": 89041.1845,
+      "value": {
+        "key": "3:shiokest:primary",
+        "count": 4,
+        "width": 1440,
+        "height": 950,
+        "moving": false,
+        "center": [
+          103.85892577084377,
+          1.2826700099267327
+        ],
+        "zoom": 16.6,
+        "style": true,
+        "basemap": true,
+        "tiles": true,
+        "status": "ready",
+        "overflow": false,
+        "brand": {
+          "x": 12,
+          "y": 14,
+          "width": 91,
+          "height": 32,
+          "right": 103,
+          "bottom": 46
+        },
+        "search": {
+          "x": 12,
+          "y": 56,
+          "width": 300,
+          "height": 44,
+          "right": 312,
+          "bottom": 100
+        },
+        "sheet": {
+          "x": 12,
+          "y": 108,
+          "width": 300,
+          "height": 437.34375,
+          "right": 312,
+          "bottom": 545.34375
+        },
+        "about": {
+          "x": 1331,
+          "y": 886,
+          "width": 96,
+          "height": 31,
+          "right": 1427,
+          "bottom": 917
+        }
+      }
+    },
+    {
+      "method": "Emulation.setDeviceMetricsOverride",
+      "at": 89103.2646,
+      "finished": 89130.2696
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 89130.5189,
+      "params": {
+        "expression": "(function facts() {\n  const map = window.__shiokRouteMap, debug = window.__shiokRouteDebug;\n  const rect = element => { const r = element?.getBoundingClientRect(); return r && { x:r.x, y:r.y, width:r.width, height:r.height, right:r.right, bottom:r.bottom }; };\n  const features = map.queryRenderedFeatures({ layers:['shiokest-route-line'] });\n  const style = map.isStyleLoaded();\n  return { key:debug.routeKey, count:features.filter(f => f.properties.render_key === debug.routeKey).length,\n    width:innerWidth, height:innerHeight, moving:map.isMoving(), center:map.getCenter().toArray(), zoom:map.getZoom(),\n    style, basemap:style && map.isSourceLoaded('onemap'), tiles:style && map.areTilesLoaded(),\n    status:document.querySelector('main')?.dataset.mapStatus, overflow:document.documentElement.scrollWidth > innerWidth,\n    brand:rect(document.querySelector('h1')), search:rect(document.querySelector('#postal-search-input').closest('form')),\n    sheet:rect(document.querySelector('aside')), about:rect([...document.querySelectorAll('summary')].find(n=>n.textContent==='About data')) };\n})()",
+        "uniqueContextId": "-2335946273270460248.8243840616462904641",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 89876.506
+    },
+    {
+      "name": "viewport readiness",
+      "started": 89130.5066,
+      "finished": 89876.783,
+      "value": {
+        "key": "3:shiokest:primary",
+        "count": 4,
+        "width": 390,
+        "height": 667,
+        "moving": false,
+        "center": [
+          103.85892577084377,
+          1.2826700099267327
+        ],
+        "zoom": 16.6,
+        "style": true,
+        "basemap": true,
+        "tiles": true,
+        "status": "ready",
+        "overflow": false,
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875,
+          "right": 84,
+          "bottom": 46.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44,
+          "right": 310,
+          "bottom": 98.6875
+        },
+        "sheet": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 327,
+          "right": 310,
+          "bottom": 433.6875
+        },
+        "about": {
+          "x": 281,
+          "y": 603,
+          "width": 96,
+          "height": 31,
+          "right": 377,
+          "bottom": 634
+        }
+      }
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 90454.353,
+      "params": {
+        "expression": "(function facts() {\n  const map = window.__shiokRouteMap, debug = window.__shiokRouteDebug;\n  const rect = element => { const r = element?.getBoundingClientRect(); return r && { x:r.x, y:r.y, width:r.width, height:r.height, right:r.right, bottom:r.bottom }; };\n  const features = map.queryRenderedFeatures({ layers:['shiokest-route-line'] });\n  const style = map.isStyleLoaded();\n  return { key:debug.routeKey, count:features.filter(f => f.properties.render_key === debug.routeKey).length,\n    width:innerWidth, height:innerHeight, moving:map.isMoving(), center:map.getCenter().toArray(), zoom:map.getZoom(),\n    style, basemap:style && map.isSourceLoaded('onemap'), tiles:style && map.areTilesLoaded(),\n    status:document.querySelector('main')?.dataset.mapStatus, overflow:document.documentElement.scrollWidth > innerWidth,\n    brand:rect(document.querySelector('h1')), search:rect(document.querySelector('#postal-search-input').closest('form')),\n    sheet:rect(document.querySelector('aside')), about:rect([...document.querySelectorAll('summary')].find(n=>n.textContent==='About data')) };\n})()",
+        "uniqueContextId": "-2335946273270460248.8243840616462904641",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 90571.3757
+    },
+    {
+      "name": "before capture",
+      "started": 90454.3386,
+      "finished": 90571.4556,
+      "value": {
+        "key": "3:shiokest:primary",
+        "count": 4,
+        "width": 390,
+        "height": 667,
+        "moving": false,
+        "center": [
+          103.86003,
+          1.284204529929795
+        ],
+        "zoom": 16.6,
+        "style": true,
+        "basemap": true,
+        "tiles": true,
+        "status": "ready",
+        "overflow": false,
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875,
+          "right": 84,
+          "bottom": 46.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44,
+          "right": 310,
+          "bottom": 98.6875
+        },
+        "sheet": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 327,
+          "right": 310,
+          "bottom": 433.6875
+        },
+        "about": {
+          "x": 281,
+          "y": 603,
+          "width": 96,
+          "height": 31,
+          "right": 377,
+          "bottom": 634
+        }
+      }
+    },
+    {
+      "method": "Page.captureScreenshot",
+      "at": 90598.5193,
+      "finished": 91039.4094
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 91138.7098,
+      "params": {
+        "expression": "(function facts() {\n  const map = window.__shiokRouteMap, debug = window.__shiokRouteDebug;\n  const rect = element => { const r = element?.getBoundingClientRect(); return r && { x:r.x, y:r.y, width:r.width, height:r.height, right:r.right, bottom:r.bottom }; };\n  const features = map.queryRenderedFeatures({ layers:['shiokest-route-line'] });\n  const style = map.isStyleLoaded();\n  return { key:debug.routeKey, count:features.filter(f => f.properties.render_key === debug.routeKey).length,\n    width:innerWidth, height:innerHeight, moving:map.isMoving(), center:map.getCenter().toArray(), zoom:map.getZoom(),\n    style, basemap:style && map.isSourceLoaded('onemap'), tiles:style && map.areTilesLoaded(),\n    status:document.querySelector('main')?.dataset.mapStatus, overflow:document.documentElement.scrollWidth > innerWidth,\n    brand:rect(document.querySelector('h1')), search:rect(document.querySelector('#postal-search-input').closest('form')),\n    sheet:rect(document.querySelector('aside')), about:rect([...document.querySelectorAll('summary')].find(n=>n.textContent==='About data')) };\n})()",
+        "uniqueContextId": "-2335946273270460248.8243840616462904641",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 91862.91589999999
+    },
+    {
+      "name": "after capture",
+      "started": 91138.6836,
+      "finished": 91863.1943,
+      "value": {
+        "key": "3:shiokest:primary",
+        "count": 4,
+        "width": 390,
+        "height": 667,
+        "moving": false,
+        "center": [
+          103.86003,
+          1.284204529929795
+        ],
+        "zoom": 16.6,
+        "style": true,
+        "basemap": true,
+        "tiles": true,
+        "status": "ready",
+        "overflow": false,
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875,
+          "right": 84,
+          "bottom": 46.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44,
+          "right": 310,
+          "bottom": 98.6875
+        },
+        "sheet": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 327,
+          "right": 310,
+          "bottom": 433.6875
+        },
+        "about": {
+          "x": 281,
+          "y": 603,
+          "width": 96,
+          "height": 31,
+          "right": 377,
+          "bottom": 634
+        }
+      }
+    },
+    {
+      "method": "Emulation.setDeviceMetricsOverride",
+      "at": 91938.019,
+      "finished": 92049.70449999999
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 92049.8542,
+      "params": {
+        "expression": "(function facts() {\n  const map = window.__shiokRouteMap, debug = window.__shiokRouteDebug;\n  const rect = element => { const r = element?.getBoundingClientRect(); return r && { x:r.x, y:r.y, width:r.width, height:r.height, right:r.right, bottom:r.bottom }; };\n  const features = map.queryRenderedFeatures({ layers:['shiokest-route-line'] });\n  const style = map.isStyleLoaded();\n  return { key:debug.routeKey, count:features.filter(f => f.properties.render_key === debug.routeKey).length,\n    width:innerWidth, height:innerHeight, moving:map.isMoving(), center:map.getCenter().toArray(), zoom:map.getZoom(),\n    style, basemap:style && map.isSourceLoaded('onemap'), tiles:style && map.areTilesLoaded(),\n    status:document.querySelector('main')?.dataset.mapStatus, overflow:document.documentElement.scrollWidth > innerWidth,\n    brand:rect(document.querySelector('h1')), search:rect(document.querySelector('#postal-search-input').closest('form')),\n    sheet:rect(document.querySelector('aside')), about:rect([...document.querySelectorAll('summary')].find(n=>n.textContent==='About data')) };\n})()",
+        "uniqueContextId": "-2335946273270460248.8243840616462904641",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 92495.16589999999
+    },
+    {
+      "name": "viewport readiness",
+      "started": 92049.8423,
+      "finished": 92495.4719,
+      "value": {
+        "key": "3:shiokest:primary",
+        "count": 4,
+        "width": 320,
+        "height": 667,
+        "moving": false,
+        "center": [
+          103.86003,
+          1.284204529929795
+        ],
+        "zoom": 16.6,
+        "style": true,
+        "basemap": true,
+        "tiles": true,
+        "status": "ready",
+        "overflow": false,
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875,
+          "right": 84,
+          "bottom": 46.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44,
+          "right": 310,
+          "bottom": 98.6875
+        },
+        "sheet": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 324,
+          "right": 310,
+          "bottom": 430.6875
+        },
+        "about": {
+          "x": 211,
+          "y": 603,
+          "width": 96,
+          "height": 31,
+          "right": 307,
+          "bottom": 634
+        }
+      }
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 93055.4063,
+      "params": {
+        "expression": "(function facts() {\n  const map = window.__shiokRouteMap, debug = window.__shiokRouteDebug;\n  const rect = element => { const r = element?.getBoundingClientRect(); return r && { x:r.x, y:r.y, width:r.width, height:r.height, right:r.right, bottom:r.bottom }; };\n  const features = map.queryRenderedFeatures({ layers:['shiokest-route-line'] });\n  const style = map.isStyleLoaded();\n  return { key:debug.routeKey, count:features.filter(f => f.properties.render_key === debug.routeKey).length,\n    width:innerWidth, height:innerHeight, moving:map.isMoving(), center:map.getCenter().toArray(), zoom:map.getZoom(),\n    style, basemap:style && map.isSourceLoaded('onemap'), tiles:style && map.areTilesLoaded(),\n    status:document.querySelector('main')?.dataset.mapStatus, overflow:document.documentElement.scrollWidth > innerWidth,\n    brand:rect(document.querySelector('h1')), search:rect(document.querySelector('#postal-search-input').closest('form')),\n    sheet:rect(document.querySelector('aside')), about:rect([...document.querySelectorAll('summary')].find(n=>n.textContent==='About data')) };\n})()",
+        "uniqueContextId": "-2335946273270460248.8243840616462904641",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 93269.7813
+    },
+    {
+      "name": "before capture",
+      "started": 93055.3822,
+      "finished": 93269.875,
+      "value": {
+        "key": "3:shiokest:primary",
+        "count": 4,
+        "width": 320,
+        "height": 667,
+        "moving": false,
+        "center": [
+          103.86003,
+          1.2841939150086148
+        ],
+        "zoom": 16.6,
+        "style": true,
+        "basemap": true,
+        "tiles": true,
+        "status": "ready",
+        "overflow": false,
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875,
+          "right": 84,
+          "bottom": 46.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44,
+          "right": 310,
+          "bottom": 98.6875
+        },
+        "sheet": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 324,
+          "right": 310,
+          "bottom": 430.6875
+        },
+        "about": {
+          "x": 211,
+          "y": 603,
+          "width": 96,
+          "height": 31,
+          "right": 307,
+          "bottom": 634
+        }
+      }
+    },
+    {
+      "method": "Page.captureScreenshot",
+      "at": 93308.0486,
+      "finished": 93573.2458
+    },
+    {
+      "method": "Runtime.evaluate",
+      "at": 93626.7827,
+      "params": {
+        "expression": "(function facts() {\n  const map = window.__shiokRouteMap, debug = window.__shiokRouteDebug;\n  const rect = element => { const r = element?.getBoundingClientRect(); return r && { x:r.x, y:r.y, width:r.width, height:r.height, right:r.right, bottom:r.bottom }; };\n  const features = map.queryRenderedFeatures({ layers:['shiokest-route-line'] });\n  const style = map.isStyleLoaded();\n  return { key:debug.routeKey, count:features.filter(f => f.properties.render_key === debug.routeKey).length,\n    width:innerWidth, height:innerHeight, moving:map.isMoving(), center:map.getCenter().toArray(), zoom:map.getZoom(),\n    style, basemap:style && map.isSourceLoaded('onemap'), tiles:style && map.areTilesLoaded(),\n    status:document.querySelector('main')?.dataset.mapStatus, overflow:document.documentElement.scrollWidth > innerWidth,\n    brand:rect(document.querySelector('h1')), search:rect(document.querySelector('#postal-search-input').closest('form')),\n    sheet:rect(document.querySelector('aside')), about:rect([...document.querySelectorAll('summary')].find(n=>n.textContent==='About data')) };\n})()",
+        "uniqueContextId": "-2335946273270460248.8243840616462904641",
+        "returnByValue": true,
+        "awaitPromise": false,
+        "timeout": 5000
+      },
+      "finished": 93715.3159
+    },
+    {
+      "name": "after capture",
+      "started": 93626.7645,
+      "finished": 93715.3627,
+      "value": {
+        "key": "3:shiokest:primary",
+        "count": 4,
+        "width": 320,
+        "height": 667,
+        "moving": false,
+        "center": [
+          103.86003,
+          1.2841939150086148
+        ],
+        "zoom": 16.6,
+        "style": true,
+        "basemap": true,
+        "tiles": true,
+        "status": "ready",
+        "overflow": false,
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875,
+          "right": 84,
+          "bottom": 46.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44,
+          "right": 310,
+          "bottom": 98.6875
+        },
+        "sheet": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 324,
+          "right": 310,
+          "bottom": 430.6875
+        },
+        "about": {
+          "x": 211,
+          "y": 603,
+          "width": 96,
+          "height": 31,
+          "right": 307,
+          "bottom": 634
+        }
+      }
+    }
+  ],
+  "events": [
+    {
+      "method": "Runtime.executionContextCreated",
+      "at": 1902.6435999999999,
+      "context": {
+        "id": 1,
+        "origin": "://",
+        "name": "",
+        "uniqueId": "-8013215343856812532.5200846637569831605",
+        "auxData": {
+          "isDefault": true,
+          "type": "default",
+          "frameId": "46E28408AAD8054EC5B547C1DAD2C68D"
+        }
+      }
+    },
+    {
+      "method": "Runtime.executionContextsCleared",
+      "at": 2279.845
+    },
+    {
+      "method": "Runtime.executionContextsCleared",
+      "at": 2280.3949
+    },
+    {
+      "method": "Runtime.executionContextCreated",
+      "at": 2284.8887999999997,
+      "context": {
+        "id": 2,
+        "origin": "http://127.0.0.1:4362",
+        "name": "",
+        "uniqueId": "-2335946273270460248.8243840616462904641",
+        "auxData": {
+          "isDefault": true,
+          "type": "default",
+          "frameId": "46E28408AAD8054EC5B547C1DAD2C68D"
+        }
+      }
+    },
+    {
+      "method": "Page.domContentEventFired",
+      "at": 2602.698,
+      "params": {
+        "timestamp": 41657.683474
+      }
+    },
+    {
+      "method": "Page.loadEventFired",
+      "at": 4536.2472,
+      "params": {
+        "timestamp": 41659.462755
+      }
+    }
+  ],
+  "responses": [
+    {
+      "at": 2274.3172999999997,
+      "url": "http://127.0.0.1:4362/?postal=018956&debugMap=1",
+      "status": 200
+    },
+    {
+      "at": 2515.6308,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/3vlrbw6gc84l7.css",
+      "status": 200
+    },
+    {
+      "at": 2983.4309,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/1oaw9uq-pttep.js",
+      "status": 200
+    },
+    {
+      "at": 3028.1576999999997,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/2dn31qlrcaugz.js",
+      "status": 200
+    },
+    {
+      "at": 3101.8808,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/1bidz_3pqoxaj.js",
+      "status": 200
+    },
+    {
+      "at": 3482.8555,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/turbopack-0xfj_5xwh9c0_.js",
+      "status": 200
+    },
+    {
+      "at": 3583.306,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/17f1081s5yhzn.js",
+      "status": 200
+    },
+    {
+      "at": 4079.8437999999996,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/1c6j_lnxj8czm.js",
+      "status": 200
+    },
+    {
+      "at": 4215.3928,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/1xxxg_js1imd7.js",
+      "status": 200
+    },
+    {
+      "at": 4337.8072,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/2xkd3da992cyi.js",
+      "status": 200
+    },
+    {
+      "at": 4877.496,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/3041ut-1olh-5.css",
+      "status": 200
+    },
+    {
+      "at": 5110.4219,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "status": 404
+    },
+    {
+      "at": 5167.1424,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "status": 200
+    },
+    {
+      "at": 5186.9138,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/20zjq-ak3jpeu.js",
+      "status": 200
+    },
+    {
+      "at": 5236.4715,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "status": 200
+    },
+    {
+      "at": 5251.2188,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "status": 404
+    },
+    {
+      "at": 5261.3926,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "status": 404
+    },
+    {
+      "at": 5275.4253,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "status": 200
+    },
+    {
+      "at": 5308.5833,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/3u4fr6aw4uicq.js",
+      "status": 200
+    },
+    {
+      "at": 5334.0646,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/1zyj6upfpdkbv.js",
+      "status": 200
+    },
+    {
+      "at": 5368.9441,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "status": 200
+    },
+    {
+      "at": 5387.3508999999995,
+      "url": "https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png",
+      "status": 200
+    },
+    {
+      "at": 5524.1469,
+      "url": "http://127.0.0.1:4362/icon.svg",
+      "status": 200
+    },
+    {
+      "at": 6052.2344,
+      "url": "http://127.0.0.1:4362/_next/static/chunks/29ddgwgt55efo.js",
+      "status": 200
+    },
+    {
+      "at": 6164.8916,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "status": 200
+    },
+    {
+      "at": 6261.9782,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "status": 200
+    },
+    {
+      "at": 6270.7701,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "status": 200
+    },
+    {
+      "at": 6289.836,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "status": 200
+    },
+    {
+      "at": 6304.0922,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "status": 404
+    },
+    {
+      "at": 6307.2169,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "status": 200
+    },
+    {
+      "at": 6308.0358,
+      "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "status": 200
+    },
+    {
+      "at": 7538.9959,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260273.png",
+      "status": 200
+    },
+    {
+      "at": 7539.8005,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260274.png",
+      "status": 200
+    },
+    {
+      "at": 7541.5284,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260273.png",
+      "status": 200
+    },
+    {
+      "at": 7542.4537,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260274.png",
+      "status": 200
+    },
+    {
+      "at": 7543.0235999999995,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260272.png",
+      "status": 200
+    },
+    {
+      "at": 7549.9266,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260273.png",
+      "status": 200
+    },
+    {
+      "at": 7557.2694,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260274.png",
+      "status": 200
+    },
+    {
+      "at": 7570.125,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260272.png",
+      "status": 200
+    },
+    {
+      "at": 7576.661,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260275.png",
+      "status": 200
+    },
+    {
+      "at": 7592.9848999999995,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260274.png",
+      "status": 200
+    },
+    {
+      "at": 7609.9513,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260272.png",
+      "status": 200
+    },
+    {
+      "at": 7612.4187999999995,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260273.png",
+      "status": 200
+    },
+    {
+      "at": 7613.5773,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260271.png",
+      "status": 200
+    },
+    {
+      "at": 7627.5314,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260275.png",
+      "status": 200
+    },
+    {
+      "at": 7636.1764,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260272.png",
+      "status": 200
+    },
+    {
+      "at": 7678.3213,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260271.png",
+      "status": 200
+    },
+    {
+      "at": 9110.7911,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260275.png",
+      "status": 200
+    },
+    {
+      "at": 9122.7499,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260273.png",
+      "status": 200
+    },
+    {
+      "at": 9126.616800000002,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260271.png",
+      "status": 200
+    },
+    {
+      "at": 9135.507800000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260275.png",
+      "status": 200
+    },
+    {
+      "at": 9139.162900000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260276.png",
+      "status": 200
+    },
+    {
+      "at": 9149.7865,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260271.png",
+      "status": 200
+    },
+    {
+      "at": 9157.788,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260276.png",
+      "status": 200
+    },
+    {
+      "at": 9159.269400000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260275.png",
+      "status": 200
+    },
+    {
+      "at": 9159.9858,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260270.png",
+      "status": 200
+    },
+    {
+      "at": 9165.8238,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260272.png",
+      "status": 200
+    },
+    {
+      "at": 9168.467100000002,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260274.png",
+      "status": 200
+    },
+    {
+      "at": 9170.026100000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260270.png",
+      "status": 200
+    },
+    {
+      "at": 9172.778100000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260276.png",
+      "status": 200
+    },
+    {
+      "at": 9175.846300000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260270.png",
+      "status": 200
+    },
+    {
+      "at": 9178.921600000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260276.png",
+      "status": 200
+    },
+    {
+      "at": 9180.987700000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260271.png",
+      "status": 200
+    },
+    {
+      "at": 9391.525300000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260270.png",
+      "status": 200
+    },
+    {
+      "at": 9392.274800000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260277.png",
+      "status": 200
+    },
+    {
+      "at": 9393.773500000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260276.png",
+      "status": 200
+    },
+    {
+      "at": 9410.9385,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260270.png",
+      "status": 200
+    },
+    {
+      "at": 9415.759,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260269.png",
+      "status": 200
+    },
+    {
+      "at": 9446.898500000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260277.png",
+      "status": 200
+    },
+    {
+      "at": 9467.556600000002,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260277.png",
+      "status": 200
+    },
+    {
+      "at": 9469.4681,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260277.png",
+      "status": 200
+    },
+    {
+      "at": 9470.2803,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260269.png",
+      "status": 200
+    },
+    {
+      "at": 9470.9577,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260277.png",
+      "status": 200
+    },
+    {
+      "at": 9472.016000000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260269.png",
+      "status": 200
+    },
+    {
+      "at": 9484.664200000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260269.png",
+      "status": 200
+    },
+    {
+      "at": 9504.455300000001,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260269.png",
+      "status": 200
+    },
+    {
+      "at": 72516.3748,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260273.png",
+      "status": 200
+    },
+    {
+      "at": 73438.6655,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260275.png",
+      "status": 200
+    },
+    {
+      "at": 73504.6399,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260274.png",
+      "status": 200
+    },
+    {
+      "at": 73601.7757,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260272.png",
+      "status": 200
+    },
+    {
+      "at": 74120.3832,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260271.png",
+      "status": 200
+    },
+    {
+      "at": 74281.1832,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260274.png",
+      "status": 200
+    },
+    {
+      "at": 74863.3287,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260273.png",
+      "status": 200
+    },
+    {
+      "at": 75090.0209,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260273.png",
+      "status": 200
+    },
+    {
+      "at": 75243.444,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260272.png",
+      "status": 200
+    },
+    {
+      "at": 75882.0266,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260274.png",
+      "status": 200
+    },
+    {
+      "at": 75987.8693,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260272.png",
+      "status": 200
+    },
+    {
+      "at": 76179.6266,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260275.png",
+      "status": 200
+    },
+    {
+      "at": 76576.9297,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260276.png",
+      "status": 200
+    },
+    {
+      "at": 76699.009,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260271.png",
+      "status": 200
+    },
+    {
+      "at": 76737.6992,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260270.png",
+      "status": 200
+    },
+    {
+      "at": 76779.8016,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260275.png",
+      "status": 200
+    },
+    {
+      "at": 79008.4281,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260271.png",
+      "status": 200
+    },
+    {
+      "at": 79270.2205,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260276.png",
+      "status": 200
+    },
+    {
+      "at": 79345.4914,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260273.png",
+      "status": 200
+    },
+    {
+      "at": 79592.7679,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260274.png",
+      "status": 200
+    },
+    {
+      "at": 79921.6048,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260272.png",
+      "status": 200
+    },
+    {
+      "at": 79941.4963,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260270.png",
+      "status": 200
+    },
+    {
+      "at": 79989.6127,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260273.png",
+      "status": 200
+    },
+    {
+      "at": 80005.8883,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260276.png",
+      "status": 200
+    },
+    {
+      "at": 80020.1692,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260277.png",
+      "status": 200
+    },
+    {
+      "at": 80036.4291,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260270.png",
+      "status": 200
+    },
+    {
+      "at": 80052.6247,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260274.png",
+      "status": 200
+    },
+    {
+      "at": 80073.1369,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260272.png",
+      "status": 200
+    },
+    {
+      "at": 80087.0512,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260275.png",
+      "status": 200
+    },
+    {
+      "at": 80180.0944,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260271.png",
+      "status": 200
+    },
+    {
+      "at": 80194.3688,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260278.png",
+      "status": 200
+    },
+    {
+      "at": 80212.4134,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260278.png",
+      "status": 200
+    },
+    {
+      "at": 80248.9408,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260275.png",
+      "status": 200
+    },
+    {
+      "at": 80266.61779999999,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260271.png",
+      "status": 200
+    },
+    {
+      "at": 80685.6719,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260278.png",
+      "status": 200
+    },
+    {
+      "at": 80795.6508,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260278.png",
+      "status": 200
+    },
+    {
+      "at": 80824.7072,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260277.png",
+      "status": 200
+    },
+    {
+      "at": 81191.028,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260276.png",
+      "status": 200
+    },
+    {
+      "at": 81248.3859,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260277.png",
+      "status": 200
+    },
+    {
+      "at": 81403.7249,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260270.png",
+      "status": 200
+    },
+    {
+      "at": 81413.79149999999,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260273.png",
+      "status": 200
+    },
+    {
+      "at": 81418.9544,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260274.png",
+      "status": 200
+    },
+    {
+      "at": 81683.26239999999,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260278.png",
+      "status": 200
+    },
+    {
+      "at": 81698.4761,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260278.png",
+      "status": 200
+    },
+    {
+      "at": 81734.1786,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260270.png",
+      "status": 200
+    },
+    {
+      "at": 81749.9414,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260272.png",
+      "status": 200
+    },
+    {
+      "at": 81856.6546,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260276.png",
+      "status": 200
+    },
+    {
+      "at": 81885.3397,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260273.png",
+      "status": 200
+    },
+    {
+      "at": 82163.7542,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260274.png",
+      "status": 200
+    },
+    {
+      "at": 82212.4124,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260275.png",
+      "status": 200
+    },
+    {
+      "at": 82220.0667,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260272.png",
+      "status": 200
+    },
+    {
+      "at": 82336.8781,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260271.png",
+      "status": 200
+    },
+    {
+      "at": 82346.6592,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260277.png",
+      "status": 200
+    },
+    {
+      "at": 82363.1525,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260275.png",
+      "status": 200
+    },
+    {
+      "at": 82472.9409,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260278.png",
+      "status": 200
+    },
+    {
+      "at": 82489.54579999999,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260271.png",
+      "status": 200
+    },
+    {
+      "at": 82531.2669,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260276.png",
+      "status": 200
+    },
+    {
+      "at": 82600.6107,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260277.png",
+      "status": 200
+    },
+    {
+      "at": 82736.31,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260278.png",
+      "status": 200
+    },
+    {
+      "at": 82800.88799999999,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260270.png",
+      "status": 200
+    },
+    {
+      "at": 82845.42079999999,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260276.png",
+      "status": 200
+    },
+    {
+      "at": 82862.4235,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260270.png",
+      "status": 200
+    },
+    {
+      "at": 82963.3134,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260278.png",
+      "status": 200
+    },
+    {
+      "at": 83018.3518,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260273.png",
+      "status": 200
+    },
+    {
+      "at": 83029.8475,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260277.png",
+      "status": 200
+    },
+    {
+      "at": 83055.4554,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260274.png",
+      "status": 200
+    },
+    {
+      "at": 83092.9406,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260272.png",
+      "status": 200
+    },
+    {
+      "at": 83294.5019,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260278.png",
+      "status": 200
+    },
+    {
+      "at": 83306.7225,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260275.png",
+      "status": 200
+    },
+    {
+      "at": 83324.6314,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260277.png",
+      "status": 200
+    },
+    {
+      "at": 83328.9101,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260278.png",
+      "status": 200
+    },
+    {
+      "at": 83475.7656,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260276.png",
+      "status": 200
+    },
+    {
+      "at": 83493.9564,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260271.png",
+      "status": 200
+    },
+    {
+      "at": 83512.4498,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260270.png",
+      "status": 200
+    },
+    {
+      "at": 83539.094,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260278.png",
+      "status": 200
+    },
+    {
+      "at": 83912.7208,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260273.png",
+      "status": 200
+    },
+    {
+      "at": 84214.6394,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260274.png",
+      "status": 200
+    },
+    {
+      "at": 84227.9804,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260277.png",
+      "status": 200
+    },
+    {
+      "at": 84265.8041,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260272.png",
+      "status": 200
+    },
+    {
+      "at": 84280.1461,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260275.png",
+      "status": 200
+    },
+    {
+      "at": 84299.7804,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260271.png",
+      "status": 200
+    },
+    {
+      "at": 84407.4644,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260276.png",
+      "status": 200
+    },
+    {
+      "at": 84616.2213,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260270.png",
+      "status": 200
+    },
+    {
+      "at": 84632.3662,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260278.png",
+      "status": 200
+    },
+    {
+      "at": 84647.132,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260277.png",
+      "status": 200
+    },
+    {
+      "at": 84659.3771,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260278.png",
+      "status": 200
+    },
+    {
+      "at": 84664.7341,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260279.png",
+      "status": 200
+    },
+    {
+      "at": 84673.5913,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260279.png",
+      "status": 200
+    },
+    {
+      "at": 84697.7172,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260279.png",
+      "status": 200
+    },
+    {
+      "at": 84709.3984,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260279.png",
+      "status": 200
+    },
+    {
+      "at": 84876.649,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260279.png",
+      "status": 200
+    },
+    {
+      "at": 85147.9908,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260280.png",
+      "status": 200
+    },
+    {
+      "at": 85327.7882,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260279.png",
+      "status": 200
+    },
+    {
+      "at": 85370.7307,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260279.png",
+      "status": 200
+    },
+    {
+      "at": 85424.6065,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260280.png",
+      "status": 200
+    },
+    {
+      "at": 85491.7188,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260280.png",
+      "status": 200
+    },
+    {
+      "at": 85496.1946,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260280.png",
+      "status": 200
+    },
+    {
+      "at": 85520.656,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260280.png",
+      "status": 200
+    },
+    {
+      "at": 85775.1229,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260279.png",
+      "status": 200
+    },
+    {
+      "at": 85851.8745,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260279.png",
+      "status": 200
+    },
+    {
+      "at": 85863.4507,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260280.png",
+      "status": 200
+    },
+    {
+      "at": 85877.1457,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260280.png",
+      "status": 200
+    },
+    {
+      "at": 85887.1067,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260280.png",
+      "status": 200
+    },
+    {
+      "at": 85897.6897,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260280.png",
+      "status": 200
+    },
+    {
+      "at": 85906.1512,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260279.png",
+      "status": 200
+    },
+    {
+      "at": 85915.8196,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260280.png",
+      "status": 200
+    },
+    {
+      "at": 86006.8863,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260279.png",
+      "status": 200
+    },
+    {
+      "at": 86045.17139999999,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260280.png",
+      "status": 200
+    },
+    {
+      "at": 86201.5483,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260279.png",
+      "status": 200
+    },
+    {
+      "at": 86227.9534,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260275.png",
+      "status": 200
+    },
+    {
+      "at": 86230.0321,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260276.png",
+      "status": 200
+    },
+    {
+      "at": 86246.0667,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260279.png",
+      "status": 200
+    },
+    {
+      "at": 86262.3168,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260274.png",
+      "status": 200
+    },
+    {
+      "at": 86395.6919,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260277.png",
+      "status": 200
+    },
+    {
+      "at": 86436.1751,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260273.png",
+      "status": 200
+    },
+    {
+      "at": 86438.3232,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260278.png",
+      "status": 200
+    },
+    {
+      "at": 86443.7317,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260280.png",
+      "status": 200
+    },
+    {
+      "at": 86449.8235,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260280.png",
+      "status": 200
+    },
+    {
+      "at": 86484.9222,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260272.png",
+      "status": 200
+    },
+    {
+      "at": 86488.68029999999,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260279.png",
+      "status": 200
+    },
+    {
+      "at": 86494.9375,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260279.png",
+      "status": 200
+    },
+    {
+      "at": 86555.6969,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260271.png",
+      "status": 200
+    },
+    {
+      "at": 86558.5376,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260280.png",
+      "status": 200
+    },
+    {
+      "at": 86589.3506,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260280.png",
+      "status": 200
+    },
+    {
+      "at": 86594.083,
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260270.png",
+      "status": 200
+    }
+  ],
+  "errors": [],
+  "captures": [
+    {
+      "name": "before-map-inspection-390x844",
+      "at": 6607.9625
+    },
+    {
+      "name": "after-passive-observation-390x844",
+      "at": 67235.78629999999
+    },
+    {
+      "name": "after-map-inspection-390x844",
+      "at": 67693.4239
+    },
+    {
+      "name": "loaded-390x844",
+      "at": 69002.2398
+    },
+    {
+      "name": "loaded-1440x950",
+      "at": 88909.913
+    },
+    {
+      "name": "loaded-390x667",
+      "at": 91077.5735
+    },
+    {
+      "name": "loaded-320x667",
+      "at": 93592.6368
+    }
+  ],
+  "trace": [
+    {
+      "at": 181.59999999403954,
+      "kind": "map-status",
+      "status": "idle"
+    },
+    {
+      "at": 2907.89999999851,
+      "kind": "route-debug",
+      "value": {
+        "routeKey": "1:shiokest:",
+        "padding": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "mode": "shiokest",
+        "routeCount": 0,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 0,
+          "exposure": 0,
+          "transit": 0,
+          "activeGap": 0,
+          "lamp": 0
+        },
+        "lampStatus": "off",
+        "summary": "Singapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops."
+      }
+    },
+    {
+      "at": 2923.39999999851,
+      "kind": "map-status",
+      "status": "mounting"
+    },
+    {
+      "at": 3596,
+      "kind": "route-debug",
+      "value": {
+        "routeKey": "2:shiokest:primary",
+        "padding": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "mode": "shiokest",
+        "routeCount": 1,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 4,
+          "exposure": 3,
+          "transit": 1,
+          "activeGap": 0,
+          "lamp": 0
+        },
+        "lampStatus": "off",
+        "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 0 MRT or LRT stations, 0 exits, and 0 bus stops."
+      }
+    },
+    {
+      "at": 3814.1999999955297,
+      "kind": "map-attached"
+    },
+    {
+      "at": 3926.1999999955297,
+      "kind": "map-status",
+      "status": "initializing"
+    },
+    {
+      "at": 3954.5,
+      "kind": "createProgram:start"
+    },
+    {
+      "at": 3954.6999999955297,
+      "kind": "createProgram:end",
+      "milliseconds": 0.3999999985098839
+    },
+    {
+      "at": 3955.1999999955297,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 3955.1999999955297,
+      "kind": "compileShader:end",
+      "milliseconds": 0.10000000149011612
+    },
+    {
+      "at": 3956.7999999970198,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 3956.89999999851,
+      "kind": "compileShader:end",
+      "milliseconds": 0.10000000149011612
+    },
+    {
+      "at": 3960.1999999955297,
+      "kind": "linkProgram:start"
+    },
+    {
+      "at": 3960.39999999851,
+      "kind": "linkProgram:end",
+      "milliseconds": 0.20000000298023224
+    },
+    {
+      "at": 3974.5,
+      "kind": "createProgram:start"
+    },
+    {
+      "at": 3974.7999999970198,
+      "kind": "createProgram:end",
+      "milliseconds": 0.29999999701976776
+    },
+    {
+      "at": 3975.0999999940395,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 3975.0999999940395,
+      "kind": "compileShader:end",
+      "milliseconds": 0
+    },
+    {
+      "at": 3989.89999999851,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 3990,
+      "kind": "compileShader:end",
+      "milliseconds": 0.10000000149011612
+    },
+    {
+      "at": 3993.0999999940395,
+      "kind": "linkProgram:start"
+    },
+    {
+      "at": 3993.1999999955297,
+      "kind": "linkProgram:end",
+      "milliseconds": 0.10000000149011612
+    },
+    {
+      "at": 4017.7999999970198,
+      "kind": "createProgram:start"
+    },
+    {
+      "at": 4018.0999999940395,
+      "kind": "createProgram:end",
+      "milliseconds": 0.29999999701976776
+    },
+    {
+      "at": 4018.1999999955297,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 4018.39999999851,
+      "kind": "compileShader:end",
+      "milliseconds": 0.20000000298023224
+    },
+    {
+      "at": 4029.7999999970198,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 4030,
+      "kind": "compileShader:end",
+      "milliseconds": 0.10000000149011612
+    },
+    {
+      "at": 4032.2999999970198,
+      "kind": "linkProgram:start"
+    },
+    {
+      "at": 4032.5,
+      "kind": "linkProgram:end",
+      "milliseconds": 0.20000000298023224
+    },
+    {
+      "at": 4055.89999999851,
+      "kind": "route-debug",
+      "value": {
+        "routeKey": "3:shiokest:primary",
+        "padding": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "mode": "shiokest",
+        "routeCount": 1,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 4,
+          "exposure": 3,
+          "transit": 1,
+          "activeGap": 0,
+          "lamp": 0
+        },
+        "lampStatus": "off",
+        "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 0 MRT or LRT stations, 0 exits, and 0 bus stops."
+      }
+    },
+    {
+      "at": 4111,
+      "kind": "route-debug",
+      "value": {
+        "routeKey": "3:shiokest:primary",
+        "padding": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "mode": "shiokest",
+        "routeCount": 1,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 4,
+          "exposure": 3,
+          "transit": 1,
+          "activeGap": 0,
+          "lamp": 0
+        },
+        "lampStatus": "off",
+        "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops."
+      }
+    },
+    {
+      "at": 4604.5,
+      "kind": "route-debug",
+      "value": {
+        "routeKey": "3:shiokest:primary",
+        "padding": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "mode": "shiokest",
+        "routeCount": 1,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 4,
+          "exposure": 3,
+          "transit": 1,
+          "activeGap": 0,
+          "lamp": 0
+        },
+        "lampStatus": "off",
+        "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops."
+      }
+    },
+    {
+      "at": 4680.69999999553,
+      "kind": "route-debug",
+      "value": {
+        "routeKey": "3:shiokest:primary",
+        "padding": {
+          "top": 445.6875,
+          "right": 12,
+          "bottom": 77,
+          "left": 12
+        },
+        "mode": "shiokest",
+        "routeCount": 1,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 4,
+          "exposure": 3,
+          "transit": 1,
+          "activeGap": 0,
+          "lamp": 0
+        },
+        "lampStatus": "off",
+        "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops."
+      }
+    },
+    {
+      "at": 4721.89999999851,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 4727.29999999702,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 5.299999997019768,
+      "count": 0,
+      "keys": []
+    },
+    {
+      "at": 4751.0999999940395,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 4752.69999999553,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 1.6000000014901161,
+      "count": 0,
+      "keys": []
+    },
+    {
+      "at": 4759.79999999702,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 4760.89999999851,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 1.1000000014901161,
+      "count": 0,
+      "keys": []
+    },
+    {
+      "at": 4769.39999999851,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 4770.39999999851,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 1,
+      "count": 0,
+      "keys": []
+    },
+    {
+      "at": 4782.69999999553,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 4784,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 1.2000000029802322,
+      "count": 0,
+      "keys": []
+    },
+    {
+      "at": 4795.29999999702,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 4796.19999999553,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 0.8999999985098839,
+      "count": 0,
+      "keys": []
+    },
+    {
+      "at": 4809.29999999702,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 4810,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 0.6000000014901161,
+      "count": 0,
+      "keys": []
+    },
+    {
+      "at": 5414.69999999553,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 5415.79999999702,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 1.1000000014901161,
+      "count": 0,
+      "keys": []
+    },
+    {
+      "at": 5487.29999999702,
+      "kind": "createProgram:start"
+    },
+    {
+      "at": 5487.5,
+      "kind": "createProgram:end",
+      "milliseconds": 0.20000000298023224
+    },
+    {
+      "at": 5489.19999999553,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 5489.39999999851,
+      "kind": "compileShader:end",
+      "milliseconds": 0.10000000149011612
+    },
+    {
+      "at": 5492.69999999553,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 5492.79999999702,
+      "kind": "compileShader:end",
+      "milliseconds": 0.10000000149011612
+    },
+    {
+      "at": 5498.19999999553,
+      "kind": "linkProgram:start"
+    },
+    {
+      "at": 5498.39999999851,
+      "kind": "linkProgram:end",
+      "milliseconds": 0.10000000149011612
+    },
+    {
+      "at": 5554.89999999851,
+      "kind": "createProgram:start"
+    },
+    {
+      "at": 5555.0999999940395,
+      "kind": "createProgram:end",
+      "milliseconds": 0.19999999552965164
+    },
+    {
+      "at": 5555.5,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 5555.5999999940395,
+      "kind": "compileShader:end",
+      "milliseconds": 0.09999999403953552
+    },
+    {
+      "at": 5579.39999999851,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 5579.5999999940395,
+      "kind": "compileShader:end",
+      "milliseconds": 0.19999999552965164
+    },
+    {
+      "at": 5585,
+      "kind": "linkProgram:start"
+    },
+    {
+      "at": 5585.19999999553,
+      "kind": "linkProgram:end",
+      "milliseconds": 0.19999999552965164
+    },
+    {
+      "at": 5674.39999999851,
+      "kind": "createProgram:start"
+    },
+    {
+      "at": 5674.5999999940395,
+      "kind": "createProgram:end",
+      "milliseconds": 0.19999999552965164
+    },
+    {
+      "at": 5675,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 5675,
+      "kind": "compileShader:end",
+      "milliseconds": 0
+    },
+    {
+      "at": 5696.79999999702,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 5696.89999999851,
+      "kind": "compileShader:end",
+      "milliseconds": 0.10000000149011612
+    },
+    {
+      "at": 5703.19999999553,
+      "kind": "linkProgram:start"
+    },
+    {
+      "at": 5703.29999999702,
+      "kind": "linkProgram:end",
+      "milliseconds": 0.10000000149011612
+    },
+    {
+      "at": 5788.5,
+      "kind": "createProgram:start"
+    },
+    {
+      "at": 5788.5999999940395,
+      "kind": "createProgram:end",
+      "milliseconds": 0.09999999403953552
+    },
+    {
+      "at": 5789.19999999553,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 5789.29999999702,
+      "kind": "compileShader:end",
+      "milliseconds": 0.10000000149011612
+    },
+    {
+      "at": 5807.69999999553,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 5807.89999999851,
+      "kind": "compileShader:end",
+      "milliseconds": 0.20000000298023224
+    },
+    {
+      "at": 5812.5,
+      "kind": "linkProgram:start"
+    },
+    {
+      "at": 5812.5999999940395,
+      "kind": "linkProgram:end",
+      "milliseconds": 0.09999999403953552
+    },
+    {
+      "at": 5848.0999999940395,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            767
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 5858.89999999851,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 10.700000002980232,
+      "count": 4,
+      "keys": [
+        "3:shiokest:primary"
+      ]
+    },
+    {
+      "at": 5982.0999999940395,
+      "kind": "map-status",
+      "status": "ready"
+    },
+    {
+      "at": 6027.29999999702,
+      "kind": "createProgram:start"
+    },
+    {
+      "at": 6027.5,
+      "kind": "createProgram:end",
+      "milliseconds": 0.20000000298023224
+    },
+    {
+      "at": 6028,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 6028.19999999553,
+      "kind": "compileShader:end",
+      "milliseconds": 0.09999999403953552
+    },
+    {
+      "at": 6039.39999999851,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 6039.5,
+      "kind": "compileShader:end",
+      "milliseconds": 0.10000000149011612
+    },
+    {
+      "at": 6046.89999999851,
+      "kind": "linkProgram:start"
+    },
+    {
+      "at": 6047.0999999940395,
+      "kind": "linkProgram:end",
+      "milliseconds": 0.19999999552965164
+    },
+    {
+      "at": 6282.29999999702,
+      "kind": "createProgram:start"
+    },
+    {
+      "at": 6282.5999999940395,
+      "kind": "createProgram:end",
+      "milliseconds": 0.29999999701976776
+    },
+    {
+      "at": 6283.19999999553,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 6283.19999999553,
+      "kind": "compileShader:end",
+      "milliseconds": 0
+    },
+    {
+      "at": 6316.0999999940395,
+      "kind": "compileShader:start"
+    },
+    {
+      "at": 6316.29999999702,
+      "kind": "compileShader:end",
+      "milliseconds": 0.20000000298023224
+    },
+    {
+      "at": 6320.29999999702,
+      "kind": "linkProgram:start"
+    },
+    {
+      "at": 6320.39999999851,
+      "kind": "linkProgram:end",
+      "milliseconds": 0.10000000149011612
+    },
+    {
+      "at": 65628.59999999404,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        {
+          "layers": [
+            "shiokest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 65642.79999999702,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 14.199999995529652,
+      "count": 4,
+      "keys": [
+        "3:shiokest:primary"
+      ]
+    },
+    {
+      "at": 66227.89999999851,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        {
+          "layers": [
+            "shiokest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 66234,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 6.100000001490116,
+      "count": 4,
+      "keys": [
+        "3:shiokest:primary"
+      ]
+    },
+    {
+      "at": 67020.69999999553,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        {
+          "layers": [
+            "shiokest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 67024.79999999702,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 4.200000002980232,
+      "count": 4,
+      "keys": [
+        "3:shiokest:primary"
+      ]
+    },
+    {
+      "at": 67942.29999999702,
+      "kind": "route-debug",
+      "value": {
+        "routeKey": "3:shiokest:primary",
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 77,
+          "left": 324
+        },
+        "mode": "shiokest",
+        "routeCount": 1,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 4,
+          "exposure": 3,
+          "transit": 1,
+          "activeGap": 0,
+          "lamp": 0
+        },
+        "lampStatus": "off",
+        "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops."
+      }
+    },
+    {
+      "at": 68291.5,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            324,
+            12
+          ],
+          [
+            1428,
+            873
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 68300.5,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 9.100000001490116,
+      "count": 4,
+      "keys": [
+        "3:shiokest:primary"
+      ]
+    },
+    {
+      "at": 68725.89999999851,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        {
+          "layers": [
+            "shiokest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 68754.79999999702,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 28.799999997019768,
+      "count": 4,
+      "keys": [
+        "3:shiokest:primary"
+      ]
+    },
+    {
+      "at": 70229.29999999702,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        {
+          "layers": [
+            "shiokest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 70238.29999999702,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 8.700000002980232,
+      "count": 4,
+      "keys": [
+        "3:shiokest:primary"
+      ]
+    },
+    {
+      "at": 79596.89999999851,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        {
+          "layers": [
+            "shiokest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 79611.39999999851,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 14.399999998509884,
+      "count": 4,
+      "keys": [
+        "3:shiokest:primary"
+      ]
+    },
+    {
+      "at": 85153.59999999404,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        {
+          "layers": [
+            "shiokest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 85163,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 9.300000004470348,
+      "count": 4,
+      "keys": [
+        "3:shiokest:primary"
+      ]
+    },
+    {
+      "at": 86841.09999999404,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        {
+          "layers": [
+            "shiokest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 86848.29999999702,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 7.200000002980232,
+      "count": 4,
+      "keys": [
+        "3:shiokest:primary"
+      ]
+    },
+    {
+      "at": 87090.5,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        {
+          "layers": [
+            "shiokest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 87094.39999999851,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 3.899999998509884,
+      "count": 4,
+      "keys": [
+        "3:shiokest:primary"
+      ]
+    },
+    {
+      "at": 87143.19999999553,
+      "kind": "route-debug",
+      "value": {
+        "routeKey": "3:shiokest:primary",
+        "padding": {
+          "top": 445.6875,
+          "right": 12,
+          "bottom": 77,
+          "left": 12
+        },
+        "mode": "shiokest",
+        "routeCount": 1,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 4,
+          "exposure": 3,
+          "transit": 1,
+          "activeGap": 0,
+          "lamp": 0
+        },
+        "lampStatus": "off",
+        "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops."
+      }
+    },
+    {
+      "at": 87171.09999999404,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            445.6875
+          ],
+          [
+            378,
+            590
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 87174.29999999702,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 3.2999999970197678,
+      "count": 4,
+      "keys": [
+        "3:shiokest:primary"
+      ]
+    },
+    {
+      "at": 88368.19999999553,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        {
+          "layers": [
+            "shiokest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 88371.89999999851,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 3.7000000029802322,
+      "count": 4,
+      "keys": [
+        "3:shiokest:primary"
+      ]
+    },
+    {
+      "at": 89635.79999999702,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        {
+          "layers": [
+            "shiokest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 89639.19999999553,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 3.2999999970197678,
+      "count": 4,
+      "keys": [
+        "3:shiokest:primary"
+      ]
+    },
+    {
+      "at": 89989.29999999702,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        {
+          "layers": [
+            "shiokest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 89994.69999999553,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 5.399999998509884,
+      "count": 4,
+      "keys": [
+        "3:shiokest:primary"
+      ]
+    },
+    {
+      "at": 90049.5,
+      "kind": "route-debug",
+      "value": {
+        "routeKey": "3:shiokest:primary",
+        "padding": {
+          "top": 442.6875,
+          "right": 12,
+          "bottom": 77,
+          "left": 12
+        },
+        "mode": "shiokest",
+        "routeCount": 1,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 4,
+          "exposure": 3,
+          "transit": 1,
+          "activeGap": 0,
+          "lamp": 0
+        },
+        "lampStatus": "off",
+        "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops."
+      }
+    },
+    {
+      "at": 90078,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        [
+          [
+            12,
+            442.6875
+          ],
+          [
+            308,
+            590
+          ]
+        ],
+        {
+          "layers": [
+            "shiokest-route-line",
+            "shortest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 90081.69999999553,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 3.5,
+      "count": 4,
+      "keys": [
+        "3:shiokest:primary"
+      ]
+    },
+    {
+      "at": 90965.89999999851,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        {
+          "layers": [
+            "shiokest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 90969.59999999404,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 3.7999999970197678,
+      "count": 4,
+      "keys": [
+        "3:shiokest:primary"
+      ]
+    },
+    {
+      "at": 91554.19999999553,
+      "kind": "queryRenderedFeatures:start",
+      "args": [
+        {
+          "layers": [
+            "shiokest-route-line"
+          ]
+        }
+      ],
+      "currentKey": "3:shiokest:primary"
+    },
+    {
+      "at": 91557.79999999702,
+      "kind": "queryRenderedFeatures:end",
+      "milliseconds": 3.600000001490116,
+      "count": 4,
+      "keys": [
+        "3:shiokest:primary"
+      ]
+    }
+  ],
+  "availableMiB": 3925.96484375,
+  "http": {
+    "status": 200,
+    "bytes": 14192,
+    "milliseconds": 254.18579999999997,
+    "correctBuild": true
+  },
+  "chromePid": 13816,
+  "viewportChecks": [
+    {
+      "width": 390,
+      "height": 844,
+      "before": {
+        "key": "3:shiokest:primary",
+        "count": 4,
+        "width": 390,
+        "height": 844,
+        "moving": false,
+        "center": [
+          103.86003,
+          1.284204529929795
+        ],
+        "zoom": 16.6,
+        "style": true,
+        "basemap": true,
+        "tiles": true,
+        "status": "ready",
+        "overflow": false,
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875,
+          "right": 84,
+          "bottom": 46.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44,
+          "right": 310,
+          "bottom": 98.6875
+        },
+        "sheet": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 327,
+          "right": 310,
+          "bottom": 433.6875
+        },
+        "about": {
+          "x": 281,
+          "y": 780,
+          "width": 96,
+          "height": 31,
+          "right": 377,
+          "bottom": 811
+        }
+      },
+      "after": {
+        "key": "3:shiokest:primary",
+        "count": 4,
+        "width": 390,
+        "height": 844,
+        "moving": false,
+        "center": [
+          103.86003,
+          1.284204529929795
+        ],
+        "zoom": 16.6,
+        "style": true,
+        "basemap": true,
+        "tiles": true,
+        "status": "ready",
+        "overflow": false,
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875,
+          "right": 84,
+          "bottom": 46.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44,
+          "right": 310,
+          "bottom": 98.6875
+        },
+        "sheet": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 327,
+          "right": 310,
+          "bottom": 433.6875
+        },
+        "about": {
+          "x": 281,
+          "y": 780,
+          "width": 96,
+          "height": 31,
+          "right": 377,
+          "bottom": 811
+        }
+      },
+      "checks": {
+        "rendered": true,
+        "overflow": true,
+        "leftStack": true,
+        "equalWidth": true,
+        "about": true
+      }
+    },
+    {
+      "width": 1440,
+      "height": 950,
+      "before": {
+        "key": "3:shiokest:primary",
+        "count": 4,
+        "width": 1440,
+        "height": 950,
+        "moving": false,
+        "center": [
+          103.85892577084377,
+          1.2826700099267327
+        ],
+        "zoom": 16.6,
+        "style": true,
+        "basemap": true,
+        "tiles": true,
+        "status": "ready",
+        "overflow": false,
+        "brand": {
+          "x": 12,
+          "y": 14,
+          "width": 91,
+          "height": 32,
+          "right": 103,
+          "bottom": 46
+        },
+        "search": {
+          "x": 12,
+          "y": 56,
+          "width": 300,
+          "height": 44,
+          "right": 312,
+          "bottom": 100
+        },
+        "sheet": {
+          "x": 12,
+          "y": 108,
+          "width": 300,
+          "height": 437.34375,
+          "right": 312,
+          "bottom": 545.34375
+        },
+        "about": {
+          "x": 1331,
+          "y": 886,
+          "width": 96,
+          "height": 31,
+          "right": 1427,
+          "bottom": 917
+        }
+      },
+      "after": {
+        "key": "3:shiokest:primary",
+        "count": 4,
+        "width": 1440,
+        "height": 950,
+        "moving": false,
+        "center": [
+          103.85892577084377,
+          1.2826700099267327
+        ],
+        "zoom": 16.6,
+        "style": true,
+        "basemap": true,
+        "tiles": true,
+        "status": "ready",
+        "overflow": false,
+        "brand": {
+          "x": 12,
+          "y": 14,
+          "width": 91,
+          "height": 32,
+          "right": 103,
+          "bottom": 46
+        },
+        "search": {
+          "x": 12,
+          "y": 56,
+          "width": 300,
+          "height": 44,
+          "right": 312,
+          "bottom": 100
+        },
+        "sheet": {
+          "x": 12,
+          "y": 108,
+          "width": 300,
+          "height": 437.34375,
+          "right": 312,
+          "bottom": 545.34375
+        },
+        "about": {
+          "x": 1331,
+          "y": 886,
+          "width": 96,
+          "height": 31,
+          "right": 1427,
+          "bottom": 917
+        }
+      },
+      "checks": {
+        "rendered": true,
+        "overflow": true,
+        "leftStack": true,
+        "equalWidth": true,
+        "about": true
+      }
+    },
+    {
+      "width": 390,
+      "height": 667,
+      "before": {
+        "key": "3:shiokest:primary",
+        "count": 4,
+        "width": 390,
+        "height": 667,
+        "moving": false,
+        "center": [
+          103.86003,
+          1.284204529929795
+        ],
+        "zoom": 16.6,
+        "style": true,
+        "basemap": true,
+        "tiles": true,
+        "status": "ready",
+        "overflow": false,
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875,
+          "right": 84,
+          "bottom": 46.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44,
+          "right": 310,
+          "bottom": 98.6875
+        },
+        "sheet": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 327,
+          "right": 310,
+          "bottom": 433.6875
+        },
+        "about": {
+          "x": 281,
+          "y": 603,
+          "width": 96,
+          "height": 31,
+          "right": 377,
+          "bottom": 634
+        }
+      },
+      "after": {
+        "key": "3:shiokest:primary",
+        "count": 4,
+        "width": 390,
+        "height": 667,
+        "moving": false,
+        "center": [
+          103.86003,
+          1.284204529929795
+        ],
+        "zoom": 16.6,
+        "style": true,
+        "basemap": true,
+        "tiles": true,
+        "status": "ready",
+        "overflow": false,
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875,
+          "right": 84,
+          "bottom": 46.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44,
+          "right": 310,
+          "bottom": 98.6875
+        },
+        "sheet": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 327,
+          "right": 310,
+          "bottom": 433.6875
+        },
+        "about": {
+          "x": 281,
+          "y": 603,
+          "width": 96,
+          "height": 31,
+          "right": 377,
+          "bottom": 634
+        }
+      },
+      "checks": {
+        "rendered": true,
+        "overflow": true,
+        "leftStack": true,
+        "equalWidth": true,
+        "about": true
+      }
+    },
+    {
+      "width": 320,
+      "height": 667,
+      "before": {
+        "key": "3:shiokest:primary",
+        "count": 4,
+        "width": 320,
+        "height": 667,
+        "moving": false,
+        "center": [
+          103.86003,
+          1.2841939150086148
+        ],
+        "zoom": 16.6,
+        "style": true,
+        "basemap": true,
+        "tiles": true,
+        "status": "ready",
+        "overflow": false,
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875,
+          "right": 84,
+          "bottom": 46.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44,
+          "right": 310,
+          "bottom": 98.6875
+        },
+        "sheet": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 324,
+          "right": 310,
+          "bottom": 430.6875
+        },
+        "about": {
+          "x": 211,
+          "y": 603,
+          "width": 96,
+          "height": 31,
+          "right": 307,
+          "bottom": 634
+        }
+      },
+      "after": {
+        "key": "3:shiokest:primary",
+        "count": 4,
+        "width": 320,
+        "height": 667,
+        "moving": false,
+        "center": [
+          103.86003,
+          1.2841939150086148
+        ],
+        "zoom": 16.6,
+        "style": true,
+        "basemap": true,
+        "tiles": true,
+        "status": "ready",
+        "overflow": false,
+        "brand": {
+          "x": 10,
+          "y": 10,
+          "width": 74,
+          "height": 36.6875,
+          "right": 84,
+          "bottom": 46.6875
+        },
+        "search": {
+          "x": 10,
+          "y": 54.6875,
+          "width": 300,
+          "height": 44,
+          "right": 310,
+          "bottom": 98.6875
+        },
+        "sheet": {
+          "x": 10,
+          "y": 106.6875,
+          "width": 300,
+          "height": 324,
+          "right": 310,
+          "bottom": 430.6875
+        },
+        "about": {
+          "x": 211,
+          "y": 603,
+          "width": 96,
+          "height": 31,
+          "right": 307,
+          "bottom": 634
+        }
+      },
+      "checks": {
+        "rendered": true,
+        "overflow": true,
+        "leftStack": true,
+        "equalWidth": true,
+        "about": true
+      }
+    }
+  ]
+}

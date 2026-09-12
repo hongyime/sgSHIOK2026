@@ -1,0 +1,1 @@
+{"command":"C:\\Program Files\\nodejs\\node.exe","args":["C:\\sgSHIOK2026\\web\\node_modules\\typescript\\bin\\tsc","--project","C:\\sgSHIOK2026\\web\\tsconfig.json","--noEmit","--incremental","false"],"startedAt":"2026-09-12T05:11:00.121Z","pid":15004,"cwd":"C:\\sgSHIOK2026"}

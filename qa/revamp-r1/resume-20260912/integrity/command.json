@@ -1,0 +1,12 @@
+{
+  "command": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+  "args": [
+    "-B",
+    "C:\\sgSHIOK2026\\scripts\\check_repo_integrity.py"
+  ],
+  "startedAt": "2026-09-12T05:12:33.705Z",
+  "finishedAt": "2026-09-12T05:12:34.332Z",
+  "elapsedSeconds": 0.6271085999999999,
+  "exitCode": 0,
+  "signal": null
+}

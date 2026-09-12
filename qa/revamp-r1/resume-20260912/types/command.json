@@ -1,0 +1,16 @@
+{
+  "command": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "C:\\sgSHIOK2026\\web\\node_modules\\typescript\\bin\\tsc",
+    "--project",
+    "C:\\sgSHIOK2026\\web\\tsconfig.json",
+    "--noEmit",
+    "--incremental",
+    "false"
+  ],
+  "startedAt": "2026-09-12T05:11:00.121Z",
+  "finishedAt": "2026-09-12T05:11:22.220Z",
+  "elapsedSeconds": 22.0989797,
+  "exitCode": 0,
+  "signal": null
+}

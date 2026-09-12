@@ -1,0 +1,76 @@
+installed_dependencies=ok
+✔ test entry refuses the real MapLibre 6.4.1 lock versus 6.1.0 install shape before Vitest (749.8518ms)
+✔ matching versions may launch the test entry (2489.0199ms)
+✔ a failing native guard contract suite prevents Vitest from starting (1755.6175ms)
+✔ build entry refuses stale dependencies before even the preparation double (872.3804ms)
+✔ matching build reaches only the refusing preparation double, never Next (995.634ms)
+✔ release CLI checks dependencies before retention/build with installed 6.1.0 (574.4371ms)
+✔ release CLI checks dependencies before retention/build with installed 6.4.1 (547.456ms)
+✔ reports exact resolved versions for runtime and development dependencies (79.4073ms)
+✔ development dependency drift also fails (116.8772ms)
+✔ a manifest edit without matching lock-root metadata is not accepted (155.2475ms)
+✔ refuses invalid JSON in package.json (125.2677ms)
+✔ refuses null in package.json (95.9388ms)
+✔ refuses [] in package.json (89.2581ms)
+✔ refuses invalid JSON in package-lock.json (91.687ms)
+✔ refuses null in package-lock.json (65.1362ms)
+✔ refuses [] in package-lock.json (88.2766ms)
+✔ refuses invalid JSON in node_modules/maplibre-gl/package.json (93.6423ms)
+✔ refuses null in node_modules/maplibre-gl/package.json (122.5439ms)
+✔ refuses [] in node_modules/maplibre-gl/package.json (130.5008ms)
+✔ refuses malformed dependencies (212.7293ms)
+✔ refuses malformed devDependencies (134.267ms)
+✔ unsupported lock format 1 fails closed (141.2668ms)
+✔ unsupported lock format 4 fails closed (121.0777ms)
+✔ unsupported lock format "3" fails closed (146.6019ms)
+✔ unsupported lock format null fails closed (219.1074ms)
+✔ lock v2 resolved-package metadata is supported (171.8046ms)
+✔ refuses unresolved lock entry null (145.1264ms)
+✔ refuses unresolved lock entry {} (142.6268ms)
+✔ refuses unresolved lock entry {"link":true,"version":"6.4.1"} (132.6328ms)
+✔ refuses unresolved lock entry {"version":""} (119.2743ms)
+✔ missing installed package is reported without loading or executing it (180.0834ms)
+✔ refuses unsafe dependency name ../escape (176.6353ms)
+✔ refuses unsafe dependency name @scope/../../escape (145.303ms)
+✔ refuses unsafe dependency name C:\escape (114.7247ms)
+✔ refuses unsafe dependency name /escape (161.773ms)
+✔ refuses unsafe dependency name @scope\escape (142.6512ms)
+✔ refuses unsafe dependency name .hidden (153.2987ms)
+✔ scoped packages and a dependency listed in both sections are checked once (160.8936ms)
+✔ empty dependency metadata cannot authorize a vacuous success (106.3225ms)
+✔ matching null dependencies sections are invalid, not absent (132.8737ms)
+✔ matching null devDependencies sections are invalid, not absent (118.9034ms)
+✔ package executable exports are never imported by the version check (116.946ms)
+ℹ tests 42
+ℹ suites 0
+ℹ pass 42
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13441.6526
+
+ RUN  v4.1.11 C:/sgSHIOK2026/tmp/test-without-data-HYvCRI/web
+
+
+ Test Files  65 passed (65)
+      Tests  1785 passed (1785)
+   Start at  13:06:48
+   Duration  147.78s (transform 16.06s, setup 0ms, import 32.44s, tests 29.93s, environment 56ms)
+
+{
+  "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-HYvCRI",
+  "copiedFiles": 227,
+  "productionDataDirectoryAbsent": true,
+  "guardProbePassed": true,
+  "forbiddenPaths": [
+    "C:\\sgSHIOK2026\\web\\public\\data",
+    "C:\\sgSHIOK2026\\tmp\\test-without-data-HYvCRI\\web\\public\\data"
+  ],
+  "dependencies": "Existing node_modules linked; no installation",
+  "testArgs": [
+    "--testTimeout",
+    "15000"
+  ],
+  "exitCode": 0
+}

@@ -4402,3 +4402,49 @@ Current PRODUCT-PLAN labels were read again: T01/T02/T19/T25/T29 partial; T13/T2
 ### DISAGREEMENTS
 
 1. Continuing the loop under unchanged resource/authorization constraints would not make the requested product state more true. Do not substitute repeated tests, more status documents or narrower pass criteria for completing the actual work.
+
+## 2026-09-12: Resumed Current-Build Map And Browser Acceptance
+
+Root C:\sgSHIOK2026; hostname Prawn-E14. Base454d8ff72a8bc178c5f2a111b405a91e3fe06abf. User resumed; startup5844.78515625MiB available cleared the earlier resource gate. Previous preview processes were absent. Restarted the existing build sou6pZfEMMmsCl52vdXg4 after156source/11fixture-anchor hashes matched; no build, install or payload copying. Initial HTML10second probe timed out during startup; subsequent bounded browser succeeded. No attribution of old stalls solely to hardware follows.
+
+Reproducible commands and complete receipts are committed under qa/revamp-r1/resume-20260912/. Summary generation checks all156current source hashes,11anchors,14screenshot hashes and the existing296320-byte verification prefix (sha2569564e754547d7a12beebf2b07d2f2c2bc359fb879d5b4d559a97933e1fa36963). It does not rehash every protected artifact. All original failed browser/summary attempts remain described, not converted to passes.
+
+```text
+node qa/revamp-r1/map-stall-20260910/probe.mjs probe-3 --viewports
+{"ok":true,"captures":7,"cleanupVerified":true,"out":"C:\\sgSHIOK2026\\qa\\revamp-r1\\map-stall-20260910\\probe-3"}
+node qa/revamp-r1/resume-20260912/browser.mjs acceptance-20260912 worker-alignment-20260910 4362
+{"out":"C:\\sgSHIOK2026\\qa\\revamp-r1\\cross-feature-motion-20260910\\acceptance-20260912-NDm9VU","ok":false,"checks":53,"captures":14,"cleanupVerified":true}
+node qa/revamp-r1/resume-20260912/browser-correlated.mjs correlated-20260912 worker-alignment-20260910 4362
+{"out":"C:\\sgSHIOK2026\\qa\\revamp-r1\\cross-feature-motion-20260910\\correlated-20260912-0IxBOI","ok":true,"checks":53,"captures":14,"cleanupVerified":true}
+node qa/revamp-r1/resume-20260912/check.mjs web
+ Test Files  65 passed (65)
+      Tests  1785 passed (1785)
+node qa/revamp-r1/resume-20260912/check.mjs types
+exitCode=0
+node qa/revamp-r1/resume-20260912/check.mjs integrity
+repo_integrity=ok
+node qa/revamp-r1/resume-20260912/check.mjs diagnostics
+tests=45 pass=45 fail=0
+```
+
+The terse command/result index above supplements, not replaces, exact stdout and command JSON in the committed web/types/integrity/diagnostics directories. Web runner also executes42native guard contracts;1785+42=1827web/guard checks. Diagnostics36existing+9new=45. No full Python suite or independent-subagent review claim. Peer quota is unavailable until September15; in-app browser bootstrap fails os error3, so existing owned Chrome/CDP fallback was used.
+
+Map checks:4viewports times5assertions=20;4current-key route features per loaded capture, left stack/equal search-result width, no document overflow, About bottom right. Four loaded map screenshots inspected. Broader keyboard/selection/late-response/comparison/reduced-motion/reflow/About run has14captures, all parent-inspected either directly or via a checked byte-identical first-run image. CSS reflow/text doubling is not native browser zoom. Both browser processes cleaned up; read-only local preview4362 intentionally remains live.
+
+First broad run passes52functional checks but fails its final audit on3uncorrelated Invalid InterceptionId errors. New driver records raw event/command/reply IDs and owning direct page. All4new errors join exact canceled OneMap tile requests; command IDs682,683,685,687 map to Network13360.367/.368/.370/.372 and canceled net::ERR_ABORTED events. Unknown/duplicate/redirected/cross-session/runtime/timeout/connection faults remain failures. The earlier3errors cannot be retrospectively assigned this mechanism.
+
+Important scope: correlated run53/53 means runtime/Fetch command acceptance, not complete transport acceptance. transport.ok remains false:6gzip404s and6canceled response bodies;5plain variants return200, while optional transit/h3/886520db3dfffff.json.gz has no plain response. The MapLibre6.4.1 worker entry lacks a terminal in this direct page session. Actual selected map is visible; do not infer worker failure or success of lifecycle accounting from either fact alone. No unchanged browser rerun is needed to reproduce the passing functional slice.
+
+Read-only coverage pilot command: node qa/revamp-r1/coverage-register-20260909/scan.mjs pilot resume-20260912-pilot. Current compile-4 identities and input hashes match.160SCORED+35SCORED_PARTIAL+5NO_TRANSIT_IN_RANGE=200. Raw251428bytes sha2569cb1e4b0fcb9d43b6f6913c6de7ca39fa559f86a764fbb4a775f2238ce4dd144 exactly matches earlier output.61.4576921fixed +11.3649837read +0.0303538finalization=72.8530296seconds. Projection7264.40228259563seconds; ceil(7264.40228259563*1.25+30)=9111seconds >900second gate. Full scan not launched. Cache/host differences forbid interpreting this as a controlled speed comparison.
+
+### FINDINGS
+
+1. The old memory-blocked state is superseded. Current-build four-viewport map/layout and broad runtime/Fetch acceptance now have completed, inspected evidence; full isolated tests, TypeScript and integrity pass.
+2. Four new interception errors are explained by exact canceled tile identities, with raw faults retained. Complete transport and retained-client acceptance remain separate and unfinished.
+3. Current coverage pilot output is byte-identical, but its measured projection exceeds the gate. No full register, scoring/export, input rebuilding or deployment occurred.
+4. Initial summary generation failed because it asserted six plain fallbacks; the actual trace proves five and an optional transit miss. Corrected the summary assertion without changing the trace or rerunning the browser. No first summary file was produced.
+
+### DISAGREEMENTS
+
+1. Recovered headroom invalidates the stale blocked label, not the remaining owner/release/platform gates. The31-task product goal remains incomplete.
+2. Runtime/Fetch acceptance is not a clean-network claim. Neither old uncorrelated errors nor the outstanding worker terminal may be silently classified away.

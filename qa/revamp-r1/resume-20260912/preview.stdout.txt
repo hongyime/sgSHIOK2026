@@ -1,0 +1,1 @@
+{"buildId":"sou6pZfEMMmsCl52vdXg4","snapshot":"C:\\sgSHIOK2026\\tmp\\cached-release-worker-alignment-20260910","pid":16096,"dataPort":4321,"nextPort":4361,"proxyPort":4362,"readOnly":true,"nextPid":16512}

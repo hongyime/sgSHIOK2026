@@ -1,0 +1,555 @@
+{
+  "mode": "pilot",
+  "createdAt": "2026-09-12T04:57:22.227Z",
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "Prawn-E14",
+  "before": [
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/reader.mjs",
+      "sha256": "318d29a44ab33f58a2e3dcf711b8864f92c412e9c72e6295189f287cda8b1e67"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/engine.mjs",
+      "sha256": "9515811acee42b7fc2ded9467de189bb21a9ff8ffa42ae180b6e7d06a0e05be6"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/locators.mjs",
+      "sha256": "62cf8d51badf550894219a55bd64a95d0fabbefa3a7604f9d4b9c8e798802567"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/projection.mjs",
+      "sha256": "c662fbd63e40af7de0695f241494f9420ecbc626bc9592738490bdb0b506af60"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/scan.mjs",
+      "sha256": "6387aff32f11ac0309f48176af4d2ce7ab02cb728d19f07b240d0c42da657408"
+    }
+  ],
+  "complete": true,
+  "coverageComplete": false,
+  "scope": "Read-only published postal lookups; no coordinate rescue or pipeline execution",
+  "boundaries": "RSS/deadline checked at operation boundaries, not hard OS interruption; decoded cache bytes are not heap bytes",
+  "freeMemoryBefore": 4089016320,
+  "classifier": {
+    "sources": [
+      {
+        "path": "web/lib/coverage-gap-register.ts",
+        "sha256": "434ea06f50e85d265751ad29e4b36ed952e87b1c7265da242dee83c0c5b10878"
+      },
+      {
+        "path": "web/lib/published-transit-options.ts",
+        "sha256": "a437e35178186c6c9e5c3300c27ce675149a7c2136322ae9f722f14f5f9d7d3d"
+      },
+      {
+        "path": "web/lib/contiguous-route-parts.ts",
+        "sha256": "d8c07f066257377ebf21a1038c6610a5a0788f6492b19144b17b8997fab1e9c3"
+      },
+      {
+        "path": "web/lib/polyline.ts",
+        "sha256": "cbfdf306452df89e526561aeea4819a1de794924dbf5bbed5376caaac6c5aa8e"
+      },
+      {
+        "path": "web/lib/types.ts",
+        "sha256": "c00af915256f6434dfccaaa60a28bbfbcbfe069629e9a9c0141955871f483a98"
+      }
+    ],
+    "compiled": [
+      {
+        "name": "contiguous-route-parts.js",
+        "bytes": 1539,
+        "sha256": "a374283024dd1c25d1d627ad7cdd540d51ea99892874789af60e5a62751070aa"
+      },
+      {
+        "name": "coverage-gap-register.js",
+        "bytes": 4388,
+        "sha256": "68ddff711e98e5ed7abb574e74cabbb2d04b2aa5888eca80af4a264bf4da2f80"
+      },
+      {
+        "name": "polyline.js",
+        "bytes": 1903,
+        "sha256": "1df771e496cf483ef1fd2b2200b2d7a99993b8e065ad25ebe51a97c8cf5340a3"
+      },
+      {
+        "name": "published-transit-options.js",
+        "bytes": 29564,
+        "sha256": "e228645874e8e29446d91ca14f5b1f4aac24d950653d67810f2050c4c07b979c"
+      },
+      {
+        "name": "types.js",
+        "bytes": 77,
+        "sha256": "d43aa81f5bc89faa359e0f97c814ba25155591ff078fbb9bfd40f8c7c9683230"
+      }
+    ]
+  },
+  "checksumsSha256": "a52267c0e1332aec3c12632470f519ccd7a5fd24a39dfe52f14a24eb431e4ed7",
+  "pinSha256": "d5ce7703d5ee6b39651947749f9bd2f4c6d642fe2af06e1d9324671ce8f009e8",
+  "bundle": "generated_20260805_prefer_scored_routed",
+  "budgetSeconds": 300,
+  "expectedRecordCount": 124443,
+  "expectedStates": {
+    "NOT_YET_SCORED": 476,
+    "NO_TRANSIT_IN_RANGE": 9827,
+    "SCORED": 95157,
+    "SCORED_PARTIAL": 18983
+  },
+  "inventory": {
+    "scores": {
+      "files": 304,
+      "physicalBytes": 1413707945,
+      "plainBytes": 1413707945,
+      "unknownPlainFiles": 0,
+      "compressedFiles": 0
+    },
+    "geometry": {
+      "files": 3453,
+      "physicalBytes": 4211397536,
+      "plainBytes": 4211397536,
+      "unknownPlainFiles": 0,
+      "compressedFiles": 0
+    }
+  },
+  "fixedMs": 61457.6921,
+  "selection": {
+    "postals": [
+      "768929",
+      "768930",
+      "465523",
+      "465527",
+      "465532",
+      "465538",
+      "465543",
+      "465548",
+      "465553",
+      "465558",
+      "465562",
+      "465567",
+      "465572",
+      "465577",
+      "465582",
+      "465587",
+      "465592",
+      "465596",
+      "465601",
+      "465606",
+      "465611",
+      "465616",
+      "465621",
+      "465626",
+      "465630",
+      "465635",
+      "465640",
+      "465645",
+      "465650",
+      "465655",
+      "465660",
+      "465664",
+      "465669",
+      "465674",
+      "465679",
+      "465684",
+      "465689",
+      "465694",
+      "465698",
+      "465703",
+      "465708",
+      "465713",
+      "465718",
+      "465723",
+      "465728",
+      "465732",
+      "465737",
+      "465742",
+      "465747",
+      "465752",
+      "465757",
+      "465762",
+      "465766",
+      "465771",
+      "465776",
+      "465781",
+      "465786",
+      "465791",
+      "465796",
+      "465800",
+      "465805",
+      "465810",
+      "465815",
+      "465820",
+      "465825",
+      "465830",
+      "465834",
+      "465839",
+      "465844",
+      "465849",
+      "465854",
+      "465859",
+      "465864",
+      "465869",
+      "465877",
+      "465882",
+      "465887",
+      "465892",
+      "465897",
+      "465902",
+      "465906",
+      "465911",
+      "465916",
+      "465921",
+      "465926",
+      "465931",
+      "465936",
+      "465940",
+      "465945",
+      "465950",
+      "465955",
+      "465960",
+      "465965",
+      "465970",
+      "465974",
+      "465979",
+      "465984",
+      "465989",
+      "465994",
+      "465999",
+      "466004",
+      "486968",
+      "486974",
+      "486980",
+      "486987",
+      "486991",
+      "486995",
+      "486999",
+      "487003",
+      "487008",
+      "487013",
+      "487017",
+      "487021",
+      "487025",
+      "487029",
+      "487036",
+      "487042",
+      "487047",
+      "487129",
+      "487133",
+      "487137",
+      "487141",
+      "487145",
+      "487149",
+      "487154",
+      "487158",
+      "487162",
+      "487166",
+      "487170",
+      "487174",
+      "487178",
+      "487182",
+      "487187",
+      "487191",
+      "487195",
+      "487199",
+      "487203",
+      "487207",
+      "487211",
+      "487215",
+      "487220",
+      "487224",
+      "487228",
+      "487232",
+      "487255",
+      "487259",
+      "487263",
+      "487268",
+      "487272",
+      "487276",
+      "487280",
+      "487284",
+      "487288",
+      "487292",
+      "487296",
+      "487301",
+      "487305",
+      "487309",
+      "487332",
+      "487336",
+      "487340",
+      "487344",
+      "487372",
+      "487391",
+      "487395",
+      "487399",
+      "487403",
+      "487407",
+      "487411",
+      "487415",
+      "487420",
+      "487443",
+      "487447",
+      "487451",
+      "487455",
+      "487459",
+      "487463",
+      "487467",
+      "487472",
+      "487476",
+      "487480",
+      "487484",
+      "487503",
+      "487507",
+      "487511",
+      "487536",
+      "487540",
+      "487544",
+      "487548",
+      "487552",
+      "487556",
+      "487560",
+      "487564",
+      "487569",
+      "487573",
+      "487577",
+      "487581",
+      "487585",
+      "487589",
+      "487593"
+    ],
+    "strata": [
+      {
+        "shard": "SIMPANG",
+        "declared": 2,
+        "selected": 2
+      },
+      {
+        "shard": "BEDOK_PART_025",
+        "declared": 481,
+        "selected": 99
+      },
+      {
+        "shard": "TAMPINES_PART_002",
+        "declared": 409,
+        "selected": 99
+      }
+    ],
+    "supplemental": 0
+  },
+  "readPassMs": 11364.983699999997,
+  "marginalIo": {
+    "rawBytes": 99168269,
+    "decodedBytes": 99254150,
+    "lookupCalls": 417,
+    "reads": 48,
+    "timingsMs": {
+      "lookup": 657.3911000001099,
+      "read": 1626.3182999999772,
+      "hash": 1530.168299999983,
+      "decode": 2002.5309000001582,
+      "parse": 2595.1755000000267
+    }
+  },
+  "projectionAssumptions": {
+    "scorePasses": 2,
+    "geometryReadMultiplier": 2,
+    "decodedToPlainAllowance": 1.1,
+    "plannedRawBytes": 11250210962,
+    "plannedDecodedBytes": 12375232059,
+    "plannedLookupCalls": 500072,
+    "arithmetic": "raw: 2 * 1413707945 + 2 * 4211397536 = 11250210962; decoded: ceil(1.1 * (2 * 1413707945 + 2 * 4211397536)) = 12375232059; probes: 2 * (2 * 304 + 124443 * 2 + 542) = 500072",
+    "limitation": "Observed rates and assumed rereads, not a guarantee. Unseen compression/geometry costs and cache churn can exceed this; runtime limits still stop the pass."
+  },
+  "projection": {
+    "estimateOnly": true,
+    "assumptions": "Estimate, not a guarantee. Caller owns planned IO volumes/encoding probe counts, representative samples, and non-overlapping fixed/IO/record timings; cache and workload changes can invalidate it.",
+    "p95Method": "nearest-rank",
+    "components": {
+      "fixedMs": 61457.6921,
+      "readMs": 184498.77315455562,
+      "hashMs": 173590.97174888384,
+      "decodeMs": 249680.0848409873,
+      "parseMs": 323572.3548721307,
+      "lookupMs": 788352.2353938967,
+      "normalizationMs": 4126908.580584605,
+      "serializationMs": 1356341.5899005707
+    },
+    "rates": {
+      "readMsPerRawByte": 0.000016399583419167852,
+      "hashMsPerRawByte": 0.00001543001925343663,
+      "decodeMsPerDecodedByte": 0.000020175790130691343,
+      "parseMsPerDecodedByte": 0.00002614677068918556,
+      "lookupMsPerCall": 1.5764774580338365
+    },
+    "samples": {
+      "normalization": {
+        "count": 200,
+        "meanMs": 11.50566566500397,
+        "p95Ms": 33.16304316502017,
+        "msPerRecord": 33.16304316502017
+      },
+      "serialization": {
+        "count": 200,
+        "meanMs": 2.110930999999437,
+        "p95Ms": 10.899300000004587,
+        "msPerRecord": 10.899300000004587
+      }
+    },
+    "projectedMs": 7264402.28259563,
+    "budgetSeconds": 9111,
+    "maxSeconds": 900,
+    "gate": "stop"
+  },
+  "finalizationFailures": [],
+  "rows": 200,
+  "totals": {
+    "scoreRecord": {
+      "present": 200
+    },
+    "state": {
+      "NO_TRANSIT_IN_RANGE": 5,
+      "SCORED": 160,
+      "SCORED_PARTIAL": 35
+    },
+    "completeLockedFields": {
+      "false": 40,
+      "true": 160
+    },
+    "coordinateGap": {
+      "not_established": 200
+    },
+    "routeDisconnection": {
+      "not_established": 200
+    },
+    "rangeLimit": {
+      "explicit_recorded_distance_limit": 5,
+      "not_established": 195
+    },
+    "trustRejection": {
+      "false": 200
+    },
+    "geometryLookup": {
+      "not_indexed": 5,
+      "record_present": 195
+    },
+    "bus.retainable": {
+      "none": 33,
+      "available": 167
+    },
+    "bus.candidateBacked": {
+      "none": 14,
+      "available": 186
+    },
+    "bus.overlappingDiagnosticOptions": {
+      "gap_fragments_missing": 14,
+      "identity_invalid": 5,
+      "published_routed_gaps_unavailable": 318,
+      "scoring_eligibility_unavailable": 14,
+      "sheltered:geometry_missing": 14,
+      "shortest:geometry_missing": 14,
+      "trust_unclassified": 14,
+      "logical_gaps_not_published": 416
+    },
+    "mrt_lrt.retainable": {
+      "none": 49,
+      "available": 151
+    },
+    "mrt_lrt.candidateBacked": {
+      "none": 114,
+      "available": 86
+    },
+    "mrt_lrt.overlappingDiagnosticOptions": {
+      "gap_fragments_missing": 49,
+      "identity_invalid": 5,
+      "published_routed_gaps_unavailable": 49,
+      "scoring_eligibility_unavailable": 49,
+      "sheltered:geometry_missing": 49,
+      "shortest:geometry_missing": 49,
+      "trust_unclassified": 49,
+      "logical_gaps_not_published": 134,
+      "optional_route_segments_invalid": 29,
+      "sheltered:optional_route_segments_invalid": 29,
+      "shortest:optional_route_segments_invalid": 29
+    }
+  },
+  "rawOutput": {
+    "bytes": 251428,
+    "sha256": "9cb1e4b0fcb9d43b6f6913c6de7ca39fa559f86a764fbb4a775f2238ce4dd144"
+  },
+  "compressedOutput": {
+    "bytes": 6776,
+    "sha256": "4fb6633830d803355b1e076c6cf8ba8d2e0a06717952b34f0334ff5d5e8b1028"
+  },
+  "elapsedMs": 72853.0296,
+  "freeMemoryAfter": 4549210112,
+  "maxRssFromProcessResourceUsageKiB": 261448,
+  "after": [
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/reader.mjs",
+      "sha256": "318d29a44ab33f58a2e3dcf711b8864f92c412e9c72e6295189f287cda8b1e67"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/engine.mjs",
+      "sha256": "9515811acee42b7fc2ded9467de189bb21a9ff8ffa42ae180b6e7d06a0e05be6"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/locators.mjs",
+      "sha256": "62cf8d51badf550894219a55bd64a95d0fabbefa3a7604f9d4b9c8e798802567"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/projection.mjs",
+      "sha256": "c662fbd63e40af7de0695f241494f9420ecbc626bc9592738490bdb0b506af60"
+    },
+    {
+      "path": "qa/revamp-r1/coverage-register-20260909/scan.mjs",
+      "sha256": "6387aff32f11ac0309f48176af4d2ce7ab02cb728d19f07b240d0c42da657408"
+    }
+  ],
+  "sourcesStable": true,
+  "classifierAfter": {
+    "sources": [
+      {
+        "path": "web/lib/coverage-gap-register.ts",
+        "sha256": "434ea06f50e85d265751ad29e4b36ed952e87b1c7265da242dee83c0c5b10878"
+      },
+      {
+        "path": "web/lib/published-transit-options.ts",
+        "sha256": "a437e35178186c6c9e5c3300c27ce675149a7c2136322ae9f722f14f5f9d7d3d"
+      },
+      {
+        "path": "web/lib/contiguous-route-parts.ts",
+        "sha256": "d8c07f066257377ebf21a1038c6610a5a0788f6492b19144b17b8997fab1e9c3"
+      },
+      {
+        "path": "web/lib/polyline.ts",
+        "sha256": "cbfdf306452df89e526561aeea4819a1de794924dbf5bbed5376caaac6c5aa8e"
+      },
+      {
+        "path": "web/lib/types.ts",
+        "sha256": "c00af915256f6434dfccaaa60a28bbfbcbfe069629e9a9c0141955871f483a98"
+      }
+    ],
+    "compiled": [
+      {
+        "name": "contiguous-route-parts.js",
+        "bytes": 1539,
+        "sha256": "a374283024dd1c25d1d627ad7cdd540d51ea99892874789af60e5a62751070aa"
+      },
+      {
+        "name": "coverage-gap-register.js",
+        "bytes": 4388,
+        "sha256": "68ddff711e98e5ed7abb574e74cabbb2d04b2aa5888eca80af4a264bf4da2f80"
+      },
+      {
+        "name": "polyline.js",
+        "bytes": 1903,
+        "sha256": "1df771e496cf483ef1fd2b2200b2d7a99993b8e065ad25ebe51a97c8cf5340a3"
+      },
+      {
+        "name": "published-transit-options.js",
+        "bytes": 29564,
+        "sha256": "e228645874e8e29446d91ca14f5b1f4aac24d950653d67810f2050c4c07b979c"
+      },
+      {
+        "name": "types.js",
+        "bytes": 77,
+        "sha256": "d43aa81f5bc89faa359e0f97c814ba25155591ff078fbb9bfd40f8c7c9683230"
+      }
+    ]
+  }
+}
