@@ -120,6 +120,7 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 
 ### [ ] T02: Reduce the next measured loading bottleneck
 - Status: PARTIAL. Size: M. Parent: P0.3.
+- Clock attribution2026-09-12: preserved actual-worker trace has three essential gzip404 fallbacks, but geometry headers7.811ms and response event1271.907ms are different clocks. Five native tests verify session isolation, missing timing and unclamped deltas. Do not label event duration server time, sum overlapping intervals, or claim saved latency. Next: one unpaused cold/warm profile with host sampling and application stages; no more timing conclusions from the worker-paused trace. Evidence: qa/revamp-r1/loading-clock-20260912/summary.json.
 - Depends on: none.
 - Scope: existing loading-diagnosis/source-separation QA harnesses; `web/lib/data.ts`, `web/components/route-evidence-map.tsx` only when attribution supports an edit.
 - Do: one bounded cold/warm profile with stage timestamps, transfer counts and route writes; isolate essential map/score/geometry from optional requests. Select ONE evidenced bottleneck, regression-test and fix it. Stop profiling if host pressure prevents attribution; keep feature work moving. Do not close unrelated apps or assert hardware-only causation.

@@ -4524,3 +4524,21 @@ This demonstrates the current-app handoff mechanism previously shown only in a f
 ### DISAGREEMENTS
 
 1. Page-only telemetry must not be treated as the complete lifecycle of a worker request. Capture ownership before interpreting missing events or attributing map failures.
+
+## 2026-09-12: Loading Clock Attribution
+
+Working root C:\sgSHIOK2026; Prawn-E14. Base e5dc34e.
+New evidence: qa/revamp-r1/loading-clock-20260912/summary.json, with source trace hash, all data response timings and raw five-test output.
+Executed: node --test qa/revamp-r1/loading-clock-20260912/analyze.test.mjs (5 passed, 0 failed).
+Executed: node qa/revamp-r1/loading-clock-20260912/analyze.mjs (exit 0).
+No browser run, application edit, installation, protected-data mutation, pipeline or deployment.
+
+### FINDINGS
+
+1. Three essential gzip probes returned404 before plain-format requests; one optional compressed-only transit probe returned404. The existing loader explicitly supports these fallbacks.
+2. Geometry gzip request13908.31 has header elapsed7.811ms, response-event elapsed1271.906999994826ms, difference1264.0959999948261ms. These are not interchangeable clocks. Full measurements are committed, not inferred from URL order.
+3. The next useful measurement is one unpaused cold/warm profile with host sampling and application stage timestamps. The worker trace deliberately paused worker startup and cannot establish representative latency or a dominant bottleneck.
+
+### DISAGREEMENTS
+
+1. Do not label response-event elapsed as server execution, sum overlapping intervals as page latency, or promise equivalent savings from removing404probes. No speedup is established here.

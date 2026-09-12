@@ -1,0 +1,138 @@
+{
+  "analysis": {
+    "source": "C:\\sgSHIOK2026\\qa\\revamp-r1\\worker-lifecycle-20260912\\observed-Btxfds\\browser.json",
+    "sha256": "b6d9fd6b4585e8b38f2e5625732fafa903d459ad61afc32065b9674f96a29768",
+    "rows": [
+      {
+        "requestId": "13908.28",
+        "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+        "status": 404,
+        "headersElapsedMs": 95.151,
+        "responseEventElapsedMs": 110.76100000354927,
+        "afterHeadersToResponseEventMs": 15.610000003549274
+      },
+      {
+        "requestId": "13908.27",
+        "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+        "status": 200,
+        "headersElapsedMs": 121.908,
+        "responseEventElapsedMs": 124.72200000047451,
+        "afterHeadersToResponseEventMs": 2.8140000004745076
+      },
+      {
+        "requestId": "13908.30",
+        "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+        "status": 200,
+        "headersElapsedMs": 15.794,
+        "responseEventElapsedMs": 1295.3849999976228,
+        "afterHeadersToResponseEventMs": 1279.5909999976227
+      },
+      {
+        "requestId": "13908.31",
+        "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+        "status": 404,
+        "headersElapsedMs": 7.811,
+        "responseEventElapsedMs": 1271.906999994826,
+        "afterHeadersToResponseEventMs": 1264.0959999948261
+      },
+      {
+        "requestId": "13908.33",
+        "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+        "status": 200,
+        "headersElapsedMs": 41.349,
+        "responseEventElapsedMs": 727.0779999962542,
+        "afterHeadersToResponseEventMs": 685.7289999962542
+      },
+      {
+        "requestId": "13908.34",
+        "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+        "status": 404,
+        "headersElapsedMs": 27.447,
+        "responseEventElapsedMs": 740.7200000016019,
+        "afterHeadersToResponseEventMs": 713.2730000016019
+      },
+      {
+        "requestId": "13908.35",
+        "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+        "status": 200,
+        "headersElapsedMs": 61.89,
+        "responseEventElapsedMs": 91.75200000026962,
+        "afterHeadersToResponseEventMs": 29.862000000269617
+      },
+      {
+        "requestId": "13908.38",
+        "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+        "status": 200,
+        "headersElapsedMs": 67.38,
+        "responseEventElapsedMs": 159.67699999600882,
+        "afterHeadersToResponseEventMs": 92.29699999600882
+      },
+      {
+        "requestId": "13908.39",
+        "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+        "status": 200,
+        "headersElapsedMs": 74.133,
+        "responseEventElapsedMs": 155.06599999935133,
+        "afterHeadersToResponseEventMs": 80.93299999935134
+      },
+      {
+        "requestId": "13908.40",
+        "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+        "status": 200,
+        "headersElapsedMs": 182.94,
+        "responseEventElapsedMs": 213.5740000012447,
+        "afterHeadersToResponseEventMs": 30.634000001244715
+      },
+      {
+        "requestId": "13908.43",
+        "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+        "status": 200,
+        "headersElapsedMs": 178.675,
+        "responseEventElapsedMs": 205.48699999926612,
+        "afterHeadersToResponseEventMs": 26.811999999266106
+      },
+      {
+        "requestId": "13908.44",
+        "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+        "status": 404,
+        "headersElapsedMs": 185.915,
+        "responseEventElapsedMs": 206.17499999934807,
+        "afterHeadersToResponseEventMs": 20.259999999348082
+      },
+      {
+        "requestId": "13908.41",
+        "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+        "status": 200,
+        "headersElapsedMs": 228.566,
+        "responseEventElapsedMs": 235.40199999843026,
+        "afterHeadersToResponseEventMs": 6.835999998430253
+      },
+      {
+        "requestId": "13908.42",
+        "url": "http://127.0.0.1:4362/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+        "status": 200,
+        "headersElapsedMs": 229.631,
+        "responseEventElapsedMs": 232.67800000030547,
+        "afterHeadersToResponseEventMs": 3.0470000003054736
+      }
+    ],
+    "limitations": [
+      "Headers elapsed is not pure server execution: it includes connection/send/wait work.",
+      "Response-event delay is not attributed to CPU, parsing, network, or a particular process.",
+      "Intervals overlap; do not sum them into page latency or projected savings.",
+      "Worker was paused for session attachment. This is not the T02 cold/warm performance profile."
+    ],
+    "FINDINGS": [
+      "Three essential compressed probes return 404 before their plain requests; one optional compressed-only transit probe returns 404.",
+      "Header timing and response-event timing differ materially. Response-event duration cannot be labeled server duration."
+    ],
+    "DISAGREEMENTS": [
+      "No performance improvement or dominant bottleneck is established by this trace."
+    ],
+    "nextAction": "Use an unpaused cold/warm profile with host sampling and stage timestamps before selecting a performance edit."
+  },
+  "tests": {
+    "exitCode": 0,
+    "stdout": "✔ separates header elapsed from response event instead of labeling both server time (4.0139ms)\n✔ missing and unavailable timing stays unknown (1.0345ms)\n✔ never joins another target session (3.6272ms)\n✔ negative clock deltas remain visible, not silently clamped (1.3829ms)\n✔ real trace retains all four failed probes and distinguishes delayed response notification (26.8475ms)\nℹ tests 5\nℹ suites 0\nℹ pass 5\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 551.045\n"
+  }
+}
