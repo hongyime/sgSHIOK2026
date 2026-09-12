@@ -1,0 +1,30 @@
+installed_dependencies=ok
+▲ Next.js 16.3.3 (Turbopack)
+✓ Running next.config.js took 125ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 37.9s
+  Running TypeScript ...
+  Finished TypeScript in 7.0s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/8) ...
+  Generating static pages using 7 workers (2/8) 
+  Generating static pages using 7 workers (4/8) 
+  Generating static pages using 7 workers (6/8) 
+✓ Generating static pages using 7 workers (8/8) in 2.6s
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/onemap-route
+├ ƒ /api/onemap-search
+├ ○ /icon.svg
+├ ○ /robots.txt
+└ ○ /sitemap.xml
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+{"built":true,"retention":{"manifestSha256":"3857d143ec044900b9bf397b581759fa47719f602c3358e85ab81c9bb3660cbb","buildId":"2aYxZG6C5VyvZ5pQfNOkD","retainedBuildIds":["e8Hlhkml4c3i_uMGJdd3P"],"files":29,"bytes":5786770}}

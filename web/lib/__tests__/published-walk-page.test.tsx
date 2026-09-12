@@ -21,6 +21,7 @@ const host = vi.hoisted(() => {
   let dirty = false;
   const slots: Slot[] = [];
   const pending = new Set<number>();
+  const stateUpdates: unknown[] = [];
   const changed = (a?: readonly unknown[], b?: readonly unknown[]) =>
     !a || !b || a.length !== b.length || b.some((value, i) => !Object.is(value, a[i]));
   function memo<T>(make: () => T, deps: readonly unknown[]): T {
@@ -30,6 +31,7 @@ const host = vi.hoisted(() => {
     return slots[i].value as T;
   }
   return {
+    stateUpdates,
     begin() { index = 0; dirty = false; },
     isDirty() { return dirty; },
     reset() {
@@ -37,6 +39,7 @@ const host = vi.hoisted(() => {
       for (const slot of slots) slot.cleanup?.();
       slots.length = 0;
       pending.clear();
+      stateUpdates.length = 0;
       index = 0;
       dirty = false;
     },
@@ -57,7 +60,7 @@ const host = vi.hoisted(() => {
         slot.setter = update => {
           if (generation !== ownedGeneration) return;
           const value = typeof update === 'function' ? (update as (value: T) => T)(slot.value as T) : update;
-          if (!Object.is(value, slot.value)) { slot.value = value; dirty = true; }
+          if (!Object.is(value, slot.value)) { stateUpdates.push(value); slot.value = value; dirty = true; }
         };
         slots[i] = slot;
       }
@@ -1013,6 +1016,38 @@ describe('Home published-walk integration through actual handlers', () => {
     await submitted;
     assertCoherent('Bayfront Stn Exit B/MBS', 81.2, 0.551, originalGeometry.route_options.bus.sheltered_parts);
     expect(storageRead).not.toHaveBeenCalled();
+  });
+
+  it('publishes already-settled geometry with the first score selection, without an intermediate empty map', async () => {
+    mount();
+    const submitted = submit(A);
+    geometries.get(A)!.resolve(sourceGeometry);
+    await settle();
+    scores.get(A)!.resolve(sourceScore);
+    await settle();
+    await submitted;
+    const selections = host.stateUpdates.filter((value): value is { score: ScoreRecord; geom: PostalGeom } =>
+      !!value && typeof value === 'object' && 'score' in value && value.score === sourceScore && 'geom' in value);
+    expect(selections).toHaveLength(1);
+    expect(selections[0].geom).toBe(sourceGeometry);
+    assertCoherent('Bayfront Stn Exit B/MBS', 81.2, 0.551, originalGeometry.route_options.bus.sheltered_parts);
+  });
+
+  it.each(['missing', 'rejected'] as const)('keeps score text when geometry has already %s without republishing identical selection', async outcome => {
+    mount();
+    const submitted = submit(A);
+    if (outcome === 'missing') geometries.get(A)!.resolve(null);
+    else geometries.get(A)!.reject(new Error('geometry unavailable'));
+    await settle();
+    scores.get(A)!.resolve(sourceScore);
+    await settle();
+    await submitted;
+    const selections = host.stateUpdates.filter(value =>
+      !!value && typeof value === 'object' && 'score' in value && value.score === sourceScore && 'geom' in value);
+    expect(selections).toHaveLength(1);
+    expect(summary().postal).toBe(A);
+    expect(summary().score).not.toBeNull();
+    expect(map().routes).toHaveLength(0);
   });
 
   it('MRT -> candidate C -> bus -> MRT preserves original candidates and coherent summary/map values', async () => {

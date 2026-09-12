@@ -2465,15 +2465,19 @@ export default function Home() {
       const lat = Number.parseFloat(result.LATITUDE);
       const lng = Number.parseFloat(result.LONGITUDE);
       // Text and geometry are independent. A geometry failure must not hide valid record evidence.
+      const geometryState: { settled?: { geom: PostalGeom | null; failed: boolean; failure: ArtifactFailure | null } } = {};
       const geometry = fetchGeomForPostal(postal, Number.isFinite(lat) ? lat : undefined, Number.isFinite(lng) ? lng : undefined)
         .then(geom => ({ geom, failed: false, failure: null as ArtifactFailure | null }),
-          error => ({ geom: null, failed: true, failure: getArtifactFailure(error) }));
+          error => ({ geom: null, failed: true, failure: getArtifactFailure(error) }))
+        .then(result => { geometryState.settled = result; return result; });
       const [loadedManifest, score] = await Promise.all([
         manifest ? Promise.resolve(manifest) : fetchManifest().catch(operationFailed('manifest-data')),
         fetchScoreForPostal(postal).catch(operationFailed('score-data')),
       ]);
       if (requestId !== loadSelectionRequestIdRef.current) return;
-      setPrimary({ result: { ...result, POSTAL: postal }, score, geom: null });
+      const initialSelection = { result: { ...result, POSTAL: postal }, score,
+        geom: geometryAttempt === geometryAttemptRef.current ? geometryState.settled?.geom ?? null : null };
+      setPrimary(initialSelection);
       setChosenStopId(null);
       setTransitMode("best_transit");
       setLiveRouteCache({});
@@ -2500,7 +2504,7 @@ export default function Home() {
       } : null);
       if (requestId !== loadSelectionRequestIdRef.current) return;
       setManifest(loadedManifest);
-      setPrimary({ result: { ...result, POSTAL: postal }, score, geom });
+      if (initialSelection.geom !== geom) setPrimary({ ...initialSelection, geom });
       void fetchTransitPoisForGeom(geom)
         .then(async (nearbyTransitPois) => {
           if (requestId !== loadSelectionRequestIdRef.current) return;

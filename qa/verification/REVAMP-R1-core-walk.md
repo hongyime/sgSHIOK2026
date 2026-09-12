@@ -4559,3 +4559,22 @@ Both cold.png/warm.png inspected: visible basemap, selected route, correct metri
 ### DISAGREEMENTS
 
 1. This pair does not establish all-clear host conditions or dominant pure CPU/network/parse cost. Fixing unnecessary state publication is a bounded candidate, not a promise of the cold-to-warm latency difference.
+
+## 2026-09-12: Settled Geometry Selection Fix
+
+Root C:\sgSHIOK2026; Prawn-E14; base2c469a4. Evidence qa/revamp-r1/settled-geometry-20260912/summary.json plus raw tests.json/build-1/observed-SKgwD8.
+New regression before edit: expected1selection update, observed2 (exit1).
+After edit: node web/scripts/test-without-production-data.mjs --testTimeout15000 (argument passed as separate flag/value):1788passed/65files plus42native guards,exit0. Production-data access denied by isolation guard; dependencieslinked,notinstalled.
+Installed tsc --project web/tsconfig.json --noEmit --incremental false:exit0. python -B scripts/check_repo_integrity.py:repo_integrity=ok,exit0. Build2aYxZG6C5VyvZ5pQfNOkD:exit0,sourceStabletrue,retentionguards pass.
+Built browser pair:exit0,3checks; both390x844screenshots parent-inspected,4selected features at each before/after boundary. Cleanupverified; preview4374leftlive for owner. Old4362is not the fix. No pipeline/install/deploy/protected payload modification.
+
+### FINDINGS
+
+1. Ready geometry now arrives in the first primary selection, and the same geometry result does not cause a redundant second publication. Pending geometry still permits score text; stale request/attempt/category/retry cases pass.
+2. Tests1785+3=1788/65files; the3new cases are already-ready, missing and rejected geometry. Independent peer review unavailable due quota; parent review only.
+3. Baseline source writes11+23=34; treatment11+12=23. Warm selected-route writes before:empty/key2/key3; after:one populated key3. Browser scheduling is not controlled; the state-update regression separately proves2to1 for settled geometry.
+4. Route observations baseline7559/2125.7ms; treatment7197/2111.9ms. No speedup claim. Treatment cold HTMLTTFB1097.4ms vs baseline26ms; near100%CPU and paging measured. Server data responses are no-store despite same-browser warm HTTP cache. No further timing repetition under this pressure.
+
+### DISAGREEMENTS
+
+1. The bounded loading fix does not close representative performance/M12 or authorize deployment. CPU/paging remains a timing confound despite severalGiB available memory.

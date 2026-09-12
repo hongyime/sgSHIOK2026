@@ -3581,3 +3581,14 @@ Document, viewport and URL at both screenshot boundaries. Preserve transitional
 captures and bound attempts. The first failed resize observation remains recorded;
 the corrected helper has11tests including the real failed snapshot pair.
 Evidence: qa/revamp-r1/retained-current-20260912/summary.json.
+
+### 2026-09-12: Publish Settled Geometry With The Initial Selection
+
+When geometry is already available before the score, use it in the first primary
+selection rather than briefly publishing an empty geometry state. When geometry
+is pending, retain independent score text and existing stale request/attempt guards.
+Do not republish the same selection merely because an already-settled promise was
+awaited. Three new page regressions cover ready, missing and rejected geometry;
+the isolated full suite passes1788tests. This reduces state churn, not an accepted
+latency claim: the instrumented browser pair had heavyCPU/paging. Evidence:
+qa/revamp-r1/settled-geometry-20260912/summary.json. No pipeline or release change.

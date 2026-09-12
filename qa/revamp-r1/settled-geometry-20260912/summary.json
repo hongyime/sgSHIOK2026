@@ -1,0 +1,416 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "base": "2c469a4",
+  "regression": {
+    "before": "New ready-geometry test failed: expected one selection update, observed two.",
+    "after": "1788 tests /65files pass, including3new cases (ready/missing/rejected already-settled geometry). Existing deferred/stale/category/retry cases remain in full suite.",
+    "independentReview": "Unavailable: peer quota; parent review only."
+  },
+  "checks": {
+    "isolatedSuiteExit": 0,
+    "typescriptExit": 0,
+    "repoIntegrity": "repo_integrity=ok",
+    "build": "2aYxZG6C5VyvZ5pQfNOkD",
+    "sourceStable": true,
+    "browserExit": 0,
+    "cleanup": true
+  },
+  "preview": {
+    "buildId": "2aYxZG6C5VyvZ5pQfNOkD",
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\settled-geometry-20260912-build-1",
+    "pid": 23948,
+    "dataPort": 4322,
+    "nextPort": 4373,
+    "proxyPort": 4374,
+    "readOnly": true,
+    "nextPid": 17020
+  },
+  "baselineStages": [
+    {
+      "cache": "cold",
+      "htmlRequestToFirstByteMs": 26,
+      "textObservedMs": 3798.7999999970198,
+      "mapPublishedMs": 4901.5,
+      "routeObservedMs": 7559,
+      "basemapObservedMs": 8583.10000000149,
+      "geometryBodyCompleteMs": 2920.5,
+      "scoreBodyCompleteMs": 3660.89999999851,
+      "selectedRouteWrites": [
+        {
+          "name": "source-setData",
+          "at": 6414,
+          "source": "shiokest-route",
+          "features": 4,
+          "key": "3:shiokest:primary"
+        }
+      ],
+      "sourceWrites": 11,
+      "longTasks": [
+        {
+          "start": 642.7000000029802,
+          "duration": 85
+        },
+        {
+          "start": 1032.1000000014901,
+          "duration": 203
+        },
+        {
+          "start": 2258.10000000149,
+          "duration": 124
+        },
+        {
+          "start": 2436.60000000149,
+          "duration": 113
+        },
+        {
+          "start": 3537.10000000149,
+          "duration": 120
+        },
+        {
+          "start": 3692.89999999851,
+          "duration": 72
+        },
+        {
+          "start": 4332,
+          "duration": 579
+        },
+        {
+          "start": 4911.39999999851,
+          "duration": 297
+        },
+        {
+          "start": 5239.89999999851,
+          "duration": 605
+        },
+        {
+          "start": 5874.39999999851,
+          "duration": 181
+        },
+        {
+          "start": 6566.79999999702,
+          "duration": 64
+        },
+        {
+          "start": 6639.89999999851,
+          "duration": 584
+        },
+        {
+          "start": 7330.5,
+          "duration": 210
+        },
+        {
+          "start": 7625.20000000298,
+          "duration": 575
+        },
+        {
+          "start": 8611,
+          "duration": 102
+        }
+      ]
+    },
+    {
+      "cache": "warm",
+      "htmlRequestToFirstByteMs": 10.100000001490116,
+      "textObservedMs": 1675.8999999985099,
+      "mapPublishedMs": 430.6000000014901,
+      "routeObservedMs": 2125.7000000029802,
+      "basemapObservedMs": 2707.89999999851,
+      "geometryBodyCompleteMs": 577.5,
+      "scoreBodyCompleteMs": 1506.3999999985099,
+      "selectedRouteWrites": [
+        {
+          "name": "source-setData",
+          "at": 941.3999999985099,
+          "source": "shiokest-route",
+          "features": 0
+        },
+        {
+          "name": "source-setData",
+          "at": 1548.5,
+          "source": "shiokest-route",
+          "features": 4,
+          "key": "2:shiokest:primary"
+        },
+        {
+          "name": "source-setData",
+          "at": 1760.7000000029802,
+          "source": "shiokest-route",
+          "features": 4,
+          "key": "3:shiokest:primary"
+        }
+      ],
+      "sourceWrites": 23,
+      "longTasks": [
+        {
+          "start": 271.8999999985099,
+          "duration": 55
+        },
+        {
+          "start": 370.80000000447035,
+          "duration": 60
+        },
+        {
+          "start": 503.5,
+          "duration": 52
+        },
+        {
+          "start": 1376.2000000029802,
+          "duration": 119
+        },
+        {
+          "start": 1559.1000000014901,
+          "duration": 60
+        },
+        {
+          "start": 1683.8999999985099,
+          "duration": 75
+        },
+        {
+          "start": 1845.5,
+          "duration": 194
+        },
+        {
+          "start": 2458.5,
+          "duration": 149
+        }
+      ]
+    }
+  ],
+  "treatmentStages": [
+    {
+      "cache": "cold",
+      "htmlRequestToFirstByteMs": 1097.4000000059605,
+      "textObservedMs": 5145.0999999940395,
+      "mapPublishedMs": 4960.5,
+      "routeObservedMs": 7197,
+      "basemapObservedMs": 7925.39999999851,
+      "geometryBodyCompleteMs": 3875.39999999851,
+      "scoreBodyCompleteMs": 4635.0999999940395,
+      "selectedRouteWrites": [
+        {
+          "name": "source-setData",
+          "at": 5944.0999999940395,
+          "source": "shiokest-route",
+          "features": 4,
+          "key": "3:shiokest:primary"
+        }
+      ],
+      "sourceWrites": 11,
+      "longTasks": [
+        {
+          "start": 2149,
+          "duration": 214
+        },
+        {
+          "start": 3115.2999999970198,
+          "duration": 155
+        },
+        {
+          "start": 3359.5999999940395,
+          "duration": 119
+        },
+        {
+          "start": 4524,
+          "duration": 107
+        },
+        {
+          "start": 4670.0999999940395,
+          "duration": 295
+        },
+        {
+          "start": 4965.39999999851,
+          "duration": 109
+        },
+        {
+          "start": 5074.69999999553,
+          "duration": 55
+        },
+        {
+          "start": 5146.79999999702,
+          "duration": 249
+        },
+        {
+          "start": 6045,
+          "duration": 62
+        },
+        {
+          "start": 6141.5999999940395,
+          "duration": 65
+        },
+        {
+          "start": 6242.69999999553,
+          "duration": 607
+        },
+        {
+          "start": 6957,
+          "duration": 219
+        },
+        {
+          "start": 7197.0999999940395,
+          "duration": 124
+        },
+        {
+          "start": 7708.69999999553,
+          "duration": 112
+        }
+      ]
+    },
+    {
+      "cache": "warm",
+      "htmlRequestToFirstByteMs": 13.899999998509884,
+      "textObservedMs": 1384.7000000029802,
+      "mapPublishedMs": 437.70000000298023,
+      "routeObservedMs": 2111.89999999851,
+      "basemapObservedMs": 3005.10000000149,
+      "geometryBodyCompleteMs": 613.8999999985099,
+      "scoreBodyCompleteMs": 1186.2000000029802,
+      "selectedRouteWrites": [
+        {
+          "name": "source-setData",
+          "at": 1374.8999999985099,
+          "source": "shiokest-route",
+          "features": 4,
+          "key": "3:shiokest:primary"
+        }
+      ],
+      "sourceWrites": 12,
+      "longTasks": [
+        {
+          "start": 276.20000000298023,
+          "duration": 64
+        },
+        {
+          "start": 379,
+          "duration": 59
+        },
+        {
+          "start": 438.8999999985099,
+          "duration": 56
+        },
+        {
+          "start": 520.7999999970198,
+          "duration": 61
+        },
+        {
+          "start": 1070.1000000014901,
+          "duration": 96
+        },
+        {
+          "start": 1385.5,
+          "duration": 51
+        },
+        {
+          "start": 1559,
+          "duration": 53
+        },
+        {
+          "start": 1661.7999999970198,
+          "duration": 56
+        },
+        {
+          "start": 1805.3999999985099,
+          "duration": 224
+        },
+        {
+          "start": 2164.2999999970198,
+          "duration": 180
+        },
+        {
+          "start": 2439.5,
+          "duration": 224
+        },
+        {
+          "start": 2692.89999999851,
+          "duration": 174
+        }
+      ]
+    }
+  ],
+  "captures": [
+    {
+      "cache": "cold",
+      "sha256": "5d54984e9a9c9d75a43da4acafb428b6635baaf23d6d816497c8396afcaf1a2b",
+      "before": {
+        "status": "ready",
+        "routeKey": "3:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": true,
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "after": {
+        "status": "ready",
+        "routeKey": "3:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": true,
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "parentInspected": true
+    },
+    {
+      "cache": "warm",
+      "sha256": "5d54984e9a9c9d75a43da4acafb428b6635baaf23d6d816497c8396afcaf1a2b",
+      "before": {
+        "status": "ready",
+        "routeKey": "3:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": true,
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "after": {
+        "status": "ready",
+        "routeKey": "3:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": true,
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "parentInspected": true
+    }
+  ],
+  "hostCounters": "\r\n\"(PDH-CSV 4.0)\",\"\\\\PRAWN-E14\\Memory\\Available MBytes\",\"\\\\PRAWN-E14\\Memory\\Pages Input/sec\",\"\\\\PRAWN-E14\\Memory\\Pages Output/sec\",\"\\\\PRAWN-E14\\Processor(_Total)\\% Processor Time\"\r\n\"09/12/2026 14:37:28.929\",\"4489.000000\",\"336.564812\",\"0.000000\",\"98.470662\"\r\n\"09/12/2026 14:37:29.939\",\"4582.000000\",\"845.011344\",\"0.000000\",\"96.734766\"\r\n\"09/12/2026 14:37:30.956\",\"4329.000000\",\"1264.642971\",\"0.000000\",\"98.095618\"\r\n\"09/12/2026 14:37:31.991\",\"4663.000000\",\"3926.764185\",\"0.000000\",\"100.000000\"\r\n\"09/12/2026 14:37:33.015\",\"4654.000000\",\"781.403757\",\"0.000000\",\"100.000000\"\r\n\"09/12/2026 14:37:34.187\",\"4609.000000\",\"672.875834\",\"0.000000\",\"100.000000\"\r\n\"09/12/2026 14:37:35.203\",\"4440.000000\",\"500.921570\",\"0.000000\",\"100.000000\"\r\n\"09/12/2026 14:37:36.479\",\"4118.000000\",\"815.078149\",\"0.000000\",\"100.000000\"\r\n\"09/12/2026 14:37:37.585\",\"4230.000000\",\"1042.370345\",\"0.000000\",\"100.000000\"\r\n\"09/12/2026 14:37:38.638\",\"4453.000000\",\"69594.304011\",\"0.000000\",\"100.000000\"\r\n\"09/12/2026 14:37:39.745\",\"4516.000000\",\"4104.403502\",\"0.000000\",\"100.000000\"\r\n\"09/12/2026 14:37:42.873\",\"4270.000000\",\"1952.718306\",\"0.000000\",\"99.936617\"\r\n\"09/12/2026 14:37:44.536\",\"4434.000000\",\"303.929100\",\"0.000000\",\"100.000000\"\r\n\"09/12/2026 14:37:45.648\",\"4165.000000\",\"44.125543\",\"0.000000\",\"100.000000\"\r\n\"09/12/2026 14:37:47.557\",\"4253.000000\",\"274.336396\",\"0.000000\",\"100.000000\"\r\n\"09/12/2026 14:37:49.122\",\"4310.000000\",\"456.631400\",\"0.000000\",\"100.000000\"\r\n\"09/12/2026 14:37:50.149\",\"4280.000000\",\"599.295320\",\"0.000000\",\"100.000000\"\r\n\"09/12/2026 14:37:51.630\",\"4191.000000\",\"1214.548287\",\"0.000000\",\"100.000000\"\r\n\"09/12/2026 14:37:52.640\",\"4012.000000\",\"26.818045\",\"0.000000\",\"100.000000\"\r\n\"09/12/2026 14:37:53.643\",\"3911.000000\",\"1467.991827\",\"0.000000\",\"100.000000\"\r\n\"09/12/2026 14:37:54.720\",\"3902.000000\",\"1627.889071\",\"0.000000\",\"100.000000\"\r\n\"09/12/2026 14:37:56.121\",\"4125.000000\",\"1742.235822\",\"0.000000\",\"100.000000\"",
+  "FINDINGS": [
+    "Already-settled geometry is included in the first selection; identical final geometry no longer republishes primary. Pending geometry never delays score text, and stale request/geometry-attempt checks remain.",
+    "Warm selected-route setData trace: baseline empty/key2/key3, treatment one populated key3. Source writes baseline11+23=34, treatment11+12=23. Browser scheduling differed; unit regression, not those totals alone, proves removal of duplicate selection publication.",
+    "Observed route times baseline7559/2125.7ms, treatment7197/2111.9ms. No claimed speedup: cold HTML TTFB differs, paging/near100% CPU observed, server data responses no-store, CDP/injection overhead, SWbypassed and desktop SwiftShader.",
+    "Full isolated suite1785+3=1788/65files,42native guards, types, integrity and new build pass. Two new mobile screenshots inspected with4current features. Existing preview4362 is old;4374 serves the change."
+  ],
+  "DISAGREEMENTS": [
+    "Do not repeat timing pairs under this pressure or equate this bounded loading fix with representative performance acceptance. T02 remains partial."
+  ],
+  "protectedInputsUnchanged": true,
+  "noPipeline": true,
+  "noInstall": true,
+  "noDeployment": true
+}
