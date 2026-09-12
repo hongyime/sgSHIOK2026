@@ -3561,3 +3561,23 @@ The current200-record read-only pilot reproduces prior output bytes but its
 9111-second projected budget exceeds900seconds. Do not run the full register.
 No application, scoring value, pipeline input or production bundle changed.
 Evidence: qa/revamp-r1/resume-20260912/summary.json and appended verification log.
+
+## 2026-09-12: Retained-Tab Compatibility Is Not Release Identity
+
+The controlled retained local A/current B sequence now completes with the current
+156-source build and existing pinned29-file frontend archive: same old Document
+and postal, first uncached old-module request served by actual Next fallback,
+four viewport routes, then a new B Document and selected route. Four cached data
+samples and foreign/future cache sentinels survive. No production payload copied.
+
+Treat this as acceptance of that local M17 sequence, not identification of the
+live previous release, approval of its old6.1.0 runtime, indefinite retention,
+complete network lifecycle, representative performance or publication. Those
+release/security decisions must name the actual generation and remain separate.
+Do not rerun this same local sequence just because broader release gates remain.
+
+Capture synchronization requires consecutive ready states and matching keys,
+Document, viewport and URL at both screenshot boundaries. Preserve transitional
+captures and bound attempts. The first failed resize observation remains recorded;
+the corrected helper has11tests including the real failed snapshot pair.
+Evidence: qa/revamp-r1/retained-current-20260912/summary.json.

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "capture-contracts",
+    "command": "C:\\Program Files\\nodejs\\node.exe",
+    "args": [
+      "--test",
+      "C:\\sgSHIOK2026\\qa\\revamp-r1\\retained-current-20260912\\capture-state.test.mjs"
+    ],
+    "stdout": "✔ real resize snapshot is transitional despite visible geometry (3.5461ms)\n✔ requires three consecutive ready samples after a transition (0.8961ms)\n✔ routeKey transition rejects stable screenshot (0.6691ms)\n✔ timeOrigin transition rejects stable screenshot (0.3623ms)\n✔ url transition rejects stable screenshot (0.5201ms)\n✔ viewport transition rejects stable screenshot (0.273ms)\n✔ featureCount transition rejects stable screenshot (0.267ms)\n✔ tiles transition rejects stable screenshot (0.3424ms)\n✔ moving transition rejects stable screenshot (0.4724ms)\n✔ renderedKeys transition rejects stable screenshot (0.5989ms)\n✔ real ready capture on the same selection passes (0.4752ms)\nℹ tests 11\nℹ suites 0\nℹ pass 11\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 277.2597\n",
+    "stderr": "",
+    "exitCode": 0,
+    "elapsedMs": 488
+  },
+  {
+    "name": "integrity",
+    "command": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "args": [
+      "-B",
+      "C:\\sgSHIOK2026\\scripts\\check_repo_integrity.py"
+    ],
+    "stdout": "repo_integrity=ok\r\n",
+    "stderr": "",
+    "exitCode": 0,
+    "elapsedMs": 273
+  }
+]

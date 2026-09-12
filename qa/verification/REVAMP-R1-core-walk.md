@@ -4448,3 +4448,40 @@ Read-only coverage pilot command: node qa/revamp-r1/coverage-register-20260909/s
 
 1. Recovered headroom invalidates the stale blocked label, not the remaining owner/release/platform gates. The31-task product goal remains incomplete.
 2. Runtime/Fetch acceptance is not a clean-network claim. Neither old uncorrelated errors nor the outstanding worker terminal may be silently classified away.
+
+## 2026-09-12: Retained Local A Through Current B Completes
+
+Root C:\sgSHIOK2026; hostname Prawn-E14; base1fb93aa9a282c8cbc8ac0c8201c427106fd2f5cc. Previous turn was progress; no stale blocked audit is reused. Peer quota remains unavailable until September15, so parent review only. The in-app browser connection still fails os error3; the existing owned Chrome/CDP fallback is used.
+
+Committed evidence root: qa/revamp-r1/retained-current-20260912/. build.mjs makes a fresh snapshot from156tracked web source files, excludes public/data, links existing dependencies and stages the previously pinned29-file frontend archive only. No data-helper/package preparation hooks, input rebuilding, pipeline, installation or deployment. The actual guarded Next build validates retained asset identities before/after compilation, including same-path byte conflicts. Archive manifest eb4eba48cdb6b97eeaaae16bb25ae173ce23a40fa9d803a4549be816e193a7b1 matches the previous capture; current retention manifest3857d143ec044900b9bf397b581759fa47719f602c3358e85ab81c9bb3660cbb contains29files totaling5786770bytes. Full entries with per-file arithmetic are in the existing archive/build receipts.
+
+```text
+node qa/revamp-r1/retained-current-20260912/build.mjs
+{"out":"C:\\sgSHIOK2026\\qa\\revamp-r1\\retained-current-20260912\\build-1","exitCode":0,"signal":null,"sourceStable":true,"buildId":"uvi18B-a0b6Sit2hVCydw"}
+node qa/revamp-r1/retained-current-20260912/browser.mjs
+{"out":"C:\\sgSHIOK2026\\qa\\revamp-r1\\retained-current-20260912\\observed-EAV2hq","exitCode":1,"checks":16,"captures":5,"elapsedSeconds":53.297,"cleanup":true}
+node qa/revamp-r1/retained-current-20260912/browser-settled.mjs
+{"out":"C:\\sgSHIOK2026\\qa\\revamp-r1\\retained-current-20260912\\observed-NdLU98","outcome":"Retained A renders selected route from actual current-B fallback; ordinary navigation renders current B; sampled caches preserved. Not production identity/security or full transport acceptance.","exitCode":0,"checks":27,"captures":7,"elapsedSeconds":70.31,"cleanup":true}
+```
+
+The first15pass+1fail=16check attempt stopped at320px screenshot synchronization: before status initializing, after ready, both4same-key features in the same Document. Its screenshot visibly contains the route. The new capture-state helper requires3consecutive ready samples, then checks both screenshot boundaries; at most3attempts preserve transitional images.11contract tests pass, including the real failed pair, different key/Document/URL/viewport, stale features and moving/unloaded state. No application change followed from this diagnostic race. First failure, runner and receipt remain untouched.
+
+Final run uses the same local origin/profile with caches/SW enabled. Pinned A HTML12889bytes sha2564ad9e4f9b97117f3203bba69a950b0bcfcab96ad3805a6b56503550bbfec544b is served from its existing prerendered file; immutable A assets come from the verified frontend archive. This is an explicit static local fixture, not proof of a production origin. The exact A map script insertion is held before any request or cache entry, B is selected and its worker activation/control observed, then the script is released. Request reaches actual Next B fallback200 through the SW:39556bytes sha2564a1b7cf727bfc2157e11185a0fe88af518733a56f34601833c75fccad34df11b. Old A keeps its Document/postal and4current features at390x844,390x667,320x667,1440x950.
+
+Ordinary navigation then produces B-only HTML14193bytes sha2561f58ea9cd4aa2bc52bcd0412154463f539aeb5e176b070589c9b669930bc35d5, with selected route visible desktop/mobile. All7final screenshots inspected; additionally inspected the first attempt's320px failed capture. Four data-cache samples retain exact bytes/hashes, and unrelated/future sentinels retain foreign/future. This does not claim hashing all browser cache contents. Browser final errors=[] and27checks pass. Complete transport remains false:8gzip404probes acrossA/B plus2old-static icon404s, and2worker entries without page-session terminal events; these are retained in the trace, not hidden or relabeled production defects.
+
+Fresh build98.846seconds includes TypeScript; existing1785web/65files +42guards from the previous turn match all156unchanged application source identities and were not rerun unnecessarily.11newcapture contracts and repo_integrity=ok exit0 are recorded in checks.json. All11fixture source anchors match; no full protected-payload rehash claim. record.mjs verifies screenshot hashes, current156sources, retained assets, test receipts and append-only evidence prefix before producing summary.json.
+
+Both attempts cleaned up their owned browsers and used authenticated proxy shutdown. server-1/terminal.json and server-2/terminal.json record Next child termination; live CIM check finds no13320/24792/7656/20392. The normal4362preview remains live at its original build, deliberately unaffected. No command is left awaiting completion.
+
+### FINDINGS
+
+1. The previously failing retained-local-A followed by current-B navigation sequence now passes as one cache-preserving run. It is meaningful local M17 progress, not merely separate old/new screenshots.
+2. Old-module byte identity, same Document/postal, four retained viewports, new B desktop/mobile and sampled cache preservation are demonstrated. Seven final captures are inspected.
+3. A single ready observation was too weak for resize capture. Preserved the failure and tested a bounded consecutive-state barrier instead of patching application behavior without evidence.
+4. Real previous-release identity and security disposition for retained6.1.0 code remain unresolved. No production staging/deployment or pipeline work occurred; the full product goal remains incomplete.
+
+### DISAGREEMENTS
+
+1. Local upgrade compatibility does not authorize retaining an unidentified production release or its older runtime. Separate those gates rather than rerunning this successful local sequence.
+2. Passing runtime/Fetch checks is not a complete-network claim; missing page-session worker terminals and fixture/probe404s remain explicit.

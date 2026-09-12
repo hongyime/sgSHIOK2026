@@ -1,0 +1,397 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "pid": 13320,
+  "origin": "http://127.0.0.1:4372",
+  "directory": "C:\\sgSHIOK2026\\qa\\revamp-r1\\retained-current-20260912\\server-1",
+  "buildA": "e8Hlhkml4c3i_uMGJdd3P",
+  "buildB": "uvi18B-a0b6Sit2hVCydw",
+  "sourceB": "C:\\sgSHIOK2026\\tmp\\retained-current-20260912-build-1",
+  "bPort": 4371,
+  "workerHashes": {
+    "A": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+    "B": "88e523a5d8b4f8dec18b0a741dfae056674552de9e0f5b67d96a82fd554500a4"
+  },
+  "target": "/_next/static/chunks/0j6tjjnrv2h3w.js",
+  "targetBytes": 39556,
+  "targetSha256": "4a1b7cf727bfc2157e11185a0fe88af518733a56f34601833c75fccad34df11b",
+  "oldHtmlSha256": "4ad9e4f9b97117f3203bba69a950b0bcfcab96ad3805a6b56503550bbfec544b",
+  "retention": {
+    "manifestSha256": "3857d143ec044900b9bf397b581759fa47719f602c3358e85ab81c9bb3660cbb",
+    "buildId": "uvi18B-a0b6Sit2hVCydw",
+    "retainedBuildIds": [
+      "e8Hlhkml4c3i_uMGJdd3P"
+    ],
+    "files": 29,
+    "bytes": 5786770
+  },
+  "deploymentIdentityVerified": false,
+  "oldServing": "Pinned static prerendered HTML and retained immutable files; not a production origin identity claim.",
+  "nextPid": 24792,
+  "active": "B",
+  "requests": [
+    {
+      "at": "2026-09-12T05:40:31.197Z",
+      "method": "GET",
+      "path": "/__qa/seed",
+      "active": "A",
+      "status": 200,
+      "fixture": true
+    },
+    {
+      "at": "2026-09-12T05:40:31.335Z",
+      "method": "GET",
+      "path": "/favicon.ico",
+      "active": "A",
+      "status": 404,
+      "oldStatic": true
+    },
+    {
+      "at": "2026-09-12T05:40:31.340Z",
+      "method": "GET",
+      "path": "/sw.js",
+      "active": "A",
+      "status": 200,
+      "workerSha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390"
+    },
+    {
+      "at": "2026-09-12T05:40:31.652Z",
+      "method": "GET",
+      "path": "/",
+      "active": "A",
+      "status": 200,
+      "oldStatic": true,
+      "sha256": "4ad9e4f9b97117f3203bba69a950b0bcfcab96ad3805a6b56503550bbfec544b"
+    },
+    {
+      "at": "2026-09-12T05:40:32.278Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/3mic8ep312z99.css",
+      "active": "A",
+      "status": 200,
+      "oldStatic": true,
+      "sha256": "240a20cee97b46c644b2aa8fd9e9c3a2cbd39d37cc011014703ee8a76c2c744a"
+    },
+    {
+      "at": "2026-09-12T05:40:32.307Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/310vm2bl3xxpt.js",
+      "active": "A",
+      "status": 200,
+      "oldStatic": true,
+      "sha256": "8a943b00599e56b53569f36f4341e3465ae7705c1391562cd6c7e1f290c0c387"
+    },
+    {
+      "at": "2026-09-12T05:40:33.364Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/0y-dctk-kmqss.js",
+      "active": "A",
+      "status": 200,
+      "oldStatic": true,
+      "sha256": "719d2c591158bb034fd3952ad1f59d44c3d51c9263ed09e101e06f673a0ced5e"
+    },
+    {
+      "at": "2026-09-12T05:40:33.527Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/08ttfj81-47mu.js",
+      "active": "A",
+      "status": 200,
+      "oldStatic": true,
+      "sha256": "dd976fc71297b2c55b3c9eacaa65b11bb1be18efe8392bf5cb2016e7af8b64c8"
+    },
+    {
+      "at": "2026-09-12T05:40:33.563Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/3g398rb4su43l.js",
+      "active": "A",
+      "status": 200,
+      "oldStatic": true,
+      "sha256": "2e7f40b2884bba4c8c1a660127354c9b4853c500088f820c887c03db461681ef"
+    },
+    {
+      "at": "2026-09-12T05:40:33.611Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/turbopack-35blp6v37t2x-.js",
+      "active": "A",
+      "status": 200,
+      "oldStatic": true,
+      "sha256": "c7701510dcc61a1ac837c15d337a6ce02b5d6dbe300ae180a828aa5f62470b99"
+    },
+    {
+      "at": "2026-09-12T05:40:33.637Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/3fntmmi971322.js",
+      "active": "A",
+      "status": 200,
+      "oldStatic": true,
+      "sha256": "34ed6abf4c6d0d1bb3dc56d3f133d2a5dbc3a3c89c791deab314e27143ac14ce"
+    },
+    {
+      "at": "2026-09-12T05:40:33.669Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/2zaun8r9-gox7.js",
+      "active": "A",
+      "status": 200,
+      "oldStatic": true,
+      "sha256": "5005d802aa1b6d51815395c0557b0cd42b1d44be6641f37f03548fd446cb9c2a"
+    },
+    {
+      "at": "2026-09-12T05:40:33.686Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/27iodt6ap9svx.js",
+      "active": "A",
+      "status": 200,
+      "oldStatic": true,
+      "sha256": "c47b30b645e89489dea43caa23f500ee2a3813525168196dff336577944d10cf"
+    },
+    {
+      "at": "2026-09-12T05:40:34.412Z",
+      "method": "GET",
+      "path": "/icon.svg",
+      "active": "A",
+      "status": 404,
+      "oldStatic": true
+    },
+    {
+      "at": "2026-09-12T05:40:34.554Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/2_c6f5vawm6vi.css",
+      "active": "A",
+      "status": 200,
+      "oldStatic": true,
+      "sha256": "5e47fd26d8397148bf14b596cd49f6d15fb8b0d3da525565adb0a4cdf662d22c"
+    },
+    {
+      "at": "2026-09-12T05:40:34.632Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/0npwww6p9wx1o.js",
+      "active": "A",
+      "status": 200,
+      "oldStatic": true,
+      "sha256": "028027c746568216cf6f738eaecfbf5b00638e8a6b5d1647363af799747cb733"
+    },
+    {
+      "at": "2026-09-12T05:40:34.676Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/318x15h178iv-.js",
+      "active": "A",
+      "status": 200,
+      "oldStatic": true,
+      "sha256": "7f1cf9092abc0112aeee3aab2a4543429a9ce8087302316ea7347125fe709ce6"
+    },
+    {
+      "at": "2026-09-12T05:40:34.805Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/39xhkg3l-se9r.js",
+      "active": "A",
+      "status": 200,
+      "oldStatic": true,
+      "sha256": "49254a978db0952d4ad0971b4580ba8331ac413da5e505b9714cb4780a73bf2e"
+    },
+    {
+      "at": "2026-09-12T05:40:34.900Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "active": "A",
+      "status": 404,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-12T05:40:34.936Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-12T05:40:34.985Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-12T05:40:35.042Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "active": "A",
+      "status": 404,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-12T05:40:35.091Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "active": "A",
+      "status": 404,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-12T05:40:35.124Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-12T05:40:35.153Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-12T05:40:36.411Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-12T05:40:36.577Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-12T05:40:36.698Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-12T05:40:36.741Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-12T05:40:36.766Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-12T05:40:36.799Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "active": "A",
+      "status": 404,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-12T05:40:36.812Z",
+      "method": "GET",
+      "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "active": "A",
+      "status": 200,
+      "upstream": 4321,
+      "data": true,
+      "activeAtStart": "A"
+    },
+    {
+      "at": "2026-09-12T05:40:36.901Z",
+      "method": "GET",
+      "path": "/sw.js",
+      "active": "A",
+      "status": 200,
+      "workerSha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390"
+    },
+    {
+      "at": "2026-09-12T05:40:38.805Z",
+      "method": "POST",
+      "path": "/__qa/switch",
+      "active": "B",
+      "status": 204,
+      "control": true
+    },
+    {
+      "at": "2026-09-12T05:40:38.838Z",
+      "method": "GET",
+      "path": "/sw.js",
+      "active": "B",
+      "status": 200,
+      "workerSha256": "88e523a5d8b4f8dec18b0a741dfae056674552de9e0f5b67d96a82fd554500a4"
+    },
+    {
+      "at": "2026-09-12T05:40:40.098Z",
+      "method": "GET",
+      "path": "/_next/static/chunks/0j6tjjnrv2h3w.js",
+      "active": "B",
+      "status": 200,
+      "upstream": 4371,
+      "data": false,
+      "activeAtStart": "B"
+    },
+    {
+      "at": "2026-09-12T05:40:40.690Z",
+      "method": "GET",
+      "path": "/maplibre/6.1.0/maplibre-gl-worker.mjs",
+      "active": "B",
+      "status": 200,
+      "upstream": 4371,
+      "data": false,
+      "activeAtStart": "B"
+    },
+    {
+      "at": "2026-09-12T05:40:41.541Z",
+      "method": "GET",
+      "path": "/maplibre/6.1.0/maplibre-gl-shared.mjs",
+      "active": "B",
+      "status": 200,
+      "upstream": 4371,
+      "data": false,
+      "activeAtStart": "B"
+    },
+    {
+      "at": "2026-09-12T05:41:18.834Z",
+      "method": "POST",
+      "path": "/__qa/stop",
+      "active": "B",
+      "status": 204,
+      "control": true
+    }
+  ],
+  "childExit": {
+    "code": null,
+    "signal": "SIGTERM"
+  }
+}
