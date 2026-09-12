@@ -120,6 +120,7 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 
 ### [ ] T02: Reduce the next measured loading bottleneck
 - Status: PARTIAL. Size: M. Parent: P0.3.
+- Unpaused pair2026-09-12: cold/warm text3798.8/1675.9ms and current-route7559/2125.7ms, inspected captures4features both. Source writes11/23; warm selected route includes empty then key2 then key3. Geometry body finishes before score both times, but loadSelection first publishes geom:null. Next candidate: coalesce settled geometry without waiting on pending geometry.5native tests pass. Rawexit1/10canceled-tile errors preserved; paging counter escaping failed, unknown paging, no representative acceptance/speedup. Driver corrected with prelaunch gate, not rerun. Evidence: qa/revamp-r1/loading-profile-20260912/summary.json.
 - Clock attribution2026-09-12: preserved actual-worker trace has three essential gzip404 fallbacks, but geometry headers7.811ms and response event1271.907ms are different clocks. Five native tests verify session isolation, missing timing and unclamped deltas. Do not label event duration server time, sum overlapping intervals, or claim saved latency. Next: one unpaused cold/warm profile with host sampling and application stages; no more timing conclusions from the worker-paused trace. Evidence: qa/revamp-r1/loading-clock-20260912/summary.json.
 - Depends on: none.
 - Scope: existing loading-diagnosis/source-separation QA harnesses; `web/lib/data.ts`, `web/components/route-evidence-map.tsx` only when attribution supports an edit.

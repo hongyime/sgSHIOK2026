@@ -4542,3 +4542,20 @@ No browser run, application edit, installation, protected-data mutation, pipelin
 ### DISAGREEMENTS
 
 1. Do not label response-event elapsed as server execution, sum overlapping intervals as page latency, or promise equivalent savings from removing404probes. No speedup is established here.
+
+## 2026-09-12: Unpaused Local Loading Pair
+
+Root C:\sgSHIOK2026; Prawn-E14; base90dccd9. Evidence qa/revamp-r1/loading-profile-20260912/summary.json and observed-OUYeAZ/browser.json; original executed runner.mjs retained separately from corrected driver.
+Executed node qa/revamp-r1/loading-profile-20260912/browser.mjs: exit1,3functional checks pass,10interception errors. Exact-ID analysis explains10canceled tiles,0unexplained; rawfailure remains.
+Executed node --test qa/revamp-r1/loading-profile-20260912/analyze.test.mjs:5passed,0failed.
+Both cold.png/warm.png inspected: visible basemap, selected route, correct metric panel;4matching features before/after each capture. Browser cleanup verified. Existing preview remains live; no pipeline/install/build/deploy/app edit.
+
+### FINDINGS
+
+1. Cold/warm HTML request-to-first-byte26/10.1ms; text3798.8/1675.9ms; route7559/2125.7ms. Not representative-phone or speedup measurements. SWbypassed, workerunpaused, allowlistIPC/injected-observer overhead remains; filesystem cache uncontrolled.
+2. Geometry body finished2920.5/577.5ms; score body3660.9/1506.4ms. loadSelection still sets primary geom:null then awaits geometry and publishes again. Warm selected-route writes show empty/key2/key3. Candidate fix: use already-settled geometry on first publication, without waiting for slow geometry or losing stale-request guards. Do not infer equivalent saved latency.
+3. Source writes11+23=34across pair, not comparable speed evidence against prior builds. Twenty host memory samples minimum3689.59375MiB. Paging unavailable: counter command escaping produced No valid counters, samplerexit4026531842. Corrected argument list and prelaunch-output gate are in driver; no repeated browser pair to relabel this one.
+
+### DISAGREEMENTS
+
+1. This pair does not establish all-clear host conditions or dominant pure CPU/network/parse cost. Fixing unnecessary state publication is a bounded candidate, not a promise of the cold-to-warm latency difference.

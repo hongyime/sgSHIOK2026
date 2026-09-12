@@ -1,0 +1,278 @@
+{
+  "base": "90dccd9",
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "traceSha256": "a2f8bfd26053b7adf73c760a5421a1fa4f2241a9853eb7af9999029779eca9e7",
+  "rawExitCode": 1,
+  "rawPass": false,
+  "policy": {
+    "cold": "Fresh profile, HTTP cache cleared once; server filesystem cache uncontrolled",
+    "warm": "Same browser HTTP cache, fresh document and JS memory",
+    "serviceWorker": "bypassed",
+    "workers": "Unpaused, late Network attachment can miss worker bytes",
+    "interception": "GET allowlist IPC overhead remains",
+    "renderer": "Desktop headless SwiftShader, 390x844, not representative phone",
+    "pairs": 1
+  },
+  "stages": [
+    {
+      "cache": "cold",
+      "htmlRequestToFirstByteMs": 26,
+      "textObservedMs": 3798.7999999970198,
+      "mapPublishedMs": 4901.5,
+      "routeObservedMs": 7559,
+      "basemapObservedMs": 8583.10000000149,
+      "geometryBodyCompleteMs": 2920.5,
+      "scoreBodyCompleteMs": 3660.89999999851,
+      "selectedRouteWrites": [
+        {
+          "name": "source-setData",
+          "at": 6414,
+          "source": "shiokest-route",
+          "features": 4,
+          "key": "3:shiokest:primary"
+        }
+      ],
+      "sourceWrites": 11,
+      "longTasks": [
+        {
+          "start": 642.7000000029802,
+          "duration": 85
+        },
+        {
+          "start": 1032.1000000014901,
+          "duration": 203
+        },
+        {
+          "start": 2258.10000000149,
+          "duration": 124
+        },
+        {
+          "start": 2436.60000000149,
+          "duration": 113
+        },
+        {
+          "start": 3537.10000000149,
+          "duration": 120
+        },
+        {
+          "start": 3692.89999999851,
+          "duration": 72
+        },
+        {
+          "start": 4332,
+          "duration": 579
+        },
+        {
+          "start": 4911.39999999851,
+          "duration": 297
+        },
+        {
+          "start": 5239.89999999851,
+          "duration": 605
+        },
+        {
+          "start": 5874.39999999851,
+          "duration": 181
+        },
+        {
+          "start": 6566.79999999702,
+          "duration": 64
+        },
+        {
+          "start": 6639.89999999851,
+          "duration": 584
+        },
+        {
+          "start": 7330.5,
+          "duration": 210
+        },
+        {
+          "start": 7625.20000000298,
+          "duration": 575
+        },
+        {
+          "start": 8611,
+          "duration": 102
+        }
+      ]
+    },
+    {
+      "cache": "warm",
+      "htmlRequestToFirstByteMs": 10.100000001490116,
+      "textObservedMs": 1675.8999999985099,
+      "mapPublishedMs": 430.6000000014901,
+      "routeObservedMs": 2125.7000000029802,
+      "basemapObservedMs": 2707.89999999851,
+      "geometryBodyCompleteMs": 577.5,
+      "scoreBodyCompleteMs": 1506.3999999985099,
+      "selectedRouteWrites": [
+        {
+          "name": "source-setData",
+          "at": 941.3999999985099,
+          "source": "shiokest-route",
+          "features": 0
+        },
+        {
+          "name": "source-setData",
+          "at": 1548.5,
+          "source": "shiokest-route",
+          "features": 4,
+          "key": "2:shiokest:primary"
+        },
+        {
+          "name": "source-setData",
+          "at": 1760.7000000029802,
+          "source": "shiokest-route",
+          "features": 4,
+          "key": "3:shiokest:primary"
+        }
+      ],
+      "sourceWrites": 23,
+      "longTasks": [
+        {
+          "start": 271.8999999985099,
+          "duration": 55
+        },
+        {
+          "start": 370.80000000447035,
+          "duration": 60
+        },
+        {
+          "start": 503.5,
+          "duration": 52
+        },
+        {
+          "start": 1376.2000000029802,
+          "duration": 119
+        },
+        {
+          "start": 1559.1000000014901,
+          "duration": 60
+        },
+        {
+          "start": 1683.8999999985099,
+          "duration": 75
+        },
+        {
+          "start": 1845.5,
+          "duration": 194
+        },
+        {
+          "start": 2458.5,
+          "duration": 149
+        }
+      ]
+    }
+  ],
+  "captures": [
+    {
+      "cache": "cold",
+      "sha256": "5d54984e9a9c9d75a43da4acafb428b6635baaf23d6d816497c8396afcaf1a2b",
+      "before": {
+        "status": "ready",
+        "routeKey": "3:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": true,
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "after": {
+        "status": "ready",
+        "routeKey": "3:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": true,
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "parentVisualInspection": "Map, selected route, matching metric panel visible; both inspected after run."
+    },
+    {
+      "cache": "warm",
+      "sha256": "5d54984e9a9c9d75a43da4acafb428b6635baaf23d6d816497c8396afcaf1a2b",
+      "before": {
+        "status": "ready",
+        "routeKey": "3:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": true,
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "after": {
+        "status": "ready",
+        "routeKey": "3:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": true,
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "parentVisualInspection": "Map, selected route, matching metric panel visible; both inspected after run."
+    }
+  ],
+  "host": {
+    "minimumAvailableMiB": 3689.59375,
+    "samples": 20,
+    "pagingAvailable": false,
+    "counterFailure": "\r\nExiting, please wait...                         \r\nError: No valid counters.\r\n\r\r",
+    "samplerExit": 4026531842
+  },
+  "errors": {
+    "count": 10,
+    "explainedCanceledTiles": 10,
+    "unexplained": []
+  },
+  "tests": {
+    "command": "node --test qa/revamp-r1/loading-profile-20260912/analyze.test.mjs",
+    "exitCode": 0,
+    "stdout": "✔ counter paths have one leading and separating backslash, not remote-host syntax (1.8366ms)\n✔ both observed captures retain four selected route features (0.354ms)\n✔ geometry body completed before score body in both real samples (1.3394ms)\n✔ missing stage remains unknown, not zero-duration success (0.2968ms)\n✔ original strict failure and missing paging counters remain failures (0.6671ms)\nℹ tests 5\nℹ suites 0\nℹ pass 5\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 281.9917\n"
+  },
+  "cleanup": {
+    "command": "$ErrorActionPreference='Stop'; $profile='C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-i268IZ'; function Owned { @(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | Where-Object { $_.CommandLine -and $_.CommandLine.Contains($profile) }) }; $before=@(Owned | Select-Object ProcessId,Name,CommandLine); foreach($p in @(Owned)){ $live=Get-Process -Id $p.ProcessId -ErrorAction SilentlyContinue; if($live -and -not $live.HasExited){Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue} }; $until=[DateTime]::UtcNow.AddSeconds(20); do { $remaining=@(Owned | Where-Object { $p=Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue; $p -and -not $p.HasExited }); if($remaining.Count -eq 0){break}; Start-Sleep -Milliseconds 250 } while([DateTime]::UtcNow -lt $until); @{before=$before;remaining=@($remaining | Select-Object ProcessId,Name,CommandLine)} | ConvertTo-Json -Depth 4 -Compress",
+    "exitCode": 0,
+    "stdout": "{\"before\":[{\"ProcessId\":23640,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:/Program Files/Google/Chrome/Application/chrome.exe\\\" --headless=new --no-first-run --no-sandbox --use-angle=swiftshader --enable-unsafe-swiftshader --disable-background-networking --disable-component-update --disable-sync --remote-debugging-port=0 --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-i268IZ about:blank\"},{\"ProcessId\":15260,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=crashpad-handler --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-i268IZ /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-i268IZ\\\\Crashpad --metrics-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-i268IZ --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=152.0.7977.84 --initial-client-data=0x12c,0x130,0x134,0x108,0xac,0x7ff9971c7e60,0x7ff9971c7e70,0x7ff9971c7e80\"}],\"remaining\":[]}\r\n",
+    "stderr": "",
+    "verified": true
+  },
+  "anchorsUnchanged": true,
+  "FINDINGS": [
+    "Cold/warm text observed at3798.8/1675.9ms; current route at7559/2125.7ms. One instrumented local pair, not phone acceptance or speedup.",
+    "Geometry body completed before score body in both runs. loadSelection still publishes geom:null then awaits already-started geometry and publishes again. Candidate: include an already-settled geometry result in first selection, without waiting when pending.",
+    "Ten interception errors retained in raw strict failure; exact cancellation attribution is separate.",
+    "Counter escaping was wrong; paging is unknown. Driver now uses tested single-backslash arguments and gates sampler output before launching Chrome. Revised driver was not rerun. Original executed runner preserved."
+  ],
+  "DISAGREEMENTS": [
+    "No claim that early geometry coalescing saves the measured cold/warm difference. Required late geometry and stale-selection behavior must remain intact."
+  ],
+  "nextAction": "Regression-test and implement settled-geometry selection coalescing; delayed/rejected geometry must never delay score text, stale attempts must not publish. No repeat of this profile solely for PASS.",
+  "noPipeline": true,
+  "noInstall": true,
+  "noDeployment": true
+}
