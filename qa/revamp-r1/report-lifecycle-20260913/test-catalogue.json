@@ -1,0 +1,193 @@
+{
+  "scope": "T14 local unit contracts; F08-F10 real integration remains T15/T18",
+  "cases": [
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence creates immutable pending mapping_error metadata only",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence creates immutable pending shelter_request metadata only",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence rejects invalid or forged initial metadata {\"receipt_id\":\"\"}",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence rejects invalid or forged initial metadata {\"receipt_id\":\"a\\nb\"}",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence rejects invalid or forged initial metadata {\"report_type\":\"other\"}",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence rejects invalid or forged initial metadata {\"received_at\":-1}",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence rejects invalid or forged initial metadata {\"received_at\":null}",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence rejects invalid or forged initial metadata {\"received_at\":1.5}",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence rejects invalid or forged initial metadata {\"state\":\"accepted\"}",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence rejects invalid or forged initial metadata {\"note\":\"resident note\"}",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence plans pending -> accepted with paired audit and revision guard",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence plans pending -> rejected with paired audit and revision guard",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence rejects stale revision rather than overwriting another decision",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence cannot reopen or edit terminal accepted",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence cannot reopen or edit terminal rejected",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence cannot reopen or edit terminal duplicate",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence rejects malformed, smuggled or mismatched moderation command {\"reason\":\"\"}",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence rejects malformed, smuggled or mismatched moderation command {\"reason\":\"   \"}",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence rejects malformed, smuggled or mismatched moderation command {\"reason\":\"\\ud800\"}",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence rejects malformed, smuggled or mismatched moderation command {\"reason\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"}",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence rejects malformed, smuggled or mismatched moderation command {\"expected_revision\":0}",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence rejects malformed, smuggled or mismatched moderation command {\"expected_revision\":1.5}",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence rejects malformed, smuggled or mismatched moderation command {\"action\":\"pending\"}",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence rejects malformed, smuggled or mismatched moderation command {\"state\":\"accepted\"}",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence rejects malformed, smuggled or mismatched moderation command {\"duplicate_of\":\"report-b\"}",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence rejects malformed, smuggled or mismatched moderation command {\"receipt_id\":\"report-other\"}",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence preserves bounded Unicode/markup reason as private untrusted text, without interpreting it",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence requires shaped server context but does not implement authorization {}",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence requires shaped server context but does not implement authorization {\"moderator_id\":\"\",\"moderated_at\":2000}",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence requires shaped server context but does not implement authorization {\"moderator_id\":\"moderator-local\",\"moderated_at\":2000,\"authenticated\":true}",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence requires shaped server context but does not implement authorization {\"moderator_id\":\"moderator-local\",\"moderated_at\":null}",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence rejects moderation time before receipt and exhausted revision",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence rejects corrupt stored status and server metadata without invoking getters",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence permits an existing same-type pending duplicate target, guarding it too",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence permits an existing same-type accepted duplicate target, guarding it too",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence permits an existing same-type rejected duplicate target, guarding it too",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence validates full duplicate chain and includes every target revision",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence accepts the exact traversal bound and rejects a longer path",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence accepts exactly1000 Unicode code points and refuses1001",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence preserves shelter-request semantics in decisions without turning them into mapping errors",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence rejects self links, source cycles and cycles already present in target graph",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence rejects absent targets, incomplete/discontinuous chains and unused chain entries",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence keeps report types distinct throughout a duplicate chain",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence bounds target traversal, rejects sparse/getter arrays and never calls getters",
+      "status": "passed"
+    },
+    {
+      "name": "T14 proposed provider-neutral moderation, not authentication or persistence read-set contract lets an atomic adapter reject concurrent A->B and B->A",
+      "status": "passed"
+    }
+  ],
+  "notProved": [
+    "Moderator authentication",
+    "Atomic database persistence",
+    "Durable receipts",
+    "Real target deletion/revision races",
+    "Retention/deletion",
+    "Public submission service"
+  ]
+}

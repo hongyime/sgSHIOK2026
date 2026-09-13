@@ -4046,3 +4046,32 @@ Superseded preview4418 is retired, not rebuilt. Killing its verified Next child
 caused its parent proxy to exit; the second identity guard stopped rather than
 target a missing/reused PID. Keep the original failed cleanup receipt alongside
 read-only confirmation of both absences and the current4420/data4340 owners.
+
+## 2026-09-13: Plan report moderation without pretending to persist it
+
+T14 now implements the proposed pending->accepted/rejected/duplicate lifecycle
+as pure provider-neutral functions. Initial server metadata is separate from a
+resident payload. Require a matching source identity/revision, moderator context,
+bounded nonblank untrusted reason, and valid server timestamp. Terminal edits or
+reopening are not in the approved proposed lifecycle. Acceptance means review or
+consideration, not verified shelter, promised construction or changed map truth.
+
+Duplicate decisions retain the immediate target link. Validate every supplied
+same-type target until a pending/accepted/rejected endpoint, rejecting missing,
+discontinuous, cyclic or oversized snapshots. The32node traversal cap and1000
+Unicode-code-point reason cap are explicit local defensive contract choices.
+The traversal cap is not a global stored-chain invariant: a pending endpoint may
+later become a duplicate and lengthen incoming chains. Do not claim otherwise.
+
+Return one immutable state/audit proposal and a read-set containing the source's
+old revision and every traversed target including the endpoint. A future adapter
+must authenticate the actor, serialize authoritative existence/revision checks
+with both writes, increment revision for relevant changes and never reuse receipt
+identities/revisions. Source-only CAS and ordinary snapshot reads can admit
+concurrent A->B and B->A; the local sequential Map fixture is not database proof.
+Real target deletion/change races belong to T15/T18 adapter integration tests.
+
+No endpoint, storage, receipt, moderator authorization, retention policy, scheduler
+or publication is activated by this model. Reporting/privacy/account decisions
+remain open.45new unit cases bring the isolated web suite1945+45=1990 in73files;
+the unchanged core UI preview is retained, not rebuilt for this unimported module.

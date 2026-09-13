@@ -6142,3 +6142,65 @@ DISAGREEMENTS
    timeout and late-event identities without changing the failed result.
 2. Further browser replay is not the best next product step. Authorized report
    and maintenance integration work can proceed while owner choices are pending.
+
+## 2026-09-13: T14 local report lifecycle implementation
+
+Root C:\sgSHIOK2026; host PRAWN-E14.
+Base5b2dee025c127f85fe435c68fb80169120987e01.
+Evidence:qa/revamp-r1/report-lifecycle-20260913/summary.json.
+New code:web/lib/report-lifecycle.ts.
+Tests:web/lib/__tests__/report-lifecycle.test.ts.
+
+TDD initialchecks-rEcA0P:exit1, new module absent;34existing validation tests
+passed. This is missing-feature/module-load red, not45failed assertions.
+Initial implementationchecks-2qleAH:76pass=34existing+42new;TSchecks-IOzPx6exit0.
+Added exact traversal/Unicode boundary and shelter-request decision cases;
+extended the cycle case. Finalfocusedchecks-DHrXPd:79pass=34+45;0fail.
+Fullisolatedchecks-xH0UVC:1990pass=1945+45;73files=72+1;42dependencyguards.
+Production data absent in snapshot; reads to original and absent copy denied.
+Full commandelapsed107.084s; runnerreported97.06s is included, not added again.
+FinalTypeScriptchecks-5anGDIexit0. No build/browser rerun for this local module,
+which is not imported by the app. UIpreview remainsl7V5uOArXwdDrUIe3Wc2s/4420.
+
+Pending-only decisions require matching identity/revision, reason and server
+moderator context. Terminal transitions rejected. Duplicate targets may end in
+pending/accepted/rejected state; complete same-type chains, missing nodes, cycles,
+extra nodes, forged shape/getters and32node bound tested. Unicode reasons bounded
+by1000codepoints, preserved as private untrusted text. No code executes markup.
+Immutable paired state/audit and whole-read-set output tested. Local concurrent
+A->B/B->A fixture demonstrates the guard contract, not database atomicity.
+
+Independent review found no blocking code defect.32bounds this snapshot, not all
+future stored chains. Actual target deletion/change races and serialized adapter
+commit remain T15/T18. All relevant changes must advance revision; identities and
+revisions must never be reused. No authorization from a shaped moderator context.
+Finalizer verifies current/tested sources,11anchors/weights,integrity and exact
+418264-byte evidence prefix. Retained1012Python/12files not rerun for this slice.
+
+FINDINGS
+1. T14 now has real local lifecycle/revision/duplicate guards instead of only
+   report-body validation.45new tests pass; full isolated web suite1990/73passes.
+2. Source-only optimistic revision checks cannot protect duplicate graph races;
+   the plan includes all read dependencies for a future serialized transaction.
+3. Paired output is not a saved report or durable audit. Endpoint, authentication,
+   storage/moderation, maintenance activation, real devices and release remain.
+4. Next safe product implementation is inactive T23 runner integration. No more
+   browser replay was performed. Pipeline runs0, seconds0, installs0, deploys0.
+
+DISAGREEMENTS
+1. Do not limit duplicate targets to accepted reports merely to simplify tests;
+   pending/rejected endpoints and existing chains are legitimate proposed cases.
+2. Do not describe the32node snapshot limit as a permanent graph-depth invariant
+   or local concurrency fixtures as proof of a real database implementation.
+
+### Clarification 2026-09-13: raw tested bytes versus canonical Git bytes
+
+The final raw-only index audit failed on the unchanged revamp-layout.test.ts.
+The following git diff --cached --check exited0; that did not make the audit pass.
+Read-only inspection:2406rawbytes/2405indexbytes, exactly one CRLF sequence.
+Rawsha256=9e6613d07cbd93083541166605cc40eb82290790290f379b7058cea291868485.
+Indexsha256=e33caf9b00b9e30f87b9ccb0d770218661776ce06312b8f07ebe318b2cae66b1.
+In-memory CRLF->LF equals index; HEAD equals index. The test was not edited.
+check-git-source-bytes.mjs audits every169source against its raw isolated test
+snapshot and records all canonical Git differences in git-source-bytes.json.
+No source normalization, data changes or input repair is performed.

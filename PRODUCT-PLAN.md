@@ -9,12 +9,15 @@ live services. Reporting choices and weekly scheduler/issue approval are pending
 LOCALLY_VERIFIED: walk-only inspector. Two tabs (MRT/LRT exits, Bus stops), shortest
 usable saved walk selected automatically, no Suggested/comparison/About data,
 automatic zoom-bounded night lighting, bounded explicit preview recovery.
-Current QA: qa/revamp-r1/legacy-command-20260913 (old-client timing, NOT accepted);
+Current QA: qa/revamp-r1/report-lifecycle-20260913 (local report lifecycle);
+retained qa/revamp-r1/legacy-command-20260913 (old-client timing, NOT accepted);
 retained qa/revamp-r1/legacy-reload-20260913 (two failed attempts);
 retained qa/revamp-r1/selection-recovery-20260913 (retry and keyboard acceptance);
 retained production-worker-20260913, native-zoom-20260913 and notice-inspection-20260913.
-Build l7V5uOArXwdDrUIe3Wc2s: http://127.0.0.1:4420/. Current1945/72 isolated web
-tests and42dependency guards pass; TypeScript/build pass. Added14recovery cases
+Build l7V5uOArXwdDrUIe3Wc2s retained: http://127.0.0.1:4420/. Current1990/73
+isolated web tests and42dependency guards pass; TypeScript passes.45new lifecycle
+tests add to1945; new local module is not imported by app. No build/browser rerun.
+Earlier UI work added14recovery cases
 and1segmented-focus CSS contract:1930+14+1=1945. Focused193/4 before CSS and47/1
 after CSS pass; the final isolated suite covers all changed sources together.
 Maintenance follow-up:955existing+57inspection=1012focused tests in12files pass;
@@ -43,8 +46,8 @@ setup. Command25 timed out10011ms, late reply10962ms after dispatch; reply paylo
 was discarded, so setup success is unknown. Browser26 replied1494ms. No release
 switch; no connection-loss or hardware cause claim. Two images inspected.
 Retired only superseded4418 helpers; current4420/shared4340 remain healthy.
-Priority now:T14 authorized local lifecycle/revision/duplicate guards, then
-inactiveT23 runner integration. These move reporting/operations toward completion
+T14 local lifecycle/revision/duplicate guards are now implemented and tested.
+Priority now:inactiveT23 runner integration. This moves operations toward completion
 without falsely activating them. No further browser replay in this checkpoint.
 Previews4414/4416/4418 are superseded; earlier390x844/four-size checks were not rerun here.
 Comparison T08-T11 is RETIRED, not an acceptance blocker. Historical outcomes
@@ -285,10 +288,15 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 
 ### [ ] T14: Implement report validation and lifecycle contracts
 
-- Checkpoint2026-09-13: local provider-neutral validation/body parsing complete,
-  34tests. No endpoint, persistence, receipt, moderation lifecycle or service claim.
-  T13 choices still govern activation and the remaining contract decisions.
-- Status: WAIT_DEPS. Size: M. Parent: P1.3.
+- Checkpoint2026-09-13: local validation/body parsing34tests plus lifecycle45tests
+  pass. Pending-only accepted/rejected/duplicate plans require reason, server
+  moderator context and expected revision. Complete same-type acyclic target
+  chains produce whole-read-set guards plus immutable state/audit output.
+  79focused and1990/73isolated+42guards, TypeScript pass. Module is not an endpoint,
+  authentication check, atomic database transaction or real server receipt.
+  The32node bound applies to the supplied snapshot, not every future stored chain.
+  T13 choices still govern final service contract and activation.
+- Status: PARTIAL (local contracts implemented; real integration unproved). Size: M. Parent: P1.3.
 - Depends on: T13.
 - Scope: proposed `web/lib/reports.ts` and focused schema/lifecycle tests; existing feedback point/segment types.
 - Do: validate report type, bounded Singapore point/segment, note limits, schema, request ID and bundle context. Define pending/accepted/rejected/duplicate transitions, server-owned fields and request identity. Never treat acceptance as proof a shelter exists.
@@ -298,6 +306,7 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 ### [ ] T15: Persist reports and issue truthful receipts
 - Status: WAIT_DEPS. Size: M. Parent: P1.3.
 - Depends on: T14.
+- Integration obligation: serialize source and every traversed target existence/revision guard with the state/audit write; neverreuse receipt identities or reset revisions. Test concurrentA->B/B->A, deleted/changed terminal targets and changed intermediate revisions against the real adapter, not just the local Map fixture.
 - Scope: proposed report API route and approved storage adapter, integration tests; no public data writes.
 - Do: implement atomic idempotent submission, server receipt, private pending state, timeouts and initial abuse/cap enforcement. Deny public listing and unauthorized moderator access from the first implementation; minimize retained request metadata.
 - Tests/done: F02-F07/F11. Same request retry creates at most one report; mismatched reused ID is rejected; quota/backend failure returns failure, not a receipt. Read/list and moderation access are denied without approved authorization. Failure recovery never copies notes into logs.

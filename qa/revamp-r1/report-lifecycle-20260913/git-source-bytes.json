@@ -1,0 +1,18 @@
+{
+  "sourceCount": 169,
+  "rawEqualsIndexCount": 168,
+  "differences": [
+    {
+      "path": "web/lib/__tests__/revamp-layout.test.ts",
+      "rawTestedBytes": 2406,
+      "rawTestedSha256": "9e6613d07cbd93083541166605cc40eb82290790290f379b7058cea291868485",
+      "indexBytes": 2405,
+      "indexSha256": "e33caf9b00b9e30f87b9ccb0d770218661776ce06312b8f07ebe318b2cae66b1",
+      "crlfSequences": 1,
+      "normalizedEqualsIndex": true,
+      "headEqualsIndex": true
+    }
+  ],
+  "classification": "Raw tested bytes retained; in-memory CRLF normalization explains every Git-byte difference. No source normalization or input repair performed.",
+  "priorFailure": "Raw-only index verifier failed on revamp-layout.test.ts. The later git diff --cached --check exited 0; that was not verifier success."
+}

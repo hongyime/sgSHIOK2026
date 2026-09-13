@@ -1,0 +1,24 @@
+import assert from 'node:assert/strict';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { createHash } from 'node:crypto';
+const root='C:\\sgSHIOK2026';assert.equal(process.cwd(),root);
+const prefix='qa/revamp-r1/report-lifecycle-20260913',dir=resolve(root,prefix);
+const json=p=>JSON.parse(readFileSync(resolve(dir,p))),sha=b=>createHash('sha256').update(b).digest('hex');
+const disk=readFileSync(resolve(root,'postplan.html'));
+const live=Buffer.from(await(await fetch('http://127.0.0.1:4420/postplan.html',{signal:AbortSignal.timeout(10000)})).arrayBuffer());
+assert.equal(sha(live),sha(disk));
+const text=disk.toString();assert.ok(text.includes('Current local tests: 1,945 + 45 lifecycle cases = 1,990 tests / 73 files'));
+assert.ok(text.includes('existing UI build and its 1,945-test browser checkpoint are retained'));
+assert.ok(text.includes('Integrate the inactive maintenance runner'));assert.ok(!text.includes('guards can be built now'));
+const result={checks:4,passed:4,sha256:sha(disk),reviewCorrection:'Updated stale next-work and test/build labels; no new runtime acceptance.'};
+writeFileSync(resolve(dir,'doc-check.json'),JSON.stringify(result,null,2)+'\n',{flag:'wx'});
+const summary=json('summary.json');summary.taskBoard.sha256=sha(disk);summary.finalDocCheck=result;
+writeFileSync(resolve(dir,'summary.json'),JSON.stringify(summary,null,2)+'\n');
+const index=json('artifact-index.json');
+for(const file of ['check-final-docs.mjs','doc-check.json'])index.files.push({path:prefix+'/'+file});
+for(const entry of index.files){const b=readFileSync(resolve(root,entry.path));entry.bytes=b.length;entry.sha256=sha(b);}
+writeFileSync(resolve(dir,'artifact-index.json'),JSON.stringify(index,null,2)+'\n');
+const paths=json('stage-paths.json');for(const file of ['check-final-docs.mjs','doc-check.json'])paths.push(prefix+'/'+file);
+writeFileSync(resolve(dir,'stage-paths.json'),JSON.stringify(paths,null,2)+'\n');
+console.log(JSON.stringify(result,null,2));

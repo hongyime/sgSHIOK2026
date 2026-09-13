@@ -1,0 +1,26 @@
+{
+  "mode": "types",
+  "sources": [
+    {
+      "path": "web/lib/report-lifecycle.ts",
+      "exists": true,
+      "sha256": "0ac7c2003faf1860877aaf145203d4b7eedb1106ec23966dc468b2c53339caee"
+    },
+    {
+      "path": "web/lib/__tests__/report-lifecycle.test.ts",
+      "exists": true,
+      "sha256": "5919c7dace43b93019cec1aa932429cf6517575f5462c473381a4f59b0846cc5"
+    }
+  ],
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "web/node_modules/typescript/bin/tsc",
+    "--project",
+    "web/tsconfig.json",
+    "--noEmit",
+    "--incremental",
+    "false"
+  ],
+  "exitCode": 0,
+  "elapsedMs": 8648
+}

@@ -1,0 +1,38 @@
+{
+  "mode": "focused",
+  "sources": [
+    {
+      "path": "web/lib/report-lifecycle.ts",
+      "exists": true,
+      "sha256": "0ac7c2003faf1860877aaf145203d4b7eedb1106ec23966dc468b2c53339caee"
+    },
+    {
+      "path": "web/lib/__tests__/report-lifecycle.test.ts",
+      "exists": true,
+      "sha256": "8c9d0c306ec7333fa2038435e6d4282adad981615279c0ed5fa21d246aefad99"
+    }
+  ],
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "web/node_modules/vitest/vitest.mjs",
+    "run",
+    "--root",
+    "C:\\sgSHIOK2026\\web",
+    "--globals",
+    "--maxWorkers",
+    "1",
+    "--no-file-parallelism",
+    "--reporter=json",
+    "lib/__tests__/report-lifecycle.test.ts",
+    "lib/__tests__/reports.test.ts"
+  ],
+  "exitCode": 0,
+  "elapsedMs": 3738,
+  "counts": {
+    "tests": 76,
+    "passed": 76,
+    "failed": 0,
+    "suites": 8
+  },
+  "failureMessages": []
+}

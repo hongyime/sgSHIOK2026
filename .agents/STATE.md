@@ -6,17 +6,17 @@ Machine: Prawn-E14
 Startup: assert cwd equals C:\sgSHIOK2026; abort otherwise. Absolute C: writes only. X: cold mirror, never session root.
 Before git commands, set TEMP and TMP to C:\sgSHIOK2026\tmp so global hooks keep temporary scan files inside this root.
 
-Goal ACTIVE, not complete. legacy-command-20260913:8tests pass; one reviewed diagnostic failed sentinel-command10s wait, late reply at10.962s; browser alive, no releaseflip. Next actual implementation:T14 provider-neutral lifecycle/revision/duplicate guards, then inactiveT23 runner. No more browser replay this checkpoint.
+Goal ACTIVE, not complete.5b2dee0pushed timing/gate audit. T14 local lifecycle/revision/duplicate guards now pass79focused=34existing+45new,1990isolated/73files+42guards andTS. No endpoint/persistence/activation. Next inactiveT23 runner; no further browser replay here.
 Only MRT/LRT exits and Bus stops, auto shortest usable saved walk, no comparison/About data. Lighting automatic and bounded.
 Server route/search now have one10s deadline including auth/retry/body, cancellation and late-token guards; browser12s remains.
 Public018956 diagnosis:61stop/exits=6saved+55unstored. Exit E saved-ID gap fixed; no new geometry or scores.
 Popup now identity only, not service/timetable details. First disclosure design and failed browser attempts retained.
 Current preview http://127.0.0.1:4420/ build l7V5uOArXwdDrUIe3Wc2s includes all fixes. Proxy37188/Next5816; preview-3.json. Do not stop proxy33360: owns reused data4340.4418proxy22016/Next32160 retired;4416superseded but retained dataowner.
 Current identity:qa/revamp-r1/selection-recovery-20260913/preview-3.json. Earlier data owner: native-zoom-20260913/preview-2.json; proxy33360 still required.
-Current1945isolated/72files+42guards,TypeScript/build pass.193focused/4beforeCSS+47/1afterCSS pass;14recovery+1CSS added.6geometry diagnostic tests pass. Retained1012Python/12files not rerun. Earlier setup-failure distinct from valid red.
+Current1990isolated/73files+42guards,TypeScript pass.1945+45lifecycle=1990;72+1=73. UIbuildl7V5uOArXwdDrUIe3Wc2s retained, new module is not imported by app. No build/browser rerun forT14. Retained1012Python/12files not rerun.
 Browser observed-vqv2K4 exit1:9/10,8captures,71.310s. Corrected6kmGYF exit0:20checks/15captures,26.273s. All23captures covered by12direct parent views and byte-identical duplicates; cleanup verified. Inset canvas ring correction preserves strict button bounds. MRT/Bus clipped ring fixed. Metrics readable, camera pan/zoom/Tab exit work at200%. T25stillpartial: realdevice/screenreader/same-documentzoom and exactrelease open.
 Earlier native-zoom-20260913 verifies reset/Back at100/200%; current follow-up adds complete metric reading/camera. Neither proves same-documentzoom/physicalphone/screenreader/SW.
-Local reporting34contracts; new append-only notice client/journal verified locally, no report endpoint or active service.
+Local reporting79contracts:34validation+45lifecycle. Immutable pending decisions, complete duplicate-chain/readset and revision guards; no authentication/atomic persistence from a pure plan. Append-only notice client/journal remains local, no active service.
 T13 provider/privacy/retention/moderator/backup/account choices requested asynchronously, unanswered so far.
 Weekly metadata-only GitHub checks +oneissue requested, unanswered. Persistent request ledger/cooldowns,24/300 batch cap, admission-before-claim and deadline rechecks pass tests/review; no activation.
 T26 physical phone/user acceptance still required; no emulated-phone or representative-speed claim.
@@ -26,5 +26,5 @@ Monitor needs bootstrap/previous. New read-only inspector diagnoses unknown/obse
 postplan.html and PRODUCT-PLAN are current work lists; T08-T11/U02 comparison retired.
 T19full scan exceeds900s gate. No scoring/export/ingest/network/input repair or protected data/weights changes.
 Browser plugin bootstrap still fails os error3; owned Chrome/CDP fallback recorded. No peer-quota bypass.
-Current QA:legacy-command-20260913/summary.json; earlier legacy-reload/selection-recovery receipts preserved. Current app unchanged.8new telemetry tests; operator journal proof records timeout/late reply, not sentinel success. Independent gate audit confirms T14/T23 local implementation authorized; no new owner approval inferred.
+Current QA:report-lifecycle-20260913/summary.json; legacy-command/reload/selection-recovery receipts preserved. Only new lifecycle module/test alter web source; UI unchanged. Future adapter must atomically validate whole readset, neverreuseIDs/revisions, authenticate moderator and commit state/audit together.32node limit is per snapshot, not global chain invariant.
 No installs, external activation or deployment. Absolute writes, exact staging, conventional commits and push main; never amend/force.

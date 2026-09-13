@@ -1,0 +1,44 @@
+import assert from 'node:assert/strict';
+import { execFileSync, spawnSync } from 'node:child_process';
+import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { resolve, relative } from 'node:path';
+import { createHash } from 'node:crypto';
+import { hostname } from 'node:os';
+const root='C:\\sgSHIOK2026';assert.equal(process.cwd(),root);process.env.TEMP=process.env.TMP=resolve(root,'tmp');
+const base='5b2dee025c127f85fe435c68fb80169120987e01',prefix='qa/revamp-r1/report-lifecycle-20260913',out=resolve(root,prefix);
+const read=p=>readFileSync(resolve(root,p)),json=p=>JSON.parse(read(p)),sha=b=>createHash('sha256').update(b).digest('hex');
+const write=(p,v)=>writeFileSync(resolve(out,p),JSON.stringify(v,null,2)+'\n',{flag:'wx'});
+const git=(...args)=>execFileSync('git',args,{cwd:root,windowsHide:true,maxBuffer:32000000});
+assert.equal(git('rev-parse','HEAD').toString().trim(),base);
+const focused=json(`${prefix}/checks-DHrXPd/result.json`),full=json(`${prefix}/checks-xH0UVC/result.json`),types=json(`${prefix}/checks-5anGDI/result.json`);
+for(const receipt of [focused,full,types]){assert.equal(receipt.exitCode,0);for(const s of receipt.sources)assert.equal(sha(read(s.path)),s.sha256,s.path);}
+assert.equal(focused.counts.tests,79);assert.equal(focused.counts.passed,79);
+const red=json(`${prefix}/checks-rEcA0P/result.json`);assert.equal(red.exitCode,1);assert.equal(red.sources[0].exists,false);assert.equal(red.counts.passed,34);
+const stdout=read(`${prefix}/checks-xH0UVC/stdout.txt`).toString();
+assert.ok(stdout.includes('1990 passed (1990)')&&stdout.includes('73 passed (73)')&&stdout.includes('tests 42')&&stdout.includes('pass 42'));
+const isolation=JSON.parse(stdout.slice(stdout.lastIndexOf('\n{')+1));assert.equal(isolation.exitCode,0);assert.equal(isolation.guardProbePassed,true);assert.equal(isolation.productionDataDirectoryAbsent,true);
+const previousBuild=json('qa/revamp-r1/selection-recovery-20260913/build-2/build.json');
+const sources=[...previousBuild.sources,...full.sources.map(({path,sha256})=>({path,sha256}))];
+assert.equal(new Set(sources.map(s=>s.path)).size,sources.length);
+for(const s of sources){assert.equal(sha(read(s.path)),s.sha256,'Current source '+s.path);assert.equal(sha(readFileSync(resolve(isolation.snapshot,s.path))),s.sha256,'Isolated source '+s.path);}
+const assertions=json(`${prefix}/checks-DHrXPd/stdout.txt`).testResults.find(t=>t.name.replaceAll('\\','/').endsWith('/report-lifecycle.test.ts')).assertionResults;
+assert.equal(assertions.length,45);assert.ok(assertions.every(a=>a.status==='passed'));
+write('test-catalogue.json',{scope:'T14 local unit contracts; F08-F10 real integration remains T15/T18',cases:assertions.map(a=>({name:a.fullName,status:a.status})),notProved:['Moderator authentication','Atomic database persistence','Durable receipts','Real target deletion/revision races','Retention/deletion','Public submission service']});
+assert.equal(git('diff','--name-only',base,'--','pipeline','raw','processed','checksums.json','web/public/data','qa/p6_*','qa/p7_*','qa/p8_*','qa/p9_*','qa/p10_*','qa/p11/d_*','qa/releases').toString().trim(),'');
+const anchors=Object.values(json('web/lib/__tests__/fixtures/published-walks.provenance.json').sources).map(s=>{const b=read(s.path);assert.equal(sha(b),s.sha256,'STOP input mismatch '+s.path);assert.equal(b.length,s.bytes);return{path:s.path,bytes:b.length,sha256:sha(b)};});
+const weightSha256=sha(read('pipeline/config/weights.yaml'));assert.equal(weightSha256,'5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec','STOP weights mismatch');
+const start=Date.now(),r=spawnSync('python',['-B','scripts/check_repo_integrity.py'],{cwd:root,windowsHide:true,encoding:'utf8',timeout:60000});
+const integrity={command:['python','-B','scripts/check_repo_integrity.py'],exitCode:r.status,stdout:r.stdout,stderr:r.stderr,elapsedMs:Date.now()-start};write('integrity.json',integrity);assert.equal(r.status,0);assert.ok(r.stdout.includes('repo_integrity=ok'));
+const evidence='qa/verification/REVAMP-R1-core-walk.md',before=git('show',`${base}:${evidence}`),after=read(evidence);assert.equal(before.length,418264);
+assert.equal(Buffer.compare(before,after.subarray(0,before.length)),0);assert.ok(after.subarray(before.length).includes('FINDINGS')&&after.subarray(before.length).includes('DISAGREEMENTS'));
+const ignored=spawnSync('git',['check-ignore','-v',evidence,`${prefix}/summary.json`],{cwd:root,windowsHide:true,encoding:'utf8'});assert.equal(ignored.status,1);assert.equal(git('ls-files','--',evidence).toString().trim(),evidence);
+write('tracking.json',{command:['git','check-ignore','-v',evidence,`${prefix}/summary.json`],exitCode:ignored.status,stdout:ignored.stdout,stderr:ignored.stderr,evidenceTracked:true,newArtifacts:'Explicit stage/index verification follows'});
+const preview=await(await fetch('http://127.0.0.1:4420/__qa/status',{signal:AbortSignal.timeout(10000)})).json();assert.equal(preview.buildId,previousBuild.buildId);assert.equal(preview.readOnlyData,true);
+const board=Buffer.from(await(await fetch('http://127.0.0.1:4420/postplan.html',{signal:AbortSignal.timeout(10000)})).arrayBuffer());assert.equal(sha(board),sha(read('postplan.html')));
+const imports=spawnSync('git',['grep','-n','-F','report-lifecycle','--','web/app','web/components'],{cwd:root,windowsHide:true,encoding:'utf8'});assert.equal(imports.status,1);
+const findings=['T14 has local lifecycle/revision/duplicate guards,45new tests; full isolated web suite1990/73passes.','Whole-read-set guards, not source-only CAS, are required for future duplicate graph race protection.','Model returns a private state/audit plan, not authentication or persistence. Real services remain unimplemented.','Next safe implementation: inactiveT23 operational runner. No more browser replay or activation.'];
+const disagreements=['Do not restrict legitimate duplicate targets to accepted-only for convenience.','32node snapshot cap is not a forever graph-depth invariant; local fixtures are not database proof.'];
+const summary={root,hostname:hostname(),base,createdAt:new Date().toISOString(),goal:'ACTIVE',tests:{focused:{tests:79,existing:34,added:45,receipt:'checks-DHrXPd/result.json'},full:{tests:1990,files:73,dependencyGuards:42,receipt:'checks-xH0UVC/result.json',elapsedMs:full.elapsedMs,isolation},types:{exitCode:0,receipt:'checks-5anGDI/result.json'},arithmetic:'34+45=79;1945+45=1990;72+1=73;97.06s inner runner is within107.084s full command, not added twice',red:{receipt:'checks-rEcA0P/result.json',classification:'New module absent;34existing tests passed, not45assertion failures'},retainedPython:{tests:1012,files:12,rerun:false}},sources,currentTestedSourceCount:sources.length,build:{rerun:false,previewBuild:preview.buildId,newModuleImportedByApp:false,priorUiBuildRetained:true},anchors,weightSha256,evidence:{path:evidence,previousBytes:before.length,previousSha256:sha(before),bytes:after.length,addedBytes:after.length-before.length,exactPrefix:true},integrity,review:json(`${prefix}/review.json`),preview,taskBoard:{url:'http://127.0.0.1:4420/postplan.html',sha256:sha(board)},findings,disagreements,endpoint:false,persistence:false,serviceActivated:false,pipelineRuns:0,pipelineSeconds:0,installations:0,deployments:0};write('summary.json',summary);
+const files=[];function walk(dir){for(const e of readdirSync(dir,{withFileTypes:true})){const path=resolve(dir,e.name);if(e.isDirectory())walk(path);else{const b=readFileSync(path);files.push({path:`${prefix}/${relative(out,path).replaceAll('\\','/')}`,bytes:b.length,sha256:sha(b)});}}}
+walk(out);write('artifact-index.json',{files});write('stage-paths.json',[...files.map(f=>f.path),`${prefix}/artifact-index.json`,`${prefix}/stage-paths.json`]);
+console.log(JSON.stringify({focused:79,full:1990,testFiles:73,guards:42,typesExit:0,sourceCount:sources.length,anchors:anchors.length,integrityExit:r.status,evidence:summary.evidence,artifacts:files.length},null,2));
