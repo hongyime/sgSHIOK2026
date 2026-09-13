@@ -1,0 +1,31 @@
+{
+  "reviewer": "Avicenna",
+  "agentId": "01a09ab5-ce0b-7f71-a71b-a86677494dee",
+  "role": "Read-only independent source, harness and result review; no writes or runtime execution",
+  "initialFinding": "MRT/LRT focus outline was clipped by the segmented overflow container despite computed focusVisible=true. Parent accepted and fixed it.",
+  "sourceReview": "Retry selection captures pending selection, guards stale handlers, transfers owned focus before loadSelection and returns the promise. Retry map transfers focus before retry/remount; native Reload is unchanged. The new CSS keeps a contrasting inset ring on active/inactive segmented buttons without altering search focus.",
+  "diagnosticReview": "Initial failure reached Canvas; it was not Tab exhaustion. Canvas400 versus viewport399 fails strict box bounds, but the3px ring inset6px fits. Keep strict controls and test ring geometry separately. Capture before assertions; preserve the original exit1.",
+  "harnessCorrections": [
+    "Generated nested cleanup import fixed before initial execution; unused COUNTERS import removed",
+    "Independent cleanup moved before fallible stdout/stderr writes",
+    "Syntax preflight required, setup included in total360000ms supervisor bound",
+    "Preview reuses verified read-only data4340 instead of binding it again",
+    "Page request policy claim narrowed; trusted worker observed later, not browser-wide isolation"
+  ],
+  "finalResult": "No blocking findings in reviewed scope.20/20 checks, no recorded errors or denials, unchanged data anchors, build l7V5uOArXwdDrUIe3Wc2s;26.273seconds supervisor and verified cleanup.",
+  "independentImageInspection": [
+    "corrected-6kmGYF/walk-controls-return.png",
+    "corrected-6kmGYF/active-bus-focus.png",
+    "corrected-6kmGYF/keyboard-map.png",
+    "corrected-6kmGYF/keyboard-exit.png"
+  ],
+  "imageConclusion": "MRT and active Bus have complete distinguishable inset rings. Canvas inset ring visible. Tab exits to visible OneMap link focus. Camera right/left and16.6to17.6to16.6 preserve route and URL with4rendered features afterward.",
+  "accepted": "Narrow native200% desktop browser slice",
+  "notAccepted": [
+    "Retry-map recovery was not exercised by this browser scene; hook-host tests only for that handler",
+    "Full T25 or M17",
+    "Same-document zoom transition",
+    "Screen-reader or physical-device acceptance",
+    "Representative performance or deployment"
+  ]
+}

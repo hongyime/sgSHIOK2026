@@ -1,0 +1,11 @@
+PASS native200%zoom and reduced-motion preference
+PASS keyboard focus Retry selection
+PASS native selection Retry keeps visible search focus
+PASS retry-recovered current route stable
+PASS retry-recovered panel fits, equal search width
+PASS retry-recovered no technical dump
+PASS success does not reclaim search focus
+PASS all four complete metric labels and values read
+PASS keyboard focus MRT/LRT exits
+FAIL keyboard focus map canvas
+{"out":"C:\\sgSHIOK2026\\qa\\revamp-r1\\selection-recovery-20260913\\observed-vqv2K4","ok":false,"checks":10,"cleanup":true}

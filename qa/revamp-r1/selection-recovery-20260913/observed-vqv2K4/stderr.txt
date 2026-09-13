@@ -1,0 +1,4 @@
+Error: keyboard focus map canvas
+    at check (file:///C:/sgSHIOK2026/qa/revamp-r1/selection-recovery-20260913/observed-vqv2K4/driver.mjs:48:155)
+    at tabTo (file:///C:/sgSHIOK2026/qa/revamp-r1/selection-recovery-20260913/observed-vqv2K4/driver.mjs:197:106)
+    at async file:///C:/sgSHIOK2026/qa/revamp-r1/selection-recovery-20260913/observed-vqv2K4/driver.mjs:235:18

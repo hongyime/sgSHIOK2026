@@ -301,6 +301,132 @@ afterEach(() => {
 });
 
 describe('Home walk recovery focus ownership', () => {
+  it.each([
+    [false, 'partial'], [false, 'error'], [true, 'partial'], [true, 'error'],
+  ] as const)('keeps map Retry focus with saved walk=%s and map status=%s', async (saved, status) => {
+    if (saved) await load(); else render();
+    const target = saved ? recoveryHeading() : moveFocusToSearch();
+    map().onStatusChange!(status, 'Synthetic map failure', undefined, {
+      stage: status === 'partial' ? 'basemap-tiles' : 'map-startup', reason: 'error',
+    });
+    render(); activate('Retry map');
+    expect(focusAtHandlerReturn === target).toBe(true);
+    map().onStatusChange!('initializing'); render();
+    expect(text(tree)).not.toContain('Retry map');
+    expect(focusDocument.activeElement === target).toBe(true);
+    const search = moveFocusToSearch(), calls = [...focusCalls];
+    map().onStatusChange!('ready'); render();
+    expect(focusDocument.activeElement).toBe(search); expect(focusCalls).toEqual(calls);
+  });
+
+  it.each(['missing', 'unowned'] as const)('%s map Retry does not steal search focus', async ownership => {
+    await load(); const search = moveFocusToSearch();
+    for (const status of ['partial', 'error'] as const) {
+      map().onStatusChange!(status, 'Synthetic map failure', undefined, { stage: 'map-startup', reason: 'error' });
+      render(); activate('Retry map', ownership);
+      map().onStatusChange!('initializing'); render();
+      expect(focusDocument.activeElement).toBe(search); expect(focusCalls).toEqual([]);
+    }
+  });
+
+  it('keeps terminal Reload page native without a pre-navigation focus transfer', async () => {
+    render(); const reload = vi.fn(); window.location.reload = reload;
+    map().onStatusChange!('error', 'Synthetic failed library', 'reload', { stage: 'library-download', reason: 'rejected' });
+    render(); const control = nodes.get(key(button('Reload page')))!;
+    activate('Reload page');
+    expect(reload).toHaveBeenCalledTimes(1); expect(focusAtHandlerReturn === control).toBe(true);
+    expect(focusCalls).toEqual([]);
+  });
+
+  it('moves an initial selection Retry to search before removal and leaves it there after success', async () => {
+    render();
+    const initial = submit(A);
+    scores.get(A)!.reject(Error('Synthetic score failure'));
+    geometries.get(A)!.resolve(sourceGeometry);
+    await settle(); await initial;
+    const target = moveFocusToSearch(), retry = deferred<ScoreRecord | null>();
+    dependencies.fetchScoreForPostal.mockReturnValueOnce(retry.promise);
+    const pending = activate('Retry selection');
+    expect(focusAtHandlerReturn === target).toBe(true);
+    expect(focusDocument.activeElement === target).toBe(true);
+    expect(text(tree)).not.toContain('Retry selection');
+    expect(focusCalls).toEqual(['postal-search-input']);
+    retry.resolve(sourceScore); await settle(); await pending;
+    expect(summary().postal).toBe(A);
+    expect(focusDocument.activeElement).toBe(target);
+    expect(focusCalls).toEqual(['postal-search-input']);
+  });
+
+  it('keeps selection Retry focus on the surviving walk heading while the next record is loading', async () => {
+    await load(); const target = recoveryHeading();
+    const next = submit(B);
+    scores.get(B)!.reject(Error('Synthetic next-record failure'));
+    geometries.get(B)!.resolve(null);
+    await settle(); await next;
+    const retry = deferred<ScoreRecord | null>();
+    dependencies.fetchScoreForPostal.mockReturnValueOnce(retry.promise);
+    const pending = activate('Retry selection');
+    expect(focusAtHandlerReturn === target).toBe(true);
+    expect(focusDocument.activeElement === target).toBe(true);
+    expect(summary().postal).toBe(A);
+    expect(text(tree)).not.toContain('Retry selection');
+    const search = moveFocusToSearch(), calls = [...focusCalls];
+    retry.resolve(null); await settle(); await pending;
+    expect(summary().postal).toBe(B);
+    expect(focusDocument.activeElement).toBe(search);
+    expect(focusCalls).toEqual(calls);
+  });
+
+  it.each(['resolve', 'reject'] as const)('late selection Retry %s cannot reclaim focus after a newer search', async outcome => {
+    await load();
+    const next = submit(B);
+    scores.get(B)!.reject(Error('Synthetic failed selection'));
+    geometries.get(B)!.resolve(null); await settle(); await next;
+    const retry = deferred<ScoreRecord | null>();
+    dependencies.fetchScoreForPostal.mockReturnValueOnce(retry.promise);
+    const pending = activate('Retry selection');
+    expect(focusCalls).toEqual([`Postal ${A}`]);
+    const search = moveFocusToSearch(), calls = [...focusCalls];
+    await submit(A); await settle();
+    if (outcome === 'resolve') retry.resolve(null);
+    else retry.reject(Error('Obsolete retry failure'));
+    await settle(); await pending;
+    expect(summary().postal).toBe(A);
+    expect(url.searchParams.get('postal')).toBe(A);
+    expect(focusDocument.activeElement).toBe(search);
+    expect(focusCalls).toEqual(calls);
+    expect(text(tree)).not.toContain('Retry selection');
+  });
+
+  it.each(['missing', 'unowned'] as const)('%s selection Retry activation does not steal search focus', async ownership => {
+    render();
+    const initial = submit(A);
+    scores.get(A)!.reject(Error('Synthetic selection failure'));
+    geometries.get(A)!.resolve(sourceGeometry); await settle(); await initial;
+    const search = moveFocusToSearch(), retry = deferred<ScoreRecord | null>();
+    dependencies.fetchScoreForPostal.mockReturnValueOnce(retry.promise);
+    const pending = activate('Retry selection', ownership);
+    expect(focusAtHandlerReturn).toBe(search);
+    expect(focusDocument.activeElement).toBe(search);
+    expect(focusCalls).toEqual([]);
+    retry.reject(Error('Synthetic retry failure')); await settle(); await pending;
+    expect(focusDocument.activeElement).toBe(search); expect(focusCalls).toEqual([]);
+  });
+
+  it('does nothing when an old selection Retry handler no longer has a pending selection', async () => {
+    render(); const initial = submit(A);
+    scores.get(A)!.reject(Error('Synthetic selection failure'));
+    geometries.get(A)!.resolve(sourceGeometry); await settle(); await initial;
+    const retry = button('Retry selection'), control = nodes.get(key(retry))!;
+    const handler = retry.props.onClick as (event: unknown) => unknown;
+    await submit(''); await settle();
+    expect(control.isConnected).toBe(false);
+    const search = moveFocusToSearch(), calls = dependencies.fetchScoreForPostal.mock.calls.length;
+    expect(handler({ currentTarget: control })).toBeUndefined();
+    expect(dependencies.fetchScoreForPostal).toHaveBeenCalledTimes(calls);
+    expect(focusDocument.activeElement).toBe(search); expect(focusCalls).toEqual([]);
+  });
+
   it('moves geometry Retry focus to the named summary heading before removal and keeps it on success', async () => {
     await load(true);
     const target = recoveryHeading(), retry = deferred<PostalGeom | null>();

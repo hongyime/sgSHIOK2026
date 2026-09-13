@@ -2724,11 +2724,14 @@ export default function Home() {
 
         <p className={styles.srOnly} role="status" aria-live="polite">{visibleMapStatus}</p>
         {(effectiveMapStatus === "partial" || effectiveMapStatus === "error") && <div className={styles.errorBox} role="status">
-          {visibleMapStatus} <button type="button" onClick={() => {
+          {visibleMapStatus} <button type="button" onClick={event => {
             if (mapRecovery === "reload") {
               window.location.reload();
-            } else if (mapLoadStatus === "partial") setMapRetryKey(key => key + 1);
-            else setMapInstanceKey(key => key + 1);
+            } else {
+              focusRecoveryTarget(event?.currentTarget);
+              if (mapLoadStatus === "partial") setMapRetryKey(key => key + 1);
+              else setMapInstanceKey(key => key + 1);
+            }
           }}>{mapRecovery === "reload" ? "Reload page" : "Retry map"}</button>
           {visibleMapDiagnostic && <FailureDiagnosticsControl value={visibleMapDiagnostic.value} snapshotKey={visibleMapDiagnostic.key} />}
         </div>}
@@ -2748,7 +2751,12 @@ export default function Home() {
         <SearchFeedback results={results} loading={loading} error={error} searched={searchAttempted}>
         {error && selectionFailure?.request === loadSelectionRequestIdRef.current
           && <FailureDiagnosticsControl value={selectionFailure.value} snapshotKey={'selection:' + selectionFailure.key} />}
-        {error && pendingSelectionRef.current && <button type="button" onClick={() => loadSelection(pendingSelectionRef.current!)}>Retry selection</button>}
+        {error && pendingSelectionRef.current && <button type="button" onClick={event => {
+          const pending = pendingSelectionRef.current;
+          if (!pending) return;
+          focusRecoveryTarget(event?.currentTarget);
+          return loadSelection(pending);
+        }}>Retry selection</button>}
         </SearchFeedback>
         {results.length > 0 && (
           <div className={styles.resultList} aria-label="Search results">

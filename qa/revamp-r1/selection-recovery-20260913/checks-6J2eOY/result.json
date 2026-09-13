@@ -1,0 +1,58 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "--globals",
+    "--maxWorkers",
+    "1",
+    "--no-file-parallelism",
+    "--reporter=json",
+    "lib/__tests__/walk-recovery-focus.test.tsx",
+    "--testTimeout=15000"
+  ],
+  "cwd": "C:\\sgSHIOK2026\\web",
+  "exitCode": 1,
+  "elapsedMs": 16029,
+  "sources": [
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "a2664dfd5e6a42b0567d46794d590d53e26ad35b1398b072fbb4a03027ca3cd6"
+    },
+    {
+      "path": "web/lib/__tests__/walk-recovery-focus.test.tsx",
+      "sha256": "38e1c0225e8d43ca57b224c7ea88e35ce6f8ea43b635f09213be03a08fb8ccb7"
+    }
+  ],
+  "counts": {
+    "tests": 15,
+    "passed": 11,
+    "failed": 4
+  },
+  "failures": [
+    {
+      "name": "Home walk recovery focus ownership moves an initial selection Retry to search before removal and leaves it there after success",
+      "messages": [
+        "AssertionError: expected false to be true // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/walk-recovery-focus.test.tsx:313:45\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home walk recovery focus ownership keeps selection Retry focus on the surviving walk heading while the next record is loading",
+      "messages": [
+        "AssertionError: expected false to be true // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/walk-recovery-focus.test.tsx:332:45\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home walk recovery focus ownership late selection Retry resolve cannot reclaim focus after a newer search",
+      "messages": [
+        "AssertionError: expected [] to deeply equal [ 'Postal 018956' ]\n    at C:/sgSHIOK2026/web/lib/__tests__/walk-recovery-focus.test.tsx:351:24\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home walk recovery focus ownership late selection Retry reject cannot reclaim focus after a newer search",
+      "messages": [
+        "AssertionError: expected [] to deeply equal [ 'Postal 018956' ]\n    at C:/sgSHIOK2026/web/lib/__tests__/walk-recovery-focus.test.tsx:351:24\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "checkIgnoreCommand": [
+    "git",
+    "check-ignore",
+    "-v",
+    "qa/verification/REVAMP-R1-core-walk.md",
+    "qa/revamp-r1/selection-recovery-20260913/summary.json"
+  ],
+  "exitCode": 1,
+  "stdout": "",
+  "stderr": "",
+  "evidenceTracked": true,
+  "newSummaryTracking": "Explicit staging and index verification follow; ignore exit alone does not establish tracking"
+}

@@ -1,0 +1,58 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "--globals",
+    "--maxWorkers",
+    "1",
+    "--no-file-parallelism",
+    "--reporter=json",
+    "lib/__tests__/walk-recovery-focus.test.tsx",
+    "--testTimeout=15000"
+  ],
+  "cwd": "C:\\sgSHIOK2026\\web",
+  "exitCode": 1,
+  "elapsedMs": 5264,
+  "sources": [
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "ae4ba9123dbe9cb306fde24dcbe3fb4aae574ee5240d171b5f72997274b431f6"
+    },
+    {
+      "path": "web/lib/__tests__/walk-recovery-focus.test.tsx",
+      "sha256": "e31e5b5cab697593411c25b3cedc37541393fd5cf2284dd58adf7d72128216c1"
+    }
+  ],
+  "counts": {
+    "tests": 23,
+    "passed": 19,
+    "failed": 4
+  },
+  "failures": [
+    {
+      "name": "Home walk recovery focus ownership keeps map Retry focus with saved walk=false and map status=partial",
+      "messages": [
+        "AssertionError: expected false to be true // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/walk-recovery-focus.test.tsx:313:45\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2025:60\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2305:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2272:10)"
+      ]
+    },
+    {
+      "name": "Home walk recovery focus ownership keeps map Retry focus with saved walk=false and map status=error",
+      "messages": [
+        "AssertionError: expected false to be true // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/walk-recovery-focus.test.tsx:313:45\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2025:60\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2305:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2272:10)"
+      ]
+    },
+    {
+      "name": "Home walk recovery focus ownership keeps map Retry focus with saved walk=true and map status=partial",
+      "messages": [
+        "AssertionError: expected false to be true // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/walk-recovery-focus.test.tsx:313:45\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home walk recovery focus ownership keeps map Retry focus with saved walk=true and map status=error",
+      "messages": [
+        "AssertionError: expected false to be true // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/walk-recovery-focus.test.tsx:313:45\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    }
+  ]
+}

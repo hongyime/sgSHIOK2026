@@ -1,0 +1,514 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "Prawn-E14",
+  "base": "06953fd873e39d08392c171437e4cc7963155dbf",
+  "createdAt": "2026-09-13T13:20:57.724Z",
+  "tests": {
+    "isolated": {
+      "tests": 1945,
+      "files": 72,
+      "dependencyGuards": 42,
+      "arithmetic": "1930+14+1=1945;72+0=72",
+      "isolation": {
+        "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-twENFJ",
+        "copiedFiles": 244,
+        "productionDataDirectoryAbsent": true,
+        "guardProbePassed": true,
+        "forbiddenPaths": [
+          "C:\\sgSHIOK2026\\web\\public\\data",
+          "C:\\sgSHIOK2026\\tmp\\test-without-data-twENFJ\\web\\public\\data"
+        ],
+        "dependencies": "Existing node_modules linked; no installation",
+        "testArgs": [
+          "--reporter=dot",
+          "--testTimeout=15000"
+        ],
+        "exitCode": 0
+      },
+      "receipt": "checks-lnq1fY/result.json"
+    },
+    "focused": {
+      "beforeCss": {
+        "tests": 193,
+        "files": 4,
+        "receipt": "checks-A2FGsU/result.json"
+      },
+      "finalCss": {
+        "tests": 47,
+        "files": 1,
+        "receipt": "checks-A0kQ3c/result.json"
+      }
+    },
+    "diagnostic": 6,
+    "typesExit": 0,
+    "retainedPython": {
+      "tests": 1012,
+      "files": 12,
+      "rerun": false
+    }
+  },
+  "build": {
+    "buildId": "l7V5uOArXwdDrUIe3Wc2s",
+    "sources": 167,
+    "currentTestAndBuildMatch": true,
+    "deploymentIdentityVerified": false
+  },
+  "browsers": [
+    {
+      "directory": "observed-vqv2K4",
+      "ok": false,
+      "checks": 10,
+      "passed": 9,
+      "errors": 0,
+      "denied": 0,
+      "buildId": "5b4nafoap9sL8c9OudB93",
+      "supervisorMs": 71310,
+      "cleanup": true,
+      "captures": [
+        {
+          "name": "retry-before",
+          "bytes": 33050,
+          "sha256": "064c4d3d3ff6f3403ec9d511b5330ea2b944c3381e8e04f95b3068a91767943a",
+          "inspectedPixelsAt": "observed-vqv2K4/retry-before.png",
+          "method": "direct parent view"
+        },
+        {
+          "name": "retry-pending",
+          "bytes": 459988,
+          "sha256": "da0a379d76d5b034e66d92e84107de9dc65853ba3959f9b9d9899025103fa8b5",
+          "inspectedPixelsAt": "observed-vqv2K4/retry-pending.png",
+          "method": "direct parent view"
+        },
+        {
+          "name": "retry-recovered",
+          "bytes": 325107,
+          "sha256": "be5c9f9233b42681d8b607122316bc2f15e74cf4069e312d5ac5d8ed9785736f",
+          "inspectedPixelsAt": "observed-vqv2K4/metrics-0.png",
+          "method": "direct parent view"
+        },
+        {
+          "name": "metrics-0",
+          "bytes": 325107,
+          "sha256": "be5c9f9233b42681d8b607122316bc2f15e74cf4069e312d5ac5d8ed9785736f",
+          "inspectedPixelsAt": "observed-vqv2K4/metrics-0.png",
+          "method": "direct parent view"
+        },
+        {
+          "name": "metrics-1",
+          "bytes": 325014,
+          "sha256": "c9ffc3f70b168afdf1edbdb07c3ed4027e24d6137231bd7eb218e3fbcc75fd81",
+          "inspectedPixelsAt": "observed-vqv2K4/metrics-1.png",
+          "method": "direct parent view"
+        },
+        {
+          "name": "metrics-2",
+          "bytes": 324871,
+          "sha256": "71e3f09e868974147483653ef154331a963c90d335edf8bba1f2cb0b90e2c046",
+          "inspectedPixelsAt": "observed-vqv2K4/metrics-2.png",
+          "method": "direct parent view"
+        },
+        {
+          "name": "metrics-3",
+          "bytes": 324966,
+          "sha256": "c0258b003d72fff702419326193ffd6fe80126a4fc6b03552ace79b2a2c7e0ac",
+          "inspectedPixelsAt": "observed-vqv2K4/metrics-3.png",
+          "method": "direct parent view"
+        },
+        {
+          "name": "walk-controls-return",
+          "bytes": 320958,
+          "sha256": "dd6e98dd669d2460fc6c179648bc5d0116e53b069747c905b75964287ee03e08",
+          "inspectedPixelsAt": "observed-vqv2K4/walk-controls-return.png",
+          "method": "direct parent view"
+        }
+      ],
+      "readMetrics": {
+        "Walk distance": "81 m",
+        "Covered": "55%",
+        "Uncovered": "37 m",
+        "Longest gap": "20 m"
+      }
+    },
+    {
+      "directory": "corrected-6kmGYF",
+      "ok": true,
+      "checks": 20,
+      "passed": 20,
+      "errors": 0,
+      "denied": 0,
+      "buildId": "l7V5uOArXwdDrUIe3Wc2s",
+      "supervisorMs": 26273,
+      "cleanup": true,
+      "captures": [
+        {
+          "name": "focus-BUTTON-Retry-selection",
+          "bytes": 33050,
+          "sha256": "064c4d3d3ff6f3403ec9d511b5330ea2b944c3381e8e04f95b3068a91767943a",
+          "inspectedPixelsAt": "observed-vqv2K4/retry-before.png",
+          "method": "byte-identical to parent-viewed image"
+        },
+        {
+          "name": "retry-before",
+          "bytes": 33050,
+          "sha256": "064c4d3d3ff6f3403ec9d511b5330ea2b944c3381e8e04f95b3068a91767943a",
+          "inspectedPixelsAt": "observed-vqv2K4/retry-before.png",
+          "method": "byte-identical to parent-viewed image"
+        },
+        {
+          "name": "retry-pending",
+          "bytes": 459988,
+          "sha256": "da0a379d76d5b034e66d92e84107de9dc65853ba3959f9b9d9899025103fa8b5",
+          "inspectedPixelsAt": "observed-vqv2K4/retry-pending.png",
+          "method": "byte-identical to parent-viewed image"
+        },
+        {
+          "name": "retry-recovered",
+          "bytes": 325107,
+          "sha256": "be5c9f9233b42681d8b607122316bc2f15e74cf4069e312d5ac5d8ed9785736f",
+          "inspectedPixelsAt": "observed-vqv2K4/metrics-0.png",
+          "method": "byte-identical to parent-viewed image"
+        },
+        {
+          "name": "metrics-0",
+          "bytes": 325107,
+          "sha256": "be5c9f9233b42681d8b607122316bc2f15e74cf4069e312d5ac5d8ed9785736f",
+          "inspectedPixelsAt": "observed-vqv2K4/metrics-0.png",
+          "method": "byte-identical to parent-viewed image"
+        },
+        {
+          "name": "metrics-1",
+          "bytes": 325014,
+          "sha256": "c9ffc3f70b168afdf1edbdb07c3ed4027e24d6137231bd7eb218e3fbcc75fd81",
+          "inspectedPixelsAt": "observed-vqv2K4/metrics-1.png",
+          "method": "byte-identical to parent-viewed image"
+        },
+        {
+          "name": "metrics-2",
+          "bytes": 324871,
+          "sha256": "71e3f09e868974147483653ef154331a963c90d335edf8bba1f2cb0b90e2c046",
+          "inspectedPixelsAt": "observed-vqv2K4/metrics-2.png",
+          "method": "byte-identical to parent-viewed image"
+        },
+        {
+          "name": "metrics-3",
+          "bytes": 324966,
+          "sha256": "c0258b003d72fff702419326193ffd6fe80126a4fc6b03552ace79b2a2c7e0ac",
+          "inspectedPixelsAt": "observed-vqv2K4/metrics-3.png",
+          "method": "byte-identical to parent-viewed image"
+        },
+        {
+          "name": "focus-BUTTON-MRT-LRT-exits",
+          "bytes": 321082,
+          "sha256": "3718f0e3e208ae9f6efa81829ac753d87dddea3de3857aea9b5831d59bf35abc",
+          "inspectedPixelsAt": "corrected-6kmGYF/walk-controls-return.png",
+          "method": "byte-identical to parent-viewed image"
+        },
+        {
+          "name": "walk-controls-return",
+          "bytes": 321082,
+          "sha256": "3718f0e3e208ae9f6efa81829ac753d87dddea3de3857aea9b5831d59bf35abc",
+          "inspectedPixelsAt": "corrected-6kmGYF/walk-controls-return.png",
+          "method": "direct parent view"
+        },
+        {
+          "name": "focus-BUTTON-Bus-stops",
+          "bytes": 321057,
+          "sha256": "547176882dd0c11c62897bf8c3cab545cd08181f30e5f8c2ee2fb3929cb64ab4",
+          "inspectedPixelsAt": "corrected-6kmGYF/active-bus-focus.png",
+          "method": "byte-identical to parent-viewed image"
+        },
+        {
+          "name": "active-bus-focus",
+          "bytes": 321057,
+          "sha256": "547176882dd0c11c62897bf8c3cab545cd08181f30e5f8c2ee2fb3929cb64ab4",
+          "inspectedPixelsAt": "corrected-6kmGYF/active-bus-focus.png",
+          "method": "direct parent view"
+        },
+        {
+          "name": "focus-CANVAS-map-canvas",
+          "bytes": 313405,
+          "sha256": "6923d6ed9a67c49b5c12e4ab84a4aff5148842067313d333b56150b853f0b3ec",
+          "inspectedPixelsAt": "corrected-6kmGYF/keyboard-map.png",
+          "method": "byte-identical to parent-viewed image"
+        },
+        {
+          "name": "keyboard-map",
+          "bytes": 313405,
+          "sha256": "6923d6ed9a67c49b5c12e4ab84a4aff5148842067313d333b56150b853f0b3ec",
+          "inspectedPixelsAt": "corrected-6kmGYF/keyboard-map.png",
+          "method": "direct parent view"
+        },
+        {
+          "name": "keyboard-exit",
+          "bytes": 319974,
+          "sha256": "331b72c8417f26f2fc3d9c89a483f3136a8cac94e8841c90fd2ac52ee192cce3",
+          "inspectedPixelsAt": "corrected-6kmGYF/keyboard-exit.png",
+          "method": "direct parent view"
+        }
+      ],
+      "readMetrics": {
+        "Walk distance": "81 m",
+        "Covered": "55%",
+        "Uncovered": "37 m",
+        "Longest gap": "20 m"
+      },
+      "camera": [
+        {
+          "step": "before",
+          "lng": 103.85892577084377,
+          "lat": 1.2828009273631125,
+          "zoom": 16.6,
+          "moving": false,
+          "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+          "routeKey": "3:shiokest:primary"
+        },
+        {
+          "step": "right",
+          "lng": 103.85963361004588,
+          "lat": 1.2828009273631125,
+          "zoom": 16.6,
+          "moving": false,
+          "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+          "routeKey": "3:shiokest:primary"
+        },
+        {
+          "step": "left",
+          "lng": 103.85892577084383,
+          "lat": 1.2828009273631125,
+          "zoom": 16.6,
+          "moving": false,
+          "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+          "routeKey": "3:shiokest:primary"
+        },
+        {
+          "step": "zoom-in",
+          "lng": 103.85892577084383,
+          "lat": 1.2828009273631125,
+          "zoom": 17.6,
+          "moving": false,
+          "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+          "routeKey": "3:shiokest:primary"
+        },
+        {
+          "step": "zoom-out",
+          "lng": 103.85892577084383,
+          "lat": 1.2828009273631125,
+          "zoom": 16.6,
+          "moving": false,
+          "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+          "routeKey": "3:shiokest:primary"
+        }
+      ]
+    }
+  ],
+  "browserArithmetic": "71.310+26.273=97.583seconds;8+15=23captures;12directviews plus exact-byte duplicates",
+  "review": {
+    "reviewer": "Avicenna",
+    "agentId": "01a09ab5-ce0b-7f71-a71b-a86677494dee",
+    "role": "Read-only independent source, harness and result review; no writes or runtime execution",
+    "initialFinding": "MRT/LRT focus outline was clipped by the segmented overflow container despite computed focusVisible=true. Parent accepted and fixed it.",
+    "sourceReview": "Retry selection captures pending selection, guards stale handlers, transfers owned focus before loadSelection and returns the promise. Retry map transfers focus before retry/remount; native Reload is unchanged. The new CSS keeps a contrasting inset ring on active/inactive segmented buttons without altering search focus.",
+    "diagnosticReview": "Initial failure reached Canvas; it was not Tab exhaustion. Canvas400 versus viewport399 fails strict box bounds, but the3px ring inset6px fits. Keep strict controls and test ring geometry separately. Capture before assertions; preserve the original exit1.",
+    "harnessCorrections": [
+      "Generated nested cleanup import fixed before initial execution; unused COUNTERS import removed",
+      "Independent cleanup moved before fallible stdout/stderr writes",
+      "Syntax preflight required, setup included in total360000ms supervisor bound",
+      "Preview reuses verified read-only data4340 instead of binding it again",
+      "Page request policy claim narrowed; trusted worker observed later, not browser-wide isolation"
+    ],
+    "finalResult": "No blocking findings in reviewed scope.20/20 checks, no recorded errors or denials, unchanged data anchors, build l7V5uOArXwdDrUIe3Wc2s;26.273seconds supervisor and verified cleanup.",
+    "independentImageInspection": [
+      "corrected-6kmGYF/walk-controls-return.png",
+      "corrected-6kmGYF/active-bus-focus.png",
+      "corrected-6kmGYF/keyboard-map.png",
+      "corrected-6kmGYF/keyboard-exit.png"
+    ],
+    "imageConclusion": "MRT and active Bus have complete distinguishable inset rings. Canvas inset ring visible. Tab exits to visible OneMap link focus. Camera right/left and16.6to17.6to16.6 preserve route and URL with4rendered features afterward.",
+    "accepted": "Narrow native200% desktop browser slice",
+    "notAccepted": [
+      "Retry-map recovery was not exercised by this browser scene; hook-host tests only for that handler",
+      "Full T25 or M17",
+      "Same-document zoom transition",
+      "Screen-reader or physical-device acceptance",
+      "Representative performance or deployment"
+    ]
+  },
+  "method": {
+    "root": "C:\\sgSHIOK2026",
+    "base": "06953fd873e39d08392c171437e4cc7963155dbf",
+    "productChanges": [
+      "web/app/page.tsx",
+      "web/app/page.module.css"
+    ],
+    "tests": [
+      "web/lib/__tests__/walk-recovery-focus.test.tsx",
+      "web/lib/__tests__/accessibility-render.test.tsx"
+    ],
+    "testHistory": [
+      {
+        "receipt": "checks-rLxMlo",
+        "status": "Invalid initial host setup:15tests/9pass/6fail. Missing form mount and object assertion inspection obscured failures; do not call all6 product regressions. No source pins in this first runner version."
+      },
+      {
+        "receipt": "checks-6J2eOY",
+        "status": "Valid selection red:15tests/11pass/4fail"
+      },
+      {
+        "receipt": "checks-FamN1N",
+        "status": "Selection-only interim green:185tests/4files"
+      },
+      {
+        "receipt": "checks-GJsjWe",
+        "status": "Valid map red:23tests/19pass/4fail"
+      },
+      {
+        "receipt": "checks-A2FGsU",
+        "status": "Retry fixes:193tests/4files green before new CSS"
+      },
+      {
+        "receipt": "checks-PG6LMC",
+        "status": "Retry fixes:1944tests/72files+42guards green before new CSS"
+      },
+      {
+        "receipt": "checks-QuNmmf",
+        "status": "Retry fixes TypeScript green before new CSS"
+      },
+      {
+        "receipt": "checks-gsR5Wm",
+        "status": "Segmented focus CSS red:47tests/46pass/1fail. Receipt pins page and retry test only; pre-fix CSS is captured in build-1 and the base committed CSS."
+      },
+      {
+        "receipt": "checks-A0kQ3c",
+        "status": "Final CSS selector contract:47tests/1file green"
+      },
+      {
+        "receipt": "checks-lnq1fY",
+        "status": "Final isolated suite1945tests/72files+42guards green"
+      },
+      {
+        "receipt": "checks-1l0OqM",
+        "status": "Final TypeScript green"
+      }
+    ],
+    "testBoundaries": "Recovery host models React hooks and focused-node removal; not native React DOM. CSS test pins selector contract, not pixels. Final browser supplies the named native checks. Tests deny access to original and isolated production data; no data copied or moved.",
+    "browsers": {
+      "initial": "observed-vqv2K4 remains exit1,9of10checks. Canvas400px versus viewport399px rejected; camera steps did not execute. Screenshot review separately found invisible segmented focus ring.",
+      "correction": "browser-2.mjs generates new immutable driver/run, never edits original. focus-geometry.mjs retains full bounds for controls and checks actual inset canvas ring. Six geometry tests reject clipped/missing rings. Both MRT and active Bus captured before assertions.",
+      "nativeZoom": "Fresh Chrome Preferences default zoom log(2)/log(1.2), window1440x950, actual CSS viewport712x399 and DPR2. No CSS/font/device-metrics/page-scale zoom substitute. Reduced-motion preference enabled but animation duration not measured.",
+      "scoreFault": "Page Fetch returns synthetic503 for selected score shard, then holds the native Retry request while focus is inspected, then permits unchanged local GET data. No actual input changes.",
+      "mapAcceptance": "Debug map instance queryRenderedFeatures and selected route identity/geometry before and after captures, basemap readiness,4selectedfeatures and real keyboard camera deltas. Not source counts alone.",
+      "networkBoundary": "Page-only Fetch enforcement. No page-observed route API request; no live preview provider invocation in scene. Local GET/HEAD and OneMap Grey_HD tile/logo requests. Trusted current worker has late Network observation, not browser-wide isolation.",
+      "serviceWorker": "Bypassed; not old-client or update/release acceptance.",
+      "bounds": "300000ms maximum child +45000cleanup +15000reserve =360000ms. Syntax preflight/setup included by shrinking child budget. Cleanup in finally before logs, owned Chrome profile only, no filesystem deletion.",
+      "plugin": "In-app browser bootstrap failed once with os error3 before a browser existed. Owned Chrome/CDP fallback used; no repeated plugin attempts."
+    },
+    "builds": "build-1/4418 precedes segmented CSS. build-2/4420 is current. Both use tracked-source copies and installed linked dependencies with protected data absent. Retained29QAfiles/5786770bytes from e8Hlh archive are NOT actual production closure; deploymentIdentityVerified=false.",
+    "preview": "4420proxy37188/Next5816 reuses verified data4340 owned by older proxy33360. Do not stop33360 while4420 needs it. Preview4418 and4416 are superseded, not current acceptance.",
+    "remaining": [
+      "T13 reporting provider/privacy/retention/moderator/backup/account decision and actual service",
+      "Maintenance destination/cadence/account, persistent ledger/backups, operator resolution and actual scheduled delivery",
+      "T19 full scan exceeds900s gate; bounded018956 has6saved+55unstored, no new routes",
+      "Same-document zoom, screen-reader, physical-phone/resident tasks and representative performance",
+      "Actual returning-client transition, security/retention boundary, quota/rollback and exact deployment approval"
+    ],
+    "pipelineRuns": 0,
+    "installations": 0,
+    "deployments": 0
+  },
+  "evidence": {
+    "path": "qa/verification/REVAMP-R1-core-walk.md",
+    "previousBytes": 405838,
+    "previousSha256": "b5522b274c538d83a86344b73a65486521549d0a7d5a5f33c8ef88de6763ad8e",
+    "bytes": 410901,
+    "addedBytes": 5063,
+    "exactPrefix": true
+  },
+  "anchors": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "bytes": 13626,
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "bytes": 1751005,
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "bytes": 5240179,
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "bytes": 5236013,
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "bytes": 39674,
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "bytes": 3538342,
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "bytes": 184,
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "bytes": 269,
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "bytes": 1189,
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "bytes": 145327,
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "bytes": 515583,
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "weightSha256": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+  "preview": {
+    "buildId": "l7V5uOArXwdDrUIe3Wc2s",
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\selection-recovery-20260913-build-2",
+    "pid": 37188,
+    "dataPort": 4340,
+    "nextPort": 4419,
+    "proxyPort": 4420,
+    "readOnlyData": true,
+    "allowedApi": "GET /api/onemap-route and /api/onemap-search",
+    "oneMapCredentialsConfigured": true,
+    "nextPid": 5816
+  },
+  "taskBoard": {
+    "url": "http://127.0.0.1:4420/postplan.html",
+    "sha256": "b55a5f09201f142092dee8e552c83db0d1bde5f23d3d211812e0292c7454115c"
+  },
+  "findings": [
+    "Retry selection/map could remove owned keyboard focus; fixed synchronously without stealing focus from async completions.",
+    "Peer screenshot review found clipped segmented focus rings; contrasting inset ring now visible on MRT and active Bus.",
+    "Corrected20check native200% browser proves retry, complete metric reading and camera navigation; failed first attempt retained.",
+    "Reporting/maintenance activation, missing route coverage, real-device and exact-release gates remain open; goal ACTIVE."
+  ],
+  "disagreements": [
+    "Computed focus-visible is not pixel visibility, and a clipped canvas border can still have a visible inset ring.",
+    "Local tests and a desktop browser pass do not constitute working public services or deployment approval."
+  ],
+  "pipelineRuns": 0,
+  "pipelineSeconds": 0,
+  "installations": 0,
+  "deployments": 0
+}

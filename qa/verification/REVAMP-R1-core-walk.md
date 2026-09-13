@@ -5933,3 +5933,90 @@ qa/verification/REVAMP-R1-core-walk.md
 The check-ignore command printed no match; exit1 alone is not proof of tracking.
 The separate ls-files check confirms the existing evidence path is tracked. New
 QA files are explicitly staged and their index/disk bytes checked before commit.
+
+## 2026-09-13: Selection/map retry focus and visible transit keyboard controls
+
+Base:06953fd873e39d08392c171437e4cc7963155dbf. Working root C:\sgSHIOK2026;
+hostname PRAWN-E14. This is appended evidence; nothing above is changed.
+Machine receipts, exact commands/stdout/stderr, source hashes, failed attempts,
+review and screenshots: `qa/revamp-r1/selection-recovery-20260913/`.
+
+Retry selection and Retry map now transfer owned focus synchronously to the
+surviving heading/search before their controls disappear. Capture pending
+selection and guard stale handlers; never claim focus from async completion.
+Native Reload remains unchanged. Independent screenshot review additionally
+found that MRT/Bus focus outlines were clipped. Their contrasting ring now sits
+inside the buttons and is visible on both active and inactive backgrounds.
+
+Executed checks (raw receipts remain authoritative):
+
+```text
+node qa/revamp-r1/selection-recovery-20260913/checks.mjs full
+checks-lnq1fY: exit0
+Test Files 72 passed (72)
+Tests 1945 passed (1945)
+Dependency guards 42 passed; zero skipped
+1930 + 14 recovery tests + 1 segmented CSS contract = 1945
+72 + 0 files = 72
+node qa/revamp-r1/selection-recovery-20260913/checks.mjs types
+checks-1l0OqM: exit0
+node qa/revamp-r1/selection-recovery-20260913/build-2.mjs
+build-2: exit0, sourceStable=true, buildId=l7V5uOArXwdDrUIe3Wc2s
+node qa/revamp-r1/selection-recovery-20260913/browser-2.mjs
+corrected-6kmGYF: exit0, 20/20 checks, 15 captures, cleanup=true
+supervisor elapsedMs=26273
+```
+
+The isolated test copy excludes production data and denies filesystem access to
+both original and copied data paths. Installed dependencies are linked, not
+installed. Build and final test source bytes are cross-checked by finalize.mjs.
+Current preview: http://127.0.0.1:4420/ and /postplan.html. Its read-only data4340
+is owned by older proxy33360; preserve that process while the new preview uses it.
+The29retained QA assets are not an actual-production archive or release approval.
+
+Failed attempts are not relabeled: checks-rLxMlo had invalid initial host setup;
+valid selection red is11/15, map red19/23, CSS red46/47. Intermediate193/4focused
+and1944/72isolated results precede the final CSS change. Final CSS-focused47/1
+passes; the final isolated1945suite tests all final sources together.
+
+Browser observed-vqv2K4 remains exit1,9/10checks,8captures,71.310seconds. Native
+Tab reached the canvas, but the diagnostic rejected its400px box against399px
+viewport even though its3px ring inset6px was visible. The correction separately
+tests that ring and retains strict full-box checks for ordinary controls. Six
+geometry tests include clipped and missing-ring rejection. The original browser
+also missed the clipped MRT focus ring; peer pixel inspection found it.
+
+Corrected native200% browser: synthetic score503 then held Retry verifies visible
+search focus before allowing unchanged data to load; the saved route recovers
+without stealing focus. Four complete metrics read:81m,55%,37m,20m. MRT and active
+Bus rings are visible. Actual camera right/left and16.6to17.6to16.6 preserve route
+key/URL;4selected rendered features remain. Native Tab exits to the OneMap link.
+No recorded browser errors or denials; source anchors unchanged. All23captures
+are covered by12direct parent image views and exact-byte duplicates; peer
+independently inspected the four corrected focus/camera screenshots.
+
+Supervisor arithmetic:71.310 + 26.273 = 97.583seconds across both attempts.
+Both independently verify owned-browser cleanup. No remaining required browser
+process is claimed from a timeout; intentional previews stay running. Reduced
+motion preference was enabled, but animation duration was not measured. Retry-map
+recovery itself is covered by hook-host tests, not this native browser scene.
+This is not same-document zoom, a screen-reader, physical phone, representative
+performance, service-worker transition or full T25 acceptance.
+
+FINDINGS
+1. Remaining selection/map Retry handlers could drop keyboard focus when their
+   controls disappeared; fixed with synchronous ownership-preserving recovery.
+2. The segmented focus ring was really clipped despite focusVisible=true;
+   independent screenshot review found it and the inset-ring fix is validated.
+3. Complete metric reading and keyboard camera now have a bounded native200%
+   desktop result. Earlier failures and narrower acceptance stay in the record.
+4. Reporting and maintenance remain local contracts/tools, not active services.
+   Provider/policy/account, scheduled delivery, physical-device and release gates
+   still need their own completion. No saved geometry was created.
+
+DISAGREEMENTS
+1. A computed focus flag or canvas border-box failure alone does not establish
+   what users can see. Test clipped controls and inset canvas outlines separately
+   and inspect pixels; do not count a failed attempt as full browser acceptance.
+2. Passing local tests does not complete or activate reporting/maintenance or
+   approve deployment. The broad goal remains active, not complete.

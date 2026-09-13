@@ -1,0 +1,12 @@
+{
+  "buildId": "5b4nafoap9sL8c9OudB93",
+  "snapshot": "C:\\sgSHIOK2026\\tmp\\selection-recovery-20260913-build-1",
+  "pid": 22016,
+  "dataPort": 4340,
+  "nextPort": 4417,
+  "proxyPort": 4418,
+  "readOnlyData": true,
+  "allowedApi": "GET /api/onemap-route and /api/onemap-search",
+  "oneMapCredentialsConfigured": true,
+  "nextPid": 32160
+}

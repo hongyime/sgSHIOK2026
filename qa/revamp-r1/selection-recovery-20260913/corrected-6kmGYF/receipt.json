@@ -1,0 +1,5131 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\selection-recovery-20260913\\corrected-6kmGYF",
+  "profile": "C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-nRehkT",
+  "origin": "http://127.0.0.1:4420",
+  "startedAt": "2026-09-13T13:11:47.848Z",
+  "checks": [
+    {
+      "name": "native200%zoom and reduced-motion preference",
+      "pass": true,
+      "detail": {
+        "inner": [
+          712,
+          399
+        ],
+        "outer": [
+          1440,
+          950
+        ],
+        "dpr": 2,
+        "scale": 1,
+        "cssZoom": "1",
+        "reduced": true
+      }
+    },
+    {
+      "name": "keyboard focus Retry selection",
+      "pass": true,
+      "detail": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 181,
+            "right": 298,
+            "top": 157.09375,
+            "bottom": 203.09375
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "BUTTON",
+        "id": "",
+        "text": "Retry selection",
+        "label": null,
+        "clip": {
+          "left": 0,
+          "top": 0,
+          "right": 712,
+          "bottom": 399
+        },
+        "box": {
+          "x": 182,
+          "y": 158.09375,
+          "width": 115,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "auto",
+        "outlineWidth": "1px"
+      }
+    },
+    {
+      "name": "native selection Retry keeps visible search focus",
+      "pass": true,
+      "detail": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 7,
+            "right": 317,
+            "top": 47,
+            "bottom": 101
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "INPUT",
+        "id": "postal-search-input",
+        "text": "",
+        "label": "Enter 6-digit Singapore postal code",
+        "clip": {
+          "left": 0,
+          "top": 0,
+          "right": 712,
+          "bottom": 399
+        },
+        "box": {
+          "x": 12,
+          "y": 52,
+          "width": 300,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "solid",
+        "outlineWidth": "3px"
+      }
+    },
+    {
+      "name": "retry-recovered current route stable",
+      "pass": true
+    },
+    {
+      "name": "retry-recovered panel fits, equal search width",
+      "pass": true,
+      "detail": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 353,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 397,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 353,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 397,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": true,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      }
+    },
+    {
+      "name": "retry-recovered no technical dump",
+      "pass": true
+    },
+    {
+      "name": "success does not reclaim search focus",
+      "pass": true
+    },
+    {
+      "name": "all four complete metric labels and values read",
+      "pass": true,
+      "detail": {
+        "Walk distance": "81 m",
+        "Covered": "55%",
+        "Uncovered": "37 m",
+        "Longest gap": "20 m"
+      }
+    },
+    {
+      "name": "keyboard focus MRT/LRT exits",
+      "pass": true,
+      "detail": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 27,
+            "right": 158.5,
+            "top": 227.5,
+            "bottom": 269.5
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "BUTTON",
+        "id": "",
+        "text": "MRT/LRT exits",
+        "label": null,
+        "clip": {
+          "left": 26,
+          "top": 226.5,
+          "right": 293,
+          "bottom": 270.5
+        },
+        "box": {
+          "x": 26,
+          "y": 226.5,
+          "width": 133.5,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "solid",
+        "outlineWidth": "3px"
+      }
+    },
+    {
+      "name": "keyboard focus Bus stops",
+      "pass": true,
+      "detail": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 160.5,
+            "right": 292,
+            "top": 227.5,
+            "bottom": 269.5
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "BUTTON",
+        "id": "",
+        "text": "Bus stops",
+        "label": null,
+        "clip": {
+          "left": 26,
+          "top": 226.5,
+          "right": 293,
+          "bottom": 270.5
+        },
+        "box": {
+          "x": 159.5,
+          "y": 226.5,
+          "width": 133.5,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "solid",
+        "outlineWidth": "3px"
+      }
+    },
+    {
+      "name": "keyboard focus map canvas",
+      "pass": true,
+      "detail": {
+        "geometry": {
+          "controlFits": false,
+          "ring": {
+            "left": 3,
+            "right": 709,
+            "top": 3,
+            "bottom": 397
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "CANVAS",
+        "id": "",
+        "text": "",
+        "label": "Shelter-map view for Postal 018956, showing sheltered walk",
+        "clip": {
+          "left": 0,
+          "top": 0,
+          "right": 712,
+          "bottom": 399
+        },
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 712,
+          "height": 400
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "solid",
+        "outlineWidth": "3px"
+      }
+    },
+    {
+      "name": "keyboard map has visible outline",
+      "pass": true,
+      "detail": {
+        "geometry": {
+          "controlFits": false,
+          "ring": {
+            "left": 3,
+            "right": 709,
+            "top": 3,
+            "bottom": 397
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "CANVAS",
+        "id": "",
+        "text": "",
+        "label": "Shelter-map view for Postal 018956, showing sheltered walk",
+        "clip": {
+          "left": 0,
+          "top": 0,
+          "right": 712,
+          "bottom": 399
+        },
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 712,
+          "height": 400
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "solid",
+        "outlineWidth": "3px"
+      }
+    },
+    {
+      "name": "keyboard camera preserves selection and URL",
+      "pass": true,
+      "detail": [
+        {
+          "step": "before",
+          "lng": 103.85892577084377,
+          "lat": 1.2828009273631125,
+          "zoom": 16.6,
+          "moving": false,
+          "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+          "routeKey": "3:shiokest:primary"
+        },
+        {
+          "step": "right",
+          "lng": 103.85963361004588,
+          "lat": 1.2828009273631125,
+          "zoom": 16.6,
+          "moving": false,
+          "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+          "routeKey": "3:shiokest:primary"
+        },
+        {
+          "step": "left",
+          "lng": 103.85892577084383,
+          "lat": 1.2828009273631125,
+          "zoom": 16.6,
+          "moving": false,
+          "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+          "routeKey": "3:shiokest:primary"
+        },
+        {
+          "step": "zoom-in",
+          "lng": 103.85892577084383,
+          "lat": 1.2828009273631125,
+          "zoom": 17.6,
+          "moving": false,
+          "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+          "routeKey": "3:shiokest:primary"
+        },
+        {
+          "step": "zoom-out",
+          "lng": 103.85892577084383,
+          "lat": 1.2828009273631125,
+          "zoom": 16.6,
+          "moving": false,
+          "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+          "routeKey": "3:shiokest:primary"
+        }
+      ]
+    },
+    {
+      "name": "keyboard-map current route stable",
+      "pass": true
+    },
+    {
+      "name": "keyboard-map panel fits, equal search width",
+      "pass": true,
+      "detail": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 159.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 203.5,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 159.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 203.5,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": true,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      }
+    },
+    {
+      "name": "keyboard-map no technical dump",
+      "pass": true
+    },
+    {
+      "name": "canvas remains keyboard focused",
+      "pass": true
+    },
+    {
+      "name": "keyboard can leave canvas",
+      "pass": true,
+      "detail": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 467,
+            "right": 509,
+            "top": 375,
+            "bottom": 392
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "A",
+        "id": "",
+        "text": "OneMap",
+        "label": null,
+        "clip": {
+          "left": 0,
+          "top": 0,
+          "right": 712,
+          "bottom": 399
+        },
+        "box": {
+          "x": 469,
+          "y": 377,
+          "width": 38,
+          "height": 13
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "auto",
+        "outlineWidth": "1px"
+      }
+    },
+    {
+      "name": "no page-observed route API requests",
+      "pass": true
+    },
+    {
+      "name": "no application exceptions",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "denied": [],
+  "scoreFaults": [
+    {
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "method": "GET",
+      "mode": "fail"
+    },
+    {
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "method": "GET",
+      "mode": "fail"
+    },
+    {
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/index.json.gz",
+      "method": "GET",
+      "mode": "fail"
+    },
+    {
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "method": "GET",
+      "mode": "fail"
+    },
+    {
+      "path": "/data/generated_20260805_prefer_scored_routed/scores/index.json.gz",
+      "method": "GET",
+      "mode": "hold"
+    }
+  ],
+  "availableMiB": 3135.734375,
+  "anchorsBefore": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "preview": {
+    "buildId": "l7V5uOArXwdDrUIe3Wc2s",
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\selection-recovery-20260913-build-2",
+    "pid": 37188,
+    "dataPort": 4340,
+    "nextPort": 4419,
+    "proxyPort": 4420,
+    "readOnlyData": true,
+    "allowedApi": "GET /api/onemap-route and /api/onemap-search",
+    "oneMapCredentialsConfigured": true,
+    "nextPid": 5816
+  },
+  "chromePid": 33324,
+  "last": {
+    "name": "keyboard-map settled current route",
+    "value": {
+      "status": "ready",
+      "routeKey": "3:shiokest:primary",
+      "count": 4,
+      "keys": [
+        "3:shiokest:primary"
+      ],
+      "basemap": true,
+      "geometry": [
+        {
+          "type": "LineString",
+          "coordinates": [
+            [
+              103.86003,
+              1.28264
+            ],
+            [
+              103.85992,
+              1.28274
+            ]
+          ]
+        },
+        {
+          "type": "LineString",
+          "coordinates": [
+            [
+              103.85992,
+              1.28274
+            ],
+            [
+              103.86008,
+              1.28297
+            ],
+            [
+              103.86014,
+              1.28308
+            ]
+          ]
+        },
+        {
+          "type": "LineString",
+          "coordinates": [
+            [
+              103.86014,
+              1.28308
+            ],
+            [
+              103.86014,
+              1.28316
+            ]
+          ]
+        },
+        {
+          "type": "LineString",
+          "coordinates": [
+            [
+              103.86014,
+              1.28316
+            ],
+            [
+              103.86004,
+              1.28315
+            ]
+          ]
+        }
+      ],
+      "mode": "shiokest",
+      "lampCount": 632,
+      "padding": {
+        "top": 12,
+        "right": 12,
+        "bottom": 40,
+        "left": 324
+      },
+      "timeOrigin": 1789305111503.6,
+      "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+      "tiles": true,
+      "moving": false,
+      "viewport": [
+        712,
+        399
+      ]
+    }
+  },
+  "pageTarget": "12FDFF6E91FD5EF090DE1D81456FC4DF",
+  "mainSession": "1A484746FC51B8C1A2F99C0BE4D8BC73",
+  "policy": {
+    "cold": "Fresh profile, HTTP cache cleared once; server filesystem cache uncontrolled",
+    "warm": "Same browser HTTP cache, fresh document and JS memory",
+    "serviceWorker": "bypassed",
+    "workers": "Unpaused, late Network attachment can miss worker bytes",
+    "interception": "GET allowlist IPC overhead remains",
+    "renderer": "Desktop headless SwiftShader, 390x844, not representative phone",
+    "pairs": 1
+  },
+  "samples": [
+    {
+      "name": "focus-BUTTON-Retry-selection",
+      "before": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 181,
+            "right": 298,
+            "top": 157.09375,
+            "bottom": 203.09375
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "BUTTON",
+        "id": "",
+        "text": "Retry selection",
+        "label": null,
+        "clip": {
+          "left": 0,
+          "top": 0,
+          "right": 712,
+          "bottom": 399
+        },
+        "box": {
+          "x": 182,
+          "y": 158.09375,
+          "width": 115,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "auto",
+        "outlineWidth": "1px"
+      },
+      "after": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 181,
+            "right": 298,
+            "top": 157.09375,
+            "bottom": 203.09375
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "BUTTON",
+        "id": "",
+        "text": "Retry selection",
+        "label": null,
+        "clip": {
+          "left": 0,
+          "top": 0,
+          "right": 712,
+          "bottom": 399
+        },
+        "box": {
+          "x": 182,
+          "y": 158.09375,
+          "width": 115,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "auto",
+        "outlineWidth": "1px"
+      },
+      "state": {
+        "status": "idle",
+        "routeKey": "1:shiokest:",
+        "count": 0,
+        "keys": [],
+        "basemap": false,
+        "mode": "shiokest",
+        "lampCount": 0,
+        "padding": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "timeOrigin": 1789305111503.6,
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956",
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "ui": {
+        "panel": null,
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 201.09375,
+          "bottom": 213.09375,
+          "right": 312
+        },
+        "pressed": [],
+        "controls": [],
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops.\n\nSHIOK.\n\nMap waiting\n\nShelter-map data could not load. Try this postal code again.\nCopy diagnostics\nRetry selection",
+        "lampCount": 0,
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      },
+      "bytes": 33050,
+      "sha256": "064c4d3d3ff6f3403ec9d511b5330ea2b944c3381e8e04f95b3068a91767943a"
+    },
+    {
+      "name": "retry-before",
+      "before": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 181,
+            "right": 298,
+            "top": 157.09375,
+            "bottom": 203.09375
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "BUTTON",
+        "id": "",
+        "text": "Retry selection",
+        "label": null,
+        "clip": {
+          "left": 0,
+          "top": 0,
+          "right": 712,
+          "bottom": 399
+        },
+        "box": {
+          "x": 182,
+          "y": 158.09375,
+          "width": 115,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "auto",
+        "outlineWidth": "1px"
+      },
+      "after": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 181,
+            "right": 298,
+            "top": 157.09375,
+            "bottom": 203.09375
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "BUTTON",
+        "id": "",
+        "text": "Retry selection",
+        "label": null,
+        "clip": {
+          "left": 0,
+          "top": 0,
+          "right": 712,
+          "bottom": 399
+        },
+        "box": {
+          "x": 182,
+          "y": 158.09375,
+          "width": 115,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "auto",
+        "outlineWidth": "1px"
+      },
+      "state": {
+        "status": "idle",
+        "routeKey": "1:shiokest:",
+        "count": 0,
+        "keys": [],
+        "basemap": false,
+        "geometry": [],
+        "mode": "shiokest",
+        "lampCount": 0,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789305111503.6,
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956",
+        "tiles": false,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "ui": {
+        "panel": null,
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 201.09375,
+          "bottom": 213.09375,
+          "right": 312
+        },
+        "pressed": [],
+        "controls": [],
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nZoom in to show lamp-post points.\n\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops. Zoom in to show lamp-post points.\n\nSHIOK.\n\nMap waiting\n\nShelter-map data could not load. Try this postal code again.\nCopy diagnostics\nRetry selection",
+        "lampCount": 0,
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      },
+      "bytes": 33050,
+      "sha256": "064c4d3d3ff6f3403ec9d511b5330ea2b944c3381e8e04f95b3068a91767943a"
+    },
+    {
+      "name": "retry-pending",
+      "before": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 7,
+            "right": 317,
+            "top": 47,
+            "bottom": 101
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "INPUT",
+        "id": "postal-search-input",
+        "text": "",
+        "label": "Enter 6-digit Singapore postal code",
+        "clip": {
+          "left": 0,
+          "top": 0,
+          "right": 712,
+          "bottom": 399
+        },
+        "box": {
+          "x": 12,
+          "y": 52,
+          "width": 300,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "solid",
+        "outlineWidth": "3px"
+      },
+      "after": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 7,
+            "right": 317,
+            "top": 47,
+            "bottom": 101
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "INPUT",
+        "id": "postal-search-input",
+        "text": "",
+        "label": "Enter 6-digit Singapore postal code",
+        "clip": {
+          "left": 0,
+          "top": 0,
+          "right": 712,
+          "bottom": 399
+        },
+        "box": {
+          "x": 12,
+          "y": 52,
+          "width": 300,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "solid",
+        "outlineWidth": "3px"
+      },
+      "state": {
+        "status": "idle",
+        "routeKey": "1:shiokest:",
+        "count": 0,
+        "keys": [],
+        "basemap": false,
+        "geometry": [],
+        "mode": "shiokest",
+        "lampCount": 0,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789305111503.6,
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956",
+        "tiles": false,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "ui": {
+        "panel": null,
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [],
+        "controls": [],
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nZoom in to show lamp-post points.\n\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops. Zoom in to show lamp-post points.\n\nSHIOK.\n\nMap waiting",
+        "lampCount": 0,
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      },
+      "bytes": 459988,
+      "sha256": "da0a379d76d5b034e66d92e84107de9dc65853ba3959f9b9d9899025103fa8b5"
+    },
+    {
+      "name": "retry-recovered",
+      "before": {
+        "status": "ready",
+        "routeKey": "3:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789305111503.6,
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "after": {
+        "status": "ready",
+        "routeKey": "3:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789305111503.6,
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "ui": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 353,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 397,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 353,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 397,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": true,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      },
+      "bytes": 325107,
+      "sha256": "be5c9f9233b42681d8b607122316bc2f15e74cf4069e312d5ac5d8ed9785736f"
+    },
+    {
+      "name": "metrics-0",
+      "before": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 7,
+            "right": 317,
+            "top": 47,
+            "bottom": 101
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "INPUT",
+        "id": "postal-search-input",
+        "text": "",
+        "label": "Enter 6-digit Singapore postal code",
+        "clip": {
+          "left": 0,
+          "top": 0,
+          "right": 712,
+          "bottom": 399
+        },
+        "box": {
+          "x": 12,
+          "y": 52,
+          "width": 300,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "solid",
+        "outlineWidth": "3px"
+      },
+      "after": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 7,
+            "right": 317,
+            "top": 47,
+            "bottom": 101
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "INPUT",
+        "id": "postal-search-input",
+        "text": "",
+        "label": "Enter 6-digit Singapore postal code",
+        "clip": {
+          "left": 0,
+          "top": 0,
+          "right": 712,
+          "bottom": 399
+        },
+        "box": {
+          "x": 12,
+          "y": 52,
+          "width": 300,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "solid",
+        "outlineWidth": "3px"
+      },
+      "state": {
+        "status": "ready",
+        "routeKey": "3:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789305111503.6,
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "ui": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 353,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 397,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 353,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 397,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": true,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      },
+      "bytes": 325107,
+      "sha256": "be5c9f9233b42681d8b607122316bc2f15e74cf4069e312d5ac5d8ed9785736f"
+    },
+    {
+      "name": "metrics-1",
+      "before": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 7,
+            "right": 317,
+            "top": 47,
+            "bottom": 101
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "INPUT",
+        "id": "postal-search-input",
+        "text": "",
+        "label": "Enter 6-digit Singapore postal code",
+        "clip": {
+          "left": 0,
+          "top": 0,
+          "right": 712,
+          "bottom": 399
+        },
+        "box": {
+          "x": 12,
+          "y": 52,
+          "width": 300,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "solid",
+        "outlineWidth": "3px"
+      },
+      "after": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 7,
+            "right": 317,
+            "top": 47,
+            "bottom": 101
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "INPUT",
+        "id": "postal-search-input",
+        "text": "",
+        "label": "Enter 6-digit Singapore postal code",
+        "clip": {
+          "left": 0,
+          "top": 0,
+          "right": 712,
+          "bottom": 399
+        },
+        "box": {
+          "x": 12,
+          "y": 52,
+          "width": 300,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "solid",
+        "outlineWidth": "3px"
+      },
+      "state": {
+        "status": "ready",
+        "routeKey": "3:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789305111503.6,
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "ui": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 325,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 369,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 325,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 369,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": true,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      },
+      "bytes": 325014,
+      "sha256": "c9ffc3f70b168afdf1edbdb07c3ed4027e24d6137231bd7eb218e3fbcc75fd81"
+    },
+    {
+      "name": "metrics-2",
+      "before": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 7,
+            "right": 317,
+            "top": 47,
+            "bottom": 101
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "INPUT",
+        "id": "postal-search-input",
+        "text": "",
+        "label": "Enter 6-digit Singapore postal code",
+        "clip": {
+          "left": 0,
+          "top": 0,
+          "right": 712,
+          "bottom": 399
+        },
+        "box": {
+          "x": 12,
+          "y": 52,
+          "width": 300,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "solid",
+        "outlineWidth": "3px"
+      },
+      "after": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 7,
+            "right": 317,
+            "top": 47,
+            "bottom": 101
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "INPUT",
+        "id": "postal-search-input",
+        "text": "",
+        "label": "Enter 6-digit Singapore postal code",
+        "clip": {
+          "left": 0,
+          "top": 0,
+          "right": 712,
+          "bottom": 399
+        },
+        "box": {
+          "x": 12,
+          "y": 52,
+          "width": 300,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "solid",
+        "outlineWidth": "3px"
+      },
+      "state": {
+        "status": "ready",
+        "routeKey": "3:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789305111503.6,
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "ui": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 297,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 341,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 297,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 341,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": true,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      },
+      "bytes": 324871,
+      "sha256": "71e3f09e868974147483653ef154331a963c90d335edf8bba1f2cb0b90e2c046"
+    },
+    {
+      "name": "metrics-3",
+      "before": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 7,
+            "right": 317,
+            "top": 47,
+            "bottom": 101
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "INPUT",
+        "id": "postal-search-input",
+        "text": "",
+        "label": "Enter 6-digit Singapore postal code",
+        "clip": {
+          "left": 0,
+          "top": 0,
+          "right": 712,
+          "bottom": 399
+        },
+        "box": {
+          "x": 12,
+          "y": 52,
+          "width": 300,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "solid",
+        "outlineWidth": "3px"
+      },
+      "after": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 7,
+            "right": 317,
+            "top": 47,
+            "bottom": 101
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "INPUT",
+        "id": "postal-search-input",
+        "text": "",
+        "label": "Enter 6-digit Singapore postal code",
+        "clip": {
+          "left": 0,
+          "top": 0,
+          "right": 712,
+          "bottom": 399
+        },
+        "box": {
+          "x": 12,
+          "y": 52,
+          "width": 300,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "solid",
+        "outlineWidth": "3px"
+      },
+      "state": {
+        "status": "ready",
+        "routeKey": "3:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789305111503.6,
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "ui": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 269,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 313,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 269,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 313,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": true,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      },
+      "bytes": 324966,
+      "sha256": "c0258b003d72fff702419326193ffd6fe80126a4fc6b03552ace79b2a2c7e0ac"
+    },
+    {
+      "name": "focus-BUTTON-MRT-LRT-exits",
+      "before": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 27,
+            "right": 158.5,
+            "top": 227.5,
+            "bottom": 269.5
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "BUTTON",
+        "id": "",
+        "text": "MRT/LRT exits",
+        "label": null,
+        "clip": {
+          "left": 26,
+          "top": 226.5,
+          "right": 293,
+          "bottom": 270.5
+        },
+        "box": {
+          "x": 26,
+          "y": 226.5,
+          "width": 133.5,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "solid",
+        "outlineWidth": "3px"
+      },
+      "after": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 27,
+            "right": 158.5,
+            "top": 227.5,
+            "bottom": 269.5
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "BUTTON",
+        "id": "",
+        "text": "MRT/LRT exits",
+        "label": null,
+        "clip": {
+          "left": 26,
+          "top": 226.5,
+          "right": 293,
+          "bottom": 270.5
+        },
+        "box": {
+          "x": 26,
+          "y": 226.5,
+          "width": 133.5,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "solid",
+        "outlineWidth": "3px"
+      },
+      "state": {
+        "status": "ready",
+        "routeKey": "3:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789305111503.6,
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "ui": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 226.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 270.5,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 226.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 270.5,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": true,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      },
+      "bytes": 321082,
+      "sha256": "3718f0e3e208ae9f6efa81829ac753d87dddea3de3857aea9b5831d59bf35abc"
+    },
+    {
+      "name": "walk-controls-return",
+      "before": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 27,
+            "right": 158.5,
+            "top": 227.5,
+            "bottom": 269.5
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "BUTTON",
+        "id": "",
+        "text": "MRT/LRT exits",
+        "label": null,
+        "clip": {
+          "left": 26,
+          "top": 226.5,
+          "right": 293,
+          "bottom": 270.5
+        },
+        "box": {
+          "x": 26,
+          "y": 226.5,
+          "width": 133.5,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "solid",
+        "outlineWidth": "3px"
+      },
+      "after": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 27,
+            "right": 158.5,
+            "top": 227.5,
+            "bottom": 269.5
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "BUTTON",
+        "id": "",
+        "text": "MRT/LRT exits",
+        "label": null,
+        "clip": {
+          "left": 26,
+          "top": 226.5,
+          "right": 293,
+          "bottom": 270.5
+        },
+        "box": {
+          "x": 26,
+          "y": 226.5,
+          "width": 133.5,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "solid",
+        "outlineWidth": "3px"
+      },
+      "state": {
+        "status": "ready",
+        "routeKey": "3:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789305111503.6,
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "ui": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 226.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 270.5,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 226.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 270.5,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": true,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      },
+      "bytes": 321082,
+      "sha256": "3718f0e3e208ae9f6efa81829ac753d87dddea3de3857aea9b5831d59bf35abc"
+    },
+    {
+      "name": "focus-BUTTON-Bus-stops",
+      "before": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 160.5,
+            "right": 292,
+            "top": 227.5,
+            "bottom": 269.5
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "BUTTON",
+        "id": "",
+        "text": "Bus stops",
+        "label": null,
+        "clip": {
+          "left": 26,
+          "top": 226.5,
+          "right": 293,
+          "bottom": 270.5
+        },
+        "box": {
+          "x": 159.5,
+          "y": 226.5,
+          "width": 133.5,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "solid",
+        "outlineWidth": "3px"
+      },
+      "after": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 160.5,
+            "right": 292,
+            "top": 227.5,
+            "bottom": 269.5
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "BUTTON",
+        "id": "",
+        "text": "Bus stops",
+        "label": null,
+        "clip": {
+          "left": 26,
+          "top": 226.5,
+          "right": 293,
+          "bottom": 270.5
+        },
+        "box": {
+          "x": 159.5,
+          "y": 226.5,
+          "width": 133.5,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "solid",
+        "outlineWidth": "3px"
+      },
+      "state": {
+        "status": "ready",
+        "routeKey": "3:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789305111503.6,
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "ui": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 226.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 270.5,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 226.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 270.5,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": true,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      },
+      "bytes": 321057,
+      "sha256": "547176882dd0c11c62897bf8c3cab545cd08181f30e5f8c2ee2fb3929cb64ab4"
+    },
+    {
+      "name": "active-bus-focus",
+      "before": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 160.5,
+            "right": 292,
+            "top": 227.5,
+            "bottom": 269.5
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "BUTTON",
+        "id": "",
+        "text": "Bus stops",
+        "label": null,
+        "clip": {
+          "left": 26,
+          "top": 226.5,
+          "right": 293,
+          "bottom": 270.5
+        },
+        "box": {
+          "x": 159.5,
+          "y": 226.5,
+          "width": 133.5,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "solid",
+        "outlineWidth": "3px"
+      },
+      "after": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 160.5,
+            "right": 292,
+            "top": 227.5,
+            "bottom": 269.5
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "BUTTON",
+        "id": "",
+        "text": "Bus stops",
+        "label": null,
+        "clip": {
+          "left": 26,
+          "top": 226.5,
+          "right": 293,
+          "bottom": 270.5
+        },
+        "box": {
+          "x": 159.5,
+          "y": 226.5,
+          "width": 133.5,
+          "height": 44
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "solid",
+        "outlineWidth": "3px"
+      },
+      "state": {
+        "status": "ready",
+        "routeKey": "3:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789305111503.6,
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "ui": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 226.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 270.5,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 226.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 270.5,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": true,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      },
+      "bytes": 321057,
+      "sha256": "547176882dd0c11c62897bf8c3cab545cd08181f30e5f8c2ee2fb3929cb64ab4"
+    },
+    {
+      "name": "focus-CANVAS-map-canvas",
+      "before": {
+        "geometry": {
+          "controlFits": false,
+          "ring": {
+            "left": 3,
+            "right": 709,
+            "top": 3,
+            "bottom": 397
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "CANVAS",
+        "id": "",
+        "text": "",
+        "label": "Shelter-map view for Postal 018956, showing sheltered walk",
+        "clip": {
+          "left": 0,
+          "top": 0,
+          "right": 712,
+          "bottom": 399
+        },
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 712,
+          "height": 400
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "solid",
+        "outlineWidth": "3px"
+      },
+      "after": {
+        "geometry": {
+          "controlFits": false,
+          "ring": {
+            "left": 3,
+            "right": 709,
+            "top": 3,
+            "bottom": 397
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "CANVAS",
+        "id": "",
+        "text": "",
+        "label": "Shelter-map view for Postal 018956, showing sheltered walk",
+        "clip": {
+          "left": 0,
+          "top": 0,
+          "right": 712,
+          "bottom": 399
+        },
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 712,
+          "height": 400
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "solid",
+        "outlineWidth": "3px"
+      },
+      "state": {
+        "status": "ready",
+        "routeKey": "3:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789305111503.6,
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "ui": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 159.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 203.5,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 159.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 203.5,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": true,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      },
+      "bytes": 313405,
+      "sha256": "6923d6ed9a67c49b5c12e4ab84a4aff5148842067313d333b56150b853f0b3ec"
+    },
+    {
+      "name": "keyboard-map",
+      "before": {
+        "status": "ready",
+        "routeKey": "3:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789305111503.6,
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "after": {
+        "status": "ready",
+        "routeKey": "3:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789305111503.6,
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "ui": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 159.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 203.5,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 159.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 203.5,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": true,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      },
+      "bytes": 313405,
+      "sha256": "6923d6ed9a67c49b5c12e4ab84a4aff5148842067313d333b56150b853f0b3ec"
+    },
+    {
+      "name": "keyboard-exit",
+      "before": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 467,
+            "right": 509,
+            "top": 375,
+            "bottom": 392
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "A",
+        "id": "",
+        "text": "OneMap",
+        "label": null,
+        "clip": {
+          "left": 0,
+          "top": 0,
+          "right": 712,
+          "bottom": 399
+        },
+        "box": {
+          "x": 469,
+          "y": 377,
+          "width": 38,
+          "height": 13
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "auto",
+        "outlineWidth": "1px"
+      },
+      "after": {
+        "geometry": {
+          "controlFits": true,
+          "ring": {
+            "left": 467,
+            "right": 509,
+            "top": 375,
+            "bottom": 392
+          },
+          "ringFits": true,
+          "fits": true
+        },
+        "tag": "A",
+        "id": "",
+        "text": "OneMap",
+        "label": null,
+        "clip": {
+          "left": 0,
+          "top": 0,
+          "right": 712,
+          "bottom": 399
+        },
+        "box": {
+          "x": 469,
+          "y": 377,
+          "width": 38,
+          "height": 13
+        },
+        "hit": true,
+        "visible": true,
+        "focusVisible": true,
+        "outline": "auto",
+        "outlineWidth": "1px"
+      },
+      "state": {
+        "status": "ready",
+        "routeKey": "3:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789305111503.6,
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "ui": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 159.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 203.5,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 159.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 203.5,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": true,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      },
+      "bytes": 319974,
+      "sha256": "331b72c8417f26f2fc3d9c89a483f3136a8cac94e8841c90fd2ac52ee192cce3"
+    }
+  ],
+  "scope": "Current native200%zoom selection retry, complete metric reading and keyboard camera task. Controlled score503/hold; no data changes. SW bypassed, desktop SwiftShader, not phone/screenreader/performance/old-client-release acceptance.",
+  "nativeZoom": {
+    "inner": [
+      712,
+      399
+    ],
+    "outer": [
+      1440,
+      950
+    ],
+    "dpr": 2,
+    "scale": 1,
+    "cssZoom": "1",
+    "reduced": true
+  },
+  "retryFocus": {
+    "geometry": {
+      "controlFits": true,
+      "ring": {
+        "left": 7,
+        "right": 317,
+        "top": 47,
+        "bottom": 101
+      },
+      "ringFits": true,
+      "fits": true
+    },
+    "tag": "INPUT",
+    "id": "postal-search-input",
+    "text": "",
+    "label": "Enter 6-digit Singapore postal code",
+    "clip": {
+      "left": 0,
+      "top": 0,
+      "right": 712,
+      "bottom": 399
+    },
+    "box": {
+      "x": 12,
+      "y": 52,
+      "width": 300,
+      "height": 44
+    },
+    "hit": true,
+    "visible": true,
+    "focusVisible": true,
+    "outline": "solid",
+    "outlineWidth": "3px"
+  },
+  "metricReadings": [
+    {
+      "before": {
+        "scrollTop": 0,
+        "scrollHeight": 359,
+        "clientHeight": 166,
+        "metrics": [
+          {
+            "label": "Walk distance",
+            "value": "81 m",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 259,
+                  "width": 66,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": false
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 224,
+                  "width": 49,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            }
+          },
+          {
+            "label": "Covered",
+            "value": "55%",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 259,
+                  "width": 41.5,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": false
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 224,
+                  "width": 42,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            }
+          },
+          {
+            "label": "Uncovered",
+            "value": "37 m",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 321,
+                  "width": 53,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": false
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 286,
+                  "width": 49,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": false
+            }
+          },
+          {
+            "label": "Longest gap",
+            "value": "20 m",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 321,
+                  "width": 59.5,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": false
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 286,
+                  "width": 49,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": false
+            }
+          }
+        ]
+      },
+      "after": {
+        "scrollTop": 0,
+        "scrollHeight": 359,
+        "clientHeight": 166,
+        "metrics": [
+          {
+            "label": "Walk distance",
+            "value": "81 m",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 259,
+                  "width": 66,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": false
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 224,
+                  "width": 49,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            }
+          },
+          {
+            "label": "Covered",
+            "value": "55%",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 259,
+                  "width": 41.5,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": false
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 224,
+                  "width": 42,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            }
+          },
+          {
+            "label": "Uncovered",
+            "value": "37 m",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 321,
+                  "width": 53,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": false
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 286,
+                  "width": 49,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": false
+            }
+          },
+          {
+            "label": "Longest gap",
+            "value": "20 m",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 321,
+                  "width": 59.5,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": false
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 286,
+                  "width": 49,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "before": {
+        "scrollTop": 28,
+        "scrollHeight": 359,
+        "clientHeight": 166,
+        "metrics": [
+          {
+            "label": "Walk distance",
+            "value": "81 m",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 231,
+                  "width": 66,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 196,
+                  "width": 49,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            }
+          },
+          {
+            "label": "Covered",
+            "value": "55%",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 231,
+                  "width": 41.5,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 196,
+                  "width": 42,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            }
+          },
+          {
+            "label": "Uncovered",
+            "value": "37 m",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 293,
+                  "width": 53,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": false
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 258,
+                  "width": 49,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": false
+            }
+          },
+          {
+            "label": "Longest gap",
+            "value": "20 m",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 293,
+                  "width": 59.5,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": false
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 258,
+                  "width": 49,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": false
+            }
+          }
+        ]
+      },
+      "after": {
+        "scrollTop": 28,
+        "scrollHeight": 359,
+        "clientHeight": 166,
+        "metrics": [
+          {
+            "label": "Walk distance",
+            "value": "81 m",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 231,
+                  "width": 66,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 196,
+                  "width": 49,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            }
+          },
+          {
+            "label": "Covered",
+            "value": "55%",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 231,
+                  "width": 41.5,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 196,
+                  "width": 42,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            }
+          },
+          {
+            "label": "Uncovered",
+            "value": "37 m",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 293,
+                  "width": 53,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": false
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 258,
+                  "width": 49,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": false
+            }
+          },
+          {
+            "label": "Longest gap",
+            "value": "20 m",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 293,
+                  "width": 59.5,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": false
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 258,
+                  "width": 49,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "before": {
+        "scrollTop": 56,
+        "scrollHeight": 359,
+        "clientHeight": 166,
+        "metrics": [
+          {
+            "label": "Walk distance",
+            "value": "81 m",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 203,
+                  "width": 66,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 168,
+                  "width": 49,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            }
+          },
+          {
+            "label": "Covered",
+            "value": "55%",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 203,
+                  "width": 41.5,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 168,
+                  "width": 42,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            }
+          },
+          {
+            "label": "Uncovered",
+            "value": "37 m",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 265,
+                  "width": 53,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": false
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 230,
+                  "width": 49,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            }
+          },
+          {
+            "label": "Longest gap",
+            "value": "20 m",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 265,
+                  "width": 59.5,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": false
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 230,
+                  "width": 49,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            }
+          }
+        ]
+      },
+      "after": {
+        "scrollTop": 56,
+        "scrollHeight": 359,
+        "clientHeight": 166,
+        "metrics": [
+          {
+            "label": "Walk distance",
+            "value": "81 m",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 203,
+                  "width": 66,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 168,
+                  "width": 49,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            }
+          },
+          {
+            "label": "Covered",
+            "value": "55%",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 203,
+                  "width": 41.5,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 168,
+                  "width": 42,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            }
+          },
+          {
+            "label": "Uncovered",
+            "value": "37 m",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 265,
+                  "width": 53,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": false
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 230,
+                  "width": 49,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            }
+          },
+          {
+            "label": "Longest gap",
+            "value": "20 m",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 265,
+                  "width": 59.5,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": false
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 230,
+                  "width": 49,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "before": {
+        "scrollTop": 84,
+        "scrollHeight": 359,
+        "clientHeight": 166,
+        "metrics": [
+          {
+            "label": "Walk distance",
+            "value": "81 m",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 175,
+                  "width": 66,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 140,
+                  "width": 49,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            }
+          },
+          {
+            "label": "Covered",
+            "value": "55%",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 175,
+                  "width": 41.5,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 140,
+                  "width": 42,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            }
+          },
+          {
+            "label": "Uncovered",
+            "value": "37 m",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 237,
+                  "width": 53,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 202,
+                  "width": 49,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            }
+          },
+          {
+            "label": "Longest gap",
+            "value": "20 m",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 237,
+                  "width": 59.5,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 202,
+                  "width": 49,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            }
+          }
+        ]
+      },
+      "after": {
+        "scrollTop": 84,
+        "scrollHeight": 359,
+        "clientHeight": 166,
+        "metrics": [
+          {
+            "label": "Walk distance",
+            "value": "81 m",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 175,
+                  "width": 66,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 140,
+                  "width": 49,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            }
+          },
+          {
+            "label": "Covered",
+            "value": "55%",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 175,
+                  "width": 41.5,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 140,
+                  "width": 42,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            }
+          },
+          {
+            "label": "Uncovered",
+            "value": "37 m",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 237,
+                  "width": 53,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 25,
+                  "y": 202,
+                  "width": 49,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            }
+          },
+          {
+            "label": "Longest gap",
+            "value": "20 m",
+            "labelPaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 237,
+                  "width": 59.5,
+                  "height": 15
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            },
+            "valuePaint": {
+              "rects": [
+                {
+                  "x": 163.5,
+                  "y": 202,
+                  "width": 49,
+                  "height": 28.5
+                }
+              ],
+              "clip": {
+                "left": 13,
+                "top": 105,
+                "right": 306,
+                "bottom": 271
+              },
+              "visible": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "readMetrics": {
+    "Walk distance": "81 m",
+    "Covered": "55%",
+    "Uncovered": "37 m",
+    "Longest gap": "20 m"
+  },
+  "camera": [
+    {
+      "step": "before",
+      "lng": 103.85892577084377,
+      "lat": 1.2828009273631125,
+      "zoom": 16.6,
+      "moving": false,
+      "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+      "routeKey": "3:shiokest:primary"
+    },
+    {
+      "step": "right",
+      "lng": 103.85963361004588,
+      "lat": 1.2828009273631125,
+      "zoom": 16.6,
+      "moving": false,
+      "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+      "routeKey": "3:shiokest:primary"
+    },
+    {
+      "step": "left",
+      "lng": 103.85892577084383,
+      "lat": 1.2828009273631125,
+      "zoom": 16.6,
+      "moving": false,
+      "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+      "routeKey": "3:shiokest:primary"
+    },
+    {
+      "step": "zoom-in",
+      "lng": 103.85892577084383,
+      "lat": 1.2828009273631125,
+      "zoom": 17.6,
+      "moving": false,
+      "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+      "routeKey": "3:shiokest:primary"
+    },
+    {
+      "step": "zoom-out",
+      "lng": 103.85892577084383,
+      "lat": 1.2828009273631125,
+      "zoom": 16.6,
+      "moving": false,
+      "url": "http://127.0.0.1:4420/?debugMap=1&postal=018956&transit=bus",
+      "routeKey": "3:shiokest:primary"
+    }
+  ],
+  "keyboardExit": {
+    "geometry": {
+      "controlFits": true,
+      "ring": {
+        "left": 467,
+        "right": 509,
+        "top": 375,
+        "bottom": 392
+      },
+      "ringFits": true,
+      "fits": true
+    },
+    "tag": "A",
+    "id": "",
+    "text": "OneMap",
+    "label": null,
+    "clip": {
+      "left": 0,
+      "top": 0,
+      "right": 712,
+      "bottom": 399
+    },
+    "box": {
+      "x": 469,
+      "y": 377,
+      "width": 38,
+      "height": 13
+    },
+    "hit": true,
+    "visible": true,
+    "focusVisible": true,
+    "outline": "auto",
+    "outlineWidth": "1px"
+  },
+  "cleanup": {
+    "command": "$ErrorActionPreference='Stop'; $profile='C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-nRehkT'; function Owned { @(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | Where-Object { $_.CommandLine -and $_.CommandLine.Contains($profile) }) }; $before=@(Owned | Select-Object ProcessId,Name,CommandLine); foreach($p in @(Owned)){ $live=Get-Process -Id $p.ProcessId -ErrorAction SilentlyContinue; if($live -and -not $live.HasExited){Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue} }; $until=[DateTime]::UtcNow.AddSeconds(20); do { $remaining=@(Owned | Where-Object { $p=Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue; $p -and -not $p.HasExited }); if($remaining.Count -eq 0){break}; Start-Sleep -Milliseconds 250 } while([DateTime]::UtcNow -lt $until); @{before=$before;remaining=@($remaining | Select-Object ProcessId,Name,CommandLine)} | ConvertTo-Json -Depth 4 -Compress",
+    "exitCode": 0,
+    "stdout": "{\"before\":[],\"remaining\":[]}\r\n",
+    "stderr": "",
+    "verified": true
+  },
+  "anchorsAfter": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "anchorsUnchanged": true,
+  "stderr": "\r\nDevTools listening on ws://127.0.0.1:63902/devtools/browser/f651eb88-23cf-40bf-93f1-5aa2ce1f16c3\r\n[33324:23152:0913/211159.443:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\r\nCreated TensorFlow Lite XNNPACK delegate for CPU.\r\n",
+  "elapsedMs": 24466,
+  "ok": true,
+  "rawTrace": {
+    "file": "browser.json.gz",
+    "bytes": 7895877,
+    "sha256": "fbf3f858e16b2267aeab6e5e77dd8b8123e23f2e386fd69ea9f046ab9255597f",
+    "compressedBytes": 4550917,
+    "compressedSha256": "94116712790349881e382e4ee37f6c8c3d53b3ca20c7c86ee49af8929e2e2875",
+    "entries": 1169
+  }
+}

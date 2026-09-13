@@ -1,0 +1,39 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "--globals",
+    "--maxWorkers",
+    "1",
+    "--no-file-parallelism",
+    "--reporter=json",
+    "lib/__tests__/accessibility-render.test.tsx"
+  ],
+  "cwd": "C:\\sgSHIOK2026\\web",
+  "exitCode": 1,
+  "elapsedMs": 10180,
+  "sources": [
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "fc183913fdf9742c661897179b69e48f50372ae86207bce0d45bd25ecb443006"
+    },
+    {
+      "path": "web/lib/__tests__/walk-recovery-focus.test.tsx",
+      "sha256": "e31e5b5cab697593411c25b3cedc37541393fd5cf2284dd58adf7d72128216c1"
+    }
+  ],
+  "counts": {
+    "tests": 47,
+    "passed": 46,
+    "failed": 1
+  },
+  "failures": [
+    {
+      "name": "keeps segmented keyboard focus inside its clipping container",
+      "messages": [
+        "Error: Missing CSS rule for .segmented button:focus-visible\n    at cssRuleBody (C:/sgSHIOK2026/web/lib/__tests__/accessibility-render.test.tsx:41:11)\n    at C:/sgSHIOK2026/web/lib/__tests__/accessibility-render.test.tsx:47:16\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2305:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2272:10)"
+      ]
+    }
+  ]
+}

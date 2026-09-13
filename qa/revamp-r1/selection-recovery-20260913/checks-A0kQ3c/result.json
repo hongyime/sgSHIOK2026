@@ -1,0 +1,40 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "--globals",
+    "--maxWorkers",
+    "1",
+    "--no-file-parallelism",
+    "--reporter=json",
+    "lib/__tests__/accessibility-render.test.tsx"
+  ],
+  "cwd": "C:\\sgSHIOK2026\\web",
+  "exitCode": 0,
+  "elapsedMs": 6153,
+  "sources": [
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "fc183913fdf9742c661897179b69e48f50372ae86207bce0d45bd25ecb443006"
+    },
+    {
+      "path": "web/app/page.module.css",
+      "sha256": "819ed171bdf922352683be7523e72a6b58a4730c829a1db8faae4cd82479bf3b"
+    },
+    {
+      "path": "web/lib/__tests__/walk-recovery-focus.test.tsx",
+      "sha256": "e31e5b5cab697593411c25b3cedc37541393fd5cf2284dd58adf7d72128216c1"
+    },
+    {
+      "path": "web/lib/__tests__/accessibility-render.test.tsx",
+      "sha256": "27c4d45e87f050c355e5119f6d716086a7ffcb7340ca2c717f372e5de50d7001"
+    }
+  ],
+  "counts": {
+    "tests": 47,
+    "passed": 47,
+    "failed": 0
+  },
+  "failures": []
+}

@@ -43,6 +43,13 @@ function cssRuleBody(selector: string): string {
   return match[1];
 }
 
+it("keeps segmented keyboard focus inside its clipping container", () => {
+  const rule = cssRuleBody(".segmented button:focus-visible");
+  expect(rule).toMatch(/outline:\s*3px solid #17211f/);
+  expect(rule).toMatch(/outline-offset:\s*-4px/);
+  expect(rule).toMatch(/box-shadow:\s*inset 0 0 0 6px #fff/);
+});
+
 function cssPxValue(ruleBody: string, property: string): number {
   const escapedProperty = property.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const match = ruleBody.match(new RegExp(`${escapedProperty}\\s*:\\s*([0-9.]+)px`));

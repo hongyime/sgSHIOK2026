@@ -1,0 +1,25 @@
+import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+const root='C:\\sgSHIOK2026';assert.equal(process.cwd(),root);
+process.env.TEMP=process.env.TMP=resolve(root,'tmp');
+const prefix='qa/revamp-r1/selection-recovery-20260913';
+const git=(...args)=>execFileSync('git',args,{cwd:root,windowsHide:true,maxBuffer:64*1024*1024,timeout:60000});
+const read=p=>readFileSync(resolve(root,p));
+const expected=[...JSON.parse(read(`${prefix}/stage-paths.json`)),'.agents/STATE.md','PRODUCT-PLAN.md','decisions.md','postplan.html','qa/verification/REVAMP-R1-core-walk.md','web/app/page.tsx','web/app/page.module.css','web/lib/__tests__/walk-recovery-focus.test.tsx','web/lib/__tests__/accessibility-render.test.tsx',`${prefix}/precommit.mjs`].sort();
+const staged=git('diff','--cached','--name-only','-z').toString().split('\0').filter(Boolean).sort();
+assert.deepEqual(staged,expected);git('diff','--cached','--check');
+const files=JSON.parse(read(`${prefix}/artifact-index.json`)).files;
+const bytes=execFileSync('git',['cat-file','--batch'],{cwd:root,windowsHide:true,maxBuffer:64*1024*1024,input:files.map(f=>':'+f.path).join('\n')+'\n',timeout:60000});
+let cursor=0;
+for(const file of files){const end=bytes.indexOf(10,cursor),header=bytes.subarray(cursor,end).toString(),match=header.match(/^[a-f0-9]{40} blob (\d+)$/);assert.ok(match,header);const size=Number(match[1]),data=bytes.subarray(end+1,end+1+size);assert.equal(size,file.bytes,file.path);assert.equal(createHash('sha256').update(data).digest('hex'),file.sha256,file.path);assert.equal(Buffer.compare(data,read(file.path)),0,file.path);cursor=end+1+size+1;}
+assert.equal(cursor,bytes.length);
+const evidence='qa/verification/REVAMP-R1-core-walk.md',base='06953fd873e39d08392c171437e4cc7963155dbf';
+const before=git('show',`${base}:${evidence}`),indexEvidence=git('show',':'+evidence);
+assert.equal(before.length,405838);assert.equal(Buffer.compare(before,indexEvidence.subarray(0,before.length)),0);assert.equal(Buffer.compare(indexEvidence,read(evidence)),0);
+const head=git('rev-parse','HEAD').toString().trim(),remote=git('ls-remote','origin','refs/heads/main').toString();assert.equal(head,base);assert.equal(remote.split(/\s/)[0],base);
+const audit={head,remote,stagedCount:staged.length,stagedPaths:staged,artifactCount:files.length,artifactBytes:files.reduce((n,f)=>n+f.bytes,0),allIndexedArtifactHashesMatch:true,evidence:{prefixBytes:before.length,addedBytes:indexEvidence.length-before.length,exactPrefix:true,indexEqualsDisk:true},finalPeerReview:{reviewer:'Avicenna',scope:'Read-only final docs/accounting review',blockingFindings:0,confirmed:'405838-byte prefix+5063-byte append;23capture hashes/12direct-view entries+11duplicates;71.310+26.273=97.583seconds;Retry-map hook-hostonly;allbroadgatesopen',ownedSessionsRemaining:0,closedBeforeCommit:true},pipelineRuns:0,deployments:0};
+writeFileSync(resolve(root,prefix,'precommit.json'),JSON.stringify(audit,null,2)+'\n',{flag:'wx'});
+console.log(JSON.stringify({staged:staged.length,artifacts:files.length,indexDiskHashesMatch:true,evidence:audit.evidence,head,remoteMain:remote.trim()},null,2));

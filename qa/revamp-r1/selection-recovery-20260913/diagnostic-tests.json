@@ -1,0 +1,11 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "--test",
+    "qa/revamp-r1/selection-recovery-20260913/focus-geometry.test.mjs"
+  ],
+  "exitCode": 0,
+  "stdout": "✔ recorded canvas has a clipped border box but an exposed inset ring (5.7823ms)\n✔ the same clipping is still rejected for ordinary controls (1.1629ms)\n✔ a clipped canvas ring is rejected (4.1017ms)\n✔ a missing outline cannot prove canvas focus (0.8061ms)\n✔ positive outline offset is rejected against an exactly clipping parent (0.7817ms)\n✔ inset segmented ring fits an exactly clipping parent (0.6757ms)\nℹ tests 6\nℹ suites 0\nℹ pass 6\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 376.3327\n",
+  "stderr": "",
+  "elapsedMs": 681
+}

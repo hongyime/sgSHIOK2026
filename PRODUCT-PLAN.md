@@ -9,11 +9,12 @@ live services. Reporting choices and weekly scheduler/issue approval are pending
 LOCALLY_VERIFIED: walk-only inspector. Two tabs (MRT/LRT exits, Bus stops), shortest
 usable saved walk selected automatically, no Suggested/comparison/About data,
 automatic zoom-bounded night lighting, bounded explicit preview recovery.
-Current QA: qa/revamp-r1/production-worker-20260913 (bounded captured-runtime diagnosis);
-retained native-zoom-20260913 and notice-inspection-20260913;
-prior recovery/UX acceptance: keyboard-recovery-20260913 and completion-20260913.
-Build vOoOxn7etjT-WJqrIExq7: http://127.0.0.1:4416/. Current1930/72 isolated web
-tests and42dependency guards pass;179focused tests/4files,TypeScript/build pass.
+Current QA: qa/revamp-r1/selection-recovery-20260913 (retry and keyboard acceptance);
+retained production-worker-20260913, native-zoom-20260913 and notice-inspection-20260913.
+Build l7V5uOArXwdDrUIe3Wc2s: http://127.0.0.1:4420/. Current1945/72 isolated web
+tests and42dependency guards pass; TypeScript/build pass. Added14recovery cases
+and1segmented-focus CSS contract:1930+14+1=1945. Focused193/4 before CSS and47/1
+after CSS pass; the final isolated suite covers all changed sources together.
 Maintenance follow-up:955existing+57inspection=1012focused tests in12files pass;
 offline CLI smoke and integrity pass. Web sources/tests/build are unchanged by it.
 Native page-zoom treatment:56checks/9captures at200% and17checks/2captures for
@@ -21,10 +22,14 @@ default-reset at100%; all11final captures parent-inspected. Reset now focuses th
 surviving postal heading; Back to walk scrolls its summary focus into view.
 The earlier42green checks missed clipped post-Back focus; that evidence and the
 failed reset/default-setup attempts remain recorded. This is not a same-document
-zoom shortcut test, screen-reader, physical-phone, full-row readability or speed
-acceptance. Actual production is identified; current-release SW/returning-client
+zoom shortcut test, screen-reader, physical-phone or speed acceptance. Current
+follow-up completes four-metric reading and keyboard camera at native200%:
+20checks/15captures pass. First9/10attempt remains failed; independent screenshot
+review found clipped MRT/Bus focus rings, now inset inside their container.
+Retry selection/map focus transfers synchronously before the control disappears.
+Actual production is identified; current-release SW/returning-client
 acceptance, complete runtime retention and exact deployment remain open.
-Preview4414 is superseded; earlier390x844/four-size checks were not rerun here.
+Previews4414/4416/4418 are superseded; earlier390x844/four-size checks were not rerun here.
 Comparison T08-T11 is RETIRED, not an acceptance blocker. Historical outcomes
 below describe earlier work, not instructions to restore it. Existing saved
 shortlists are not read, written or deleted by Home. Technical evidence moves
@@ -507,6 +512,8 @@ No ticket is DONE merely because a document, mock, passing count or button exist
   project-suite or runtime release acceptance is claimed.
 
 ### [ ] T25: Run cross-feature accessibility and failure acceptance
+
+- Retry/keyboard follow-up2026-09-13: Retry selection and Retry map now transfer owned focus before removing their controls; stale or unfocused handlers do not steal focus.14hook-host cases plus1CSS contract added. Independent inspection found the segmented MRT/Bus outline clipped by overflow, now fixed with an inset contrasting ring. Final1945/72 isolated tests+42guards, TypeScript/build pass. At native200% zoom,20browser checks cover Retry, complete four-metric reading, visible inactive/active transit focus, camera pan/zoom and Tab exit.15captures are covered by direct inspection/exact-byte matches to inspected images. The initial9/10attempt, canvas geometry assertion error, earlier invalid test setup and valid red regressions remain preserved. Camera checks use actual movement and rendered selected features, not source counts alone. Reduced-motion preference was enabled, but animation duration was not measured. Same-document zoom transition, screen-reader, physical-phone, representative speed and exact-release acceptance remain open. Evidence: `qa/revamp-r1/selection-recovery-20260913/summary.json`.
 - Actual worker lifecycle2026-09-12: current-app trace explicitly joins page request to attached worker target/session,200response and loadingFinished there;18592observed response bytes match packaged6.4.1worker. Inspected current map remains4features. Raw4pass/1strict-error failure remains unchanged; offline analysis explains10exact canceled tile commands and leaves0unexplained errors/page requests after the worker join.20native analysis contracts pass. Fourgzip404probes remain explicit; this closes the current worker-handoff diagnosis, not full transport/platform/performance acceptance and not retroactive attribution of older traces. Evidence: qa/revamp-r1/worker-lifecycle-20260912/summary.json. No rerun solely for a green raw label.
 - Current-lock follow-up2026-09-12: first replay remains52pass/1audit failure on3uncorrelated CDP errors. New tracing records direct page ownership, Fetch command/reply IDs and raw Network events.45diagnostic contracts pass; new replay53/53 runtime/Fetch checks,14byte-verified and inspected captures, cleanup verified.4new command faults match exact canceled OneMap tiles. Complete transport remains incomplete:6gzip404s,5plain200 fallbacks,1optional transit probe without a plain request,1worker entry without page terminal. Do not relabel the old errors or close allT25. Retained-client/platform/representative-speed gates remain. Evidence: qa/revamp-r1/resume-20260912/summary.json.
 - Status: PARTIAL. Size: M. Parent: P3.1.

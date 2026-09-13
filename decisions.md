@@ -3979,3 +3979,25 @@ no uninstrumented live-site, returning-client, phone or performance pass follows
 33offline diagnostic tests and two inspected captures support only the recorded
 mechanism. Actual release, reporting infrastructure and maintenance activation
 remain separately gated. No pipeline, installation or deployment was performed.
+
+## 2026-09-13: Retry focus and clipped transit controls
+
+Apply the existing owned-focus recovery rule to Retry selection and Retry map:
+move focus synchronously to the surviving walk heading or search input before
+the activating control disappears. Capture the pending selection before loading;
+ignore stale handlers without one. Never restore focus from an async completion,
+and do not intercept the native Reload path.
+
+Segmented MRT/Bus controls clip overflow by design. Their focus ring must be
+inset and distinguishable on both active and inactive backgrounds. A computed
+focus-visible flag is not evidence that the ring can be seen: peer inspection
+caught this defect despite the first browser check accepting the button bounds.
+
+At native200% zoom the canvas border box reached400px against an innerHeight399;
+its3px outline is inset6px and remained visible. Test its actual inset ring
+separately while retaining strict full-box checks for ordinary controls. Preserve
+the failed diagnostic and screenshots; never broaden every visibility tolerance
+to obtain a pass. Current acceptance covers metric reading, keyboard camera and
+Tab exit, not screen readers, real phones, same-document zoom changes or release
+approval.15new web tests, six diagnostic geometry tests and the bounded corrected
+browser support this narrow fix. No pipeline or deployment was authorized.

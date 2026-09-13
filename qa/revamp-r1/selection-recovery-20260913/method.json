@@ -1,0 +1,43 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "base": "06953fd873e39d08392c171437e4cc7963155dbf",
+  "productChanges": ["web/app/page.tsx", "web/app/page.module.css"],
+  "tests": ["web/lib/__tests__/walk-recovery-focus.test.tsx", "web/lib/__tests__/accessibility-render.test.tsx"],
+  "testHistory": [
+    {"receipt":"checks-rLxMlo", "status":"Invalid initial host setup:15tests/9pass/6fail. Missing form mount and object assertion inspection obscured failures; do not call all6 product regressions. No source pins in this first runner version."},
+    {"receipt":"checks-6J2eOY", "status":"Valid selection red:15tests/11pass/4fail"},
+    {"receipt":"checks-FamN1N", "status":"Selection-only interim green:185tests/4files"},
+    {"receipt":"checks-GJsjWe", "status":"Valid map red:23tests/19pass/4fail"},
+    {"receipt":"checks-A2FGsU", "status":"Retry fixes:193tests/4files green before new CSS"},
+    {"receipt":"checks-PG6LMC", "status":"Retry fixes:1944tests/72files+42guards green before new CSS"},
+    {"receipt":"checks-QuNmmf", "status":"Retry fixes TypeScript green before new CSS"},
+    {"receipt":"checks-gsR5Wm", "status":"Segmented focus CSS red:47tests/46pass/1fail. Receipt pins page and retry test only; pre-fix CSS is captured in build-1 and the base committed CSS."},
+    {"receipt":"checks-A0kQ3c", "status":"Final CSS selector contract:47tests/1file green"},
+    {"receipt":"checks-lnq1fY", "status":"Final isolated suite1945tests/72files+42guards green"},
+    {"receipt":"checks-1l0OqM", "status":"Final TypeScript green"}
+  ],
+  "testBoundaries": "Recovery host models React hooks and focused-node removal; not native React DOM. CSS test pins selector contract, not pixels. Final browser supplies the named native checks. Tests deny access to original and isolated production data; no data copied or moved.",
+  "browsers": {
+    "initial": "observed-vqv2K4 remains exit1,9of10checks. Canvas400px versus viewport399px rejected; camera steps did not execute. Screenshot review separately found invisible segmented focus ring.",
+    "correction": "browser-2.mjs generates new immutable driver/run, never edits original. focus-geometry.mjs retains full bounds for controls and checks actual inset canvas ring. Six geometry tests reject clipped/missing rings. Both MRT and active Bus captured before assertions.",
+    "nativeZoom": "Fresh Chrome Preferences default zoom log(2)/log(1.2), window1440x950, actual CSS viewport712x399 and DPR2. No CSS/font/device-metrics/page-scale zoom substitute. Reduced-motion preference enabled but animation duration not measured.",
+    "scoreFault": "Page Fetch returns synthetic503 for selected score shard, then holds the native Retry request while focus is inspected, then permits unchanged local GET data. No actual input changes.",
+    "mapAcceptance": "Debug map instance queryRenderedFeatures and selected route identity/geometry before and after captures, basemap readiness,4selectedfeatures and real keyboard camera deltas. Not source counts alone.",
+    "networkBoundary": "Page-only Fetch enforcement. No page-observed route API request; no live preview provider invocation in scene. Local GET/HEAD and OneMap Grey_HD tile/logo requests. Trusted current worker has late Network observation, not browser-wide isolation.",
+    "serviceWorker": "Bypassed; not old-client or update/release acceptance.",
+    "bounds": "300000ms maximum child +45000cleanup +15000reserve =360000ms. Syntax preflight/setup included by shrinking child budget. Cleanup in finally before logs, owned Chrome profile only, no filesystem deletion.",
+    "plugin": "In-app browser bootstrap failed once with os error3 before a browser existed. Owned Chrome/CDP fallback used; no repeated plugin attempts."
+  },
+  "builds": "build-1/4418 precedes segmented CSS. build-2/4420 is current. Both use tracked-source copies and installed linked dependencies with protected data absent. Retained29QAfiles/5786770bytes from e8Hlh archive are NOT actual production closure; deploymentIdentityVerified=false.",
+  "preview": "4420proxy37188/Next5816 reuses verified data4340 owned by older proxy33360. Do not stop33360 while4420 needs it. Preview4418 and4416 are superseded, not current acceptance.",
+  "remaining": [
+    "T13 reporting provider/privacy/retention/moderator/backup/account decision and actual service",
+    "Maintenance destination/cadence/account, persistent ledger/backups, operator resolution and actual scheduled delivery",
+    "T19 full scan exceeds900s gate; bounded018956 has6saved+55unstored, no new routes",
+    "Same-document zoom, screen-reader, physical-phone/resident tasks and representative performance",
+    "Actual returning-client transition, security/retention boundary, quota/rollback and exact deployment approval"
+  ],
+  "pipelineRuns": 0,
+  "installations": 0,
+  "deployments": 0
+}

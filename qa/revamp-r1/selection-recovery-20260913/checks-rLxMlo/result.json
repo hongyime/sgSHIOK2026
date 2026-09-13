@@ -1,0 +1,60 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "--globals",
+    "--maxWorkers",
+    "1",
+    "--no-file-parallelism",
+    "--reporter=json",
+    "lib/__tests__/walk-recovery-focus.test.tsx",
+    "--testTimeout=15000"
+  ],
+  "cwd": "C:\\sgSHIOK2026\\web",
+  "exitCode": 1,
+  "elapsedMs": 16582,
+  "counts": {
+    "tests": 15,
+    "passed": 9,
+    "failed": 6
+  },
+  "failures": [
+    {
+      "name": "Home walk recovery focus ownership moves an initial selection Retry to search before removal and leaves it there after success",
+      "messages": [
+        "TypeError: Cannot read properties of undefined (reading 'props')\n    at submit (C:/sgSHIOK2026/web/lib/__tests__/walk-recovery-focus.test.tsx:225:27)\n    at C:/sgSHIOK2026/web/lib/__tests__/walk-recovery-focus.test.tsx:305:21\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2305:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2272:10)"
+      ]
+    },
+    {
+      "name": "Home walk recovery focus ownership keeps selection Retry focus on the surviving walk heading while the next record is loading",
+      "messages": [
+        "TypeError: element.getAttributeNames is not a function\n    at inspectHTML (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:677:30)\n    at inspect (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:788:12)\n    at inspect (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:920:10)\n    at objDisplay (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:926:13)\n    at file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:955:12\n    at String.replace (<anonymous>)\n    at getMessage (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:954:13)\n    at Proxy.assert (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1504:13)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1262:15)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)"
+      ]
+    },
+    {
+      "name": "Home walk recovery focus ownership late selection Retry resolve cannot reclaim focus after a newer search",
+      "messages": [
+        "AssertionError: expected [] to deeply equal [ 'Postal 018956' ]\n    at C:/sgSHIOK2026/web/lib/__tests__/walk-recovery-focus.test.tsx:350:24\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home walk recovery focus ownership late selection Retry reject cannot reclaim focus after a newer search",
+      "messages": [
+        "AssertionError: expected [] to deeply equal [ 'Postal 018956' ]\n    at C:/sgSHIOK2026/web/lib/__tests__/walk-recovery-focus.test.tsx:350:24\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home walk recovery focus ownership missing selection Retry activation does not steal search focus",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at button (C:/sgSHIOK2026/web/lib/__tests__/walk-recovery-focus.test.tsx:160:19)\n    at activate (C:/sgSHIOK2026/web/lib/__tests__/walk-recovery-focus.test.tsx:206:19)\n    at C:/sgSHIOK2026/web/lib/__tests__/walk-recovery-focus.test.tsx:369:21\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home walk recovery focus ownership unowned selection Retry activation does not steal search focus",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at button (C:/sgSHIOK2026/web/lib/__tests__/walk-recovery-focus.test.tsx:160:19)\n    at activate (C:/sgSHIOK2026/web/lib/__tests__/walk-recovery-focus.test.tsx:206:19)\n    at C:/sgSHIOK2026/web/lib/__tests__/walk-recovery-focus.test.tsx:369:21\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    }
+  ]
+}
