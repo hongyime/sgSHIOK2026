@@ -22,7 +22,8 @@ describe("shelter map interactions", () => {
     expect(source).toContain('setSourceData(map, "lamp-posts", lampData)');
     expect(source).toContain("nightLightingSummary(lampOverlayStatus, lampData.features.length)");
     expect(source).toContain("visibleLampOverlaySummary");
-    expect(source).toContain("styles.lampOverlayStatus");
+    expect(source).toContain('<p className={styles.screenReaderOnly} aria-live="polite">');
+    expect(source).not.toContain("styles.lampOverlayStatus");
     expect(source).toContain('{visibleLampOverlaySummary && (');
     expect(cssSource).toContain(".lampOverlayStatus");
     expect(cssSource).toContain("max-width: min(88vw, 360px);");
@@ -275,7 +276,7 @@ describe("shelter map interactions", () => {
     expect(pageSource).toContain("{!hideWalkControls && score.paths && !directBusFallback && !previewRoute && (");
 
     expect(pageSource).toContain("params.delete(\"stop\")");
-    expect(pageSource).toContain("onResetChosenStop={() => handleStopSelect(null)}");
+    expect(pageSource).toContain("onClick={backToSavedWalk}");
     expect(pageSource).toContain("const resolved = nextStopId && nextStopId !== bestCandidateId ? nextStopId : null");
     expect(pageSource).toContain('import { usePathname } from "next/navigation";');
     expect(pageSource).not.toContain("useRouter");

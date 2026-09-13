@@ -1,0 +1,20 @@
+{
+  "stagedArtifactCount": 93,
+  "artifactHashMismatches": [],
+  "buildSourceCount": 160,
+  "byteExactStagedBuildSources": 159,
+  "exception": {
+    "path": "web/lib/__tests__/revamp-layout.test.ts",
+    "workingBytes": 2406,
+    "workingSha256": "9e6613d07cbd93083541166605cc40eb82290790290f379b7058cea291868485",
+    "workingCRLFCount": 1,
+    "stagedBytes": 2405,
+    "stagedSha256": "e33caf9b00b9e30f87b9ccb0d770218661776ce06312b8f07ebe318b2cae66b1",
+    "stagedCRLFCount": 0,
+    "lfNormalizedEqual": true,
+    "trackedDiffEmpty": true,
+    "action": "Unrelated test file left untouched. Build-source/current-disk hashes agree; only its staged representation normalizes one CRLF. No blanket byte-identical staged-source claim."
+  },
+  "protectedStagedDiffPaths": [],
+  "verificationEvidenceDiff": { "addedLines": 60, "deletedLines": 0, "scope": "Before the appended final staging note" }
+}

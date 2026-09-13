@@ -1,0 +1,109 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "--globals",
+    "--maxWorkers",
+    "1",
+    "--no-file-parallelism",
+    "--reporter=json",
+    "lib/__tests__/walk-default.test.ts",
+    "lib/__tests__/walk-preview-request.test.ts",
+    "lib/__tests__/published-walk-page.test.tsx"
+  ],
+  "cwd": "C:\\sgSHIOK2026\\web",
+  "exitCode": 1,
+  "elapsedMs": 9746,
+  "counts": {
+    "tests": 97,
+    "passed": 83,
+    "failed": 14
+  },
+  "failures": [
+    {
+      "name": "T03 page diagnostic ownership keeps a terminal outer render failure global instead of falsely recovering on route change",
+      "messages": [
+        "AssertionError: expected undefined to be defined\n    at setRouteMode (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:459:18)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:288:11\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "T30 native postal search and initial navigation ownership reads the input synchronously instead of React query \"\"",
+      "messages": [
+        "AssertionError: expected '?postal=018956&transit=bus' to be '?postal=018956' // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:584:24\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "T30 native postal search and initial navigation ownership reads the input synchronously instead of React query \"079908\"",
+      "messages": [
+        "AssertionError: expected '?postal=018956&transit=bus' to be '?postal=018956' // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:584:24\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "T30 native postal search and initial navigation ownership keeps an explicit submit authoritative when the first URL effect is still pending: ",
+      "messages": [
+        "AssertionError: expected '?postal=018956&transit=bus' to be '?postal=018956' // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:640:26\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "T30 native postal search and initial navigation ownership keeps an explicit submit authoritative when the first URL effect is still pending: ?postal=079908&transit=mrt_lrt&stop=mrt:21624&route=shortest",
+      "messages": [
+        "AssertionError: expected '?postal=018956&transit=bus' to be '?postal=018956' // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:640:26\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "T30 native postal search and initial navigation ownership consumes a native GET postal once after mount with no submit handler call",
+      "messages": [
+        "AssertionError: expected '?postal=018956&transit=bus' to be '?postal=018956' // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:655:24\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Retired comparison entry points ignores saved comparison and old fragment without writing storage: ?postal=018956",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at child (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:219:19)\n    at summary (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:223:23)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:696:14\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home published-walk integration through actual handlers MRT -> candidate C -> bus -> MRT preserves original candidates and coherent summary/map values",
+      "messages": [
+        "AssertionError: expected 'BAYFRONT MRT STATION Exit C' to be 'BAYFRONT MRT STATION Exit E' // Object.is equality\n    at assertCoherent (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:483:30)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:800:5\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home explicit preview failure and stale-response boundaries keeps published metrics/geometry on transport failure and resets without another request",
+      "messages": [
+        "AssertionError: expected true to be false // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:944:44\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home explicit preview failure and stale-response boundaries keeps published metrics/geometry on non-ok-payload failure and resets without another request",
+      "messages": [
+        "AssertionError: expected true to be false // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:944:44\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home explicit preview failure and stale-response boundaries keeps published metrics/geometry on invalid-json failure and resets without another request",
+      "messages": [
+        "AssertionError: expected true to be false // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:944:44\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home mapped-exposure selection ownership candidate selection clears old focus and retains its own mapped fragments",
+      "messages": [
+        "AssertionError: expected true to be false // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1134:87\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home mapped-exposure selection ownership shortest excludes sheltered sections and returning does not resurrect old focus",
+      "messages": [
+        "AssertionError: expected undefined to be defined\n    at setRouteMode (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:459:18)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1145:11\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home URL-intent and load-completion ownership regressions re-searching the same postal resets to its default and clears stop/transit/route at score readiness",
+      "messages": [
+        "AssertionError: expected undefined to be defined\n    at setRouteMode (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:459:18)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1306:11\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    }
+  ]
+}

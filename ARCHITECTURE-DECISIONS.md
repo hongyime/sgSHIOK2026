@@ -453,3 +453,34 @@ Closing, replacing a link or reopening invalidates old clipboard feedback.
 Escape closes only the share dialog and focus returns to its invoking control.
 The map-first top-left inspector and bottom-right About data layout are unchanged.
 This is frontend-only: no accounts, database, new dependency, pipeline or deploy.
+
+## 2026-09-13: Owner revision, walk-only inspector
+
+This supersedes earlier comparison and About data UI decisions for current scope.
+Retire T08-T11 rather than treating an unwanted feature as incomplete delivery.
+Home has no comparison view/controller, saved-list restoration, share handling
+or technical/data dock. Preserve stored lists and historical modules/evidence;
+do not silently migrate or delete user data. README and ATTRIBUTION document
+data limits, methodology and source dates. Mandatory basemap credit stays visible.
+
+Show only MRT/LRT exits and Bus stops. New searches select the shortest usable
+authoritative saved route across both; category clicks apply the same rule within
+that category. Explicit saved-route URLs override the automatic default. Stable
+canonical-key ties prevent UI churn. Eligibility still requires validated metrics,
+classification and drawable geometry. This does not establish all-stop coverage.
+
+Enable night lighting automatically using the existing zoom/viewport/cache limits.
+Routine lamp counts are accessible status, not an extra visual control or safety
+claim. Optional layer changes do not own or block the route source.
+
+Online previews are explicit, non-authoritative and bounded by HTTP validation
+and a12-second client deadline including body parsing. Retain the last usable
+saved selection and marker through failure, including an empty clicked category.
+Retry is manual and deduplicated; Back restores that selection and URL. Late
+responses cannot replace the current postal/stop. The client deadline is not a
+claim that the existing upstream server fetch has its own cancellation deadline.
+
+Local QA must forward GET /api/onemap-route rather than rejecting every API
+call. Other API paths/methods remain denied. Use existing server credentials only,
+without storing them in the snapshot/evidence. Controlled failure checks prove
+recovery, not live OneMap uptime. No input rebuild, scoring, export or deployment.

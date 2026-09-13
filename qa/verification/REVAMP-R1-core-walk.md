@@ -4656,3 +4656,65 @@ Screenshots were inspected with the image tool; exact inspected paths/hashes are
 2. Hiding technical detail improves the journey but cannot turn missing data or an unavailable live preview into a working route. Physical usability and representative map latency remain unproven.
 
 Final staging check2026-09-13:75artifact SHA256 values match their staged bytes; mismatches=[]. Scoped qa/revamp-r1/ux-reset-20260912/.gitattributes disables text conversion only for this run's .txt outputs. The first staging check caught4CRLF conversions; re-adding those new logs with --renormalize after the scoped -text rule preserves original bytes. No pipeline input hash differs. Evidence diff is44additions/0deletions before this final appended staging note. git check-ignore -v on the evidence path and postplan.html returned no output,exit1.
+
+
+## 2026-09-13: Walk-only owner revision, shortest saved default and preview recovery
+
+Working root: C:\sgSHIOK2026; hostname:Prawn-E14. Base:ea825bca19e916f8c32ecbb5f8f0294a1c585162.
+Current records:qa/revamp-r1/walk-only-20260913/summary.json. Full raw receipts, commands, source hashes and count changes are included there and in the indexed compressed artifacts. Existing evidence above is unchanged.
+
+Command:node qa/revamp-r1/walk-only-20260913/checks.mjs --full
+Final receipt:checks-1789267423920. Exit0.
+42 dependency-guard cases pass.
+Test Files  67 passed (67)
+Tests  1784 passed (1784)
+Zero skips. Production-data directory absent and access-denial probe passed.
+1784 = 1791 - 25 retired page cases - 2 retired draft cases + 1 retired-draft boundary + 1 UI-removal case + 2 fragment guards + 2 failure cases + 14 helper cases.
+67files = 65 + 2new helper testfiles. summary.json names every retired page case. Existing pure comparison modules/tests remain historical, without a Home entry point or storage loader. Obsolete copy/disclosure assertions were explicitly corrected, not claimed unchanged.
+
+Command:node qa/revamp-r1/walk-only-20260913/checks.mjs lib/__tests__/walk-default.test.ts lib/__tests__/walk-preview-request.test.ts lib/__tests__/published-walk-page.test.tsx
+Focused receipt:checks-1789266357480. 99passed,0failed,exit0.
+Initial red/missing-module results and interim failures are retained.
+Command:node qa/revamp-r1/walk-only-20260913/build.mjs
+Final build:LWmaOWIMR0lOcdFZ1XlYd; exit0; sourceStable:true. Finalize receipt rechecks every build source against current bytes.
+Command:node web/node_modules/typescript/bin/tsc --project web/tsconfig.json --noEmit --incremental false
+Exit0;stdout empty.
+Command:python scripts/check_repo_integrity.py
+repo_integrity=ok
+Exit0.
+Command:git check-ignore -v qa/verification/REVAMP-R1-core-walk.md postplan.html
+stdout empty;exit1. git ls-files --error-unmatch confirms both tracked.
+
+Current preview:http://127.0.0.1:4406/; plan:http://127.0.0.1:4406/postplan.html.
+Proxy/dataPID11476 on4406/4335; NextPID32480 on4405. Old4404/4386 are superseded snapshots.
+The previous QA proxy rejected every /api/ request. Current proxy allows only GET /api/onemap-route, uses existing server credentials without logging/copying values, and leaves other APIs denied.
+
+Command:node qa/revamp-r1/walk-only-20260913/browser-2.mjs
+observed-q5dYh5:64checks pass,exit0,cleanup verified,11input anchors unchanged.
+Actual clicks select MRT/LRT Exit C and the saved bus walk on public fixture018956. Four viewports:320x667,390x667,390x844,1440x950;13synchronized captures with current selected-route features. Automatic lighting is loaded at neighbourhood zoom. A real unsaved bus marker click receives controlled503; Retry sends one further request; Back preserves/restores saved geometry without a third request. Camera setup before that marker click is explicit, not claimed as a gesture test.
+Earlier observed-IflzpE and observed-61CqNb stop on harness target selection (no unsaved marker under an unobscured point), not an app PASS. Their captures remain. Visual review removed the visible lamp-count overlap with attribution at320px; screen-reader status remains.
+
+Command:node qa/revamp-r1/walk-only-20260913/provider-probe.mjs
+Public fixture018956 to bus:03419;HTTP200;ok:true;elapsedMs:355.585;withinClientDeadline:true.
+Full public-location response is in provider-probe.json. No pipeline/input write. This one successful upstream observation is not an all-stop guarantee.
+Command:node qa/revamp-r1/walk-only-20260913/preview-success-browser.mjs
+observed-GMu0lt:21functional checks pass, but overall audit exit1 on2CDP InvalidInterceptionId faults. Preserved without relabelling.
+The actual observed provider payload, replayed as a controlled200 response, renders a labelled non-authoritative preview and returns to saved bus geometry. No runtime exceptions or denied requests recorded in that run. The extra failed instrumentation audit does not invalidate or silently replace the separate64check passing replay.
+Inspected screenshot paths/hashes and all build/fixture/weight identities are recorded in summary.json.
+
+### FINDINGS
+
+1. The local blanket API403 caused unsaved-stop failures. Exact route forwarding now works and one live public-case request returned200.
+2. Suggested/comparison/About data/technical card no longer appear or mount in Home. Only MRT/LRT exits and Bus stops remain; default selection uses shortest usable saved walking geometry, preserving explicit saved URLs and authoritative identity.
+3. Night lighting is automatic but remains zoom/viewport bounded. The routine lamp-count badge was an actual small-screen overlap and was removed visually, with accessible status retained.
+4. HTTP failures and a body-inclusive12s client deadline cannot erase the prior saved walk/marker. Explicit retry, timeout, stale success/rejection and cross-category failure have tests. This is not a server-side upstream cancellation guarantee.
+5. Main browser acceptance passes64checks; separate positive replay retains its2instrumentation faults and failed audit. Physical phone, representative latency, complete HTTP lifecycle and new service-worker update acceptance remain unproved.
+6. postplan.html, PRODUCT-PLAN, architecture, README, decisions and STATE reflect the current scope. T08-T11 comparison is retired. Remaining service work is data coverage, real reports, maintenance activation and release-specific acceptance.
+7. Protected inputs/weights/existing payloads unchanged; pipeline runs0,installs0,deployments0. No source refresh, clone/migration, X: command or data repair.
+
+### DISAGREEMENTS
+
+1. No new factual disagreement with the owner's revised scope. Closest is bounded to usable saved walks; a bus marker does not guarantee saved geometry or upstream availability.
+2. The broad goal runner still reports blocked and exposes no resume operation to this agent. This concrete request was executed directly; neither a competing goal nor false broad completion was created.
+
+Final staging receipt:staging-byte-check.json. All93indexed artifacts match their staged SHA256.159of160build sources match staged bytes exactly. The unrelated, unchanged revamp-layout.test.ts has one CRLF on disk (2406bytes) normalized to LF in git (2405bytes); normalized content is identical and its tracked diff is empty. Both full hashes are recorded; it was left untouched. Current-disk/build identities still agree. Do not claim all staged sources are byte-identical. This is a test-source newline exception, not a protected-input hash mismatch. No protected path appears in the staged diff. Prior evidence prefix is preserved; the main append was60additions/0deletions before this note.

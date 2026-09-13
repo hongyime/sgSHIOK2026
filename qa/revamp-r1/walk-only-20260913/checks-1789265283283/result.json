@@ -1,0 +1,33 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "--globals",
+    "--maxWorkers",
+    "1",
+    "--no-file-parallelism",
+    "--reporter=json",
+    "lib/__tests__/walk-default.test.ts",
+    "lib/__tests__/walk-preview-request.test.ts",
+    "lib/__tests__/published-walk-page.test.tsx",
+    "-t",
+    "shortest usable|bounded explicit|removes comparison"
+  ],
+  "cwd": "C:\\sgSHIOK2026\\web",
+  "exitCode": 1,
+  "elapsedMs": 17765,
+  "counts": {
+    "tests": 106,
+    "passed": 0,
+    "failed": 1
+  },
+  "failures": [
+    {
+      "name": "T03 page diagnostic ownership removes comparison and data disclosures from Home and enables lighting automatically",
+      "messages": [
+        "AssertionError: expected true to be false // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:254:135\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    }
+  ]
+}

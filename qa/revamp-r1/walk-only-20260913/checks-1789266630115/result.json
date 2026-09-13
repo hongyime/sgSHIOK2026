@@ -1,0 +1,39 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "--globals",
+    "--maxWorkers",
+    "1",
+    "--no-file-parallelism",
+    "--reporter=json",
+    "lib/__tests__/accessibility-render.test.tsx",
+    "lib/__tests__/map-first-shell.test.ts",
+    "lib/__tests__/map-recovery-actions.test.tsx",
+    "lib/__tests__/route-evidence-map-interaction.test.ts",
+    "lib/__tests__/score-card-copy.test.ts"
+  ],
+  "cwd": "C:\\sgSHIOK2026\\web",
+  "exitCode": 1,
+  "elapsedMs": 5115,
+  "counts": {
+    "tests": 91,
+    "passed": 89,
+    "failed": 2
+  },
+  "failures": [
+    {
+      "name": "rendered accessibility output labels transit stop-or-exit availability before a user switches modes",
+      "messages": [
+        "AssertionError: expected '<section class=\"_scoreCard_00c8fe\" ar…' to contain 'disabled=\"\" title=\"No saved walk for …'\n    at C:/sgSHIOK2026/web/lib/__tests__/accessibility-render.test.tsx:1096:33\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2305:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2272:10)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2956:64"
+      ]
+    },
+    {
+      "name": "score card copy names selected MRT/LRT exits and bus stops explicitly in the custom-stop badge",
+      "messages": [
+        "AssertionError: expected '\"use client\";\\n\\nimport React, { useC…' not to contain '{ id: \"mrt_lrt\", label: \"MRT/LRT exit…'\n    at C:/sgSHIOK2026/web/lib/__tests__/score-card-copy.test.ts:198:24\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2305:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2272:10)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2956:64"
+      ]
+    }
+  ]
+}

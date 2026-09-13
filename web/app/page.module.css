@@ -547,7 +547,7 @@
 }
 
 .transitSegmented {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .transitSegmented button {
@@ -1577,7 +1577,7 @@ button.gapItem:hover,
 .resultPanel .transitSegmented { margin-top: 12px; min-height: 44px; }
 .resultPanel .transitSegmented button { touch-action: manipulation; font-size: 12px; }
 .resultPanel .transitSegmented button:disabled { opacity: .55; cursor: not-allowed; }
-.walkActions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+.walkActions { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 10px; }
 .walkActions .addComparison, .walkActions .sheetToggle { align-self: stretch; min-height: 44px; margin: 0; padding: 6px; }
 .resultPanel .layerToggle, .resultPanel .segmented button { min-height: 44px; }
 .technicalRecord { border-top: 1px solid #cddad4; margin-top: 12px; padding-top: 8px; }

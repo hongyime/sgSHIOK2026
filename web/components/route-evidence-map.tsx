@@ -1878,7 +1878,7 @@ export function RouteEvidenceMap({
         dangerouslySetInnerHTML={{ __html: ONE_MAP_ATTRIBUTION }}
       />
       {visibleLampOverlaySummary && (
-        <p className={styles.lampOverlayStatus} aria-live="polite">
+        <p className={styles.screenReaderOnly} aria-live="polite">
           {visibleLampOverlaySummary}
         </p>
       )}

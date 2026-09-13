@@ -1,0 +1,18 @@
+{
+  "url": "http://127.0.0.1:4406/api/onemap-route?startLat=1.282640&startLng=103.860030&endLat=1.271331&endLng=103.862913",
+  "fixturePostal": "018956",
+  "stop": "bus:03419",
+  "policy": "One public-location local web API request; no provider fixture or retry; no pipeline/input writes.",
+  "startedAt": "2026-09-13T02:48:29.552Z",
+  "httpStatus": 200,
+  "body": {
+    "ok": true,
+    "route_geometry": "soyFkc|xRAJFFFDEDd@VB?@@`@TD@^q@NYd@y@DIHO??HMJCB?Nc@?ALe@Em@F?LCRBPH@BJLHLJH\\JPF@@J@JC@?HCB?F?F[??BCV@XP`@CVFLPJAFBN?P?VBDGf@Vd@VNHRJd@Xb@XL@LSN[DBHB\\@PBFI`@IVTXP?A\\k@T_@BEd@E|@}AlAwBBGTFDINWBCDKAKJA^o@BAj@XB?hAn@~A|@~@h@XJTCHOT_@xB{DRe@j@iAN[COLLNRDF?DFGNIHk@JK??BUDBH@F@@?F]HKPEP@PLPXNRFE??NIDCNKDCHLQJn@~A",
+    "total_distance_m": 1912,
+    "total_time_s": 1377,
+    "status_message": "Found route between points"
+  },
+  "usable": true,
+  "elapsedMs": 355.585,
+  "withinClientDeadline": true
+}

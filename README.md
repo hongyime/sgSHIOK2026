@@ -3,12 +3,41 @@
 A free, non-commercial civic web app for Singapore postal records that answers:
 if I move here, what is the walk to transit actually like? It leads with the
 covered-walkway ratio and exposed gaps on real routed walks, adds night lighting
-evidence as a map layer, and keeps the locked SHIOK score visible but secondary.
+evidence as a map layer. Score methodology stays in this repository.
 
 **Status:** live static shelter-map pilot over the frozen v1 124,443-record universe.
 Current product decisions and known evidence limits are tracked in `decisions.md`.
 **Environment:** Windows 11, native pipeline work. No WSL, no Docker, no paid services.
 GitHub Actions exists for repository automation and CI, not for heavy pipeline compute.
+
+## Current walk viewer (local frontend revision, 13 September 2026)
+
+Search accepts six-digit postal codes only. The viewer offers **MRT/LRT exits**
+and **Bus stops**, automatically selecting the shortest usable saved walk among
+the routes available for that postal. "Closest" means recorded walking distance,
+not straight-line proximity or a guarantee that every nearby stop has a route.
+Explicit saved-walk links retain their chosen stop and route variant.
+
+The result shows destination, distance, covered percentage, uncovered distance
+and longest recorded gap. Walk details holds mapped exposed sections and saved
+alternatives. Missing geometry or metrics remain unavailable, never zero.
+Online previews are non-authoritative and can fail independently of saved walks;
+loading is bounded to 12 seconds and Retry is explicit. The previous usable
+saved walk stays visible. The local QA proxy now forwards GET /api/onemap-route;
+provider authentication/availability is a separate dependency.
+
+Night lighting loads automatically at neighbourhood zoom for the current map
+view. These are mapped LTA lamp-post locations, not measured brightness, current
+operating condition or a safety rating. No full-island lamp download is requested.
+The map retains required provider attribution. Dataset attribution, methodology,
+historical provenance and limitations belong here, in [ATTRIBUTION.md](ATTRIBUTION.md)
+and [decisions.md](decisions.md), not an About data control.
+
+Home comparison, its share-view entry point and About data have been removed from
+the application. Existing saved comparison data is left untouched and is not
+loaded. Reporting is still planned; there is no working submission service yet.
+See [postplan.html](postplan.html) and [PRODUCT-PLAN.md](PRODUCT-PLAN.md) for current
+delivery gaps. A commit or local preview does not mean production is deployed.
 
 ## Universe status
 

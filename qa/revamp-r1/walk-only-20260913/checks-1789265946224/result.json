@@ -1,0 +1,331 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "--globals",
+    "--maxWorkers",
+    "1",
+    "--no-file-parallelism",
+    "--reporter=json",
+    "lib/__tests__/walk-default.test.ts",
+    "lib/__tests__/walk-preview-request.test.ts",
+    "lib/__tests__/published-walk-page.test.tsx"
+  ],
+  "cwd": "C:\\sgSHIOK2026\\web",
+  "exitCode": 1,
+  "elapsedMs": 13118,
+  "counts": {
+    "tests": 120,
+    "passed": 69,
+    "failed": 51
+  },
+  "failures": [
+    {
+      "name": "T03 page diagnostic ownership keeps a terminal outer render failure global instead of falsely recovering on route change",
+      "messages": [
+        "AssertionError: expected undefined to be defined\n    at setRouteMode (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:459:18)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:288:11\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "T03 page diagnostic ownership rejects a prior selected-route probe across a category ABA and clears the old snapshot synchronously",
+      "messages": [
+        "AssertionError: expected undefined to be defined\n    at setMode (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:446:18)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:303:11\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "T30 native postal search and initial navigation ownership reads the input synchronously instead of React query \"\"",
+      "messages": [
+        "AssertionError: expected '?postal=018956&transit=bus' to be '?postal=018956' // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:584:24\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "T30 native postal search and initial navigation ownership reads the input synchronously instead of React query \"079908\"",
+      "messages": [
+        "AssertionError: expected '?postal=018956&transit=bus' to be '?postal=018956' // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:584:24\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "T30 native postal search and initial navigation ownership keeps an explicit submit authoritative when the first URL effect is still pending: ",
+      "messages": [
+        "AssertionError: expected 'bus' to be 'best_transit' // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:639:40\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "T30 native postal search and initial navigation ownership keeps an explicit submit authoritative when the first URL effect is still pending: ?postal=079908&transit=mrt_lrt&stop=mrt:21624&route=shortest",
+      "messages": [
+        "AssertionError: expected 'bus' to be 'best_transit' // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:639:40\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "T30 native postal search and initial navigation ownership consumes a native GET postal once after mount with no submit handler call",
+      "messages": [
+        "AssertionError: expected '?postal=018956&transit=bus' to be '?postal=018956' // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:655:24\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home shared comparison URL lifecycle gives a valid fragment precedence over saved state and postal query without saving or querying the ignored postal",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at child (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:219:19)\n    at view (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:687:22)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:701:12\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home shared comparison URL lifecycle rejects an invalid owned fragment without loading records or changing storage",
+      "messages": [
+        "AssertionError: expected 'SHIOK.Map waiting' to contain 'This comparison link is invalid. Your…'\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:715:28\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home shared comparison URL lifecycle changes a shared category and active postal only in memory and the owned fragment",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at child (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:219:19)\n    at view (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:687:22)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:739:5\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home shared comparison URL lifecycle copies only chosen comparison state, not the current query or other view fields",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at clickPageButton (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:184:19)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:749:46\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)"
+      ]
+    },
+    {
+      "name": "Home shared comparison URL lifecycle saves an imported state only on explicit Save and strips the fragment",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at child (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:219:19)\n    at view (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:687:22)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:763:5\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home shared comparison URL lifecycle retains the shared view, link and previous saved state on denied Save",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at child (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:219:19)\n    at view (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:687:22)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:774:5\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home shared comparison URL lifecycle Close restores the local shortlist and creates a history entry whose Back target reopens the link",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at child (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:219:19)\n    at view (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:687:22)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:789:5\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home shared comparison URL lifecycle Add closes for a postal search without losing or saving the ephemeral shared list",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at child (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:219:19)\n    at view (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:687:22)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:804:5\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home shared comparison URL lifecycle clearing an imported list clears the map and fragment without clearing the saved list",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:823:26\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home shared comparison URL lifecycle deduplicates the popstate/hashchange pair for one shared navigation",
+      "messages": [
+        "AssertionError: expected [] to deeply equal [ [ '018956' ] ]\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:835:57\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home shared comparison URL lifecycle invalidates pending primary score and geometry before opening a different shared postal",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at child (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:219:19)\n    at view (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:687:22)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:844:12\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home shared comparison URL lifecycle leaves neither a stale map nor an open share dialog after navigating out of a shared comparison",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at child (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:219:19)\n    at view (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:687:22)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:864:5\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home comparison through actual page handlers restores a closed shortlist without loading its records or writing storage",
+      "messages": [
+        "AssertionError: expected 'SHIOK.Map waiting' to contain 'Compare (2)'\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:888:28\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home comparison through actual page handlers maps the common category default, not the candidate inspected before adding",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at clickPageButton (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:184:19)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:899:11\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home comparison through actual page handlers keeps inactive completed evidence from replacing a pending active column on the map",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at clickPageButton (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:184:19)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:914:20\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)"
+      ]
+    },
+    {
+      "name": "Home comparison through actual page handlers keeps score measurements with failed geometry and removes the previous column route",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at clickPageButton (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:184:19)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:929:38\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)"
+      ]
+    },
+    {
+      "name": "Home comparison through actual page handlers does not send shortest-only geometry to the sheltered map when sheltered parts are missing",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at clickPageButton (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:184:19)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:943:38\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2027:60\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20\n    at new Promise (<anonymous>)"
+      ]
+    },
+    {
+      "name": "Home comparison through actual page handlers does not send shortest-only geometry to the sheltered map when sheltered parts are invalid",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at clickPageButton (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:184:19)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:943:38\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2027:60\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20\n    at new Promise (<anonymous>)"
+      ]
+    },
+    {
+      "name": "Home comparison through actual page handlers new postal search closes comparison and keeps its saved shortlist",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at clickPageButton (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:184:19)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:953:38\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)"
+      ]
+    },
+    {
+      "name": "Home comparison through actual page handlers clearing the shortlist clears only comparison state and its route",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at clickPageButton (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:184:19)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:965:26\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home published-walk integration through actual handlers keeps an existing postal summary and category controls without a null-score legacy card for an unavailable category",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at child (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:219:19)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:991:26\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home published-walk integration through actual handlers MRT -> candidate C -> bus -> MRT preserves original candidates and coherent summary/map values",
+      "messages": [
+        "AssertionError: expected 'BAYFRONT MRT STATION Exit C' to be 'BAYFRONT MRT STATION Exit E' // Object.is equality\n    at assertCoherent (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:483:30)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1068:5\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home explicit preview failure and stale-response boundaries keeps published metrics/geometry on transport failure and resets without another request",
+      "messages": [
+        "AssertionError: expected 'SHIOK.Map waitingChecking this stop. …' to contain 'Checking this stop...'\n    at startPreview (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:209:26)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1198:7\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home explicit preview failure and stale-response boundaries keeps published metrics/geometry on non-ok-payload failure and resets without another request",
+      "messages": [
+        "AssertionError: expected 'SHIOK.Map waitingChecking this stop. …' to contain 'Checking this stop...'\n    at startPreview (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:209:26)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1198:7\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home explicit preview failure and stale-response boundaries keeps published metrics/geometry on invalid-json failure and resets without another request",
+      "messages": [
+        "AssertionError: expected 'SHIOK.Map waitingChecking this stop. …' to contain 'Checking this stop...'\n    at startPreview (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:209:26)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1198:7\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home explicit preview failure and stale-response boundaries does not automatically retry a failed preview; explicit Retry preview permits exactly one additional request",
+      "messages": [
+        "AssertionError: expected 'SHIOK.Map waitingChecking this stop. …' to contain 'Checking this stop...'\n    at startPreview (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:209:26)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1223:5\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home explicit preview failure and stale-response boundaries positive control: the same successful payload can create a labelled preview when the request is current",
+      "messages": [
+        "AssertionError: expected 'SHIOK.Map waitingChecking this stop. …' to contain 'Checking this stop...'\n    at startPreview (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:209:26)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1243:5\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home explicit preview failure and stale-response boundaries ignores late preview success after selecting published candidate C",
+      "messages": [
+        "AssertionError: expected 'SHIOK.Map waitingChecking this stop. …' to contain 'Checking this stop...'\n    at startPreview (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:209:26)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1261:7\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home explicit preview failure and stale-response boundaries ignores late preview rejection after selecting published candidate C",
+      "messages": [
+        "AssertionError: expected 'SHIOK.Map waitingChecking this stop. …' to contain 'Checking this stop...'\n    at startPreview (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:209:26)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1261:7\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home explicit preview failure and stale-response boundaries a late successful preview for postal A cannot replace postal B or repopulate its map",
+      "messages": [
+        "AssertionError: expected 'SHIOK.Map waitingChecking this stop. …' to contain 'Checking this stop...'\n    at startPreview (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:209:26)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1282:5\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home mapped-exposure selection ownership keeps technical score content out of both collapsed and expanded walk controls",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at child (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:219:19)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1313:18\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home mapped-exposure selection ownership uses one-line transit choices and disables choices without recorded paths",
+      "messages": [
+        "AssertionError: expected [ { …(10) }, { …(10) } ] to have a length of 3 but got 2\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1325:21\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home mapped-exposure selection ownership exposes three real fragments without replacing complete logical statistics",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at child (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:219:19)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1352:12\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home mapped-exposure selection ownership keeps the same focus object on unrelated detail and lighting changes",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at clickPageButton (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:184:19)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1375:11\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home mapped-exposure selection ownership candidate selection clears old focus and retains its own mapped fragments",
+      "messages": [
+        "AssertionError: expected true to be false // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1404:87\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home mapped-exposure selection ownership shortest excludes sheltered sections and returning does not resurrect old focus",
+      "messages": [
+        "AssertionError: expected undefined to be defined\n    at setRouteMode (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:459:18)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1415:11\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home mapped-exposure selection ownership opening About data clears a focus whose explorer is no longer visible",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at child (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:219:19)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1442:19\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home mapped-exposure selection ownership a successful explicit preview cannot retain or reopen a published section",
+      "messages": [
+        "AssertionError: expected 'SHIOK.Map waitingChecking this stop. …' to contain 'Checking this stop...'\n    at startPreview (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:209:26)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1454:5\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home URL-intent and load-completion ownership regressions a new postal search supersedes unresolved shared-link intent even if the old stop exists in later POIs",
+      "messages": [
+        "AssertionError: expected 'bus' to be 'best_transit' // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1550:38\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home URL-intent and load-completion ownership regressions MRT chosen while search geometry is pending survives completion with its URL and metrics",
+      "messages": [
+        "AssertionError: expected 'bus' to be 'mrt_lrt' // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1568:40\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home URL-intent and load-completion ownership regressions MRT chosen while shared-link geometry is pending survives completion with its URL and metrics",
+      "messages": [
+        "AssertionError: expected 'bus' to be 'mrt_lrt' // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1568:40\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home URL-intent and load-completion ownership regressions re-searching the same postal resets to its default and clears stop/transit/route at score readiness",
+      "messages": [
+        "AssertionError: expected undefined to be defined\n    at setRouteMode (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:459:18)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1586:11\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "Home full walk-URL serialization races category click while initial geometry is pending cancels unapplied route and stop query values",
+      "messages": [
+        "AssertionError: expected 'bus' to be 'mrt_lrt' // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1703:38\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "T03 displayed comparison diagnostic context keeps the comparison context and route identities when hidden primary geometry completes",
+      "messages": [
+        "AssertionError: expected [] to have a length of 1 but got +0\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1389:20)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at clickPageButton (C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:184:19)\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1734:11\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    }
+  ]
+}

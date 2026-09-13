@@ -1,0 +1,12 @@
+{
+  "buildId": "gZf2R0_jD9vsry0PKWaqW",
+  "snapshot": "C:\\sgSHIOK2026\\tmp\\walk-only-20260913-build-1",
+  "pid": 31164,
+  "dataPort": 4334,
+  "nextPort": 4403,
+  "proxyPort": 4404,
+  "readOnlyData": true,
+  "allowedApi": "GET /api/onemap-route",
+  "oneMapCredentialsConfigured": true,
+  "nextPid": 30064
+}

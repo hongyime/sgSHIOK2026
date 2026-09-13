@@ -166,25 +166,10 @@ describe("Home map recovery actions", () => {
     expect(mapChild().props.retryKey).toBe(original.props.retryKey);
   });
 
-  it.each([false, true])("retained unsent point requires confirmation; accepted=%s", accepted => {
-    mapChild().props.onFeedbackPoint!(point);
-    render();
-    expect(mapChild().props.feedbackPoints).toEqual([point]);
-    const original = mapChild();
-    status("error", "The map did not start.", "reload");
-    confirm.mockReturnValue(accepted);
-    expect(reload).not.toHaveBeenCalled();
-    expect(confirm).not.toHaveBeenCalled();
-
-    click("Reload page");
-    expect(confirm).toHaveBeenCalledExactlyOnceWith(
-      "Reloading will discard your unsent feedback. Reload the page?",
-    );
-    expect(reload).toHaveBeenCalledTimes(accepted ? 1 : 0);
-    render();
-    expect(mapChild().props.feedbackPoints).toEqual([point]);
-    expect(mapChild().key).toBe(original.key);
-    expect(mapChild().props.retryKey).toBe(original.props.retryKey);
+  it("does not expose the retired technical-card draft tool", () => {
+    expect(mapChild().props.onFeedbackPoint).toBeUndefined();
+    expect(mapChild().props.feedbackEnabled).toBeUndefined();
+    expect(mapChild().props.feedbackPoints).toBeUndefined();
   });
 
   it("ordinary partial failure increments retryKey without remounting or reloading", () => {

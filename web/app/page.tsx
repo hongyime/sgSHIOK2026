@@ -67,12 +67,8 @@ import {
   type PublishedWalkSelection,
 } from "../lib/published-walk-selection";
 import type { PublishedTransitCategory } from "../lib/published-transit-options";
-import { createComparisonController } from "../lib/comparison-controller";
-import { MAX_COMPARISON_POSTALS, type ComparisonAction } from "../lib/comparison-state";
-import { buildComparisonLink, comparisonLinkFragment, readComparisonLink } from "../lib/comparison-link";
-import { publishedOptionGeometry } from "../lib/published-walk-view";
-import { HomeComparison } from "../components/home-comparison";
-import { ComparisonShareDialog } from "../components/comparison-share-dialog";
+import { shortestSavedWalk } from "../lib/walk-default";
+import { requestWalkPreview } from "../lib/walk-preview-request";
 import { parseFreshnessDate, sourceFreshnessAtCheck, RECORDED_SOURCE_FRESHNESS } from "../lib/source-freshness";
 
 const EMPTY_TRANSIT_POIS: TransitPoiCollection = { type: "FeatureCollection", features: [] };
@@ -227,8 +223,7 @@ function writeLiveRoutePreviewCache(key: string, payload: LiveRoutePreviewPayloa
 }
 
 const TRANSIT_MODE_OPTIONS: Array<{ id: TransitAccessMode; label: string }> = [
-  { id: "best_transit", label: "Suggested" },
-  { id: "mrt_lrt", label: "MRT/LRT" },
+  { id: "mrt_lrt", label: "MRT/LRT exits" },
   { id: "bus", label: "Bus stops" },
 ];
 
@@ -1060,17 +1055,19 @@ function TransitModeControl({
   score,
   mode,
   setMode,
+  availability,
 }: {
   score: ScoreRecord;
   mode: TransitAccessMode;
   setMode: (mode: TransitAccessMode) => void;
+  availability?: Partial<Record<TransitAccessMode, boolean>>;
 }) {
-  if (!score.route_options) return null;
+  if (!score.route_options && !availability) return null;
   return (
     <div className={`${styles.segmented} ${styles.transitSegmented}`} aria-label="Transit stop or exit type">
       {TRANSIT_MODE_OPTIONS.map((option) => {
         const routeOption = option.id === "best_transit" ? score : score.route_options?.[option.id];
-        const available = Boolean(routeOption?.paths);
+        const available = availability ? availability[option.id] === true : Boolean(routeOption?.paths);
         return (
           <button
             key={option.id}
@@ -1982,9 +1979,6 @@ export default function Home() {
   const [routeTransitPois, setRouteTransitPois] = useState<TransitPoiCollection>({ type: "FeatureCollection", features: [] });
   const [transitMode, setTransitMode] = useState<TransitAccessMode>("best_transit");
   const [routeMode, setRouteMode] = useState<RouteDisplayMode>("shiokest");
-  const [feedbackEnabled, setFeedbackEnabled] = useState(false);
-  const [lampOverlayEnabled, setLampOverlayEnabled] = useState(false);
-  const [aboutDataOpen, setAboutDataOpen] = useState(false);
   const [mapLoadStatus, setMapLoadStatus] = useState<MapLoadStatus>("idle");
   const [mapRecovery, setMapRecovery] = useState<RouteMapRecovery | null>(null);
   const [mapLoadError, setMapLoadError] = useState<string | null>(null);
@@ -1993,10 +1987,6 @@ export default function Home() {
   const diagnosticSerial = useRef(0);
   const [selectionFailure, setSelectionFailure] = useState<{ value: string; request: number; key: number } | null>(null);
   const [geometryFailure, setGeometryFailure] = useState<{ value: string; request: number; attempt: number } | null>(null);
-  const [feedbackPoints, setFeedbackPoints] = useState<FeedbackPoint[]>([]);
-  const [feedbackSegmentLabels, setFeedbackSegmentLabels] = useState<FeedbackSegmentLabel[]>([]);
-  const [feedbackNote, setFeedbackNote] = useState("");
-  const [copyStatus, setCopyStatus] = useState("");
   const [manifest, setManifest] = useState<Manifest | null>(PINNED_DATA_MANIFEST);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -2006,11 +1996,9 @@ export default function Home() {
   const [liveRouteCache, setLiveRouteCache] = useState<Record<string, LoadedSelection>>({});
   const liveRoutePreviewInFlightRef = useRef<Map<string, Promise<LiveRoutePreviewPayload>>>(new Map());
   const [liveRoutePreviewStatuses, setLiveRoutePreviewStatuses] = useState<Record<string, LiveRoutePreviewStatus>>({});
-  const [rankMetric, setRankMetric] = useState<RankMetric>("overall");
-  const [rankingRecords, setRankingRecords] = useState<RankableScoreRecord[]>([]);
-  const [rankingLoading, setRankingLoading] = useState(false);
-  const [rankPanelOpen, setRankPanelOpen] = useState(false);
   const loadSelectionRequestIdRef = useRef(0);
+  const autoSelectionRequest = useRef<number | null>(null);
+  const lastSavedSelection = useRef<{ selection: LoadedSelection; mode: TransitAccessMode; stop: string | null; route: RouteDisplayMode } | null>(null);
   const panelRef = useRef<HTMLElement | null>(null);
   const walkDetailsButtonRef = useRef<HTMLButtonElement | null>(null);
   const restoreWalkControlFocus = useCallback(() => {
@@ -2033,72 +2021,19 @@ export default function Home() {
   const pendingUrlRouteRef = useRef<RouteDisplayMode | null>(null);
   const pendingUrlPostalRef = useRef<string | null>(null);
   const [transitPoisReady, setTransitPoisReady] = useState(false);
-  const [comparisonController] = useState(() => createComparisonController({
-    bundle: DATA_BASE, score: fetchScoreForPostal, geometry: fetchGeomForPostal,
-  }, () => window.localStorage));
-  const [comparison, setComparison] = useState(comparisonController.getSnapshot);
-  const comparisonButtonRef = useRef<HTMLButtonElement | null>(null);
-  const comparisonPanelRef = useRef<HTMLDivElement | null>(null);
-  const dataDockRef = useRef<HTMLElement | null>(null);
   const searchInputRef = useRef<HTMLInputElement | null>(null);
   const lastNavigationHref = useRef<string | null>(null);
   const navigationHandler = useRef<() => void>(() => {});
-  const [shareOpen, setShareOpen] = useState(false);
-  const [comparisonLinkError, setComparisonLinkError] = useState<string | null>(null);
   useEffect(() => {
-    // Plain home and shared comparisons need the same optional cache bootstrap as search.
+    // Bootstrap the optional cache without loading a postal record.
     void requestServiceWorkerCache();
   }, []);
   const syncWalkUrl = useCallback((path: string, postal: string, mode: TransitAccessMode, stop: string | null, route: RouteDisplayMode) => {
-    if (readComparisonLink(window.location.hash).kind === 'valid') return;
     writeWalkUrl(path, postal, mode, stop, route);
     lastNavigationHref.current = window.location.href;
   }, []);
-  const stripComparisonFragment = (push = false) => {
-    if (readComparisonLink(window.location.hash).kind === 'none') return;
-    const url = new URL(window.location.href);
-    url.hash = '';
-    window.history[push ? 'pushState' : 'replaceState'](null, '', url.href);
-    lastNavigationHref.current = window.location.href;
-  };
-  const dispatchComparison = (action: ComparisonAction) => {
-    const reason = comparisonController.dispatch(action);
-    const current = comparisonController.getSnapshot();
-    if (current.shared && readComparisonLink(window.location.hash).kind === 'valid') {
-      const url = new URL(window.location.href);
-      url.hash = comparisonLinkFragment(current.state) ?? '';
-      window.history.replaceState(null, '', url.href);
-      lastNavigationHref.current = window.location.href;
-    }
-    return reason;
-  };
-  useEffect(() => {
-    const unsubscribe = comparisonController.subscribe(() => setComparison(comparisonController.getSnapshot()));
-    comparisonController.restore();
-    setComparison(comparisonController.getSnapshot());
-    return () => { unsubscribe(); comparisonController.setOpen(false); };
-  }, [comparisonController]);
-  useEffect(() => {
-    if (comparison.open) comparisonPanelRef.current?.querySelector<HTMLButtonElement>('[data-comparison-close]')?.focus({ preventScroll: true });
-  }, [comparison.open]);
-  const openComparison = () => {
-    setComparisonLinkError(null);
-    setExposureSelection(null);
-    setAboutDataOpen(false);
-    const details = dataDockRef.current?.querySelector('details');
-    if (details) details.open = false;
-    comparisonController.setOpen(true);
-  };
-  const closeComparison = (search = false) => {
-    setShareOpen(false);
-    comparisonController.setOpen(false);
-    if (comparisonController.getSnapshot().shared) {
-      stripComparisonFragment(!search);
-      if (!search) comparisonController.discardShared();
-    }
-    (search ? searchInputRef.current : comparisonButtonRef.current)?.focus({ preventScroll: true });
-  };
   const discardPendingUrlIntent = useCallback(() => {
+    autoSelectionRequest.current = null;
     pendingUrlStopIdRef.current = null;
     pendingUrlTransitRef.current = null;
     pendingUrlRouteRef.current = null;
@@ -2112,42 +2047,7 @@ export default function Home() {
     setLiveRouteCache({});
     setLiveRoutePreviewStatuses({});
     setExposureSelection(null);
-    setRankPanelOpen(false);
-    setRankingRecords([]);
-    setRankingLoading(false);
   }, [primary?.result?.POSTAL]);
-
-  useEffect(() => {
-    const postal = primary?.result?.POSTAL ?? null;
-    if (
-      !shouldFetchRankRecords({
-        rankPanelOpen,
-        postal,
-        hasSubscores: Boolean(primary?.score?.subscores),
-      })
-    ) {
-      setRankingRecords([]);
-      setRankingLoading(false);
-      return;
-    }
-
-    let active = true;
-    const rankingPostal = postal as string;
-    setRankingLoading(true);
-    void fetchRankRecordsForPostalArea(rankingPostal)
-      .then((records) => {
-        if (active) setRankingRecords(records);
-      })
-      .catch(() => {
-        if (active) setRankingRecords([]);
-      })
-      .finally(() => {
-        if (active) setRankingLoading(false);
-      });
-    return () => {
-      active = false;
-    };
-  }, [rankPanelOpen, primary?.result?.POSTAL, primary?.score?.subscores]);
 
   const originLatLng = useMemo(() => resolveOriginLatLng(primary), [primary]);
   const mapTransitPois = routeTransitPois.features.length > 0 ? routeTransitPois : baseTransitPois;
@@ -2162,6 +2062,11 @@ export default function Home() {
       limit: 5,
     });
   }, [originLatLng, mapTransitPois, transitMode]);
+
+  const categoryWalks = useMemo(() => ({
+    bus: shortestSavedWalk(primary, DATA_BASE, "bus"),
+    mrt_lrt: shortestSavedWalk(primary, DATA_BASE, "mrt_lrt"),
+  }), [primary]);
 
   const publishedCategory: PublishedTransitCategory = transitMode === "best_transit"
     ? primary?.score?.best_node?.type === "mrt_lrt_exit" ? "mrt_lrt" : "bus"
@@ -2287,8 +2192,7 @@ export default function Home() {
 
     let request = liveRoutePreviewInFlightRef.current.get(cacheKey);
     if (!request) {
-      request = fetch(url)
-        .then((res) => res.json())
+      request = requestWalkPreview(url)
         .finally(() => {
           liveRoutePreviewInFlightRef.current.delete(cacheKey);
         });
@@ -2314,12 +2218,23 @@ export default function Home() {
     };
   }, [chosenStopId, transitSelection, selectedPublishedOption, primary?.geom, originLatLng, candidates, mapTransitPois, liveRouteCache, previewRetryKey]);
 
+  useEffect(() => {
+    if (primary && selectedPublishedOption?.retainable) {
+      lastSavedSelection.current = {
+        selection: publishedSelectionView(primary, selectedPublishedOption),
+        mode: transitMode, stop: chosenStopId, route: routeMode,
+      };
+    }
+  }, [primary, selectedPublishedOption, transitMode, chosenStopId, routeMode]);
+
   const activeSelection = useMemo(
     () => {
       if (primary && selectedPublishedOption) return publishedSelectionView(primary, selectedPublishedOption);
       if (chosenStopId) {
         const preview = liveRouteCache[chosenStopId];
         if (preview?.result.POSTAL === primary?.result.POSTAL) return preview;
+        const saved = lastSavedSelection.current;
+        if (saved && saved.selection.result.POSTAL === primary?.result.POSTAL) return saved.selection;
       }
       // A pending/failed preview is not a walking route. Keep the published result.
       return transitSelection;
@@ -2328,13 +2243,6 @@ export default function Home() {
   );
 
   const mapRoutes = useMemo(() => buildRouteItems(activeSelection), [activeSelection]);
-  const comparedEntry = comparison.state.activePostal ? comparison.entries[comparison.state.activePostal] : null;
-  const comparedRoutes = useMemo<RouteMapItem[]>(() => {
-    if (!comparison.open || !comparedEntry?.option || comparedEntry.status !== 'ready'
-      || comparedEntry.geometryStatus !== 'ready' || comparedEntry.option.geometry.sheltered.parts.length === 0) return [];
-    const geom = publishedOptionGeometry(comparedEntry.postal, comparedEntry.option);
-    return geom ? [{ id: `comparison:${comparedEntry.postal}`, label: `Postal ${comparedEntry.postal}`, geom, color: '#008f86' }] : [];
-  }, [comparison.open, comparedEntry]);
   const sameSelectedRoute = activeSelection?.publishedOption
     ? activeSelection.publishedOption.geometry.shortest.signature !== null
       && activeSelection.publishedOption.geometry.shortest.signature === activeSelection.publishedOption.geometry.sheltered.signature
@@ -2361,13 +2269,8 @@ export default function Home() {
   };
   const showDetailOverlay = Boolean(primary);
   const diagnosticContext = useMemo(() => ({}), [
-    comparison.open,
-    comparison.open ? comparedEntry : activeSelection,
-    comparison.open ? comparison.state.activePostal : loadSelectionRequestIdRef.current,
-    comparison.open ? comparison.state.category : transitMode,
-    comparison.open ? null : geometryAttemptRef.current,
-    comparison.open ? null : chosenStopId,
-    comparison.open ? 'shiokest' : mapRouteMode,
+    activeSelection, loadSelectionRequestIdRef.current, transitMode,
+    geometryAttemptRef.current, chosenStopId, mapRouteMode,
     mapRetryKey,
   ]);
   const currentDiagnosticContext = useRef(diagnosticContext);
@@ -2380,7 +2283,7 @@ export default function Home() {
 
   // Published choices resolve independently of optional POI loading.
   useEffect(() => {
-    if (!primary || loading || comparisonController.getSnapshot().shared) return;
+    if (!primary || loading) return;
     if (pendingUrlPostalRef.current !== primary.result.POSTAL) {
       discardPendingUrlIntent();
       return;
@@ -2426,7 +2329,7 @@ export default function Home() {
     pendingUrlStopIdRef.current = null;
     pendingUrlTransitRef.current = null;
     pendingUrlPostalRef.current = null;
-  }, [primary, loading, transitPoisReady, mapTransitPois, pathname, transitMode, routeMode, discardPendingUrlIntent, comparisonController, syncWalkUrl]);
+  }, [primary, loading, transitPoisReady, mapTransitPois, pathname, transitMode, routeMode, discardPendingUrlIntent, syncWalkUrl]);
 
   const loadSelection = async (result: SearchResult, preserveInitialUrl = false) => {
     const postal = normalizePostal(result.POSTAL);
@@ -2437,13 +2340,11 @@ export default function Home() {
       return;
     }
     if (!preserveInitialUrl) discardPendingUrlIntent();
-    setShareOpen(false);
-    setComparisonLinkError(null);
-    stripComparisonFragment();
-    comparisonController.setOpen(false);
     setExposureSelection(null);
     const requestId = loadSelectionRequestIdRef.current + 1;
     loadSelectionRequestIdRef.current = requestId;
+    autoSelectionRequest.current = requestId;
+    lastSavedSelection.current = null;
     const geometryAttempt = ++geometryAttemptRef.current;
     preloadRouteMap();
     requestServiceWorkerCache();
@@ -2482,11 +2383,6 @@ export default function Home() {
       setTransitPoisReady(false);
       setRouteMode("shiokest");
       setSheetExpanded(false);
-      setFeedbackEnabled(false);
-      setFeedbackPoints([]);
-      setFeedbackSegmentLabels([]);
-      setFeedbackNote("");
-      setCopyStatus("");
       if (!preserveInitialUrl && pathname) {
         syncWalkUrl(pathname, postal, "best_transit", null, "shiokest");
       }
@@ -2502,6 +2398,22 @@ export default function Home() {
       if (requestId !== loadSelectionRequestIdRef.current) return;
       setManifest(loadedManifest);
       if (initialSelection.geom !== geom) setPrimary({ ...initialSelection, geom });
+      if (autoSelectionRequest.current === requestId && !pendingUrlTransitRef.current && !pendingUrlStopIdRef.current) {
+        const closest = shortestSavedWalk({ ...initialSelection, geom }, DATA_BASE);
+        if (closest) {
+          const target = publishedChoiceTarget(closest.option);
+          const nextRoute = pendingUrlRouteRef.current ?? closest.route;
+          setTransitMode(target.mode);
+          setChosenStopId(target.stopId);
+          setRouteMode(nextRoute);
+          pendingUrlPostalRef.current = postal;
+          pendingUrlTransitRef.current = target.mode;
+          pendingUrlStopIdRef.current = target.stopId;
+          pendingUrlRouteRef.current = nextRoute;
+          if (pathname) syncWalkUrl(pathname, postal, target.mode, target.stopId, nextRoute);
+        }
+        autoSelectionRequest.current = null;
+      }
       void fetchTransitPoisForGeom(geom)
         .then(async (nearbyTransitPois) => {
           if (requestId !== loadSelectionRequestIdRef.current) return;
@@ -2536,7 +2448,7 @@ export default function Home() {
     }
   };
 
-  // A shared fragment is an explicit view, never an implicit write to a saved shortlist.
+  // Retired comparison fragments never load or overwrite a saved shortlist.
   navigationHandler.current = () => {
     if (lastNavigationHref.current === window.location.href) return;
     lastNavigationHref.current = window.location.href;
@@ -2548,33 +2460,7 @@ export default function Home() {
     setSelectionFailure(null);
     setGeometryError(false);
     setGeometryFailure(null);
-    setComparisonLinkError(null);
-    setShareOpen(false);
     setExposureSelection(null);
-    const link = readComparisonLink(window.location.hash);
-    if (link.kind === 'valid') {
-      setPrimary(null);
-      setChosenStopId(null);
-      setQuery('');
-      setResults([]);
-      setAboutDataOpen(false);
-      const details = dataDockRef.current?.querySelector('details');
-      if (details) details.open = false;
-      comparisonController.loadShared(link.state);
-      const canonical = buildComparisonLink(window.location.href, link.state);
-      if (canonical) window.history.replaceState(null, '', canonical);
-      lastNavigationHref.current = window.location.href;
-      preloadRouteMap();
-      return;
-    }
-    comparisonController.setOpen(false);
-    comparisonController.discardShared();
-    if (link.kind === 'invalid') {
-      setPrimary(null);
-      setChosenStopId(null);
-      setComparisonLinkError('This comparison link is invalid. Your saved shortlist is unchanged.');
-      return;
-    }
     const params = new URLSearchParams(window.location.search);
     const postal = normalizePostal(params.get('postal') || '');
     pendingUrlPostalRef.current = postal;
@@ -2642,12 +2528,23 @@ export default function Home() {
 
   const handleTransitModeChange = useCallback((mode: TransitAccessMode) => {
     discardPendingUrlIntent();
-    setTransitMode(mode);
-    setChosenStopId(null);
+    const closest = mode === "best_transit" ? shortestSavedWalk(primary, DATA_BASE) : categoryWalks[mode];
+    if (!closest) {
+      setTransitMode(mode);
+      setChosenStopId(null);
+      setLiveRoutePreviewStatuses({});
+      setExposureSelection(null);
+      syncStopUrl(null, mode);
+      return;
+    }
+    const target = publishedChoiceTarget(closest.option);
+    setTransitMode(target.mode);
+    setChosenStopId(target.stopId);
+    setRouteMode(closest.route);
     setLiveRoutePreviewStatuses({});
     setExposureSelection(null);
-    syncStopUrl(null, mode);
-  }, [syncStopUrl, discardPendingUrlIntent]);
+    syncStopUrl(target.stopId, target.mode, closest.route);
+  }, [primary, categoryWalks, syncStopUrl, discardPendingUrlIntent]);
 
   const handleStopSelect = useCallback(
     (nextStopId: string | null) => {
@@ -2725,30 +2622,6 @@ export default function Home() {
     setError("Enter a 6-digit Singapore postal code.");
   };
 
-  const addFeedbackPoint = (point: FeedbackPoint) => {
-    setCopyStatus("");
-    setFeedbackPoints((current) => {
-      if (current.length >= 24) return current;
-      if (current.length >= 1) {
-        setFeedbackSegmentLabels((labels) => [...labels, "sheltered"]);
-      }
-      return [...current, point];
-    });
-  };
-
-  const setFeedbackSegmentLabel = (index: number, label: FeedbackSegmentLabel) => {
-    setFeedbackSegmentLabels((current) =>
-      current.map((item, itemIndex) => (itemIndex === index ? label : item))
-    );
-  };
-
-  const clearFeedback = () => {
-    setFeedbackPoints([]);
-    setFeedbackSegmentLabels([]);
-    setFeedbackNote("");
-    setCopyStatus("");
-  };
-
   const handleMapStatusChange = useCallback((status: MapLoadStatus, message?: string, recovery?: RouteMapRecovery, issue?: RouteMapIssue) => {
     if (currentMapInstance.current !== mapInstanceKey || currentMapRetry.current !== mapRetryKey) return;
     if (issue?.selectionContext && issue.selectionContext !== currentDiagnosticContext.current) return;
@@ -2763,40 +2636,37 @@ export default function Home() {
       && current.retry === next.retry && current.context === next.context ? current : next);
   }, [mapInstanceKey, mapRetryKey]);
 
-  const copyFeedback = async () => {
-    const payload = buildFeedbackPayload({
-      selection: activeSelection,
-      transitMode,
-      routeMode: mapRouteMode,
-      points: feedbackPoints,
-      segmentLabels: feedbackSegmentLabels,
-      note: feedbackNote,
-    });
-    try {
-      await navigator.clipboard.writeText(JSON.stringify(payload, null, 2));
-      setCopyStatus("Copied");
-    } catch {
-      setCopyStatus("Copy failed");
+  const backToSavedWalk = () => {
+    const saved = lastSavedSelection.current;
+    if (!saved || saved.selection.result.POSTAL !== primary?.result.POSTAL) {
+      handleStopSelect(null);
+      return;
     }
+    discardPendingUrlIntent();
+    setTransitMode(saved.mode);
+    setChosenStopId(saved.stop);
+    setRouteMode(saved.route);
+    setLiveRoutePreviewStatuses({});
+    setExposureSelection(null);
+    syncStopUrl(saved.stop, saved.mode, saved.route);
   };
+  const previewPending = Boolean(chosenStopId && !selectedPublishedOption && !liveRouteCache[chosenStopId]);
+  const displayedStopId = previewPending
+    ? activeSelection?.publishedOption?.aliases[0] ?? null
+    : chosenStopId ?? bestCandidateId;
 
   return (
-    <main className={styles.appShell} data-map-status={effectiveMapStatus} data-map-stage={staleMapProbe ? undefined : mapIssue?.stage} data-map-failure={staleMapProbe ? undefined : mapIssue?.reason}
-      data-comparison-open={comparison.open || undefined}
-      onKeyDown={event => { if (event.key === 'Escape' && comparison.open) { event.preventDefault(); closeComparison(); } }}>
+    <main className={styles.appShell} data-map-status={effectiveMapStatus} data-map-stage={staleMapProbe ? undefined : mapIssue?.stage} data-map-failure={staleMapProbe ? undefined : mapIssue?.reason}>
         <RouteEvidenceMap
           key={mapInstanceKey}
-          routes={comparison.open ? comparedRoutes : mapRoutes}
-          mode={comparison.open ? 'shiokest' : mapRouteMode}
-          transitPois={comparison.open ? EMPTY_TRANSIT_POIS : mapTransitPois}
-          feedbackEnabled={!comparison.open && feedbackEnabled}
-          feedbackPoints={comparison.open ? [] : feedbackPoints}
-          onFeedbackPoint={addFeedbackPoint}
-          onSelectTransitStop={comparison.open ? undefined : handleStopSelect}
-          chosenStopId={comparison.open ? null : chosenStopId ?? bestCandidateId}
-          showLampOverlay={!comparison.open && lampOverlayEnabled}
-          focusedExposureGap={comparison.open ? null : focusedExposureGap}
-          mappedExposureContextKey={comparison.open ? null : exposureModel.contextKey}
+          routes={mapRoutes}
+          mode={mapRouteMode}
+          transitPois={mapTransitPois}
+          onSelectTransitStop={handleStopSelect}
+          chosenStopId={displayedStopId}
+          showLampOverlay
+          focusedExposureGap={focusedExposureGap}
+          mappedExposureContextKey={exposureModel.contextKey}
           onStatusChange={handleMapStatusChange}
           diagnosticContext={diagnosticContext}
           retryKey={mapRetryKey}
@@ -2810,10 +2680,6 @@ export default function Home() {
         <div className={styles.searchToolbar}>
         <div className={styles.identityRow}>
           <h1 className={styles.identityBrand} aria-label="S.H.I.O.K. Shelter Map">SHIOK<span aria-hidden="true">.</span></h1>
-          <button ref={comparisonButtonRef} type="button" className={styles.compareCommand}
-            aria-expanded={comparison.open} aria-controls="home-comparison-view" onClick={() => comparison.open ? closeComparison() : openComparison()}>
-            Compare{comparison.state.postals.length > 0 ? ` (${comparison.state.postals.length})` : ''}
-          </button>
         </div>
         <form onSubmit={handleSearch} action="/" method="get" className={styles.searchForm} aria-busy={loading}>
           <input
@@ -2845,32 +2711,29 @@ export default function Home() {
         {(effectiveMapStatus === "partial" || effectiveMapStatus === "error") && <div className={styles.errorBox} role="status">
           {visibleMapStatus} <button type="button" onClick={() => {
             if (mapRecovery === "reload") {
-              const hasDraft = feedbackPoints.length > 0 || feedbackNote.trim().length > 0;
-              if (!hasDraft || window.confirm("Reloading will discard your unsent feedback. Reload the page?")) window.location.reload();
+              window.location.reload();
             } else if (mapLoadStatus === "partial") setMapRetryKey(key => key + 1);
             else setMapInstanceKey(key => key + 1);
           }}>{mapRecovery === "reload" ? "Reload page" : "Retry map"}</button>
           {visibleMapDiagnostic && <FailureDiagnosticsControl value={visibleMapDiagnostic.value} snapshotKey={visibleMapDiagnostic.key} />}
         </div>}
-        {!comparison.open && geometryError && <div className={styles.errorBox} role="status">Walk geometry could not load. Your record is still available. <button type="button" onClick={retryGeometry}>Retry geometry</button>
+        {geometryError && <div className={styles.errorBox} role="status">Walk geometry could not load. Your record is still available. <button type="button" onClick={retryGeometry}>Retry geometry</button>
           {geometryFailure && geometryFailure.request === loadSelectionRequestIdRef.current && geometryFailure.attempt === geometryAttemptRef.current
             && <FailureDiagnosticsControl value={geometryFailure.value} snapshotKey={'geometry:' + geometryFailure.attempt} />}
         </div>}
-        {!comparison.open && chosenStopId && !selectedPublishedOption && !liveRouteCache[chosenStopId] && <div className={styles.errorBox} role="status">
-          {liveRoutePreviewStatuses[chosenStopId] === "unavailable" ? "No route could be loaded to this stop." : "Checking this stop..."}
+        {chosenStopId && !selectedPublishedOption && !liveRouteCache[chosenStopId] && <div className={styles.errorBox} role="status">
+          {liveRoutePreviewStatuses[chosenStopId] === "unavailable"
+            ? mapRoutes.length ? "Online preview unavailable. Your saved walk is still shown." : "Online preview unavailable. No saved walk is available for this stop."
+            : mapRoutes.length ? "Checking this stop. Your saved walk stays on the map." : "Checking this stop..."}
           {liveRoutePreviewStatuses[chosenStopId] === "unavailable" && <button type="button" onClick={() => setPreviewRetryKey(key => key + 1)}>Retry preview</button>}
-          <button type="button" onClick={() => handleStopSelect(null)}>Back to saved walk</button>
+          <button type="button" onClick={backToSavedWalk}>Back to saved walk</button>
         </div>}
-        {!comparison.open && primary?.score?.paths && !primary.geom && !loading && !geometryError && <div className={styles.errorBox} role="status">No route geometry is published for this walk. Record evidence is still available.</div>}
+        {primary?.score?.paths && !primary.geom && !loading && !geometryError && <div className={styles.errorBox} role="status">No route geometry is published for this walk. Record evidence is still available.</div>}
         <SearchFeedback results={results} loading={loading} error={error} searched={searchAttempted}>
-        {!comparison.open && error && selectionFailure?.request === loadSelectionRequestIdRef.current
+        {error && selectionFailure?.request === loadSelectionRequestIdRef.current
           && <FailureDiagnosticsControl value={selectionFailure.value} snapshotKey={'selection:' + selectionFailure.key} />}
         {error && pendingSelectionRef.current && <button type="button" onClick={() => loadSelection(pendingSelectionRef.current!)}>Retry selection</button>}
         </SearchFeedback>
-        {comparisonLinkError && <div className={styles.errorBox} role="status">{comparisonLinkError}
-          <button type="button" onClick={() => { stripComparisonFragment(); openComparison(); }}>Open saved comparison</button>
-        </div>}
-
         {results.length > 0 && (
           <div className={styles.resultList} aria-label="Search results">
             {results.map((item, idx) => (
@@ -2887,20 +2750,15 @@ export default function Home() {
 
       </section>
 
-        {showDetailOverlay && !aboutDataOpen && !comparison.open && (
+        {showDetailOverlay && (
           <aside ref={panelRef} className={`${styles.resultPanel} ${sheetExpanded ? styles.sheetExpanded : ""}`}>
             <WalkSummary postal={primary!.result.POSTAL} score={activeSelection?.score ?? null} option={activeSelection?.publishedOption} shortest={mapRouteMode === "shortest" && !sameSelectedRoute} />
-            {primary?.score && <TransitModeControl score={primary.score} mode={transitMode} setMode={handleTransitModeChange} />}
+            {primary?.score && <TransitModeControl score={primary.score} mode={publishedCategory} setMode={handleTransitModeChange}
+              availability={{
+                bus: Boolean(categoryWalks.bus) || (loading && !primary.geom && Boolean(primary.score.route_options?.bus?.paths)),
+                mrt_lrt: Boolean(categoryWalks.mrt_lrt) || (loading && !primary.geom && Boolean(primary.score.route_options?.mrt_lrt?.paths)),
+              }} />}
             <div className={styles.walkActions}>
-            <button type="button" className={styles.addComparison}
-              disabled={!comparison.state.postals.includes(primary!.result.POSTAL) && comparison.state.postals.length >= MAX_COMPARISON_POSTALS}
-              onClick={() => {
-                const postal = primary!.result.POSTAL;
-                const reason = dispatchComparison({ type: comparison.state.postals.includes(postal) ? 'activate' : 'add', postal });
-                if (!reason) openComparison();
-              }}>
-              {comparison.state.postals.includes(primary!.result.POSTAL) ? 'View in comparison' : comparison.state.postals.length >= MAX_COMPARISON_POSTALS ? 'Comparison full (3)' : 'Add to comparison'}
-            </button>
             <button ref={walkDetailsButtonRef} type="button" className={styles.sheetToggle} aria-expanded={sheetExpanded}
               aria-controls="walk-details" onClick={() => setSheetExpanded(value => !value)}>
               {sheetExpanded ? "Collapse walk details" : "Walk details"}
@@ -2913,94 +2771,11 @@ export default function Home() {
 
             {activeSelection?.geom && <RouteModeControl mode={mapRouteMode} setMode={handleRouteModeChange}
               disabled={false} sameRoute={sameSelectedRoute} directBusFallback={false} />}
-        <div className={styles.secondaryControls}>
-          <div>
-
-
-            <div className={styles.mapLayerControls} aria-label="Map layers">
-              <button
-                type="button"
-                className={`${styles.layerToggle} ${lampOverlayEnabled ? styles.layerToggleActive : ""}`}
-                aria-pressed={lampOverlayEnabled}
-                title="Show lamp-post locations on the map"
-                onClick={() => {
-                  preloadRouteMap();
-                  setLampOverlayEnabled((enabled) => !enabled);
-                }}
-              >
-                <span className={styles.lampSwatch} aria-hidden="true" />
-                {lampOverlayEnabled ? "Night lighting shown" : "Night lighting"}
-              </button>
-            </div>
-          </div>
-        </div>
-
             </div>
           </aside>
         )}
       </div>
 
-        <div id="home-comparison-view" ref={comparisonPanelRef}>
-          {comparison.open && <HomeComparison state={comparison.state} entries={comparison.entries}
-            diagnosticDataBase={DATA_BASE}
-            storageUnavailable={comparison.storageUnavailable}
-            shared={comparison.shared}
-            onShare={() => setShareOpen(true)}
-            onSaveShared={() => { if (comparisonController.saveShared()) stripComparisonFragment(); }}
-            onDiscardShared={() => { comparisonController.discardShared(); stripComparisonFragment(); }}
-            onCategory={category => dispatchComparison({ type: 'category', category })}
-            onActivate={postal => dispatchComparison({ type: 'activate', postal })}
-            onRemove={postal => dispatchComparison({ type: 'remove', postal })}
-            onRetry={postal => comparisonController.retry(postal)}
-            onClear={() => dispatchComparison({ type: 'reset' })}
-            onAdd={() => closeComparison(true)} onClose={() => closeComparison()} />}
-        </div>
-        {shareOpen && comparison.open && <ComparisonShareDialog open
-          link={buildComparisonLink(window.location.href, comparison.state)} onClose={() => setShareOpen(false)} />}
-        <footer ref={dataDockRef} className={styles.dataDock} data-map-overlay="bottom" hidden={comparison.open}>
-          <DataDetails manifest={manifest} onToggle={event => {
-            setAboutDataOpen(event.currentTarget.open);
-            if (event.currentTarget.open) setExposureSelection(null);
-          }}>
-            {primary && <details className={styles.technicalRecord}>
-              <summary>Technical record</summary>
-            {primary?.score && !activeSelection?.score ? (
-              activeSelection?.publishedOption?.selectedSource.selectionRef.kind === "candidate"
-                ? <p className={styles.stateNote}>No full score is recorded for this alternative walk.</p> : null
-            ) : <ScoreCard
-              selection={activeSelection}
-              routeMode={mapRouteMode}
-              setRouteMode={handleRouteModeChange}
-              transitMode={transitMode}
-              setTransitMode={handleTransitModeChange}
-              feedbackEnabled={feedbackEnabled}
-              setFeedbackEnabled={setFeedbackEnabled}
-              feedbackPoints={feedbackPoints}
-              feedbackSegmentLabels={feedbackSegmentLabels}
-              setFeedbackSegmentLabel={setFeedbackSegmentLabel}
-              clearFeedback={clearFeedback}
-              feedbackNote={feedbackNote}
-              setFeedbackNote={setFeedbackNote}
-              copyFeedback={copyFeedback}
-              copyStatus={copyStatus}
-              isCustomStopSelected={activeSelection !== transitSelection && Boolean(chosenStopId && chosenStopId !== bestCandidateId)}
-              liveRoutePreviewStatus={chosenStopId ? liveRoutePreviewStatuses[chosenStopId] ?? null : null}
-              onResetChosenStop={() => handleStopSelect(null)}
-              rankMetric={rankMetric}
-              setRankMetric={setRankMetric}
-              rankingRecords={rankingRecords}
-              rankingLoading={rankingLoading}
-              rankPanelOpen={rankPanelOpen}
-              setRankPanelOpen={setRankPanelOpen}
-              focusedExposureGapKey={focusedExposureGap?.key ?? null}
-              lampOverlayEnabled={lampOverlayEnabled}
-              hideWalkControls
-              hideExposureDetails
-            />}
-
-            </details>}
-          </DataDetails>
-        </footer>
     </main>
   );
 }

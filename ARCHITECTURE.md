@@ -6,7 +6,7 @@ Acceptance catalogue: qa/SHIOK-acceptance-tests.md
 Execution plan: PRODUCT-PLAN.md
 
 ## Purpose and audience
-Help Singapore residents understand, compare and improve sheltered walks from
+Help Singapore residents understand and improve sheltered walks from
 a postal code to nearby transit. Support inspecting a walk today, evaluating
 potential homes, and reporting mapping errors or stretches needing shelter.
 This is a maintained public civic service, not a live weather advisor.
@@ -23,15 +23,16 @@ Reports remain private pending owner review. Both mapping corrections and new
 shelter suggestions are supported, with distinct handling.
 
 ## Core journey and proposed copy
-Search -> understand a walk -> inspect, compare or report.
+Search -> shortest usable saved walk -> inspect gaps or another transit category.
 Title: SHIOK
 No supporting tagline in the primary map UI (owner feedback accepted).
 Search: Enter 6-digit postal code
 Summary: Walk to {destination}
 Metrics: {distance} m walk; {coverage}% covered; {exposed} m uncovered;
 Longest uncovered stretch: {longest} m.
-Commands: View uncovered stretches; Compare a place; Report a problem.
-Details: How this is calculated; Data and updates.
+Commands: MRT/LRT exits; Bus stops; Walk details.
+Data and calculation notes: GitHub README and ATTRIBUTION, not an in-app dock.
+Report a problem remains a future workflow, not a functioning submission button.
 Report choices: The map is incorrect; This stretch needs shelter.
 Never turn missing evidence into zero, or turn a recorded structure into a
 claim about current condition, wheelchair access, temperature or safety.
@@ -39,7 +40,7 @@ claim about current condition, wheelchair access, temperature or safety.
 ## Layout specification
 Desktop: full-viewport basemap from the empty homepage. A top-left stack holds
 SHIOK, then the postal field with its icon submit, then an equal-width result
-panel (300px maximum). About data opens from the bottom-right dock; retain
+panel (300px maximum). No About data or comparison controls; retain
 required map attribution independently. Fit routes outside overlays. Transit choices only appear
 when meaningful real alternatives exist; gap details expand within the results area.
 Mobile: the same top-left order and equal widths, constrained to the viewport.
@@ -51,23 +52,33 @@ Keep map attribution visible. Distinguish selected route from basemap lines.
 No visible zoom/reset toolbar or successful-load badge. Preserve MapLibre gestures,
 keyboard navigation, accessible loading announcements and actionable failure states.
 Prototype approved at 0de3d5f; use its layout, not its illustrative canvas/data.
-Keep the score and technical limitations in secondary details.
-Night lighting is an optional layer, never a safety rating.
+Keep score methodology and technical limitations in GitHub documentation.
+Night lighting is enabled automatically, with neighbourhood zoom and viewport
+bounds controlling requests. It is never a safety rating or a whole-island fetch.
 
-## Comparison
-Up to three selected postals, using the same transit category across columns.
-Show actual destination, distance, coverage, exposed distance and longest gap.
-Offer trade-offs rather than a new overall ranking. Missing evidence is explicit.
-Persist locally, with graceful fallback when storage is unavailable.
-Share only on explicit action; shared URLs disclose selected postals.
-Version and validate URL/local-storage state; never serialize private reports.
-ADR-16 fixes each column to the published category-default sheltered walk, not
-the inspector's chosen alternate or a hidden ranking winner. Add a postal,
-show its actual destination, and keep missing category evidence unavailable.
+## Retired comparison
+The owner removed comparison on 2026-09-13. Home mounts no comparison view,
+controller, storage restore or shared-link handler. Existing local storage is
+left intact. Historical modules and tests are retained without a product entry
+point; ADR-16 through the comparison-sharing decisions are superseded for scope.
+
+## Default walk and preview recovery
+Only MRT/LRT exits and Bus stops are selectable categories. Automatically select
+the shortest usable authoritative saved walking geometry across both categories;
+category clicks apply the same policy within that category. Deterministic ties
+use canonical option identity. This is not straight-line proximity or proof that
+all nearby stops have been routed. Explicit stop/category/variant links retain
+their named selection instead of silently adopting the automatic default.
+Online stop previews are explicit and non-authoritative. HTTP errors and a
+12-second deadline (including response body) end loading, with no automatic retry.
+Retain the previous usable saved walk and marker, even across categories with no
+saved geometry. Retry starts one request; Back restores the saved selection/URL.
+Do not say a saved route remains if none exists. Stale responses cannot take
+ownership of a newer stop or postal.
 
 ## Frontend boundaries
-Incrementally separate search, walk summary, transit selection, comparison,
-feedback and data details from web/app/page.tsx.
+Incrementally separate search, walk summary, transit selection and future
+feedback from web/app/page.tsx.
 Existing artifact readers remain behind a typed repository interface.
 A selection controller owns postal/destination selection and request identity.
 Map adapter owns MapLibre initialization, layers, viewport and readiness.
@@ -81,7 +92,7 @@ States include idle, loading, partial, ready, unavailable and failed.
 Ready requires the selected route's visible geometry in the usable viewport.
 Basemap failure may retain the route and text result with an honest partial state.
 Cancel or ignore stale responses on rapid selection changes.
-Deduplicate in-flight reads; load optional layers and comparison data on demand.
+Deduplicate in-flight reads; load only viewport-bounded lamp tiles and explicit route previews on demand.
 Cache immutable artifacts by version. Never replace the working result with an
 older response or clear useful text because optional tiles fail.
 

@@ -1,0 +1,31 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "--globals",
+    "--maxWorkers",
+    "1",
+    "--no-file-parallelism",
+    "--reporter=json",
+    "lib/__tests__/walk-default.test.ts",
+    "lib/__tests__/walk-preview-request.test.ts",
+    "lib/__tests__/published-walk-page.test.tsx"
+  ],
+  "cwd": "C:\\sgSHIOK2026\\web",
+  "exitCode": 1,
+  "elapsedMs": 9184,
+  "counts": {
+    "tests": 97,
+    "passed": 96,
+    "failed": 1
+  },
+  "failures": [
+    {
+      "name": "Home URL-intent and load-completion ownership regressions re-searching the same postal resets to its default and clears stop/transit/route at score readiness",
+      "messages": [
+        "AssertionError: expected 'https://example.test/?postal=018956&t…' to be 'https://example.test/?postal=018956' // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/published-walk-page.test.tsx:1341:22\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    }
+  ]
+}

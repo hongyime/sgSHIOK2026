@@ -3615,3 +3615,30 @@ postplan.html is the owner's readable current plan; PRODUCT-PLAN.md retains deta
 tickets. Implementation DONE is not owner acceptance. Local headless checks cannot
 close native-phone usability or representative performance. Current evidence:
 qa/revamp-r1/ux-reset-20260912/summary.json. Isolated tests:1788+3=1791 across65files.
+
+### 2026-09-13: Walk-only scope and explicit preview recovery
+
+Owner decision: remove Suggested, home comparison and About data from the UI.
+Only MRT/LRT exits and Bus stops remain. Auto-select the shortest usable saved
+walking route, across categories on new search and within the clicked category;
+preserve explicit stop/category/variant links. "Closest" is not straight-line
+distance or complete nearby coverage. Keep validated identity, metrics and geometry
+together. Missing saved geometry is not repaired with invented data.
+
+Home no longer mounts comparison, restores its storage, loads shared lists or
+shows the legacy technical ScoreCard. Existing storage and historical evidence
+remain intact. T08-T11 are retired, not unfinished acceptance work. GitHub README,
+ATTRIBUTION and decisions retain data limitations; required map attribution stays.
+
+Night lighting is automatic but remains zoom/viewport bounded, independently
+loaded and cached. No all-island fetch, weather or safety promise. Online stop
+previews get one bounded request, HTTP validation, a 12-second body-inclusive
+deadline, explicit retry and restoration of the last usable saved selection.
+Cross-category failure cannot erase that route or mark the failed stop as its
+destination. No successful preview inherits authoritative published scores.
+
+The previous local QA proxy rejected every /api/ request. The new owned preview
+permits only GET /api/onemap-route, leaves all other API methods/routes blocked,
+and can pass existing OneMap server credentials without copying or logging them.
+Controlled provider-failure tests do not prove upstream availability. No provider
+activation, data refresh, pipeline work or deployment follows from this change.

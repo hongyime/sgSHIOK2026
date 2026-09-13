@@ -23,14 +23,13 @@ describe('map-first home shell', () => {
     expect(html).not.toMatch(/>Search<\/button>/);
     expect(html).toMatch(/data-map-overlay="top-left"[\s\S]*?aria-label="Postal-code search"/);
   });
-  it('has one collapsed About data disclosure at the map bottom', () => {
+  it('has no About data footer or comparison entry point', () => {
     const html = renderToStaticMarkup(React.createElement(Home));
-    expect(html.match(/<summary>About data<\/summary>/g)).toHaveLength(1);
-    expect(html).toMatch(/data-map-overlay="bottom"[\s\S]*?<summary>About data<\/summary>/);
-    const details = renderToStaticMarkup(React.createElement(DataDetails, { manifest: null }));
-    expect(details).not.toMatch(/<details[^>]* open/);
-    expect(details).toContain('ATTRIBUTION.md');
+    expect(html).not.toContain('About data');
+    expect(html).not.toContain('<footer');
+    expect(html).not.toContain('Compare');
   });
+
   it('server-renders a native root GET form for both Enter and the submit button', () => {
     const html = renderToStaticMarkup(React.createElement(Home));
     const form = html.match(/<form\b[^>]*>[\s\S]*?<\/form>/)?.[0];

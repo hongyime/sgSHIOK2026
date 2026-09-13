@@ -206,7 +206,7 @@ async function startPreview() {
   map().onSelectTransitStop!(previewStopId);
   render();
   await settle();
-  expect(nodeText(tree)).toContain('Checking this stop...');
+  expect(nodeText(tree)).toContain('Checking this stop.');
 }
 
 function elements(node: ReactNode): Element[] {
@@ -249,6 +249,18 @@ const diagnostics = () => elements(tree).filter(element => element.type === Fail
   .map(element => element.props as unknown as ComponentProps<typeof FailureDiagnosticsControl>);
 
 describe('T03 page diagnostic ownership', () => {
+  it('removes comparison and data disclosures from Home and enables lighting automatically', async () => {
+    await loadA();
+    expect(elements(tree).some(e=>e.type===HomeComparison||e.type===ComparisonShareDialog||e.type===DataDetails||e.type===ScoreCard)).toBe(false);
+    expect(nodeText(tree)).not.toContain('Compare');
+    expect(nodeText(tree)).not.toContain('Night lighting');
+    expect(map().showLampOverlay).toBe(true);
+    const control=modeControl();
+    const buttons=elements(control.type(control.props)).filter(e=>e.type==='button');
+    expect(buttons).toHaveLength(2);
+    expect(nodeText(buttons)).not.toContain('Suggested');
+    expect(comparisonWrites).toEqual([]);
+  });
   it('shows no diagnostics on success and preserves a global map failure across category changes', async () => {
     await loadA();
     expect(diagnostics()).toEqual([]);
@@ -273,6 +285,7 @@ describe('T03 page diagnostic ownership', () => {
     render();
     const failure = diagnostics()[0];
     await setMode('mrt_lrt');
+    picker().onSelect(null); render(); await settle();
     await setRouteMode('shortest');
     expect(diagnostics()).toEqual([failure]);
     expect(nodeText(tree)).toContain('Reload page');
@@ -288,7 +301,7 @@ describe('T03 page diagnostic ownership', () => {
     expect(diagnostics()).toHaveLength(1);
     await setMode('mrt_lrt');
     expect(diagnostics()).toEqual([]);
-    await setMode('best_transit');
+    await setMode('bus');
     expect(map().diagnosticContext).not.toBe(before.diagnosticContext);
     before.onStatusChange!('error', 'Old A error', undefined, issue);
     render();
@@ -569,7 +582,7 @@ describe('T30 native postal search and initial navigation ownership', () => {
     scores.get(A)!.resolve(sourceScore); geometries.get(A)!.resolve(sourceGeometry);
     await settle(); await submitted.promise;
     expect(summary().postal).toBe(A);
-    expect(url.search).toBe(`?postal=${A}`);
+    expect(url.search).toBe(`?postal=${A}&transit=bus`);
     expect(dependencies.fetchManifest).not.toHaveBeenCalled();
     expect(dependencies.fetchScoreForPostal).toHaveBeenCalledTimes(1);
     expect(dependencies.fetchGeomForPostal).toHaveBeenCalledTimes(1);
@@ -624,8 +637,8 @@ describe('T30 native postal search and initial navigation ownership', () => {
       scores.get(A)!.resolve(sourceScore); geometries.get(A)!.resolve(sourceGeometry);
       await settle(); await promise;
       expect(summary().postal).toBe(A);
-      expect(modeControl().props.mode).toBe('best_transit');
-      expect(url.search).toBe(`?postal=${A}`);
+      expect(modeControl().props.mode).toBe('bus');
+      expect(url.search).toBe(`?postal=${A}&transit=bus`);
       expect(dependencies.fetchManifest).not.toHaveBeenCalled();
       expect(fetchSpy).not.toHaveBeenCalled();
     },
@@ -640,7 +653,7 @@ describe('T30 native postal search and initial navigation ownership', () => {
     expect(dependencies.fetchScoreForPostal.mock.calls).toEqual([[A]]);
     expect(dependencies.fetchGeomForPostal.mock.calls).toEqual([[A, undefined, undefined]]);
     expect(summary().postal).toBe(A);
-    expect(url.search).toBe(`?postal=${A}`);
+    expect(url.search).toBe(`?postal=${A}&transit=bus`);
     expect(fetchSpy).not.toHaveBeenCalled();
   });
 
@@ -671,293 +684,26 @@ describe('Home cache bootstrap across entry paths', () => {
   );
 });
 
-describe('Home shared comparison URL lifecycle', () => {
-  const view = () => child<ComponentProps<typeof HomeComparison>>(HomeComparison).props;
-  const state = (postals = [A], activePostal = postals[0], category: 'bus' | 'mrt_lrt' = 'bus') =>
-    ({ version: 1 as const, postals, activePostal, category });
-  const hash = (postals = [A], activePostal = postals[0]) => comparisonLinkFragment(state(postals, activePostal))!;
-  const navigate = async (next: string, event = 'popstate') => {
-    url = new URL(next, url);
-    navigationListeners.get(event)?.forEach(handler => handler());
-    render(); await settle();
-  };
-  const noView = () => expect(elements(tree).some(element => element.type === HomeComparison)).toBe(false);
-
-  it('gives a valid fragment precedence over saved state and postal query without saving or querying the ignored postal', async () => {
-    const saved = comparisonStored = JSON.stringify(state([B]));
-    mount(`?postal=${B}&stop=private${hash()}`); await settle();
-    expect(view().shared).toBe(true);
-    expect(view().state).toEqual(state());
-    expect(dependencies.fetchScoreForPostal.mock.calls).toEqual([[A]]);
-    expect(dependencies.fetchGeomForPostal.mock.calls).toEqual([[A]]);
-    expect(comparisonStored).toBe(saved);
-    expect(comparisonWrites).toEqual([]);
-    expect(url.search).toBe('');
-    expect(url.hash).toBe(hash());
-  });
-
-  it('rejects an invalid owned fragment without loading records or changing storage', async () => {
-    const saved = comparisonStored = JSON.stringify(state([B]));
-    mount(`?postal=${A}#compare=2`); await settle();
-    noView();
-    expect(nodeText(tree)).toContain('This comparison link is invalid. Your saved shortlist is unchanged.');
-    expect(dependencies.fetchScoreForPostal).not.toHaveBeenCalled();
-    expect(comparisonStored).toBe(saved);
-    await clickPageButton('Open saved comparison');
-    expect(view().state.postals).toEqual([B]);
-    expect(view().shared).toBe(false);
-    expect(url.hash).toBe('');
-    expect(comparisonWrites).toEqual([]);
-  });
-
-  it('keeps ordinary single-postal links with unrelated fragments working', async () => {
-    mount(`?postal=${A}&transit=mrt_lrt&stop=mrt:21624&route=shortest#walk`);
-    scores.get(A)!.resolve(sourceScore); geometries.get(A)!.resolve(sourceGeometry);
-    await settle();
-    noView();
-    expect(summary().option?.name).toBe('BAYFRONT MRT STATION Exit C');
-    expect(url.searchParams.get('route')).toBe('shortest');
-    // This published candidate has identical shortest/sheltered geometry, so one map line is intentional.
-    expect(map().routes).toHaveLength(1);
-  });
-
-  it('changes a shared category and active postal only in memory and the owned fragment', async () => {
-    const saved = comparisonStored = JSON.stringify(state([B]));
-    mount(hash([A, B])); await settle();
-    view().onCategory('mrt_lrt'); render();
-    view().onActivate(B); render(); await settle();
-    expect(view().state).toEqual(state([A, B], B, 'mrt_lrt'));
-    expect(url.hash).toBe(comparisonLinkFragment(view().state));
-    expect(comparisonStored).toBe(saved);
-    expect(comparisonWrites).toEqual([]);
-  });
-
-  it('copies only chosen comparison state, not the current query or other view fields', async () => {
-    comparisonStored = JSON.stringify(state());
-    mount('?debugMap=1&note=private'); await clickPageButton('Compare (1)');
-    view().onShare(); render();
-    const dialog = child<ComponentProps<typeof ComparisonShareDialog>>(ComparisonShareDialog).props;
-    expect(dialog.open).toBe(true);
-    expect(dialog.link).toBe(`https://example.test/${hash()}`);
-    expect(url.search).toBe('?debugMap=1&note=private');
-    expect(comparisonWrites).toEqual([]);
-    dialog.onClose(); render();
-    expect(view().state.postals).toEqual([A]);
-  });
-
-  it('saves an imported state only on explicit Save and strips the fragment', async () => {
-    comparisonStored = JSON.stringify(state([B]));
-    mount(hash()); await settle();
-    view().onSaveShared(); render(); await settle();
-    expect(view().shared).toBe(false);
-    expect(JSON.parse(comparisonStored!)).toEqual(state());
-    expect(comparisonWrites).toHaveLength(1);
-    expect(url.hash).toBe('');
-  });
-
-  it('retains the shared view, link and previous saved state on denied Save', async () => {
-    const saved = comparisonStored = JSON.stringify(state([B]));
-    mount(hash()); await settle();
-    vi.mocked(window.localStorage.setItem).mockImplementation(() => { throw Error('denied'); });
-    view().onSaveShared(); render(); await settle();
-    expect(view().shared).toBe(true);
-    expect(view().storageUnavailable).toBe(true);
-    expect(comparisonStored).toBe(saved);
-    expect(url.hash).toBe(hash());
-    view().onDiscardShared(); render(); await settle();
-    expect(view().state.postals).toEqual([B]);
-    expect(view().shared).toBe(false);
-    expect(url.hash).toBe('');
-  });
-
-  it('Close restores the local shortlist and creates a history entry whose Back target reopens the link', async () => {
-    const saved = comparisonStored = JSON.stringify(state([B]));
-    mount(hash()); await settle();
-    const sharedHref = url.href;
-    view().onClose(); render(); await settle();
-    noView(); expect(url.hash).toBe('');
-    expect(pushState).toHaveBeenCalledTimes(1);
-    await clickPageButton('Compare (1)');
-    expect(view().state.postals).toEqual([B]);
-    await navigate(sharedHref);
-    expect(view().state.postals).toEqual([A]);
-    expect(view().shared).toBe(true);
-    expect(comparisonStored).toBe(saved);
-    expect(comparisonWrites).toEqual([]);
-  });
-
-  it('Add closes for a postal search without losing or saving the ephemeral shared list', async () => {
-    const saved = comparisonStored = JSON.stringify(state([B]));
-    mount(hash()); await settle();
-    view().onAdd(); render(); await settle();
-    noView(); expect(url.hash).toBe('');
-    const submitted = submit(B);
-    scores.get(B)!.resolve(null); geometries.get(B)!.resolve(null);
-    await settle(); await submitted;
-    await clickPageButton('Add to comparison');
-    expect(view().state.postals).toEqual([A, B]);
-    expect(view().shared).toBe(true);
-    expect(comparisonStored).toBe(saved);
-    expect(comparisonWrites).toEqual([]);
-    view().onShare(); render();
-    expect(child<ComponentProps<typeof ComparisonShareDialog>>(ComparisonShareDialog).props.link)
-      .toBe(`https://example.test/${hash([A, B], B)}`);
-  });
-
-  it('clearing an imported list clears the map and fragment without clearing the saved list', async () => {
-    const saved = comparisonStored = JSON.stringify(state([B]));
-    mount(hash()); await settle();
-    scores.get(A)!.resolve(sourceScore); geometries.get(A)!.resolve(sourceGeometry); await settle();
-    expect(map().routes).toHaveLength(1);
-    view().onClear(); render(); await settle();
-    expect(view().state.postals).toEqual([]);
-    expect(map().routes).toEqual([]);
-    expect(url.hash).toBe('');
-    expect(comparisonStored).toBe(saved);
-  });
-
-  it('deduplicates the popstate/hashchange pair for one shared navigation', async () => {
-    mount(); await settle();
-    await navigate(hash());
-    await navigate(url.href, 'hashchange');
-    expect(dependencies.fetchScoreForPostal.mock.calls).toEqual([[A]]);
-    expect(dependencies.fetchGeomForPostal.mock.calls).toEqual([[A]]);
-  });
-
-  it('invalidates pending primary score and geometry before opening a different shared postal', async () => {
-    mount(); const submitted = submit(A);
-    await navigate(hash([B]));
-    scores.get(A)!.resolve(sourceScore); geometries.get(A)!.resolve(sourceGeometry);
-    await settle(); await submitted;
-    expect(view().state.postals).toEqual([B]);
-    expect(view().entries[B].status).toBe('loading');
-    expect(map().routes).toEqual([]);
-    expect(url.hash).toBe(hash([B]));
-    expect(elements(tree).some(element => element.type === WalkSummary)).toBe(false);
-  });
-
-  it('invalidates a shared load when navigating to an ordinary postal query', async () => {
-    mount(hash()); await settle();
-    await navigate(`?postal=${B}`);
-    scores.get(A)!.resolve(sourceScore); geometries.get(A)!.resolve(sourceGeometry);
-    scores.get(B)!.resolve(null); geometries.get(B)!.resolve(null); await settle();
-    noView(); expect(summary().postal).toBe(B);
-    expect(map().routes).toEqual([]);
-    expect(url.searchParams.get('postal')).toBe(B);
-  });
-
-  it('leaves neither a stale map nor an open share dialog after navigating out of a shared comparison', async () => {
-    mount(hash()); await settle();
-    scores.get(A)!.resolve(sourceScore); geometries.get(A)!.resolve(sourceGeometry); await settle();
-    view().onShare(); render();
-    await navigate('/');
-    noView(); expect(map().routes).toEqual([]);
-    expect(elements(tree).some(element => element.type === ComparisonShareDialog)).toBe(false);
-  });
-
-  it('removes both navigation listeners when Home unmounts', async () => {
-    mount(hash()); await settle();
-    expect(navigationListeners.get('popstate')?.size).toBe(1);
-    expect(navigationListeners.get('hashchange')?.size).toBe(1);
-    host.reset();
-    expect(navigationListeners.get('popstate')?.size).toBe(0);
-    expect(navigationListeners.get('hashchange')?.size).toBe(0);
-  });
-});
-
-describe('Home comparison through actual page handlers', () => {
-  const view = () => child<ComponentProps<typeof HomeComparison>>(HomeComparison).props;
-  const restoreList = (postals: string[], activePostal = postals[0]) => {
-    comparisonStored = JSON.stringify({ version: 1, postals, category: 'bus', activePostal });
-  };
-  it('restores a closed shortlist without loading its records or writing storage', async () => {
-    restoreList([A, B]);
-    mount(); await settle();
-    expect(nodeText(tree)).toContain('Compare (2)');
-    expect(dependencies.fetchScoreForPostal).not.toHaveBeenCalled();
-    expect(dependencies.fetchGeomForPostal).not.toHaveBeenCalled();
-    expect(comparisonWrites).toEqual([]);
-    expect(map().routes).toEqual([]);
-  });
-  it('maps the common category default, not the candidate inspected before adding', async () => {
-    await loadA();
-    await setMode('mrt_lrt');
-    await choose('mrt:21624');
-    const inspected = clone(map().routes);
-    await clickPageButton('Add to comparison');
-    expect(view().state).toMatchObject({ postals: [A], category: 'mrt_lrt', activePostal: A });
-    expect(view().entries[A].row?.destination).toBe('BAYFRONT MRT STATION Exit E');
-    expect(map().routes[0].geom.sheltered_parts).toEqual(originalGeometry.route_options.mrt_lrt.sheltered_parts);
-    expect(map().routes).not.toEqual(inspected);
-    expect(map().onSelectTransitStop).toBeUndefined();
-    expect(map().transitPois.features).toEqual([]);
-    expect(map().focusedExposureGap).toBeNull();
-    expect(map().feedbackEnabled).toBe(false);
-    view().onClose(); render(); await settle();
-    expect(map().routes).toEqual(inspected);
-    expect(summary().option?.name).toBe('BAYFRONT MRT STATION Exit C');
-  });
-  it('keeps inactive completed evidence from replacing a pending active column on the map', async () => {
-    restoreList([A, B], B);
-    mount(); await clickPageButton('Compare (2)');
-    scores.get(A)!.resolve(sourceScore); geometries.get(A)!.resolve(sourceGeometry);
-    await settle();
-    expect(view().entries[A].status).toBe('ready');
-    expect(view().entries[B].status).toBe('loading');
-    expect(map().routes).toEqual([]);
-    view().onActivate(A); render(); await settle();
-    expect(map().routes[0].geom.postal).toBe(A);
-    expect(map().routes[0].geom.sheltered_parts).toEqual(originalGeometry.route_options.bus.sheltered_parts);
-    scores.get(B)!.reject(Error('isolated score failure')); geometries.get(B)!.resolve(null);
-    await settle();
-    expect(view().entries[B].status).toBe('error');
-    expect(map().routes[0].geom.postal).toBe(A);
-  });
-  it('keeps score measurements with failed geometry and removes the previous column route', async () => {
-    restoreList([A]); mount(); await clickPageButton('Compare (1)');
-    scores.get(A)!.resolve(sourceScore); geometries.get(A)!.reject(Error('geometry unavailable'));
-    await settle();
-    expect(view().entries[A].row?.metrics).toMatchObject({ distance: 81.2, coverage: 55, longest: 20.2 });
-    expect(view().entries[A].geometryStatus).toBe('error');
-    expect(map().routes).toEqual([]);
-  });
-  it.each(['missing', 'invalid'] as const)('does not send shortest-only geometry to the sheltered map when sheltered parts are %s', async failure => {
-    const geometry = clone(originalGeometry) as unknown as PostalGeom;
-    const declared = geometry.route_options!.bus!;
-    if (failure === 'missing') {
-      delete declared.sheltered;
-      delete declared.sheltered_parts;
-    } else declared.sheltered_parts = ['_'];
-    restoreList([A]); mount(); await clickPageButton('Compare (1)');
-    scores.get(A)!.resolve(sourceScore); geometries.get(A)!.resolve(geometry);
-    await settle();
-    expect(view().entries[A].option?.selectedSource.selectionRef).toEqual({ kind: 'category_default', category: 'bus' });
-    expect(view().entries[A].option?.geometry.shortest.status).toBe('complete');
-    expect(view().entries[A].option?.geometry.sheltered.parts).toEqual([]);
-    expect(view().entries[A].row?.metrics).toEqual({ distance: 81.2, coverage: 55, uncovered: 36.5, longest: 20.2 });
-    expect(map().routes).toEqual([]);
-  });
-  it('new postal search closes comparison and keeps its saved shortlist', async () => {
-    restoreList([A]); mount(); await clickPageButton('Compare (1)');
+describe('Retired comparison entry points', () => {
+  it.each(['', '?postal=' + A])('ignores saved comparison and old fragment without writing storage: %s', async search => {
+    comparisonStored = JSON.stringify({ version: 1, postals: [B], category: 'bus', activePostal: B });
     const saved = comparisonStored;
-    const submitted = submit(B);
-    expect(elements(tree).some(element => element.type === HomeComparison)).toBe(false);
-    scores.get(B)!.resolve(null); geometries.get(B)!.resolve(null);
-    scores.get(A)!.resolve(sourceScore); geometries.get(A)!.resolve(sourceGeometry);
-    await settle(); await submitted;
+    const fragment = comparisonLinkFragment({ postals: [B], category: 'bus', activePostal: B })!;
+    mount(search + '#' + fragment);
+    if (search) {
+      scores.get(A)!.resolve(sourceScore);
+      geometries.get(A)!.resolve(sourceGeometry);
+      await settle();
+      expect(summary().postal).toBe(A);
+      expect(dependencies.fetchScoreForPostal.mock.calls).toEqual([[A]]);
+    } else {
+      await settle();
+      expect(dependencies.fetchScoreForPostal).not.toHaveBeenCalled();
+    }
+    expect(elements(tree).some(e => e.type === HomeComparison || e.type === ComparisonShareDialog)).toBe(false);
+    expect(storageRead).not.toHaveBeenCalled();
     expect(comparisonStored).toBe(saved);
-    expect(map().routes).toEqual([]);
-    expect(summary().postal).toBe(B);
-  });
-  it('clearing the shortlist clears only comparison state and its route', async () => {
-    await loadA(); await clickPageButton('Add to comparison');
-    view().onClear(); render(); await settle();
-    expect(view().state.postals).toEqual([]);
-    expect(map().routes).toEqual([]);
-    expect(JSON.parse(comparisonStored!).postals).toEqual([]);
-    view().onClose(); render(); await settle();
-    expect(summary().postal).toBe(A);
-    expect(map().routes[0].geom.postal).toBe(A);
+    expect(comparisonWrites).toEqual([]);
   });
 });
 
@@ -976,8 +722,7 @@ describe('Home published-walk integration through actual handlers', () => {
     geometries.get(A)!.resolve(sourceGeometry);
     await settle();
     await submitted;
-    const originalCard = child<ComponentProps<typeof ScoreCard>>(ScoreCard);
-    expect(originalCard.props.selection?.score).not.toBeNull();
+    expect(elements(tree).some(e => e.type === ScoreCard)).toBe(false);
     expect(modeControl().props.score).toBe(busOnlyScore);
 
     await setMode('mrt_lrt');
@@ -996,7 +741,7 @@ describe('Home published-walk integration through actual handlers', () => {
 
     await setMode('bus');
     assertCoherent('Bayfront Stn Exit B/MBS', 81.2, 0.551, originalGeometry.route_options.bus.sheltered_parts);
-    expect(child<ComponentProps<typeof ScoreCard>>(ScoreCard).props.selection?.score).not.toBeNull();
+    expect(elements(tree).some(e => e.type === ScoreCard)).toBe(false);
     expect(busOnlyScore).toEqual(before);
     expect(storageRead).not.toHaveBeenCalled();
   });
@@ -1053,7 +798,7 @@ describe('Home published-walk integration through actual handlers', () => {
   it('MRT -> candidate C -> bus -> MRT preserves original candidates and coherent summary/map values', async () => {
     await loadA();
     await setMode('mrt_lrt');
-    assertCoherent('BAYFRONT MRT STATION Exit E', 308.4, 0.241, originalGeometry.route_options.mrt_lrt.sheltered_parts);
+    assertCoherent('BAYFRONT MRT STATION Exit C', 109.2, 0, originalGeometry.candidates['mrt:21624'].sheltered_parts);
     await choose('mrt:21624');
     assertCoherent('BAYFRONT MRT STATION Exit C', 109.2, 0, originalGeometry.candidates['mrt:21624'].sheltered_parts);
     expect(summary().score).toBeNull();
@@ -1062,7 +807,7 @@ describe('Home published-walk integration through actual handlers', () => {
     await setMode('bus');
     assertCoherent('Bayfront Stn Exit B/MBS', 81.2, 0.551, originalGeometry.route_options.bus.sheltered_parts);
     await setMode('mrt_lrt');
-    assertCoherent('BAYFRONT MRT STATION Exit E', 308.4, 0.241, originalGeometry.route_options.mrt_lrt.sheltered_parts);
+    assertCoherent('BAYFRONT MRT STATION Exit C', 109.2, 0, originalGeometry.candidates['mrt:21624'].sheltered_parts);
     await choose('mrt:21624');
     assertCoherent('BAYFRONT MRT STATION Exit C', 109.2, 0, originalGeometry.candidates['mrt:21624'].sheltered_parts);
     expect(dependencies.fetchGeomForPostal).toHaveBeenCalledTimes(1);
@@ -1179,6 +924,61 @@ describe('Home published-walk integration through actual handlers', () => {
 });
 
 describe('Home explicit preview failure and stale-response boundaries', () => {
+  it('times out a hanging preview, ignores its late success and permits one explicit retry', async () => {
+    const before = await previewReady();
+    vi.useFakeTimers();
+    try {
+      const first = allowPreview();
+      await startPreview();
+      await vi.advanceTimersByTimeAsync(12001);
+      await settle();
+      expect(nodeText(tree)).toContain('Online preview unavailable. Your saved walk is still shown.');
+      expect(map().routes).toEqual(before.routes);
+      expect(summary()).toEqual(before.summary);
+      first.resolve(Response.json({ ok: true, route_geometry: originalGeometry.shortest }));
+      await settle();
+      expect(map().routes).toEqual(before.routes);
+      const retry = allowPreview();
+      await clickPageButton('Retry preview');
+      retry.resolve(Response.json({ ok: false }, { status: 503 }));
+      await settle();
+      expect(fetchSpy).toHaveBeenCalledTimes(2);
+      await clickPageButton('Back to saved walk');
+      expect(summary()).toEqual(before.summary);
+      expect(map().routes).toEqual(before.routes);
+    } finally { vi.useRealTimers(); }
+  });
+
+  it('retains the last bus walk and its marker when an unsaved MRT stop has no category geometry', async () => {
+    const score = clone(sourceScore);
+    delete score.route_options!.mrt_lrt;
+    score.candidates = score.candidates!.filter(c => c.node_type !== 'mrt_lrt_exit');
+    mount();
+    const loaded = submit(A);
+    scores.get(A)!.resolve(score);
+    geometries.get(A)!.resolve(sourceGeometry);
+    await settle(); await loaded;
+    const before = { summary: clone(summary()), routes: clone(map().routes) };
+    storageRead.mockReturnValue(null);
+    poiGate.resolve({ type: 'FeatureCollection', features: [{ type: 'Feature',
+      geometry: { type: 'Point', coordinates: [previewTarget.lng, previewTarget.lat] },
+      properties: { id: previewStopId, kind: 'mrt_exit', name: 'Synthetic unsaved exit' },
+    }] });
+    await settle();
+    const request = allowPreview();
+    await startPreview();
+    expect(map().routes).toEqual(before.routes);
+    expect(map().chosenStopId).not.toBe(previewStopId);
+    request.resolve(Response.json({ ok: false }, { status: 503 }));
+    await settle();
+    expect(map().routes).toEqual(before.routes);
+    await clickPageButton('Back to saved walk');
+    expect(modeControl().props.mode).toBe('bus');
+    expect(summary()).toEqual(before.summary);
+    expect(url.searchParams.get('transit')).toBe('bus');
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
+  });
+
   it.each(['transport', 'non-ok-payload', 'invalid-json'] as const)(
     'keeps published metrics/geometry on %s failure and resets without another request', async failure => {
       const baseline = await previewReady();
@@ -1190,14 +990,14 @@ describe('Home explicit preview failure and stale-response boundaries', () => {
       else if (failure === 'non-ok-payload') request.resolve(Response.json({ ok: false }, { status: 503 }));
       else request.resolve(new Response('not JSON', { status: 200 }));
       await settle();
-      expect(nodeText(tree)).toContain('No route could be loaded to this stop.');
+      expect(nodeText(tree)).toContain('Online preview unavailable. Your saved walk is still shown.');
       expect(nodeText(tree)).toContain('Retry preview');
       expect(summary()).toEqual(baseline.summary);
       expect(map().routes).toEqual(baseline.routes);
       expect(fetchSpy).toHaveBeenCalledTimes(1);
       await clickPageButton('Back to saved walk');
-      expect(nodeText(tree)).not.toContain('No route could be loaded to this stop.');
-      expect(url.searchParams.has('stop')).toBe(false);
+      expect(nodeText(tree)).not.toContain('Online preview unavailable. Your saved walk is still shown.');
+      expect(url.searchParams.get('stop')).toBe('mrt:21624');
       expect(url.searchParams.get('transit')).toBe('mrt_lrt');
       expect(summary()).toEqual(baseline.summary);
       expect(map().routes).toEqual(baseline.routes);
@@ -1217,12 +1017,12 @@ describe('Home explicit preview failure and stale-response boundaries', () => {
     const second = allowPreview();
     await clickPageButton('Retry preview');
     expect(fetchSpy).toHaveBeenCalledTimes(2);
-    expect(nodeText(tree)).toContain('Checking this stop...');
+    expect(nodeText(tree)).toContain('Checking this stop.');
     second.resolve(Response.json({ ok: false }, { status: 503 }));
     await settle();
     expect(summary()).toEqual(baseline.summary);
     expect(map().routes).toEqual(baseline.routes);
-    expect(nodeText(tree)).toContain('No route could be loaded to this stop.');
+    expect(nodeText(tree)).toContain('Online preview unavailable. Your saved walk is still shown.');
   });
 
   it('positive control: the same successful payload can create a labelled preview when the request is current', async () => {
@@ -1238,7 +1038,7 @@ describe('Home explicit preview failure and stale-response boundaries', () => {
     expect(summary().score?.best_node?.name).toBe('Synthetic preview-only exit');
     expect(summary().score?.provenance).toMatchObject({ source: 'live_onemap_preview', authoritative_score: false });
     expect(map().routes).toHaveLength(1);
-    expect(nodeText(tree)).not.toContain('Checking this stop...');
+    expect(nodeText(tree)).not.toContain('Checking this stop.');
     expect(fetchSpy).toHaveBeenCalledTimes(1);
   });
 
@@ -1258,8 +1058,8 @@ describe('Home explicit preview failure and stale-response boundaries', () => {
       expect(summary()).toEqual(selected.summary);
       expect(map().routes).toEqual(selected.routes);
       expect(url.href).toBe(selected.href);
-      expect(nodeText(tree)).not.toContain('No route could be loaded to this stop.');
-      expect(nodeText(tree)).not.toContain('Checking this stop...');
+      expect(nodeText(tree)).not.toContain('Online preview unavailable. Your saved walk is still shown.');
+      expect(nodeText(tree)).not.toContain('Checking this stop.');
       expect(fetchSpy).toHaveBeenCalledTimes(1);
     },
   );
@@ -1298,19 +1098,16 @@ describe('Home mapped-exposure selection ownership', () => {
     await clickPageButton('Walk details');
     expect(elements(panel()).find(e => e.props.id === 'walk-details')?.props.hidden).toBe(false);
     expect(elements(panel()).some(e => e.type === ScoreCard)).toBe(false);
-    const data = child<React.ComponentProps<typeof DataDetails>>(DataDetails);
-    const technical = elements(data.props.children).find(e => e.type === 'details')!;
-    expect(technical.props.open).toBeUndefined();
-    expect(elements(technical).some(e => e.type === ScoreCard)).toBe(true);
+
   });
 
   it('uses one-line transit choices and disables choices without recorded paths', async () => {
     await loadA();
     const c = modeControl();
     const absent = { ...sourceScore, route_options: { ...sourceScore.route_options, mrt_lrt: undefined } };
-    const rendered = (c.type as (props: typeof c.props) => ReactNode)({ ...c.props, score: absent });
+    const rendered = (c.type as (props: typeof c.props) => ReactNode)({ ...c.props, score: absent, availability: { bus: true, mrt_lrt: false } });
     const buttons = elements(rendered).filter(e => e.type === 'button');
-    expect(buttons).toHaveLength(3);
+    expect(buttons).toHaveLength(2);
     expect(buttons.find(e => e.key === 'mrt_lrt')?.props.disabled).toBe(true);
     expect(buttons.find(e => e.key === 'bus')?.props.disabled).toBe(false);
     expect(elements(rendered).some(e => e.type === 'small')).toBe(false);
@@ -1337,7 +1134,7 @@ describe('Home mapped-exposure selection ownership', () => {
     expect(walkMetrics(summary().score, summary().shortest, summary().option)).toEqual(before);
     expect(before.uncovered).toBeCloseTo(36.5);
     expect(before.longest).toBe(20.2);
-    expect(child<ComponentProps<typeof ScoreCard>>(ScoreCard).props.hideExposureDetails).toBe(true);
+    expect(elements(tree).some(e => e.type === ScoreCard)).toBe(false);
     expect(fetchSpy).not.toHaveBeenCalled();
   });
 
@@ -1360,7 +1157,8 @@ describe('Home mapped-exposure selection ownership', () => {
     const focused = map().focusedExposureGap;
     await clickPageButton('Walk details');
     expect(map().focusedExposureGap).toBe(focused);
-    await clickPageButton('Night lighting');
+    expect(map().showLampOverlay).toBe(true);
+    expect(nodeText(tree)).not.toContain('Night lighting');
     expect(map().focusedExposureGap).toBe(focused);
     await clickPageButton('Collapse walk details');
     expect(map().focusedExposureGap).toBe(focused);
@@ -1385,6 +1183,7 @@ describe('Home mapped-exposure selection ownership', () => {
   it('candidate selection clears old focus and retains its own mapped fragments', async () => {
     await loadA();
     await setMode('mrt_lrt');
+    picker().onSelect(null); render(); await settle();
     const oldSection = focusFirstSection();
     await choose('mrt:21624');
     expect(map().focusedExposureGap).toBeNull();
@@ -1399,6 +1198,7 @@ describe('Home mapped-exposure selection ownership', () => {
   it('shortest excludes sheltered sections and returning does not resurrect old focus', async () => {
     await loadA();
     await setMode('mrt_lrt');
+    picker().onSelect(null); render(); await settle();
     focusFirstSection();
     await setRouteMode('shortest');
     expect(map().focusedExposureGap).toBeNull();
@@ -1422,16 +1222,6 @@ describe('Home mapped-exposure selection ownership', () => {
     await settle();
     await pending;
     expect(map().focusedExposureGap).toBeNull();
-  });
-
-  it('opening About data clears a focus whose explorer is no longer visible', async () => {
-    await loadA();
-    focusFirstSection();
-    const about = child<ComponentProps<typeof DataDetails>>(DataDetails).props;
-    about.onToggle!({ currentTarget: { open: true } } as React.ToggleEvent<HTMLDetailsElement>);
-    render();
-    expect(map().focusedExposureGap).toBeNull();
-    expect(elements(tree).filter(element => element.type === ExposureSectionExplorer)).toHaveLength(0);
   });
 
   it('a successful explicit preview cannot retain or reopen a published section', async () => {
@@ -1513,8 +1303,8 @@ describe('Home URL-intent and load-completion ownership regressions', () => {
       expect(modeControl().props.mode).toBe(chosen.mode);
       expect(url.href).toBe(chosen.href);
       expect(map().chosenStopId).not.toBe(previewStopId);
-      expect(nodeText(tree)).not.toContain('Checking this stop...');
-      expect(nodeText(tree)).not.toContain('No route could be loaded to this stop.');
+      expect(nodeText(tree)).not.toContain('Checking this stop.');
+      expect(nodeText(tree)).not.toContain('Online preview unavailable. Your saved walk is still shown.');
       expect(storageRead).not.toHaveBeenCalled();
     },
   );
@@ -1535,7 +1325,7 @@ describe('Home URL-intent and load-completion ownership regressions', () => {
     await settle();
     expect(summary()).toEqual(newSummary);
     expect(map().routes).toHaveLength(0);
-    expect(modeControl().props.mode).toBe('best_transit');
+    expect(modeControl().props.mode).toBe('bus');
     expect(map().chosenStopId).not.toBe(previewStopId);
     expect(url.searchParams.get('postal')).toBe(B);
     expect(url.searchParams.has('stop')).toBe(false);
@@ -1571,6 +1361,7 @@ describe('Home URL-intent and load-completion ownership regressions', () => {
   it('re-searching the same postal resets to its default and clears stop/transit/route at score readiness', async () => {
     await loadA();
     await setMode('mrt_lrt');
+    picker().onSelect(null); render(); await settle();
     await setRouteMode('shortest');
     expect(map().mode).toBe('shortest');
     await choose('mrt:21624');
@@ -1589,7 +1380,7 @@ describe('Home URL-intent and load-completion ownership regressions', () => {
     newScore.resolve(sourceScore);
     await settle();
     expect(summary().option?.name).toBe('Bayfront Stn Exit B/MBS');
-    expect(modeControl().props.mode).toBe('best_transit');
+    expect(modeControl().props.mode).toBe('bus');
     expect(map().routes).toHaveLength(0);
     expect(url.searchParams.get('postal')).toBe(A);
     expect(url.searchParams.has('stop')).toBe(false);
@@ -1600,9 +1391,9 @@ describe('Home URL-intent and load-completion ownership regressions', () => {
     await settle();
     await submitted;
     assertCoherent('Bayfront Stn Exit B/MBS', 81.2, 0.551, originalGeometry.route_options.bus.sheltered_parts);
-    expect(modeControl().props.mode).toBe('best_transit');
+    expect(modeControl().props.mode).toBe('bus');
     expect(map().mode).toBe('shiokest');
-    expect(url.href).toBe(resetUrl);
+    expect(url.href).toBe(resetUrl + '&transit=bus');
     expect(storageRead).not.toHaveBeenCalled();
   });
 });
@@ -1702,53 +1493,5 @@ describe('Home full walk-URL serialization races', () => {
     expect(map().mode).toBe('shiokest');
     expect(map().chosenStopId).not.toBe(previewStopId);
     expect(storageRead).not.toHaveBeenCalled();
-  });
-});
-
-describe('T03 displayed comparison diagnostic context', () => {
-  it('keeps the comparison context and route identities when hidden primary geometry completes', async () => {
-    const view = () => child<ComponentProps<typeof HomeComparison>>(HomeComparison).props;
-    comparisonStored = JSON.stringify({ version: 1, postals: [A], category: 'bus', activePostal: A });
-    mount();
-    const primaryLoad = submit(A);
-    scores.get(A)!.resolve(sourceScore);
-    await settle();
-    expect(summary().postal).toBe(A);
-    expect(map().routes).toEqual([]);
-    expect(dependencies.fetchGeomForPostal).toHaveBeenCalledTimes(1);
-
-    // Complete only the comparison request; the primary request stays pending.
-    dependencies.fetchGeomForPostal.mockImplementationOnce(() => Promise.resolve(sourceGeometry));
-    await clickPageButton('Compare (1)');
-    expect(dependencies.fetchGeomForPostal).toHaveBeenCalledTimes(2);
-    expect(view().entries[A]).toMatchObject({ status: 'ready', geometryStatus: 'ready' });
-    expect(view().entries[A].row?.metrics).toEqual({ distance: 81.2, coverage: 55, uncovered: 36.5, longest: 20.2 });
-    expect(map().routes).toHaveLength(1);
-    expect(map().routes[0].id).toBe(`comparison:${A}`);
-    expect(map().routes[0].geom.sheltered_parts).toEqual(originalGeometry.route_options.bus.sheltered_parts);
-    const displayed = map();
-    const entry = view().entries[A];
-    expect(displayed.diagnosticContext).toBeDefined();
-
-    geometries.get(A)!.resolve(sourceGeometry);
-    await primaryLoad;
-    await settle();
-    expect(view().state).toMatchObject({ category: 'bus', activePostal: A });
-    expect(view().entries[A]).toBe(entry);
-    expect(map().routes).toBe(displayed.routes);
-    expect(map().diagnosticContext).toBe(displayed.diagnosticContext);
-    expect(map().mode).toBe(displayed.mode);
-    expect(diagnostics()).toEqual([]);
-
-    // Closing proves the hidden delivery was accepted, not ignored to preserve identity.
-    view().onClose();
-    render();
-    await settle();
-    expect(summary().postal).toBe(A);
-    expect(map().routes).toHaveLength(1);
-    expect(map().routes[0].geom.postal).toBe(A);
-    expect(map().routes[0].geom.sheltered_parts).toEqual(originalGeometry.sheltered_parts);
-    expect(map().diagnosticContext).not.toBe(displayed.diagnosticContext);
-    expect(dependencies.fetchGeomForPostal).toHaveBeenCalledTimes(2);
   });
 });

@@ -190,12 +190,12 @@ describe("score card copy", () => {
     expect(pickerSource).not.toContain('aria-label="Nearby transit targets"');
     expect(pickerSource).not.toContain('aria-label="Transit stop picker"');
     expect(pickerSource).not.toContain('aria-label="Nearby transit stops"');
-    expect(source).toContain('{ id: "best_transit", label: "Suggested" }');
+    expect(source).not.toContain('{ id: "best_transit", label: "Suggested" }');
     expect(source).not.toContain('{ id: "best_transit", label: "Auto-picked" }');
-    expect(source).toContain('{ id: "mrt_lrt", label: "MRT/LRT" }');
+    expect(source).toContain('{ id: "mrt_lrt", label: "MRT/LRT exits" }');
     expect(source).toContain('{ id: "bus", label: "Bus stops" }');
     expect(source).not.toContain('{ id: "best_transit", label: "Best transit" }');
-    expect(source).not.toContain('{ id: "mrt_lrt", label: "MRT/LRT exits" }');
+    expect(source).not.toContain('{ id: "mrt_lrt", label: "MRT/LRT" }');
     expect(source).not.toContain('{ id: "bus", label: "Bus" }');
     expect(source).toContain('if (mode === "mrt_lrt") return "MRT/LRT exit";');
     expect(source).toContain('if (mode === "bus") return "bus stop";');
@@ -489,7 +489,7 @@ describe("score card copy", () => {
     expect(source).toContain("https://opendatacommons.org/licenses/odbl/1-0/");
     expect(source).toContain("ATTRIBUTION.md");
     expect(source).toContain("Heat estimate: shelter plus sparse nearby greenery, not measured temperature");
-    expect(source).toContain("Night lighting");
+    expect(source).toContain("showLampOverlay");
     expect(source).toContain("Exposed gaps {selectedWalkHeadingPhrase}");
     expect(source).not.toContain("Exposed gaps on this walk");
     expect(source).not.toContain("Exposed gaps on {selectedWalkLabel}");
@@ -652,7 +652,7 @@ describe("score card copy", () => {
     expect(tsxSource).not.toContain("value: nightLightingRouteDetailValue(lampOverlayEnabled),");
     expect(tsxSource).not.toContain("export function nightLightingRouteDetailValue(lampOverlayEnabled: boolean): string");
     expect(tsxSource).not.toContain("Night-lighting layer hidden; show the layer, then zoom in");
-    expect(tsxSource).toContain('{lampOverlayEnabled ? "Night lighting shown" : "Night lighting"}');
+    expect(tsxSource).not.toContain('{lampOverlayEnabled ? "Night lighting shown" : "Night lighting"}');
     expect(tsxSource).not.toContain('{lampOverlayEnabled ? "Night-lighting layer shown" : "Show night-lighting layer"}');
     expect(tsxSource).not.toContain('{lampOverlayEnabled ? "Night-lighting layer on" : "Night-lighting layer off"}');
     expect(tsxSource).not.toContain('{lampOverlayEnabled ? "Night lighting on" : "Night lighting off"}');
@@ -662,7 +662,7 @@ describe("score card copy", () => {
     expect(tsxSource).not.toContain('routeDetailItems.push({ label: "Night lighting", value: lampOverlayEnabled ? "Layer on" : "Layer off" });');
     expect(tsxSource).toContain("lampOverlayEnabled?: boolean;");
     expect(tsxSource).not.toContain("setLampOverlayEnabled?: (enabled: boolean) => void;");
-    expect(tsxSource).toContain("lampOverlayEnabled={lampOverlayEnabled}");
+    expect(tsxSource).toContain("          showLampOverlay");
     expect(tsxSource).not.toContain("setLampOverlayEnabled={setLampOverlayEnabled}");
     expect(tsxSource).not.toContain("Show night-lighting layer");
     expect(tsxSource).not.toContain(

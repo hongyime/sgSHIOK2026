@@ -220,48 +220,13 @@ describe("rendered accessibility output", () => {
     expect(noResultsHtml).not.toContain("newer completions may still be outside");
   });
 
-  it("renders the current public-source sample in data limits", () => {
+  it("keeps data commentary out of the initial map", () => {
     const html = renderToStaticMarkup(<Home />);
-
-    expect(html).toContain("About data");
-    expect(html).toContain("Bundle data reference:");
-    expect(html).toContain("2 Aug 2026, 05:49 SGT");
-    expect(html).toContain("Some newer addresses and some locked scores are not in this release.");
-    expect(html).not.toContain("Data limits: June 2020 addresses; roughly 1 in 4 lack full locked scores");
-    expect(html).not.toContain("Data limits: frozen v1 addresses; roughly 1 in 4 lack full locked scores");
-    expect(html).not.toContain("Data limits: frozen v1 addresses; incomplete locked scores");
-    expect(html).toContain("P19 v2 28 Aug 2026 public-source sample");
-    expect(html).toContain("This is sampled evidence, not a complete missing-address count or approval to replace the June 2020 address list.");
-    expect(html).not.toContain("Current for gap sizing until 4 Sep 2026 UTC");
-    expect(html).toContain(
-      "25,919 valid distinct postcodes measured; 25,899 overlap the 124,443 June 2020 address-list postcodes, with 20 valid OSM-only postcodes."
-    );
-    expect(html).toContain(
-      "Source-age snapshot: 29 Aug 2026 17:23 UTC source-age check; 11 sources were current, 9 stale, 3 manual, and 1 unknown-age candidate. This was not a live source refresh."
-    );
-    expect(html).not.toContain("Source-age snapshot: 29 Aug 2026 09:38 UTC source-age check");
-    expect(html).not.toContain("Source-age snapshot: 28 Aug 2026 22:21 UTC manifest-only check");
-    expect(html).not.toContain("Source-age snapshot: 28 Aug 2026 22:21 UTC source-age check");
-    expect(html).not.toContain("No upstream URLs were probed.");
-    expect(html).not.toContain("Data freshness: 28 Aug 2026 22:21 UTC");
-    expect(html).toContain(
-      "At the 29 Aug 2026 source-age check, Bus Stops, Bus Services, and Bus Routes were the nearest current sources to their stale threshold"
-    );
-    expect(html).toContain("Freshness may have changed since that snapshot");
-    expect(html).toContain("source refreshes use new dated input versions instead of changing published data in place");
-    expect(html).not.toContain("source refreshes use new versioned inputs instead of changing the frozen v1 data in place");
-    expect(html).not.toContain("source refreshes use new versioned inputs instead of changing the frozen v1 bundle in place");
-    expect(html).toContain(
-      "The source inventory covers address, transport, shelter, greenery, boundary, and lighting references, including the June 2020 OneMap-derived address seed"
-    );
-    expect(html).not.toContain("postal-universe seed");
-    expect(html).not.toContain("raw/manifest.json");
-    expect(html).not.toContain("ACRA, other-UEN");
-    expect(html).not.toContain("zero-mutation source-age check before release work");
-    expect(html).not.toContain("Bus Stops, Bus Services, and Bus Routes are current but 1.2 days from stale");
-    expect(html).not.toContain("Data freshness: 28 Aug 2026 11:52 UTC manifest-only check");
-    expect(html).not.toContain("16 Aug 2026 public-source sample");
-    expect(html).not.toContain("20 Aug 2026 OSM addr:postcode coverage cross-check");
+    expect(html).not.toContain("About data");
+    expect(html).not.toContain("Bundle data reference:");
+    expect(html).not.toContain("Source-age snapshot:");
+    expect(html).not.toContain("P19 v2");
+    expect(html).not.toContain("Technical record");
   });
 
   it("separates recorded source updates, static check, bundle generation and unknown publication", () => {
@@ -1095,8 +1060,8 @@ describe("rendered accessibility output", () => {
     });
 
     expect(html).toContain('aria-label="Transit stop or exit type"');
-    expect(html).toContain("<span>Suggested</span>");
-    expect(html).toMatch(/disabled="" title="No saved walk for mrt\/lrt"[^>]*><span>MRT\/LRT<\/span>/);
+    expect(html).not.toContain("<span>Suggested</span>");
+    expect(html).toMatch(/disabled="" title="No saved walk for mrt\/lrt exits"[^>]*><span>MRT\/LRT exits<\/span>/);
     expect(html).toContain("<span>Bus stops</span>");
     expect(html).not.toContain('aria-label="Transit target type"');
     expect(html).not.toContain('aria-label="Transit target"');
@@ -1128,7 +1093,7 @@ describe("rendered accessibility output", () => {
       },
       rankingRecords: [recordWithRouteOptions],
     });
-    expect(noDisplayedWalkHtml).toContain('disabled="" title="No saved walk for suggested"');
+    expect(noDisplayedWalkHtml).not.toContain("Suggested");
     expect(noDisplayedWalkHtml).not.toContain("<span>Published walk</span><small>unavailable</small>");
     expect(noDisplayedWalkHtml).not.toContain("<span>Auto-picked</span>");
   });
