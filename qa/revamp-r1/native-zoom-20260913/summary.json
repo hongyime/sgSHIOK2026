@@ -1,0 +1,619 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "Prawn-E14",
+  "base": "021d5dfc070fb0d8721a4d2cf5aa8f9db2303234",
+  "createdAt": "2026-09-13T09:39:03.602Z",
+  "tests": {
+    "focused": {
+      "tests": 179,
+      "files": 4,
+      "receipt": "checks-1789290903372/result.json"
+    },
+    "isolated": {
+      "tests": 1930,
+      "files": 72,
+      "dependencyGuards": 42,
+      "arithmetic": "1925+5=1930;72+0=72",
+      "isolation": {
+        "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-9WRwD2",
+        "copiedFiles": 243,
+        "productionDataDirectoryAbsent": true,
+        "guardProbePassed": true,
+        "forbiddenPaths": [
+          "C:\\sgSHIOK2026\\web\\public\\data",
+          "C:\\sgSHIOK2026\\tmp\\test-without-data-9WRwD2\\web\\public\\data"
+        ],
+        "dependencies": "Existing node_modules linked; no installation",
+        "testArgs": [
+          "--reporter=dot",
+          "--testTimeout=15000"
+        ],
+        "exitCode": 0
+      },
+      "receipt": "checks-1789290961142/result.json"
+    },
+    "checks": [
+      {
+        "path": "checks-1789290694020",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "node_modules/vitest/vitest.mjs",
+          "run",
+          "--globals",
+          "--maxWorkers",
+          "1",
+          "--no-file-parallelism",
+          "--reporter=json",
+          "lib/__tests__/transit-stop-picker.test.tsx",
+          "lib/__tests__/walk-recovery-focus.test.tsx",
+          "lib/__tests__/published-walk-page.test.tsx",
+          "--testTimeout=15000"
+        ],
+        "cwd": "C:\\sgSHIOK2026\\web",
+        "exitCode": 0,
+        "elapsedMs": 58991,
+        "counts": {
+          "tests": 140,
+          "passed": 140,
+          "failed": 0
+        },
+        "failures": []
+      },
+      {
+        "path": "checks-1789290903372",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "node_modules/vitest/vitest.mjs",
+          "run",
+          "--globals",
+          "--maxWorkers",
+          "1",
+          "--no-file-parallelism",
+          "--reporter=json",
+          "lib/__tests__/transit-stop-picker.test.tsx",
+          "lib/__tests__/exposure-section-explorer.test.tsx",
+          "lib/__tests__/walk-recovery-focus.test.tsx",
+          "lib/__tests__/published-walk-page.test.tsx",
+          "--testTimeout=15000"
+        ],
+        "cwd": "C:\\sgSHIOK2026\\web",
+        "exitCode": 0,
+        "elapsedMs": 31393,
+        "counts": {
+          "tests": 179,
+          "passed": 179,
+          "failed": 0
+        },
+        "failures": []
+      },
+      {
+        "path": "checks-1789290961142",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "web/scripts/test-without-production-data.mjs",
+          "--reporter=dot",
+          "--testTimeout=15000"
+        ],
+        "cwd": "C:\\sgSHIOK2026",
+        "exitCode": 0,
+        "elapsedMs": 179342
+      },
+      {
+        "path": "checks-1789291170325",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "web/node_modules/typescript/bin/tsc",
+          "--project",
+          "web/tsconfig.json",
+          "--noEmit",
+          "--incremental",
+          "false"
+        ],
+        "cwd": "C:\\sgSHIOK2026",
+        "exitCode": 0,
+        "elapsedMs": 12733
+      }
+    ],
+    "retainedPython": {
+      "tests": 955,
+      "rerun": false
+    }
+  },
+  "build": {
+    "buildId": "vOoOxn7etjT-WJqrIExq7",
+    "sources": 167,
+    "currentTestAndBuildMatch": true
+  },
+  "browsers": [
+    {
+      "path": "zoom100-1uc52F",
+      "ok": true,
+      "checks": 17,
+      "passed": 17,
+      "captures": 2,
+      "buildId": "vOoOxn7etjT-WJqrIExq7",
+      "elapsedMs": 81169,
+      "cleanup": true,
+      "zoom": {
+        "requestedPercent": 100,
+        "preferences": {
+          "partition": {
+            "default_zoom_level": {
+              "x": 0
+            }
+          }
+        },
+        "method": "Fresh owned profile native partition default zoom before Chrome launch; no page-scale/device-metrics override",
+        "observed": {
+          "inner": [
+            1424,
+            799
+          ],
+          "outer": [
+            1440,
+            950
+          ],
+          "dpr": 1,
+          "visualScale": 1,
+          "documentZoom": "1",
+          "bodyZoom": "1",
+          "reduced": true,
+          "screen": [
+            800,
+            600
+          ]
+        }
+      },
+      "resetFocus": {
+        "tag": "H2",
+        "text": "Postal 018956",
+        "visible": true,
+        "focusVisible": true
+      }
+    },
+    {
+      "path": "zoom100-EY2IBM",
+      "ok": true,
+      "checks": 30,
+      "passed": 30,
+      "captures": 5,
+      "buildId": "X5gzHuoOU1Div5U-qBlgj",
+      "elapsedMs": 42827,
+      "cleanup": true,
+      "zoom": {
+        "requestedPercent": 100,
+        "preferences": {
+          "partition": {
+            "default_zoom_level": {
+              "x": 0
+            }
+          }
+        },
+        "method": "Fresh owned profile native partition default zoom before Chrome launch; no page-scale/device-metrics override",
+        "observed": {
+          "inner": [
+            1424,
+            799
+          ],
+          "outer": [
+            1440,
+            950
+          ],
+          "dpr": 1,
+          "visualScale": 1,
+          "documentZoom": "1",
+          "bodyZoom": "1",
+          "reduced": true,
+          "screen": [
+            800,
+            600
+          ]
+        }
+      },
+      "resetFocus": null
+    },
+    {
+      "path": "zoom200-1ESfRY",
+      "ok": false,
+      "checks": 15,
+      "passed": 14,
+      "captures": 2,
+      "buildId": "X5gzHuoOU1Div5U-qBlgj",
+      "elapsedMs": 49344,
+      "cleanup": true,
+      "zoom": {
+        "requestedPercent": 200,
+        "preferences": {
+          "partition": {
+            "default_zoom_level": {
+              "x": 3.8017840169239308
+            }
+          }
+        },
+        "method": "Fresh owned profile native partition default zoom before Chrome launch; no page-scale/device-metrics override",
+        "observed": {
+          "inner": [
+            712,
+            399
+          ],
+          "outer": [
+            1440,
+            950
+          ],
+          "dpr": 2,
+          "visualScale": 1,
+          "documentZoom": "1",
+          "bodyZoom": "1",
+          "reduced": true,
+          "screen": [
+            800,
+            600
+          ]
+        }
+      },
+      "resetFocus": {
+        "tag": "BODY",
+        "text": "[page body; full raw value retained in trace]",
+        "visible": true,
+        "focusVisible": false
+      }
+    },
+    {
+      "path": "zoom200-B1YTTj",
+      "ok": false,
+      "checks": 46,
+      "passed": 46,
+      "captures": 7,
+      "buildId": "X5gzHuoOU1Div5U-qBlgj",
+      "elapsedMs": 52836,
+      "cleanup": true,
+      "zoom": {
+        "requestedPercent": 200,
+        "preferences": {
+          "partition": {
+            "default_zoom_level": {
+              "x": 3.8017840169239308
+            }
+          }
+        },
+        "method": "Fresh owned profile native partition default zoom before Chrome launch; no page-scale/device-metrics override",
+        "observed": {
+          "inner": [
+            712,
+            399
+          ],
+          "outer": [
+            1440,
+            950
+          ],
+          "dpr": 2,
+          "visualScale": 1,
+          "documentZoom": "1",
+          "bodyZoom": "1",
+          "reduced": true,
+          "screen": [
+            800,
+            600
+          ]
+        }
+      },
+      "resetFocus": null
+    },
+    {
+      "path": "zoom200-FAXIMx",
+      "ok": true,
+      "checks": 56,
+      "passed": 56,
+      "captures": 9,
+      "buildId": "vOoOxn7etjT-WJqrIExq7",
+      "elapsedMs": 55822,
+      "cleanup": true,
+      "zoom": {
+        "requestedPercent": 200,
+        "preferences": {
+          "partition": {
+            "default_zoom_level": {
+              "x": 3.8017840169239308
+            }
+          }
+        },
+        "method": "Fresh owned profile native partition default zoom before Chrome launch; no page-scale/device-metrics override",
+        "observed": {
+          "inner": [
+            712,
+            399
+          ],
+          "outer": [
+            1440,
+            950
+          ],
+          "dpr": 2,
+          "visualScale": 1,
+          "documentZoom": "1",
+          "bodyZoom": "1",
+          "reduced": true,
+          "screen": [
+            800,
+            600
+          ]
+        }
+      },
+      "resetFocus": {
+        "tag": "H2",
+        "text": "Postal 018956",
+        "visible": true,
+        "focusVisible": true
+      },
+      "returnedSectionFocus": {
+        "tag": "SUMMARY",
+        "text": "Uncovered sections (3)",
+        "label": null,
+        "box": {
+          "left": 25,
+          "right": 294,
+          "top": 165.5,
+          "bottom": 209.5,
+          "width": 269,
+          "height": 44
+        },
+        "focusVisible": true,
+        "visible": true
+      }
+    },
+    {
+      "path": "zoom200-FgSh4x",
+      "ok": true,
+      "checks": 42,
+      "passed": 42,
+      "captures": 7,
+      "buildId": "X5gzHuoOU1Div5U-qBlgj",
+      "elapsedMs": 62912,
+      "cleanup": true,
+      "zoom": {
+        "requestedPercent": 200,
+        "preferences": {
+          "partition": {
+            "default_zoom_level": {
+              "x": 3.8017840169239308
+            }
+          }
+        },
+        "method": "Fresh owned profile native partition default zoom before Chrome launch; no page-scale/device-metrics override",
+        "observed": {
+          "inner": [
+            712,
+            399
+          ],
+          "outer": [
+            1440,
+            950
+          ],
+          "dpr": 2,
+          "visualScale": 1,
+          "documentZoom": "1",
+          "bodyZoom": "1",
+          "reduced": true,
+          "screen": [
+            800,
+            600
+          ]
+        }
+      },
+      "resetFocus": null
+    }
+  ],
+  "review": {
+    "reviewer": "Confucius",
+    "ownership": "Source/criteria audit read-only. Then wrote only web/lib/__tests__/transit-stop-picker.test.tsx, five new cases. Parent owned runtime, explorer test expectation corrections and QA/docs. No reviewer test/build/browser process or commit.",
+    "sourceResult": "No additional issue found in reset ownership/order guard, scroll-enabled summary-heading recovery or Back-only focus change. Explicit close remains unchanged.",
+    "baselineImages": {
+      "directory": "zoom200-FgSh4x",
+      "inspected": [
+        "initial.png",
+        "mrt_lrt.png",
+        "gap-selected.png",
+        "details-open.png"
+      ],
+      "result": "Narrowly accepted for visible chosen route/gap and section/details focus rings under profile-native200% setup. Unavailable fits horizontally; full-row readability remains unverified because its top edge meets the scroll boundary. Not accepted for post-Back or post-reset focus; the earlier42green checks do not override the confirmed defects."
+    },
+    "finalImages": {
+      "directory": "zoom200-FAXIMx",
+      "buildId": "vOoOxn7etjT-WJqrIExq7",
+      "inspected": [
+        "gap-cleared.png",
+        "reset-after.png"
+      ],
+      "result": "Narrow200% treatment accepted. Uncovered sections now scrolls into view with a complete focus outline; SUMMARY top165.5/bottom209.5 CSSpx, visible/focusVisible true. Reset focuses the postal heading above correct Exit E; H2 top121/bottom146.5, visible/focusVisible true, chosen route unobscured. Both previously reproduced focus defects resolved. No additional defect within these2captures; this review does not extend to the100% replay."
+    },
+    "parentImages": {
+      "final": {
+        "zoom200-FAXIMx": [
+          "initial.png",
+          "mrt_lrt.png",
+          "bus.png",
+          "details-open.png",
+          "gap-selected.png",
+          "gap-cleared.png",
+          "details-closed.png",
+          "reset-before.png",
+          "reset-after.png"
+        ],
+        "zoom100-1uc52F": [
+          "reset-before.png",
+          "reset-after.png"
+        ]
+      },
+      "baseline": {
+        "zoom100-EY2IBM": [
+          "initial.png",
+          "mrt_lrt.png",
+          "details-open.png"
+        ],
+        "zoom200-FgSh4x": [
+          "initial.png",
+          "mrt_lrt.png",
+          "bus.png",
+          "details-open.png",
+          "gap-selected.png",
+          "gap-cleared.png",
+          "details-closed.png"
+        ],
+        "zoom200-1ESfRY": [
+          "reset-after.png"
+        ]
+      },
+      "arithmetic": "9+2=11 final captures;3+7+1=11 baseline captures inspected. Other retained captures are not claimed visually inspected."
+    },
+    "remaining": [
+      "All clipped metric rows readable via user scrolling",
+      "Same-document browser-menu/shortcut zoom transitions",
+      "Keyboard map movement/reduced-motion behaviour beyond app fit calls",
+      "Screen reader and physical device",
+      "Exact release/SW/production acceptance",
+      "Real reporting and activated maintenance"
+    ]
+  },
+  "method": {
+    "base": "021d5dfc070fb0d8721a4d2cf5aa8f9db2303234",
+    "previousGoalTurn": "progress: keyboard recovery change pushed and independently reviewed",
+    "scope": "Current Home native browser page-zoom/reduced-motion acceptance and any reproduced reset-focus defect; no pipeline, install, activation or deployment.",
+    "browserPlugin": {
+      "attempted": true,
+      "error": "failed to write kernel assets: The system cannot find the path specified. (os error 3)",
+      "fallback": "owned headless Chrome/CDP, fresh repository-contained profile"
+    },
+    "zoom": {
+      "configuration": "Fresh profile Default/Preferences partition.default_zoom_level.x before browser launch; x is the empty relative partition path key. Values0 and log(2)/log(1.2).",
+      "controls": "Chrome window1440x950; force-device-scale-factor1. No Emulation.setDeviceMetricsOverride, Emulation.setPageScaleFactor, injected CSS zoom or larger font styles.",
+      "observed100": {
+        "outerWidth": 1440,
+        "innerWidth": 1424,
+        "innerHeight": 799,
+        "devicePixelRatio": 1,
+        "visualViewportScale": 1
+      },
+      "observed200": {
+        "outerWidth": 1440,
+        "innerWidth": 712,
+        "innerHeight": 399,
+        "devicePixelRatio": 2,
+        "visualViewportScale": 1
+      },
+      "arithmetic": "1424/712=2;799/399=2.0025062656641603 with integer viewport rounding. Separate fresh-profile runs, not an in-document keyboard zoom transition.",
+      "source": "https://chromium.googlesource.com/chromium/src/+/lkgr/chrome/browser/ui/zoom/chrome_zoom_level_prefs.cc",
+      "sourceBlobAtRead": "1f1829ff00a63dcc2abc064d444a051d2797675e",
+      "inference": "The configured partition preference is consumed by Chrome's native host zoom map; measured CSS dimensions and DPR confirm the requested page zoom. The headless run does not visually operate the browser zoom menu."
+    },
+    "reducedMotion": "CDP media preference set to reduce. matchMedia verified. Pass-through instrumentation records app fitBounds/easeTo/flyTo calls without changing arguments or return values. This is not OS-settings UI or MapLibre keyboard-pan acceptance.",
+    "bounds": "600seconds per owned browser attempt including60seconds cleanup reserve; initial host memory minimum1024MiB. Existing11fixture anchors checked before/after. Controlled local API failure prevents provider IO; basemap GETs allowlisted. Service worker bypassed.",
+    "attemptCorrection": "zoom200-B1YTTj wrongly treated an unselected Exit E button as nondefault. Exit E is the published default; shortest automatic Exit C already exposes reset. Setup timed out, preserved. Corrected reset-only zoom200-1ESfRY then proved BODY focus after reset.",
+    "greenCheckLimitation": "zoom200-FgSh4x returned42passing checks but omitted Back-to-walk focus visibility. Its raw trace entry946 records a focused SUMMARY at top30.5/bottom74.5, obscured by the search/scroll container (visible:false). gap-cleared.png corroborates the absent visible outline. This is a real missed defect, not passing complete acceptance. Final driver now asserts this boundary explicitly.",
+    "previewStartupObservation": "An initial standalone Invoke-RestMethod preflight raced preview startup and reported connection refused. PowerShell continued to the planned browser command; that command independently checked the preview/source identity before launching and succeeded. No second preview or browser was started to hide this observation. The later explicit Stop-on-error identity readback is recorded separately.",
+    "nonClaims": [
+      "Physical phone",
+      "Assistive technology",
+      "Browser-menu/keyboard zoom change in the same document",
+      "Representative performance",
+      "Old-to-new production service-worker upgrade",
+      "All report or maintenance services complete"
+    ]
+  },
+  "evidence": {
+    "path": "qa/verification/REVAMP-R1-core-walk.md",
+    "tracked": true,
+    "checkIgnoreExit": 1,
+    "previousBytes": 375519,
+    "previousSha256": "c0c40e5f332ff8542e203ec0c30532e94fbb98c2348073bf82f6690a2c387f89",
+    "bytes": 383369,
+    "addedBytes": 7850,
+    "exactPrefix": true
+  },
+  "anchors": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "bytes": 13626,
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "bytes": 1751005,
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "bytes": 5240179,
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "bytes": 5236013,
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "bytes": 39674,
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "bytes": 3538342,
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "bytes": 184,
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "bytes": 269,
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "bytes": 1189,
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "bytes": 145327,
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "bytes": 515583,
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "weightSha256": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+  "preview": {
+    "buildId": "vOoOxn7etjT-WJqrIExq7",
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\native-zoom-20260913-build-1",
+    "pid": 33360,
+    "dataPort": 4340,
+    "nextPort": 4415,
+    "proxyPort": 4416,
+    "readOnlyData": true,
+    "allowedApi": "GET /api/onemap-route and /api/onemap-search",
+    "oneMapCredentialsConfigured": true,
+    "nextPid": 35540
+  },
+  "taskBoard": {
+    "url": "http://127.0.0.1:4416/postplan.html",
+    "sha256": "082603fba461b0757512729e57c71a4cd634e983428e108dae841e50cb79e0d9"
+  },
+  "findings": [
+    "Default reset dropped focus to BODY; now moves owned focus synchronously to the surviving heading.",
+    "Back to walk focused a clipped summary at200%; native focus scrolling fixes it.",
+    "The earlier42green checks missed the clipped-focus defect; raw failed and insufficient attempts remain preserved.",
+    "Real services, physical-device acceptance and exact release gates are still open."
+  ],
+  "disagreements": [
+    "A headless native page-zoom setup is not a same-document keyboard/menu zoom change, real device or screen-reader result.",
+    "Feature counts and focus-visible flags alone cannot establish unobscured pixels."
+  ],
+  "pipelineRuns": 0,
+  "pipelineSeconds": 0,
+  "installations": 0,
+  "deployments": 0
+}

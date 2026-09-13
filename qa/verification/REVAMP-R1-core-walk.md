@@ -5364,3 +5364,120 @@ DISAGREEMENTS
 
 Pipeline runs:0. Pipeline seconds:0. Installs:0. Deployments:0.
 No X access, protected-data mutation, score/input generation or locked-weight edit.
+
+## 2026-09-13: Native page zoom and visible reset focus
+
+Working root:C:\sgSHIOK2026. Host:Prawn-E14.
+Base:021d5dfc070fb0d8721a4d2cf5aa8f9db2303234.
+Evidence:qa/revamp-r1/native-zoom-20260913/.
+Original records above this section remain byte-for-byte unchanged.
+
+Method and bounded observations:
+- Browser plugin bootstrap failed with os error3. Owned Chrome/CDP fallback used;
+  no user browser profile or settings changed. Fresh repo-contained profiles set
+  Chromium partition.default_zoom_level.x before launch. This is native page
+  zoom, not CSS text enlargement, pageScaleFactor or device-metrics enlargement.
+- Outer window1440x950. At100%:inner1424x799,DPR1,visualViewport.scale1.
+  At200%:inner712x399,DPR2,visualViewport.scale1.
+  Width1424/712=2; height799/399=2.0025062656641603 after integer rounding.
+- This does not exercise browser-menu/shortcut zoom changes in one document.
+  method.json records the primary Chromium source and the inference boundary.
+- Reduced motion was set through the CDP media preference and confirmed by
+  matchMedia. Observed app fitBounds/easeTo/flyTo calls used duration0. This does
+  not establish MapLibre keyboard-motion or actual OS settings behaviour.
+- Service worker bypassed. Local/OneMap tile GETs allowed; online route API
+  replaced with controlled503 responses. No actual provider route call claimed.
+- An initial preview status request raced startup and returned connection refused.
+  PowerShell continued; browser independently verified preview identity before
+  launch. Later strict status request succeeded. The failed preflight is retained.
+
+Baseline failures and insufficient attempts retained:
+- zoom100-EY2IBM:30checks,5captures,old build. Missing disclosure opening meant
+  no gap acceptance. Parent inspected initial,mrt_lrt,details-open only.
+- zoom200-FgSh4x:42green checks,7captures,old build. Checks omitted post-Back
+  visibility. Raw entry946 at55935ms records focused SUMMARY at top30.5/bottom74.5,
+  focusVisible=true but visible=false. Parent inspected all7captures. This was
+  insufficient acceptance, not evidence that the Back focus was correct.
+- zoom200-B1YTTj:46checks before a harness timeout. Setup incorrectly treated
+  Exit E as nondefault; Exit E is the published default. No visual review claimed.
+- zoom200-1ESfRY:15checks=14pass+1fail,2captures. Tab/Enter selected MRT then
+  Use published default. Current shortest Exit C changed to declared default
+  Exit E; disappearing reset left focus on BODY. Parent inspected reset-after.
+
+Runtime changes:
+- TransitStopPicker notifies only when the disappearing reset actually owns focus,
+  synchronously before onSelect(null). Home focuses its surviving postal heading.
+  Missing/unowned events and ordinary stop choices do not steal focus.
+- Back to walk now permits native focus scrolling for its surviving summary.
+  Explicit details-close retains preventScroll:true; its behaviour is unchanged.
+- Browser driver now asserts focused-element visibility/occlusion after Back and
+  reset, rather than relying only on focus-visible flags and route feature counts.
+
+Commands and terminal receipts:
+node qa/revamp-r1/native-zoom-20260913/checks.mjs focused lib/__tests__/transit-stop-picker.test.tsx lib/__tests__/exposure-section-explorer.test.tsx lib/__tests__/walk-recovery-focus.test.tsx lib/__tests__/published-walk-page.test.tsx --testTimeout=15000
+- checks-1789290903372:179passed,4files,31393ms,exit0.
+- Earlier checks-1789290694020:140passed,3files,58991ms,exit0, before Back fix.
+node qa/revamp-r1/native-zoom-20260913/checks.mjs full
+- checks-1789290961142:1930passed,72files,42dependency guards,exit0.
+- Arithmetic:1925existing+5new picker cases=1930;72existing files+0=72.
+- Existing Back test expectations corrected; explicit-close expectations retained.
+- Vitest168.38s; wrapper179342ms.243tracked source files copied. Original/copied
+  production data denied; guard probe passed; existing dependencies linked.
+node qa/revamp-r1/native-zoom-20260913/checks.mjs types
+- checks-1789291170325:installed TypeScript --noEmit --incremental false,
+  12733ms,exit0.
+node qa/revamp-r1/native-zoom-20260913/build.mjs
+- build-1/build.json:exit0,sourceStable=true,buildId=vOoOxn7etjT-WJqrIExq7.
+node qa/revamp-r1/native-zoom-20260913/browser.mjs 200 all treatment
+- zoom200-FAXIMx:56checks,9captures,passed,owned-browser cleanup verified.
+- Current-route counts:initial4,MRT3,bus4,details4,gap-selected4,gap-cleared4,
+  details-closed4,reset-before3,reset-after6. Counts legitimately vary by saved
+  walk; no uniform-four claim. No score or geometry generation occurred.
+- Back focuses SUMMARY Uncovered sections (3),top165.5/bottom209.5CSSpx,
+  visible=true,focusVisible=true. Reset focuses H2 Postal018956,
+  top121/bottom146.5,visible=true,focusVisible=true. Correct default is Exit E.
+- Parent inspected all9captures. Independent reviewer inspected gap-cleared and
+  reset-after, accepting these two fixes narrowly, not all device/release gates.
+node qa/revamp-r1/native-zoom-20260913/browser.mjs 100 reset treatment
+- zoom100-1uc52F:17checks,2captures,passed,owned-browser cleanup verified.
+- Parent inspected both captures;3route features before reset,6after. Surviving
+  heading visibly focused. Independent image review does not extend to this run.
+- Final totals:56+17=73checks;9+2=11parent-inspected captures. Earlier inspected
+  baseline images:3+7+1=11. Other retained captures are not claimed inspected.
+
+Reviewer Confucius audited reset ownership/order and Back focus scope, wrote only
+the five picker cases, and did not run commands or commit. Parent owned runtime,
+explorer expectation corrections, browser/tests/build and finalization. review.json
+records source, four baseline-image and two final-image review boundaries.
+
+Current preview:http://127.0.0.1:4416/. Task board:/postplan.html.
+Preview4414 is superseded, not silently rebuilt. Same167source hashes must match
+current source, isolated test snapshot and build before finalization succeeds.
+finalize.mjs checks11input anchors,locked-weight hash,repo integrity,tracked evidence
+and exact375519-byte prior evidence prefix, and served task-board byte identity.
+summary.json and artifact-index.json record those results. Full raw browser traces
+are committed as browser.json.gz with raw SHA256/bytes and gzip roundtrip checks;
+receipt.json retains checks/captures without repeating the large event array.
+Retained955focused Python maintenance tests were not rerun in this web-only change.
+
+FINDINGS
+1. Published-default reset genuinely dropped keyboard focus to BODY. Owned focus
+   now moves synchronously to a surviving visible heading before the reset unmounts.
+2. Back to walk genuinely focused an occluded summary at200%. Allowing native
+   focus scrolling fixes this; the previously green42checks had missed the defect.
+3. All1930isolated web tests and42guards pass. Targeted native-zoom browser checks
+   pass, but complete clipped-metric reading, same-document zoom controls, keyboard
+   map motion, screen reader, physical devices and exact release acceptance remain.
+4. Popup simplification, provider bounds and bounded missing-route diagnosis are
+   already implemented. This change creates no missing saved routes and activates
+   neither reporting nor maintenance. Their outstanding account/policy/storage,
+   operator/device and deployment gates remain on the task board.
+
+DISAGREEMENTS
+1. Native page zoom in a fresh headless profile is not a physical-device,
+   screen-reader or same-document browser-menu zoom test.
+2. Focus-visible flags and current-route counts alone cannot prove unobscured
+   pixels. The earlier42green checks demonstrate why those claims need separation.
+
+Pipeline runs:0. Pipeline seconds:0. Installs:0. Deployments:0.
+No X access, protected-data mutation, score/input generation or locked-weight edit.

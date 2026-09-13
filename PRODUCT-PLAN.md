@@ -9,18 +9,19 @@ live services. Reporting choices and weekly scheduler/issue approval are pending
 LOCALLY_VERIFIED: walk-only inspector. Two tabs (MRT/LRT exits, Bus stops), shortest
 usable saved walk selected automatically, no Suggested/comparison/About data,
 automatic zoom-bounded night lighting, bounded explicit preview recovery.
-Current QA: qa/revamp-r1/keyboard-recovery-20260913 and notice-pacing-20260913;
-prior UX acceptance: completion-20260913 and route-gap-20260913.
-Build X5gzHuoOU1Div5U-qBlgj: http://127.0.0.1:4414/. Current1925/72 isolated web
-tests and42dependency guards pass;955focused maintenance tests are retained from
-the preceding commit, not rerun by this frontend change. TypeScript/build pass.
-New keyboard treatment passes10checks/7inspected captures at390x844: geometry
-Retry, preview Retry and Back keep focus on the result heading; later completion
-does not steal subsequent focus. Pending geometry retry says Loading saved walk.
-Baseline BODY-focus/false-missing-message failures and harness mistakes remain
-recorded. Prior80checks/16captures at4sizes are earlier acceptance, not a rerun
-of this build. Phone/representative speed, native zoom, current-release SW,
-production identity and deployment remain unaccepted. Preview4412 is superseded.
+Current QA: qa/revamp-r1/native-zoom-20260913 and notice-pacing-20260913;
+prior recovery/UX acceptance: keyboard-recovery-20260913 and completion-20260913.
+Build vOoOxn7etjT-WJqrIExq7: http://127.0.0.1:4416/. Current1930/72 isolated web
+tests and42dependency guards pass;179focused tests/4files,TypeScript/build pass.
+The previous955focused maintenance tests are retained, not rerun here.
+Native page-zoom treatment:56checks/9captures at200% and17checks/2captures for
+default-reset at100%; all11final captures parent-inspected. Reset now focuses the
+surviving postal heading; Back to walk scrolls its summary focus into view.
+The earlier42green checks missed clipped post-Back focus; that evidence and the
+failed reset/default-setup attempts remain recorded. This is not a same-document
+zoom shortcut test, screen-reader, physical-phone, full-row readability or speed
+acceptance. Current-release SW,production identity and deployment remain open.
+Preview4414 is superseded; earlier390x844/four-size checks were not rerun here.
 Comparison T08-T11 is RETIRED, not an acceptance blocker. Historical outcomes
 below describe earlier work, not instructions to restore it. Existing saved
 shortlists are not read, written or deleted by Home. Technical evidence moves
@@ -510,6 +511,8 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Integration boundary: final fetch discovered Dependabot05effee/85d4c9e changing only web/package.json and web/package-lock.json. The1765-test build at a325f16 used installed MapLibre6.1.0/Next16.3.0. Merged declarations now require6.4.1/16.3.3 while static worker remains6.1.0. Preserve prior results as pre-merge validation, not new-dependency acceptance. T29 coordinated installation/worker/cache/tests/build gate remains; no install or deployment occurred. Evidence: `qa/revamp-r1/cross-feature-motion-20260910/remote-advance.json`.
 
 - Keyboard recovery follow-up 2026-09-13: current Home reproduced focus falling to BODY after geometry Retry, preview Retry and Back. Transfer owned focus synchronously to the stable result heading before removing the button; never focus from async completion. Geometry retry now has an explicit loading state instead of falsely claiming missing published geometry. Nine new hook-host regression cases;104focused/3files,1925isolated/72files+42guards,TypeScript/build pass. Browser treatment10checks/7parent-inspected captures at390x844 proves exact H2 focus with a visible3px outline, subsequent Tab ownership,4route features after geometry recovery and saved geometry retention through preview failure/Back. Baseline and failed harness/test attempts remain recorded. This completes the narrow current-Home recovery slice, not native zoom, screen-reader, physical-phone, representative performance or exact-release acceptance. Evidence: `qa/revamp-r1/keyboard-recovery-20260913/summary.json`.
+
+- Native-zoom follow-up 2026-09-13: isolated Chrome profile page zoom100/200%, measured viewport1424x799/712x399 andDPR1/2 without CSS/page-scale/device-metrics substitution. Reset-to-published-default really dropped focus to BODY; uncovered-section Back focused a summary clipped behind the search area. Both fixed with synchronous owned parent focus/native summary scrolling. Five new picker cases; existing explorer expectations now require scrolling for Back while close stays unchanged.179focused/4files,1930isolated/72files+42guards,TypeScript/build pass. Final200%56checks/9captures plus100%reset17checks/2captures pass; all11parent-inspected, independent source and2final-image review accepted narrowly. Prior42green checks did not prove post-Back visibility; trace/captures preserve that missed defect and the wrong-default setup failure. T25 stays PARTIAL: no same-document zoom-menu transition, complete clipped-metric reading task, keyboard-map-motion, screen-reader, physical-phone or exact-release acceptance. Evidence: `qa/revamp-r1/native-zoom-20260913/summary.json`.
 
 ### [ ] T26: Owner/device and real-user task acceptance
 - Status: OWNER. Size: S. Parent: P3.1.

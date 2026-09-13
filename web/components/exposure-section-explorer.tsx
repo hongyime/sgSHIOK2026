@@ -110,7 +110,7 @@ function Explorer({ model, selectedKey, onSelect, mode, onFocusedRemoval }: Expo
           <button type="button" className={styles.action} onClick={() => {
             if (!owner.current) return;
             select(null);
-            summaryRef.current?.focus({ preventScroll: true });
+            summaryRef.current?.focus();
           }}>
             Back to walk
           </button>

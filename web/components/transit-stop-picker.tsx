@@ -11,6 +11,7 @@ import styles from "./transit-stop-picker.module.css";
 export interface TransitStopPickerProps {
   selection: PublishedTransitChoices;
   onSelect: (key: string | null) => void;
+  onFocusedRemoval?: () => void;
 }
 
 function walkDistance(metric: MetricCapability): string {
@@ -25,7 +26,7 @@ function coverage(metric: MetricCapability): string {
     : "Coverage unavailable";
 }
 
-export function TransitStopPicker({ selection, onSelect }: TransitStopPickerProps) {
+export function TransitStopPicker({ selection, onSelect, onFocusedRemoval }: TransitStopPickerProps) {
   const choices = selection.choices.slice(0, MAX_PUBLISHED_TRANSIT_CHOICES);
   const showReset = selection.selectedKey !== null && selection.selectedKey !== selection.defaultKey;
   if (choices.length === 0 || (choices.length === 1 && selection.selectedKey === selection.defaultKey)) return null;
@@ -69,7 +70,11 @@ export function TransitStopPicker({ selection, onSelect }: TransitStopPickerProp
           className={styles.reset}
           aria-label="Use published default"
           title="Use published default"
-          onClick={() => onSelect(null)}
+          onClick={event => {
+            const control = event?.currentTarget;
+            if (control && control.ownerDocument.activeElement === control) onFocusedRemoval?.();
+            onSelect(null);
+          }}
         >
           Use published default
         </button>

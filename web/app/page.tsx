@@ -2783,7 +2783,8 @@ export default function Home() {
             <div id="walk-details" className={styles.secondaryDetails} hidden={!sheetExpanded}>
             <ExposureSectionExplorer model={exposureModel} selectedKey={focusedExposureGap?.key ?? null}
               onSelect={handleExposureSelection} mode={mapRouteMode} onFocusedRemoval={restoreWalkControlFocus} />
-            <TransitStopPicker selection={publishedChoices} onSelect={handlePublishedChoice} />
+            <TransitStopPicker selection={publishedChoices} onSelect={handlePublishedChoice}
+              onFocusedRemoval={() => walkSummaryHeadingRef.current?.focus()} />
 
             {activeSelection?.geom && <RouteModeControl mode={mapRouteMode} setMode={handleRouteModeChange}
               disabled={false} sameRoute={sameSelectedRoute} directBusFallback={false} />}

@@ -280,12 +280,12 @@ describe("ExposureSectionExplorer", () => {
     expect(summaryFocus).not.toHaveBeenCalled();
   });
 
-  it("Back to walk clears once and requests summary focus before its button disappears", () => {
+  it("Back to walk clears once and allows summary focus to scroll into view before its button disappears", () => {
     render({ selectedKey: "long" });
     toggle(true);
     click("Back to walk");
     expect(onSelect).toHaveBeenCalledExactlyOnceWith(null);
-    expect(summaryFocus).toHaveBeenCalledExactlyOnceWith({ preventScroll: true });
+    expect(summaryFocus).toHaveBeenCalledExactlyOnceWith();
     render({ selectedKey: null });
     expect(text(tree)).not.toContain("Back to walk");
     expect(detail.open).toBe(true);
@@ -543,7 +543,8 @@ describe("ExposureSectionExplorer", () => {
     if (action === "close") toggle(false);
     else click("Back to walk");
     expect(onSelect).toHaveBeenCalledExactlyOnceWith(null);
-    expect(summaryFocus).toHaveBeenCalledExactlyOnceWith({ preventScroll: true });
+    if (action === "close") expect(summaryFocus).toHaveBeenCalledExactlyOnceWith({ preventScroll: true });
+    else expect(summaryFocus).toHaveBeenCalledExactlyOnceWith();
     expect(focusDocument.activeElement).toBe(summaryNode);
     expect(onFocusedRemoval).not.toHaveBeenCalled();
   });

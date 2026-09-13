@@ -1,0 +1,5623 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\native-zoom-20260913\\zoom200-B1YTTj",
+  "profile": "C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-ElQXwN",
+  "origin": "http://127.0.0.1:4414",
+  "startedAt": "2026-09-13T09:03:54.676Z",
+  "checks": [
+    {
+      "name": "native zoom has expected physical/CSS ratio",
+      "pass": true,
+      "detail": {
+        "inner": [
+          712,
+          399
+        ],
+        "outer": [
+          1440,
+          950
+        ],
+        "dpr": 2,
+        "visualScale": 1,
+        "documentZoom": "1",
+        "bodyZoom": "1",
+        "reduced": true,
+        "screen": [
+          800,
+          600
+        ]
+      }
+    },
+    {
+      "name": "no CSS zoom or emulated motion mismatch",
+      "pass": true,
+      "detail": {
+        "inner": [
+          712,
+          399
+        ],
+        "outer": [
+          1440,
+          950
+        ],
+        "dpr": 2,
+        "visualScale": 1,
+        "documentZoom": "1",
+        "bodyZoom": "1",
+        "reduced": true,
+        "screen": [
+          800,
+          600
+        ]
+      }
+    },
+    {
+      "name": "initial current route stable",
+      "pass": true
+    },
+    {
+      "name": "initial panel fits, equal search width",
+      "pass": true,
+      "detail": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 353,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 397,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 353,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 397,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": true,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      }
+    },
+    {
+      "name": "initial no technical dump",
+      "pass": true
+    },
+    {
+      "name": "keyboard target visible MRT/LRT exits",
+      "pass": true,
+      "detail": {
+        "tag": "BUTTON",
+        "text": "MRT/LRT exits",
+        "label": null,
+        "box": {
+          "left": 26,
+          "right": 159.5,
+          "top": 165.5,
+          "bottom": 209.5,
+          "width": 133.5,
+          "height": 44
+        },
+        "focusVisible": true,
+        "visible": true
+      }
+    },
+    {
+      "name": "mrt_lrt current route stable",
+      "pass": true
+    },
+    {
+      "name": "mrt_lrt panel fits, equal search width",
+      "pass": true,
+      "detail": {
+        "panelText": "Postal 018956\n\nWalk to MRT/LRT exit\nBAYFRONT MRT STATION Exit C\n\n109 m\nWalk distance\n0%\nCovered\nUnavailable\nUncovered\nUnavailable\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "MRT/LRT exits"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 159.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 203.5,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 159.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 203.5,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": true,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 3 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to MRT/LRT exit\nBAYFRONT MRT STATION Exit C\n\n109 m\nWalk distance\n0%\nCovered\nUnavailable\nUncovered\nUnavailable\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "lampCount": 632,
+        "destination": "BAYFRONT MRT STATION Exit C",
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=mrt_lrt&stop=mrt%3A21624",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      }
+    },
+    {
+      "name": "mrt_lrt no technical dump",
+      "pass": true
+    },
+    {
+      "name": "MRT/LRT exits changes actual saved geometry",
+      "pass": true
+    },
+    {
+      "name": "MRT/LRT exits matches URL",
+      "pass": true
+    },
+    {
+      "name": "keyboard target visible Bus stops",
+      "pass": true,
+      "detail": {
+        "tag": "BUTTON",
+        "text": "Bus stops",
+        "label": null,
+        "box": {
+          "left": 159.5,
+          "right": 293,
+          "top": 159.5,
+          "bottom": 203.5,
+          "width": 133.5,
+          "height": 44
+        },
+        "focusVisible": true,
+        "visible": true
+      }
+    },
+    {
+      "name": "bus current route stable",
+      "pass": true
+    },
+    {
+      "name": "bus panel fits, equal search width",
+      "pass": true,
+      "detail": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 167.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 211.5,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 167.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 211.5,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": true,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      }
+    },
+    {
+      "name": "bus no technical dump",
+      "pass": true
+    },
+    {
+      "name": "Bus stops changes actual saved geometry",
+      "pass": true
+    },
+    {
+      "name": "Bus stops matches URL",
+      "pass": true
+    },
+    {
+      "name": "keyboard target visible Walk details",
+      "pass": true,
+      "detail": {
+        "tag": "BUTTON",
+        "text": "Walk details",
+        "label": null,
+        "box": {
+          "left": 25,
+          "right": 294,
+          "top": 222.5,
+          "bottom": 266.5,
+          "width": 269,
+          "height": 44
+        },
+        "focusVisible": true,
+        "visible": true
+      }
+    },
+    {
+      "name": "details-open current route stable",
+      "pass": true
+    },
+    {
+      "name": "details-open panel fits, equal search width",
+      "pass": true,
+      "detail": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nCollapse walk details\nUncovered sections (3)\nShortest same as sheltered walk.",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 167.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 211.5,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 167.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 211.5,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": false,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nCollapse walk details\nUncovered sections (3)\nShortest same as sheltered walk.",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      }
+    },
+    {
+      "name": "details-open no technical dump",
+      "pass": true
+    },
+    {
+      "name": "real uncovered sections disclosure exists",
+      "pass": true,
+      "detail": "Uncovered sections (3)"
+    },
+    {
+      "name": "keyboard target visible Uncovered sections (3)",
+      "pass": true,
+      "detail": {
+        "tag": "SUMMARY",
+        "text": "Uncovered sections (3)",
+        "label": null,
+        "box": {
+          "left": 25,
+          "right": 294,
+          "top": 170.5,
+          "bottom": 214.5,
+          "width": 269,
+          "height": 44
+        },
+        "focusVisible": true,
+        "visible": true
+      }
+    },
+    {
+      "name": "real first section exists",
+      "pass": true,
+      "detail": {
+        "text": "Section 116 m",
+        "pressed": "false"
+      }
+    },
+    {
+      "name": "keyboard target visible Section 116 m",
+      "pass": true,
+      "detail": {
+        "tag": "BUTTON",
+        "text": "Section 116 m",
+        "label": null,
+        "box": {
+          "left": 25,
+          "right": 294,
+          "top": 214.5,
+          "bottom": 258.5,
+          "width": 269,
+          "height": 44
+        },
+        "focusVisible": true,
+        "visible": true
+      }
+    },
+    {
+      "name": "gap-selected current route stable",
+      "pass": true
+    },
+    {
+      "name": "gap-selected panel fits, equal search width",
+      "pass": true,
+      "detail": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nCollapse walk details\nUncovered sections (3)\nSection 1\n16 m\nSection 2\n11 m\nSection 3\n9 m\nBack to walk\nShortest same as sheltered walk.",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 52.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 96.5,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 52.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 96.5,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": false,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. Selected mapped exposed section, 16 m, on the sheltered walk. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nCollapse walk details\nUncovered sections (3)\nSection 1\n16 m\nSection 2\n11 m\nSection 3\n9 m\nBack to walk\nShortest same as sheltered walk.",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      }
+    },
+    {
+      "name": "gap-selected no technical dump",
+      "pass": true
+    },
+    {
+      "name": "selected section highlight exists",
+      "pass": true,
+      "detail": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          "properties": {
+            "kind": "active_exposure_section",
+            "key": "[\"mapped-section\",1,\"[\\\"pw\\\",1,\\\"/data/generated_20260805_prefer_scored_routed/\\\",\\\"018956\\\",\\\"bus\\\",\\\"default\\\"]\",\"sheltered\",\"ooyFed|xRST\",16.3]",
+            "context_key": "[\"mapped-sections\",1,\"[\\\"pw\\\",1,\\\"/data/generated_20260805_prefer_scored_routed/\\\",\\\"018956\\\",\\\"bus\\\",\\\"default\\\"]\",[\"category_default\",\"bus\"],\"shiokest\",\"routed\",\"complete\",[\"ooyFed|xRST\",\"cpyFoc|xRm@_@UKO?\",\"wryF{d|xR@R\"],\"available\",[\"[\\\"mapped-section\\\",1,\\\"[\\\\\\\"pw\\\\\\\",1,\\\\\\\"/data/generated_20260805_prefer_scored_routed/\\\\\\\",\\\\\\\"018956\\\\\\\",\\\\\\\"bus\\\\\\\",\\\\\\\"default\\\\\\\"]\\\",\\\"sheltered\\\",\\\"ooyFed|xRST\\\",16.3]\",\"[\\\"mapped-section\\\",1,\\\"[\\\\\\\"pw\\\\\\\",1,\\\\\\\"/data/generated_20260805_prefer_scored_routed/\\\\\\\",\\\\\\\"018956\\\\\\\",\\\\\\\"bus\\\\\\\",\\\\\\\"default\\\\\\\"]\\\",\\\"sheltered\\\",\\\"wryF{d|xR@R\\\",11]\",\"[\\\"mapped-section\\\",1,\\\"[\\\\\\\"pw\\\\\\\",1,\\\\\\\"/data/generated_20260805_prefer_scored_routed/\\\\\\\",\\\\\\\"018956\\\\\\\",\\\\\\\"bus\\\\\\\",\\\\\\\"default\\\\\\\"]\\\",\\\"sheltered\\\",\\\"gryF{d|xRO?\\\",9.1]\"]]",
+            "len_m": 16.3
+          }
+        }
+      ]
+    },
+    {
+      "name": "keyboard target visible Back to walk",
+      "pass": true,
+      "detail": {
+        "tag": "BUTTON",
+        "text": "Back to walk",
+        "label": null,
+        "box": {
+          "left": 25,
+          "right": 114,
+          "top": 209.5,
+          "bottom": 253.5,
+          "width": 89,
+          "height": 44
+        },
+        "focusVisible": true,
+        "visible": true
+      }
+    },
+    {
+      "name": "gap-cleared current route stable",
+      "pass": true
+    },
+    {
+      "name": "gap-cleared panel fits, equal search width",
+      "pass": true,
+      "detail": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nCollapse walk details\nUncovered sections (3)\nSection 1\n16 m\nSection 2\n11 m\nSection 3\n9 m\nShortest same as sheltered walk.",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": -87.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": -43.5,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": -87.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": -43.5,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": false,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nCollapse walk details\nUncovered sections (3)\nSection 1\n16 m\nSection 2\n11 m\nSection 3\n9 m\nShortest same as sheltered walk.",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      }
+    },
+    {
+      "name": "gap-cleared no technical dump",
+      "pass": true
+    },
+    {
+      "name": "keyboard target visible Collapse walk details",
+      "pass": true,
+      "detail": {
+        "tag": "BUTTON",
+        "text": "Collapse walk details",
+        "label": null,
+        "box": {
+          "left": 25,
+          "right": 294,
+          "top": 220.5,
+          "bottom": 264.5,
+          "width": 269,
+          "height": 44
+        },
+        "focusVisible": true,
+        "visible": true
+      }
+    },
+    {
+      "name": "collapse restores visible details focus",
+      "pass": true,
+      "detail": {
+        "tag": "BUTTON",
+        "text": "Walk details",
+        "label": null,
+        "box": {
+          "left": 25,
+          "right": 294,
+          "top": 220.5,
+          "bottom": 264.5,
+          "width": 269,
+          "height": 44
+        },
+        "focusVisible": true,
+        "visible": true
+      }
+    },
+    {
+      "name": "details-closed current route stable",
+      "pass": true
+    },
+    {
+      "name": "details-closed panel fits, equal search width",
+      "pass": true,
+      "detail": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 165.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 209.5,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 165.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 209.5,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": true,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      }
+    },
+    {
+      "name": "details-closed no technical dump",
+      "pass": true
+    },
+    {
+      "name": "reduced-motion camera operations observed",
+      "pass": true
+    },
+    {
+      "name": "reduced-motion operations have zero duration",
+      "pass": true,
+      "detail": [
+        {
+          "name": "fitBounds",
+          "duration": 0
+        },
+        {
+          "name": "fitBounds",
+          "duration": 0
+        },
+        {
+          "name": "fitBounds",
+          "duration": 0
+        },
+        {
+          "name": "fitBounds",
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "name": "keyboard target visible MRT/LRT exits",
+      "pass": true,
+      "detail": {
+        "tag": "BUTTON",
+        "text": "MRT/LRT exits",
+        "label": null,
+        "box": {
+          "left": 26,
+          "right": 159.5,
+          "top": 165.5,
+          "bottom": 209.5,
+          "width": 133.5,
+          "height": 44
+        },
+        "focusVisible": true,
+        "visible": true
+      }
+    },
+    {
+      "name": "keyboard target visible Walk details",
+      "pass": true,
+      "detail": {
+        "tag": "BUTTON",
+        "text": "Walk details",
+        "label": null,
+        "box": {
+          "left": 25,
+          "right": 294,
+          "top": 214.5,
+          "bottom": 258.5,
+          "width": 269,
+          "height": 44
+        },
+        "focusVisible": true,
+        "visible": true
+      }
+    },
+    {
+      "name": "other saved MRT choices exist",
+      "pass": true,
+      "detail": "Other stops (2)"
+    },
+    {
+      "name": "keyboard target visible Other stops (2)",
+      "pass": true,
+      "detail": {
+        "tag": "SUMMARY",
+        "text": "Other stops (2)",
+        "label": null,
+        "box": {
+          "left": 25,
+          "right": 294,
+          "top": 218.5,
+          "bottom": 262.5,
+          "width": 269,
+          "height": 44
+        },
+        "focusVisible": true,
+        "visible": true
+      }
+    },
+    {
+      "name": "real nondefault saved choice exists",
+      "pass": true,
+      "detail": "BAYFRONT MRT STATION Exit E308 m walk24% coveredMost covered"
+    },
+    {
+      "name": "keyboard target visible BAYFRONT MRT STATION Exit E308 m walk24% coveredMost covered",
+      "pass": true,
+      "detail": {
+        "tag": "BUTTON",
+        "text": "BAYFRONT MRT STATION Exit E308 m walk24% coveredMost covered",
+        "label": null,
+        "box": {
+          "left": 25,
+          "right": 294,
+          "top": 149.1875,
+          "bottom": 226.375,
+          "width": 269,
+          "height": 77.1875
+        },
+        "focusVisible": true,
+        "visible": true
+      }
+    }
+  ],
+  "errors": [],
+  "denied": [],
+  "host": [
+    {
+      "at": 1789290235742,
+      "availableMiB": 2987.75,
+      "cpus": [
+        {
+          "user": 39255640,
+          "nice": 0,
+          "sys": 37544781,
+          "idle": 66267234,
+          "irq": 3372078
+        },
+        {
+          "user": 45192875,
+          "nice": 0,
+          "sys": 30905531,
+          "idle": 66969156,
+          "irq": 1410937
+        },
+        {
+          "user": 50228156,
+          "nice": 0,
+          "sys": 32795562,
+          "idle": 60043843,
+          "irq": 1370390
+        },
+        {
+          "user": 47074343,
+          "nice": 0,
+          "sys": 29864781,
+          "idle": 66128437,
+          "irq": 1118796
+        },
+        {
+          "user": 42240375,
+          "nice": 0,
+          "sys": 36721656,
+          "idle": 64105546,
+          "irq": 1650421
+        },
+        {
+          "user": 42106625,
+          "nice": 0,
+          "sys": 33611953,
+          "idle": 67349000,
+          "irq": 1391062
+        },
+        {
+          "user": 46933203,
+          "nice": 0,
+          "sys": 34370421,
+          "idle": 61763953,
+          "irq": 1256109
+        },
+        {
+          "user": 48465875,
+          "nice": 0,
+          "sys": 32771609,
+          "idle": 61830093,
+          "irq": 1108140
+        }
+      ]
+    },
+    {
+      "at": 1789290236749,
+      "availableMiB": 2960.1015625,
+      "cpus": [
+        {
+          "user": 39255906,
+          "nice": 0,
+          "sys": 37545546,
+          "idle": 66267234,
+          "irq": 3372109
+        },
+        {
+          "user": 45193437,
+          "nice": 0,
+          "sys": 30906015,
+          "idle": 66969156,
+          "irq": 1410953
+        },
+        {
+          "user": 50228750,
+          "nice": 0,
+          "sys": 32796015,
+          "idle": 60043843,
+          "irq": 1370453
+        },
+        {
+          "user": 47074859,
+          "nice": 0,
+          "sys": 29865328,
+          "idle": 66128437,
+          "irq": 1118796
+        },
+        {
+          "user": 42240859,
+          "nice": 0,
+          "sys": 36722218,
+          "idle": 64105546,
+          "irq": 1650453
+        },
+        {
+          "user": 42107171,
+          "nice": 0,
+          "sys": 33612453,
+          "idle": 67349000,
+          "irq": 1391062
+        },
+        {
+          "user": 46933812,
+          "nice": 0,
+          "sys": 34370859,
+          "idle": 61763953,
+          "irq": 1256156
+        },
+        {
+          "user": 48466531,
+          "nice": 0,
+          "sys": 32772015,
+          "idle": 61830093,
+          "irq": 1108156
+        }
+      ]
+    },
+    {
+      "at": 1789290237751,
+      "availableMiB": 2969.03125,
+      "cpus": [
+        {
+          "user": 39256312,
+          "nice": 0,
+          "sys": 37546125,
+          "idle": 66267234,
+          "irq": 3372109
+        },
+        {
+          "user": 45193937,
+          "nice": 0,
+          "sys": 30906484,
+          "idle": 66969156,
+          "irq": 1410953
+        },
+        {
+          "user": 50229140,
+          "nice": 0,
+          "sys": 32796593,
+          "idle": 60043843,
+          "irq": 1370515
+        },
+        {
+          "user": 47075375,
+          "nice": 0,
+          "sys": 29865765,
+          "idle": 66128437,
+          "irq": 1118796
+        },
+        {
+          "user": 42241359,
+          "nice": 0,
+          "sys": 36722671,
+          "idle": 64105546,
+          "irq": 1650468
+        },
+        {
+          "user": 42107781,
+          "nice": 0,
+          "sys": 33612812,
+          "idle": 67349000,
+          "irq": 1391062
+        },
+        {
+          "user": 46934375,
+          "nice": 0,
+          "sys": 34371265,
+          "idle": 61763953,
+          "irq": 1256171
+        },
+        {
+          "user": 48467015,
+          "nice": 0,
+          "sys": 32772484,
+          "idle": 61830093,
+          "irq": 1108156
+        }
+      ]
+    },
+    {
+      "at": 1789290238753,
+      "availableMiB": 3049.65625,
+      "cpus": [
+        {
+          "user": 39256687,
+          "nice": 0,
+          "sys": 37546750,
+          "idle": 66267234,
+          "irq": 3372203
+        },
+        {
+          "user": 45194437,
+          "nice": 0,
+          "sys": 30906984,
+          "idle": 66969156,
+          "irq": 1410984
+        },
+        {
+          "user": 50229625,
+          "nice": 0,
+          "sys": 32797109,
+          "idle": 60043843,
+          "irq": 1370578
+        },
+        {
+          "user": 47075875,
+          "nice": 0,
+          "sys": 29866265,
+          "idle": 66128437,
+          "irq": 1118812
+        },
+        {
+          "user": 42241890,
+          "nice": 0,
+          "sys": 36723140,
+          "idle": 64105546,
+          "irq": 1650500
+        },
+        {
+          "user": 42108265,
+          "nice": 0,
+          "sys": 33613312,
+          "idle": 67349000,
+          "irq": 1391093
+        },
+        {
+          "user": 46934953,
+          "nice": 0,
+          "sys": 34371671,
+          "idle": 61763953,
+          "irq": 1256171
+        },
+        {
+          "user": 48467593,
+          "nice": 0,
+          "sys": 32772890,
+          "idle": 61830093,
+          "irq": 1108156
+        }
+      ]
+    },
+    {
+      "at": 1789290239753,
+      "availableMiB": 3134.58984375,
+      "cpus": [
+        {
+          "user": 39257093,
+          "nice": 0,
+          "sys": 37547343,
+          "idle": 66267234,
+          "irq": 3372281
+        },
+        {
+          "user": 45195000,
+          "nice": 0,
+          "sys": 30907421,
+          "idle": 66969156,
+          "irq": 1411015
+        },
+        {
+          "user": 50230140,
+          "nice": 0,
+          "sys": 32797593,
+          "idle": 60043843,
+          "irq": 1370593
+        },
+        {
+          "user": 47076328,
+          "nice": 0,
+          "sys": 29866812,
+          "idle": 66128437,
+          "irq": 1118812
+        },
+        {
+          "user": 42242437,
+          "nice": 0,
+          "sys": 36723593,
+          "idle": 64105546,
+          "irq": 1650531
+        },
+        {
+          "user": 42108718,
+          "nice": 0,
+          "sys": 33613859,
+          "idle": 67349000,
+          "irq": 1391093
+        },
+        {
+          "user": 46935671,
+          "nice": 0,
+          "sys": 34371953,
+          "idle": 61763953,
+          "irq": 1256171
+        },
+        {
+          "user": 48468125,
+          "nice": 0,
+          "sys": 32773359,
+          "idle": 61830093,
+          "irq": 1108171
+        }
+      ]
+    },
+    {
+      "at": 1789290241634,
+      "availableMiB": 2869.44921875,
+      "cpus": [
+        {
+          "user": 39258031,
+          "nice": 0,
+          "sys": 37548281,
+          "idle": 66267234,
+          "irq": 3372406
+        },
+        {
+          "user": 45195968,
+          "nice": 0,
+          "sys": 30908343,
+          "idle": 66969156,
+          "irq": 1411109
+        },
+        {
+          "user": 50231156,
+          "nice": 0,
+          "sys": 32798468,
+          "idle": 60043843,
+          "irq": 1370593
+        },
+        {
+          "user": 47077437,
+          "nice": 0,
+          "sys": 29867593,
+          "idle": 66128437,
+          "irq": 1118843
+        },
+        {
+          "user": 42243484,
+          "nice": 0,
+          "sys": 36724437,
+          "idle": 64105546,
+          "irq": 1650562
+        },
+        {
+          "user": 42109671,
+          "nice": 0,
+          "sys": 33614796,
+          "idle": 67349000,
+          "irq": 1391171
+        },
+        {
+          "user": 46936828,
+          "nice": 0,
+          "sys": 34372687,
+          "idle": 61763953,
+          "irq": 1256171
+        },
+        {
+          "user": 48469375,
+          "nice": 0,
+          "sys": 32774000,
+          "idle": 61830093,
+          "irq": 1108171
+        }
+      ]
+    },
+    {
+      "at": 1789290242663,
+      "availableMiB": 3031.6875,
+      "cpus": [
+        {
+          "user": 39258468,
+          "nice": 0,
+          "sys": 37548906,
+          "idle": 66267234,
+          "irq": 3372500
+        },
+        {
+          "user": 45196500,
+          "nice": 0,
+          "sys": 30908859,
+          "idle": 66969156,
+          "irq": 1411156
+        },
+        {
+          "user": 50231593,
+          "nice": 0,
+          "sys": 32799093,
+          "idle": 60043843,
+          "irq": 1370671
+        },
+        {
+          "user": 47078000,
+          "nice": 0,
+          "sys": 29868125,
+          "idle": 66128437,
+          "irq": 1118859
+        },
+        {
+          "user": 42244062,
+          "nice": 0,
+          "sys": 36724953,
+          "idle": 64105546,
+          "irq": 1650562
+        },
+        {
+          "user": 42110187,
+          "nice": 0,
+          "sys": 33615390,
+          "idle": 67349000,
+          "irq": 1391187
+        },
+        {
+          "user": 46937453,
+          "nice": 0,
+          "sys": 34373171,
+          "idle": 61763953,
+          "irq": 1256187
+        },
+        {
+          "user": 48470078,
+          "nice": 0,
+          "sys": 32774421,
+          "idle": 61830093,
+          "irq": 1108203
+        }
+      ]
+    },
+    {
+      "at": 1789290243668,
+      "availableMiB": 2753.0546875,
+      "cpus": [
+        {
+          "user": 39258812,
+          "nice": 0,
+          "sys": 37549546,
+          "idle": 66267234,
+          "irq": 3372515
+        },
+        {
+          "user": 45196906,
+          "nice": 0,
+          "sys": 30909437,
+          "idle": 66969156,
+          "irq": 1411187
+        },
+        {
+          "user": 50232000,
+          "nice": 0,
+          "sys": 32799656,
+          "idle": 60043843,
+          "irq": 1370734
+        },
+        {
+          "user": 47078484,
+          "nice": 0,
+          "sys": 29868578,
+          "idle": 66128437,
+          "irq": 1118875
+        },
+        {
+          "user": 42244437,
+          "nice": 0,
+          "sys": 36725515,
+          "idle": 64105546,
+          "irq": 1650578
+        },
+        {
+          "user": 42110625,
+          "nice": 0,
+          "sys": 33615875,
+          "idle": 67349000,
+          "irq": 1391203
+        },
+        {
+          "user": 46937921,
+          "nice": 0,
+          "sys": 34373625,
+          "idle": 61763953,
+          "irq": 1256203
+        },
+        {
+          "user": 48470656,
+          "nice": 0,
+          "sys": 32774750,
+          "idle": 61830093,
+          "irq": 1108218
+        }
+      ]
+    },
+    {
+      "at": 1789290244672,
+      "availableMiB": 2891.578125,
+      "cpus": [
+        {
+          "user": 39259156,
+          "nice": 0,
+          "sys": 37550203,
+          "idle": 66267234,
+          "irq": 3372562
+        },
+        {
+          "user": 45197312,
+          "nice": 0,
+          "sys": 30910031,
+          "idle": 66969156,
+          "irq": 1411218
+        },
+        {
+          "user": 50232375,
+          "nice": 0,
+          "sys": 32800281,
+          "idle": 60043843,
+          "irq": 1370796
+        },
+        {
+          "user": 47078921,
+          "nice": 0,
+          "sys": 29869140,
+          "idle": 66128437,
+          "irq": 1118921
+        },
+        {
+          "user": 42244921,
+          "nice": 0,
+          "sys": 36726031,
+          "idle": 64105546,
+          "irq": 1650609
+        },
+        {
+          "user": 42111093,
+          "nice": 0,
+          "sys": 33616406,
+          "idle": 67349000,
+          "irq": 1391218
+        },
+        {
+          "user": 46938453,
+          "nice": 0,
+          "sys": 34374093,
+          "idle": 61763953,
+          "irq": 1256218
+        },
+        {
+          "user": 48471125,
+          "nice": 0,
+          "sys": 32775281,
+          "idle": 61830093,
+          "irq": 1108234
+        }
+      ]
+    },
+    {
+      "at": 1789290245672,
+      "availableMiB": 2759.328125,
+      "cpus": [
+        {
+          "user": 39259703,
+          "nice": 0,
+          "sys": 37550656,
+          "idle": 66267234,
+          "irq": 3372593
+        },
+        {
+          "user": 45197796,
+          "nice": 0,
+          "sys": 30910546,
+          "idle": 66969156,
+          "irq": 1411250
+        },
+        {
+          "user": 50232968,
+          "nice": 0,
+          "sys": 32800687,
+          "idle": 60043843,
+          "irq": 1370796
+        },
+        {
+          "user": 47079437,
+          "nice": 0,
+          "sys": 29869625,
+          "idle": 66128437,
+          "irq": 1118953
+        },
+        {
+          "user": 42245421,
+          "nice": 0,
+          "sys": 36726531,
+          "idle": 64105546,
+          "irq": 1650609
+        },
+        {
+          "user": 42111546,
+          "nice": 0,
+          "sys": 33616953,
+          "idle": 67349000,
+          "irq": 1391218
+        },
+        {
+          "user": 46939109,
+          "nice": 0,
+          "sys": 34374437,
+          "idle": 61763953,
+          "irq": 1256234
+        },
+        {
+          "user": 48471796,
+          "nice": 0,
+          "sys": 32775609,
+          "idle": 61830093,
+          "irq": 1108234
+        }
+      ]
+    },
+    {
+      "at": 1789290246680,
+      "availableMiB": 2593.19921875,
+      "cpus": [
+        {
+          "user": 39260203,
+          "nice": 0,
+          "sys": 37551156,
+          "idle": 66267234,
+          "irq": 3372625
+        },
+        {
+          "user": 45198406,
+          "nice": 0,
+          "sys": 30910937,
+          "idle": 66969156,
+          "irq": 1411250
+        },
+        {
+          "user": 50233437,
+          "nice": 0,
+          "sys": 32801234,
+          "idle": 60043843,
+          "irq": 1370796
+        },
+        {
+          "user": 47080046,
+          "nice": 0,
+          "sys": 29870031,
+          "idle": 66128437,
+          "irq": 1118968
+        },
+        {
+          "user": 42246031,
+          "nice": 0,
+          "sys": 36726937,
+          "idle": 64105546,
+          "irq": 1650656
+        },
+        {
+          "user": 42112171,
+          "nice": 0,
+          "sys": 33617359,
+          "idle": 67349000,
+          "irq": 1391265
+        },
+        {
+          "user": 46939875,
+          "nice": 0,
+          "sys": 34374718,
+          "idle": 61763953,
+          "irq": 1256234
+        },
+        {
+          "user": 48472531,
+          "nice": 0,
+          "sys": 32775921,
+          "idle": 61830093,
+          "irq": 1108250
+        }
+      ]
+    },
+    {
+      "at": 1789290247679,
+      "availableMiB": 2800.6640625,
+      "cpus": [
+        {
+          "user": 39260765,
+          "nice": 0,
+          "sys": 37551593,
+          "idle": 66267234,
+          "irq": 3372671
+        },
+        {
+          "user": 45198953,
+          "nice": 0,
+          "sys": 30911390,
+          "idle": 66969156,
+          "irq": 1411250
+        },
+        {
+          "user": 50234140,
+          "nice": 0,
+          "sys": 32801515,
+          "idle": 60043843,
+          "irq": 1370828
+        },
+        {
+          "user": 47080687,
+          "nice": 0,
+          "sys": 29870375,
+          "idle": 66128437,
+          "irq": 1118968
+        },
+        {
+          "user": 42246562,
+          "nice": 0,
+          "sys": 36727390,
+          "idle": 64105546,
+          "irq": 1650671
+        },
+        {
+          "user": 42112625,
+          "nice": 0,
+          "sys": 33617875,
+          "idle": 67349000,
+          "irq": 1391328
+        },
+        {
+          "user": 46940281,
+          "nice": 0,
+          "sys": 34375265,
+          "idle": 61763953,
+          "irq": 1256250
+        },
+        {
+          "user": 48473015,
+          "nice": 0,
+          "sys": 32776390,
+          "idle": 61830093,
+          "irq": 1108250
+        }
+      ]
+    },
+    {
+      "at": 1789290248685,
+      "availableMiB": 2419.078125,
+      "cpus": [
+        {
+          "user": 39261406,
+          "nice": 0,
+          "sys": 37551968,
+          "idle": 66267234,
+          "irq": 3372687
+        },
+        {
+          "user": 45199640,
+          "nice": 0,
+          "sys": 30911718,
+          "idle": 66969156,
+          "irq": 1411250
+        },
+        {
+          "user": 50234796,
+          "nice": 0,
+          "sys": 32801890,
+          "idle": 60043843,
+          "irq": 1370859
+        },
+        {
+          "user": 47081406,
+          "nice": 0,
+          "sys": 29870703,
+          "idle": 66128437,
+          "irq": 1118984
+        },
+        {
+          "user": 42247078,
+          "nice": 0,
+          "sys": 36727921,
+          "idle": 64105546,
+          "irq": 1650703
+        },
+        {
+          "user": 42113187,
+          "nice": 0,
+          "sys": 33618375,
+          "idle": 67349000,
+          "irq": 1391343
+        },
+        {
+          "user": 46940796,
+          "nice": 0,
+          "sys": 34375843,
+          "idle": 61763953,
+          "irq": 1256265
+        },
+        {
+          "user": 48473546,
+          "nice": 0,
+          "sys": 32776968,
+          "idle": 61830093,
+          "irq": 1108281
+        }
+      ]
+    },
+    {
+      "at": 1789290249687,
+      "availableMiB": 2673.1640625,
+      "cpus": [
+        {
+          "user": 39261984,
+          "nice": 0,
+          "sys": 37552390,
+          "idle": 66267234,
+          "irq": 3372703
+        },
+        {
+          "user": 45200234,
+          "nice": 0,
+          "sys": 30912125,
+          "idle": 66969156,
+          "irq": 1411265
+        },
+        {
+          "user": 50235390,
+          "nice": 0,
+          "sys": 32802281,
+          "idle": 60043843,
+          "irq": 1370875
+        },
+        {
+          "user": 47082031,
+          "nice": 0,
+          "sys": 29871046,
+          "idle": 66128437,
+          "irq": 1119000
+        },
+        {
+          "user": 42247359,
+          "nice": 0,
+          "sys": 36728609,
+          "idle": 64105546,
+          "irq": 1650718
+        },
+        {
+          "user": 42113500,
+          "nice": 0,
+          "sys": 33619015,
+          "idle": 67349000,
+          "irq": 1391375
+        },
+        {
+          "user": 46941078,
+          "nice": 0,
+          "sys": 34376484,
+          "idle": 61763953,
+          "irq": 1256265
+        },
+        {
+          "user": 48473875,
+          "nice": 0,
+          "sys": 32777546,
+          "idle": 61830093,
+          "irq": 1108281
+        }
+      ]
+    },
+    {
+      "at": 1789290250690,
+      "availableMiB": 2479.3671875,
+      "cpus": [
+        {
+          "user": 39262609,
+          "nice": 0,
+          "sys": 37552765,
+          "idle": 66267234,
+          "irq": 3372718
+        },
+        {
+          "user": 45200828,
+          "nice": 0,
+          "sys": 30912531,
+          "idle": 66969156,
+          "irq": 1411281
+        },
+        {
+          "user": 50235875,
+          "nice": 0,
+          "sys": 32802796,
+          "idle": 60043843,
+          "irq": 1370953
+        },
+        {
+          "user": 47082718,
+          "nice": 0,
+          "sys": 29871359,
+          "idle": 66128437,
+          "irq": 1119031
+        },
+        {
+          "user": 42248062,
+          "nice": 0,
+          "sys": 36728906,
+          "idle": 64105546,
+          "irq": 1650718
+        },
+        {
+          "user": 42114187,
+          "nice": 0,
+          "sys": 33619328,
+          "idle": 67349000,
+          "irq": 1391375
+        },
+        {
+          "user": 46941828,
+          "nice": 0,
+          "sys": 34376734,
+          "idle": 61763953,
+          "irq": 1256265
+        },
+        {
+          "user": 48474609,
+          "nice": 0,
+          "sys": 32777812,
+          "idle": 61830093,
+          "irq": 1108312
+        }
+      ]
+    },
+    {
+      "at": 1789290251794,
+      "availableMiB": 2806.24609375,
+      "cpus": [
+        {
+          "user": 39263250,
+          "nice": 0,
+          "sys": 37553234,
+          "idle": 66267234,
+          "irq": 3372765
+        },
+        {
+          "user": 45201718,
+          "nice": 0,
+          "sys": 30912953,
+          "idle": 66969156,
+          "irq": 1411296
+        },
+        {
+          "user": 50236765,
+          "nice": 0,
+          "sys": 32803250,
+          "idle": 60043843,
+          "irq": 1370953
+        },
+        {
+          "user": 47083656,
+          "nice": 0,
+          "sys": 29871765,
+          "idle": 66128437,
+          "irq": 1119046
+        },
+        {
+          "user": 42249062,
+          "nice": 0,
+          "sys": 36729281,
+          "idle": 64105546,
+          "irq": 1650750
+        },
+        {
+          "user": 42115015,
+          "nice": 0,
+          "sys": 33619890,
+          "idle": 67349000,
+          "irq": 1391437
+        },
+        {
+          "user": 46942828,
+          "nice": 0,
+          "sys": 34377171,
+          "idle": 61763953,
+          "irq": 1256281
+        },
+        {
+          "user": 48475578,
+          "nice": 0,
+          "sys": 32778312,
+          "idle": 61830093,
+          "irq": 1108328
+        }
+      ]
+    },
+    {
+      "at": 1789290252803,
+      "availableMiB": 2746.13671875,
+      "cpus": [
+        {
+          "user": 39264078,
+          "nice": 0,
+          "sys": 37553421,
+          "idle": 66267234,
+          "irq": 3372796
+        },
+        {
+          "user": 45202343,
+          "nice": 0,
+          "sys": 30913171,
+          "idle": 66969156,
+          "irq": 1411312
+        },
+        {
+          "user": 50237437,
+          "nice": 0,
+          "sys": 32803406,
+          "idle": 60043843,
+          "irq": 1370953
+        },
+        {
+          "user": 47084437,
+          "nice": 0,
+          "sys": 29871828,
+          "idle": 66128437,
+          "irq": 1119046
+        },
+        {
+          "user": 42249828,
+          "nice": 0,
+          "sys": 36729375,
+          "idle": 64105546,
+          "irq": 1650750
+        },
+        {
+          "user": 42115781,
+          "nice": 0,
+          "sys": 33620000,
+          "idle": 67349000,
+          "irq": 1391437
+        },
+        {
+          "user": 46943625,
+          "nice": 0,
+          "sys": 34377265,
+          "idle": 61763953,
+          "irq": 1256281
+        },
+        {
+          "user": 48476281,
+          "nice": 0,
+          "sys": 32778484,
+          "idle": 61830093,
+          "irq": 1108328
+        }
+      ]
+    },
+    {
+      "at": 1789290253816,
+      "availableMiB": 2727.1015625,
+      "cpus": [
+        {
+          "user": 39264812,
+          "nice": 0,
+          "sys": 37553687,
+          "idle": 66267234,
+          "irq": 3372828
+        },
+        {
+          "user": 45203078,
+          "nice": 0,
+          "sys": 30913406,
+          "idle": 66969156,
+          "irq": 1411312
+        },
+        {
+          "user": 50238062,
+          "nice": 0,
+          "sys": 32803734,
+          "idle": 60043843,
+          "irq": 1370984
+        },
+        {
+          "user": 47084984,
+          "nice": 0,
+          "sys": 29872218,
+          "idle": 66128437,
+          "irq": 1119078
+        },
+        {
+          "user": 42250484,
+          "nice": 0,
+          "sys": 36729609,
+          "idle": 64105546,
+          "irq": 1650781
+        },
+        {
+          "user": 42116312,
+          "nice": 0,
+          "sys": 33620328,
+          "idle": 67349000,
+          "irq": 1391468
+        },
+        {
+          "user": 46944156,
+          "nice": 0,
+          "sys": 34377531,
+          "idle": 61763953,
+          "irq": 1256312
+        },
+        {
+          "user": 48476828,
+          "nice": 0,
+          "sys": 32778718,
+          "idle": 61830093,
+          "irq": 1108328
+        }
+      ]
+    },
+    {
+      "at": 1789290254858,
+      "availableMiB": 2676.7890625,
+      "cpus": [
+        {
+          "user": 39265609,
+          "nice": 0,
+          "sys": 37553937,
+          "idle": 66267234,
+          "irq": 3372843
+        },
+        {
+          "user": 45203937,
+          "nice": 0,
+          "sys": 30913609,
+          "idle": 66969156,
+          "irq": 1411312
+        },
+        {
+          "user": 50238875,
+          "nice": 0,
+          "sys": 32804000,
+          "idle": 60043843,
+          "irq": 1370984
+        },
+        {
+          "user": 47085906,
+          "nice": 0,
+          "sys": 29872390,
+          "idle": 66128437,
+          "irq": 1119078
+        },
+        {
+          "user": 42251328,
+          "nice": 0,
+          "sys": 36729859,
+          "idle": 64105546,
+          "irq": 1650781
+        },
+        {
+          "user": 42117250,
+          "nice": 0,
+          "sys": 33620484,
+          "idle": 67349000,
+          "irq": 1391468
+        },
+        {
+          "user": 46945171,
+          "nice": 0,
+          "sys": 34377609,
+          "idle": 61763953,
+          "irq": 1256312
+        },
+        {
+          "user": 48477750,
+          "nice": 0,
+          "sys": 32778890,
+          "idle": 61830093,
+          "irq": 1108328
+        }
+      ]
+    },
+    {
+      "at": 1789290255859,
+      "availableMiB": 2483.8203125,
+      "cpus": [
+        {
+          "user": 39266296,
+          "nice": 0,
+          "sys": 37554250,
+          "idle": 66267234,
+          "irq": 3372859
+        },
+        {
+          "user": 45204750,
+          "nice": 0,
+          "sys": 30913781,
+          "idle": 66969156,
+          "irq": 1411312
+        },
+        {
+          "user": 50239546,
+          "nice": 0,
+          "sys": 32804296,
+          "idle": 60043843,
+          "irq": 1371015
+        },
+        {
+          "user": 47086578,
+          "nice": 0,
+          "sys": 29872671,
+          "idle": 66128437,
+          "irq": 1119078
+        },
+        {
+          "user": 42251921,
+          "nice": 0,
+          "sys": 36730218,
+          "idle": 64105546,
+          "irq": 1650781
+        },
+        {
+          "user": 42117937,
+          "nice": 0,
+          "sys": 33620750,
+          "idle": 67349000,
+          "irq": 1391484
+        },
+        {
+          "user": 46945906,
+          "nice": 0,
+          "sys": 34377828,
+          "idle": 61763953,
+          "irq": 1256312
+        },
+        {
+          "user": 48478390,
+          "nice": 0,
+          "sys": 32779203,
+          "idle": 61830093,
+          "irq": 1108328
+        }
+      ]
+    },
+    {
+      "at": 1789290256863,
+      "availableMiB": 2192.98828125,
+      "cpus": [
+        {
+          "user": 39266750,
+          "nice": 0,
+          "sys": 37554796,
+          "idle": 66267234,
+          "irq": 3372906
+        },
+        {
+          "user": 45205312,
+          "nice": 0,
+          "sys": 30914218,
+          "idle": 66969156,
+          "irq": 1411312
+        },
+        {
+          "user": 50240109,
+          "nice": 0,
+          "sys": 32804734,
+          "idle": 60043843,
+          "irq": 1371078
+        },
+        {
+          "user": 47087312,
+          "nice": 0,
+          "sys": 29872953,
+          "idle": 66128437,
+          "irq": 1119093
+        },
+        {
+          "user": 42252515,
+          "nice": 0,
+          "sys": 36730640,
+          "idle": 64105546,
+          "irq": 1650781
+        },
+        {
+          "user": 42118546,
+          "nice": 0,
+          "sys": 33621156,
+          "idle": 67349000,
+          "irq": 1391484
+        },
+        {
+          "user": 46946593,
+          "nice": 0,
+          "sys": 34378156,
+          "idle": 61763953,
+          "irq": 1256328
+        },
+        {
+          "user": 48479109,
+          "nice": 0,
+          "sys": 32779500,
+          "idle": 61830093,
+          "irq": 1108328
+        }
+      ]
+    },
+    {
+      "at": 1789290257863,
+      "availableMiB": 2366.140625,
+      "cpus": [
+        {
+          "user": 39267343,
+          "nice": 0,
+          "sys": 37555203,
+          "idle": 66267234,
+          "irq": 3372921
+        },
+        {
+          "user": 45205953,
+          "nice": 0,
+          "sys": 30914578,
+          "idle": 66969156,
+          "irq": 1411328
+        },
+        {
+          "user": 50240781,
+          "nice": 0,
+          "sys": 32805062,
+          "idle": 60043843,
+          "irq": 1371078
+        },
+        {
+          "user": 47087984,
+          "nice": 0,
+          "sys": 29873265,
+          "idle": 66128437,
+          "irq": 1119093
+        },
+        {
+          "user": 42253078,
+          "nice": 0,
+          "sys": 36731062,
+          "idle": 64105546,
+          "irq": 1650796
+        },
+        {
+          "user": 42119203,
+          "nice": 0,
+          "sys": 33621484,
+          "idle": 67349000,
+          "irq": 1391515
+        },
+        {
+          "user": 46947171,
+          "nice": 0,
+          "sys": 34378562,
+          "idle": 61763953,
+          "irq": 1256359
+        },
+        {
+          "user": 48479765,
+          "nice": 0,
+          "sys": 32779828,
+          "idle": 61830093,
+          "irq": 1108328
+        }
+      ]
+    },
+    {
+      "at": 1789290258864,
+      "availableMiB": 2152.5,
+      "cpus": [
+        {
+          "user": 39268000,
+          "nice": 0,
+          "sys": 37555546,
+          "idle": 66267234,
+          "irq": 3372968
+        },
+        {
+          "user": 45206718,
+          "nice": 0,
+          "sys": 30914812,
+          "idle": 66969156,
+          "irq": 1411343
+        },
+        {
+          "user": 50241500,
+          "nice": 0,
+          "sys": 32805343,
+          "idle": 60043843,
+          "irq": 1371078
+        },
+        {
+          "user": 47088890,
+          "nice": 0,
+          "sys": 29873359,
+          "idle": 66128437,
+          "irq": 1119109
+        },
+        {
+          "user": 42253890,
+          "nice": 0,
+          "sys": 36731250,
+          "idle": 64105546,
+          "irq": 1650796
+        },
+        {
+          "user": 42119968,
+          "nice": 0,
+          "sys": 33621718,
+          "idle": 67349000,
+          "irq": 1391515
+        },
+        {
+          "user": 46948015,
+          "nice": 0,
+          "sys": 34378718,
+          "idle": 61763953,
+          "irq": 1256375
+        },
+        {
+          "user": 48480578,
+          "nice": 0,
+          "sys": 32780015,
+          "idle": 61830093,
+          "irq": 1108343
+        }
+      ]
+    },
+    {
+      "at": 1789290259866,
+      "availableMiB": 2483.6796875,
+      "cpus": [
+        {
+          "user": 39268671,
+          "nice": 0,
+          "sys": 37555875,
+          "idle": 66267234,
+          "irq": 3372984
+        },
+        {
+          "user": 45207500,
+          "nice": 0,
+          "sys": 30915031,
+          "idle": 66969156,
+          "irq": 1411359
+        },
+        {
+          "user": 50242125,
+          "nice": 0,
+          "sys": 32805718,
+          "idle": 60043843,
+          "irq": 1371093
+        },
+        {
+          "user": 47089515,
+          "nice": 0,
+          "sys": 29873734,
+          "idle": 66128437,
+          "irq": 1119125
+        },
+        {
+          "user": 42254640,
+          "nice": 0,
+          "sys": 36731500,
+          "idle": 64105546,
+          "irq": 1650812
+        },
+        {
+          "user": 42120625,
+          "nice": 0,
+          "sys": 33622062,
+          "idle": 67349000,
+          "irq": 1391531
+        },
+        {
+          "user": 46948796,
+          "nice": 0,
+          "sys": 34378937,
+          "idle": 61763953,
+          "irq": 1256390
+        },
+        {
+          "user": 48481406,
+          "nice": 0,
+          "sys": 32780187,
+          "idle": 61830093,
+          "irq": 1108343
+        }
+      ]
+    },
+    {
+      "at": 1789290260867,
+      "availableMiB": 2505.6015625,
+      "cpus": [
+        {
+          "user": 39269359,
+          "nice": 0,
+          "sys": 37556187,
+          "idle": 66267234,
+          "irq": 3373031
+        },
+        {
+          "user": 45208171,
+          "nice": 0,
+          "sys": 30915359,
+          "idle": 66969156,
+          "irq": 1411359
+        },
+        {
+          "user": 50242937,
+          "nice": 0,
+          "sys": 32805906,
+          "idle": 60043843,
+          "irq": 1371093
+        },
+        {
+          "user": 47090218,
+          "nice": 0,
+          "sys": 29874031,
+          "idle": 66128437,
+          "irq": 1119125
+        },
+        {
+          "user": 42255234,
+          "nice": 0,
+          "sys": 36731906,
+          "idle": 64105546,
+          "irq": 1650828
+        },
+        {
+          "user": 42121265,
+          "nice": 0,
+          "sys": 33622421,
+          "idle": 67349000,
+          "irq": 1391531
+        },
+        {
+          "user": 46949421,
+          "nice": 0,
+          "sys": 34379312,
+          "idle": 61763953,
+          "irq": 1256406
+        },
+        {
+          "user": 48482078,
+          "nice": 0,
+          "sys": 32780515,
+          "idle": 61830093,
+          "irq": 1108359
+        }
+      ]
+    },
+    {
+      "at": 1789290261869,
+      "availableMiB": 2350.57421875,
+      "cpus": [
+        {
+          "user": 39270062,
+          "nice": 0,
+          "sys": 37556484,
+          "idle": 66267234,
+          "irq": 3373078
+        },
+        {
+          "user": 45208890,
+          "nice": 0,
+          "sys": 30915640,
+          "idle": 66969156,
+          "irq": 1411375
+        },
+        {
+          "user": 50243750,
+          "nice": 0,
+          "sys": 32806093,
+          "idle": 60043843,
+          "irq": 1371093
+        },
+        {
+          "user": 47091000,
+          "nice": 0,
+          "sys": 29874250,
+          "idle": 66128437,
+          "irq": 1119140
+        },
+        {
+          "user": 42256000,
+          "nice": 0,
+          "sys": 36732140,
+          "idle": 64105546,
+          "irq": 1650843
+        },
+        {
+          "user": 42122062,
+          "nice": 0,
+          "sys": 33622625,
+          "idle": 67349000,
+          "irq": 1391531
+        },
+        {
+          "user": 46950218,
+          "nice": 0,
+          "sys": 34379515,
+          "idle": 61763953,
+          "irq": 1256406
+        },
+        {
+          "user": 48482937,
+          "nice": 0,
+          "sys": 32780671,
+          "idle": 61830093,
+          "irq": 1108359
+        }
+      ]
+    },
+    {
+      "at": 1789290262883,
+      "availableMiB": 2235.6328125,
+      "cpus": [
+        {
+          "user": 39270843,
+          "nice": 0,
+          "sys": 37556718,
+          "idle": 66267234,
+          "irq": 3373109
+        },
+        {
+          "user": 45209671,
+          "nice": 0,
+          "sys": 30915875,
+          "idle": 66969156,
+          "irq": 1411390
+        },
+        {
+          "user": 50244531,
+          "nice": 0,
+          "sys": 32806328,
+          "idle": 60043843,
+          "irq": 1371093
+        },
+        {
+          "user": 47091812,
+          "nice": 0,
+          "sys": 29874453,
+          "idle": 66128437,
+          "irq": 1119140
+        },
+        {
+          "user": 42256734,
+          "nice": 0,
+          "sys": 36732421,
+          "idle": 64105546,
+          "irq": 1650843
+        },
+        {
+          "user": 42122859,
+          "nice": 0,
+          "sys": 33622843,
+          "idle": 67349000,
+          "irq": 1391546
+        },
+        {
+          "user": 46951062,
+          "nice": 0,
+          "sys": 34379703,
+          "idle": 61763953,
+          "irq": 1256421
+        },
+        {
+          "user": 48483750,
+          "nice": 0,
+          "sys": 32780875,
+          "idle": 61830093,
+          "irq": 1108359
+        }
+      ]
+    },
+    {
+      "at": 1789290263885,
+      "availableMiB": 2462.546875,
+      "cpus": [
+        {
+          "user": 39271500,
+          "nice": 0,
+          "sys": 37557062,
+          "idle": 66267234,
+          "irq": 3373125
+        },
+        {
+          "user": 45210312,
+          "nice": 0,
+          "sys": 30916234,
+          "idle": 66969156,
+          "irq": 1411390
+        },
+        {
+          "user": 50245234,
+          "nice": 0,
+          "sys": 32806625,
+          "idle": 60043843,
+          "irq": 1371109
+        },
+        {
+          "user": 47092484,
+          "nice": 0,
+          "sys": 29874781,
+          "idle": 66128437,
+          "irq": 1119156
+        },
+        {
+          "user": 42257328,
+          "nice": 0,
+          "sys": 36732843,
+          "idle": 64105546,
+          "irq": 1650843
+        },
+        {
+          "user": 42123515,
+          "nice": 0,
+          "sys": 33623203,
+          "idle": 67349000,
+          "irq": 1391546
+        },
+        {
+          "user": 46951812,
+          "nice": 0,
+          "sys": 34379953,
+          "idle": 61763953,
+          "irq": 1256421
+        },
+        {
+          "user": 48484468,
+          "nice": 0,
+          "sys": 32781156,
+          "idle": 61830093,
+          "irq": 1108359
+        }
+      ]
+    },
+    {
+      "at": 1789290264885,
+      "availableMiB": 2046.73828125,
+      "cpus": [
+        {
+          "user": 39272046,
+          "nice": 0,
+          "sys": 37557515,
+          "idle": 66267234,
+          "irq": 3373187
+        },
+        {
+          "user": 45210843,
+          "nice": 0,
+          "sys": 30916718,
+          "idle": 66969156,
+          "irq": 1411390
+        },
+        {
+          "user": 50245796,
+          "nice": 0,
+          "sys": 32807078,
+          "idle": 60043843,
+          "irq": 1371125
+        },
+        {
+          "user": 47093156,
+          "nice": 0,
+          "sys": 29875125,
+          "idle": 66128437,
+          "irq": 1119156
+        },
+        {
+          "user": 42257812,
+          "nice": 0,
+          "sys": 36733359,
+          "idle": 64105546,
+          "irq": 1650859
+        },
+        {
+          "user": 42124171,
+          "nice": 0,
+          "sys": 33623546,
+          "idle": 67349000,
+          "irq": 1391546
+        },
+        {
+          "user": 46952359,
+          "nice": 0,
+          "sys": 34380406,
+          "idle": 61763953,
+          "irq": 1256421
+        },
+        {
+          "user": 48485015,
+          "nice": 0,
+          "sys": 32781609,
+          "idle": 61830093,
+          "irq": 1108375
+        }
+      ]
+    },
+    {
+      "at": 1789290265886,
+      "availableMiB": 2182.59765625,
+      "cpus": [
+        {
+          "user": 39272625,
+          "nice": 0,
+          "sys": 37557953,
+          "idle": 66267234,
+          "irq": 3373218
+        },
+        {
+          "user": 45211437,
+          "nice": 0,
+          "sys": 30917125,
+          "idle": 66969156,
+          "irq": 1411406
+        },
+        {
+          "user": 50246375,
+          "nice": 0,
+          "sys": 32807500,
+          "idle": 60043843,
+          "irq": 1371140
+        },
+        {
+          "user": 47093609,
+          "nice": 0,
+          "sys": 29875671,
+          "idle": 66128437,
+          "irq": 1119203
+        },
+        {
+          "user": 42258421,
+          "nice": 0,
+          "sys": 36733750,
+          "idle": 64105546,
+          "irq": 1650875
+        },
+        {
+          "user": 42124687,
+          "nice": 0,
+          "sys": 33624031,
+          "idle": 67349000,
+          "irq": 1391546
+        },
+        {
+          "user": 46952875,
+          "nice": 0,
+          "sys": 34380890,
+          "idle": 61763953,
+          "irq": 1256421
+        },
+        {
+          "user": 48485500,
+          "nice": 0,
+          "sys": 32782125,
+          "idle": 61830093,
+          "irq": 1108390
+        }
+      ]
+    },
+    {
+      "at": 1789290266887,
+      "availableMiB": 2025.1171875,
+      "cpus": [
+        {
+          "user": 39273343,
+          "nice": 0,
+          "sys": 37558234,
+          "idle": 66267234,
+          "irq": 3373250
+        },
+        {
+          "user": 45212250,
+          "nice": 0,
+          "sys": 30917312,
+          "idle": 66969156,
+          "irq": 1411437
+        },
+        {
+          "user": 50247218,
+          "nice": 0,
+          "sys": 32807656,
+          "idle": 60043843,
+          "irq": 1371140
+        },
+        {
+          "user": 47094453,
+          "nice": 0,
+          "sys": 29875828,
+          "idle": 66128437,
+          "irq": 1119203
+        },
+        {
+          "user": 42259218,
+          "nice": 0,
+          "sys": 36733953,
+          "idle": 64105546,
+          "irq": 1650875
+        },
+        {
+          "user": 42125421,
+          "nice": 0,
+          "sys": 33624296,
+          "idle": 67349000,
+          "irq": 1391562
+        },
+        {
+          "user": 46953703,
+          "nice": 0,
+          "sys": 34381062,
+          "idle": 61763953,
+          "irq": 1256453
+        },
+        {
+          "user": 48486296,
+          "nice": 0,
+          "sys": 32782328,
+          "idle": 61830093,
+          "irq": 1108421
+        }
+      ]
+    },
+    {
+      "at": 1789290267926,
+      "availableMiB": 2397.89453125,
+      "cpus": [
+        {
+          "user": 39274046,
+          "nice": 0,
+          "sys": 37558562,
+          "idle": 66267234,
+          "irq": 3373281
+        },
+        {
+          "user": 45213031,
+          "nice": 0,
+          "sys": 30917562,
+          "idle": 66969156,
+          "irq": 1411437
+        },
+        {
+          "user": 50248000,
+          "nice": 0,
+          "sys": 32807906,
+          "idle": 60043843,
+          "irq": 1371140
+        },
+        {
+          "user": 47095312,
+          "nice": 0,
+          "sys": 29876000,
+          "idle": 66128437,
+          "irq": 1119234
+        },
+        {
+          "user": 42259921,
+          "nice": 0,
+          "sys": 36734281,
+          "idle": 64105546,
+          "irq": 1650906
+        },
+        {
+          "user": 42126156,
+          "nice": 0,
+          "sys": 33624593,
+          "idle": 67349000,
+          "irq": 1391578
+        },
+        {
+          "user": 46954421,
+          "nice": 0,
+          "sys": 34381375,
+          "idle": 61763953,
+          "irq": 1256484
+        },
+        {
+          "user": 48487031,
+          "nice": 0,
+          "sys": 32782625,
+          "idle": 61830093,
+          "irq": 1108421
+        }
+      ]
+    },
+    {
+      "at": 1789290268925,
+      "availableMiB": 2392.390625,
+      "cpus": [
+        {
+          "user": 39274828,
+          "nice": 0,
+          "sys": 37558781,
+          "idle": 66267234,
+          "irq": 3373296
+        },
+        {
+          "user": 45213812,
+          "nice": 0,
+          "sys": 30917781,
+          "idle": 66969156,
+          "irq": 1411437
+        },
+        {
+          "user": 50248750,
+          "nice": 0,
+          "sys": 32808156,
+          "idle": 60043843,
+          "irq": 1371156
+        },
+        {
+          "user": 47095984,
+          "nice": 0,
+          "sys": 29876328,
+          "idle": 66128437,
+          "irq": 1119250
+        },
+        {
+          "user": 42260640,
+          "nice": 0,
+          "sys": 36734562,
+          "idle": 64105546,
+          "irq": 1650937
+        },
+        {
+          "user": 42126828,
+          "nice": 0,
+          "sys": 33624921,
+          "idle": 67349000,
+          "irq": 1391593
+        },
+        {
+          "user": 46955234,
+          "nice": 0,
+          "sys": 34381562,
+          "idle": 61763953,
+          "irq": 1256500
+        },
+        {
+          "user": 48487859,
+          "nice": 0,
+          "sys": 32782796,
+          "idle": 61830093,
+          "irq": 1108421
+        }
+      ]
+    },
+    {
+      "at": 1789290269926,
+      "availableMiB": 2335.6484375,
+      "cpus": [
+        {
+          "user": 39275500,
+          "nice": 0,
+          "sys": 37559109,
+          "idle": 66267234,
+          "irq": 3373343
+        },
+        {
+          "user": 45214593,
+          "nice": 0,
+          "sys": 30918000,
+          "idle": 66969156,
+          "irq": 1411484
+        },
+        {
+          "user": 50249296,
+          "nice": 0,
+          "sys": 32808609,
+          "idle": 60043843,
+          "irq": 1371187
+        },
+        {
+          "user": 47096671,
+          "nice": 0,
+          "sys": 29876640,
+          "idle": 66128437,
+          "irq": 1119250
+        },
+        {
+          "user": 42261296,
+          "nice": 0,
+          "sys": 36734906,
+          "idle": 64105546,
+          "irq": 1650937
+        },
+        {
+          "user": 42127484,
+          "nice": 0,
+          "sys": 33625265,
+          "idle": 67349000,
+          "irq": 1391593
+        },
+        {
+          "user": 46955843,
+          "nice": 0,
+          "sys": 34381953,
+          "idle": 61763953,
+          "irq": 1256500
+        },
+        {
+          "user": 48488468,
+          "nice": 0,
+          "sys": 32783187,
+          "idle": 61830093,
+          "irq": 1108453
+        }
+      ]
+    },
+    {
+      "at": 1789290270925,
+      "availableMiB": 2379.078125,
+      "cpus": [
+        {
+          "user": 39276093,
+          "nice": 0,
+          "sys": 37559515,
+          "idle": 66267234,
+          "irq": 3373375
+        },
+        {
+          "user": 45215234,
+          "nice": 0,
+          "sys": 30918359,
+          "idle": 66969156,
+          "irq": 1411484
+        },
+        {
+          "user": 50249890,
+          "nice": 0,
+          "sys": 32809015,
+          "idle": 60043843,
+          "irq": 1371187
+        },
+        {
+          "user": 47097375,
+          "nice": 0,
+          "sys": 29876937,
+          "idle": 66128437,
+          "irq": 1119265
+        },
+        {
+          "user": 42261718,
+          "nice": 0,
+          "sys": 36735484,
+          "idle": 64105546,
+          "irq": 1650937
+        },
+        {
+          "user": 42128062,
+          "nice": 0,
+          "sys": 33625687,
+          "idle": 67349000,
+          "irq": 1391609
+        },
+        {
+          "user": 46956390,
+          "nice": 0,
+          "sys": 34382406,
+          "idle": 61763953,
+          "irq": 1256500
+        },
+        {
+          "user": 48488968,
+          "nice": 0,
+          "sys": 32783687,
+          "idle": 61830093,
+          "irq": 1108453
+        }
+      ]
+    },
+    {
+      "at": 1789290271927,
+      "availableMiB": 2284.1875,
+      "cpus": [
+        {
+          "user": 39276484,
+          "nice": 0,
+          "sys": 37560125,
+          "idle": 66267234,
+          "irq": 3373421
+        },
+        {
+          "user": 45215890,
+          "nice": 0,
+          "sys": 30918703,
+          "idle": 66969156,
+          "irq": 1411484
+        },
+        {
+          "user": 50250468,
+          "nice": 0,
+          "sys": 32809437,
+          "idle": 60043843,
+          "irq": 1371218
+        },
+        {
+          "user": 47097953,
+          "nice": 0,
+          "sys": 29877359,
+          "idle": 66128437,
+          "irq": 1119265
+        },
+        {
+          "user": 42262296,
+          "nice": 0,
+          "sys": 36735906,
+          "idle": 64105546,
+          "irq": 1650968
+        },
+        {
+          "user": 42128625,
+          "nice": 0,
+          "sys": 33626125,
+          "idle": 67349000,
+          "irq": 1391625
+        },
+        {
+          "user": 46957000,
+          "nice": 0,
+          "sys": 34382796,
+          "idle": 61763953,
+          "irq": 1256515
+        },
+        {
+          "user": 48489671,
+          "nice": 0,
+          "sys": 32783984,
+          "idle": 61830093,
+          "irq": 1108453
+        }
+      ]
+    },
+    {
+      "at": 1789290272973,
+      "availableMiB": 2293.77734375,
+      "cpus": [
+        {
+          "user": 39277375,
+          "nice": 0,
+          "sys": 37560296,
+          "idle": 66267234,
+          "irq": 3373453
+        },
+        {
+          "user": 45216843,
+          "nice": 0,
+          "sys": 30918812,
+          "idle": 66969156,
+          "irq": 1411500
+        },
+        {
+          "user": 50251359,
+          "nice": 0,
+          "sys": 32809609,
+          "idle": 60043843,
+          "irq": 1371250
+        },
+        {
+          "user": 47098843,
+          "nice": 0,
+          "sys": 29877531,
+          "idle": 66128437,
+          "irq": 1119265
+        },
+        {
+          "user": 42262859,
+          "nice": 0,
+          "sys": 36736406,
+          "idle": 64105546,
+          "irq": 1650984
+        },
+        {
+          "user": 42129453,
+          "nice": 0,
+          "sys": 33626359,
+          "idle": 67349000,
+          "irq": 1391625
+        },
+        {
+          "user": 46957828,
+          "nice": 0,
+          "sys": 34383031,
+          "idle": 61763953,
+          "irq": 1256562
+        },
+        {
+          "user": 48490546,
+          "nice": 0,
+          "sys": 32784171,
+          "idle": 61830093,
+          "irq": 1108500
+        }
+      ]
+    },
+    {
+      "at": 1789290274267,
+      "availableMiB": 2245.87890625,
+      "cpus": [
+        {
+          "user": 39278375,
+          "nice": 0,
+          "sys": 37560578,
+          "idle": 66267234,
+          "irq": 3373500
+        },
+        {
+          "user": 45217843,
+          "nice": 0,
+          "sys": 30919093,
+          "idle": 66969156,
+          "irq": 1411500
+        },
+        {
+          "user": 50252421,
+          "nice": 0,
+          "sys": 32809828,
+          "idle": 60043843,
+          "irq": 1371250
+        },
+        {
+          "user": 47099796,
+          "nice": 0,
+          "sys": 29877859,
+          "idle": 66128437,
+          "irq": 1119265
+        },
+        {
+          "user": 42263765,
+          "nice": 0,
+          "sys": 36736781,
+          "idle": 64105546,
+          "irq": 1651000
+        },
+        {
+          "user": 42130484,
+          "nice": 0,
+          "sys": 33626609,
+          "idle": 67349000,
+          "irq": 1391640
+        },
+        {
+          "user": 46958937,
+          "nice": 0,
+          "sys": 34383203,
+          "idle": 61763953,
+          "irq": 1256578
+        },
+        {
+          "user": 48491625,
+          "nice": 0,
+          "sys": 32784375,
+          "idle": 61830093,
+          "irq": 1108531
+        }
+      ]
+    },
+    {
+      "at": 1789290275357,
+      "availableMiB": 2179.60546875,
+      "cpus": [
+        {
+          "user": 39279343,
+          "nice": 0,
+          "sys": 37560703,
+          "idle": 66267234,
+          "irq": 3373500
+        },
+        {
+          "user": 45218765,
+          "nice": 0,
+          "sys": 30919359,
+          "idle": 66969156,
+          "irq": 1411500
+        },
+        {
+          "user": 50253468,
+          "nice": 0,
+          "sys": 32810000,
+          "idle": 60043843,
+          "irq": 1371265
+        },
+        {
+          "user": 47100781,
+          "nice": 0,
+          "sys": 29878093,
+          "idle": 66128437,
+          "irq": 1119265
+        },
+        {
+          "user": 42264796,
+          "nice": 0,
+          "sys": 36736968,
+          "idle": 64105546,
+          "irq": 1651000
+        },
+        {
+          "user": 42131593,
+          "nice": 0,
+          "sys": 33626734,
+          "idle": 67349000,
+          "irq": 1391640
+        },
+        {
+          "user": 46960031,
+          "nice": 0,
+          "sys": 34383343,
+          "idle": 61763953,
+          "irq": 1256593
+        },
+        {
+          "user": 48492718,
+          "nice": 0,
+          "sys": 32784515,
+          "idle": 61830093,
+          "irq": 1108546
+        }
+      ]
+    },
+    {
+      "at": 1789290276357,
+      "availableMiB": 1906.0234375,
+      "cpus": [
+        {
+          "user": 39279718,
+          "nice": 0,
+          "sys": 37561328,
+          "idle": 66267234,
+          "irq": 3373515
+        },
+        {
+          "user": 45219203,
+          "nice": 0,
+          "sys": 30919828,
+          "idle": 66969156,
+          "irq": 1411515
+        },
+        {
+          "user": 50253828,
+          "nice": 0,
+          "sys": 32810515,
+          "idle": 60043843,
+          "irq": 1371265
+        },
+        {
+          "user": 47101046,
+          "nice": 0,
+          "sys": 29878703,
+          "idle": 66128437,
+          "irq": 1119281
+        },
+        {
+          "user": 42265093,
+          "nice": 0,
+          "sys": 36737546,
+          "idle": 64105546,
+          "irq": 1651000
+        },
+        {
+          "user": 42131968,
+          "nice": 0,
+          "sys": 33627218,
+          "idle": 67349000,
+          "irq": 1391671
+        },
+        {
+          "user": 46960437,
+          "nice": 0,
+          "sys": 34383796,
+          "idle": 61763953,
+          "irq": 1256593
+        },
+        {
+          "user": 48493015,
+          "nice": 0,
+          "sys": 32785078,
+          "idle": 61830093,
+          "irq": 1108546
+        }
+      ]
+    },
+    {
+      "at": 1789290277359,
+      "availableMiB": 2401.14453125,
+      "cpus": [
+        {
+          "user": 39280187,
+          "nice": 0,
+          "sys": 37561859,
+          "idle": 66267234,
+          "irq": 3373593
+        },
+        {
+          "user": 45219718,
+          "nice": 0,
+          "sys": 30920312,
+          "idle": 66969156,
+          "irq": 1411546
+        },
+        {
+          "user": 50254375,
+          "nice": 0,
+          "sys": 32810968,
+          "idle": 60043843,
+          "irq": 1371296
+        },
+        {
+          "user": 47101765,
+          "nice": 0,
+          "sys": 29878984,
+          "idle": 66128437,
+          "irq": 1119296
+        },
+        {
+          "user": 42265671,
+          "nice": 0,
+          "sys": 36737968,
+          "idle": 64105546,
+          "irq": 1651015
+        },
+        {
+          "user": 42132390,
+          "nice": 0,
+          "sys": 33627796,
+          "idle": 67349000,
+          "irq": 1391687
+        },
+        {
+          "user": 46960937,
+          "nice": 0,
+          "sys": 34384296,
+          "idle": 61763953,
+          "irq": 1256593
+        },
+        {
+          "user": 48493531,
+          "nice": 0,
+          "sys": 32785562,
+          "idle": 61830093,
+          "irq": 1108562
+        }
+      ]
+    },
+    {
+      "at": 1789290278360,
+      "availableMiB": 2330.921875,
+      "cpus": [
+        {
+          "user": 39280765,
+          "nice": 0,
+          "sys": 37562281,
+          "idle": 66267234,
+          "irq": 3373609
+        },
+        {
+          "user": 45220312,
+          "nice": 0,
+          "sys": 30920718,
+          "idle": 66969156,
+          "irq": 1411578
+        },
+        {
+          "user": 50254968,
+          "nice": 0,
+          "sys": 32811375,
+          "idle": 60043843,
+          "irq": 1371328
+        },
+        {
+          "user": 47102406,
+          "nice": 0,
+          "sys": 29879343,
+          "idle": 66128437,
+          "irq": 1119296
+        },
+        {
+          "user": 42266109,
+          "nice": 0,
+          "sys": 36738531,
+          "idle": 64105546,
+          "irq": 1651031
+        },
+        {
+          "user": 42132812,
+          "nice": 0,
+          "sys": 33628375,
+          "idle": 67349000,
+          "irq": 1391687
+        },
+        {
+          "user": 46961484,
+          "nice": 0,
+          "sys": 34384750,
+          "idle": 61763953,
+          "irq": 1256625
+        },
+        {
+          "user": 48494234,
+          "nice": 0,
+          "sys": 32785859,
+          "idle": 61830093,
+          "irq": 1108578
+        }
+      ]
+    },
+    {
+      "at": 1789290279360,
+      "availableMiB": 2079.36328125,
+      "cpus": [
+        {
+          "user": 39281203,
+          "nice": 0,
+          "sys": 37562843,
+          "idle": 66267234,
+          "irq": 3373640
+        },
+        {
+          "user": 45220781,
+          "nice": 0,
+          "sys": 30921250,
+          "idle": 66969156,
+          "irq": 1411578
+        },
+        {
+          "user": 50255500,
+          "nice": 0,
+          "sys": 32811843,
+          "idle": 60043843,
+          "irq": 1371343
+        },
+        {
+          "user": 47102937,
+          "nice": 0,
+          "sys": 29879812,
+          "idle": 66128437,
+          "irq": 1119296
+        },
+        {
+          "user": 42266593,
+          "nice": 0,
+          "sys": 36739046,
+          "idle": 64105546,
+          "irq": 1651031
+        },
+        {
+          "user": 42133234,
+          "nice": 0,
+          "sys": 33628953,
+          "idle": 67349000,
+          "irq": 1391703
+        },
+        {
+          "user": 46962031,
+          "nice": 0,
+          "sys": 34385203,
+          "idle": 61763953,
+          "irq": 1256687
+        },
+        {
+          "user": 48494828,
+          "nice": 0,
+          "sys": 32786265,
+          "idle": 61830093,
+          "irq": 1108609
+        }
+      ]
+    },
+    {
+      "at": 1789290280361,
+      "availableMiB": 2133.78515625,
+      "cpus": [
+        {
+          "user": 39281531,
+          "nice": 0,
+          "sys": 37563515,
+          "idle": 66267234,
+          "irq": 3373656
+        },
+        {
+          "user": 45221234,
+          "nice": 0,
+          "sys": 30921796,
+          "idle": 66969156,
+          "irq": 1411578
+        },
+        {
+          "user": 50255921,
+          "nice": 0,
+          "sys": 32812421,
+          "idle": 60043843,
+          "irq": 1371390
+        },
+        {
+          "user": 47103359,
+          "nice": 0,
+          "sys": 29880390,
+          "idle": 66128437,
+          "irq": 1119312
+        },
+        {
+          "user": 42266953,
+          "nice": 0,
+          "sys": 36739687,
+          "idle": 64105546,
+          "irq": 1651078
+        },
+        {
+          "user": 42133656,
+          "nice": 0,
+          "sys": 33629531,
+          "idle": 67349000,
+          "irq": 1391703
+        },
+        {
+          "user": 46962484,
+          "nice": 0,
+          "sys": 34385750,
+          "idle": 61763953,
+          "irq": 1256718
+        },
+        {
+          "user": 48495328,
+          "nice": 0,
+          "sys": 32786765,
+          "idle": 61830093,
+          "irq": 1108625
+        }
+      ]
+    },
+    {
+      "at": 1789290281362,
+      "availableMiB": 2329.90625,
+      "cpus": [
+        {
+          "user": 39281875,
+          "nice": 0,
+          "sys": 37564171,
+          "idle": 66267234,
+          "irq": 3373718
+        },
+        {
+          "user": 45221703,
+          "nice": 0,
+          "sys": 30922328,
+          "idle": 66969156,
+          "irq": 1411593
+        },
+        {
+          "user": 50256234,
+          "nice": 0,
+          "sys": 32813109,
+          "idle": 60043843,
+          "irq": 1371406
+        },
+        {
+          "user": 47103718,
+          "nice": 0,
+          "sys": 29881031,
+          "idle": 66128437,
+          "irq": 1119328
+        },
+        {
+          "user": 42267468,
+          "nice": 0,
+          "sys": 36740171,
+          "idle": 64105546,
+          "irq": 1651093
+        },
+        {
+          "user": 42134203,
+          "nice": 0,
+          "sys": 33629984,
+          "idle": 67349000,
+          "irq": 1391734
+        },
+        {
+          "user": 46963031,
+          "nice": 0,
+          "sys": 34386203,
+          "idle": 61763953,
+          "irq": 1256718
+        },
+        {
+          "user": 48495796,
+          "nice": 0,
+          "sys": 32787296,
+          "idle": 61830093,
+          "irq": 1108640
+        }
+      ]
+    },
+    {
+      "at": 1789290282363,
+      "availableMiB": 2196.69140625,
+      "cpus": [
+        {
+          "user": 39282250,
+          "nice": 0,
+          "sys": 37564796,
+          "idle": 66267234,
+          "irq": 3373796
+        },
+        {
+          "user": 45222109,
+          "nice": 0,
+          "sys": 30922921,
+          "idle": 66969156,
+          "irq": 1411609
+        },
+        {
+          "user": 50256734,
+          "nice": 0,
+          "sys": 32813609,
+          "idle": 60043843,
+          "irq": 1371421
+        },
+        {
+          "user": 47104203,
+          "nice": 0,
+          "sys": 29881546,
+          "idle": 66128437,
+          "irq": 1119343
+        },
+        {
+          "user": 42268015,
+          "nice": 0,
+          "sys": 36740625,
+          "idle": 64105546,
+          "irq": 1651109
+        },
+        {
+          "user": 42134734,
+          "nice": 0,
+          "sys": 33630453,
+          "idle": 67349000,
+          "irq": 1391734
+        },
+        {
+          "user": 46963593,
+          "nice": 0,
+          "sys": 34386640,
+          "idle": 61763953,
+          "irq": 1256718
+        },
+        {
+          "user": 48496328,
+          "nice": 0,
+          "sys": 32787765,
+          "idle": 61830093,
+          "irq": 1108640
+        }
+      ]
+    },
+    {
+      "at": 1789290283364,
+      "availableMiB": 2031.375,
+      "cpus": [
+        {
+          "user": 39282734,
+          "nice": 0,
+          "sys": 37565312,
+          "idle": 66267234,
+          "irq": 3373828
+        },
+        {
+          "user": 45222609,
+          "nice": 0,
+          "sys": 30923421,
+          "idle": 66969156,
+          "irq": 1411609
+        },
+        {
+          "user": 50257250,
+          "nice": 0,
+          "sys": 32814093,
+          "idle": 60043843,
+          "irq": 1371437
+        },
+        {
+          "user": 47104875,
+          "nice": 0,
+          "sys": 29881875,
+          "idle": 66128437,
+          "irq": 1119343
+        },
+        {
+          "user": 42268562,
+          "nice": 0,
+          "sys": 36741078,
+          "idle": 64105546,
+          "irq": 1651125
+        },
+        {
+          "user": 42135359,
+          "nice": 0,
+          "sys": 33630828,
+          "idle": 67349000,
+          "irq": 1391750
+        },
+        {
+          "user": 46964203,
+          "nice": 0,
+          "sys": 34387031,
+          "idle": 61763953,
+          "irq": 1256718
+        },
+        {
+          "user": 48497015,
+          "nice": 0,
+          "sys": 32788078,
+          "idle": 61830093,
+          "irq": 1108640
+        }
+      ]
+    },
+    {
+      "at": 1789290284364,
+      "availableMiB": 2591.44921875,
+      "cpus": [
+        {
+          "user": 39283234,
+          "nice": 0,
+          "sys": 37565812,
+          "idle": 66267234,
+          "irq": 3373875
+        },
+        {
+          "user": 45223046,
+          "nice": 0,
+          "sys": 30923984,
+          "idle": 66969156,
+          "irq": 1411609
+        },
+        {
+          "user": 50257687,
+          "nice": 0,
+          "sys": 32814656,
+          "idle": 60043843,
+          "irq": 1371453
+        },
+        {
+          "user": 47105328,
+          "nice": 0,
+          "sys": 29882421,
+          "idle": 66128437,
+          "irq": 1119359
+        },
+        {
+          "user": 42269078,
+          "nice": 0,
+          "sys": 36741562,
+          "idle": 64105546,
+          "irq": 1651125
+        },
+        {
+          "user": 42135890,
+          "nice": 0,
+          "sys": 33631296,
+          "idle": 67349000,
+          "irq": 1391750
+        },
+        {
+          "user": 46964828,
+          "nice": 0,
+          "sys": 34387406,
+          "idle": 61763953,
+          "irq": 1256734
+        },
+        {
+          "user": 48497640,
+          "nice": 0,
+          "sys": 32788437,
+          "idle": 61830109,
+          "irq": 1108671
+        }
+      ]
+    }
+  ],
+  "hostCounters": "\r\n\"(PDH-CSV 4.0)\",\"\\\\PRAWN-E14\\Memory\\Available MBytes\",\"\\\\PRAWN-E14\\Memory\\Pages Input/sec\",\"\\\\PRAWN-E14\\Memory\\Pages Output/sec\",\"\\\\PRAWN-E14\\Processor(_Total)\\% Processor Time\"\r\n\"09/13/2026 17:04:00.088\",\"3121.000000\",\"534.139090\",\"1769.274029\",\"100.000000\"\r\n\"09/13/2026 17:04:01.215\",\"2989.000000\",\"327.269378\",\"6080.876181\",\"100.000000\"\r\n\"09/13/2026 17:04:02.250\",\"3009.000000\",\"440.913867\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:03.265\",\"2888.000000\",\"22199.079686\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:04.425\",\"2853.000000\",\"1092.502469\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:07.109\",\"2631.000000\",\"356.338007\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:08.835\",\"2456.000000\",\"527.638917\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:10.187\",\"2456.000000\",\"314.976468\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:11.788\",\"2787.000000\",\"420.133844\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:14.006\",\"2711.000000\",\"287.940544\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:15.519\",\"2613.000000\",\"269.655824\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:16.520\",\"2323.000000\",\"382.386003\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:17.530\",\"2499.000000\",\"1944.947489\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:18.533\",\"2247.000000\",\"576.485745\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:19.534\",\"2503.000000\",\"176.742292\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:20.537\",\"2512.000000\",\"1007.500894\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:21.538\",\"2459.000000\",\"460.220019\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:22.563\",\"2222.000000\",\"326.613162\",\"499.181907\",\"100.000000\"\r\n\"09/13/2026 17:04:23.566\",\"2080.000000\",\"179.687003\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:24.567\",\"2193.000000\",\"1185.627991\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:25.568\",\"2293.000000\",\"591.256318\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:26.570\",\"2055.000000\",\"321.420832\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:27.571\",\"2398.000000\",\"417.544334\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:28.573\",\"2391.000000\",\"202.683226\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:29.575\",\"2357.000000\",\"736.510408\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:30.577\",\"2359.000000\",\"283.980425\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:31.581\",\"2339.000000\",\"665.082766\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:32.583\",\"2309.000000\",\"134.751868\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:33.584\",\"2251.000000\",\"99.918377\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:34.585\",\"2238.000000\",\"37.968657\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:35.587\",\"2126.000000\",\"61.848743\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:36.589\",\"2215.000000\",\"745.462260\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:37.592\",\"2407.000000\",\"80081.889447\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:38.595\",\"2279.000000\",\"18939.862051\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:39.598\",\"1965.000000\",\"10131.220291\",\"310.088526\",\"100.000000\"\r\n\"09/13/2026 17:04:40.600\",\"2002.000000\",\"10396.977690\",\"611.880503\",\"100.000000\"\r\n\"09/13/2026 17:04:41.601\",\"2214.000000\",\"6410.899388\",\"133.872607\",\"100.000000\"\r\n\"09/13/2026 17:04:42.605\",\"2336.000000\",\"3798.357440\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 17:04:43.607\",\"2459.000000\",\"5365.876201\",\"0.000000\",\"100.000000\"",
+  "last": {
+    "name": "nondefault saved walk",
+    "value": false
+  },
+  "anchorsBefore": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "preview": {
+    "buildId": "X5gzHuoOU1Div5U-qBlgj",
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\keyboard-recovery-20260913-build-1",
+    "pid": 13080,
+    "dataPort": 4338,
+    "nextPort": 4413,
+    "proxyPort": 4414,
+    "readOnlyData": true,
+    "allowedApi": "GET /api/onemap-route and /api/onemap-search",
+    "oneMapCredentialsConfigured": true,
+    "nextPid": 36004
+  },
+  "nativeZoom": {
+    "requestedPercent": 200,
+    "preferences": {
+      "partition": {
+        "default_zoom_level": {
+          "x": 3.8017840169239308
+        }
+      }
+    },
+    "method": "Fresh owned profile native partition default zoom before Chrome launch; no page-scale/device-metrics override",
+    "observed": {
+      "inner": [
+        712,
+        399
+      ],
+      "outer": [
+        1440,
+        950
+      ],
+      "dpr": 2,
+      "visualScale": 1,
+      "documentZoom": "1",
+      "bodyZoom": "1",
+      "reduced": true,
+      "screen": [
+        800,
+        600
+      ]
+    }
+  },
+  "chromePid": 19348,
+  "pageTarget": "7BE9B44F92E605A00D8C23A240B104AF",
+  "mainSession": "9CA373E0D380A2F7EE8274C4139BE679",
+  "policy": {
+    "cold": "Fresh profile, HTTP cache cleared once; server filesystem cache uncontrolled",
+    "warm": "Same browser HTTP cache, fresh document and JS memory",
+    "serviceWorker": "bypassed",
+    "workers": "Unpaused, late Network attachment can miss worker bytes",
+    "interception": "GET allowlist IPC overhead remains",
+    "renderer": "Desktop headless SwiftShader, 390x844, not representative phone",
+    "pairs": 1
+  },
+  "samples": [
+    {
+      "name": "initial",
+      "before": {
+        "status": "ready",
+        "routeKey": "3:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789290247296.4,
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "after": {
+        "status": "ready",
+        "routeKey": "3:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789290247296.4,
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "ui": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 353,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 397,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 353,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 397,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": true,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      },
+      "bytes": 324181,
+      "sha256": "9d2f4c92736a6781d10c937b8072b3c1bed4096ed6d9738f0a57783afc2a5e4a"
+    },
+    {
+      "name": "mrt_lrt",
+      "before": {
+        "status": "ready",
+        "routeKey": "4:shiokest:primary",
+        "count": 3,
+        "keys": [
+          "4:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.85958,
+                1.28245
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85958,
+                1.28245
+              ],
+              [
+                103.8596,
+                1.28283
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789290247296.4,
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=mrt_lrt&stop=mrt%3A21624",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "after": {
+        "status": "ready",
+        "routeKey": "4:shiokest:primary",
+        "count": 3,
+        "keys": [
+          "4:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.85958,
+                1.28245
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85958,
+                1.28245
+              ],
+              [
+                103.8596,
+                1.28283
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789290247296.4,
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=mrt_lrt&stop=mrt%3A21624",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "ui": {
+        "panelText": "Postal 018956\n\nWalk to MRT/LRT exit\nBAYFRONT MRT STATION Exit C\n\n109 m\nWalk distance\n0%\nCovered\nUnavailable\nUncovered\nUnavailable\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "MRT/LRT exits"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 159.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 203.5,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 159.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 203.5,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": true,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 3 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to MRT/LRT exit\nBAYFRONT MRT STATION Exit C\n\n109 m\nWalk distance\n0%\nCovered\nUnavailable\nUncovered\nUnavailable\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "lampCount": 632,
+        "destination": "BAYFRONT MRT STATION Exit C",
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=mrt_lrt&stop=mrt%3A21624",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      },
+      "bytes": 318807,
+      "sha256": "28340029794cd5a36c35c0177104eb0a7b397711444dc5263c67a6519f9616bd"
+    },
+    {
+      "name": "bus",
+      "before": {
+        "status": "ready",
+        "routeKey": "5:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "5:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789290247296.4,
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "after": {
+        "status": "ready",
+        "routeKey": "5:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "5:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789290247296.4,
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "ui": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 167.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 211.5,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 167.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 211.5,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": true,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      },
+      "bytes": 318616,
+      "sha256": "f6f4918d71ba2e5a97adcac2fc7e96d57c0a9d8a2567b4bd4704503ad65c09da"
+    },
+    {
+      "name": "details-open",
+      "before": {
+        "status": "ready",
+        "routeKey": "5:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "5:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789290247296.4,
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "after": {
+        "status": "ready",
+        "routeKey": "5:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "5:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789290247296.4,
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "ui": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nCollapse walk details\nUncovered sections (3)\nShortest same as sheltered walk.",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 167.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 211.5,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 167.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 211.5,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": false,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nCollapse walk details\nUncovered sections (3)\nShortest same as sheltered walk.",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      },
+      "bytes": 320414,
+      "sha256": "31e9c8bfe5782df2eabaedbcd5f3516bba05fbfb6b5a499c2baa9bd9755f22ae"
+    },
+    {
+      "name": "gap-selected",
+      "before": {
+        "status": "ready",
+        "routeKey": "5:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "5:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789290247296.4,
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "after": {
+        "status": "ready",
+        "routeKey": "5:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "5:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789290247296.4,
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "ui": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nCollapse walk details\nUncovered sections (3)\nSection 1\n16 m\nSection 2\n11 m\nSection 3\n9 m\nBack to walk\nShortest same as sheltered walk.",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 52.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 96.5,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 52.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 96.5,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": false,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. Selected mapped exposed section, 16 m, on the sheltered walk. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nCollapse walk details\nUncovered sections (3)\nSection 1\n16 m\nSection 2\n11 m\nSection 3\n9 m\nBack to walk\nShortest same as sheltered walk.",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      },
+      "bytes": 323576,
+      "sha256": "fb7b31d549ba2d65487e042a74ce408f29ebdad356196122003551708857b407"
+    },
+    {
+      "name": "gap-cleared",
+      "before": {
+        "status": "ready",
+        "routeKey": "5:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "5:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789290247296.4,
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "after": {
+        "status": "ready",
+        "routeKey": "5:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "5:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789290247296.4,
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "ui": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nCollapse walk details\nUncovered sections (3)\nSection 1\n16 m\nSection 2\n11 m\nSection 3\n9 m\nShortest same as sheltered walk.",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": -87.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": -43.5,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": -87.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": -43.5,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": false,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nCollapse walk details\nUncovered sections (3)\nSection 1\n16 m\nSection 2\n11 m\nSection 3\n9 m\nShortest same as sheltered walk.",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      },
+      "bytes": 320941,
+      "sha256": "790fb70985cdb78fb173e4ede0afac4997de6493e34604beffd0131369005f2b"
+    },
+    {
+      "name": "details-closed",
+      "before": {
+        "status": "ready",
+        "routeKey": "5:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "5:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789290247296.4,
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "after": {
+        "status": "ready",
+        "routeKey": "5:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "5:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 632,
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "timeOrigin": 1789290247296.4,
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=bus",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          712,
+          399
+        ]
+      },
+      "ui": {
+        "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "panel": {
+          "x": 12,
+          "y": 104,
+          "width": 300,
+          "height": 167.5,
+          "bottom": 271.5,
+          "right": 312
+        },
+        "search": {
+          "x": 12,
+          "y": 12,
+          "width": 300,
+          "height": 84,
+          "bottom": 96,
+          "right": 312
+        },
+        "pressed": [
+          "Bus stops"
+        ],
+        "controls": [
+          {
+            "text": "MRT/LRT exits",
+            "disabled": false,
+            "box": {
+              "x": 26,
+              "y": 165.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 209.5,
+              "right": 159.5
+            }
+          },
+          {
+            "text": "Bus stops",
+            "disabled": false,
+            "box": {
+              "x": 159.5,
+              "y": 165.5,
+              "width": 133.5,
+              "height": 44,
+              "bottom": 209.5,
+              "right": 293
+            }
+          }
+        ],
+        "detailsHidden": true,
+        "bodyText": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n632 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 632 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "lampCount": 632,
+        "destination": "Bayfront Stn Exit B/MBS",
+        "url": "http://127.0.0.1:4414/?debugMap=1&postal=018956&transit=bus",
+        "viewport": [
+          712,
+          399
+        ],
+        "overflow": false
+      },
+      "bytes": 320244,
+      "sha256": "707df0b964fc73c119783ff396b7d4b45bf74701a2dc3737d99aad4d1fca73f3"
+    }
+  ],
+  "scope": "Native Chrome page zoom via fresh-profile setting, reduced-motion media, saved transit and details keyboard acceptance. No device emulation/DOM scaling; headless SwiftShader, SW bypassed; not physical phone, screen reader, performance or release-upgrade acceptance.",
+  "detailsButtons": [
+    {
+      "text": "Section 116 m",
+      "pressed": "false"
+    },
+    {
+      "text": "Section 211 m",
+      "pressed": "false"
+    },
+    {
+      "text": "Section 39 m",
+      "pressed": "false"
+    }
+  ],
+  "motion": [
+    {
+      "name": "fitBounds",
+      "duration": 0
+    },
+    {
+      "name": "fitBounds",
+      "duration": 0
+    },
+    {
+      "name": "fitBounds",
+      "duration": 0
+    },
+    {
+      "name": "fitBounds",
+      "duration": 0
+    }
+  ],
+  "failure": "Error: nondefault saved walk timeout\n    at until (file:///C:/sgSHIOK2026/qa/revamp-r1/native-zoom-20260913/runner-200-1789290234514.mjs:45:9)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/native-zoom-20260913/runner-200-1789290234514.mjs:244:56",
+  "samplerExit": null,
+  "cleanup": {
+    "command": "$ErrorActionPreference='Stop'; $profile='C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-ElQXwN'; function Owned { @(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | Where-Object { $_.CommandLine -and $_.CommandLine.Contains($profile) }) }; $before=@(Owned | Select-Object ProcessId,Name,CommandLine); foreach($p in @(Owned)){ $live=Get-Process -Id $p.ProcessId -ErrorAction SilentlyContinue; if($live -and -not $live.HasExited){Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue} }; $until=[DateTime]::UtcNow.AddSeconds(20); do { $remaining=@(Owned | Where-Object { $p=Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue; $p -and -not $p.HasExited }); if($remaining.Count -eq 0){break}; Start-Sleep -Milliseconds 250 } while([DateTime]::UtcNow -lt $until); @{before=$before;remaining=@($remaining | Select-Object ProcessId,Name,CommandLine)} | ConvertTo-Json -Depth 4 -Compress",
+    "exitCode": 0,
+    "stdout": "{\"before\":[{\"ProcessId\":19348,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:/Program Files/Google/Chrome/Application/chrome.exe\\\" --headless=new --window-size=1440,950 --force-device-scale-factor=1 --no-first-run --no-sandbox --use-angle=swiftshader --enable-unsafe-swiftshader --disable-background-networking --disable-component-update --disable-sync --remote-debugging-port=0 --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-ElQXwN about:blank\"},{\"ProcessId\":32416,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=crashpad-handler --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-ElQXwN /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-ElQXwN\\\\Crashpad --metrics-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-ElQXwN --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=152.0.7977.84 --initial-client-data=0x128,0x12c,0x130,0xc0,0x134,0x7ff9ad877e60,0x7ff9ad877e70,0x7ff9ad877e80\"},{\"ProcessId\":12240,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-ElQXwN\\\" --no-pre-read-main-dll --no-sandbox --force-device-scale-factor=1 --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=143077030177 --field-trial-handle=1904,i,11609765038471381158,17654307685479655111,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1908,i,18244448552374347115,9906348888404182238,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3176 /prefetch:1\"},{\"ProcessId\":340,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-ElQXwN\\\" --no-pre-read-main-dll --no-sandbox --force-device-scale-factor=1 --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=20 --launch-time-ticks=143092426993 --field-trial-handle=1904,i,11609765038471381158,17654307685479655111,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1908,i,18244448552374347115,9906348888404182238,4 --trace-process-track-uuid=3190709005052708474 --mojo-platform-channel-handle=6576 /prefetch:1\"}],\"remaining\":[]}\r\n",
+    "stderr": "",
+    "verified": true
+  },
+  "anchorsAfter": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "anchorsUnchanged": true,
+  "stderr": "\r\nDevTools listening on ws://127.0.0.1:21036/devtools/browser/21cb21fa-5133-4df3-a245-a7941c59f23c\r\n[19348:31372:0913/170420.198:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[19348:31372:0913/170420.218:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[19348:31372:0913/170420.223:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[19348:31372:0913/170420.375:ERROR:google_apis\\gcm\\engine\\mcs_client.cc:702]   Error code: 401  Error message: Authentication Failed: wrong_secret\r\n[19348:31372:0913/170420.375:ERROR:google_apis\\gcm\\engine\\mcs_client.cc:704] Failed to log in to GCM, resetting connection.\r\nCreated TensorFlow Lite XNNPACK delegate for CPU.\r\n",
+  "elapsedMs": 52836,
+  "ok": false,
+  "rawTrace": {
+    "file": "browser.json.gz",
+    "bytes": 5114149,
+    "sha256": "c91527ab952c9bcbdbed9f347a510b278bd2e67d262be09fbf5eeb71d9d7f7be",
+    "compressedBytes": 2391788,
+    "compressedSha256": "9ca03ad2ad48c26f6440b9c4e876c2cb46cab20b7084162f8b1e3af8303b54fd",
+    "entries": 1410
+  }
+}

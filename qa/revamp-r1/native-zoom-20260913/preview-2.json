@@ -1,0 +1,12 @@
+{
+  "buildId": "vOoOxn7etjT-WJqrIExq7",
+  "snapshot": "C:\\sgSHIOK2026\\tmp\\native-zoom-20260913-build-1",
+  "pid": 33360,
+  "dataPort": 4340,
+  "nextPort": 4415,
+  "proxyPort": 4416,
+  "readOnlyData": true,
+  "allowedApi": "GET /api/onemap-route and /api/onemap-search",
+  "oneMapCredentialsConfigured": true,
+  "nextPid": 35540
+}

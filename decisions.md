@@ -3897,3 +3897,22 @@ failure; Back restores it without another provider request. These are frontend
 recovery changes, not new route coverage or score computation. The controlled
 keyboard browser pass complements the prior pointer checks; it does not replace
 native zoom, assistive technology, physical-device or release-specific acceptance.
+
+## 2026-09-13: Keep reset focus visible inside a scrolled result panel
+
+The published-default reset can remove its own button. Notify the parent before
+selection only if the reset button owns its ownerDocument's focus; the parent
+focuses the surviving postal heading with native scrolling. Do not steal focus
+for ordinary choices, missing activation events or another focused control.
+
+Back to walk in the uncovered-section explorer also needs native focus scrolling.
+At200% page zoom, preventScroll kept its summary focused but hidden above the
+panel's scrollport. Keep the existing close-disclosure behaviour; only the Back
+action changes. A focus flag and matching rendered route key alone do not prove
+that a user can see either target. Check clipping/occlusion and inspect captures.
+
+The native page-zoom check uses an isolated Chrome profile preference, with
+measured CSS dimensions halving and DPR changing from1to2; no CSS enlargement,
+pinch scale or device-metrics override stands in for it. It does not claim a
+same-document browser-menu/shortcut zoom transition or physical-device acceptance.
+Source: https://chromium.googlesource.com/chromium/src/+/lkgr/chrome/browser/ui/zoom/chrome_zoom_level_prefs.cc

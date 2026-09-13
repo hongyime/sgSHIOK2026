@@ -1,0 +1,22 @@
+{
+  "base": "021d5dfc070fb0d8721a4d2cf5aa8f9db2303234",
+  "previousGoalTurn": "progress: keyboard recovery change pushed and independently reviewed",
+  "scope": "Current Home native browser page-zoom/reduced-motion acceptance and any reproduced reset-focus defect; no pipeline, install, activation or deployment.",
+  "browserPlugin": {"attempted": true, "error": "failed to write kernel assets: The system cannot find the path specified. (os error 3)", "fallback": "owned headless Chrome/CDP, fresh repository-contained profile"},
+  "zoom": {
+    "configuration": "Fresh profile Default/Preferences partition.default_zoom_level.x before browser launch; x is the empty relative partition path key. Values0 and log(2)/log(1.2).",
+    "controls": "Chrome window1440x950; force-device-scale-factor1. No Emulation.setDeviceMetricsOverride, Emulation.setPageScaleFactor, injected CSS zoom or larger font styles.",
+    "observed100": {"outerWidth":1440,"innerWidth":1424,"innerHeight":799,"devicePixelRatio":1,"visualViewportScale":1},
+    "observed200": {"outerWidth":1440,"innerWidth":712,"innerHeight":399,"devicePixelRatio":2,"visualViewportScale":1},
+    "arithmetic": "1424/712=2;799/399=2.0025062656641603 with integer viewport rounding. Separate fresh-profile runs, not an in-document keyboard zoom transition.",
+    "source": "https://chromium.googlesource.com/chromium/src/+/lkgr/chrome/browser/ui/zoom/chrome_zoom_level_prefs.cc",
+    "sourceBlobAtRead": "1f1829ff00a63dcc2abc064d444a051d2797675e",
+    "inference": "The configured partition preference is consumed by Chrome's native host zoom map; measured CSS dimensions and DPR confirm the requested page zoom. The headless run does not visually operate the browser zoom menu."
+  },
+  "reducedMotion": "CDP media preference set to reduce. matchMedia verified. Pass-through instrumentation records app fitBounds/easeTo/flyTo calls without changing arguments or return values. This is not OS-settings UI or MapLibre keyboard-pan acceptance.",
+  "bounds": "600seconds per owned browser attempt including60seconds cleanup reserve; initial host memory minimum1024MiB. Existing11fixture anchors checked before/after. Controlled local API failure prevents provider IO; basemap GETs allowlisted. Service worker bypassed.",
+  "attemptCorrection": "zoom200-B1YTTj wrongly treated an unselected Exit E button as nondefault. Exit E is the published default; shortest automatic Exit C already exposes reset. Setup timed out, preserved. Corrected reset-only zoom200-1ESfRY then proved BODY focus after reset.",
+  "greenCheckLimitation": "zoom200-FgSh4x returned42passing checks but omitted Back-to-walk focus visibility. Its raw trace entry946 records a focused SUMMARY at top30.5/bottom74.5, obscured by the search/scroll container (visible:false). gap-cleared.png corroborates the absent visible outline. This is a real missed defect, not passing complete acceptance. Final driver now asserts this boundary explicitly.",
+  "previewStartupObservation": "An initial standalone Invoke-RestMethod preflight raced preview startup and reported connection refused. PowerShell continued to the planned browser command; that command independently checked the preview/source identity before launching and succeeded. No second preview or browser was started to hide this observation. The later explicit Stop-on-error identity readback is recorded separately.",
+  "nonClaims": ["Physical phone", "Assistive technology", "Browser-menu/keyboard zoom change in the same document", "Representative performance", "Old-to-new production service-worker upgrade", "All report or maintenance services complete"]
+}

@@ -269,9 +269,14 @@ function freeze(value: unknown): void {
   Object.freeze(value);
 }
 
+type PickerClickEvent = {
+  currentTarget: { ownerDocument: { activeElement: object | null } };
+  target: object;
+};
+
 type Element = ReactElement<{
   children?: ReactNode;
-  onClick?: () => void;
+  onClick?: (event?: PickerClickEvent) => void;
   type?: string;
   role?: string;
   title?: string;
@@ -301,10 +306,11 @@ function resetButton(tree: ReactNode) {
   return elements(tree).find(element => element.type === "button" &&
     element.props["aria-label"] === "Use published default");
 }
-function renderPicker(selection: PublishedTransitChoices, onSelect = vi.fn()) {
+function renderPicker(selection: PublishedTransitChoices, onSelect = vi.fn(), onFocusedRemoval?: () => void) {
   const before = structuredClone(selection);
   freeze(selection);
-  const tree = TransitStopPicker({ selection, onSelect });
+  const props = { selection, onSelect, onFocusedRemoval };
+  const tree = TransitStopPicker(props);
   const html = renderToStaticMarkup(tree);
   expect(selection).toEqual(before);
   expect(fetch).not.toHaveBeenCalled();
@@ -381,6 +387,85 @@ describe("TransitStopPicker published choices", () => {
     const reset = renderPicker(selectPublishedTransitChoices(normalized, "mrt_lrt"), onSelect);
     expect(resetButton(reset.tree)).toBeUndefined();
     expect(choiceButtons(reset.tree).map(button => button.props["aria-pressed"])).toEqual([false, true]);
+  });
+
+  it("notifies focused reset removal synchronously before selecting the published default", () => {
+    const current = choices().choices[0].option.key;
+    const ownerDocument = { activeElement: null as object | null };
+    const currentTarget = { ownerDocument };
+    const fallback = {};
+    const calls: string[] = [];
+    vi.stubGlobal("document", { activeElement: {} });
+    const onFocusedRemoval = vi.fn(() => {
+      calls.push("focused-removal");
+      ownerDocument.activeElement = fallback;
+    });
+    const onSelect = vi.fn((key: string | null) => {
+      calls.push("select");
+      expect(key).toBeNull();
+      expect(ownerDocument.activeElement).toBe(fallback);
+    });
+    const { tree } = renderPicker(choices("mrt_lrt", current), onSelect, onFocusedRemoval);
+    expect(onFocusedRemoval).not.toHaveBeenCalled();
+    expect(onSelect).not.toHaveBeenCalled();
+
+    ownerDocument.activeElement = currentTarget;
+    resetButton(tree)!.props.onClick!({ currentTarget, target: {} });
+
+    expect(onFocusedRemoval).toHaveBeenCalledExactlyOnceWith();
+    expect(onSelect).toHaveBeenCalledExactlyOnceWith(null);
+    expect(calls).toEqual(["focused-removal", "select"]);
+  });
+
+  it.each(["missing", "unowned"] as const)(
+    "selects the published default without focus notification for %s reset events", eventKind => {
+      const current = choices().choices[0].option.key;
+      const ownerDocument = { activeElement: null as object | null };
+      const currentTarget = { ownerDocument };
+      const target = {};
+      ownerDocument.activeElement = currentTarget;
+      const onFocusedRemoval = vi.fn();
+      const { tree, onSelect } = renderPicker(choices("mrt_lrt", current), vi.fn(), onFocusedRemoval);
+      expect(onFocusedRemoval).not.toHaveBeenCalled();
+      expect(onSelect).not.toHaveBeenCalled();
+
+      ownerDocument.activeElement = target;
+      resetButton(tree)!.props.onClick!(eventKind === "missing" ? undefined : { currentTarget, target });
+
+      expect(onFocusedRemoval).not.toHaveBeenCalled();
+      expect(onSelect).toHaveBeenCalledExactlyOnceWith(null);
+      expect(ownerDocument.activeElement).toBe(target);
+    }
+  );
+
+  it("selects the published default when the focused-removal callback is omitted", () => {
+    const current = choices().choices[0].option.key;
+    const ownerDocument = { activeElement: null as object | null };
+    const currentTarget = { ownerDocument };
+    ownerDocument.activeElement = currentTarget;
+    const { tree, onSelect } = renderPicker(choices("mrt_lrt", current));
+
+    resetButton(tree)!.props.onClick!({ currentTarget, target: {} });
+
+    expect(onSelect).toHaveBeenCalledExactlyOnceWith(null);
+    expect(ownerDocument.activeElement).toBe(currentTarget);
+  });
+
+  it("keeps ordinary published choices unchanged when they own focus", () => {
+    const selection = choices();
+    const onFocusedRemoval = vi.fn();
+    const { tree, onSelect } = renderPicker(selection, vi.fn(), onFocusedRemoval);
+
+    for (const button of choiceButtons(tree)) {
+      const ownerDocument = { activeElement: null as object | null };
+      const currentTarget = { ownerDocument };
+      ownerDocument.activeElement = currentTarget;
+      button.props.onClick!({ currentTarget, target: {} });
+      expect(ownerDocument.activeElement).toBe(currentTarget);
+    }
+
+    expect(onFocusedRemoval).not.toHaveBeenCalled();
+    expect(onSelect.mock.calls).toEqual(selection.choices.map(choice => [choice.option.key]));
   });
 
   it("keeps three choices maximum with a separate reset even when the default is not listed", () => {

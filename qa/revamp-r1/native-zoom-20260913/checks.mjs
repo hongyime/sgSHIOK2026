@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { pathToFileURL } from 'node:url';
+const root='C:\\sgSHIOK2026';assert.equal(process.cwd(),root);
+process.env.TEMP=process.env.TMP=resolve(root,'tmp');
+const original=readFileSync(resolve(root,'qa/revamp-r1/completion-20260913/checks.mjs'),'utf8');
+const needle='qa/revamp-r1/completion-20260913/checks-';assert.equal(original.split(needle).length,2);
+const runner=resolve(root,'qa/revamp-r1/native-zoom-20260913',`checks-${Date.now()}.mjs`);
+writeFileSync(runner,original.replace(needle,'qa/revamp-r1/native-zoom-20260913/checks-'),{flag:'wx'});
+await import(pathToFileURL(runner).href);

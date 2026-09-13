@@ -1,0 +1,22 @@
+{
+  "reviewer": "Confucius",
+  "ownership": "Source/criteria audit read-only. Then wrote only web/lib/__tests__/transit-stop-picker.test.tsx, five new cases. Parent owned runtime, explorer test expectation corrections and QA/docs. No reviewer test/build/browser process or commit.",
+  "sourceResult": "No additional issue found in reset ownership/order guard, scroll-enabled summary-heading recovery or Back-only focus change. Explicit close remains unchanged.",
+  "baselineImages": {
+    "directory": "zoom200-FgSh4x",
+    "inspected": ["initial.png", "mrt_lrt.png", "gap-selected.png", "details-open.png"],
+    "result": "Narrowly accepted for visible chosen route/gap and section/details focus rings under profile-native200% setup. Unavailable fits horizontally; full-row readability remains unverified because its top edge meets the scroll boundary. Not accepted for post-Back or post-reset focus; the earlier42green checks do not override the confirmed defects."
+  },
+  "finalImages": {
+    "directory": "zoom200-FAXIMx",
+    "buildId": "vOoOxn7etjT-WJqrIExq7",
+    "inspected": ["gap-cleared.png", "reset-after.png"],
+    "result": "Narrow200% treatment accepted. Uncovered sections now scrolls into view with a complete focus outline; SUMMARY top165.5/bottom209.5 CSSpx, visible/focusVisible true. Reset focuses the postal heading above correct Exit E; H2 top121/bottom146.5, visible/focusVisible true, chosen route unobscured. Both previously reproduced focus defects resolved. No additional defect within these2captures; this review does not extend to the100% replay."
+  },
+  "parentImages": {
+    "final": {"zoom200-FAXIMx": ["initial.png", "mrt_lrt.png", "bus.png", "details-open.png", "gap-selected.png", "gap-cleared.png", "details-closed.png", "reset-before.png", "reset-after.png"], "zoom100-1uc52F": ["reset-before.png", "reset-after.png"]},
+    "baseline": {"zoom100-EY2IBM": ["initial.png", "mrt_lrt.png", "details-open.png"], "zoom200-FgSh4x": ["initial.png", "mrt_lrt.png", "bus.png", "details-open.png", "gap-selected.png", "gap-cleared.png", "details-closed.png"], "zoom200-1ESfRY": ["reset-after.png"]},
+    "arithmetic": "9+2=11 final captures;3+7+1=11 baseline captures inspected. Other retained captures are not claimed visually inspected."
+  },
+  "remaining": ["All clipped metric rows readable via user scrolling", "Same-document browser-menu/shortcut zoom transitions", "Keyboard map movement/reduced-motion behaviour beyond app fit calls", "Screen reader and physical device", "Exact release/SW/production acceptance", "Real reporting and activated maintenance"]
+}

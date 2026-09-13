@@ -1,0 +1,459 @@
+{
+  "files": [
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/.gitattributes",
+      "bytes": 83,
+      "sha256": "ba2809bf18ee522521ca5e2f99144664b39a67f0019cbaeec3608eb9d3e0a555"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/browser.mjs",
+      "bytes": 10466,
+      "sha256": "2be6b0801cbff90e2d252def662a21c397a5856c82f0c4218ffba7838804099e"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/build-1/build.json",
+      "bytes": 26791,
+      "sha256": "da20b2948d6f04054c5d4f8534323868c84ef1b68b7d9cce06a73451913b576d"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/build-1/runner.mjs",
+      "bytes": 4990,
+      "sha256": "c47b1fdf804b2d5cc5506e61e982b731b0f0a0c1db54f06e9a55178b9fe5f862"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/build-1/started.json",
+      "bytes": 26389,
+      "sha256": "4ef21cc2d75a32351fc66e4912b5f2955633cd3b489efc292cbdc628df8bd89b"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/build-1/stderr.txt",
+      "bytes": 177,
+      "sha256": "9ab3a3b2d688613039e0a91133a4c3c632f73251d69c79d5cb14a50230644748"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/build-1/stdout.txt",
+      "bytes": 1033,
+      "sha256": "c2ca9af38fe91988413601d65ce5fecea5596320b5a479e1526cce30d0d6f17c"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/build-1789291183965.mjs",
+      "bytes": 4990,
+      "sha256": "c47b1fdf804b2d5cc5506e61e982b731b0f0a0c1db54f06e9a55178b9fe5f862"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/build.mjs",
+      "bytes": 830,
+      "sha256": "99a7b0f920968db01053705c20d30fadf25cc36675a816d46fd70c2534f2e20b"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/checks-1789290693998.mjs",
+      "bytes": 1899,
+      "sha256": "36852c8264489c7193d70e319e07ddeac1e0b0b77b224fe701d38b880e0c9ae1"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/checks-1789290694020/result.json",
+      "bytes": 551,
+      "sha256": "f92b1ca84dbca5aac080647f8931fb85c81c2d28fedcb572dfc72e058f5e25b0"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/checks-1789290694020/stderr.txt",
+      "bytes": 375,
+      "sha256": "b4acd4f819050212c4fe3b3ed8416421330f7ff8c72cb9bb667c335f3e24a94e"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/checks-1789290694020/stdout.txt",
+      "bytes": 53774,
+      "sha256": "a10f8725e9671542b2c43391e2b7971a530432f0394c99771c70d811b6d9a494"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/checks-1789290903326.mjs",
+      "bytes": 1899,
+      "sha256": "36852c8264489c7193d70e319e07ddeac1e0b0b77b224fe701d38b880e0c9ae1"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/checks-1789290903372/result.json",
+      "bytes": 607,
+      "sha256": "57bef75d7eabc9b7264e9ebcdc7fd04b68d8b4067cae87398a92efeface4d40d"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/checks-1789290903372/stderr.txt",
+      "bytes": 375,
+      "sha256": "b4acd4f819050212c4fe3b3ed8416421330f7ff8c72cb9bb667c335f3e24a94e"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/checks-1789290903372/stdout.txt",
+      "bytes": 66541,
+      "sha256": "bfca6e61a7957ade302f5467100a13bf0e2f56494a342a09bab66c205604cab8"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/checks-1789290961107.mjs",
+      "bytes": 1899,
+      "sha256": "36852c8264489c7193d70e319e07ddeac1e0b0b77b224fe701d38b880e0c9ae1"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/checks-1789290961142/result.json",
+      "bytes": 234,
+      "sha256": "554dec1433bc5092d6167fce1aa1ac0087dda54f63b85c8f6f853a4b3745e9e0"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/checks-1789290961142/stderr.txt",
+      "bytes": 18793,
+      "sha256": "9dc135df0e1710afed06332f03f4aab98add7d08309d967118270c20ff5fc070"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/checks-1789290961142/stdout.txt",
+      "bytes": 7525,
+      "sha256": "59bd48a61b2250532fb71132d816484bc984c3c975a5c0aeaa1de9007c5153df"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/checks-1789291170308.mjs",
+      "bytes": 1899,
+      "sha256": "36852c8264489c7193d70e319e07ddeac1e0b0b77b224fe701d38b880e0c9ae1"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/checks-1789291170325/result.json",
+      "bytes": 267,
+      "sha256": "5f4eefd69b500664f5345a26f565eccaf3b343603e6a846e3b0be041b0fdb53f"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/checks-1789291170325/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/checks-1789291170325/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/checks.mjs",
+      "bytes": 729,
+      "sha256": "d51d2c43e6647660013cf15221ac193b6bc9c25c84f228841858fff4a04699a2"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/finalize.mjs",
+      "bytes": 7921,
+      "sha256": "8bf2aef105b48b70bbce015bbd91f7b564fa1560ef385d08c4c09f8fc8ea1815"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/integrity.json",
+      "bytes": 128,
+      "sha256": "1cb2f09cd8a1cc4e3f73653b9c6a25179125a5a17579bcc17b2f50a6b84eedc0"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/method.json",
+      "bytes": 3638,
+      "sha256": "d640e1d4b8b82bb6a3669f75afb8dc40f4ac6f76eb61140bab2f03505347b014"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/preview-1789291386070.mjs",
+      "bytes": 4947,
+      "sha256": "afc8c2adaafa8c0764ff9ab05ad27324857aefd81114838fab915eafbff60a12"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/preview-2.json",
+      "bytes": 333,
+      "sha256": "03f5dc67c52814da8dff1716c92021cc332470b03cdaed1e53fe6f781358f1f7"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/preview.mjs",
+      "bytes": 788,
+      "sha256": "5c0ec27084f3e6c650820c48fd1b0ebdd12bc672b1bd361faa2ca774b06c34f9"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/review.json",
+      "bytes": 2595,
+      "sha256": "72c78feecbb100d6da51b18ff15b4b7522a3bdbb0e0f3771323f58661492e5de"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/runner-100-1789289780780.mjs",
+      "bytes": 21474,
+      "sha256": "7f99c05f8a03a1dac57804f49f4877ac00e862b34553ba407fc53269c87030a0"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/runner-100-1789291498337.mjs",
+      "bytes": 24159,
+      "sha256": "95f3b1fdb6cc4850602a4dfe723eaafbd23a7c6eed17f3f98f791e8f8e8849b5"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/runner-200-1789290024059.mjs",
+      "bytes": 22530,
+      "sha256": "2a6ff5c2e9a51e8c200ca25cd058a742ab70e4e5b834954bdbc13c4d38743164"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/runner-200-1789290234514.mjs",
+      "bytes": 24040,
+      "sha256": "abd7d6862452b1c08eb3e1851f3d6a798be8092a5d3606e45b74e9d2d5046174"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/runner-200-1789290374268.mjs",
+      "bytes": 23908,
+      "sha256": "db0a1fa5803806bf3c89833a24d13c1523e6b975663f5d8410f76541b7b3f0bf"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/runner-200-1789291387520.mjs",
+      "bytes": 24177,
+      "sha256": "363e4351b66d42128daf8322fea9f1fd305f98f39422859bd60034b61487efc0"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/source-check-2.json",
+      "bytes": 78,
+      "sha256": "5411d289ea8d4d4a51d3e68cc9533d7c0108724d1d8cb5fceaf1bc193984f489"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/summary.json",
+      "bytes": 21038,
+      "sha256": "2f8519aad45998ca139cb74744542cb8462fc7e0211f61a8290424620608cc53"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom100-1uc52F/browser.json.gz",
+      "bytes": 992556,
+      "sha256": "3e16e9fdddc8b5dc7cdadb5c800db8b71db80f7dd98f621d716b656cb9e1222e"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom100-1uc52F/receipt.json",
+      "bytes": 141255,
+      "sha256": "f19d074db62eedd411d6ae08debbf2ed2ae53a6bd1fcac538ad9fb0b4e34bd71"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom100-1uc52F/reset-after.png",
+      "bytes": 427922,
+      "sha256": "dadf4375f549fb6ee435053a5c022aacbd37751d6c4dfd88f1510e3c7d0cf764"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom100-1uc52F/reset-before.png",
+      "bytes": 398923,
+      "sha256": "b67697f7511badca75a55a9677607408be0ae3e848d35b9b9694a66a6faddbf3"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom100-1uc52F/runner.mjs",
+      "bytes": 24159,
+      "sha256": "95f3b1fdb6cc4850602a4dfe723eaafbd23a7c6eed17f3f98f791e8f8e8849b5"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom100-EY2IBM/browser.json.gz",
+      "bytes": 2115425,
+      "sha256": "ae4e8d83678a947d4321309d5cb8f25d792122e6262c04e86233bf1cc6d17375"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom100-EY2IBM/bus.png",
+      "bytes": 390195,
+      "sha256": "6cf062925b5de454af89a16e12e1b29d9779ab0a030124fa37a66a481b38ca79"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom100-EY2IBM/details-closed.png",
+      "bytes": 390771,
+      "sha256": "17da415dc0b8e0220c07112d743cdf0a2918302203bb9980a6ceb3601ac6d59d"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom100-EY2IBM/details-open.png",
+      "bytes": 391340,
+      "sha256": "fe9b4f354d93aa05e1ed0937c393d8709c6db7c93ca75dd7ba42b2fd77dffb58"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom100-EY2IBM/initial.png",
+      "bytes": 390169,
+      "sha256": "c16ed15df0066506d6de56c44a710ad11f2819976b57144599995f18d2c3bac2"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom100-EY2IBM/mrt_lrt.png",
+      "bytes": 398742,
+      "sha256": "acd570462e0d1c2e1d8d9596d1e766cafb2b0877e134b970818d7b11abf3c275"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom100-EY2IBM/receipt.json",
+      "bytes": 112083,
+      "sha256": "4dbe59842ce859fd8a73d3d6764aeeaa6ed1e2da0168dc78eca05fafc700e2cc"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom100-EY2IBM/runner.mjs",
+      "bytes": 21474,
+      "sha256": "7f99c05f8a03a1dac57804f49f4877ac00e862b34553ba407fc53269c87030a0"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-1ESfRY/browser.json.gz",
+      "bytes": 717943,
+      "sha256": "18b2d011997a58412026a5ef70e8b93dbacb7916180638eab214002c1a0b56ac"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-1ESfRY/receipt.json",
+      "bytes": 119328,
+      "sha256": "29a03f134d67ea34fa907d3f99da71785250565d5c085d6ba5fc73ef6675a16f"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-1ESfRY/reset-after.png",
+      "bytes": 291645,
+      "sha256": "5a1bc25f2248ae75325f66605332eb0eee94e1e5c09ef3c6394f7c4015bba5c3"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-1ESfRY/reset-before.png",
+      "bytes": 323499,
+      "sha256": "a6c262569e8ad50f5da996592924340916f1893bb5ba88ef9526635c390a0eca"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-1ESfRY/runner.mjs",
+      "bytes": 23908,
+      "sha256": "db0a1fa5803806bf3c89833a24d13c1523e6b975663f5d8410f76541b7b3f0bf"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-B1YTTj/browser.json.gz",
+      "bytes": 2391788,
+      "sha256": "9ca03ad2ad48c26f6440b9c4e876c2cb46cab20b7084162f8b1e3af8303b54fd"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-B1YTTj/bus.png",
+      "bytes": 318616,
+      "sha256": "f6f4918d71ba2e5a97adcac2fc7e96d57c0a9d8a2567b4bd4704503ad65c09da"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-B1YTTj/details-closed.png",
+      "bytes": 320244,
+      "sha256": "707df0b964fc73c119783ff396b7d4b45bf74701a2dc3737d99aad4d1fca73f3"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-B1YTTj/details-open.png",
+      "bytes": 320414,
+      "sha256": "31e9c8bfe5782df2eabaedbcd5f3516bba05fbfb6b5a499c2baa9bd9755f22ae"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-B1YTTj/gap-cleared.png",
+      "bytes": 320941,
+      "sha256": "790fb70985cdb78fb173e4ede0afac4997de6493e34604beffd0131369005f2b"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-B1YTTj/gap-selected.png",
+      "bytes": 323576,
+      "sha256": "fb7b31d549ba2d65487e042a74ce408f29ebdad356196122003551708857b407"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-B1YTTj/initial.png",
+      "bytes": 324181,
+      "sha256": "9d2f4c92736a6781d10c937b8072b3c1bed4096ed6d9738f0a57783afc2a5e4a"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-B1YTTj/mrt_lrt.png",
+      "bytes": 318807,
+      "sha256": "28340029794cd5a36c35c0177104eb0a7b397711444dc5263c67a6519f9616bd"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-B1YTTj/receipt.json",
+      "bytes": 144770,
+      "sha256": "779e4f5dc7ea6c238f601d2d80c25cc369d6f776dc14042f993a33becaa29bd6"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-B1YTTj/runner.mjs",
+      "bytes": 24040,
+      "sha256": "abd7d6862452b1c08eb3e1851f3d6a798be8092a5d3606e45b74e9d2d5046174"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-FAXIMx/browser.json.gz",
+      "bytes": 3005939,
+      "sha256": "bff7b9dd43d611bc4537326c4270d9022fb28c60d50284c37c8aec2f9f9ffbdd"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-FAXIMx/bus.png",
+      "bytes": 318616,
+      "sha256": "f6f4918d71ba2e5a97adcac2fc7e96d57c0a9d8a2567b4bd4704503ad65c09da"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-FAXIMx/details-closed.png",
+      "bytes": 320244,
+      "sha256": "707df0b964fc73c119783ff396b7d4b45bf74701a2dc3737d99aad4d1fca73f3"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-FAXIMx/details-open.png",
+      "bytes": 320414,
+      "sha256": "31e9c8bfe5782df2eabaedbcd5f3516bba05fbfb6b5a499c2baa9bd9755f22ae"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-FAXIMx/gap-cleared.png",
+      "bytes": 320035,
+      "sha256": "a76dfe827dd43406b6f84958e56df696d319a499f8743eaeb1c22191ec07434b"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-FAXIMx/gap-selected.png",
+      "bytes": 323576,
+      "sha256": "fb7b31d549ba2d65487e042a74ce408f29ebdad356196122003551708857b407"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-FAXIMx/initial.png",
+      "bytes": 324181,
+      "sha256": "9d2f4c92736a6781d10c937b8072b3c1bed4096ed6d9738f0a57783afc2a5e4a"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-FAXIMx/mrt_lrt.png",
+      "bytes": 318807,
+      "sha256": "28340029794cd5a36c35c0177104eb0a7b397711444dc5263c67a6519f9616bd"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-FAXIMx/receipt.json",
+      "bytes": 167909,
+      "sha256": "d6565618202fca2d25596c6e8b6ac493f52f35aa9db7cf1f595078e33b45357c"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-FAXIMx/reset-after.png",
+      "bytes": 296246,
+      "sha256": "56c84287db94a9bb1f5611c0af65d9c6eb2c6f80a67460332bedd4b21cd06b16"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-FAXIMx/reset-before.png",
+      "bytes": 323499,
+      "sha256": "a6c262569e8ad50f5da996592924340916f1893bb5ba88ef9526635c390a0eca"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-FAXIMx/runner.mjs",
+      "bytes": 24177,
+      "sha256": "363e4351b66d42128daf8322fea9f1fd305f98f39422859bd60034b61487efc0"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-FgSh4x/browser.json.gz",
+      "bytes": 2373346,
+      "sha256": "03acc6bc3608728071f26258f6392963fd5ee1b6be7b8c90fd1c521efd99663f"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-FgSh4x/bus.png",
+      "bytes": 318616,
+      "sha256": "f6f4918d71ba2e5a97adcac2fc7e96d57c0a9d8a2567b4bd4704503ad65c09da"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-FgSh4x/details-closed.png",
+      "bytes": 320244,
+      "sha256": "707df0b964fc73c119783ff396b7d4b45bf74701a2dc3737d99aad4d1fca73f3"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-FgSh4x/details-open.png",
+      "bytes": 320414,
+      "sha256": "31e9c8bfe5782df2eabaedbcd5f3516bba05fbfb6b5a499c2baa9bd9755f22ae"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-FgSh4x/gap-cleared.png",
+      "bytes": 320941,
+      "sha256": "790fb70985cdb78fb173e4ede0afac4997de6493e34604beffd0131369005f2b"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-FgSh4x/gap-selected.png",
+      "bytes": 323576,
+      "sha256": "fb7b31d549ba2d65487e042a74ce408f29ebdad356196122003551708857b407"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-FgSh4x/initial.png",
+      "bytes": 324181,
+      "sha256": "9d2f4c92736a6781d10c937b8072b3c1bed4096ed6d9738f0a57783afc2a5e4a"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-FgSh4x/mrt_lrt.png",
+      "bytes": 318807,
+      "sha256": "28340029794cd5a36c35c0177104eb0a7b397711444dc5263c67a6519f9616bd"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-FgSh4x/receipt.json",
+      "bytes": 154039,
+      "sha256": "8a95424802b1ad959ad5ec1de48dbb18d74b0df14654e38cbc717a2b656d266f"
+    },
+    {
+      "path": "qa/revamp-r1/native-zoom-20260913/zoom200-FgSh4x/runner.mjs",
+      "bytes": 22530,
+      "sha256": "2a6ff5c2e9a51e8c200ca25cd058a742ab70e4e5b834954bdbc13c4d38743164"
+    }
+  ]
+}
