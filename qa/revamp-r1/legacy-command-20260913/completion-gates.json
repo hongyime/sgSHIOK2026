@@ -1,0 +1,23 @@
+{
+  "reviewer": "Nietzsche",
+  "scope": "Current decisions and PRODUCT-PLAN; general completion request does not waive explicit infrastructure, data-job, physical or release gates.",
+  "safeImplementationNow": [
+    {"task":"T14","work":"Provider-neutral report lifecycle/revision/duplicate guards without endpoint","authority":"decisions.md:3666","remaining":"Privacy, retention and real storage remain gated."},
+    {"task":"T23","work":"Inactive integrated operational runner joining tested delivery, acknowledgement and pacing","authority":"PRODUCT-PLAN.md:406","remaining":"Cadence/destination/identity, authoritative persistence/backups and observed scheduling/delivery."},
+    {"task":"T25","work":"Supported technical accessibility and timing checks","authority":"PRODUCT-PLAN.md:524","remaining":"Do not substitute technical checks for physical phone or unaided participants."},
+    {"task":"T27/T29","work":"Exact candidate preparation, legacy security disposition and eligible rollback","authority":"PRODUCT-PLAN.md:584","remaining":"Installation approval already fulfilled; no reinstall or real payload staging implied. Returning-client proof still open."}
+  ],
+  "ownerOrExternal": [
+    {"task":"T13,T15-T18","needs":"Provider/policy exception, privacy/retention, caps, moderator/absence cover, backup/key custody, account/provisioning decision, then real service implementation","source":"qa/revamp-r1/report-service-proposal-20260908.json:309"},
+    {"task":"T22/T24","needs":"T22 completed, T24 proposal completed; real backup/recovery requires approved destination, capacity, key custody, retention/loss window and execution","source":"README.md:535"},
+    {"task":"T26","needs":"Physical phone and unaided user participation; report tasks wait for T18","source":"PRODUCT-PLAN.md:548"},
+    {"task":"T28","needs":"Approval for exact target/commit/artifact/rollback with T26 results or explicit limited-release exception","source":"PRODUCT-PLAN.md:590"},
+    {"task":"T21","needs":"Specific named data job and measured budget approval; current incomplete coverage register must be disclosed","source":"PRODUCT-PLAN.md:353"}
+  ],
+  "nextPriority":"T14 lifecycle guards, then inactive T23 runner integration; no more browser replay in this checkpoint.",
+  "ownerQuestionSent":"Cloudflare Free private owner-moderated reports; proposed30-day active retention and up to7-day recovery residue; account/payment-method approval needed. No answer assumed. Other detailed service decisions remain open.",
+  "officialReferencesRechecked20260913":[
+    {"url":"https://developers.cloudflare.com/cloudflare-one/setup/","finding":"Zero Trust onboarding requires payment details even when Free is selected; docs say no charge on Free."},
+    {"url":"https://developers.cloudflare.com/d1/platform/limits/","finding":"Free Time Travel recovery duration is7days; active-store30-day retention remains a proposed application policy, not a provider default."}
+  ]
+}

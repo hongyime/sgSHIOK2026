@@ -9,7 +9,8 @@ live services. Reporting choices and weekly scheduler/issue approval are pending
 LOCALLY_VERIFIED: walk-only inspector. Two tabs (MRT/LRT exits, Bus stops), shortest
 usable saved walk selected automatically, no Suggested/comparison/About data,
 automatic zoom-bounded night lighting, bounded explicit preview recovery.
-Current QA: qa/revamp-r1/legacy-reload-20260913 (old-client reload, NOT accepted);
+Current QA: qa/revamp-r1/legacy-command-20260913 (old-client timing, NOT accepted);
+retained qa/revamp-r1/legacy-reload-20260913 (two failed attempts);
 retained qa/revamp-r1/selection-recovery-20260913 (retry and keyboard acceptance);
 retained production-worker-20260913, native-zoom-20260913 and notice-inspection-20260913.
 Build l7V5uOArXwdDrUIe3Wc2s: http://127.0.0.1:4420/. Current1945/72 isolated web
@@ -37,6 +38,14 @@ Runtime.evaluate after writing a screenshot, before release switch/Reload.
 Both attempts remain failures; no third replay or application cache-policy change.
 Next: command-specific request/result timing, then a separately reviewed replay.
 No hardware-only cause, current-app regression or returning-client PASS inferred.
+Command follow-up:8new offline tests; one diagnostic stopped at preservation
+setup. Command25 timed out10011ms, late reply10962ms after dispatch; reply payload
+was discarded, so setup success is unknown. Browser26 replied1494ms. No release
+switch; no connection-loss or hardware cause claim. Two images inspected.
+Retired only superseded4418 helpers; current4420/shared4340 remain healthy.
+Priority now:T14 authorized local lifecycle/revision/duplicate guards, then
+inactiveT23 runner integration. These move reporting/operations toward completion
+without falsely activating them. No further browser replay in this checkpoint.
 Previews4414/4416/4418 are superseded; earlier390x844/four-size checks were not rerun here.
 Comparison T08-T11 is RETIRED, not an acceptance blocker. Historical outcomes
 below describe earlier work, not instructions to restore it. Existing saved

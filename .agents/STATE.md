@@ -6,12 +6,12 @@ Machine: Prawn-E14
 Startup: assert cwd equals C:\sgSHIOK2026; abort otherwise. Absolute C: writes only. X: cold mirror, never session root.
 Before git commands, set TEMP and TMP to C:\sgSHIOK2026\tmp so global hooks keep temporary scan files inside this root.
 
-Goal ACTIVE, not complete. Current legacy-reload-20260913:15offline harness checks pass. First browser failed proof despite visible current route; corrected run failed old-page Runtime.evaluate before switch. No more browser retries this checkpoint, no release pass. Peer review read-only. No deployment.
+Goal ACTIVE, not complete. legacy-command-20260913:8tests pass; one reviewed diagnostic failed sentinel-command10s wait, late reply at10.962s; browser alive, no releaseflip. Next actual implementation:T14 provider-neutral lifecycle/revision/duplicate guards, then inactiveT23 runner. No more browser replay this checkpoint.
 Only MRT/LRT exits and Bus stops, auto shortest usable saved walk, no comparison/About data. Lighting automatic and bounded.
 Server route/search now have one10s deadline including auth/retry/body, cancellation and late-token guards; browser12s remains.
 Public018956 diagnosis:61stop/exits=6saved+55unstored. Exit E saved-ID gap fixed; no new geometry or scores.
 Popup now identity only, not service/timetable details. First disclosure design and failed browser attempts retained.
-Current preview http://127.0.0.1:4420/ build l7V5uOArXwdDrUIe3Wc2s includes all fixes. Proxy37188/Next5816; preview-3.json. Do not stop proxy33360: owns reused data4340.4418/4416superseded.
+Current preview http://127.0.0.1:4420/ build l7V5uOArXwdDrUIe3Wc2s includes all fixes. Proxy37188/Next5816; preview-3.json. Do not stop proxy33360: owns reused data4340.4418proxy22016/Next32160 retired;4416superseded but retained dataowner.
 Current identity:qa/revamp-r1/selection-recovery-20260913/preview-3.json. Earlier data owner: native-zoom-20260913/preview-2.json; proxy33360 still required.
 Current1945isolated/72files+42guards,TypeScript/build pass.193focused/4beforeCSS+47/1afterCSS pass;14recovery+1CSS added.6geometry diagnostic tests pass. Retained1012Python/12files not rerun. Earlier setup-failure distinct from valid red.
 Browser observed-vqv2K4 exit1:9/10,8captures,71.310s. Corrected6kmGYF exit0:20checks/15captures,26.273s. All23captures covered by12direct parent views and byte-identical duplicates; cleanup verified. Inset canvas ring correction preserves strict button bounds. MRT/Bus clipped ring fixed. Metrics readable, camera pan/zoom/Tab exit work at200%. T25stillpartial: realdevice/screenreader/same-documentzoom and exactrelease open.
@@ -26,5 +26,5 @@ Monitor needs bootstrap/previous. New read-only inspector diagnoses unknown/obse
 postplan.html and PRODUCT-PLAN are current work lists; T08-T11/U02 comparison retired.
 T19full scan exceeds900s gate. No scoring/export/ingest/network/input repair or protected data/weights changes.
 Browser plugin bootstrap still fails os error3; owned Chrome/CDP fallback recorded. No peer-quota bypass.
-Current QA:legacy-reload-20260913/summary.json; retained selection-recovery-20260913/summary.json. Current app unchanged. Old-client receipt distinguishes actual root fetch through oldSW from browser Document identity. Next: command-specific timeout telemetry before any further replay; old-page cause unresolved, not a hardware-only claim. No silent repeat-to-green.
+Current QA:legacy-command-20260913/summary.json; earlier legacy-reload/selection-recovery receipts preserved. Current app unchanged.8new telemetry tests; operator journal proof records timeout/late reply, not sentinel success. Independent gate audit confirms T14/T23 local implementation authorized; no new owner approval inferred.
 No installs, external activation or deployment. Absolute writes, exact staging, conventional commits and push main; never amend/force.

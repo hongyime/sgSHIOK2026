@@ -1,0 +1,326 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "Prawn-E14",
+  "base": "13487ead04115b4c732a7d0c8b0acab5922032ea",
+  "createdAt": "2026-09-13T14:57:07.335Z",
+  "goal": "ACTIVE",
+  "productSourceChanges": 0,
+  "tests": {
+    "newDiagnostics": 8,
+    "retainedHarness": 15,
+    "retainedPublication": 2,
+    "retainedWeb": {
+      "tests": 1945,
+      "files": 72,
+      "guards": 42,
+      "rerun": false
+    },
+    "retainedPython": {
+      "tests": 1012,
+      "files": 12,
+      "rerun": false
+    },
+    "integrityExit": 0
+  },
+  "build": {
+    "buildId": "l7V5uOArXwdDrUIe3Wc2s",
+    "sources": 167,
+    "currentTestAndBuildMatch": true,
+    "deploymentIdentityVerified": false
+  },
+  "browser": {
+    "directory": "observed-h3J563",
+    "ok": false,
+    "checks": 5,
+    "passed": 5,
+    "releaseSwitches": 0,
+    "supervisorMs": 51947,
+    "driverMs": 45261,
+    "command25": {
+      "id": 25,
+      "method": "Runtime.evaluate",
+      "sessionId": "60CD8A16ACEB06A35635099EE0751B55",
+      "phase": "old",
+      "operation": "preservation-sentinels",
+      "contextId": 2,
+      "startedMs": 28436,
+      "budgetMs": 10000,
+      "outcome": "timeout",
+      "finishedMs": 38447,
+      "elapsedMs": 10011,
+      "lateReplies": 1,
+      "lastLateReplyMs": 39398
+    },
+    "probe26": {
+      "id": 26,
+      "method": "Browser.getVersion",
+      "sessionId": "",
+      "phase": "old",
+      "operation": "failure:browser-version",
+      "contextId": 2,
+      "startedMs": 38448,
+      "budgetMs": 3000,
+      "outcome": "response",
+      "finishedMs": 39942,
+      "elapsedMs": 1494
+    },
+    "captures": [
+      {
+        "path": "observed-h3J563/failure-unbracketed.png",
+        "bytes": 351779,
+        "sha256": "7cc959c6a361c160e8a70522764864bd5dfae019f558b4e9402891532345feb9",
+        "completedBracket": false,
+        "parentInspected": true
+      },
+      {
+        "path": "observed-h3J563/old-selected.png",
+        "bytes": 81293,
+        "sha256": "7e4cdeacb1bb664472ff36c76f844f131256ca03c664f129eb3513aeb700f543",
+        "completedBracket": true,
+        "parentInspected": true
+      }
+    ],
+    "traceIdentity": {
+      "raw": {
+        "bytes": 3998757,
+        "sha256": "431f1e808dd006080a01df7722535fa781ee995f504b7f8b44ee4ab91be6ab0d",
+        "published": false,
+        "reason": "Raw event cookies/address headers; retained local"
+      },
+      "public": {
+        "file": "browser.public.json.gz",
+        "bytes": 2845691,
+        "sha256": "97f334ab7d3329eedf439aca3c32b3ccfe6edf9d167f6f7a240eb4b836a1bf54",
+        "compressedBytes": 128335,
+        "compressedSha256": "92b708570083562706fde943c5f22991a5b84ccde13d99389f4ca92a9b14ee8f",
+        "redactions": {
+          "header:upgrade-insecure-requests": 2,
+          "header:user-agent": 593,
+          "header:sec-ch-ua": 593,
+          "header:sec-ch-ua-mobile": 593,
+          "header:sec-ch-ua-platform": 593,
+          "associatedCookies": 292,
+          "header:accept": 563,
+          "header:accept-encoding": 292,
+          "header:accept-language": 292,
+          "header:connection": 72,
+          "header:host": 21,
+          "header:sec-fetch-dest": 292,
+          "header:sec-fetch-mode": 292,
+          "header:sec-fetch-site": 292,
+          "header:sec-fetch-user": 1,
+          "header:keep-alive": 51,
+          "header:content-security-policy": 573,
+          "header:referrer-policy": 573,
+          "header:x-content-type-options": 573,
+          "remoteIPAddress": 292,
+          "blockedCookies": 292,
+          "headersText": 21,
+          "cookiePartitionKey": 292,
+          "exemptedCookies": 292,
+          "header:referer": 591,
+          "header:origin": 276,
+          "header::authority": 271,
+          "header::method": 271,
+          "header::path": 271,
+          "header::scheme": 271,
+          "header:priority": 271,
+          "header:sec-fetch-storage-access": 1,
+          "header:accept-ranges": 542,
+          "header:access-control-allow-headers": 542,
+          "header:access-control-allow-methods": 542,
+          "header:access-control-allow-origin": 542,
+          "header:expires": 2,
+          "header:last-modified": 542,
+          "header:set-cookie": 271,
+          "header:strict-transport-security": 542,
+          "header:surrogate-control": 2,
+          "header:vary": 2,
+          "header:x-cache-status": 542,
+          "header:x-content-security-policy": 2,
+          "header:x-frame-options": 542,
+          "header:x-remote-addr": 542
+        }
+      }
+    },
+    "cleanup": true,
+    "finalBoundsClear": true,
+    "chromeExit": 0
+  },
+  "arithmetic": "39398-28436=10962ms late reply;38447-28436=10011ms timeout;39398-38447=951ms later.1browser=51.947s supervisor;2images.",
+  "evidence": {
+    "path": "qa/verification/REVAMP-R1-core-walk.md",
+    "previousBytes": 415052,
+    "previousSha256": "950b2ca6999bf7b8ee46f2c4c339646ea0b2af09c765d2464ce0680935aaf00c",
+    "bytes": 418264,
+    "addedBytes": 3212,
+    "exactPrefix": true
+  },
+  "anchors": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "bytes": 13626
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "bytes": 1751005
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "bytes": 5240179
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "bytes": 5236013
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "bytes": 39674
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "bytes": 3538342
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "bytes": 184
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "bytes": 269
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "bytes": 1189
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "bytes": 145327
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "bytes": 515583
+    }
+  ],
+  "weightSha256": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+  "preview": {
+    "buildId": "l7V5uOArXwdDrUIe3Wc2s",
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\selection-recovery-20260913-build-2",
+    "pid": 37188,
+    "dataPort": 4340,
+    "nextPort": 4419,
+    "proxyPort": 4420,
+    "readOnlyData": true,
+    "allowedApi": "GET /api/onemap-route and /api/onemap-search",
+    "oneMapCredentialsConfigured": true,
+    "nextPid": 5816
+  },
+  "taskBoard": {
+    "url": "http://127.0.0.1:4420/postplan.html",
+    "sha256": "c08eb871884c271baac1ab2102abff0aa4c746b26a19cad7343c0d50141722e1"
+  },
+  "review": {
+    "reviewer": "Nietzsche",
+    "agentId": "01a09b33-bdc3-73e2-8778-41195a333689",
+    "role": "Read-only scope, source and result review; no runtime execution or writes",
+    "preflight": "No blocking findings. Cleared one bounded diagnostic with existing memory/deadline gates. Four source hashes matched8-test/syntax receipt; reused helpers matched prior15-test receipt.",
+    "limitations": "Pre-reload document evaluation inherits cache:before operation label; command ID still distinguishes it. Metadata-only applies to command journal, not raw browser events.",
+    "result": "Accepted as a bounded failed diagnostic, not returning-client acceptance. Command24 responded6721ms. Command25 timeout10011ms followed by reply10962ms after dispatch; payload discarded, so success versus error unknown. Browser26 responded1494ms. No renderer, storage or RAM cause established.",
+    "boundary": "Zero switches, no Reload, zero pending commands; final bounds/anchors/cleanup/Chrome exit0 verified. Supervisor exit1,51.947s. No further browser run cleared.",
+    "retirement": "Initial guard failure preserved. Readback confirms obsolete PIDs absent, current preview and protected helpers retained. No performance-causation claim."
+  },
+  "completionGates": {
+    "reviewer": "Nietzsche",
+    "scope": "Current decisions and PRODUCT-PLAN; general completion request does not waive explicit infrastructure, data-job, physical or release gates.",
+    "safeImplementationNow": [
+      {
+        "task": "T14",
+        "work": "Provider-neutral report lifecycle/revision/duplicate guards without endpoint",
+        "authority": "decisions.md:3666",
+        "remaining": "Privacy, retention and real storage remain gated."
+      },
+      {
+        "task": "T23",
+        "work": "Inactive integrated operational runner joining tested delivery, acknowledgement and pacing",
+        "authority": "PRODUCT-PLAN.md:406",
+        "remaining": "Cadence/destination/identity, authoritative persistence/backups and observed scheduling/delivery."
+      },
+      {
+        "task": "T25",
+        "work": "Supported technical accessibility and timing checks",
+        "authority": "PRODUCT-PLAN.md:524",
+        "remaining": "Do not substitute technical checks for physical phone or unaided participants."
+      },
+      {
+        "task": "T27/T29",
+        "work": "Exact candidate preparation, legacy security disposition and eligible rollback",
+        "authority": "PRODUCT-PLAN.md:584",
+        "remaining": "Installation approval already fulfilled; no reinstall or real payload staging implied. Returning-client proof still open."
+      }
+    ],
+    "ownerOrExternal": [
+      {
+        "task": "T13,T15-T18",
+        "needs": "Provider/policy exception, privacy/retention, caps, moderator/absence cover, backup/key custody, account/provisioning decision, then real service implementation",
+        "source": "qa/revamp-r1/report-service-proposal-20260908.json:309"
+      },
+      {
+        "task": "T22/T24",
+        "needs": "T22 completed, T24 proposal completed; real backup/recovery requires approved destination, capacity, key custody, retention/loss window and execution",
+        "source": "README.md:535"
+      },
+      {
+        "task": "T26",
+        "needs": "Physical phone and unaided user participation; report tasks wait for T18",
+        "source": "PRODUCT-PLAN.md:548"
+      },
+      {
+        "task": "T28",
+        "needs": "Approval for exact target/commit/artifact/rollback with T26 results or explicit limited-release exception",
+        "source": "PRODUCT-PLAN.md:590"
+      },
+      {
+        "task": "T21",
+        "needs": "Specific named data job and measured budget approval; current incomplete coverage register must be disclosed",
+        "source": "PRODUCT-PLAN.md:353"
+      }
+    ],
+    "nextPriority": "T14 lifecycle guards, then inactive T23 runner integration; no more browser replay in this checkpoint.",
+    "ownerQuestionSent": "Cloudflare Free private owner-moderated reports; proposed30-day active retention and up to7-day recovery residue; account/payment-method approval needed. No answer assumed. Other detailed service decisions remain open.",
+    "officialReferencesRechecked20260913": [
+      {
+        "url": "https://developers.cloudflare.com/cloudflare-one/setup/",
+        "finding": "Zero Trust onboarding requires payment details even when Free is selected; docs say no charge on Free."
+      },
+      {
+        "url": "https://developers.cloudflare.com/d1/platform/limits/",
+        "finding": "Free Time Travel recovery duration is7days; active-store30-day retention remains a proposed application policy, not a provider default."
+      }
+    ]
+  },
+  "findings": [
+    "Timed-out preservation setup received a late reply; Browser.getVersion responded. Lost browser connection does not explain this wait.",
+    "No release switch or acceptance; discarded late payload cannot prove operation success.",
+    "Retired obsolete4418 preview, retained current4420/shared4340; no performance-causation claim.",
+    "Independent audit prioritizes already-authorized T14 lifecycle and inactiveT23 integration; real services/physical/release gates remain."
+  ],
+  "disagreements": [
+    "Late reply is not successful completion; keep failed diagnostic and exact timings.",
+    "More browser replay is not the next product priority while authorized implementation remains."
+  ],
+  "pipelineRuns": 0,
+  "pipelineSeconds": 0,
+  "installations": 0,
+  "deployments": 0
+}

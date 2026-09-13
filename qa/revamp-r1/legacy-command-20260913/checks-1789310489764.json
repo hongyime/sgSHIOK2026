@@ -1,0 +1,56 @@
+{
+  "sources": [
+    {
+      "path": "cdp-commands.mjs",
+      "sha256": "d952d702c67092c81b4ceba4dd0665732b46e3eaa2773b497b76cdae2ecce879"
+    },
+    {
+      "path": "cdp-commands.test.mjs",
+      "sha256": "d0bf507a22a58a6db1ade30be43f02d760466b80c88ecd04d47434e2ac07da6e"
+    },
+    {
+      "path": "browser.mjs",
+      "sha256": "5c141d2f917dc65987a10c4932959bed2d7f6604ba0c64379db2f3a9d6ffb934"
+    },
+    {
+      "path": "run.mjs",
+      "sha256": "7e855dfc110401f1600eee941baae5f6400d1dba120251d1c6a9aee594351290"
+    }
+  ],
+  "runs": [
+    {
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "--test",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\legacy-command-20260913\\cdp-commands.test.mjs"
+      ],
+      "exitCode": 0,
+      "stdout": "✔ records command identity and timing without request/result payloads (11.4811ms)\n✔ timeout is identified and a late reply cannot satisfy a later command (15.4455ms)\n✔ protocol errors preserve caller semantics but do not enter the journal (1.6847ms)\n✔ write failures remove pending timers and identify the command (2.3178ms)\n✔ close settles all outstanding commands and rejects later admission (1.8487ms)\n✔ work deadline and command count bound admission (1.6139ms)\n✔ per-command wait is capped by remaining work budget (11.7339ms)\n✔ events and unrelated reply IDs do not consume pending commands (1.4884ms)\nℹ tests 8\nℹ suites 0\nℹ pass 8\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 356.455\n",
+      "stderr": "",
+      "elapsedMs": 623
+    },
+    {
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "--check",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\legacy-command-20260913\\browser.mjs"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsedMs": 237
+    },
+    {
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "--check",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\legacy-command-20260913\\run.mjs"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsedMs": 226
+    }
+  ],
+  "ok": true
+}

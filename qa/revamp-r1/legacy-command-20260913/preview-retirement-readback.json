@@ -1,0 +1,46 @@
+{
+  "at": "2026-09-13T14:46:58.2833885Z",
+  "queriedIds": [
+    22016,
+    32160,
+    37188,
+    5816,
+    33360,
+    35540
+  ],
+  "processes": [
+    {
+      "ProcessId": 33360,
+      "ParentProcessId": 33388,
+      "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" C:\\sgSHIOK2026\\qa\\revamp-r1\\native-zoom-20260913\\preview.mjs"
+    },
+    {
+      "ProcessId": 35540,
+      "ParentProcessId": 33360,
+      "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" C:\\sgSHIOK2026\\web\\node_modules\\next\\dist\\bin\\next start C:\\sgSHIOK2026\\tmp\\native-zoom-20260913-build-1\\web -p 4415 -H 127.0.0.1"
+    },
+    {
+      "ProcessId": 37188,
+      "ParentProcessId": 16548,
+      "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" C:\\sgSHIOK2026\\qa\\revamp-r1\\selection-recovery-20260913\\preview-3.mjs"
+    },
+    {
+      "ProcessId": 5816,
+      "ParentProcessId": 37188,
+      "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" C:\\sgSHIOK2026\\web\\node_modules\\next\\dist\\bin\\next start C:\\sgSHIOK2026\\tmp\\selection-recovery-20260913-build-2\\web -p 4419 -H 127.0.0.1"
+    }
+  ],
+  "currentPreview": {
+    "buildId": "l7V5uOArXwdDrUIe3Wc2s",
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\selection-recovery-20260913-build-2",
+    "pid": 37188,
+    "dataPort": 4340,
+    "nextPort": 4419,
+    "proxyPort": 4420,
+    "readOnlyData": true,
+    "allowedApi": "GET /api/onemap-route and /api/onemap-search",
+    "oneMapCredentialsConfigured": true,
+    "nextPid": 5816
+  },
+  "noStopCommands": true
+}

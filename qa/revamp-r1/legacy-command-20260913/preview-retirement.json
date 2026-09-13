@@ -1,0 +1,40 @@
+{
+  "identified": [
+    {
+      "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" C:\\sgSHIOK2026\\web\\node_modules\\next\\dist\\bin\\next start C:\\sgSHIOK2026\\tmp\\selection-recovery-20260913-build-1\\web -p 4417 -H 127.0.0.1",
+      "Id": 32160,
+      "Parent": 22016,
+      "CreationDate": "2026-09-13T20:52:28.465656+08:00"
+    },
+    {
+      "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" C:\\sgSHIOK2026\\qa\\revamp-r1\\selection-recovery-20260913\\preview.mjs",
+      "Id": 22016,
+      "Parent": 31376,
+      "CreationDate": "2026-09-13T20:52:26.631771+08:00"
+    }
+  ],
+  "filesDeleted": 0,
+  "startedAt": "2026-09-13T14:46:26.0808897Z",
+  "error": "Identity changed before stop: 22016",
+  "finishedAt": "2026-09-13T14:46:26.6600742Z",
+  "remaining": [],
+  "before": {
+    "buildId": "l7V5uOArXwdDrUIe3Wc2s",
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\selection-recovery-20260913-build-2",
+    "pid": 37188,
+    "dataPort": 4340,
+    "nextPort": 4419,
+    "proxyPort": 4420,
+    "readOnlyData": true,
+    "allowedApi": "GET /api/onemap-route and /api/onemap-search",
+    "oneMapCredentialsConfigured": true,
+    "nextPid": 5816
+  },
+  "protectedIds": [
+    37188,
+    5816,
+    33360,
+    35540
+  ],
+  "ok": false
+}

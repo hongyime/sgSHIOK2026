@@ -1,0 +1,14 @@
+{
+  "command": [
+    "git",
+    "check-ignore",
+    "-v",
+    "qa/verification/REVAMP-R1-core-walk.md",
+    "qa/revamp-r1/legacy-command-20260913/summary.json"
+  ],
+  "exitCode": 1,
+  "stdout": "",
+  "stderr": "",
+  "evidenceTracked": true,
+  "newArtifacts": "Explicit staging/index check follows"
+}

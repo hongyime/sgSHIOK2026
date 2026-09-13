@@ -4024,3 +4024,25 @@ Publish structured-redacted traces rather than third-party cookie/address
 headers. Keep raw hashes and record the redactions. Local request bounds are
 not browser-wide egress limits. These checks do not activate reporting,
 maintenance, regenerate saved walks or authorize deployment.
+
+## 2026-09-13: Distinguish a late diagnostic reply from a lost browser
+
+Record payload-free CDP command identity, phase/operation, context, dispatch,
+deadline, terminal outcome and late-reply timing. Do not attach a late reply to
+a later request or ignore the original timeout. The reviewed diagnostic's
+preservation-sentinel command timed out at10011ms and received a reply10962ms
+after dispatch; its discarded payload means success/error is unknown. A separate
+browser-process probe replied1494ms. This does not identify a renderer, cache or
+RAM cause. No release switch occurred and the browser result stays failed.
+
+No further browser replay in this checkpoint. The completion audit identified
+authorized product work: provider-neutral report lifecycle/revision/duplicate
+guards (T14), followed by inactive maintenance runner integration (T23). Implement
+these without endpoints, resident storage, scheduler activation or privacy claims
+while the explicit service decisions remain unanswered. This does not shrink the
+goal to local helpers; actual services, participants and release approval remain.
+
+Superseded preview4418 is retired, not rebuilt. Killing its verified Next child
+caused its parent proxy to exit; the second identity guard stopped rather than
+target a missing/reused PID. Keep the original failed cleanup receipt alongside
+read-only confirmation of both absences and the current4420/data4340 owners.

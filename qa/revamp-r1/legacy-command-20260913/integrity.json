@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python",
+    "-B",
+    "scripts/check_repo_integrity.py"
+  ],
+  "exitCode": 0,
+  "stdout": "repo_integrity=ok\r\n",
+  "stderr": "",
+  "elapsedMs": 1311
+}

@@ -1,0 +1,124 @@
+{
+  "files": [
+    {
+      "path": "qa/revamp-r1/legacy-command-20260913/browser.mjs",
+      "bytes": 19793,
+      "sha256": "5c141d2f917dc65987a10c4932959bed2d7f6604ba0c64379db2f3a9d6ffb934"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-command-20260913/cdp-commands.mjs",
+      "bytes": 2387,
+      "sha256": "d952d702c67092c81b4ceba4dd0665732b46e3eaa2773b497b76cdae2ecce879"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-command-20260913/cdp-commands.test.mjs",
+      "bytes": 3997,
+      "sha256": "d0bf507a22a58a6db1ade30be43f02d760466b80c88ecd04d47434e2ac07da6e"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-command-20260913/checks-1789310489764.json",
+      "bytes": 2130,
+      "sha256": "2308cbe098807ae5e0f03b19103c3e2189e22d1788951cfe410759ca47bdffc5"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-command-20260913/checks.mjs",
+      "bytes": 1298,
+      "sha256": "258061ee52c02c61e7a88daba066986a0c27f84146295d21f0a08950432f6c99"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-command-20260913/completion-gates.json",
+      "bytes": 2963,
+      "sha256": "857d24acef581a39e337580d0e2559c3dfade7685a2377cb83dca86dd70f7cba"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-command-20260913/finalize.mjs",
+      "bytes": 9892,
+      "sha256": "eb3e029e494dea8411a5b33dcdf8ba81b921285e60ea888a35f09e8a46918ec9"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-command-20260913/integrity.json",
+      "bytes": 176,
+      "sha256": "8e0fa1ddc83f22349fd1338bdcfcb564a2b32f771ccc31e92255e5d6f8e4c841"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-command-20260913/observed-h3J563/browser.public.json.gz",
+      "bytes": 128335,
+      "sha256": "92b708570083562706fde943c5f22991a5b84ccde13d99389f4ca92a9b14ee8f"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-command-20260913/observed-h3J563/controller.json",
+      "bytes": 220,
+      "sha256": "edc64c9bb3a326561d2f0d8de1ec46d04b8a40aa0c85ebfee184948163fa2296"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-command-20260913/observed-h3J563/failure-unbracketed.png",
+      "bytes": 351779,
+      "sha256": "7cc959c6a361c160e8a70522764864bd5dfae019f558b4e9402891532345feb9"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-command-20260913/observed-h3J563/old-selected.png",
+      "bytes": 81293,
+      "sha256": "7e4cdeacb1bb664472ff36c76f844f131256ca03c664f129eb3513aeb700f543"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-command-20260913/observed-h3J563/receipt.json",
+      "bytes": 52971,
+      "sha256": "9ad7da5c1aea5f43ffbf700f480f77e15be8e4d6ca5ba7c953b725c60cb80d0b"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-command-20260913/observed-h3J563/runner.mjs",
+      "bytes": 19793,
+      "sha256": "5c141d2f917dc65987a10c4932959bed2d7f6604ba0c64379db2f3a9d6ffb934"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-command-20260913/observed-h3J563/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-command-20260913/observed-h3J563/stdout.txt",
+      "bytes": 459,
+      "sha256": "2f072a595e9ba1c2bf7a94486a68e152c75450f398993914540f1f1e1c2fe307"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-command-20260913/observed-h3J563/supervisor.json",
+      "bytes": 1398,
+      "sha256": "869a8dcd87e87ace094e49f3bc123afd0a4bb3f58cdbcc9df3ea7002c5ad6a5e"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-command-20260913/preview-retirement-readback.json",
+      "bytes": 1524,
+      "sha256": "38080845a1c5554af7dbc0231c69536db109cf44061d68e8902a29c98902ef9d"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-command-20260913/preview-retirement.json",
+      "bytes": 1239,
+      "sha256": "6aef4305c4edcc5b19638870c719f3de03ae331e81ba7df4d8cc7bb1e52acbd0"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-command-20260913/retire-preview.ps1",
+      "bytes": 2450,
+      "sha256": "406211018202b10c250c25b64deb8eced8613fa7579ff5e381bde9b7e349fdb9"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-command-20260913/review.json",
+      "bytes": 1219,
+      "sha256": "0ac9355c7122671f3c2f2346279839e6f349d01ff8b19186fa2fea94c0f6df96"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-command-20260913/run.mjs",
+      "bytes": 1839,
+      "sha256": "7e855dfc110401f1600eee941baae5f6400d1dba120251d1c6a9aee594351290"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-command-20260913/summary.json",
+      "bytes": 13546,
+      "sha256": "90e06f12ee1a9843b1b23accb4d652f8c95ef95c1791e4ffc688fcd180f4e9d4"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-command-20260913/tracking.json",
+      "bytes": 300,
+      "sha256": "94b14fdd6a74dfafddbcb4dcdfb95897748ca36bc83b5d2e6b1dcb7cdad02ab1"
+    }
+  ]
+}

@@ -6090,3 +6090,55 @@ DISAGREEMENTS
 2. Local tests, a partial screenshot or owner intent to finish cannot stand in
    for real report persistence, scheduled delivery, device evidence or an exact
    deployment approval. Goal ACTIVE, not complete.
+
+## 2026-09-13: Command-level legacy diagnostic and completion audit
+
+Root C:\sgSHIOK2026; host PRAWN-E14.
+Base13487ead04115b4c732a7d0c8b0acab5922032ea.
+Evidence:qa/revamp-r1/legacy-command-20260913/summary.json.
+8/8new metadata-only command tests; syntax checks pass. Reused15server/navigation
+tests and2publication tests retain matching source hashes; not rerun here.
+
+One preflight-reviewed browser:observed-h3J563, exit1, supervisor51.947s,
+driver45.261s.5checks passed before failure; zero release switches, no Reload.
+Command24 screenshot-after Runtime.evaluate response:6721ms.
+Command25 preservation-sentinels:started28436ms,timeout38447ms,late39398ms.
+38447-28436=10011ms timeout;39398-28436=10962ms reply;
+39398-38447=951ms later than timeout. Late reply payload discarded: success
+versus protocol error unknown. Browser26 getVersion response1494ms.
+The browser connection was responsive; renderer/cache/RAM causation is unproved.
+Two screenshots parent-inspected:old-selected bracket completed; final failure
+image explicitly unbracketed. The latter shows old Map ready/basemap but does not
+establish a current route, a selected-feature count or upgrade acceptance.
+Final bounds/11anchors/independent cleanup verified; Chromeexit0; pending0.
+No second run. Retained failures are not combined into a pass.
+
+Obsolete4418 preview retirement:verified child32160 stopped, parent22016 no
+longer matched the second guard. Initial script exit1 preserved. Separate
+read-only process/status receipt proves both absent and current37188/5816 plus
+shared-data33360/35540 remain. Source child-exit handler closes obsolete proxy.
+No file deletion, current preview outage or measured speedup claimed.
+
+Current1945web/72files+42guards, TypeScript/build retained;167current/test/build
+source identities checked. No app changes or full-suite rerun. Retained1012Python
+tests/12files not rerun. Integrity/weights/11anchors checked by finalize.mjs.
+Raw browser trace stays local; committed structured-redacted derivative retains
+command timing and public state while removing cookie/address/body headers.
+
+FINDINGS
+1. The timed-out setup command received a late reply; a separate browser probe
+   responded. Lost connection is not the explanation for this observed wait.
+2. Full returning-client acceptance remains open; no current-app regression or
+   permanent renderer failure follows from these observations.
+3. Independent scope audit identifies authorized implementation that should now
+   take priority:T14 lifecycle/revision/duplicate guards and inactiveT23 runner.
+   Final reporting/privacy/accounts, scheduling, physical participants and exact
+   deployment remain separate gates. Generic completion does not approve them.
+4. Obsolete4418 helpers are gone; current4420/shared4340 preserved.8new diagnostic
+   tests pass. Pipeline runs0, seconds0, installs0, deployment0, data changes0.
+
+DISAGREEMENTS
+1. A late reply is not proof that its discarded operation succeeded. Preserve
+   timeout and late-event identities without changing the failed result.
+2. Further browser replay is not the best next product step. Authorized report
+   and maintenance integration work can proceed while owner choices are pending.
