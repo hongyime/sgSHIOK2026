@@ -1,0 +1,26 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "pid": 6316,
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\production-worker-20260913\\observed-pA46WF",
+  "profile": "C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-2CggJx",
+  "startedAt": "2026-09-13T11:42:48.276Z",
+  "childTimeoutMs": 150000,
+  "cleanupTimeoutMs": 45000,
+  "totalBudgetMs": 210000,
+  "cleanupSourceSha256": "aeb861991582e086eef2253a01118673f5f902903ff8c03e0efad7d9754b7b7c",
+  "arithmetic": "150000 child maximum + 45000 independent profile cleanup + 15000 receipt/setup reserve = 210000 ms",
+  "files": [
+    {
+      "file": "observe-worker.mjs",
+      "sha256": "78f22b2334ffb4df7cbc788368a867362dd99c0c71d3b99d882ca15a859f45b2"
+    },
+    {
+      "file": "network-boundary.mjs",
+      "sha256": "a75385a5efdf3574de4285fd6055a37328f6b4f4fc7ad93658466291f98577f6"
+    },
+    {
+      "file": "worker-observer.js",
+      "sha256": "e01981483c84aec652c88bc40c54344391357b4fc0bb709f8e1cdf515b4ec7ae"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "reviewer": "Carson",
+  "agentId": "01a09a76-36c1-7b82-8fb6-da64f5c2c852",
+  "ownership": "Reviewer authored only network-boundary.mjs and network-boundary.test.mjs; parent reviewed them, authored browser driver/observer/supervisor/docs, and independently reran the24tests. Only parent commits.",
+  "boundaryCorrections": [
+    "Drop content-encoding for decoded captures, preserve raw data encoding.",
+    "Permit only canonical postal/debugMap root queries; reject other/query-bearing assets.",
+    "Distinguish three canary destinations with bounded authority fields.",
+    "Use Object.hasOwn for limit keys; reject prototype names."
+  ],
+  "driverCorrections": [
+    "Verify actual document navigation and exact captured HTML before no-worker outcome.",
+    "Independent150s child timeout plus45s cleanup and15s receipt reserve.",
+    "Absolute10s data read deadline, not socket inactivity alone.",
+    "Worker observer must preserve original arguments/results/exceptions and avoid inspecting getters.",
+    "Native-search correction: verify viewport and elementFromPoint hit before clicking.",
+    "Record pre-submit receiptID; require subsequent data-source GET and retain its final status."
+  ],
+  "resultReview": {
+    "decision": "No blocker to claiming the blank-worker URL mechanism in this captured diagnostic.",
+    "firstRun": "Query-only run omitted required Search; captured code starts with empty postal and null selection. No Worker/data/canvas is not an app Worker defect.",
+    "correctedRun": "observed-bf5YuS",
+    "eventChain": [
+      "workerEvents: native argument empty string, constructor returned, asynchronous worker error; no first message.",
+      "events[88]: worker request C252826F7427508D47023006CA6974E2 targets the document URL.",
+      "Boundary58: GET /, worker destination,200,12827bytes, HTML SHA047fd04d4176fd3afa15c224d94312f048dda52561ab3e21e1386321be10f636 equals document14.",
+      "events[92]: worker receives text/html, without service-worker interception.",
+      "events[109]: Chromium rejects the non-JavaScript module MIME type."
+    ],
+    "screenshot": "Populated postal panel and blank map. Visible tile error separately reflects195 intentionally blocked OneMap CONNECT requests; screenshot alone does not isolate the worker defect.",
+    "limits": "Captured-byte diagnostic only, not uninstrumented production or retained-client behavior. Constructor options deliberately not logged; Chromium independently identifies module loading.",
+    "cleanup": "23.627s supervisor,exit0,verified cleanup; boundary manually closed with zero active sockets/reads."
+  },
+  "parentVisualInspection": ["observed-pA46WF/observed.png", "observed-bf5YuS/observed.png"],
+  "noFurtherBrowserRun": true,
+  "finalReadOnlyAudit": {
+    "scope": "summary.json, review.json, PRODUCT-PLAN T27 bullet, postplan release item, appended verification section",
+    "decision": "No blocking findings or overclaims. Original Search omission preserved; Worker chain distinguished from intentionally blocked tiles and live/retained-client acceptance.",
+    "prefix": "Independently verified unchanged396996-byte evidence prefix against recorded SHA256.",
+    "handles": "Diagnostic-owned handles0 per both terminal/cleanup receipts. No reviewer active command sessions. Close-ready for scoped commit, not deployment approval."
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "question": "What URL does the captured production frontend actually pass to the native Worker constructor during one saved-walk load?",
+  "base": "451dcfe37b1715e0ea170bd5b873dc7b4b850112",
+  "priorTurn": "Progress: actual deployment identity and24public assets pinned. Old replay rejected before execution, not a browser pass.",
+  "hypothesis": "An empty default Worker URL follows from Turbopack's file:///ROOT module identity. This is not yet browser-confirmed. The earlier dev-shared404 is not a required expected result.",
+  "inputs": "Existing captured HTML and24asset bodies from production-runtime-20260913, verified against receipt SHA256. Existing published data served read-only by the localIPv6 server; no generation or refresh.",
+  "networkBoundary": "Browser-wide fixed HTTP proxy with no DIRECT fallback, implicit loopback bypass subtracted, QUIC disabled. Proxy denies external HTTP, every CONNECT and upgrades; no outbound forwarding. Server permits exact captured assets and one fixed read-only data prefix. All OneMap tiles are intentionally unavailable.",
+  "proxySource": "https://chromium.googlesource.com/chromium/src/+/HEAD/net/docs/proxy.md",
+  "canary": "Before app navigation, a synthetic same-origin worker requests HTTP and HTTPS external.invalid plus a distinct owned local canary server. Require distinct blocked proxy receipts and zero direct canary hits. Probe fixtures are separate from captured production assets.",
+  "observation": "A small main-document Native Worker Proxy records constructor arguments and native error/first-message events, without changing arguments, suppressing errors or substituting a worker. Constructor identity is instrumented; this is diagnostic, not an uninstrumented performance run. CDP records worker/page events and the HTTP boundary records Sec-Fetch-Dest and response identities.",
+  "searchCorrection": "First run observed-pA46WF finished without Worker/data/canvas: the captured build does not read postal from URL. Preserve that run. Revised driver types018956 and clicks the observed native Search form exactly once, recording the action and requiring a fresh local data request. No captured application changes, internal route-state injection or guessed asset fetches. One corrected bounded run, not repetitions to seek a pass.",
+  "outcomes": [
+    "Worker attempt observed with its actual argument, whether empty or nonempty.",
+    "No worker observed within the bounded window, which is inconclusive and not a passing map result.",
+    "QA admission/control/cleanup failure, preserved and reported separately."
+  ],
+  "limits": {"minimumAvailableMiB": 1024, "workMs": 130000, "totalIncludingCleanupMs": 210000, "serverMs": 110000, "requestCount": 300, "responseBytes": 104857600, "dataFileBytes": 8388608, "appObservationMs": 65000},
+  "cleanup": "An independent run-observation.mjs process gives the child150000ms, then performs its own profile-scoped cleanup with45000ms timeout;15000ms is reserved for setup and receipts, total210000ms. This terminates a child stuck in finally. Close only owned browser/profile/listeners; never remove files or touch the intentional4416preview.",
+  "notProven": ["Basemap or selected-route rendering with external tiles available", "live-site browser behaviour", "speed on phones", "retained-tab upgrade", "all dynamic asset closure", "deployment approval", "report delivery or maintenance activation"],
+  "pipelineRuns": 0,
+  "installations": 0,
+  "deployments": 0
+}

@@ -3957,3 +3957,25 @@ executed. Do not fix or rewrite captured code to make a replay pass. Supersede t
 unrun, review-rejected QA replay only after its worker network boundary, falsifiable
 outcome and total cleanup deadline are reviewed. Physical-device, retained-client,
 security and exact deployment approval remain distinct gates. No deploy occurred.
+
+## 2026-09-13: Preserve old-client evidence without promising to repair old code
+
+The captured production frontend now demonstrates an empty native Worker URL
+after a real postal Search. The resulting worker request receives the same HTML
+as the document and Chromium rejects its module MIME type. The original query-only
+observation never selected a postal; it is an inconclusive diagnostic, not a map
+failure. Current source already selects the versioned6.4.1 worker before Map.
+
+Keep captured bytes immutable. Retention can preserve old assets but cannot turn
+their broken worker initialization into a working renderer. Release acceptance
+must distinguish retaining a document from successfully drawing its route, and
+test an honest failure/reload transition to the current version. Never rewrite
+captured code, substitute a guessed worker URL or count source-feature metadata
+as rendered-map evidence. Do not force navigation that discards unsent work.
+
+The diagnostic uses local HTTP, a transparent Worker observer and a browser-wide
+blocking proxy with three worker canaries. OneMap tiles are intentionally blocked;
+no uninstrumented live-site, returning-client, phone or performance pass follows.
+33offline diagnostic tests and two inspected captures support only the recorded
+mechanism. Actual release, reporting infrastructure and maintenance activation
+remain separately gated. No pipeline, installation or deployment was performed.

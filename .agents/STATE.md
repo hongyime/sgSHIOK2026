@@ -6,7 +6,7 @@ Machine: Prawn-E14
 Startup: assert cwd equals C:\sgSHIOK2026; abort otherwise. Absolute C: writes only. X: cold mirror, never session root.
 Before git commands, set TEMP and TMP to C:\sgSHIOK2026\tmp so global hooks keep temporary scan files inside this root.
 
-Goal ACTIVE, not complete. Parent-only commit/push. Base5e15a36; current work captures actual public frontend runtime and independent worker/replay review. Commit/push this progress; no deployment.
+Goal ACTIVE, not complete. Parent-only commit/push. Worker diagnosis based on451dcfe complete, not app acceptance: native Search reproduces empty URL -> page HTML -> module MIME rejection. Current source already pins6.4.1worker. Evidence/review ready; use git log for commit identity. No deployment.
 Only MRT/LRT exits and Bus stops, auto shortest usable saved walk, no comparison/About data. Lighting automatic and bounded.
 Server route/search now have one10s deadline including auth/retry/body, cancellation and late-token guards; browser12s remains.
 Public018956 diagnosis:61stop/exits=6saved+55unstored. Exit E saved-ID gap fixed; no new geometry or scores.
@@ -25,5 +25,5 @@ Monitor needs bootstrap/previous. New read-only inspector diagnoses unknown/obse
 postplan.html and PRODUCT-PLAN are current work lists; T08-T11/U02 comparison retired.
 T19full scan exceeds900s gate. No scoring/export/ingest/network/input repair or protected data/weights changes.
 Browser plugin bootstrap still fails os error3; owned Chrome/CDP fallback recorded. No peer-quota bypass.
-Current QA:production-runtime-20260913/summary.json plus staging-verification.json/final artifact index.26offline parser tests pass. Preserve both stopped dependency passes (false.css URL; dev shared-import404). Static worker trace finds empty default URL via file:///ROOT helper, not confirmed browser failure. Draft replay unrun/review-rejected and guarded. Next narrowly reviewed actual-worker diagnostic; no captured-code rewrite/guessed-URL retry. No browser/install/pipeline/deploy. Russell parser/worker review complete; final JSON reader aborted before read. Sidecar closed, no owned handles.
+Current QA:production-worker-20260913/summary.json.24boundary+9observer=33tests pass. Query-only pA46WF inconclusive; native-search bf5YuS demonstrates emptyWorker/MIME chain.98.016+23.627=121.643s, both cleaned up;2parent-inspected captures, peer mechanism review accepted. Intentional tile blocking means no map acceptance. Preserve old captures/rejected draft. Next: honest old-client failure/reload into current build; retaining old assets does not repair old code. No further diagnostic repetition needed.
 No installs, external activation or deployment. Absolute writes, exact staging, conventional commits and push main; never amend/force.

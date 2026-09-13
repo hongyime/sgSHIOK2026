@@ -5715,3 +5715,221 @@ file-level review is incomplete: his non-command reader aborted on wrong cwd
 before reading either final JSON. No exact final-file approval is claimed.
 final-review.json records that limitation. The sidecar was closed with zero
 owned browser, server or command handles. Replay remains unrun and guarded.
+
+### 2026-09-13: Captured-production Worker diagnostic, not deployment acceptance
+
+Root C:\sgSHIOK2026; hostname PRAWN-E14. Base451dcfe37b1715e0ea170bd5b873dc7b4b850112.
+All earlier396996bytes remain exact; prefix SHA256:
+caa0988bdd12db7a40f1363ad5a1d2cf7d2e906bb0e693cc01dd59e2f06b871d.
+
+Evidence:qa/revamp-r1/production-worker-20260913/summary.json, method.json,
+review.json, both observed-*/controller.json, runner.mjs, observation.json,
+supervisor.json and screenshots. Controllers snapshot executable identities.
+No captured production asset was rewritten; all24 hashes matched before each run.
+
+The browser plugin bootstrap failed os error3 before creating a browser. The
+owned Chrome/CDP fallback uses a fresh workspace profile and fixed HTTP proxy.
+All external HTTP/CONNECT and upgrade requests are blocked, including OneMap
+tiles. No DIRECT fallback, implicit loopback bypass or QUIC path is enabled.
+Before the app, a synthetic Worker requests three distinct external/local targets;
+all three produce blocked proxy receipts and the local canary gets zero hits.
+This is bounded diagnostic traffic control, not an OS-wide firewall claim.
+
+Parent corrected the boundary's decoded-content encoding, canonical root query,
+destination receipt and prototype-name checks with Carson. Carson reviewed the
+parent driver and required verified HTML navigation, an independent timeout,
+absolute data deadlines and an observer preserving native argument/exception
+identity. All fixes precede browser execution. The earlier review-rejected replay
+remains guarded and unrun. There is no attempt to make its expected404 pass.
+
+Commands and captured test stdout:
+
+```text
+node --test C:\sgSHIOK2026\qa\revamp-r1\production-worker-20260913\network-boundary.test.mjs
+```
+
+```text
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2627.924
+```
+
+```text
+node --test C:\sgSHIOK2026\qa\revamp-r1\production-worker-20260913\worker-observer.test.mjs
+```
+
+```text
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2257.9277
+```
+
+33unique diagnostic tests=24boundary+9observer in2files. Carson also ran the
+same24boundary tests; do not count that rerun as24additional cases. Current web
+sources did not change; the retained1930web/72files+42dependency guards,
+179focused/4files and TypeScript/build results were not freshly rerun this turn.
+
+Two sequential executions, not overlapping:
+
+```text
+node C:\sgSHIOK2026\qa\revamp-r1\production-worker-20260913\run-observation.mjs
+```
+
+```json
+{
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\production-worker-20260913\\observed-pA46WF",
+  "childStatus": 0,
+  "childError": null,
+  "outcome": "no-worker-observed-within-window",
+  "runCompleted": true,
+  "cleanup": true,
+  "elapsedMs": 98016,
+  "totalBudgetMet": true
+}
+```
+
+This first diagnostic omitted the native Search action. The captured production
+app starts with empty postal and null selection and reads only stop from the URL,
+not postal. Screenshot: initial shell, empty search, no map or result. No data
+requests, no Worker and zero canvases. This is inconclusive, not an app failure.
+The driver snapshot preserves the mistake. Parent corrected only the driver to
+type public postal018956 and click the observed Search button once. Carson then
+required an on-screen hit target and a pre-submit receipt baseline; a subsequent
+data-source GET must be captured, including its eventual status. Both were fixed.
+
+```json
+{
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\production-worker-20260913\\observed-bf5YuS",
+  "childStatus": 0,
+  "childError": null,
+  "outcome": "worker-attempt-observed",
+  "runCompleted": true,
+  "cleanup": true,
+  "elapsedMs": 23627,
+  "totalBudgetMet": true
+}
+```
+
+The native constructor observer records, unchanged:
+
+```json
+[
+  {
+    "at": 5524.299999982119,
+    "kind": "construct",
+    "url": "",
+    "argumentType": "string"
+  },
+  {
+    "at": 5524.9000000059605,
+    "kind": "constructed",
+    "url": ""
+  },
+  {
+    "at": 5956.5,
+    "kind": "error",
+    "url": ""
+  }
+]
+```
+
+Boundary receipt58: GET /, Sec-Fetch-Dest worker, HTTP200,12827bytes, source html.
+Its SHA047fd04d4176fd3afa15c224d94312f048dda52561ab3e21e1386321be10f636
+equals document receipt14. Event88 records the worker document URL; event92
+records text/html with fromServiceWorker=false. Event109 records Chromium's error:
+
+```text
+Failed to load module script: The server responded with a non-JavaScript MIME type of "text/html". Strict MIME type checking is enforced for module scripts per HTML spec.
+```
+
+The constructor returned successfully, then errored asynchronously; no first
+message was observed. Static captured-byte tracing agrees: Turbopack's file URL
+misses MapLibre's HTTP-only fallback and yields the empty string. The unrelated
+development shared-import404 is still not established as this startup path.
+Current route-evidence-map.tsx already sets the versioned6.4.1worker URL before
+Map construction. No new product source fix was needed or deployed this turn.
+
+Both screenshots were visually inspected by parent; Carson inspected the second
+and independently accepted the Worker chain. The second has a postal result and
+blank map, with an intentionally induced tile error.195OneMap CONNECT requests
+were blocked, so that image alone cannot isolate the Worker failure. The old
+route-debug producer reports4sheltered features but this is not a rendered-route
+count or pixel pass. ApplicationAcceptance remains false for both diagnostics.
+
+Supervised elapsed arithmetic:98016+23627=121643ms. Each run's total budget:
+150000child+45000independent cleanup+15000receipt/setup reserve=210000ms.
+Both close manually, with zero active proxy sockets/reads/responses, zero canary
+hits or dropped receipts and verified profile cleanup. No repeat-to-pass loop.
+The corrected run has14read-only data attempts:10HTTP200+4HTTP404. All10successful
+raw response hashes equal their existing local files;11fixture anchors match
+before/after both runs. Missing optional gzip responses were preserved; nothing
+was re-fetched, regenerated, repaired or copied. HTTP totals are recorded in JSON.
+
+```text
+python -B scripts/check_repo_integrity.py
+repo_integrity=ok
+exit_code=0
+```
+
+Locked weights still hash to
+5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec.
+PRODUCT-PLAN.md, postplan.html and STATE now distinguish this diagnostic from
+returning-client/release acceptance. Fullservice goal stays ACTIVE, not complete.
+
+FINDINGS
+1. Captured production code demonstrably passes an empty Worker URL, fetches
+   document HTML and receives a module MIME rejection in the bounded diagnostic.
+2. The first query-only observation omitted Search. Corrected the diagnostic,
+   preserved the original run and did not count its lack of Worker as an app bug.
+3. Current source already selects its versioned worker. Retaining broken old
+   chunks cannot repair them; release acceptance needs an honest reload transition.
+4.33diagnostic tests pass and both captures are inspected. Real reporting,
+   maintenance activation, physical-device and exact deployment gates remain.
+
+DISAGREEMENTS
+1. A postal query alone does not exercise this captured production build.
+2. A specific captured worker failure does not prove the sole cause of a live
+   blank map. Tile blocking, local origin, instrumentation and constrained cache/SW
+   behavior prevent an uninstrumented live-site or retained-client claim.
+
+Pipeline runs:0. Pipeline seconds:0. Installs:0. Deployments:0. Source activations:0.
+No X access, protected-data mutation, route generation or locked-weight edit.
+
+### 2026-09-13: Worker-diagnostic handback checks
+
+Final read-only Carson audit found no blocking overclaims in summary/review,
+PRODUCT-PLAN T27, postplan release item or the appended verification section.
+He independently verified the396996-byte unchanged prefix. Both diagnostic
+browser/proxy cleanup receipts and reviewer terminal state show no owned handles.
+
+The first pull inherited a configured rebase and refused the dirty worktree:
+
+```text
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+```
+
+No stash, reset or history rewrite followed. Explicit non-rebase fast-forward:
+
+```text
+git pull --no-rebase --ff-only origin main
+Already up to date.
+git check-ignore -v qa/verification/REVAMP-R1-core-walk.md qa/revamp-r1/production-worker-20260913/summary.json
+check_ignore_exit=1
+git ls-files --error-unmatch qa/verification/REVAMP-R1-core-walk.md
+qa/verification/REVAMP-R1-core-walk.md
+```
+
+The check-ignore command printed no match; exit1 alone is not proof of tracking.
+The separate ls-files check confirms the existing evidence path is tracked. New
+QA files are explicitly staged and their index/disk bytes checked before commit.

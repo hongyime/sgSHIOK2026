@@ -1,0 +1,17 @@
+✔ native argument objects and results are unchanged (48.7229ms)
+✔ observer does not inspect an options getter before native code (12.6628ms)
+✔ URL objects are not stringified by the observer (12.9246ms)
+✔ original thrown value survives hostile name/message accessors (39.759ms)
+✔ observer listener failure cannot replace a successful constructor (10.6719ms)
+✔ native error events and their cancellation state are not suppressed (38.0469ms)
+✔ subclass newTarget and prototype survive the proxy (12.1732ms)
+✔ a corrupted diagnostic sink cannot replace a native thrown error (21.4338ms)
+✔ diagnostic event storage is bounded (11.2338ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2257.9277

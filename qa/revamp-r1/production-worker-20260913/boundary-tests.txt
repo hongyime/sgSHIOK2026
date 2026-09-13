@@ -1,0 +1,32 @@
+✔ serves identical HTML and exact captured assets with bounded, private receipts (246.2372ms)
+✔ HEAD preserves representation length without sending or charging a body (85.7824ms)
+✔ absolute-form requests serve only the boundary own origin; never forward (127.3126ms)
+✔ root query serves unchanged HTML, but asset and data queries are blocked and not logged (190.6697ms)
+✔ decoded assets strip encoding while raw data preserves encoding with exact wire hashes (28.6712ms)
+✔ observed 404 and uncaptured synthetic 503 cannot be mistaken for each other (47.196ms)
+✔ only exact safe data-prefix paths reach the data reader (207.1737ms)
+✔ raw absolute traversal is rejected before normalization (30.7608ms)
+✔ POST, CONNECT, upgrades, expectations, and malformed requests are captured and blocked (58.5693ms)
+✔ request bodies, duplicate hosts, and header overflows cannot bypass admission (40.2278ms)
+✔ receipt fields and arrays are bounded, including rejected requests (32.5978ms)
+✔ CONNECT and parser errors share the request cap and trigger cleanup (29.3127ms)
+✔ request cap aborts admitted reads and closes idle connections without extra receipts (41.507ms)
+✔ idle connection count is bounded and excess connections close the listener (23.0615ms)
+✔ aggregate response budget includes synthetic bodies and blocks the excess body (21.3033ms)
+✔ data file cap applies to GET and HEAD and aborts other in-flight readers (39.0126ms)
+✔ concurrent data completions reserve aggregate bytes atomically (23.0638ms)
+✔ data errors and invalid or redirect results stay local and uncaptured (48.645ms)
+✔ wall deadline aborts non-cooperative data reads and closes idle sockets (155.373ms)
+✔ deadline is rechecked after a synchronous late data completion (122.0771ms)
+✔ wall deadline covers an ongoing response to a non-reading client (371.4856ms)
+✔ disconnect aborts a data read without closing the whole boundary (30.5558ms)
+✔ close is idempotent, aborts reads, handles late rejection, and leaves no owned handles (30.1265ms)
+✔ invalid inputs fail before creating a listener (5.9568ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2627.924

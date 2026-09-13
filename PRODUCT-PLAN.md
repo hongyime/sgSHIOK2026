@@ -9,7 +9,8 @@ live services. Reporting choices and weekly scheduler/issue approval are pending
 LOCALLY_VERIFIED: walk-only inspector. Two tabs (MRT/LRT exits, Bus stops), shortest
 usable saved walk selected automatically, no Suggested/comparison/About data,
 automatic zoom-bounded night lighting, bounded explicit preview recovery.
-Current QA: qa/revamp-r1/native-zoom-20260913 and notice-inspection-20260913;
+Current QA: qa/revamp-r1/production-worker-20260913 (bounded captured-runtime diagnosis);
+retained native-zoom-20260913 and notice-inspection-20260913;
 prior recovery/UX acceptance: keyboard-recovery-20260913 and completion-20260913.
 Build vOoOxn7etjT-WJqrIExq7: http://127.0.0.1:4416/. Current1930/72 isolated web
 tests and42dependency guards pass;179focused tests/4files,TypeScript/build pass.
@@ -21,7 +22,8 @@ surviving postal heading; Back to walk scrolls its summary focus into view.
 The earlier42green checks missed clipped post-Back focus; that evidence and the
 failed reset/default-setup attempts remain recorded. This is not a same-document
 zoom shortcut test, screen-reader, physical-phone, full-row readability or speed
-acceptance. Current-release SW,production identity and deployment remain open.
+acceptance. Actual production is identified; current-release SW/returning-client
+acceptance, complete runtime retention and exact deployment remain open.
 Preview4414 is superseded; earlier390x844/four-size checks were not rerun here.
 Comparison T08-T11 is RETIRED, not an acceptance blocker. Historical outcomes
 below describe earlier work, not instructions to restore it. Existing saved
@@ -537,6 +539,19 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: OWNER physical/user participation. Does not prevent preparing the release candidate.
 
 ### [ ] T27: Prepare a bounded frontend release candidate
+- Worker diagnosis2026-09-13: captured production bytes now reproduce the empty
+  Worker argument after one native postal Search. Worker receipt58 fetched the
+  page's exact12827-byte HTML; Chromium rejected its text/html module MIME type.
+  No Worker rewrite, substitute assets or tile access. First query-only run did
+  not select a postal and is preserved as inconclusive, not a map failure.
+  Parent inspected both captures; independent review accepted this exact chain.
+  24boundary+9observer=33offline tests pass. Both supervised diagnostics closed
+  cleanly:98016+23627=121643ms total, each below210000ms. This is not live-site,
+  retained-client, rendered-route, phone or performance acceptance. Current
+  source already pins the6.4.1 worker before Map construction. Next: verify a
+  truthful old-client failure/reload transition to the current build, not a
+  promise that retaining broken old chunks fixes their behavior. No deployment.
+  Evidence:qa/revamp-r1/production-worker-20260913/summary.json.
 - Production identity progress2026-09-13: authenticated Vercel reads identify the
   Aug30 CLI deployment dpl_wVnDeskyK666GwYUKWzY2aserkJR, nominal2a99893 with
   gitDirty=1. Public alias and authorized unique-deployment HTML are byte-equal

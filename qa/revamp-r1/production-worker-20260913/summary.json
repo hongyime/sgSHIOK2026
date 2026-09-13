@@ -1,0 +1,316 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "base": "451dcfe37b1715e0ea170bd5b873dc7b4b850112",
+  "buildId": "UzVn3WiWA2GW7dtvN27rN",
+  "runs": [
+    {
+      "name": "observed-pA46WF",
+      "outcome": "no-worker-observed-within-window",
+      "driverElapsedMs": 92222,
+      "supervisorElapsedMs": 98016,
+      "hardBudgetMs": 210000,
+      "cleanupVerified": true,
+      "diagnosticChecksPassed": 7,
+      "applicationAcceptance": false,
+      "search": null,
+      "workerEvents": [],
+      "workerRequests": [],
+      "workerLogs": [],
+      "canvasCount": 0,
+      "producerFeatureCounts": null,
+      "dataReadStatuses": {},
+      "dataIdentities": [],
+      "boundary": {
+        "startedAt": "2026-09-13T11:42:53.784Z",
+        "closedAt": "2026-09-13T11:44:07.604Z",
+        "closing": true,
+        "closed": true,
+        "closeReason": "manual-close",
+        "requestCount": 43,
+        "receiptsDropped": 0,
+        "clientErrors": 0,
+        "connectRequests": 26,
+        "upgradeRequests": 0,
+        "completedResponses": 43,
+        "abortedResponses": 0,
+        "responseBytes": 763604,
+        "completedBodyBytes": 763604,
+        "dataReads": 0,
+        "activeReads": 0,
+        "activeResponses": 0,
+        "activeSockets": 0,
+        "droppedConnections": 0
+      },
+      "screenshot": {
+        "file": "observed.png",
+        "bytes": 17668,
+        "sha256": "beec2243c1e818ed563269510597a095b9b03e9a347404e2f6a259e31ac72103"
+      },
+      "parentVisuallyInspected": true,
+      "visualFinding": "Only the initial old UI shell, empty postal input, no map or result."
+    },
+    {
+      "name": "observed-bf5YuS",
+      "outcome": "worker-attempt-observed",
+      "driverElapsedMs": 17981,
+      "supervisorElapsedMs": 23627,
+      "hardBudgetMs": 210000,
+      "cleanupVerified": true,
+      "diagnosticChecksPassed": 10,
+      "applicationAcceptance": false,
+      "search": {
+        "postal": "018956",
+        "action": "one native form input and submit; no programmatic route selection",
+        "startedAt": "2026-09-13T12:00:15.868Z",
+        "input": "018956",
+        "beforeSubmitReceiptId": 36,
+        "submittedAt": "2026-09-13T12:00:17.260Z",
+        "firstDataRequest": {
+          "id": 37,
+          "startedAt": "2026-09-13T12:00:17.097Z",
+          "respondedAt": "2026-09-13T12:00:17.181Z",
+          "finishedAt": "2026-09-13T12:00:17.183Z",
+          "event": "request",
+          "method": "GET",
+          "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+          "pathTruncated": false,
+          "secFetchDest": "empty",
+          "authority": "127.0.0.1:17185",
+          "targetOrigin": "http://127.0.0.1:17185",
+          "targetAuthority": null,
+          "status": 404,
+          "sourceKind": "data",
+          "disposition": "uncaptured",
+          "reason": "data-status-404",
+          "isData": true,
+          "bodyBytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "completed": true,
+          "aborted": false
+        }
+      },
+      "workerEvents": [
+        {
+          "at": 5524.299999982119,
+          "kind": "construct",
+          "url": "",
+          "argumentType": "string"
+        },
+        {
+          "at": 5524.9000000059605,
+          "kind": "constructed",
+          "url": ""
+        },
+        {
+          "at": 5956.5,
+          "kind": "error",
+          "url": ""
+        }
+      ],
+      "workerRequests": [
+        {
+          "id": 58,
+          "startedAt": "2026-09-13T12:00:19.532Z",
+          "respondedAt": "2026-09-13T12:00:19.533Z",
+          "finishedAt": "2026-09-13T12:00:19.533Z",
+          "event": "request",
+          "method": "GET",
+          "path": "/",
+          "pathTruncated": false,
+          "secFetchDest": "worker",
+          "authority": "127.0.0.1:17185",
+          "targetOrigin": "http://127.0.0.1:17185",
+          "targetAuthority": null,
+          "status": 200,
+          "sourceKind": "html",
+          "disposition": "served",
+          "reason": null,
+          "isData": false,
+          "bodyBytes": 12827,
+          "sha256": "047fd04d4176fd3afa15c224d94312f048dda52561ab3e21e1386321be10f636",
+          "completed": true,
+          "aborted": false
+        }
+      ],
+      "workerLogs": [
+        {
+          "atMs": 10706,
+          "kind": "Log.entryAdded",
+          "sessionId": "D2A7AEABF21D679AEC586F1ABE0BB62B",
+          "params": {
+            "entry": {
+              "source": "worker",
+              "level": "error",
+              "text": "Failed to load module script: The server responded with a non-JavaScript MIME type of \"text/html\". Strict MIME type checking is enforced for module scripts per HTML spec.",
+              "timestamp": 1789300819953.366,
+              "url": "http://127.0.0.1:17185/?postal=018956&debugMap=1",
+              "workerId": "C252826F7427508D47023006CA6974E2"
+            }
+          }
+        }
+      ],
+      "canvasCount": 1,
+      "producerFeatureCounts": {
+        "shortest": 0,
+        "shiokest": 4,
+        "exposure": 3,
+        "transit": 1,
+        "activeGap": 0,
+        "lamp": 0
+      },
+      "dataReadStatuses": {
+        "200": 10,
+        "404": 4
+      },
+      "dataIdentities": [
+        {
+          "path": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+          "bytes": 184,
+          "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+          "matchesDisk": true
+        },
+        {
+          "path": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+          "bytes": 39674,
+          "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+          "matchesDisk": true
+        },
+        {
+          "path": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+          "bytes": 145327,
+          "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+          "matchesDisk": true
+        },
+        {
+          "path": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+          "bytes": 5236013,
+          "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+          "matchesDisk": true
+        },
+        {
+          "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+          "bytes": 600,
+          "sha256": "0fc02b9596fb2621e8cae87d2c529865560cff398c17350e129d4beb919320a5",
+          "matchesDisk": true
+        },
+        {
+          "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+          "bytes": 590,
+          "sha256": "fa11b27a84716c55414e964cc5ed188025abd917afb35b5060b01400b6e131f2",
+          "matchesDisk": true
+        },
+        {
+          "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+          "bytes": 701,
+          "sha256": "771484cc9b3ba5f90ba419cffbc05e359bb2b889183461cce51c418ae64629ae",
+          "matchesDisk": true
+        },
+        {
+          "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+          "bytes": 1010,
+          "sha256": "62c064753949ae253245ebf130af1e436e0f1aa6c014b37f503de3357b9e92d6",
+          "matchesDisk": true
+        },
+        {
+          "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+          "bytes": 1073,
+          "sha256": "92ab633aee0d85803b0ac377bd3752fae634f4245e6034c2bca7afea90554c33",
+          "matchesDisk": true
+        },
+        {
+          "path": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+          "bytes": 1672,
+          "sha256": "785a1ab1f923409399d3b14d8cca5da7d0799ddeaefe7cbf98c10d25ae1479c0",
+          "matchesDisk": true
+        }
+      ],
+      "boundary": {
+        "startedAt": "2026-09-13T12:00:09.930Z",
+        "closedAt": "2026-09-13T12:00:24.182Z",
+        "closing": true,
+        "closed": true,
+        "closeReason": "manual-close",
+        "requestCount": 254,
+        "receiptsDropped": 0,
+        "clientErrors": 0,
+        "connectRequests": 216,
+        "upgradeRequests": 0,
+        "completedResponses": 254,
+        "abortedResponses": 0,
+        "responseBytes": 7217398,
+        "completedBodyBytes": 7217398,
+        "dataReads": 14,
+        "activeReads": 0,
+        "activeResponses": 0,
+        "activeSockets": 0,
+        "droppedConnections": 0
+      },
+      "screenshot": {
+        "file": "observed.png",
+        "bytes": 35255,
+        "sha256": "644bbd61f68c5b789aa9dda0e58ed0102ab5222cc1f0f75014c55badebceb19e"
+      },
+      "parentVisuallyInspected": true,
+      "visualFinding": "Postal018956 result and old controls visible. Map area blank; intentional blocked-tile error visible. Producer feature counts do not establish rendered route features."
+    }
+  ],
+  "tests": [
+    {
+      "file": "boundary-tests.txt",
+      "tests": 24,
+      "pass": 24,
+      "fail": 0,
+      "sha256": "12b2f056cf4bee604b1fb872da3b5f8fe294e095ae496aae9c15ce40d91e01a7"
+    },
+    {
+      "file": "observer-tests.txt",
+      "tests": 9,
+      "pass": 9,
+      "fail": 0,
+      "sha256": "339ba58ab07388c18312de51aa97d6d33651aa9426b8ce68adc9d894f6bfb94a"
+    }
+  ],
+  "uniqueDiagnosticTests": "24 boundary + 9 transparent observer = 33 in 2 files; the peer rerun is not counted again",
+  "observationArithmetic": "98016 + 23627 = 121643 ms across two sequential diagnostics, each below210000ms",
+  "integrity": {
+    "command": "python -B scripts/check_repo_integrity.py",
+    "exitCode": 0,
+    "stdout": "repo_integrity=ok\r\n",
+    "stderr": ""
+  },
+  "verificationPrefix": {
+    "bytes": 396996,
+    "sha256": "caa0988bdd12db7a40f1363ad5a1d2cf7d2e906bb0e693cc01dd59e2f06b871d",
+    "preserved": true
+  },
+  "lockedWeightsSha256": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+  "findings": [
+    "The corrected captured-production run passes an empty string to native Worker; receipt58 returns captured HTML to that worker URL, then Chromium records module MIME rejection and the native worker emits error.",
+    "The original no-worker run omitted the real search action. This production build does not read postal from the query; the inconclusive result is preserved, not counted as an app failure.",
+    "Current source already sets the versioned6.4.1 worker URL before Map construction; this task does not change or newly deploy the app. Retaining old chunks preserves old behavior, not a worker repair.",
+    "24 boundary and9 observer tests pass. Three worker proxy canaries are blocked in both runs, no direct local canary hits, no dropped receipts or remaining owned handles. Two screenshots inspected by parent.",
+    "Reporting infrastructure/policy, maintenance destination/scheduler, physical-device acceptance and exact release approval remain open. No absent saved route was generated."
+  ],
+  "disagreements": [
+    "A postal query is not sufficient to exercise this captured build. Native Search was required; prior query-only observation cannot establish a worker startup defect.",
+    "The captured diagnostic establishes a specific worker mechanism, not the sole cause of a live blank map. External tiles are deliberately blocked, origin/cache/SW behavior is constrained, and source counts are not rendered-pixel evidence."
+  ],
+  "next": "Use a truthful old-client failure/reload transition in release acceptance. Do not rewrite captured assets or demand that a broken old worker renders correctly. Current-source visual acceptance and owner release gates remain separate.",
+  "limitations": [
+    "instrumented Worker constructor identity",
+    "local HTTP origin, not live HTTPS",
+    "local published data responses, no upstream data refresh",
+    "all external tile traffic blocked",
+    "no representative performance result",
+    "no returned-client upgrade or physical-device acceptance",
+    "no complete runtime/rollback archive claim"
+  ],
+  "costs": {
+    "pipelineRuns": 0,
+    "pipelineSeconds": 0,
+    "installations": 0,
+    "deployments": 0,
+    "sourceActivations": 0
+  }
+}

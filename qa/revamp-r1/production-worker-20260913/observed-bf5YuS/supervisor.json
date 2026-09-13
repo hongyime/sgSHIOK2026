@@ -1,0 +1,43 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "pid": 12596,
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\production-worker-20260913\\observed-bf5YuS",
+  "profile": "C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-sMCSq5",
+  "startedAt": "2026-09-13T12:00:08.958Z",
+  "childTimeoutMs": 150000,
+  "cleanupTimeoutMs": 45000,
+  "totalBudgetMs": 210000,
+  "cleanupSourceSha256": "aeb861991582e086eef2253a01118673f5f902903ff8c03e0efad7d9754b7b7c",
+  "arithmetic": "150000 child maximum + 45000 independent profile cleanup + 15000 receipt/setup reserve = 210000 ms",
+  "files": [
+    {
+      "file": "observe-worker.mjs",
+      "sha256": "c26642decf32a28eff35622cf061cb9ab18cf8c0ec5ad446b4326a7da38ef2d9"
+    },
+    {
+      "file": "network-boundary.mjs",
+      "sha256": "a75385a5efdf3574de4285fd6055a37328f6b4f4fc7ad93658466291f98577f6"
+    },
+    {
+      "file": "worker-observer.js",
+      "sha256": "e01981483c84aec652c88bc40c54344391357b4fc0bb709f8e1cdf515b4ec7ae"
+    }
+  ],
+  "childPid": 27528,
+  "childStatus": 0,
+  "childSignal": null,
+  "error": null,
+  "cleanup": {
+    "command": "$ErrorActionPreference='Stop'; $profile='C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-sMCSq5'; function Owned { @(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | Where-Object { $_.CommandLine -and $_.CommandLine.Contains($profile) }) }; $before=@(Owned | Select-Object ProcessId,Name,CommandLine); foreach($p in @(Owned)){ $live=Get-Process -Id $p.ProcessId -ErrorAction SilentlyContinue; if($live -and -not $live.HasExited){Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue} }; $until=[DateTime]::UtcNow.AddSeconds(20); do { $remaining=@(Owned | Where-Object { $p=Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue; $p -and -not $p.HasExited }); if($remaining.Count -eq 0){break}; Start-Sleep -Milliseconds 250 } while([DateTime]::UtcNow -lt $until); @{before=$before;remaining=@($remaining | Select-Object ProcessId,Name,CommandLine)} | ConvertTo-Json -Depth 4 -Compress",
+    "exitCode": 0,
+    "stdout": "{\"before\":[],\"remaining\":[]}\r\n",
+    "stderr": "",
+    "verified": true
+  },
+  "elapsedMs": 23627,
+  "totalBudgetMet": true,
+  "observationPresent": true,
+  "outcome": "worker-attempt-observed",
+  "runCompleted": true,
+  "appAcceptance": false
+}

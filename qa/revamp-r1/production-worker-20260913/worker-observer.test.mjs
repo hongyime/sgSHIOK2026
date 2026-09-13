@@ -1,0 +1,15 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { runInNewContext } from 'node:vm';
+const source=readFileSync(new URL('./worker-observer.js',import.meta.url),'utf8');
+function setup(Worker,ExtraEventTarget=EventTarget){const window={Worker};runInNewContext(source,{window,EventTarget:ExtraEventTarget,performance:{now:()=>7}});return window;}
+test('native argument objects and results are unchanged',()=>{let received;class Worker extends EventTarget{constructor(...args){super();received=args;}}const w=setup(Worker),options={type:'module'},created=new w.Worker('',options);assert.ok(created instanceof Worker);assert.equal(received[0],'');assert.equal(received[1],options);assert.equal(w.__qaWorkerEvents[0].url,'');});
+test('observer does not inspect an options getter before native code',()=>{let gets=0;class Worker extends EventTarget{constructor(_,options){super();assert.equal(options.type,'module');}}const w=setup(Worker);new w.Worker('a',{get type(){gets++;return'module';}});assert.equal(gets,1);});
+test('URL objects are not stringified by the observer',()=>{const url={toString(){throw Error('observer must not coerce');}};class Worker extends EventTarget{constructor(value){super();assert.equal(value,url);}}const w=setup(Worker);new w.Worker(url);assert.equal(w.__qaWorkerEvents[0].url,null);});
+test('original thrown value survives hostile name/message accessors',()=>{const original={get name(){throw Error('wrong exception');},get message(){throw Error('wrong exception');}};function Worker(){throw original;}const w=setup(Worker);assert.throws(()=>new w.Worker(''),e=>e===original);assert.equal(w.__qaWorkerEvents[1].kind,'constructor-threw');});
+test('observer listener failure cannot replace a successful constructor',()=>{class Worker{}const w=setup(Worker);const result=new w.Worker('a');assert.ok(result instanceof Worker);assert.equal(w.__qaWorkerEvents.at(-1).kind,'observer-listener-failed');});
+test('native error events and their cancellation state are not suppressed',()=>{class Worker extends EventTarget{}const w=setup(Worker),worker=new w.Worker('a'),event=new Event('error',{cancelable:true});assert.equal(worker.dispatchEvent(event),true);assert.equal(event.defaultPrevented,false);assert.equal(w.__qaWorkerEvents.at(-1).kind,'error');worker.dispatchEvent(new Event('message'));assert.equal(w.__qaWorkerEvents.at(-1).kind,'first-message');});
+test('subclass newTarget and prototype survive the proxy',()=>{class Worker extends EventTarget{}const w=setup(Worker);class Sub extends w.Worker{}const worker=new Sub('a');assert.ok(worker instanceof Sub);assert.equal(Object.getPrototypeOf(worker),Sub.prototype);});
+test('a corrupted diagnostic sink cannot replace a native thrown error',()=>{const original=Error('native');function Worker(){throw original;}const w=setup(Worker);Object.freeze(w.__qaWorkerEvents);assert.throws(()=>new w.Worker('a'),e=>e===original);});
+test('diagnostic event storage is bounded',()=>{class Worker extends EventTarget{}const w=setup(Worker);for(let i=0;i<50;i++)new w.Worker('a');assert.equal(w.__qaWorkerEvents.length,40);});
