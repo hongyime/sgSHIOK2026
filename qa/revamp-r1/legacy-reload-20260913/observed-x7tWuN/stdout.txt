@@ -1,0 +1,9 @@
+{
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\legacy-reload-20260913\\observed-x7tWuN",
+  "ok": false,
+  "failure": "Error: current HTML contains current build identity\n    at check (file:///C:/sgSHIOK2026/qa/revamp-r1/legacy-reload-20260913/browser.mjs:21:89)\n    at file:///C:/sgSHIOK2026/qa/revamp-r1/legacy-reload-20260913/browser.mjs:91:3",
+  "checks": 6,
+  "passed": 5,
+  "cleanup": true,
+  "elapsedMs": 45595
+}

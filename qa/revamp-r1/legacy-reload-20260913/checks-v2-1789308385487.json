@@ -1,0 +1,30 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "--test",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\legacy-reload-20260913\\release-server-v2.test.mjs",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\legacy-reload-20260913\\navigation-proof.test.mjs"
+  ],
+  "sources": [
+    {
+      "path": "release-server-v2.mjs",
+      "sha256": "926164d9e5d0d30b5a65bdf7da0b2574aec700979f8dfd67b4b59ae9bdb995c1"
+    },
+    {
+      "path": "release-server-v2.test.mjs",
+      "sha256": "e61f3dc254649e3c57e2eb877d99d1501657a3844d3d702fef3df0cd151a1fde"
+    },
+    {
+      "path": "navigation-proof.mjs",
+      "sha256": "71b2fa5a10e210e31e9e0d7317b9978ecf9c0856239278915e95fe3a473d359d"
+    },
+    {
+      "path": "navigation-proof.test.mjs",
+      "sha256": "0780ab4a2a8070674b201d1eec38abac324d7d941b3a3fbbfd83c375be868add"
+    }
+  ],
+  "exitCode": 1,
+  "stdout": "✔ only navigation context destruction is retryable (23.831ms)\n✔ preserve original query/hash and permit only absent canonical bus default (19.5713ms)\n✔ bind a worker-served document to top frame, loader and exact requested URL (10.8531ms)\n✔ reject a different frame, loader, session, URL or missing request (6.9511ms)\n✔ reject ambiguous matching document responses (7.2055ms)\n✔ only required local frontend/data GET paths are admitted (22.2529ms)\n✔ response credentials are not forwarded (12.1133ms)\n✔ old captured bodies, genuine worker switch, current query and data read-only path (805.3731ms)\n✔ request bound stops admission (68.7044ms)\n✔ byte bound rejects captured body without sending it (70.1372ms)\n✖ discarded upstream bodies remain charged across failed requests (138.4991ms)\n✔ concurrent shutdown callers await the same socket and upstream closure (139.6385ms)\n✔ wall-triggered shutdown is awaitable by final cleanup (68.1925ms)\n✔ automatic lamp data uses only its known read-only prefix (3.6734ms)\nℹ tests 14\nℹ suites 0\nℹ pass 13\nℹ fail 1\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 3225.6236\n\n✖ failing tests:\n\ntest at qa\\revamp-r1\\legacy-reload-20260913\\release-server-v2.test.mjs:41:1\n✖ discarded upstream bodies remain charged across failed requests (138.4991ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  + actual - expected\n  \n  + 'bytes'\n  - 'received bytes'\n  \n      at TestContext.<anonymous> (file:///C:/sgSHIOK2026/qa/revamp-r1/legacy-reload-20260913/release-server-v2.test.mjs:53:34)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1389:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 'bytes',\n    expected: 'received bytes',\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n",
+  "stderr": "",
+  "elapsedMs": 4525
+}

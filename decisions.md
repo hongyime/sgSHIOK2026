@@ -4001,3 +4001,26 @@ to obtain a pass. Current acceptance covers metric reading, keyboard camera and
 Tab exit, not screen readers, real phones, same-document zoom changes or release
 approval.15new web tests, six diagnostic geometry tests and the bounded corrected
 browser support this narrow fix. No pipeline or deployment was authorized.
+
+## 2026-09-13: Captured-client reload evidence is still incomplete
+
+Use the actual captured production frontend and worker for returning-client
+acceptance, not a synthetic current worker on both sides. Begin without a postal
+query and let the old native search persist it before ordinary Reload. Bind the
+received Document to the top frame, loader, exact requested URL and body hash:
+an old worker can refetch root as a normal fetch, so Sec-Fetch-Dest alone is not
+an adequate identity check. Preserve existing query/hash and explicitly account
+for the current app's additional canonical transit=bus parameter.
+
+The first rehearsal visibly recovered the current route but failed its proof
+and a background command. The corrected, independently preflight-reviewed run
+timed out inspecting the old document after writing its screenshot, before
+switching release. Neither is a returning-client PASS. Keep both failures; no
+third replay or cache-policy change based on an unproven hardware/worker cause.
+Next diagnostic must identify each command and timeout boundary. Browser
+deadlines bound waiting; they do not establish why a renderer reply was late.
+
+Publish structured-redacted traces rather than third-party cookie/address
+headers. Keep raw hashes and record the redactions. Local request bounds are
+not browser-wide egress limits. These checks do not activate reporting,
+maintenance, regenerate saved walks or authorize deployment.

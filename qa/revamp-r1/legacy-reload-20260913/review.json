@@ -1,0 +1,24 @@
+{
+  "reviewer": "Heisenberg",
+  "agentId": "01a09af5-a3de-7ad1-a955-dba1275b9ea3",
+  "role": "Read-only source, harness and result review; no edits or runtime execution",
+  "preflightFindingsAddressed": [
+    "Charge failed upstream reads cumulatively; preserve the first limit reason.",
+    "Await one shared shutdown promise and verify final limits and live handles.",
+    "Reject oversized captured files before listening.",
+    "Bind reloaded Document to session, top frame, loader, exact URL and response body.",
+    "Preserve original query/hash; allow only the current app's newly canonicalized transit=bus.",
+    "Retry only transient navigation-context destruction; do not ignore command timeouts.",
+    "Include the exact read-only lamp data prefix and rendered lighting check.",
+    "Limit request claim to no local /api/ request observed, not browser-wide egress."
+  ],
+  "executionOrder": "First browser began before the initial peer hold arrived. It was not retrospectively cleared. Corrected browser waited for explicit clearance and matching 15/15 tests.",
+  "preflightClearance": "Cleared for one corrected bounded local browser run; not release acceptance. Reviewed driver400f29e557bc and runner80d940a8912c.",
+  "result": "Corrected rehearsal stopped during old-document observation; recovery acceptance not reached.",
+  "independentScreenshot": "corrected-OZc1mz/old-selected.png",
+  "imageFinding": "Old selected postal/details, Map loading and partially populated basemap. One image, zero completed screenshot brackets because its after-snapshot timed out.",
+  "established": "10-second CDP reply deadline expired during post-screenshot Runtime.evaluate. Fallback evaluation also timed out. releaseSwitches=0; no Reload, release switch or cache comparison. Supervisor67.806s exit1. Final server bounds/independent cleanup verified; Chrome terminal receipt unverified.",
+  "notEstablished": "Why Runtime.evaluate timed out; worker, hardware-only or current-product causation; returning-client acceptance.",
+  "next": "Command IDs, operation labels, session/context and response/timeout timestamps without sensitive payloads before another reviewed diagnostic.",
+  "publication": "Keep raw trace local and hashed; publish structured-redacted derivatives with redaction counts. Never combine two failed runs to manufacture a pass."
+}

@@ -6,7 +6,7 @@ Machine: Prawn-E14
 Startup: assert cwd equals C:\sgSHIOK2026; abort otherwise. Absolute C: writes only. X: cold mirror, never session root.
 Before git commands, set TEMP and TMP to C:\sgSHIOK2026\tmp so global hooks keep temporary scan files inside this root.
 
-Goal ACTIVE, not complete. Base06953fd pushed. Retry selection/map focus and clipped MRT/Bus focus ring fixed; independent source/browser review accepted narrowly. Parent committing/pushing this progress. No deployment.
+Goal ACTIVE, not complete. Current legacy-reload-20260913:15offline harness checks pass. First browser failed proof despite visible current route; corrected run failed old-page Runtime.evaluate before switch. No more browser retries this checkpoint, no release pass. Peer review read-only. No deployment.
 Only MRT/LRT exits and Bus stops, auto shortest usable saved walk, no comparison/About data. Lighting automatic and bounded.
 Server route/search now have one10s deadline including auth/retry/body, cancellation and late-token guards; browser12s remains.
 Public018956 diagnosis:61stop/exits=6saved+55unstored. Exit E saved-ID gap fixed; no new geometry or scores.
@@ -26,5 +26,5 @@ Monitor needs bootstrap/previous. New read-only inspector diagnoses unknown/obse
 postplan.html and PRODUCT-PLAN are current work lists; T08-T11/U02 comparison retired.
 T19full scan exceeds900s gate. No scoring/export/ingest/network/input repair or protected data/weights changes.
 Browser plugin bootstrap still fails os error3; owned Chrome/CDP fallback recorded. No peer-quota bypass.
-Current QA:selection-recovery-20260913/summary.json.167current/tested/built web files match,11anchors/weights unchanged; evidence appended5063over405838bytes exactly. Prior production-worker diagnosis33tests remains bounded; next release work is honest old-client failure/reload to current build, not repeating the proved emptyWorker failure.
+Current QA:legacy-reload-20260913/summary.json; retained selection-recovery-20260913/summary.json. Current app unchanged. Old-client receipt distinguishes actual root fetch through oldSW from browser Document identity. Next: command-specific timeout telemetry before any further replay; old-page cause unresolved, not a hardware-only claim. No silent repeat-to-green.
 No installs, external activation or deployment. Absolute writes, exact staging, conventional commits and push main; never amend/force.

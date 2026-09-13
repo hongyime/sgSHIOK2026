@@ -1,0 +1,358 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "Prawn-E14",
+  "base": "88e7ae5ca7761cf1e1219f859fd2a88e9fc97ad4",
+  "createdAt": "2026-09-13T14:29:48.957Z",
+  "goal": "ACTIVE",
+  "productSourceChanges": 0,
+  "browserAcceptance": false,
+  "tests": {
+    "harness": 15,
+    "publication": 2,
+    "arithmetic": "15+2=17 final offline diagnostics; earlier5/5,13/14and14/14 retained separately",
+    "retainedWeb": {
+      "tests": 1945,
+      "files": 72,
+      "dependencyGuards": 42,
+      "rerun": false,
+      "receipt": "qa/revamp-r1/selection-recovery-20260913/checks-lnq1fY/result.json"
+    },
+    "retainedPython": {
+      "tests": 1012,
+      "files": 12,
+      "rerun": false
+    },
+    "typesExit": 0,
+    "integrityExit": 0
+  },
+  "build": {
+    "buildId": "l7V5uOArXwdDrUIe3Wc2s",
+    "sources": 167,
+    "currentTestAndBuildMatch": true,
+    "deploymentIdentityVerified": false
+  },
+  "browsers": [
+    {
+      "directory": "observed-x7tWuN",
+      "ok": false,
+      "phase": "current",
+      "failure": "Error: current HTML contains current build identity\n    at check (file:///C:/sgSHIOK2026/qa/revamp-r1/legacy-reload-20260913/browser.mjs:21:89)\n    at file:///C:/sgSHIOK2026/qa/revamp-r1/legacy-reload-20260913/browser.mjs:91:3",
+      "checks": 6,
+      "passed": 5,
+      "releaseSwitches": 1,
+      "driverMs": 45595,
+      "supervisorMs": 52222,
+      "cleanup": true,
+      "chromeTerminal": {
+        "code": 0,
+        "signal": null
+      },
+      "finalBoundsClear": null,
+      "captures": [
+        {
+          "path": "observed-x7tWuN/failure.png",
+          "bytes": 381113,
+          "sha256": "7952168eb3b6bcac9f947ac272fbc5e98dd2214dbd7b1965a88fdca00e12c7c3",
+          "parentInspected": true,
+          "peerInspected": false,
+          "completedBracket": true
+        },
+        {
+          "path": "observed-x7tWuN/old-selected.png",
+          "bytes": 49293,
+          "sha256": "3c996ba4fd418b5542f760c4d715f9effa82be7ee6994a41c3be66d632151b9c",
+          "parentInspected": true,
+          "peerInspected": false,
+          "completedBracket": true
+        }
+      ],
+      "rawIdentity": {
+        "bytes": 5931578,
+        "sha256": "0cc82ca696f2577e619e8e15baaf4aa1074b362d6be628d87070a55a2332e8cd",
+        "published": false,
+        "reason": "Third-party cookie/address headers; original stays local untracked"
+      },
+      "publicIdentity": {
+        "file": "browser.public.json.gz",
+        "bytes": 4427923,
+        "sha256": "5d751670d40be69c4f020f6c259b9076a8d46c4d0136786462196095d4bc4311",
+        "compressedBytes": 195823,
+        "compressedSha256": "3cb2d5ab5f3eab0b75f31d7abf91aa4320a5bd6cbaea61846ac67a70281b8458",
+        "redactions": {
+          "header:upgrade-insecure-requests": 3,
+          "header:user-agent": 844,
+          "header:sec-ch-ua": 835,
+          "header:sec-ch-ua-mobile": 835,
+          "header:sec-ch-ua-platform": 835,
+          "associatedCookies": 322,
+          "header:accept": 782,
+          "header:accept-encoding": 322,
+          "header:accept-language": 322,
+          "header:connection": 192,
+          "header:host": 51,
+          "header:sec-fetch-dest": 322,
+          "header:sec-fetch-mode": 322,
+          "header:sec-fetch-site": 322,
+          "header:sec-fetch-user": 1,
+          "blockedCookies": 322,
+          "header:keep-alive": 141,
+          "header:content-security-policy": 781,
+          "header:referrer-policy": 781,
+          "header:x-content-type-options": 781,
+          "headersText": 51,
+          "cookiePartitionKey": 322,
+          "exemptedCookies": 322,
+          "remoteIPAddress": 480,
+          "header:referer": 842,
+          "header:origin": 291,
+          "header::authority": 271,
+          "header::method": 271,
+          "header::path": 271,
+          "header::scheme": 271,
+          "header:priority": 271,
+          "header:sec-fetch-storage-access": 1,
+          "header:accept-ranges": 694,
+          "header:access-control-allow-headers": 694,
+          "header:access-control-allow-methods": 694,
+          "header:access-control-allow-origin": 694,
+          "header:expires": 3,
+          "header:last-modified": 694,
+          "header:set-cookie": 271,
+          "header:strict-transport-security": 543,
+          "header:surrogate-control": 3,
+          "header:vary": 3,
+          "header:x-cache-status": 694,
+          "header:x-content-security-policy": 3,
+          "header:x-frame-options": 694,
+          "header:x-remote-addr": 694
+        }
+      }
+    },
+    {
+      "directory": "corrected-OZc1mz",
+      "ok": false,
+      "phase": "old",
+      "failure": "Error: Runtime.evaluate timeout\n    at Timeout._onTimeout (file:///C:/sgSHIOK2026/qa/revamp-r1/legacy-reload-20260913/browser-v2.mjs:25:67)\n    at listOnTimeout (node:internal/timers:635:17)\n    at process.processTimers (node:internal/timers:571:7)",
+      "failureCaptureError": "Runtime.evaluate timeout",
+      "checks": 5,
+      "passed": 5,
+      "releaseSwitches": 0,
+      "driverMs": 63711,
+      "supervisorMs": 67806,
+      "cleanup": true,
+      "chromeTerminal": {
+        "unverified": true
+      },
+      "finalBoundsClear": true,
+      "captures": [
+        {
+          "path": "corrected-OZc1mz/old-selected.png",
+          "bytes": 227208,
+          "sha256": "d83d1217f62cf2f2a1d6afd3233d71f705a9fa819c4ebeb26e08bf8bc77781b5",
+          "parentInspected": true,
+          "peerInspected": true,
+          "completedBracket": false
+        }
+      ],
+      "rawIdentity": {
+        "bytes": 3346245,
+        "sha256": "5d58a26042b446abe258803650583ea490955c60a0c949630187a2725113f3d1",
+        "published": false,
+        "reason": "Third-party cookie/address headers; original stays local untracked"
+      },
+      "publicIdentity": {
+        "file": "browser.public.json.gz",
+        "bytes": 2389105,
+        "sha256": "a9eabdc8d4882f4781fccb91df474a64f4d7ca9ba38d5b253c99ac9808948e5b",
+        "compressedBytes": 110672,
+        "compressedSha256": "ec3d7f02e8ab2f4b706e0a26e28b364c8faa621e88c8d85a56bab1194c033699",
+        "redactions": {
+          "header:upgrade-insecure-requests": 2,
+          "header:user-agent": 508,
+          "header:sec-ch-ua": 508,
+          "header:sec-ch-ua-mobile": 508,
+          "header:sec-ch-ua-platform": 508,
+          "associatedCookies": 242,
+          "header:accept": 478,
+          "header:accept-encoding": 242,
+          "header:accept-language": 242,
+          "header:connection": 68,
+          "header:host": 19,
+          "header:sec-fetch-dest": 242,
+          "header:sec-fetch-mode": 242,
+          "header:sec-fetch-site": 242,
+          "header:sec-fetch-user": 1,
+          "blockedCookies": 240,
+          "header:keep-alive": 49,
+          "header:content-security-policy": 472,
+          "header:referrer-policy": 472,
+          "header:x-content-type-options": 472,
+          "headersText": 19,
+          "cookiePartitionKey": 240,
+          "exemptedCookies": 240,
+          "remoteIPAddress": 239,
+          "header:referer": 506,
+          "header:origin": 228,
+          "header::authority": 223,
+          "header::method": 223,
+          "header::path": 223,
+          "header::scheme": 223,
+          "header:priority": 223,
+          "header:sec-fetch-storage-access": 1,
+          "header:accept-ranges": 441,
+          "header:access-control-allow-headers": 441,
+          "header:access-control-allow-methods": 441,
+          "header:access-control-allow-origin": 441,
+          "header:expires": 2,
+          "header:last-modified": 441,
+          "header:set-cookie": 221,
+          "header:strict-transport-security": 441,
+          "header:surrogate-control": 2,
+          "header:vary": 2,
+          "header:x-cache-status": 441,
+          "header:x-content-security-policy": 2,
+          "header:x-frame-options": 441,
+          "header:x-remote-addr": 441
+        }
+      }
+    }
+  ],
+  "browserArithmetic": "52.222+67.806=120.028 supervisor seconds;2+1=3 images; no accepted browser",
+  "evidence": {
+    "path": "qa/verification/REVAMP-R1-core-walk.md",
+    "previousBytes": 410901,
+    "previousSha256": "d960e21409b0e900ec608cc84ad240d13f9ae1a12410f425fc2068d9f3bbd9e7",
+    "bytes": 415052,
+    "addedBytes": 4151,
+    "exactPrefix": true
+  },
+  "anchors": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "bytes": 13626
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "bytes": 1751005
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "bytes": 5240179
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "bytes": 5236013
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "bytes": 39674
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "bytes": 3538342
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "bytes": 184
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "bytes": 269
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "bytes": 1189
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "bytes": 145327
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "bytes": 515583
+    }
+  ],
+  "weightSha256": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+  "preview": {
+    "buildId": "l7V5uOArXwdDrUIe3Wc2s",
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\selection-recovery-20260913-build-2",
+    "pid": 37188,
+    "dataPort": 4340,
+    "nextPort": 4419,
+    "proxyPort": 4420,
+    "readOnlyData": true,
+    "allowedApi": "GET /api/onemap-route and /api/onemap-search",
+    "oneMapCredentialsConfigured": true,
+    "nextPid": 5816
+  },
+  "taskBoard": {
+    "url": "http://127.0.0.1:4420/postplan.html",
+    "sha256": "a463192258c66a860db65d7a57ebc9897ea541b9ce93e4a46a7582ac2a663791"
+  },
+  "review": {
+    "reviewer": "Heisenberg",
+    "agentId": "01a09af5-a3de-7ad1-a955-dba1275b9ea3",
+    "role": "Read-only source, harness and result review; no edits or runtime execution",
+    "preflightFindingsAddressed": [
+      "Charge failed upstream reads cumulatively; preserve the first limit reason.",
+      "Await one shared shutdown promise and verify final limits and live handles.",
+      "Reject oversized captured files before listening.",
+      "Bind reloaded Document to session, top frame, loader, exact URL and response body.",
+      "Preserve original query/hash; allow only the current app's newly canonicalized transit=bus.",
+      "Retry only transient navigation-context destruction; do not ignore command timeouts.",
+      "Include the exact read-only lamp data prefix and rendered lighting check.",
+      "Limit request claim to no local /api/ request observed, not browser-wide egress."
+    ],
+    "executionOrder": "First browser began before the initial peer hold arrived. It was not retrospectively cleared. Corrected browser waited for explicit clearance and matching 15/15 tests.",
+    "preflightClearance": "Cleared for one corrected bounded local browser run; not release acceptance. Reviewed driver400f29e557bc and runner80d940a8912c.",
+    "result": "Corrected rehearsal stopped during old-document observation; recovery acceptance not reached.",
+    "independentScreenshot": "corrected-OZc1mz/old-selected.png",
+    "imageFinding": "Old selected postal/details, Map loading and partially populated basemap. One image, zero completed screenshot brackets because its after-snapshot timed out.",
+    "established": "10-second CDP reply deadline expired during post-screenshot Runtime.evaluate. Fallback evaluation also timed out. releaseSwitches=0; no Reload, release switch or cache comparison. Supervisor67.806s exit1. Final server bounds/independent cleanup verified; Chrome terminal receipt unverified.",
+    "notEstablished": "Why Runtime.evaluate timed out; worker, hardware-only or current-product causation; returning-client acceptance.",
+    "next": "Command IDs, operation labels, session/context and response/timeout timestamps without sensitive payloads before another reviewed diagnostic.",
+    "publication": "Keep raw trace local and hashed; publish structured-redacted derivatives with redaction counts. Never combine two failed runs to manufacture a pass."
+  },
+  "method": {
+    "scope": "Actual captured production HTML/application/service worker on a bounded local origin, then current verified preview; no deployment or pipeline.",
+    "oldBuild": "UzVn3WiWA2GW7dtvN27rN",
+    "currentBuild": "l7V5uOArXwdDrUIe3Wc2s",
+    "oldSource": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168",
+    "actions": "Start without postal. Native search018956. Verify old worker controls page. One ordinary Reload after internal release switch, same origin/profile, no cache clearing/worker bypass/forced update/postal reentry.",
+    "firstAttempt": "Failed receipt filter required Sec-Fetch-Dest document, but the old worker refetched root as a normal fetch. Visible new route is an observation, not completed exact-body/controller/cache-preservation proof. Background Runtime.enable timeout is uncorrelated and not ignored.",
+    "v2Fixes": "Navigation body/frame/loader binding, narrow transient context retry, query/hash preservation with canonical bus addition, automatic lamp prefix and rendered counts, no background worker-domain enabling, cumulative failed-read limits and drained shared shutdown.",
+    "v2Outcome": "Post-screenshot old-page observation timed out before flip. No recovery conclusion. No third attempt.",
+    "bounds": "600 local requests;128MiB cumulatively charged bodies;8MiB per captured/upstream file;10s upstream/CDP deadlines;170s local server;180s browser work;240s child;300s supervisor including cleanup. Streaming byte limits can overshoot by delivered chunk, not a NIC-hard-cap claim.",
+    "networkScope": "Read-only current local frontend/published score/lamp paths only through fixture; /api blocked. Normal OneMap basemap traffic remains external. Page+SW lifecycle events and local HTTP receipts, not complete worker transfers or browser-wide egress isolation.",
+    "browserLimitation": "Owned Chrome/CDP fallback because browser plugin bootstrap failed os error3 earlier; no Playwright or physical-phone claim.",
+    "testHistory": "Initial server5/5. First v2 run13/14; cumulative budget counted correctly but later generic limit overwrote first cause. red-budget-server preserves pre-fix bytes.14/14 after first-reason fix;15/15 after captured-file guard.2publication tests added separately.",
+    "inspection": "Parent directly viewed all3saved PNGs. Corrected old-selected was written but has no completed before/after bracket. Current-route screenshot belongs only to failed first attempt.",
+    "privacy": "Raw CDP includes third-party cookies/address headers. Keep raw local, do not stage. Structured-publication removes nonallowlisted headers, cookie material, raw header text, remote addresses and request bodies; preserve binding fields, public URLs and hashes.",
+    "remaining": "Real report store/moderation/account/privacy decision; scheduler destination/account/operator action; T19 full coverage budget; physical-phone/screen-reader/same-document zoom; actual release retention/returning-client acceptance and explicit deploy approval. Local tests do not activate services."
+  },
+  "findings": [
+    "Actual old search persists postal; old worker navigation root fetch requires browser Document identity proof, not backend destination metadata.",
+    "Two failed browser attempts remain distinct. Corrected old-document observation stopped before release switch. No returning-client PASS.",
+    "Review repaired harness budget, shutdown, capture and document-binding defects; current app code unchanged.",
+    "Real reporting, maintenance activation, expanded coverage, device and exact-release approval remain open; goal ACTIVE."
+  ],
+  "disagreements": [
+    "Runtime.evaluate timeout does not identify a worker or hardware-only root cause.",
+    "Local tests and partial screenshots do not complete services or authorize deployment."
+  ],
+  "pipelineRuns": 0,
+  "pipelineSeconds": 0,
+  "installations": 0,
+  "deployments": 0
+}

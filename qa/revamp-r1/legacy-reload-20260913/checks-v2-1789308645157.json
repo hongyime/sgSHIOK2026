@@ -1,0 +1,30 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "--test",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\legacy-reload-20260913\\release-server-v2.test.mjs",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\legacy-reload-20260913\\navigation-proof.test.mjs"
+  ],
+  "sources": [
+    {
+      "path": "release-server-v2.mjs",
+      "sha256": "bef9ced21074d9ae5704833397e4ec14585b0983f6305bbac03ec70300dd82a1"
+    },
+    {
+      "path": "release-server-v2.test.mjs",
+      "sha256": "e61f3dc254649e3c57e2eb877d99d1501657a3844d3d702fef3df0cd151a1fde"
+    },
+    {
+      "path": "navigation-proof.mjs",
+      "sha256": "71b2fa5a10e210e31e9e0d7317b9978ecf9c0856239278915e95fe3a473d359d"
+    },
+    {
+      "path": "navigation-proof.test.mjs",
+      "sha256": "0780ab4a2a8070674b201d1eec38abac324d7d941b3a3fbbfd83c375be868add"
+    }
+  ],
+  "exitCode": 0,
+  "stdout": "✔ only navigation context destruction is retryable (5.6237ms)\n✔ preserve original query/hash and permit only absent canonical bus default (4.8271ms)\n✔ bind a worker-served document to top frame, loader and exact requested URL (1.3397ms)\n✔ reject a different frame, loader, session, URL or missing request (3.2287ms)\n✔ reject ambiguous matching document responses (0.9977ms)\n✔ only required local frontend/data GET paths are admitted (5.7217ms)\n✔ response credentials are not forwarded (3ms)\n✔ old captured bodies, genuine worker switch, current query and data read-only path (299.5993ms)\n✔ request bound stops admission (36.4146ms)\n✔ byte bound rejects captured body without sending it (13.704ms)\n✔ discarded upstream bodies remain charged across failed requests (64.781ms)\n✔ concurrent shutdown callers await the same socket and upstream closure (20.222ms)\n✔ wall-triggered shutdown is awaitable by final cleanup (54.4864ms)\n✔ automatic lamp data uses only its known read-only prefix (0.6055ms)\nℹ tests 14\nℹ suites 0\nℹ pass 14\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 968.6145\n",
+  "stderr": "",
+  "elapsedMs": 1245
+}

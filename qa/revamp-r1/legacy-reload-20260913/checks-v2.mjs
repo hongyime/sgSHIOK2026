@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import { readFileSync,writeFileSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
+import { resolve } from 'node:path';
+import { createHash } from 'node:crypto';
+const root='C:\\sgSHIOK2026';assert.equal(process.cwd(),root);const dir=resolve(root,'qa/revamp-r1/legacy-reload-20260913');
+const names=['release-server-v2.mjs','release-server-v2.test.mjs','navigation-proof.mjs','navigation-proof.test.mjs'];
+const sources=names.map(path=>({path,sha256:createHash('sha256').update(readFileSync(resolve(dir,path))).digest('hex')}));
+const command=[process.execPath,'--test',resolve(dir,'release-server-v2.test.mjs'),resolve(dir,'navigation-proof.test.mjs')],started=Date.now();
+const result=spawnSync(command[0],command.slice(1),{cwd:root,windowsHide:true,encoding:'utf8',timeout:60000,env:{...process.env,TEMP:resolve(root,'tmp'),TMP:resolve(root,'tmp')}});
+const report={command,sources,exitCode:result.status,stdout:result.stdout,stderr:result.stderr,error:result.error?.message,elapsedMs:Date.now()-started};
+writeFileSync(resolve(dir,'checks-v2-'+Date.now()+'.json'),JSON.stringify(report,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify(report,null,2));process.exitCode=result.status??1;

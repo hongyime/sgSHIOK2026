@@ -1,0 +1,1284 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "startedAt": "2026-09-13T13:53:32.437Z",
+  "checks": [
+    {
+      "name": "host memory gate",
+      "pass": true,
+      "detail": 2103.046875
+    },
+    {
+      "name": "old real HTML body served",
+      "pass": true
+    },
+    {
+      "name": "native clickable #postal-search-input",
+      "pass": true,
+      "detail": {
+        "x": 158,
+        "y": 160.9375,
+        "width": 280,
+        "height": 42,
+        "hit": true,
+        "disabled": false
+      }
+    },
+    {
+      "name": "native clickable #postal-search-button",
+      "pass": true,
+      "detail": {
+        "x": 342,
+        "y": 160.9375,
+        "width": 72,
+        "height": 42,
+        "hit": true,
+        "disabled": false
+      }
+    },
+    {
+      "name": "old controller script identity received",
+      "pass": true
+    },
+    {
+      "name": "current HTML contains current build identity",
+      "pass": false
+    }
+  ],
+  "captures": [
+    {
+      "name": "old-selected",
+      "bytes": 49293,
+      "sha256": "3c996ba4fd418b5542f760c4d715f9effa82be7ee6994a41c3be66d632151b9c",
+      "before": {
+        "url": "http://127.0.0.1:53959/?debugMap=1&postal=018956",
+        "timeOrigin": 1789307625174.3,
+        "title": "S.H.I.O.K. Shelter Map",
+        "input": "018956",
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nS.H.I.O.K. Shelter Map\n\nCheck how sheltered the walk to transit feels before you pick a place.\n\nNight lighting\nSearch\n\nMap loading\n\nAbout the data\n\nPostal 018956 shelter-map panel ready. Bayfront Stn Exit B/Mbs. Shelter-map walk evidence 55% covered-walkway ratio; 37 m exposed across 2 gaps; longest gap 20 m. Locked score for sorting 82 out of 100. Published shelter-map walk selected. Walk display sheltered walk; Sheltered walk active.\n\nPostal 018956\n\nBayfront Stn Exit B/Mbs\n\nLOCKED SCORE FOR SORTING\n82/100\n⋯\nPublished walk\ndisplayed walk\nMRT/LRT exits\npublished walk\nBus stops\npublished walk\nWHERE THE WALK IS EXPOSED\n55% covered-walkway ratio on the sheltered walk.\n\n37 m exposed across 2 gaps; 20 m is the longest exposed gap.\n\nSheltered walk\nShortest walk (same)\nExposed gaps\nHDB void-deck shelter\nBridge/underpass shelter\nMRT/LRT\nBus stop\nLTA covered linkway 45 m\nPostal access walk 16 m\nStop/exit access walk 11 m\nExposed 9 m\nSheltered walk\n81 m\nCovered-walkway ratio\n55%\nExtra walk\n0 m\n81 m sheltered walk to transit stop or exit\n55% covered-walkway ratio on sheltered walk\nShelter-map evidence and locked score\nFour display rows; weights unchanged\nShelter exposure\nIn this locked release, shelter exposure and the heat estimate share mostly the same covered-walkway evidence.\nHeat also includes sparse nearby greenery, so SHIOK shows covered-walkway ratio first.\nSame displayed value as shelter exposure for this postal.\nHeat estimate evidence: covered 45 m; nearby greenery 0 m.\n55%\nCovered-walkway ratio\nWalk to stop or exit\nSheltered walk distance to transit stop or exit.\n81 m\n35% locked stop/exit walk\nBus service support\nA low value can mean weak service evidence, or that the published shelter-map walk does not show access to an official LTA bus stop.\n100\n20% locked bus support\nLocked SHIOK score\nStart with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map data.\nCrossing friction still contributes 5% to the locked score, but has low separation in this release.\n82/100\nLocked score for sorting\nCompare nearby addresses\nNearby address comparison loads only when opened.\nShow comparison\nShortest same as sheltered walk.\nNearby greenery\n0%\nAccess link\n27 m\nNearby greenery uses sparse NParks walk-adjacent geometry for heat only; it is not measured temperature or Leaf Area Index.\nAccess link is the short walk from the postal or transit point onto the shelter-map walk.\nExposed gaps on sheltered walk\n\n37 m exposed across 2 gaps on the sheltered walk.\nAll listed exposed gaps are shown.\n2 of 2 exposed gaps include map coordinates.\n\nReport missing shelter\n20 m\nLongest short exposed stretch\nMap coordinate 1.28314, 103.86011\nFocus on map\n16 m\nGap 2 short exposed stretch\nMap coordinate 1.28269, 103.85998\nFocus on map",
+        "canvasCount": 1,
+        "ready": "complete",
+        "controller": {
+          "scriptURL": "http://127.0.0.1:53959/sw.js",
+          "state": "activated"
+        }
+      },
+      "after": {
+        "url": "http://127.0.0.1:53959/?debugMap=1&postal=018956",
+        "timeOrigin": 1789307625174.3,
+        "title": "S.H.I.O.K. Shelter Map",
+        "input": "018956",
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nS.H.I.O.K. Shelter Map\n\nCheck how sheltered the walk to transit feels before you pick a place.\n\nNight lighting\nSearch\n\nMap loading\n\nAbout the data\n\nPostal 018956 shelter-map panel ready. Bayfront Stn Exit B/Mbs. Shelter-map walk evidence 55% covered-walkway ratio; 37 m exposed across 2 gaps; longest gap 20 m. Locked score for sorting 82 out of 100. Published shelter-map walk selected. Walk display sheltered walk; Sheltered walk active.\n\nPostal 018956\n\nBayfront Stn Exit B/Mbs\n\nLOCKED SCORE FOR SORTING\n82/100\n⋯\nPublished walk\ndisplayed walk\nMRT/LRT exits\npublished walk\nBus stops\npublished walk\nWHERE THE WALK IS EXPOSED\n55% covered-walkway ratio on the sheltered walk.\n\n37 m exposed across 2 gaps; 20 m is the longest exposed gap.\n\nSheltered walk\nShortest walk (same)\nExposed gaps\nHDB void-deck shelter\nBridge/underpass shelter\nMRT/LRT\nBus stop\nLTA covered linkway 45 m\nPostal access walk 16 m\nStop/exit access walk 11 m\nExposed 9 m\nSheltered walk\n81 m\nCovered-walkway ratio\n55%\nExtra walk\n0 m\n81 m sheltered walk to transit stop or exit\n55% covered-walkway ratio on sheltered walk\nShelter-map evidence and locked score\nFour display rows; weights unchanged\nShelter exposure\nIn this locked release, shelter exposure and the heat estimate share mostly the same covered-walkway evidence.\nHeat also includes sparse nearby greenery, so SHIOK shows covered-walkway ratio first.\nSame displayed value as shelter exposure for this postal.\nHeat estimate evidence: covered 45 m; nearby greenery 0 m.\n55%\nCovered-walkway ratio\nWalk to stop or exit\nSheltered walk distance to transit stop or exit.\n81 m\n35% locked stop/exit walk\nBus service support\nA low value can mean weak service evidence, or that the published shelter-map walk does not show access to an official LTA bus stop.\n100\n20% locked bus support\nLocked SHIOK score\nStart with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map data.\nCrossing friction still contributes 5% to the locked score, but has low separation in this release.\n82/100\nLocked score for sorting\nCompare nearby addresses\nNearby address comparison loads only when opened.\nShow comparison\nShortest same as sheltered walk.\nNearby greenery\n0%\nAccess link\n27 m\nNearby greenery uses sparse NParks walk-adjacent geometry for heat only; it is not measured temperature or Leaf Area Index.\nAccess link is the short walk from the postal or transit point onto the shelter-map walk.\nExposed gaps on sheltered walk\n\n37 m exposed across 2 gaps on the sheltered walk.\nAll listed exposed gaps are shown.\n2 of 2 exposed gaps include map coordinates.\n\nReport missing shelter\n20 m\nLongest short exposed stretch\nMap coordinate 1.28314, 103.86011\nFocus on map\n16 m\nGap 2 short exposed stretch\nMap coordinate 1.28269, 103.85998\nFocus on map",
+        "canvasCount": 1,
+        "ready": "complete",
+        "controller": {
+          "scriptURL": "http://127.0.0.1:53959/sw.js",
+          "state": "activated"
+        }
+      }
+    },
+    {
+      "name": "failure",
+      "bytes": 381113,
+      "sha256": "7952168eb3b6bcac9f947ac272fbc5e98dd2214dbd7b1965a88fdca00e12c7c3",
+      "before": {
+        "url": "http://127.0.0.1:53959/?debugMap=1&postal=018956&transit=bus",
+        "timeOrigin": 1789307644482.1,
+        "title": "S.H.I.O.K. Shelter Map",
+        "input": "018956",
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nLamp-post points are unavailable for this map view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. Lamp-post points are unavailable for this map view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "canvasCount": 1,
+        "ready": "complete",
+        "controller": {
+          "scriptURL": "http://127.0.0.1:53959/sw.js",
+          "state": "activated"
+        }
+      },
+      "after": {
+        "url": "http://127.0.0.1:53959/?debugMap=1&postal=018956&transit=bus",
+        "timeOrigin": 1789307644482.1,
+        "title": "S.H.I.O.K. Shelter Map",
+        "input": "018956",
+        "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nLamp-post points are unavailable for this map view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. Lamp-post points are unavailable for this map view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+        "canvasCount": 1,
+        "ready": "complete",
+        "controller": {
+          "scriptURL": "http://127.0.0.1:53959/sw.js",
+          "state": "activated"
+        }
+      }
+    }
+  ],
+  "errors": [
+    {
+      "phase": "reload",
+      "message": "Runtime.enable timeout"
+    }
+  ],
+  "phase": "current",
+  "scope": "Actual captured old frontend/controller to current local frontend on the same origin/profile with one ordinary Reload. No cache clearing, forced worker update, bypass or postal reentry. Not deployment, performance, all-route or physical-device acceptance.",
+  "availableMiB": 2103.046875,
+  "anchorsBefore": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "bytes": 13626
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "bytes": 1751005
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "bytes": 5240179
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "bytes": 5236013
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "bytes": 39674
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "bytes": 3538342
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "bytes": 184
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "bytes": 269
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "bytes": 1189
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "bytes": 145327
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "bytes": 515583
+    }
+  ],
+  "preview": {
+    "buildId": "l7V5uOArXwdDrUIe3Wc2s",
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\selection-recovery-20260913-build-2",
+    "pid": 37188,
+    "dataPort": 4340,
+    "nextPort": 4419,
+    "proxyPort": 4420,
+    "readOnlyData": true,
+    "allowedApi": "GET /api/onemap-route and /api/onemap-search",
+    "oneMapCredentialsConfigured": true,
+    "nextPid": 5816
+  },
+  "oldBuild": "UzVn3WiWA2GW7dtvN27rN",
+  "oldHtmlSha256": "047fd04d4176fd3afa15c224d94312f048dda52561ab3e21e1386321be10f636",
+  "oldWorkerSha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+  "currentWorkerSha256": "88e523a5d8b4f8dec18b0a741dfae056674552de9e0f5b67d96a82fd554500a4",
+  "origin": "http://127.0.0.1:53959",
+  "chromePid": 2520,
+  "last": {
+    "name": "current basemap and selected rendered route",
+    "value": {
+      "status": "ready",
+      "routeKey": "2:shiokest:primary",
+      "count": 4,
+      "keys": [
+        "2:shiokest:primary"
+      ],
+      "basemap": true,
+      "tiles": true,
+      "moving": false,
+      "geometry": [
+        {
+          "type": "LineString",
+          "coordinates": [
+            [
+              103.86003,
+              1.28264
+            ],
+            [
+              103.85992,
+              1.28274
+            ]
+          ]
+        },
+        {
+          "type": "LineString",
+          "coordinates": [
+            [
+              103.85992,
+              1.28274
+            ],
+            [
+              103.86008,
+              1.28297
+            ],
+            [
+              103.86014,
+              1.28308
+            ]
+          ]
+        },
+        {
+          "type": "LineString",
+          "coordinates": [
+            [
+              103.86014,
+              1.28308
+            ],
+            [
+              103.86014,
+              1.28316
+            ]
+          ]
+        },
+        {
+          "type": "LineString",
+          "coordinates": [
+            [
+              103.86014,
+              1.28316
+            ],
+            [
+              103.86004,
+              1.28315
+            ]
+          ]
+        }
+      ],
+      "url": "http://127.0.0.1:53959/?debugMap=1&postal=018956&transit=bus"
+    }
+  },
+  "oldSelection": {
+    "url": "http://127.0.0.1:53959/?debugMap=1&postal=018956",
+    "timeOrigin": 1789307625174.3,
+    "title": "S.H.I.O.K. Shelter Map",
+    "input": "018956",
+    "text": "S.H.I.O.K. Shelter Map\n\nCheck how sheltered the walk to transit feels before you pick a place.\n\nNight lighting\nSearch\n\nMap waiting\n\nAbout the data\n\nPostal 018956 shelter-map panel ready. Bayfront Stn Exit B/Mbs. Shelter-map walk evidence 55% covered-walkway ratio; 37 m exposed across 2 gaps; longest gap 20 m. Locked score for sorting 82 out of 100. Published shelter-map walk selected. Walk display sheltered walk; Sheltered walk active.\n\nPostal 018956\n\nBayfront Stn Exit B/Mbs\n\nLOCKED SCORE FOR SORTING\n82/100\n⋯\nPublished walk\ndisplayed walk\nMRT/LRT exits\npublished walk\nBus stops\npublished walk\nWHERE THE WALK IS EXPOSED\n55% covered-walkway ratio on the sheltered walk.\n\n37 m exposed across 2 gaps; 20 m is the longest exposed gap.\n\nSheltered walk\nShortest walk (same)\nExposed gaps\nHDB void-deck shelter\nBridge/underpass shelter\nMRT/LRT\nBus stop\nLTA covered linkway 45 m\nPostal access walk 16 m\nStop/exit access walk 11 m\nExposed 9 m\nSheltered walk\n81 m\nCovered-walkway ratio\n55%\nExtra walk\n0 m\n81 m sheltered walk to transit stop or exit\n55% covered-walkway ratio on sheltered walk\nShelter-map evidence and locked score\nFour display rows; weights unchanged\nShelter exposure\nIn this locked release, shelter exposure and the heat estimate share mostly the same covered-walkway evidence.\nHeat also includes sparse nearby greenery, so SHIOK shows covered-walkway ratio first.\nSame displayed value as shelter exposure for this postal.\nHeat estimate evidence: covered 45 m; nearby greenery 0 m.\n55%\nCovered-walkway ratio\nWalk to stop or exit\nSheltered walk distance to transit stop or exit.\n81 m\n35% locked stop/exit walk\nBus service support\nA low value can mean weak service evidence, or that the published shelter-map walk does not show access to an official LTA bus stop.\n100\n20% locked bus support\nLocked SHIOK score\nStart with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map data.\nCrossing friction still contributes 5% to the locked score, but has low separation in this release.\n82/100\nLocked score for sorting\nCompare nearby addresses\nNearby address comparison loads only when opened.\nShow comparison\nShortest same as sheltered walk.\nNearby greenery\n0%\nAccess link\n27 m\nNearby greenery uses sparse NParks walk-adjacent geometry for heat only; it is not measured temperature or Leaf Area Index.\nAccess link is the short walk from the postal or transit point onto the shelter-map walk.\nExposed gaps on sheltered walk\n\n37 m exposed across 2 gaps on the sheltered walk.\nAll listed exposed gaps are shown.\n2 of 2 exposed gaps include map coordinates.\n\nReport missing shelter\n20 m\nLongest short exposed stretch\nMap coordinate 1.28314, 103.86011\nFocus on map\n16 m\nGap 2 short exposed stretch\nMap coordinate 1.28269, 103.85998\nFocus on map",
+    "canvasCount": 0,
+    "ready": "complete",
+    "controller": {
+      "scriptURL": "http://127.0.0.1:53959/sw.js",
+      "state": "activated"
+    }
+  },
+  "oldControlled": {
+    "url": "http://127.0.0.1:53959/?debugMap=1&postal=018956",
+    "timeOrigin": 1789307625174.3,
+    "title": "S.H.I.O.K. Shelter Map",
+    "input": "018956",
+    "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nS.H.I.O.K. Shelter Map\n\nCheck how sheltered the walk to transit feels before you pick a place.\n\nNight lighting\nSearch\n\nMap starting\n\nAbout the data\n\nPostal 018956 shelter-map panel ready. Bayfront Stn Exit B/Mbs. Shelter-map walk evidence 55% covered-walkway ratio; 37 m exposed across 2 gaps; longest gap 20 m. Locked score for sorting 82 out of 100. Published shelter-map walk selected. Walk display sheltered walk; Sheltered walk active.\n\nPostal 018956\n\nBayfront Stn Exit B/Mbs\n\nLOCKED SCORE FOR SORTING\n82/100\n⋯\nPublished walk\ndisplayed walk\nMRT/LRT exits\npublished walk\nBus stops\npublished walk\nWHERE THE WALK IS EXPOSED\n55% covered-walkway ratio on the sheltered walk.\n\n37 m exposed across 2 gaps; 20 m is the longest exposed gap.\n\nSheltered walk\nShortest walk (same)\nExposed gaps\nHDB void-deck shelter\nBridge/underpass shelter\nMRT/LRT\nBus stop\nLTA covered linkway 45 m\nPostal access walk 16 m\nStop/exit access walk 11 m\nExposed 9 m\nSheltered walk\n81 m\nCovered-walkway ratio\n55%\nExtra walk\n0 m\n81 m sheltered walk to transit stop or exit\n55% covered-walkway ratio on sheltered walk\nShelter-map evidence and locked score\nFour display rows; weights unchanged\nShelter exposure\nIn this locked release, shelter exposure and the heat estimate share mostly the same covered-walkway evidence.\nHeat also includes sparse nearby greenery, so SHIOK shows covered-walkway ratio first.\nSame displayed value as shelter exposure for this postal.\nHeat estimate evidence: covered 45 m; nearby greenery 0 m.\n55%\nCovered-walkway ratio\nWalk to stop or exit\nSheltered walk distance to transit stop or exit.\n81 m\n35% locked stop/exit walk\nBus service support\nA low value can mean weak service evidence, or that the published shelter-map walk does not show access to an official LTA bus stop.\n100\n20% locked bus support\nLocked SHIOK score\nStart with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map data.\nCrossing friction still contributes 5% to the locked score, but has low separation in this release.\n82/100\nLocked score for sorting\nCompare nearby addresses\nNearby address comparison loads only when opened.\nShow comparison\nShortest same as sheltered walk.\nNearby greenery\n0%\nAccess link\n27 m\nNearby greenery uses sparse NParks walk-adjacent geometry for heat only; it is not measured temperature or Leaf Area Index.\nAccess link is the short walk from the postal or transit point onto the shelter-map walk.\nExposed gaps on sheltered walk\n\n37 m exposed across 2 gaps on the sheltered walk.\nAll listed exposed gaps are shown.\n2 of 2 exposed gaps include map coordinates.\n\nReport missing shelter\n20 m\nLongest short exposed stretch\nMap coordinate 1.28314, 103.86011\nFocus on map\n16 m\nGap 2 short exposed stretch\nMap coordinate 1.28269, 103.85998\nFocus on map",
+    "canvasCount": 1,
+    "ready": "complete",
+    "controller": {
+      "scriptURL": "http://127.0.0.1:53959/sw.js",
+      "state": "activated"
+    }
+  },
+  "oldVersion": {
+    "versionId": "1",
+    "registrationId": "1",
+    "scriptURL": "http://127.0.0.1:53959/sw.js",
+    "runningStatus": "running",
+    "status": "activated",
+    "scriptLastModified": 0,
+    "scriptResponseTime": 1789307627.834109,
+    "controlledClients": [
+      "2B2BD4168769E90DB6E4EB82DE46E02E"
+    ],
+    "targetId": "DF2E9DF5F20F8BAAA264E6118375BDD6"
+  },
+  "cacheBefore": {
+    "entries": [
+      {
+        "cache": "qa-unrelated-cache",
+        "url": "http://127.0.0.1:53959/__qa/preserve",
+        "bytes": 14,
+        "sha256": "59901fb1d4db77bb3b4aed2fbb16bf367c4b96d6b962c9430626f618a41268df"
+      },
+      {
+        "cache": "sgshiok-static-v1",
+        "url": "http://127.0.0.1:53959/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+        "bytes": 145327,
+        "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+      },
+      {
+        "cache": "sgshiok-static-v1",
+        "url": "http://127.0.0.1:53959/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+        "bytes": 5236013,
+        "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+      },
+      {
+        "cache": "sgshiok-static-v1",
+        "url": "http://127.0.0.1:53959/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+        "bytes": 590,
+        "sha256": "fa11b27a84716c55414e964cc5ed188025abd917afb35b5060b01400b6e131f2"
+      },
+      {
+        "cache": "sgshiok-static-v1",
+        "url": "http://127.0.0.1:53959/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+        "bytes": 600,
+        "sha256": "0fc02b9596fb2621e8cae87d2c529865560cff398c17350e129d4beb919320a5"
+      },
+      {
+        "cache": "sgshiok-static-v1",
+        "url": "http://127.0.0.1:53959/_next/static/immutable/chunks/0lonvkgsdra2r.js",
+        "bytes": 149,
+        "sha256": "dae4ceb0a153a052558551bffe66856adff3c31515ca1c9a4532eeab7af3c361"
+      },
+      {
+        "cache": "sgshiok-static-v1",
+        "url": "http://127.0.0.1:53959/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+        "bytes": 701,
+        "sha256": "771484cc9b3ba5f90ba419cffbc05e359bb2b889183461cce51c418ae64629ae"
+      },
+      {
+        "cache": "sgshiok-static-v1",
+        "url": "http://127.0.0.1:53959/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+        "bytes": 1073,
+        "sha256": "92ab633aee0d85803b0ac377bd3752fae634f4245e6034c2bca7afea90554c33"
+      },
+      {
+        "cache": "sgshiok-static-v1",
+        "url": "http://127.0.0.1:53959/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+        "bytes": 1672,
+        "sha256": "785a1ab1f923409399d3b14d8cca5da7d0799ddeaefe7cbf98c10d25ae1479c0"
+      },
+      {
+        "cache": "sgshiok-static-v1",
+        "url": "http://127.0.0.1:53959/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+        "bytes": 1010,
+        "sha256": "62c064753949ae253245ebf130af1e436e0f1aa6c014b37f503de3357b9e92d6"
+      },
+      {
+        "cache": "sgshiok-static-v1",
+        "url": "http://127.0.0.1:53959/?debugMap=1&postal=018956",
+        "bytes": 12827,
+        "sha256": "047fd04d4176fd3afa15c224d94312f048dda52561ab3e21e1386321be10f636"
+      }
+    ],
+    "totalBytes": 5399976,
+    "local": {
+      "__qa:reload-preserve": "local-sentinel"
+    },
+    "session": {
+      "__qa:reload-preserve": "session-sentinel"
+    }
+  },
+  "beforeReload": {
+    "url": "http://127.0.0.1:53959/?debugMap=1&postal=018956",
+    "timeOrigin": 1789307625174.3,
+    "title": "S.H.I.O.K. Shelter Map",
+    "input": "018956",
+    "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nS.H.I.O.K. Shelter Map\n\nCheck how sheltered the walk to transit feels before you pick a place.\n\nNight lighting\nSearch\n\nMap ready\n\nAbout the data\n\nPostal 018956 shelter-map panel ready. Bayfront Stn Exit B/Mbs. Shelter-map walk evidence 55% covered-walkway ratio; 37 m exposed across 2 gaps; longest gap 20 m. Locked score for sorting 82 out of 100. Published shelter-map walk selected. Walk display sheltered walk; Sheltered walk active.\n\nPostal 018956\n\nBayfront Stn Exit B/Mbs\n\nLOCKED SCORE FOR SORTING\n82/100\n⋯\nPublished walk\ndisplayed walk\nMRT/LRT exits\npublished walk\nBus stops\npublished walk\nWHERE THE WALK IS EXPOSED\n55% covered-walkway ratio on the sheltered walk.\n\n37 m exposed across 2 gaps; 20 m is the longest exposed gap.\n\nSheltered walk\nShortest walk (same)\nExposed gaps\nHDB void-deck shelter\nBridge/underpass shelter\nMRT/LRT\nBus stop\nLTA covered linkway 45 m\nPostal access walk 16 m\nStop/exit access walk 11 m\nExposed 9 m\nSheltered walk\n81 m\nCovered-walkway ratio\n55%\nExtra walk\n0 m\n81 m sheltered walk to transit stop or exit\n55% covered-walkway ratio on sheltered walk\nShelter-map evidence and locked score\nFour display rows; weights unchanged\nShelter exposure\nIn this locked release, shelter exposure and the heat estimate share mostly the same covered-walkway evidence.\nHeat also includes sparse nearby greenery, so SHIOK shows covered-walkway ratio first.\nSame displayed value as shelter exposure for this postal.\nHeat estimate evidence: covered 45 m; nearby greenery 0 m.\n55%\nCovered-walkway ratio\nWalk to stop or exit\nSheltered walk distance to transit stop or exit.\n81 m\n35% locked stop/exit walk\nBus service support\nA low value can mean weak service evidence, or that the published shelter-map walk does not show access to an official LTA bus stop.\n100\n20% locked bus support\nLocked SHIOK score\nStart with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map data.\nCrossing friction still contributes 5% to the locked score, but has low separation in this release.\n82/100\nLocked score for sorting\nCompare nearby addresses\nNearby address comparison loads only when opened.\nShow comparison\nShortest same as sheltered walk.\nNearby greenery\n0%\nAccess link\n27 m\nNearby greenery uses sparse NParks walk-adjacent geometry for heat only; it is not measured temperature or Leaf Area Index.\nAccess link is the short walk from the postal or transit point onto the shelter-map walk.\nExposed gaps on sheltered walk\n\n37 m exposed across 2 gaps on the sheltered walk.\nAll listed exposed gaps are shown.\n2 of 2 exposed gaps include map coordinates.\n\nReport missing shelter\n20 m\nLongest short exposed stretch\nMap coordinate 1.28314, 103.86011\nFocus on map\n16 m\nGap 2 short exposed stretch\nMap coordinate 1.28269, 103.85998\nFocus on map",
+    "canvasCount": 1,
+    "ready": "complete",
+    "controller": {
+      "scriptURL": "http://127.0.0.1:53959/sw.js",
+      "state": "activated"
+    }
+  },
+  "oldContext": 2,
+  "reload": {
+    "command": "Page.reload",
+    "ignoreCache": false,
+    "at": "2026-09-13T13:54:04.454Z",
+    "url": "http://127.0.0.1:53959/?debugMap=1&postal=018956"
+  },
+  "newDocument": {
+    "url": "http://127.0.0.1:53959/?debugMap=1&postal=018956",
+    "timeOrigin": 1789307644482.1,
+    "title": "S.H.I.O.K. Shelter Map",
+    "input": "018956",
+    "text": "SHIOK.\n\nMap waiting",
+    "canvasCount": 0,
+    "ready": "complete",
+    "controller": {
+      "scriptURL": "http://127.0.0.1:53959/sw.js",
+      "state": "activated"
+    }
+  },
+  "currentRoute": {
+    "status": "ready",
+    "routeKey": "2:shiokest:primary",
+    "count": 4,
+    "keys": [
+      "2:shiokest:primary"
+    ],
+    "basemap": true,
+    "tiles": true,
+    "moving": false,
+    "geometry": [
+      {
+        "type": "LineString",
+        "coordinates": [
+          [
+            103.86003,
+            1.28264
+          ],
+          [
+            103.85992,
+            1.28274
+          ]
+        ]
+      },
+      {
+        "type": "LineString",
+        "coordinates": [
+          [
+            103.85992,
+            1.28274
+          ],
+          [
+            103.86008,
+            1.28297
+          ],
+          [
+            103.86014,
+            1.28308
+          ]
+        ]
+      },
+      {
+        "type": "LineString",
+        "coordinates": [
+          [
+            103.86014,
+            1.28308
+          ],
+          [
+            103.86014,
+            1.28316
+          ]
+        ]
+      },
+      {
+        "type": "LineString",
+        "coordinates": [
+          [
+            103.86014,
+            1.28316
+          ],
+          [
+            103.86004,
+            1.28315
+          ]
+        ]
+      }
+    ],
+    "url": "http://127.0.0.1:53959/?debugMap=1&postal=018956&transit=bus"
+  },
+  "currentContext": 3,
+  "failure": "Error: current HTML contains current build identity\n    at check (file:///C:/sgSHIOK2026/qa/revamp-r1/legacy-reload-20260913/browser.mjs:21:89)\n    at file:///C:/sgSHIOK2026/qa/revamp-r1/legacy-reload-20260913/browser.mjs:91:3",
+  "server": {
+    "requests": [
+      {
+        "at": "2026-09-13T13:53:45.198Z",
+        "method": "GET",
+        "url": "/?debugMap=1",
+        "release": "old",
+        "destination": "document",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 12827,
+        "sha256": "047fd04d4176fd3afa15c224d94312f048dda52561ab3e21e1386321be10f636",
+        "finishedAt": "2026-09-13T13:53:45.203Z"
+      },
+      {
+        "at": "2026-09-13T13:53:45.403Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/2n_vh2n3ve95_.css",
+        "release": "old",
+        "destination": "style",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 23194,
+        "sha256": "63bb706f9a33afa91fcf458151dfa4ec6b6a318e9e30d9c7851dbfd87c738f9c",
+        "finishedAt": "2026-09-13T13:53:45.404Z"
+      },
+      {
+        "at": "2026-09-13T13:53:45.408Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/3oze-rblz-767.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 5364,
+        "sha256": "0a7913e3df7c2113dc543fd8f1e6c33d88c72cd7d4d0f7abaa54bca1651c227a",
+        "finishedAt": "2026-09-13T13:53:45.409Z"
+      },
+      {
+        "at": "2026-09-13T13:53:45.423Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/3ew8m45a2i815.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 32454,
+        "sha256": "2a2ef2612e0ccd1f4a189845d8abd7037569c58b56b822b63ff5dcef49280158",
+        "finishedAt": "2026-09-13T13:53:45.425Z"
+      },
+      {
+        "at": "2026-09-13T13:53:45.479Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/3k4hvnpfmr4n4.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 229074,
+        "sha256": "29c6189bc7cedd32cc70c196d205db447d326a212c02c3f4366101034bd91a31",
+        "finishedAt": "2026-09-13T13:53:45.488Z"
+      },
+      {
+        "at": "2026-09-13T13:53:45.538Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/3hmvfb18su8ip.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 160787,
+        "sha256": "f37cb9cbb323ff0ae95cf1b2a317ae09a09e8158ada0e0dbed1262286ee38c3c",
+        "finishedAt": "2026-09-13T13:53:45.541Z"
+      },
+      {
+        "at": "2026-09-13T13:53:45.545Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/turbopack-0ow_qx54-jpcy.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 9692,
+        "sha256": "98af51a1fd365ce5fdbb00a77194e90e89692f93c1860347b711378a3ef058e7",
+        "finishedAt": "2026-09-13T13:53:45.628Z"
+      },
+      {
+        "at": "2026-09-13T13:53:45.630Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/455sb5e0fgpzb.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 14384,
+        "sha256": "cc6ac865fa3143dd89d17c957e01109d01553b9b7b1717294b33c9a2dbabb397",
+        "finishedAt": "2026-09-13T13:53:45.632Z"
+      },
+      {
+        "at": "2026-09-13T13:53:45.691Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/2trqctpxw1eo0.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 1248,
+        "sha256": "45448ab118ab4c800901e3361de1a93d5b89c9908ba3a9c34a2c5d3009736a6e",
+        "finishedAt": "2026-09-13T13:53:45.692Z"
+      },
+      {
+        "at": "2026-09-13T13:53:45.841Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/2wzpamyc1af39.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 272540,
+        "sha256": "87ee50d08e014fa3fc557d22369f100d93216d0cdaac6a34b032344110ae3324",
+        "finishedAt": "2026-09-13T13:53:45.845Z"
+      },
+      {
+        "at": "2026-09-13T13:53:46.086Z",
+        "method": "GET",
+        "url": "/icon.svg",
+        "release": "old",
+        "destination": "image",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 747,
+        "sha256": "c0bd7140b0fdf9ef8220017c4a07428301ab84e80c4090acd36da4c0da9d0dd2",
+        "finishedAt": "2026-09-13T13:53:46.087Z"
+      },
+      {
+        "at": "2026-09-13T13:53:47.628Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/0_ktd11al30rm.css",
+        "release": "old",
+        "destination": "style",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 3619,
+        "sha256": "a0ec2458cf0eda0a15a0ca713e621604b520a581f69d409cc0b4bd78c4802211",
+        "finishedAt": "2026-09-13T13:53:47.629Z"
+      },
+      {
+        "at": "2026-09-13T13:53:47.630Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/0nji_gvchad9e.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 36875,
+        "sha256": "2962225cc3d3592621f729677671bfbaffa9852b01188eaa407621b101522ccb",
+        "finishedAt": "2026-09-13T13:53:47.631Z"
+      },
+      {
+        "at": "2026-09-13T13:53:47.632Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/3_0v_2b8orlqe.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 617,
+        "sha256": "60849e008c490af6f1c52d9dbb284c04dd17d1caafca38afd36a78bffddf6656",
+        "finishedAt": "2026-09-13T13:53:47.633Z"
+      },
+      {
+        "at": "2026-09-13T13:53:47.635Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/0jggz8zkp0-16.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 964051,
+        "sha256": "73e3ff08c9b9b31d863d0ba36093d18a2a9945541f7273b96170f5c8b196b933",
+        "finishedAt": "2026-09-13T13:53:47.645Z"
+      },
+      {
+        "at": "2026-09-13T13:53:47.764Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+        "release": "old",
+        "destination": "empty",
+        "status": 404,
+        "source": "read-only-data",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "finishedAt": "2026-09-13T13:53:47.814Z"
+      },
+      {
+        "at": "2026-09-13T13:53:47.779Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+        "release": "old",
+        "destination": "empty",
+        "status": 200,
+        "source": "read-only-data",
+        "bytes": 184,
+        "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+        "finishedAt": "2026-09-13T13:53:47.820Z"
+      },
+      {
+        "at": "2026-09-13T13:53:47.832Z",
+        "method": "GET",
+        "url": "/sw.js",
+        "release": "old",
+        "destination": "serviceworker",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 2542,
+        "sha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+        "finishedAt": "2026-09-13T13:53:47.833Z"
+      },
+      {
+        "at": "2026-09-13T13:53:48.106Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+        "release": "old",
+        "destination": "empty",
+        "status": 200,
+        "source": "read-only-data",
+        "bytes": 39674,
+        "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+        "finishedAt": "2026-09-13T13:53:48.136Z"
+      },
+      {
+        "at": "2026-09-13T13:53:48.140Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+        "release": "old",
+        "destination": "empty",
+        "status": 404,
+        "source": "read-only-data",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "finishedAt": "2026-09-13T13:53:48.151Z"
+      },
+      {
+        "at": "2026-09-13T13:53:48.163Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+        "release": "old",
+        "destination": "empty",
+        "status": 404,
+        "source": "read-only-data",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "finishedAt": "2026-09-13T13:53:48.172Z"
+      },
+      {
+        "at": "2026-09-13T13:53:48.174Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+        "release": "old",
+        "destination": "empty",
+        "status": 200,
+        "source": "read-only-data",
+        "bytes": 145327,
+        "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+        "finishedAt": "2026-09-13T13:53:48.197Z"
+      },
+      {
+        "at": "2026-09-13T13:53:48.191Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+        "release": "old",
+        "destination": "empty",
+        "status": 200,
+        "source": "read-only-data",
+        "bytes": 5236013,
+        "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+        "finishedAt": "2026-09-13T13:53:48.824Z"
+      },
+      {
+        "at": "2026-09-13T13:53:49.298Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+        "release": "old",
+        "destination": "empty",
+        "status": 200,
+        "source": "read-only-data",
+        "bytes": 600,
+        "sha256": "0fc02b9596fb2621e8cae87d2c529865560cff398c17350e129d4beb919320a5",
+        "finishedAt": "2026-09-13T13:53:49.330Z"
+      },
+      {
+        "at": "2026-09-13T13:53:49.301Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+        "release": "old",
+        "destination": "empty",
+        "status": 200,
+        "source": "read-only-data",
+        "bytes": 590,
+        "sha256": "fa11b27a84716c55414e964cc5ed188025abd917afb35b5060b01400b6e131f2",
+        "finishedAt": "2026-09-13T13:53:49.332Z"
+      },
+      {
+        "at": "2026-09-13T13:53:49.303Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+        "release": "old",
+        "destination": "empty",
+        "status": 200,
+        "source": "read-only-data",
+        "bytes": 701,
+        "sha256": "771484cc9b3ba5f90ba419cffbc05e359bb2b889183461cce51c418ae64629ae",
+        "finishedAt": "2026-09-13T13:53:49.394Z"
+      },
+      {
+        "at": "2026-09-13T13:53:49.307Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+        "release": "old",
+        "destination": "empty",
+        "status": 200,
+        "source": "read-only-data",
+        "bytes": 1010,
+        "sha256": "62c064753949ae253245ebf130af1e436e0f1aa6c014b37f503de3357b9e92d6",
+        "finishedAt": "2026-09-13T13:53:49.411Z"
+      },
+      {
+        "at": "2026-09-13T13:53:49.312Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+        "release": "old",
+        "destination": "empty",
+        "status": 200,
+        "source": "read-only-data",
+        "bytes": 1073,
+        "sha256": "92ab633aee0d85803b0ac377bd3752fae634f4245e6034c2bca7afea90554c33",
+        "finishedAt": "2026-09-13T13:53:49.400Z"
+      },
+      {
+        "at": "2026-09-13T13:53:49.316Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+        "release": "old",
+        "destination": "empty",
+        "status": 200,
+        "source": "read-only-data",
+        "bytes": 1672,
+        "sha256": "785a1ab1f923409399d3b14d8cca5da7d0799ddeaefe7cbf98c10d25ae1479c0",
+        "finishedAt": "2026-09-13T13:53:49.402Z"
+      },
+      {
+        "at": "2026-09-13T13:53:49.340Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+        "release": "old",
+        "destination": "empty",
+        "status": 404,
+        "source": "read-only-data",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "finishedAt": "2026-09-13T13:53:49.353Z"
+      },
+      {
+        "at": "2026-09-13T13:53:49.343Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/0lonvkgsdra2r.js",
+        "release": "old",
+        "destination": "empty",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 149,
+        "sha256": "dae4ceb0a153a052558551bffe66856adff3c31515ca1c9a4532eeab7af3c361",
+        "finishedAt": "2026-09-13T13:53:49.343Z"
+      },
+      {
+        "at": "2026-09-13T13:53:54.445Z",
+        "method": "GET",
+        "url": "/?debugMap=1&postal=018956",
+        "release": "old",
+        "destination": "empty",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 12827,
+        "sha256": "047fd04d4176fd3afa15c224d94312f048dda52561ab3e21e1386321be10f636",
+        "finishedAt": "2026-09-13T13:53:54.446Z"
+      },
+      {
+        "at": "2026-09-13T13:53:56.688Z",
+        "method": "GET",
+        "url": "/sw.js",
+        "release": "old",
+        "destination": "serviceworker",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 2542,
+        "sha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+        "finishedAt": "2026-09-13T13:53:56.688Z"
+      },
+      {
+        "at": "2026-09-13T13:54:04.495Z",
+        "method": "GET",
+        "url": "/",
+        "release": "current",
+        "destination": "empty",
+        "status": 200,
+        "source": "current-preview",
+        "bytes": 9716,
+        "sha256": "5e60020e1c2a8d0fcf79af4ed4adee8d57c5340d1cb6a69eb78b116bcc8c4b3c",
+        "finishedAt": "2026-09-13T13:54:04.521Z"
+      },
+      {
+        "at": "2026-09-13T13:54:05.038Z",
+        "method": "GET",
+        "url": "/_next/static/chunks/2dyknfg62psne.css",
+        "release": "current",
+        "destination": "empty",
+        "status": 200,
+        "source": "current-preview",
+        "bytes": 37412,
+        "sha256": "7ed71338fe0bc3af43aa39e84a0a81fd850cbd16aa6af949ea42f36d09c80b15",
+        "finishedAt": "2026-09-13T13:54:05.122Z"
+      },
+      {
+        "at": "2026-09-13T13:54:05.041Z",
+        "method": "GET",
+        "url": "/_next/static/chunks/1bidz_3pqoxaj.js",
+        "release": "current",
+        "destination": "empty",
+        "status": 200,
+        "source": "current-preview",
+        "bytes": 31928,
+        "sha256": "ab83c9b318946529d705e12c45550a099ec0f43e1d31f28641f6fa790594f583",
+        "finishedAt": "2026-09-13T13:54:06.064Z"
+      },
+      {
+        "at": "2026-09-13T13:54:05.052Z",
+        "method": "GET",
+        "url": "/_next/static/chunks/17f1081s5yhzn.js",
+        "release": "current",
+        "destination": "empty",
+        "status": 200,
+        "source": "current-preview",
+        "bytes": 162741,
+        "sha256": "c6a49a7ea34e90f07af88b77521c7f75d71a7fe7cd318717e943b5177b2a172a",
+        "finishedAt": "2026-09-13T13:54:06.365Z"
+      },
+      {
+        "at": "2026-09-13T13:54:05.060Z",
+        "method": "GET",
+        "url": "/_next/static/chunks/1xxxg_js1imd7.js",
+        "release": "current",
+        "destination": "empty",
+        "status": 200,
+        "source": "current-preview",
+        "bytes": 234402,
+        "sha256": "efeff2c6ede39dd369785457314eaf115ea65fbaad9f49c38053745646b75a7f",
+        "finishedAt": "2026-09-13T13:54:06.781Z"
+      },
+      {
+        "at": "2026-09-13T13:54:05.063Z",
+        "method": "GET",
+        "url": "/_next/static/chunks/turbopack-0xfj_5xwh9c0_.js",
+        "release": "current",
+        "destination": "empty",
+        "status": 200,
+        "source": "current-preview",
+        "bytes": 9688,
+        "sha256": "aff018419b9dc4b8643b4d1ef84f4b05d1bd76283e8fea5a6e69e3a2a9672a02",
+        "finishedAt": "2026-09-13T13:54:05.562Z"
+      },
+      {
+        "at": "2026-09-13T13:54:05.107Z",
+        "method": "GET",
+        "url": "/_next/static/chunks/1oaw9uq-pttep.js",
+        "release": "current",
+        "destination": "empty",
+        "status": 200,
+        "source": "current-preview",
+        "bytes": 14384,
+        "sha256": "cc6ac865fa3143dd89d17c957e01109d01553b9b7b1717294b33c9a2dbabb397",
+        "finishedAt": "2026-09-13T13:54:05.953Z"
+      },
+      {
+        "at": "2026-09-13T13:54:06.592Z",
+        "method": "GET",
+        "url": "/_next/static/chunks/3v185vqo176iy.js",
+        "release": "current",
+        "destination": "empty",
+        "status": 200,
+        "source": "current-preview",
+        "bytes": 1178,
+        "sha256": "f4321a0bac401cf8dfd38196eaa6951293ef980cd66c0b33f055572d3994658f",
+        "finishedAt": "2026-09-13T13:54:06.845Z"
+      },
+      {
+        "at": "2026-09-13T13:54:06.593Z",
+        "method": "GET",
+        "url": "/_next/static/chunks/2om9i9tq5vihg.js",
+        "release": "current",
+        "destination": "empty",
+        "status": 200,
+        "source": "current-preview",
+        "bytes": 324026,
+        "sha256": "626321cdd95639e7c8cf6a4228c32ff122daa12ac99f5ca27dce77b752912d53",
+        "finishedAt": "2026-09-13T13:54:07.406Z"
+      },
+      {
+        "at": "2026-09-13T13:54:06.595Z",
+        "method": "GET",
+        "url": "/_next/static/chunks/2tvnjs867kw82.js",
+        "release": "current",
+        "destination": "empty",
+        "status": 200,
+        "source": "current-preview",
+        "bytes": 1054,
+        "sha256": "67f055096b96acc512d97ef9fe1c737632183f203ffc9cc0a80a903fe8748531",
+        "finishedAt": "2026-09-13T13:54:06.814Z"
+      },
+      {
+        "at": "2026-09-13T13:54:07.676Z",
+        "method": "GET",
+        "url": "/_next/static/chunks/2gycl7s2m_p7p.css",
+        "release": "current",
+        "destination": "empty",
+        "status": 200,
+        "source": "current-preview",
+        "bytes": 4330,
+        "sha256": "4bec241a95d2e5827924201d42b0eb88a1185ca923ff4505ee51f05fa6e71ab9",
+        "finishedAt": "2026-09-13T13:54:07.714Z"
+      },
+      {
+        "at": "2026-09-13T13:54:07.681Z",
+        "method": "GET",
+        "url": "/_next/static/chunks/337049v832a8o.js",
+        "release": "current",
+        "destination": "empty",
+        "status": 200,
+        "source": "current-preview",
+        "bytes": 45529,
+        "sha256": "c3efdee635d5a4630088e29e20a01a2f1a6c4981ea519a401f0fe4beaf02614b",
+        "finishedAt": "2026-09-13T13:54:08.059Z"
+      },
+      {
+        "at": "2026-09-13T13:54:07.695Z",
+        "method": "GET",
+        "url": "/_next/static/chunks/20zjq-ak3jpeu.js",
+        "release": "current",
+        "destination": "empty",
+        "status": 200,
+        "source": "current-preview",
+        "bytes": 557,
+        "sha256": "1e52a7b2ebeb2db9aa90f3ab335acaed7ebb902e90bed3897b051b569629b892",
+        "finishedAt": "2026-09-13T13:54:07.794Z"
+      },
+      {
+        "at": "2026-09-13T13:54:07.696Z",
+        "method": "GET",
+        "url": "/_next/static/chunks/29ddgwgt55efo.js",
+        "release": "current",
+        "destination": "empty",
+        "status": 200,
+        "source": "current-preview",
+        "bytes": 974586,
+        "sha256": "d9b64c2499b558304fa4a40ef1fe8b37f6f8f737840adc677e85353741cb788d",
+        "finishedAt": "2026-09-13T13:54:08.767Z"
+      },
+      {
+        "at": "2026-09-13T13:54:07.701Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+        "release": "current",
+        "destination": "empty",
+        "status": 200,
+        "source": "read-only-data",
+        "bytes": 184,
+        "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+        "finishedAt": "2026-09-13T13:54:07.744Z"
+      },
+      {
+        "at": "2026-09-13T13:54:07.789Z",
+        "method": "GET",
+        "url": "/sw.js",
+        "release": "current",
+        "destination": "serviceworker",
+        "status": 200,
+        "source": "current-preview",
+        "bytes": 5496,
+        "sha256": "88e523a5d8b4f8dec18b0a741dfae056674552de9e0f5b67d96a82fd554500a4",
+        "finishedAt": "2026-09-13T13:54:07.935Z"
+      },
+      {
+        "at": "2026-09-13T13:54:07.792Z",
+        "method": "GET",
+        "url": "/_next/static/chunks/3g0vzjy34mrv9.js",
+        "release": "current",
+        "destination": "empty",
+        "status": 200,
+        "source": "current-preview",
+        "bytes": 148,
+        "sha256": "c29e8989c2ce298be1c84a2d6ad4a1a89220227dff2917f0c719be72dc7a1442",
+        "finishedAt": "2026-09-13T13:54:07.853Z"
+      },
+      {
+        "at": "2026-09-13T13:54:07.799Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+        "release": "current",
+        "destination": "empty",
+        "status": 200,
+        "source": "read-only-data",
+        "bytes": 39674,
+        "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+        "finishedAt": "2026-09-13T13:54:07.817Z"
+      },
+      {
+        "at": "2026-09-13T13:54:09.997Z",
+        "method": "GET",
+        "url": "/maplibre/6.4.1/maplibre-gl-worker.mjs",
+        "release": "current",
+        "destination": "empty",
+        "status": 200,
+        "source": "current-preview",
+        "bytes": 18592,
+        "sha256": "ce4957017fe705ac2f9ebef206cca966d08d8621756c39326a78cf09757e7d75",
+        "finishedAt": "2026-09-13T13:54:10.010Z"
+      },
+      {
+        "at": "2026-09-13T13:54:10.045Z",
+        "method": "GET",
+        "url": "/maplibre/6.4.1/maplibre-gl-shared.mjs",
+        "release": "current",
+        "destination": "empty",
+        "status": 200,
+        "source": "current-preview",
+        "bytes": 482036,
+        "sha256": "fcf4d81450df235da0aea74897cc23926774b5228d38ae1de6a7d701c5905785",
+        "finishedAt": "2026-09-13T13:54:10.064Z"
+      },
+      {
+        "at": "2026-09-13T13:54:10.865Z",
+        "method": "GET",
+        "url": "/data/lamp_posts_v1/manifest.json",
+        "release": "current",
+        "destination": "empty",
+        "status": 403,
+        "source": "blocked",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "finishedAt": "2026-09-13T13:54:10.865Z"
+      }
+    ],
+    "release": "current",
+    "totalBytes": 9610038,
+    "inFlightBytes": 0,
+    "activeUpstreams": 0,
+    "activeSockets": 2,
+    "closed": true,
+    "releaseSwitches": 1,
+    "limitHit": null
+  },
+  "cleanup": {
+    "command": "$ErrorActionPreference='Stop'; $profile='C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-EoZqTA'; function Owned { @(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | Where-Object { $_.CommandLine -and $_.CommandLine.Contains($profile) }) }; $before=@(Owned | Select-Object ProcessId,Name,CommandLine); foreach($p in @(Owned)){ $live=Get-Process -Id $p.ProcessId -ErrorAction SilentlyContinue; if($live -and -not $live.HasExited){Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue} }; $until=[DateTime]::UtcNow.AddSeconds(20); do { $remaining=@(Owned | Where-Object { $p=Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue; $p -and -not $p.HasExited }); if($remaining.Count -eq 0){break}; Start-Sleep -Milliseconds 250 } while([DateTime]::UtcNow -lt $until); @{before=$before;remaining=@($remaining | Select-Object ProcessId,Name,CommandLine)} | ConvertTo-Json -Depth 4 -Compress",
+    "exitCode": 0,
+    "stdout": "{\"before\":[],\"remaining\":[]}\r\n",
+    "stderr": "",
+    "verified": true
+  },
+  "chromeTerminal": {
+    "code": 0,
+    "signal": null
+  },
+  "anchorsAfter": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "bytes": 13626
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "bytes": 1751005
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "bytes": 5240179
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "bytes": 5236013
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "bytes": 39674
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "bytes": 3538342
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "bytes": 184
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "bytes": 269
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "bytes": 1189
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "bytes": 145327
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "bytes": 515583
+    }
+  ],
+  "anchorsUnchanged": true,
+  "stderr": "\r\nDevTools listening on ws://127.0.0.1:59361/devtools/browser/894acf16-39ed-4235-b170-90ccc3087733\r\n[2520:18832:0913/215412.385:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[2520:18832:0913/215412.389:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[2520:18832:0913/215412.410:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[2520:18832:0913/215412.541:ERROR:google_apis\\gcm\\engine\\mcs_client.cc:702]   Error code: 401  Error message: Authentication Failed: wrong_secret\r\n[2520:18832:0913/215412.541:ERROR:google_apis\\gcm\\engine\\mcs_client.cc:704] Failed to log in to GCM, resetting connection.\r\n",
+  "elapsedMs": 45595,
+  "ok": false,
+  "rawIdentity": {
+    "bytes": 5931578,
+    "sha256": "0cc82ca696f2577e619e8e15baaf4aa1074b362d6be628d87070a55a2332e8cd",
+    "published": false,
+    "reason": "Third-party cookie/address headers; original stays local untracked"
+  },
+  "publicIdentity": {
+    "file": "browser.public.json.gz",
+    "bytes": 4427923,
+    "sha256": "5d751670d40be69c4f020f6c259b9076a8d46c4d0136786462196095d4bc4311",
+    "compressedBytes": 195823,
+    "compressedSha256": "3cb2d5ab5f3eab0b75f31d7abf91aa4320a5bd6cbaea61846ac67a70281b8458",
+    "redactions": {
+      "header:upgrade-insecure-requests": 3,
+      "header:user-agent": 844,
+      "header:sec-ch-ua": 835,
+      "header:sec-ch-ua-mobile": 835,
+      "header:sec-ch-ua-platform": 835,
+      "associatedCookies": 322,
+      "header:accept": 782,
+      "header:accept-encoding": 322,
+      "header:accept-language": 322,
+      "header:connection": 192,
+      "header:host": 51,
+      "header:sec-fetch-dest": 322,
+      "header:sec-fetch-mode": 322,
+      "header:sec-fetch-site": 322,
+      "header:sec-fetch-user": 1,
+      "blockedCookies": 322,
+      "header:keep-alive": 141,
+      "header:content-security-policy": 781,
+      "header:referrer-policy": 781,
+      "header:x-content-type-options": 781,
+      "headersText": 51,
+      "cookiePartitionKey": 322,
+      "exemptedCookies": 322,
+      "remoteIPAddress": 480,
+      "header:referer": 842,
+      "header:origin": 291,
+      "header::authority": 271,
+      "header::method": 271,
+      "header::path": 271,
+      "header::scheme": 271,
+      "header:priority": 271,
+      "header:sec-fetch-storage-access": 1,
+      "header:accept-ranges": 694,
+      "header:access-control-allow-headers": 694,
+      "header:access-control-allow-methods": 694,
+      "header:access-control-allow-origin": 694,
+      "header:expires": 3,
+      "header:last-modified": 694,
+      "header:set-cookie": 271,
+      "header:strict-transport-security": 543,
+      "header:surrogate-control": 3,
+      "header:vary": 3,
+      "header:x-cache-status": 694,
+      "header:x-content-security-policy": 3,
+      "header:x-frame-options": 694,
+      "header:x-remote-addr": 694
+    }
+  },
+  "eventCount": 3044
+}

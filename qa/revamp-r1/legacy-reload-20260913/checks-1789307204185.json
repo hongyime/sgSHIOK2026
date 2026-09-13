@@ -1,0 +1,29 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "--test",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\legacy-reload-20260913\\release-server.test.mjs"
+  ],
+  "sources": [
+    {
+      "path": "release-server.mjs",
+      "sha256": "4147d0d7c39ac3ca584cad65b74d02d380caa649972b2a3d586a2bd450d70c52"
+    },
+    {
+      "path": "release-server.test.mjs",
+      "sha256": "a71dfb0f41a704e34341b70540560dadfbe1c4b349c881193c02ada9385aa18a"
+    },
+    {
+      "path": "browser.mjs",
+      "sha256": "f12af3ba9daa29a7165d5f40832c4a0db414e2b25edc7f93a591863f66ca827b"
+    },
+    {
+      "path": "run.mjs",
+      "sha256": "b5031125778baeb97a9b1380b266ee95139b431f7548e39f6fa2940d529f72a1"
+    }
+  ],
+  "exitCode": 0,
+  "stdout": "✔ only required local frontend/data GET paths are admitted (9.4746ms)\n✔ response credentials are not forwarded (7.5124ms)\n✔ old captured bodies, genuine worker switch, current query and data read-only path (724.2209ms)\n✔ request bound stops admission (100.7752ms)\n✔ byte bound rejects captured body without sending it (48.428ms)\nℹ tests 5\nℹ suites 0\nℹ pass 5\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 1817.8946\n",
+  "stderr": "",
+  "elapsedMs": 2498
+}

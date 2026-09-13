@@ -1,0 +1,9 @@
+{
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\legacy-reload-20260913\\corrected-OZc1mz",
+  "ok": false,
+  "failure": "Error: Runtime.evaluate timeout\n    at Timeout._onTimeout (file:///C:/sgSHIOK2026/qa/revamp-r1/legacy-reload-20260913/browser-v2.mjs:25:67)\n    at listOnTimeout (node:internal/timers:635:17)\n    at process.processTimers (node:internal/timers:571:7)",
+  "checks": 5,
+  "passed": 5,
+  "cleanup": true,
+  "elapsedMs": 63711
+}

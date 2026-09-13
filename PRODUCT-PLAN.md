@@ -9,7 +9,8 @@ live services. Reporting choices and weekly scheduler/issue approval are pending
 LOCALLY_VERIFIED: walk-only inspector. Two tabs (MRT/LRT exits, Bus stops), shortest
 usable saved walk selected automatically, no Suggested/comparison/About data,
 automatic zoom-bounded night lighting, bounded explicit preview recovery.
-Current QA: qa/revamp-r1/selection-recovery-20260913 (retry and keyboard acceptance);
+Current QA: qa/revamp-r1/legacy-reload-20260913 (old-client reload, NOT accepted);
+retained qa/revamp-r1/selection-recovery-20260913 (retry and keyboard acceptance);
 retained production-worker-20260913, native-zoom-20260913 and notice-inspection-20260913.
 Build l7V5uOArXwdDrUIe3Wc2s: http://127.0.0.1:4420/. Current1945/72 isolated web
 tests and42dependency guards pass; TypeScript/build pass. Added14recovery cases
@@ -29,6 +30,13 @@ review found clipped MRT/Bus focus rings, now inset inside their container.
 Retry selection/map focus transfers synchronously before the control disappears.
 Actual production is identified; current-release SW/returning-client
 acceptance, complete runtime retention and exact deployment remain open.
+Reload follow-up:15offline harness tests pass. First captured-old/current browser
+showed the current route but failed its HTML proof and a background command.
+The independently preflight-reviewed corrected run timed out in old-page
+Runtime.evaluate after writing a screenshot, before release switch/Reload.
+Both attempts remain failures; no third replay or application cache-policy change.
+Next: command-specific request/result timing, then a separately reviewed replay.
+No hardware-only cause, current-app regression or returning-client PASS inferred.
 Previews4414/4416/4418 are superseded; earlier390x844/four-size checks were not rerun here.
 Comparison T08-T11 is RETIRED, not an acceptance blocker. Historical outcomes
 below describe earlier work, not instructions to restore it. Existing saved

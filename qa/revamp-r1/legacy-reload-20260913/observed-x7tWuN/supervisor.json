@@ -1,0 +1,15 @@
+{
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\legacy-reload-20260913\\observed-x7tWuN",
+  "profile": "C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-EoZqTA",
+  "exitCode": 1,
+  "cleanup": {
+    "command": "$ErrorActionPreference='Stop'; $profile='C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-EoZqTA'; function Owned { @(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | Where-Object { $_.CommandLine -and $_.CommandLine.Contains($profile) }) }; $before=@(Owned | Select-Object ProcessId,Name,CommandLine); foreach($p in @(Owned)){ $live=Get-Process -Id $p.ProcessId -ErrorAction SilentlyContinue; if($live -and -not $live.HasExited){Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue} }; $until=[DateTime]::UtcNow.AddSeconds(20); do { $remaining=@(Owned | Where-Object { $p=Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue; $p -and -not $p.HasExited }); if($remaining.Count -eq 0){break}; Start-Sleep -Milliseconds 250 } while([DateTime]::UtcNow -lt $until); @{before=$before;remaining=@($remaining | Select-Object ProcessId,Name,CommandLine)} | ConvertTo-Json -Depth 4 -Compress",
+    "exitCode": 0,
+    "stdout": "{\"before\":[],\"remaining\":[]}\r\n",
+    "stderr": "",
+    "verified": true
+  },
+  "elapsedMs": 52222,
+  "budgetMs": 300000,
+  "arithmetic": "240000child+45000cleanup+15000reserve=300000ms; setup included by shrinking child timeout"
+}

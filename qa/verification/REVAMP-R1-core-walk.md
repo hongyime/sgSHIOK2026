@@ -6020,3 +6020,73 @@ DISAGREEMENTS
    and inspect pixels; do not count a failed attempt as full browser acceptance.
 2. Passing local tests does not complete or activate reporting/maintenance or
    approve deployment. The broad goal remains active, not complete.
+
+## 2026-09-13: Captured legacy Reload checkpoint, NOT accepted
+
+Working root: C:\sgSHIOK2026
+Hostname: PRAWN-E14
+Base: 88e7ae5ca7761cf1e1219f859fd2a88e9fc97ad4
+Receipts: qa/revamp-r1/legacy-reload-20260913/summary.json
+Method/review: method.json and review.json in that directory.
+
+Observed production frontend: UzVn3WiWA2GW7dtvN27rN,24captured assets.
+Current local frontend: l7V5uOArXwdDrUIe3Wc2s,167unchanged web sources.
+No postal preseed. Old native search wrote postal018956 into the URL.
+Old controller hash:
+c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390
+Current controller hash:
+88e523a5d8b4f8dec18b0a741dfae056674552de9e0f5b67d96a82fd554500a4
+
+First attempt observed-x7tWuN: exit1;5pass+1fail=6checks;2images.
+Supervisor52.222s; driver45.595s. Current4rendered route features were
+observed after ordinary Reload; failure.png visibly shows the current compact
+UI/route. This is not complete acceptance. HTML proof wrongly required the
+backend request's destination=document; the old worker refetched root with
+destination=empty. Background Runtime.enable also timed out without sufficient
+target correlation. Lamp manifest was incorrectly blocked by the first fixture.
+Current controller/cache preservation checks were not reached. Do not infer them.
+
+Corrected preflight:15/15offline tests, independent read-only clearance.
+Earlier v2 test result13pass+1fail=14 retained; first-reason limit fix gave14/14.
+Added captured-file rejection test then gave15/15. Preserve red-budget-server.
+Navigation helpers bind session/frame/loader/exactURL/body and preserve original
+query/hash while allowing only the newly added canonical transit=bus.
+Failed reads remain charged; shared shutdown waits for sockets/upstreams.
+
+Corrected attempt corrected-OZc1mz: exit1;5checks passed before exception.
+Supervisor67.806s; driver63.711s. Runtime.evaluate exceeded its10s reply deadline
+AFTER old-selected.png was written, before its after-snapshot. One image,
+zero completed capture brackets. Parent/peer inspected partial old basemap and
+Map loading. releaseSwitches=0: no flip, Reload or cache comparison occurred.
+Fallback evaluation also timed out. Final server bounds and independent owned
+process cleanup verified; separate Chrome terminal receipt remained unverified.
+Why the evaluation timed out is unresolved. No third attempt.
+
+Browser wall arithmetic:52.222+67.806=120.028s; images2+1=3.
+Three PNGs directly parent-inspected; corrected image also peer-inspected.
+15harness+2publication=17final offline diagnostic tests, not new app tests.
+Retained1945web/72files+42guards, TypeScript/build; unchanged-source identities
+rechecked, suites not rerun. Retained1012Python/12files not rerun.
+Repository integrity/11input anchors/weights and append-only prefix checked by
+finalize.mjs; exact machine results and checksums in summary.json.
+Raw CDP includes third-party cookie/address headers: raw remains local, hashed;
+committed traces are explicitly structured-redacted, with counts and hashes.
+
+FINDINGS
+1. Actual old search persists postal without preseed, but the old worker can
+   turn a Document navigation into an ordinary root fetch. Proof needs the
+   browser Document identity, not only backend destination metadata.
+2. First visible recovery and the second old-page timeout are distinct failed
+   attempts. They cannot be combined into a returning-client PASS.
+3. Review repaired diagnostic budget, shutdown, binding and capture limits;
+   these were harness defects, not scoring or current application changes.
+4. Popups/request bounds and the saved-ID fix remain locally verified. Real
+   reporting/maintenance, expanded route coverage, device and release gates
+   remain open. Pipeline runs0, pipeline seconds0, installations0, deployments0.
+
+DISAGREEMENTS
+1. A timed-out Runtime.evaluate is not evidence of a worker or hardware-only
+   root cause. Keep the cause unresolved until command-level evidence exists.
+2. Local tests, a partial screenshot or owner intent to finish cannot stand in
+   for real report persistence, scheduled delivery, device evidence or an exact
+   deployment approval. Goal ACTIVE, not complete.

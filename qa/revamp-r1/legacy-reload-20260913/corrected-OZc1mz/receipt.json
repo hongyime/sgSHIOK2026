@@ -1,0 +1,727 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "startedAt": "2026-09-13T14:18:39.730Z",
+  "checks": [
+    {
+      "name": "host memory gate",
+      "pass": true,
+      "detail": 2911.7578125
+    },
+    {
+      "name": "old real HTML body served",
+      "pass": true
+    },
+    {
+      "name": "native clickable #postal-search-input",
+      "pass": true,
+      "detail": {
+        "x": 158,
+        "y": 160.9375,
+        "width": 280,
+        "height": 42,
+        "hit": true,
+        "disabled": false
+      }
+    },
+    {
+      "name": "native clickable #postal-search-button",
+      "pass": true,
+      "detail": {
+        "x": 342,
+        "y": 160.9375,
+        "width": 72,
+        "height": 42,
+        "hit": true,
+        "disabled": false
+      }
+    },
+    {
+      "name": "old controller script identity received",
+      "pass": true
+    }
+  ],
+  "captures": [],
+  "errors": [],
+  "phase": "old",
+  "scope": "Actual captured old frontend/controller to current local frontend on the same origin/profile with one ordinary Reload. No cache clearing, forced worker update, bypass or postal reentry. Not deployment, performance, all-route or physical-device acceptance.",
+  "availableMiB": 2911.7578125,
+  "anchorsBefore": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "bytes": 13626
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "bytes": 1751005
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "bytes": 5240179
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "bytes": 5236013
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "bytes": 39674
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "bytes": 3538342
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "bytes": 184
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "bytes": 269
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "bytes": 1189
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "bytes": 145327
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "bytes": 515583
+    }
+  ],
+  "preview": {
+    "buildId": "l7V5uOArXwdDrUIe3Wc2s",
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\selection-recovery-20260913-build-2",
+    "pid": 37188,
+    "dataPort": 4340,
+    "nextPort": 4419,
+    "proxyPort": 4420,
+    "readOnlyData": true,
+    "allowedApi": "GET /api/onemap-route and /api/onemap-search",
+    "oneMapCredentialsConfigured": true,
+    "nextPid": 5816
+  },
+  "oldBuild": "UzVn3WiWA2GW7dtvN27rN",
+  "oldHtmlSha256": "047fd04d4176fd3afa15c224d94312f048dda52561ab3e21e1386321be10f636",
+  "oldWorkerSha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+  "currentWorkerSha256": "88e523a5d8b4f8dec18b0a741dfae056674552de9e0f5b67d96a82fd554500a4",
+  "origin": "http://127.0.0.1:38950",
+  "chromePid": 38044,
+  "last": {
+    "name": "old worker controls this page target",
+    "value": {
+      "versionId": "1",
+      "registrationId": "1",
+      "scriptURL": "http://127.0.0.1:38950/sw.js",
+      "runningStatus": "running",
+      "status": "activated",
+      "scriptLastModified": 0,
+      "scriptResponseTime": 1789309133.128092,
+      "controlledClients": [
+        "66C12CB0B81F74D8CFFF5E635468C771"
+      ],
+      "targetId": "F4295FEFADCC394D102313C232FE6BE3"
+    }
+  },
+  "oldSelection": {
+    "url": "http://127.0.0.1:38950/?debugMap=1&postal=018956",
+    "timeOrigin": 1789309130477.4,
+    "title": "S.H.I.O.K. Shelter Map",
+    "input": "018956",
+    "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nS.H.I.O.K. Shelter Map\n\nCheck how sheltered the walk to transit feels before you pick a place.\n\nNight lighting\nSearch\n\nMap starting\n\nAbout the data\n\nPostal 018956 shelter-map panel ready. Bayfront Stn Exit B/Mbs. Shelter-map walk evidence 55% covered-walkway ratio; 37 m exposed across 2 gaps; longest gap 20 m. Locked score for sorting 82 out of 100. Published shelter-map walk selected. Walk display sheltered walk; Sheltered walk active.\n\nPostal 018956\n\nBayfront Stn Exit B/Mbs\n\nLOCKED SCORE FOR SORTING\n82/100\n⋯\nPublished walk\ndisplayed walk\nMRT/LRT exits\npublished walk\nBus stops\npublished walk\nWHERE THE WALK IS EXPOSED\n55% covered-walkway ratio on the sheltered walk.\n\n37 m exposed across 2 gaps; 20 m is the longest exposed gap.\n\nSheltered walk\nShortest walk (same)\nExposed gaps\nHDB void-deck shelter\nBridge/underpass shelter\nMRT/LRT\nBus stop\nLTA covered linkway 45 m\nPostal access walk 16 m\nStop/exit access walk 11 m\nExposed 9 m\nSheltered walk\n81 m\nCovered-walkway ratio\n55%\nExtra walk\n0 m\n81 m sheltered walk to transit stop or exit\n55% covered-walkway ratio on sheltered walk\nShelter-map evidence and locked score\nFour display rows; weights unchanged\nShelter exposure\nIn this locked release, shelter exposure and the heat estimate share mostly the same covered-walkway evidence.\nHeat also includes sparse nearby greenery, so SHIOK shows covered-walkway ratio first.\nSame displayed value as shelter exposure for this postal.\nHeat estimate evidence: covered 45 m; nearby greenery 0 m.\n55%\nCovered-walkway ratio\nWalk to stop or exit\nSheltered walk distance to transit stop or exit.\n81 m\n35% locked stop/exit walk\nBus service support\nA low value can mean weak service evidence, or that the published shelter-map walk does not show access to an official LTA bus stop.\n100\n20% locked bus support\nLocked SHIOK score\nStart with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map data.\nCrossing friction still contributes 5% to the locked score, but has low separation in this release.\n82/100\nLocked score for sorting\nCompare nearby addresses\nNearby address comparison loads only when opened.\nShow comparison\nShortest same as sheltered walk.\nNearby greenery\n0%\nAccess link\n27 m\nNearby greenery uses sparse NParks walk-adjacent geometry for heat only; it is not measured temperature or Leaf Area Index.\nAccess link is the short walk from the postal or transit point onto the shelter-map walk.\nExposed gaps on sheltered walk\n\n37 m exposed across 2 gaps on the sheltered walk.\nAll listed exposed gaps are shown.\n2 of 2 exposed gaps include map coordinates.\n\nReport missing shelter\n20 m\nLongest short exposed stretch\nMap coordinate 1.28314, 103.86011\nFocus on map\n16 m\nGap 2 short exposed stretch\nMap coordinate 1.28269, 103.85998\nFocus on map",
+    "canvasCount": 1,
+    "ready": "complete",
+    "controller": {
+      "scriptURL": "http://127.0.0.1:38950/sw.js",
+      "state": "activated"
+    }
+  },
+  "oldControlled": {
+    "url": "http://127.0.0.1:38950/?debugMap=1&postal=018956",
+    "timeOrigin": 1789309130477.4,
+    "title": "S.H.I.O.K. Shelter Map",
+    "input": "018956",
+    "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 exposed gaps, and 7 MRT or LRT stations, 34 exits, and 27 bus stops.\n\nS.H.I.O.K. Shelter Map\n\nCheck how sheltered the walk to transit feels before you pick a place.\n\nNight lighting\nSearch\n\nMap loading\n\nAbout the data\n\nPostal 018956 shelter-map panel ready. Bayfront Stn Exit B/Mbs. Shelter-map walk evidence 55% covered-walkway ratio; 37 m exposed across 2 gaps; longest gap 20 m. Locked score for sorting 82 out of 100. Published shelter-map walk selected. Walk display sheltered walk; Sheltered walk active.\n\nPostal 018956\n\nBayfront Stn Exit B/Mbs\n\nLOCKED SCORE FOR SORTING\n82/100\n⋯\nPublished walk\ndisplayed walk\nMRT/LRT exits\npublished walk\nBus stops\npublished walk\nWHERE THE WALK IS EXPOSED\n55% covered-walkway ratio on the sheltered walk.\n\n37 m exposed across 2 gaps; 20 m is the longest exposed gap.\n\nSheltered walk\nShortest walk (same)\nExposed gaps\nHDB void-deck shelter\nBridge/underpass shelter\nMRT/LRT\nBus stop\nLTA covered linkway 45 m\nPostal access walk 16 m\nStop/exit access walk 11 m\nExposed 9 m\nSheltered walk\n81 m\nCovered-walkway ratio\n55%\nExtra walk\n0 m\n81 m sheltered walk to transit stop or exit\n55% covered-walkway ratio on sheltered walk\nShelter-map evidence and locked score\nFour display rows; weights unchanged\nShelter exposure\nIn this locked release, shelter exposure and the heat estimate share mostly the same covered-walkway evidence.\nHeat also includes sparse nearby greenery, so SHIOK shows covered-walkway ratio first.\nSame displayed value as shelter exposure for this postal.\nHeat estimate evidence: covered 45 m; nearby greenery 0 m.\n55%\nCovered-walkway ratio\nWalk to stop or exit\nSheltered walk distance to transit stop or exit.\n81 m\n35% locked stop/exit walk\nBus service support\nA low value can mean weak service evidence, or that the published shelter-map walk does not show access to an official LTA bus stop.\n100\n20% locked bus support\nLocked SHIOK score\nStart with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map data.\nCrossing friction still contributes 5% to the locked score, but has low separation in this release.\n82/100\nLocked score for sorting\nCompare nearby addresses\nNearby address comparison loads only when opened.\nShow comparison\nShortest same as sheltered walk.\nNearby greenery\n0%\nAccess link\n27 m\nNearby greenery uses sparse NParks walk-adjacent geometry for heat only; it is not measured temperature or Leaf Area Index.\nAccess link is the short walk from the postal or transit point onto the shelter-map walk.\nExposed gaps on sheltered walk\n\n37 m exposed across 2 gaps on the sheltered walk.\nAll listed exposed gaps are shown.\n2 of 2 exposed gaps include map coordinates.\n\nReport missing shelter\n20 m\nLongest short exposed stretch\nMap coordinate 1.28314, 103.86011\nFocus on map\n16 m\nGap 2 short exposed stretch\nMap coordinate 1.28269, 103.85998\nFocus on map",
+    "canvasCount": 1,
+    "ready": "complete",
+    "controller": {
+      "scriptURL": "http://127.0.0.1:38950/sw.js",
+      "state": "activated"
+    }
+  },
+  "oldVersion": {
+    "versionId": "1",
+    "registrationId": "1",
+    "scriptURL": "http://127.0.0.1:38950/sw.js",
+    "runningStatus": "running",
+    "status": "activated",
+    "scriptLastModified": 0,
+    "scriptResponseTime": 1789309133.128092,
+    "controlledClients": [
+      "66C12CB0B81F74D8CFFF5E635468C771"
+    ],
+    "targetId": "F4295FEFADCC394D102313C232FE6BE3"
+  },
+  "failure": "Error: Runtime.evaluate timeout\n    at Timeout._onTimeout (file:///C:/sgSHIOK2026/qa/revamp-r1/legacy-reload-20260913/browser-v2.mjs:25:67)\n    at listOnTimeout (node:internal/timers:635:17)\n    at process.processTimers (node:internal/timers:571:7)",
+  "failureCaptureError": "Runtime.evaluate timeout",
+  "closeError": "CDP closed",
+  "server": {
+    "requests": [
+      {
+        "at": "2026-09-13T14:18:50.493Z",
+        "method": "GET",
+        "url": "/?debugMap=1",
+        "release": "old",
+        "destination": "document",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 12827,
+        "sha256": "047fd04d4176fd3afa15c224d94312f048dda52561ab3e21e1386321be10f636",
+        "finishedAt": "2026-09-13T14:18:50.496Z"
+      },
+      {
+        "at": "2026-09-13T14:18:50.558Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/2n_vh2n3ve95_.css",
+        "release": "old",
+        "destination": "style",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 23194,
+        "sha256": "63bb706f9a33afa91fcf458151dfa4ec6b6a318e9e30d9c7851dbfd87c738f9c",
+        "finishedAt": "2026-09-13T14:18:50.559Z"
+      },
+      {
+        "at": "2026-09-13T14:18:50.566Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/3oze-rblz-767.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 5364,
+        "sha256": "0a7913e3df7c2113dc543fd8f1e6c33d88c72cd7d4d0f7abaa54bca1651c227a",
+        "finishedAt": "2026-09-13T14:18:50.566Z"
+      },
+      {
+        "at": "2026-09-13T14:18:50.572Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/3ew8m45a2i815.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 32454,
+        "sha256": "2a2ef2612e0ccd1f4a189845d8abd7037569c58b56b822b63ff5dcef49280158",
+        "finishedAt": "2026-09-13T14:18:50.573Z"
+      },
+      {
+        "at": "2026-09-13T14:18:50.574Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/3k4hvnpfmr4n4.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 229074,
+        "sha256": "29c6189bc7cedd32cc70c196d205db447d326a212c02c3f4366101034bd91a31",
+        "finishedAt": "2026-09-13T14:18:50.578Z"
+      },
+      {
+        "at": "2026-09-13T14:18:50.581Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/3hmvfb18su8ip.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 160787,
+        "sha256": "f37cb9cbb323ff0ae95cf1b2a317ae09a09e8158ada0e0dbed1262286ee38c3c",
+        "finishedAt": "2026-09-13T14:18:50.583Z"
+      },
+      {
+        "at": "2026-09-13T14:18:50.587Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/turbopack-0ow_qx54-jpcy.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 9692,
+        "sha256": "98af51a1fd365ce5fdbb00a77194e90e89692f93c1860347b711378a3ef058e7",
+        "finishedAt": "2026-09-13T14:18:50.588Z"
+      },
+      {
+        "at": "2026-09-13T14:18:50.591Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/455sb5e0fgpzb.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 14384,
+        "sha256": "cc6ac865fa3143dd89d17c957e01109d01553b9b7b1717294b33c9a2dbabb397",
+        "finishedAt": "2026-09-13T14:18:50.591Z"
+      },
+      {
+        "at": "2026-09-13T14:18:50.593Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/2trqctpxw1eo0.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 1248,
+        "sha256": "45448ab118ab4c800901e3361de1a93d5b89c9908ba3a9c34a2c5d3009736a6e",
+        "finishedAt": "2026-09-13T14:18:50.594Z"
+      },
+      {
+        "at": "2026-09-13T14:18:50.805Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/2wzpamyc1af39.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 272540,
+        "sha256": "87ee50d08e014fa3fc557d22369f100d93216d0cdaac6a34b032344110ae3324",
+        "finishedAt": "2026-09-13T14:18:50.809Z"
+      },
+      {
+        "at": "2026-09-13T14:18:51.283Z",
+        "method": "GET",
+        "url": "/icon.svg",
+        "release": "old",
+        "destination": "image",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 747,
+        "sha256": "c0bd7140b0fdf9ef8220017c4a07428301ab84e80c4090acd36da4c0da9d0dd2",
+        "finishedAt": "2026-09-13T14:18:51.284Z"
+      },
+      {
+        "at": "2026-09-13T14:18:52.946Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/0_ktd11al30rm.css",
+        "release": "old",
+        "destination": "style",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 3619,
+        "sha256": "a0ec2458cf0eda0a15a0ca713e621604b520a581f69d409cc0b4bd78c4802211",
+        "finishedAt": "2026-09-13T14:18:52.946Z"
+      },
+      {
+        "at": "2026-09-13T14:18:52.948Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/0nji_gvchad9e.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 36875,
+        "sha256": "2962225cc3d3592621f729677671bfbaffa9852b01188eaa407621b101522ccb",
+        "finishedAt": "2026-09-13T14:18:52.948Z"
+      },
+      {
+        "at": "2026-09-13T14:18:52.950Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/3_0v_2b8orlqe.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 617,
+        "sha256": "60849e008c490af6f1c52d9dbb284c04dd17d1caafca38afd36a78bffddf6656",
+        "finishedAt": "2026-09-13T14:18:52.950Z"
+      },
+      {
+        "at": "2026-09-13T14:18:52.952Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/0jggz8zkp0-16.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 964051,
+        "sha256": "73e3ff08c9b9b31d863d0ba36093d18a2a9945541f7273b96170f5c8b196b933",
+        "finishedAt": "2026-09-13T14:18:52.964Z"
+      },
+      {
+        "at": "2026-09-13T14:18:53.076Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+        "release": "old",
+        "destination": "empty",
+        "status": 404,
+        "source": "read-only-data",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "finishedAt": "2026-09-13T14:18:53.140Z"
+      },
+      {
+        "at": "2026-09-13T14:18:53.090Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+        "release": "old",
+        "destination": "empty",
+        "status": 200,
+        "source": "read-only-data",
+        "bytes": 184,
+        "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+        "finishedAt": "2026-09-13T14:18:53.165Z"
+      },
+      {
+        "at": "2026-09-13T14:18:53.125Z",
+        "method": "GET",
+        "url": "/sw.js",
+        "release": "old",
+        "destination": "serviceworker",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 2542,
+        "sha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+        "finishedAt": "2026-09-13T14:18:53.126Z"
+      },
+      {
+        "at": "2026-09-13T14:18:53.191Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+        "release": "old",
+        "destination": "empty",
+        "status": 200,
+        "source": "read-only-data",
+        "bytes": 39674,
+        "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+        "finishedAt": "2026-09-13T14:18:53.231Z"
+      },
+      {
+        "at": "2026-09-13T14:18:53.194Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+        "release": "old",
+        "destination": "empty",
+        "status": 404,
+        "source": "read-only-data",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "finishedAt": "2026-09-13T14:18:53.210Z"
+      },
+      {
+        "at": "2026-09-13T14:18:53.239Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+        "release": "old",
+        "destination": "empty",
+        "status": 200,
+        "source": "read-only-data",
+        "bytes": 145327,
+        "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+        "finishedAt": "2026-09-13T14:18:53.277Z"
+      },
+      {
+        "at": "2026-09-13T14:18:53.252Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+        "release": "old",
+        "destination": "empty",
+        "status": 404,
+        "source": "read-only-data",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "finishedAt": "2026-09-13T14:18:53.332Z"
+      },
+      {
+        "at": "2026-09-13T14:18:53.536Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+        "release": "old",
+        "destination": "empty",
+        "status": 200,
+        "source": "read-only-data",
+        "bytes": 5236013,
+        "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+        "finishedAt": "2026-09-13T14:18:53.892Z"
+      },
+      {
+        "at": "2026-09-13T14:18:54.322Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+        "release": "old",
+        "destination": "empty",
+        "status": 200,
+        "source": "read-only-data",
+        "bytes": 600,
+        "sha256": "0fc02b9596fb2621e8cae87d2c529865560cff398c17350e129d4beb919320a5",
+        "finishedAt": "2026-09-13T14:18:54.415Z"
+      },
+      {
+        "at": "2026-09-13T14:18:54.343Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+        "release": "old",
+        "destination": "empty",
+        "status": 200,
+        "source": "read-only-data",
+        "bytes": 590,
+        "sha256": "fa11b27a84716c55414e964cc5ed188025abd917afb35b5060b01400b6e131f2",
+        "finishedAt": "2026-09-13T14:18:54.399Z"
+      },
+      {
+        "at": "2026-09-13T14:18:54.354Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+        "release": "old",
+        "destination": "empty",
+        "status": 200,
+        "source": "read-only-data",
+        "bytes": 701,
+        "sha256": "771484cc9b3ba5f90ba419cffbc05e359bb2b889183461cce51c418ae64629ae",
+        "finishedAt": "2026-09-13T14:18:54.489Z"
+      },
+      {
+        "at": "2026-09-13T14:18:54.362Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+        "release": "old",
+        "destination": "empty",
+        "status": 200,
+        "source": "read-only-data",
+        "bytes": 1010,
+        "sha256": "62c064753949ae253245ebf130af1e436e0f1aa6c014b37f503de3357b9e92d6",
+        "finishedAt": "2026-09-13T14:18:54.485Z"
+      },
+      {
+        "at": "2026-09-13T14:18:54.375Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+        "release": "old",
+        "destination": "empty",
+        "status": 200,
+        "source": "read-only-data",
+        "bytes": 1073,
+        "sha256": "92ab633aee0d85803b0ac377bd3752fae634f4245e6034c2bca7afea90554c33",
+        "finishedAt": "2026-09-13T14:18:54.491Z"
+      },
+      {
+        "at": "2026-09-13T14:18:54.394Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+        "release": "old",
+        "destination": "empty",
+        "status": 200,
+        "source": "read-only-data",
+        "bytes": 1672,
+        "sha256": "785a1ab1f923409399d3b14d8cca5da7d0799ddeaefe7cbf98c10d25ae1479c0",
+        "finishedAt": "2026-09-13T14:18:54.492Z"
+      },
+      {
+        "at": "2026-09-13T14:18:54.468Z",
+        "method": "GET",
+        "url": "/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+        "release": "old",
+        "destination": "empty",
+        "status": 404,
+        "source": "read-only-data",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "finishedAt": "2026-09-13T14:18:54.499Z"
+      },
+      {
+        "at": "2026-09-13T14:18:54.473Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/0lonvkgsdra2r.js",
+        "release": "old",
+        "destination": "empty",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 149,
+        "sha256": "dae4ceb0a153a052558551bffe66856adff3c31515ca1c9a4532eeab7af3c361",
+        "finishedAt": "2026-09-13T14:18:54.476Z"
+      },
+      {
+        "at": "2026-09-13T14:18:59.339Z",
+        "method": "GET",
+        "url": "/?debugMap=1&postal=018956",
+        "release": "old",
+        "destination": "empty",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 12827,
+        "sha256": "047fd04d4176fd3afa15c224d94312f048dda52561ab3e21e1386321be10f636",
+        "finishedAt": "2026-09-13T14:18:59.340Z"
+      },
+      {
+        "at": "2026-09-13T14:19:00.543Z",
+        "method": "GET",
+        "url": "/sw.js",
+        "release": "old",
+        "destination": "serviceworker",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 2542,
+        "sha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+        "finishedAt": "2026-09-13T14:19:00.543Z"
+      }
+    ],
+    "release": "old",
+    "totalBytes": 7212377,
+    "inFlightBytes": 0,
+    "upstreamBytes": 5426844,
+    "capturedBytes": 1785533,
+    "chargedBytes": 7212377,
+    "activeUpstreams": 0,
+    "activeSockets": 0,
+    "closed": true,
+    "releaseSwitches": 0,
+    "limitHit": null
+  },
+  "cleanup": {
+    "command": "$ErrorActionPreference='Stop'; $profile='C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-GQYQYj'; function Owned { @(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | Where-Object { $_.CommandLine -and $_.CommandLine.Contains($profile) }) }; $before=@(Owned | Select-Object ProcessId,Name,CommandLine); foreach($p in @(Owned)){ $live=Get-Process -Id $p.ProcessId -ErrorAction SilentlyContinue; if($live -and -not $live.HasExited){Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue} }; $until=[DateTime]::UtcNow.AddSeconds(20); do { $remaining=@(Owned | Where-Object { $p=Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue; $p -and -not $p.HasExited }); if($remaining.Count -eq 0){break}; Start-Sleep -Milliseconds 250 } while([DateTime]::UtcNow -lt $until); @{before=$before;remaining=@($remaining | Select-Object ProcessId,Name,CommandLine)} | ConvertTo-Json -Depth 4 -Compress",
+    "exitCode": 0,
+    "stdout": "{\"before\":[{\"ProcessId\":38044,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:/Program Files/Google/Chrome/Application/chrome.exe\\\" --headless=new --window-size=1440,950 --force-device-scale-factor=1 --no-first-run --no-sandbox --use-angle=swiftshader --enable-unsafe-swiftshader --disable-background-networking --disable-component-update --disable-sync --disable-quic --remote-debugging-port=0 --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-GQYQYj about:blank\"},{\"ProcessId\":36716,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=crashpad-handler --user-data-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-GQYQYj /prefetch:4 --monitor-self-annotation=ptype=crashpad-handler --database=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-GQYQYj\\\\Crashpad --metrics-dir=C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-GQYQYj --url=https://clients2.google.com/cr/report --annotation=channel= --annotation=plat=Win64 --annotation=prod=Chrome --annotation=ver=152.0.7977.84 --initial-client-data=0x12c,0x130,0x134,0x128,0xc4,0x7ff9ad877e60,0x7ff9ad877e70,0x7ff9ad877e80\"},{\"ProcessId\":37608,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=gpu-process --no-sandbox --headless=new --use-angle=swiftshader --enable-unsafe-swiftshader --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-GQYQYj\\\" --no-pre-read-main-dll --gpu-preferences=WAAAAAAAAADgAAAEAAAAAAAAAAAAAGAAQAAAAAAAAAADAAAAAAAAADgAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAAoAAAAAAAAAAgAAAAAAAAAEAAAAAIAAAABAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --field-trial-handle=1816,i,7811500073263484608,10798412356993889748,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1812,i,17000111185082090851,14137374571412873599,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1808 /prefetch:2\"},{\"ProcessId\":19420,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --use-angle=swiftshader --disable-quic --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-GQYQYj\\\" --no-pre-read-main-dll --field-trial-handle=1816,i,7811500073263484608,10798412356993889748,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1812,i,17000111185082090851,14137374571412873599,4 --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=1992 /prefetch:11\"},{\"ProcessId\":6204,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=utility --utility-sub-type=storage.mojom.StorageService --lang=en-US --service-sandbox-type=service --no-sandbox --use-angle=swiftshader --disable-quic --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-GQYQYj\\\" --no-pre-read-main-dll --field-trial-handle=1816,i,7811500073263484608,10798412356993889748,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1812,i,17000111185082090851,14137374571412873599,4 --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=2384 /prefetch:13\"},{\"ProcessId\":38416,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --top-chrome-webui --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-GQYQYj\\\" --no-pre-read-main-dll --no-sandbox --force-device-scale-factor=1 --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --launch-time-ticks=161962084476 --field-trial-handle=1816,i,7811500073263484608,10798412356993889748,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1812,i,17000111185082090851,14137374571412873599,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3164 /prefetch:1\"},{\"ProcessId\":36756,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-GQYQYj\\\" --no-pre-read-main-dll --no-sandbox --force-device-scale-factor=1 --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --launch-time-ticks=161962527531 --field-trial-handle=1816,i,7811500073263484608,10798412356993889748,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1812,i,17000111185082090851,14137374571412873599,4 --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=3492 /prefetch:1\"},{\"ProcessId\":32364,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-GQYQYj\\\" --no-pre-read-main-dll --no-sandbox --force-device-scale-factor=1 --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --launch-time-ticks=161962635891 --field-trial-handle=1816,i,7811500073263484608,10798412356993889748,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1812,i,17000111185082090851,14137374571412873599,4 --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=3772 /prefetch:1\"},{\"ProcessId\":21604,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-GQYQYj\\\" --extension-process --no-pre-read-main-dll --no-sandbox --force-device-scale-factor=1 --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10 --launch-time-ticks=161962804652 --field-trial-handle=1816,i,7811500073263484608,10798412356993889748,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1812,i,17000111185082090851,14137374571412873599,4 --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=4216 /prefetch:9\"},{\"ProcessId\":15756,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=utility --utility-sub-type=chrome.mojom.ProcessorMetrics --lang=en-US --service-sandbox-type=none --no-sandbox --use-angle=swiftshader --disable-quic --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-GQYQYj\\\" --no-pre-read-main-dll --field-trial-handle=1816,i,7811500073263484608,10798412356993889748,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1812,i,17000111185082090851,14137374571412873599,4 --trace-process-track-uuid=3190708996619331833 --mojo-platform-channel-handle=5900 /prefetch:14\"},{\"ProcessId\":20084,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-GQYQYj\\\" --no-pre-read-main-dll --no-sandbox --force-device-scale-factor=1 --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=12 --launch-time-ticks=161978780588 --field-trial-handle=1816,i,7811500073263484608,10798412356993889748,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1812,i,17000111185082090851,14137374571412873599,4 --trace-process-track-uuid=3190708997556373682 --mojo-platform-channel-handle=5980 /prefetch:1\"},{\"ProcessId\":37132,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-GQYQYj\\\" --no-pre-read-main-dll --no-sandbox --force-device-scale-factor=1 --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=13 --launch-time-ticks=161979641117 --field-trial-handle=1816,i,7811500073263484608,10798412356993889748,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1812,i,17000111185082090851,14137374571412873599,4 --trace-process-track-uuid=3190708998493415531 --mojo-platform-channel-handle=3784 /prefetch:1\"},{\"ProcessId\":21916,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=utility --utility-sub-type=data_decoder.mojom.DataDecoderService --lang=en-US --service-sandbox-type=service --no-sandbox --use-angle=swiftshader --disable-quic --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-GQYQYj\\\" --no-pre-read-main-dll --field-trial-handle=1816,i,7811500073263484608,10798412356993889748,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1812,i,17000111185082090851,14137374571412873599,4 --trace-process-track-uuid=3190708999430457380 --mojo-platform-channel-handle=3836 /prefetch:14\"},{\"ProcessId\":24888,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=utility --utility-sub-type=chrome.mojom.UtilWin --lang=en-US --service-sandbox-type=none --no-sandbox --use-angle=swiftshader --disable-quic --message-loop-type-ui --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-GQYQYj\\\" --no-pre-read-main-dll --field-trial-handle=1816,i,7811500073263484608,10798412356993889748,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1812,i,17000111185082090851,14137374571412873599,4 --trace-process-track-uuid=3190709000367499229 --mojo-platform-channel-handle=5876 /prefetch:14\"},{\"ProcessId\":35104,\"Name\":\"chrome.exe\",\"CommandLine\":\"\\\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\\\" --type=renderer --noerrdialogs --user-data-dir=\\\"C:\\\\sgSHIOK2026\\\\tmp\\\\layout-confirmation-browser-GQYQYj\\\" --no-pre-read-main-dll --no-sandbox --force-device-scale-factor=1 --remote-debugging-port=0 --video-capture-use-gpu-memory-buffer --lang=en-US --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=17 --launch-time-ticks=161994517415 --field-trial-handle=1816,i,7811500073263484608,10798412356993889748,262144 --disable-features=PaintHolding --variations-seed-version --pseudonymization-salt-handle=1812,i,17000111185082090851,14137374571412873599,4 --trace-process-track-uuid=3190709002241582927 --mojo-platform-channel-handle=260 /prefetch:1\"}],\"remaining\":[]}\r\n",
+    "stderr": "",
+    "verified": true
+  },
+  "chromeTerminal": {
+    "unverified": true
+  },
+  "anchorsAfter": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "bytes": 13626
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "bytes": 1751005
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "bytes": 5240179
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "bytes": 5236013
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "bytes": 39674
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "bytes": 3538342
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "bytes": 184
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "bytes": 269
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "bytes": 1189
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "bytes": 145327
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "bytes": 515583
+    }
+  ],
+  "anchorsUnchanged": true,
+  "stderr": "\r\nDevTools listening on ws://127.0.0.1:38952/devtools/browser/033f50f7-a56a-40d3-a455-00fd53afd366\r\n[38044:29956:0913/221928.561:ERROR:chrome\\browser\\web_applications\\externally_managed_app_manager.cc:680] https://docs.google.com/spreadsheets/installwebapp?usp=chrome_default from install source 1 failed to install with reason 21\r\n",
+  "elapsedMs": 63711,
+  "finalBoundsClear": true,
+  "ok": false,
+  "rawIdentity": {
+    "bytes": 3346245,
+    "sha256": "5d58a26042b446abe258803650583ea490955c60a0c949630187a2725113f3d1",
+    "published": false,
+    "reason": "Third-party cookie/address headers; original stays local untracked"
+  },
+  "publicIdentity": {
+    "file": "browser.public.json.gz",
+    "bytes": 2389105,
+    "sha256": "a9eabdc8d4882f4781fccb91df474a64f4d7ca9ba38d5b253c99ac9808948e5b",
+    "compressedBytes": 110672,
+    "compressedSha256": "ec3d7f02e8ab2f4b706e0a26e28b364c8faa621e88c8d85a56bab1194c033699",
+    "redactions": {
+      "header:upgrade-insecure-requests": 2,
+      "header:user-agent": 508,
+      "header:sec-ch-ua": 508,
+      "header:sec-ch-ua-mobile": 508,
+      "header:sec-ch-ua-platform": 508,
+      "associatedCookies": 242,
+      "header:accept": 478,
+      "header:accept-encoding": 242,
+      "header:accept-language": 242,
+      "header:connection": 68,
+      "header:host": 19,
+      "header:sec-fetch-dest": 242,
+      "header:sec-fetch-mode": 242,
+      "header:sec-fetch-site": 242,
+      "header:sec-fetch-user": 1,
+      "blockedCookies": 240,
+      "header:keep-alive": 49,
+      "header:content-security-policy": 472,
+      "header:referrer-policy": 472,
+      "header:x-content-type-options": 472,
+      "headersText": 19,
+      "cookiePartitionKey": 240,
+      "exemptedCookies": 240,
+      "remoteIPAddress": 239,
+      "header:referer": 506,
+      "header:origin": 228,
+      "header::authority": 223,
+      "header::method": 223,
+      "header::path": 223,
+      "header::scheme": 223,
+      "header:priority": 223,
+      "header:sec-fetch-storage-access": 1,
+      "header:accept-ranges": 441,
+      "header:access-control-allow-headers": 441,
+      "header:access-control-allow-methods": 441,
+      "header:access-control-allow-origin": 441,
+      "header:expires": 2,
+      "header:last-modified": 441,
+      "header:set-cookie": 221,
+      "header:strict-transport-security": 441,
+      "header:surrogate-control": 2,
+      "header:vary": 2,
+      "header:x-cache-status": 441,
+      "header:x-content-security-policy": 2,
+      "header:x-frame-options": 441,
+      "header:x-remote-addr": 441
+    }
+  },
+  "eventCount": 1646
+}

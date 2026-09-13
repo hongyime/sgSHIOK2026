@@ -1,0 +1,30 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "--test",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\legacy-reload-20260913\\release-server-v2.test.mjs",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\legacy-reload-20260913\\navigation-proof.test.mjs"
+  ],
+  "sources": [
+    {
+      "path": "release-server-v2.mjs",
+      "sha256": "3ff21028973f6686b5119c182ca7071409b0ee48f933ccf630c162b4cb219063"
+    },
+    {
+      "path": "release-server-v2.test.mjs",
+      "sha256": "a146c6ce2affc99f44a544fffdf3ccd9cd9496f5be6140add37cdbe41edb78b7"
+    },
+    {
+      "path": "navigation-proof.mjs",
+      "sha256": "71b2fa5a10e210e31e9e0d7317b9978ecf9c0856239278915e95fe3a473d359d"
+    },
+    {
+      "path": "navigation-proof.test.mjs",
+      "sha256": "0780ab4a2a8070674b201d1eec38abac324d7d941b3a3fbbfd83c375be868add"
+    }
+  ],
+  "exitCode": 0,
+  "stdout": "✔ only navigation context destruction is retryable (13.3653ms)\n✔ preserve original query/hash and permit only absent canonical bus default (33.4558ms)\n✔ bind a worker-served document to top frame, loader and exact requested URL (3.6499ms)\n✔ reject a different frame, loader, session, URL or missing request (3.7897ms)\n✔ reject ambiguous matching document responses (2.4499ms)\n✔ oversized captured HTML and assets reject before listening (30.7648ms)\n✔ only required local frontend/data GET paths are admitted (8.403ms)\n✔ response credentials are not forwarded (11.0192ms)\n✔ old captured bodies, genuine worker switch, current query and data read-only path (833.4896ms)\n✔ request bound stops admission (55.0482ms)\n✔ byte bound rejects captured body without sending it (30.2862ms)\n✔ discarded upstream bodies remain charged across failed requests (127.4757ms)\n✔ concurrent shutdown callers await the same socket and upstream closure (85.6424ms)\n✔ wall-triggered shutdown is awaitable by final cleanup (70.8555ms)\n✔ automatic lamp data uses only its known read-only prefix (7.2496ms)\nℹ tests 15\nℹ suites 0\nℹ pass 15\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 2600.043\n",
+  "stderr": "",
+  "elapsedMs": 3333
+}

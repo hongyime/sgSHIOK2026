@@ -1,0 +1,17 @@
+{
+  "scope": "Actual captured production HTML/application/service worker on a bounded local origin, then current verified preview; no deployment or pipeline.",
+  "oldBuild": "UzVn3WiWA2GW7dtvN27rN",
+  "currentBuild": "l7V5uOArXwdDrUIe3Wc2s",
+  "oldSource": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168",
+  "actions": "Start without postal. Native search018956. Verify old worker controls page. One ordinary Reload after internal release switch, same origin/profile, no cache clearing/worker bypass/forced update/postal reentry.",
+  "firstAttempt": "Failed receipt filter required Sec-Fetch-Dest document, but the old worker refetched root as a normal fetch. Visible new route is an observation, not completed exact-body/controller/cache-preservation proof. Background Runtime.enable timeout is uncorrelated and not ignored.",
+  "v2Fixes": "Navigation body/frame/loader binding, narrow transient context retry, query/hash preservation with canonical bus addition, automatic lamp prefix and rendered counts, no background worker-domain enabling, cumulative failed-read limits and drained shared shutdown.",
+  "v2Outcome": "Post-screenshot old-page observation timed out before flip. No recovery conclusion. No third attempt.",
+  "bounds": "600 local requests;128MiB cumulatively charged bodies;8MiB per captured/upstream file;10s upstream/CDP deadlines;170s local server;180s browser work;240s child;300s supervisor including cleanup. Streaming byte limits can overshoot by delivered chunk, not a NIC-hard-cap claim.",
+  "networkScope": "Read-only current local frontend/published score/lamp paths only through fixture; /api blocked. Normal OneMap basemap traffic remains external. Page+SW lifecycle events and local HTTP receipts, not complete worker transfers or browser-wide egress isolation.",
+  "browserLimitation": "Owned Chrome/CDP fallback because browser plugin bootstrap failed os error3 earlier; no Playwright or physical-phone claim.",
+  "testHistory": "Initial server5/5. First v2 run13/14; cumulative budget counted correctly but later generic limit overwrote first cause. red-budget-server preserves pre-fix bytes.14/14 after first-reason fix;15/15 after captured-file guard.2publication tests added separately.",
+  "inspection": "Parent directly viewed all3saved PNGs. Corrected old-selected was written but has no completed before/after bracket. Current-route screenshot belongs only to failed first attempt.",
+  "privacy": "Raw CDP includes third-party cookies/address headers. Keep raw local, do not stage. Structured-publication removes nonallowlisted headers, cookie material, raw header text, remote addresses and request bodies; preserve binding fields, public URLs and hashes.",
+  "remaining": "Real report store/moderation/account/privacy decision; scheduler destination/account/operator action; T19 full coverage budget; physical-phone/screen-reader/same-document zoom; actual release retention/returning-client acceptance and explicit deploy approval. Local tests do not activate services."
+}

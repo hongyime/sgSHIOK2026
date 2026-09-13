@@ -1,0 +1,11 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "--test",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\legacy-reload-20260913\\publish-trace.test.mjs"
+  ],
+  "exitCode": 0,
+  "stdout": "✔ publication removes cookie, address, raw header and request body values (15.1571ms)\n✔ publication preserves document binding, URL and fingerprint proof (10.0937ms)\nℹ tests 2\nℹ suites 0\nℹ pass 2\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 941.9136\n",
+  "stderr": "",
+  "elapsedMs": 1527
+}
