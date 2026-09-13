@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { ONEMAP_NO_STORE_HEADERS, OneMapRequestEnded, withOneMapDeadline } from "../onemap-deadline";
 import {
   checkThrottle,
   expireOneMapTokenForRetry,
@@ -80,61 +81,70 @@ export async function GET(request: NextRequest) {
   if (throttle.limited) {
     return NextResponse.json(
       { ok: false, error: "Too Many Requests. Rate limit exceeded (60 req/min)." },
-      { status: 429, headers: { "Retry-After": "60" } }
+      { status: 429, headers: { ...ONEMAP_NO_STORE_HEADERS, "Retry-After": "60" } }
     );
   }
 
-  const token = await getOneMapToken("route");
   const routeUrl = `https://www.onemap.gov.sg/api/public/routingsvc/route?start=${startLat},${startLng}&end=${endLat},${endLng}&routeType=walk`;
-
-  const headers: Record<string, string> = {};
-  if (token) {
-    headers["Authorization"] = `Bearer ${token}`;
-  }
-
   try {
-    let response = await fetch(routeUrl, { headers });
-
-    // Handle token 401 expiry
-    if (response.status === 401 && token) {
-      expireOneMapTokenForRetry();
-      const newToken = await getOneMapToken("route retry");
-      if (newToken) {
-        headers["Authorization"] = `Bearer ${newToken}`;
-        response = await fetch(routeUrl, { headers });
-      }
-    }
-
-    if (!response.ok) {
-      return NextResponse.json(
-        { ok: false, error: `OneMap routing upstream error: ${response.statusText}` },
-        { status: response.status }
-      );
-    }
-
-    const data = await response.json();
-    if (!data.route_geometry) {
-      return NextResponse.json(
-        { ok: false, error: data.status_message || "No route geometry returned by OneMap" },
-        { status: 404 }
-      );
-    }
-
-    const totalDistanceM = data.route_summary?.total_distance ?? 0;
-    const totalTimeS = data.route_summary?.total_time ?? 0;
-
-    return NextResponse.json(
-      {
-        ok: true,
-        route_geometry: data.route_geometry,
-        total_distance_m: totalDistanceM,
-        total_time_s: totalTimeS,
-        status_message: data.status_message ?? "Found route",
-      },
-      { headers: ROUTE_CACHE_HEADERS }
-    );
+    return await withOneMapDeadline(request.signal, (signal) => queryRoute(routeUrl, signal));
   } catch (err) {
+    if (err instanceof OneMapRequestEnded) {
+      return NextResponse.json({ ok: false, error: err.message, code: err.code }, { status: err.status, headers: ONEMAP_NO_STORE_HEADERS });
+    }
     console.error("Error proxying OneMap route:", err);
-    return NextResponse.json({ ok: false, error: "Failed to query OneMap route API" }, { status: 500 });
+    return NextResponse.json({ ok: false, error: "Failed to query OneMap route API" }, { status: 500, headers: ONEMAP_NO_STORE_HEADERS });
   }
+}
+
+async function queryRoute(routeUrl: string, signal: AbortSignal) {
+  const token = await getOneMapToken("route", signal);
+  signal.throwIfAborted();
+  const headers: Record<string, string> = token ? { Authorization: `Bearer ${token}` } : {};
+  let response = await fetch(routeUrl, { headers, signal });
+  signal.throwIfAborted();
+
+  // Handle token 401 expiry
+  if (response.status === 401 && token) {
+    expireOneMapTokenForRetry();
+    void response.body?.cancel().catch(() => {});
+    const newToken = await getOneMapToken("route retry", signal);
+    signal.throwIfAborted();
+    if (newToken) {
+      headers["Authorization"] = `Bearer ${newToken}`;
+      response = await fetch(routeUrl, { headers, signal });
+      signal.throwIfAborted();
+    }
+  }
+
+  if (!response.ok) {
+    void response.body?.cancel().catch(() => {});
+    return NextResponse.json(
+      { ok: false, error: `OneMap routing upstream error: ${response.statusText}` },
+      { status: response.status, headers: ONEMAP_NO_STORE_HEADERS }
+    );
+  }
+
+  const data = await response.json();
+  signal.throwIfAborted();
+  if (!data.route_geometry) {
+    return NextResponse.json(
+      { ok: false, error: data.status_message || "No route geometry returned by OneMap" },
+      { status: 404, headers: ONEMAP_NO_STORE_HEADERS }
+    );
+  }
+
+  const totalDistanceM = data.route_summary?.total_distance ?? 0;
+  const totalTimeS = data.route_summary?.total_time ?? 0;
+
+  return NextResponse.json(
+    {
+      ok: true,
+      route_geometry: data.route_geometry,
+      total_distance_m: totalDistanceM,
+      total_time_s: totalTimeS,
+      status_message: data.status_message ?? "Found route",
+    },
+    { headers: ROUTE_CACHE_HEADERS }
+  );
 }

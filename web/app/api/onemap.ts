@@ -79,7 +79,8 @@ export function checkThrottle(
   return { key: ip, limited: false, size: ipThrottleMap.size };
 }
 
-export async function getOneMapToken(context: string): Promise<string | null> {
+export async function getOneMapToken(context: string, signal?: AbortSignal): Promise<string | null> {
+  signal?.throwIfAborted();
   const now = Date.now();
   if (cachedToken && now < tokenExpiresAt) {
     return cachedToken;
@@ -100,7 +101,9 @@ export async function getOneMapToken(context: string): Promise<string | null> {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
+      signal,
     });
+    signal?.throwIfAborted();
 
     if (!res.ok) {
       console.error(`OneMap auth failed for ${context}:`, res.status);
@@ -108,12 +111,14 @@ export async function getOneMapToken(context: string): Promise<string | null> {
     }
 
     const data = await res.json();
+    signal?.throwIfAborted();
     if (data.access_token) {
       cachedToken = data.access_token;
       tokenExpiresAt = Date.now() + TOKEN_TTL_MS;
       return cachedToken;
     }
   } catch (err) {
+    signal?.throwIfAborted();
     console.error(`Error fetching OneMap token for ${context}:`, err);
   }
 

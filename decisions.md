@@ -3642,3 +3642,21 @@ permits only GET /api/onemap-route, leaves all other API methods/routes blocked,
 and can pass existing OneMap server credentials without copying or logging them.
 Controlled provider-failure tests do not prove upstream availability. No provider
 activation, data refresh, pipeline work or deployment follows from this change.
+
+## 2026-09-13: Bound OneMap provider transactions on the server
+
+Route previews and postal search share one 10-second server deadline across token
+acquisition, the existing single 401 retry, and response-body consumption. The
+browser's 12-second preview deadline remains a separate outer recovery boundary.
+Caller disconnect aborts upstream work. Even a transport ignoring abort cannot
+hold the handler open indefinitely or publish a late token into the shared cache.
+Successful seven-day caching and deterministic coordinate-error caching remain;
+transient upstream errors, timeouts and cancellations are explicitly no-store.
+These bounds are not a distributed/global request quota or a guarantee that a
+provider has a route. Existing saved geometry remains the recovery baseline.
+
+The broad completion goal is active again. Local report validation and maintenance
+delivery components may progress under the owner's completion request, but no
+report intake, external account, scheduler, issue, or deployment is activated by
+the implementation alone. Outstanding privacy/account/operator choices were asked
+explicitly; physical-device acceptance cannot be supplied by an agent.

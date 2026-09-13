@@ -1,0 +1,143 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "--globals",
+    "--maxWorkers",
+    "1",
+    "--no-file-parallelism",
+    "--reporter=json",
+    "lib/__tests__/onemap-deadline.test.ts"
+  ],
+  "cwd": "C:\\sgSHIOK2026\\web",
+  "exitCode": 1,
+  "elapsedMs": 58497,
+  "counts": {
+    "tests": 20,
+    "passed": 0,
+    "failed": 20
+  },
+  "failures": [
+    {
+      "name": "OneMap 'route' total provider deadline bounds stalled headers even when transport ignores abort",
+      "messages": [
+        "AssertionError: expected undefined to be 504 // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/onemap-deadline.test.ts:59:39\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "OneMap 'route' total provider deadline bounds stalled body even when transport ignores abort",
+      "messages": [
+        "AssertionError: expected undefined to be 504 // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/onemap-deadline.test.ts:59:39\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "OneMap 'route' total provider deadline bounds stalled auth headers even when transport ignores abort",
+      "messages": [
+        "AssertionError: expected undefined to be 504 // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/onemap-deadline.test.ts:59:39\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "OneMap 'route' total provider deadline bounds stalled auth body even when transport ignores abort",
+      "messages": [
+        "AssertionError: expected undefined to be 504 // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/onemap-deadline.test.ts:59:39\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "OneMap 'route' total provider deadline does no provider work for a disconnected caller",
+      "messages": [
+        "AssertionError: expected 500 to be 499 // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/onemap-deadline.test.ts:73:29\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "OneMap 'route' total provider deadline aborts provider work immediately on caller disconnect",
+      "messages": [
+        "AssertionError: expected undefined to be 499 // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/onemap-deadline.test.ts:87:39\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "OneMap 'route' total provider deadline keeps successful caching and removes deadline/listener after completion",
+      "messages": [
+        "AssertionError: expected \"removeEventListener\" to be called with arguments: [ 'abort', Any<Function> ]\n\nNumber of calls: 0\n\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1487:10)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at C:/sgSHIOK2026/web/lib/__tests__/onemap-deadline.test.ts:102:20\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "OneMap 'route' total provider deadline does not cache a late token or begin routing/search after timeout",
+      "messages": [
+        "AssertionError: expected undefined to be 504 // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/onemap-deadline.test.ts:117:39\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "OneMap 'route' total provider deadline uses the original deadline across auth and the single 401 retry",
+      "messages": [
+        "AssertionError: expected undefined to be 504 // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/onemap-deadline.test.ts:143:39\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "OneMap 'route' total provider deadline marks transient upstream failures noncacheable",
+      "messages": [
+        "AssertionError: expected null to be 'no-store' // Object.is equality\n    at noStore (C:/sgSHIOK2026/web/lib/__tests__/onemap-deadline.test.ts:26:39)\n    at C:/sgSHIOK2026/web/lib/__tests__/onemap-deadline.test.ts:156:5\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "OneMap 'search' total provider deadline bounds stalled headers even when transport ignores abort",
+      "messages": [
+        "AssertionError: expected undefined to be 504 // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/onemap-deadline.test.ts:59:39\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "OneMap 'search' total provider deadline bounds stalled body even when transport ignores abort",
+      "messages": [
+        "AssertionError: expected undefined to be 504 // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/onemap-deadline.test.ts:59:39\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "OneMap 'search' total provider deadline bounds stalled auth headers even when transport ignores abort",
+      "messages": [
+        "AssertionError: expected undefined to be 504 // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/onemap-deadline.test.ts:59:39\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "OneMap 'search' total provider deadline bounds stalled auth body even when transport ignores abort",
+      "messages": [
+        "AssertionError: expected undefined to be 504 // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/onemap-deadline.test.ts:59:39\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "OneMap 'search' total provider deadline does no provider work for a disconnected caller",
+      "messages": [
+        "AssertionError: expected 500 to be 499 // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/onemap-deadline.test.ts:73:29\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "OneMap 'search' total provider deadline aborts provider work immediately on caller disconnect",
+      "messages": [
+        "AssertionError: expected undefined to be 499 // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/onemap-deadline.test.ts:87:39\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "OneMap 'search' total provider deadline keeps successful caching and removes deadline/listener after completion",
+      "messages": [
+        "AssertionError: expected \"removeEventListener\" to be called with arguments: [ 'abort', Any<Function> ]\n\nNumber of calls: 0\n\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1487:10)\n    at Proxy.<anonymous> (file:///C:/sgSHIOK2026/web/node_modules/@vitest/expect/dist/index.js:1156:15)\n    at Proxy.methodWrapper (file:///C:/sgSHIOK2026/web/node_modules/chai/index.js:1700:25)\n    at C:/sgSHIOK2026/web/lib/__tests__/onemap-deadline.test.ts:102:20\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "OneMap 'search' total provider deadline does not cache a late token or begin routing/search after timeout",
+      "messages": [
+        "AssertionError: expected undefined to be 504 // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/onemap-deadline.test.ts:117:39\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "OneMap 'search' total provider deadline uses the original deadline across auth and the single 401 retry",
+      "messages": [
+        "AssertionError: expected undefined to be 504 // Object.is equality\n    at C:/sgSHIOK2026/web/lib/__tests__/onemap-deadline.test.ts:143:39\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "OneMap 'search' total provider deadline marks transient upstream failures noncacheable",
+      "messages": [
+        "AssertionError: expected null to be 'no-store' // Object.is equality\n    at noStore (C:/sgSHIOK2026/web/lib/__tests__/onemap-deadline.test.ts:26:39)\n    at C:/sgSHIOK2026/web/lib/__tests__/onemap-deadline.test.ts:156:5\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    }
+  ]
+}

@@ -1,5 +1,11 @@
 # SHIOK Revamp Execution Plan
 Current scope: 2026-09-13 owner revision, replacing the 12 September UI scope.
+Completion resume: ACTIVE. OneMap route/search share a 10s server deadline including
+auth, one retry and response bodies; caller disconnect propagates and late tokens
+cannot populate the cache. 38 focused API/search tests pass; build acceptance pending.
+Popup, route-gap diagnosis, local report contracts and maintenance delivery work
+continue in disjoint scopes. Reporting policy/account and weekly issue/scheduler
+activation requested; no provider service or production activation claimed.
 LOCALLY_VERIFIED: walk-only inspector. Two tabs (MRT/LRT exits, Bus stops), shortest
 usable saved walk selected automatically, no Suggested/comparison/About data,
 automatic zoom-bounded night lighting, bounded explicit preview recovery.

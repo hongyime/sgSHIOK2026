@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { ONEMAP_NO_STORE_HEADERS, OneMapRequestEnded, withOneMapDeadline } from "../onemap-deadline";
 import {
   checkThrottle,
   expireOneMapTokenForRetry,
@@ -36,52 +37,62 @@ export async function GET(request: NextRequest) {
   if (throttle.limited) {
     return NextResponse.json(
       { error: "Too Many Requests. Rate limit exceeded (30 req/min)." },
-      { status: 429, headers: { "Retry-After": "60" } }
+      { status: 429, headers: { ...ONEMAP_NO_STORE_HEADERS, "Retry-After": "60" } }
     );
   }
 
-  const token = await getOneMapToken("search");
   const searchUrl = `https://www.onemap.gov.sg/api/common/elastic/search?searchVal=${encodeURIComponent(
     searchVal
   )}&returnGeom=Y&getAddrDetails=Y`;
 
-  const headers: Record<string, string> = {};
-  if (token) {
-    headers["Authorization"] = `Bearer ${token}`;
-  }
-
   try {
-    let response = await fetch(searchUrl, { headers });
-
-    // Handle token 401 expiry
-    if (response.status === 401 && token) {
-      expireOneMapTokenForRetry();
-      const newToken = await getOneMapToken("search retry");
-      if (newToken) {
-        headers["Authorization"] = `Bearer ${newToken}`;
-        response = await fetch(searchUrl, { headers });
-      }
-    }
-
-    if (!response.ok) {
-      return NextResponse.json(
-        { error: `OneMap upstream error: ${response.statusText}` },
-        { status: response.status }
-      );
-    }
-
-    const data = await response.json();
-    const results = (data.results || []).slice(0, 5);
-
-    return NextResponse.json(
-      {
-        found: data.found || 0,
-        results,
-      },
-      { headers: SEARCH_CACHE_HEADERS }
-    );
+    return await withOneMapDeadline(request.signal, (signal) => querySearch(searchUrl, signal));
   } catch (err) {
+    if (err instanceof OneMapRequestEnded) {
+      return NextResponse.json({ error: err.message, code: err.code }, { status: err.status, headers: ONEMAP_NO_STORE_HEADERS });
+    }
     console.error("Error proxying OneMap search:", err);
-    return NextResponse.json({ error: "Failed to query OneMap search API" }, { status: 500 });
+    return NextResponse.json({ error: "Failed to query OneMap search API" }, { status: 500, headers: ONEMAP_NO_STORE_HEADERS });
   }
+}
+
+async function querySearch(searchUrl: string, signal: AbortSignal) {
+  const token = await getOneMapToken("search", signal);
+  signal.throwIfAborted();
+  const headers: Record<string, string> = token ? { Authorization: `Bearer ${token}` } : {};
+  let response = await fetch(searchUrl, { headers, signal });
+  signal.throwIfAborted();
+
+  // Handle token 401 expiry
+  if (response.status === 401 && token) {
+    expireOneMapTokenForRetry();
+    void response.body?.cancel().catch(() => {});
+    const newToken = await getOneMapToken("search retry", signal);
+    signal.throwIfAborted();
+    if (newToken) {
+      headers["Authorization"] = `Bearer ${newToken}`;
+      response = await fetch(searchUrl, { headers, signal });
+      signal.throwIfAborted();
+    }
+  }
+
+  if (!response.ok) {
+    void response.body?.cancel().catch(() => {});
+    return NextResponse.json(
+      { error: `OneMap upstream error: ${response.statusText}` },
+      { status: response.status, headers: ONEMAP_NO_STORE_HEADERS }
+    );
+  }
+
+  const data = await response.json();
+  signal.throwIfAborted();
+  const results = (data.results || []).slice(0, 5);
+
+  return NextResponse.json(
+    {
+      found: data.found || 0,
+      results,
+    },
+    { headers: SEARCH_CACHE_HEADERS }
+  );
 }

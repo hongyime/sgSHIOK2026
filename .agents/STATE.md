@@ -18,7 +18,9 @@ ProxyPID11476,NextPID32480. Current browser profiles cleaned; preview intentiona
 Current plan:postplan.html; detailed PRODUCT-PLAN.md. T08-T11comparison RETIRED, not pending acceptance.
 Remaining: device/core-walk acceptance; bounded route-gap diagnosis; T13report-provider/privacy/moderator/backup then T14-T18; maintenance activation; release identity and deployment.
 T19full scan exceeds900s gate. No scoring/export/ingest/network/input repair. Weights/existing data/QA remain untouched.
-Goal runner remains blocked; no competing goal created or false completion. Continue actionable owner frontend work directly.
-Peer quota unavailable until2026-09-15 09:34; parent review. Browser plugin bootstrap failed os error3; owned Chrome/CDP fallback.
+Goal ACTIVE: complete remaining popup/API bounds, bounded route diagnosis, reporting, maintenance and release acceptance.
+Current work: server deadlines locally; agents own popup simplification and read-only maintenance/route diagnosis. No concurrent commits.
+Reporting account/privacy/moderator/backup choices and weekly metadata/issue activation requested; other work continues.
+Peer spawning succeeded this resume. Browser plugin previously failed os error3; use documented browser fallback only if needed.
 Evidence:qa/revamp-r1/walk-only-20260913/ and append-only qa/verification/REVAMP-R1-core-walk.md.
 No installs, pipeline, account activation or deployment. Exact staging, conventional commit and push main; never amend/force/rewrite.

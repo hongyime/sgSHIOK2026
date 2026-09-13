@@ -4718,3 +4718,33 @@ Inspected screenshot paths/hashes and all build/fixture/weight identities are re
 2. The broad goal runner still reports blocked and exposes no resume operation to this agent. This concrete request was executed directly; neither a competing goal nor false broad completion was created.
 
 Final staging receipt:staging-byte-check.json. All93indexed artifacts match their staged SHA256.159of160build sources match staged bytes exactly. The unrelated, unchanged revamp-layout.test.ts has one CRLF on disk (2406bytes) normalized to LF in git (2405bytes); normalized content is identical and its tracked diff is empty. Both full hashes are recorded; it was left untouched. Current-disk/build identities still agree. Do not claim all staged sources are byte-identical. This is a test-source newline exception, not a protected-input hash mismatch. No protected path appears in the staged diff. Prior evidence prefix is preserved; the main append was60additions/0deletions before this note.
+
+## Completion Resume 2026-09-13: Server Provider Deadline
+
+Root C:\sgSHIOK2026; host PRAWN-E14. Base 1a8d72004c73f2ee77a2177b238228fa8b9beeb9.
+The goal tool now reports ACTIVE. The previous blocked statement describes the
+previous turn, not this resume. Subagent spawning succeeded; no quota bypass.
+
+Command receipts (stdout, stderr and structured result):
+- walk-only-20260913/checks-1789271097828: new deadline suite before implementation,
+  20 tests, 0 passed, 20 failed, exit1; missing504/499/no-store/cleanup behavior.
+- walk-only-20260913/checks-1789271248120: 20 deadline +7 security tests,27 passed,exit0.
+- completion-20260913/checks-1789271641923:24 deadline +7 security +7 search =38 passed,exit0.
+- completion-20260913/checks-1789271416981: installed TypeScript noEmit/incremental=false,exit0.
+Paths above are relative to qa/revamp-r1. No real provider call was needed for these
+synthetic transaction tests. Timers include auth headers/body, route/search headers/body,
+single401 retry, caller cancellation, late cache protection and unconsumed error bodies.
+Old preview4406 has not yet been rebuilt with this code. No browser or deployment
+acceptance is claimed by this checkpoint. Other agent work remains uncommitted.
+
+### FINDINGS
+1. Both server endpoints previously had unbounded provider/auth/body waits despite
+   the new client timeout. They now share a10s transaction deadline and cancellation.
+2. Successful responses retain caching; transient failures cannot poison shared caches.
+3. Reporting and maintenance are not live services merely because local code passes.
+   Account/policy/operator and scheduler/notice decisions have been requested.
+
+### DISAGREEMENTS
+1. No disagreement with completing the requested work. Physical-device acceptance,
+   real durable report receipts and production approval must remain observed facts,
+   not labels inferred from fixture success.
