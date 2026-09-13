@@ -1,6 +1,16 @@
 # SHIOK Revamp Execution Plan
 Current scope: 2026-09-13 owner revision, replacing the 12 September UI scope.
-Completion resume: ACTIVE, not complete. OneMap route/search share a 10s server
+Completion resume: BLOCKED on external decisions/actions, not complete.
+14 September audit: the previous checkpoint made progress; this audit found no
+new independently startable implementation. Kant independently checked the open
+dependencies; parent checked T27 release preparation. Reporting needs T13 policy
+and account setup, maintenance needs operator/storage/scheduler authorization,
+T26 needs real participation, and T28 needs an exact release decision. T19/T21
+retain their scan/job budget gates. These conditions have remained unanswered
+across the recent goal turns. Concrete reporting and weekly-check approval
+questions have been sent. Do not repeat failed browser work merely for PASS.
+The full product goal remains unchanged; a limited release is not completion.
+OneMap route/search share a 10s server
 deadline across auth/retry/body, caller cancellation and late-token protection.
 Popups show identity only. The saved Bayfront Exit E marker/deep link resolves
 without preview. Bounded018956 coverage is6saved +55unstored =61stop/exit markers.

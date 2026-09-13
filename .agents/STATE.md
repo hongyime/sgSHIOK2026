@@ -6,7 +6,8 @@ Machine: Prawn-E14
 Startup: assert cwd equals C:\sgSHIOK2026; abort otherwise. Absolute C: writes only. X: cold mirror, never session root.
 Before git commands, set TEMP and TMP to C:\sgSHIOK2026\tmp so global hooks keep temporary scan files inside this root.
 
-Goal ACTIVE, not complete. Legacy/current reload attempt observed-0t2Mmh is TERMINAL FAILED; session90830 exit1, cleanupverified,53.820s. No restart. Command27 old-screenshot after-check timed out before preservation/release switch; command28 browserprobe also timed out. One unbracketed old-page PNG inspected, no current-app acceptance. QA legacy-preservation-20260914:24new+23retained=47native tests pass. Original>=1GiB gate/deadlines retained after correcting our unsupported zero-page-in gate without resampling. No product source change; service/physical/release gates remain.
+Goal BLOCKED, not complete. Owner/account/physical/release dependencies remain unanswered across the maintenance-integration, legacy-preservation and current completion-audit goal turns. Independent reviewer Kant found no additional implementation outside parent-reviewed T27, which still has acceptance/approval gates. No blind browser replay or more disconnected helpers. Resume on an actual decision, access/device availability or concrete new diagnostic evidence.
+281facf is pushed. Legacy attempt observed-0t2Mmh is terminal FAILED before release switch, cleanup verified; no restart.47offline checks pass, one unbracketed old-page PNG inspected. Current preview retained, not deployed.
 Only MRT/LRT exits and Bus stops, auto shortest usable saved walk, no comparison/About data. Lighting automatic and bounded.
 Server route/search now have one10s deadline including auth/retry/body, cancellation and late-token guards; browser12s remains.
 Public018956 diagnosis:61stop/exits=6saved+55unstored. Exit E saved-ID gap fixed; no new geometry or scores.
