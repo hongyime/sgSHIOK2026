@@ -786,14 +786,14 @@ export function selectionForChosenStop(
   baseSelection: LoadedSelection | null,
   chosenStopId: string | null,
   _candidates: TransitCandidate[],
-  _mapTransitPois: TransitPoiCollection,
-  _originLatLng: { lat: number; lng: number } | null,
+  mapTransitPois: TransitPoiCollection,
+  originLatLng: { lat: number; lng: number } | null,
   liveRouteCache?: Record<string, LoadedSelection>
 ): LoadedSelection | null {
   if (!baseSelection || !chosenStopId) return baseSelection;
   for (const category of ["bus", "mrt_lrt"] as const) {
     const pool = normalizePublishedSelection(baseSelection, category, DATA_BASE);
-    const option = publishedOptionForStop(pool, chosenStopId);
+    const option = publishedOptionForStop(pool, chosenStopId, mapTransitPois, originLatLng);
     if (option) return publishedSelectionView(baseSelection, option);
   }
   const preview = liveRouteCache?.[chosenStopId];
@@ -2081,8 +2081,8 @@ export default function Home() {
     [publishedPool, transitMode]
   );
   const selectedPublishedOption = useMemo(
-    () => chosenStopId ? publishedOptionForStop(publishedPool, chosenStopId) : defaultOption,
-    [publishedPool, chosenStopId, defaultOption]
+    () => chosenStopId ? publishedOptionForStop(publishedPool, chosenStopId, mapTransitPois, originLatLng) : defaultOption,
+    [publishedPool, chosenStopId, defaultOption, mapTransitPois, originLatLng]
   );
   const transitSelection = useMemo(
     () => primary ? publishedSelectionView(primary, defaultOption) : null,
@@ -2304,7 +2304,7 @@ export default function Home() {
       discardPendingUrlIntent(); return;
     }
     for (const category of ["bus", "mrt_lrt"] as const) {
-      const option = publishedOptionForStop(normalizePublishedSelection(primary, category, DATA_BASE), pending);
+      const option = publishedOptionForStop(normalizePublishedSelection(primary, category, DATA_BASE), pending, mapTransitPois, originLatLng);
       if (option && (!pendingMode || option.category === pendingMode)) {
         const target = publishedChoiceTarget(option);
         setTransitMode(target.mode);
@@ -2329,7 +2329,7 @@ export default function Home() {
     pendingUrlStopIdRef.current = null;
     pendingUrlTransitRef.current = null;
     pendingUrlPostalRef.current = null;
-  }, [primary, loading, transitPoisReady, mapTransitPois, pathname, transitMode, routeMode, discardPendingUrlIntent, syncWalkUrl]);
+  }, [primary, loading, transitPoisReady, mapTransitPois, originLatLng, pathname, transitMode, routeMode, discardPendingUrlIntent, syncWalkUrl]);
 
   const loadSelection = async (result: SearchResult, preserveInitialUrl = false) => {
     const postal = normalizePostal(result.POSTAL);
@@ -2551,7 +2551,7 @@ export default function Home() {
       discardPendingUrlIntent();
       if (primary && nextStopId) {
         for (const category of ["bus", "mrt_lrt"] as const) {
-          const option = publishedOptionForStop(normalizePublishedSelection(primary, category, DATA_BASE), nextStopId);
+          const option = publishedOptionForStop(normalizePublishedSelection(primary, category, DATA_BASE), nextStopId, mapTransitPois, originLatLng);
           if (option) {
             const target = publishedChoiceTarget(option);
             setTransitMode(target.mode);
@@ -2574,7 +2574,7 @@ export default function Home() {
       setExposureSelection(null);
       syncStopUrl(resolved, mode);
     },
-    [primary, mapTransitPois, transitMode, bestCandidateId, syncStopUrl, discardPendingUrlIntent]
+    [primary, mapTransitPois, originLatLng, transitMode, bestCandidateId, syncStopUrl, discardPendingUrlIntent]
   );
 
   const handlePublishedChoice = (key: string | null) => {

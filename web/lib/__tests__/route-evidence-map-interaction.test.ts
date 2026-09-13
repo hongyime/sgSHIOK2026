@@ -287,7 +287,7 @@ describe("shelter map interactions", () => {
   it("guards the normalized published selection path ahead of the optional preview adapter", () => {
     const pageSource = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
 
-    expect(pageSource).toContain("const option = publishedOptionForStop(pool, chosenStopId)");
+    expect(pageSource).toContain("const option = publishedOptionForStop(pool, chosenStopId, mapTransitPois, originLatLng)");
     expect(pageSource).toContain("if (option) return publishedSelectionView(baseSelection, option)");
     expect(pageSource).not.toContain('routing_type: candScore?.routing_type ?? "precomputed_candidate"');
     expect(pageSource.indexOf("if (option) return publishedSelectionView(baseSelection, option)")).toBeLessThan(

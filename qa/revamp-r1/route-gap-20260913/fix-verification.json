@@ -1,0 +1,436 @@
+{
+  "status": "scoped_exit_e_fix_verified",
+  "publicPostal": "018956",
+  "publicCoverage": {
+    "stopsAndExits": 61,
+    "resolvedSavedRoutes": 6,
+    "resolvedIds": [
+      "bus:03511",
+      "bus:03519",
+      "bus:03509",
+      "mrt:21624",
+      "mrt:21678",
+      "mrt:21677"
+    ],
+    "absentSavedRoutes": 55,
+    "stationParentsExcluded": 7
+  },
+  "originalAttemptPreserved": true,
+  "diagnosisReportPreserved": true,
+  "originalImmutableAnchorsMatched": 33,
+  "protectedDataFixturePoiAnchorsMatched": 11,
+  "checks": {
+    "red": {
+      "failed": 4,
+      "passed": 15
+    },
+    "reviewRed": {
+      "failed": 3,
+      "passed": 2
+    },
+    "finalGreen": {
+      "passed": 67,
+      "failed": 0,
+      "skipped": 56
+    }
+  },
+  "consumedFiles": [
+    {
+      "path": ".agents/STATE.md",
+      "originalSha256": "d75c7d65059657c531554e9bbe1f6e3ab585979034e56fe115586d5bc3bb71bb",
+      "sha256": "41e65db306ecd19954ca200d25e34585222a8173978269ee3a924fef1ef800c1",
+      "bytes": 2554,
+      "status": "mutable_context_excluded"
+    },
+    {
+      "path": "AGENTS.md",
+      "originalSha256": "9bd783b4f2b3249da2c35ddcf8cc713bbbf57e8acf5cc273a8f087fe33e6914a",
+      "sha256": "9bd783b4f2b3249da2c35ddcf8cc713bbbf57e8acf5cc273a8f087fe33e6914a",
+      "bytes": 7566,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "qa/revamp-r1/walk-only-20260913/artifact-index.json",
+      "originalSha256": "19342683781b61bca45fdc0045a04ad17f624616aef96c69bda8bca319f23635",
+      "sha256": "19342683781b61bca45fdc0045a04ad17f624616aef96c69bda8bca319f23635",
+      "bytes": 38326,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "qa/revamp-r1/walk-only-20260913/preview-2.mjs",
+      "originalSha256": "1d9014420a2ec07bb3e32b8c18843c2645c79fc2118cd4efeaecbf6e5bb2e78c",
+      "sha256": "1d9014420a2ec07bb3e32b8c18843c2645c79fc2118cd4efeaecbf6e5bb2e78c",
+      "bytes": 4889,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "qa/revamp-r1/walk-only-20260913/preview.mjs",
+      "originalSha256": "30b18319fa84a751a41a37f9b4985a8bbed5d53614475e7dd111023182e14e34",
+      "sha256": "30b18319fa84a751a41a37f9b4985a8bbed5d53614475e7dd111023182e14e34",
+      "bytes": 4889,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "qa/revamp-r1/walk-only-20260913/provider-probe.json",
+      "originalSha256": "cf57f783e414c946df69098b6bc20aa446b89966cc73c10b9886573a06aeced8",
+      "sha256": "cf57f783e414c946df69098b6bc20aa446b89966cc73c10b9886573a06aeced8",
+      "bytes": 908,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "qa/revamp-r1/walk-only-20260913/source-check-2.json",
+      "originalSha256": "befa17c18efbdd926809b7c296d1c5a7f0e6f26d3d09c50328cbdc7bf8906d90",
+      "sha256": "befa17c18efbdd926809b7c296d1c5a7f0e6f26d3d09c50328cbdc7bf8906d90",
+      "bytes": 78,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "qa/revamp-r1/walk-only-20260913/summary.json",
+      "originalSha256": "be6813ea4894c5806020440c4fdc6328f27d055ed512ad727b41b63377a0d95d",
+      "sha256": "be6813ea4894c5806020440c4fdc6328f27d055ed512ad727b41b63377a0d95d",
+      "bytes": 142857,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/AGENTS.md",
+      "originalSha256": "63f2c50380ed6303237cce215ce27af1d620d094c215e28d1b1538a3c070e3bb",
+      "sha256": "63f2c50380ed6303237cce215ce27af1d620d094c215e28d1b1538a3c070e3bb",
+      "bytes": 678,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/app/api/onemap-route/route.ts",
+      "originalSha256": "7c2d0c55b13dc20e902b008359ccd42a83713cdbec898b96125f87f0b98c1537",
+      "sha256": "35dfef5e396b8974e61a8cfbddf64a5fe77bc07d6caf06b77948868303d3e2cb",
+      "bytes": 5279,
+      "status": "mutable_context_excluded"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "originalSha256": "406d1f63217035fadafd8b96cb3ab1204e05f7b493babcf8d19598ac461e65d9",
+      "sha256": "f54ee29cccc9d4293829a9e99c81e4b8d5c0a7b273a2cdb84394acc261156b7f",
+      "bytes": 118266,
+      "status": "authorized_scoped_fix"
+    },
+    {
+      "path": "web/components/route-evidence-map.tsx",
+      "originalSha256": "2f8289dc253e4366a1eef968395efb0fcd0f7a8f14f44bd356382af554325f9e",
+      "sha256": "2dcf591042fd66ad7ec22a87091a29d1699192526fd54de95826273deca4a52c",
+      "bytes": 65999,
+      "status": "mutable_context_excluded"
+    },
+    {
+      "path": "web/data-bundle.json",
+      "originalSha256": "d5ce7703d5ee6b39651947749f9bd2f4c6d642fe2af06e1d9324671ce8f009e8",
+      "sha256": "d5ce7703d5ee6b39651947749f9bd2f4c6d642fe2af06e1d9324671ce8f009e8",
+      "bytes": 360,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-walks.json",
+      "originalSha256": "e29cc74ce7ec9f69b360e596a2ecd6b07e4cba453bb46b2cc091c9ff61036c86",
+      "sha256": "e29cc74ce7ec9f69b360e596a2ecd6b07e4cba453bb46b2cc091c9ff61036c86",
+      "bytes": 9477,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-walks.provenance.json",
+      "originalSha256": "485e9d62fe1488c5cbd8086cdc9a26efc7cb83ec4dc4770b58dddc387c47826d",
+      "sha256": "485e9d62fe1488c5cbd8086cdc9a26efc7cb83ec4dc4770b58dddc387c47826d",
+      "bytes": 5312,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-selection.test.ts",
+      "originalSha256": "9942fe62a109c62190ea0a1084d23309dcb052b2a7a618ec68c7b4f86c25669a",
+      "sha256": "9942fe62a109c62190ea0a1084d23309dcb052b2a7a618ec68c7b4f86c25669a",
+      "bytes": 6615,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/lib/__tests__/walk-default.test.ts",
+      "originalSha256": "3ea8f3d99239286a1fc0bda1564011ab26dbfc1c8ed5f72e574288927c8bdf3d",
+      "sha256": "3ea8f3d99239286a1fc0bda1564011ab26dbfc1c8ed5f72e574288927c8bdf3d",
+      "bytes": 2801,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/lib/__tests__/walk-real-records.test.ts",
+      "originalSha256": "5fffa159367aaafef5ce3a791e1546b86b280e12e6d6b4574221e5ace2bc537b",
+      "sha256": "5fffa159367aaafef5ce3a791e1546b86b280e12e6d6b4574221e5ace2bc537b",
+      "bytes": 4528,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/lib/contiguous-route-parts.ts",
+      "originalSha256": "d8c07f066257377ebf21a1038c6610a5a0788f6492b19144b17b8997fab1e9c3",
+      "sha256": "d8c07f066257377ebf21a1038c6610a5a0788f6492b19144b17b8997fab1e9c3",
+      "bytes": 1362,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/lib/data.ts",
+      "originalSha256": "accb659c9dc119fb63ca8424b93ef3364f13fb9bc2392eb2d33fff3f0512dc99",
+      "sha256": "accb659c9dc119fb63ca8424b93ef3364f13fb9bc2392eb2d33fff3f0512dc99",
+      "bytes": 18277,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/lib/nearest-transit.ts",
+      "originalSha256": "df12643fdf9423b606680d88204980cbf180f563f2641332b4136a516abfc2ad",
+      "sha256": "df12643fdf9423b606680d88204980cbf180f563f2641332b4136a516abfc2ad",
+      "bytes": 7245,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/lib/polyline.ts",
+      "originalSha256": "cbfdf306452df89e526561aeea4819a1de794924dbf5bbed5376caaac6c5aa8e",
+      "sha256": "cbfdf306452df89e526561aeea4819a1de794924dbf5bbed5376caaac6c5aa8e",
+      "bytes": 1704,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/lib/published-transit-choices.ts",
+      "originalSha256": "8ae8db8291ee67fdaf6c828f9b4b63a3cc6eb5e6eb535b7c53a6f03e70abacc0",
+      "sha256": "8ae8db8291ee67fdaf6c828f9b4b63a3cc6eb5e6eb535b7c53a6f03e70abacc0",
+      "bytes": 4074,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/lib/published-transit-options.ts",
+      "originalSha256": "a437e35178186c6c9e5c3300c27ce675149a7c2136322ae9f722f14f5f9d7d3d",
+      "sha256": "a437e35178186c6c9e5c3300c27ce675149a7c2136322ae9f722f14f5f9d7d3d",
+      "bytes": 33952,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/lib/published-walk-selection.ts",
+      "originalSha256": "b6403d266cacce74930dc5e98ac3b5f3e971227807b58e5f4f5e7f76783576d2",
+      "sha256": "62a3944ca3acf138334064163dc4fdd831b9aa756034a3f7ed14e94e8de23952",
+      "bytes": 8047,
+      "status": "authorized_scoped_fix"
+    },
+    {
+      "path": "web/lib/published-walk-view.ts",
+      "originalSha256": "f4969aea23227fefe9154848541ba3349c433a59fecf891d647d99c0312ff618",
+      "sha256": "f4969aea23227fefe9154848541ba3349c433a59fecf891d647d99c0312ff618",
+      "bytes": 2058,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/lib/walk-default.ts",
+      "originalSha256": "8b0d1310df9f095ae114facb51c97b337e5fdccd1cec979856fbe9fdf4083a04",
+      "sha256": "8b0d1310df9f095ae114facb51c97b337e5fdccd1cec979856fbe9fdf4083a04",
+      "bytes": 1557,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/lib/walk-preview-request.ts",
+      "originalSha256": "db7ac3075c7a93d16f1af931200bd2e935586ce1b7d426353d32004de4a2eb12",
+      "sha256": "db7ac3075c7a93d16f1af931200bd2e935586ce1b7d426353d32004de4a2eb12",
+      "bytes": 868,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/node_modules/h3-js/dist/h3-js.js",
+      "originalSha256": "118a2b382ad77be214aa0016900fd76f7f7bcad233b7c5b82124964a4180b9f7",
+      "sha256": "118a2b382ad77be214aa0016900fd76f7f7bcad233b7c5b82124964a4180b9f7",
+      "bytes": 552325,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/node_modules/h3-js/package.json",
+      "originalSha256": "1639b3e6381353edaf87bfcf639268b3a8fe87dd307335780372033f6c02ca2d",
+      "sha256": "1639b3e6381353edaf87bfcf639268b3a8fe87dd307335780372033f6c02ca2d",
+      "bytes": 5338,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "originalSha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "bytes": 145327,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "originalSha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "bytes": 5236013,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "originalSha256": "0fc02b9596fb2621e8cae87d2c529865560cff398c17350e129d4beb919320a5",
+      "sha256": "0fc02b9596fb2621e8cae87d2c529865560cff398c17350e129d4beb919320a5",
+      "bytes": 600,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "originalSha256": "fa11b27a84716c55414e964cc5ed188025abd917afb35b5060b01400b6e131f2",
+      "sha256": "fa11b27a84716c55414e964cc5ed188025abd917afb35b5060b01400b6e131f2",
+      "bytes": 590,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "originalSha256": "771484cc9b3ba5f90ba419cffbc05e359bb2b889183461cce51c418ae64629ae",
+      "sha256": "771484cc9b3ba5f90ba419cffbc05e359bb2b889183461cce51c418ae64629ae",
+      "bytes": 701,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "originalSha256": "62c064753949ae253245ebf130af1e436e0f1aa6c014b37f503de3357b9e92d6",
+      "sha256": "62c064753949ae253245ebf130af1e436e0f1aa6c014b37f503de3357b9e92d6",
+      "bytes": 1010,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "originalSha256": "92ab633aee0d85803b0ac377bd3752fae634f4245e6034c2bca7afea90554c33",
+      "sha256": "92ab633aee0d85803b0ac377bd3752fae634f4245e6034c2bca7afea90554c33",
+      "bytes": 1073,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "originalSha256": "785a1ab1f923409399d3b14d8cca5da7d0799ddeaefe7cbf98c10d25ae1479c0",
+      "sha256": "785a1ab1f923409399d3b14d8cca5da7d0799ddeaefe7cbf98c10d25ae1479c0",
+      "bytes": 1672,
+      "status": "original_anchor_matched"
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-options.provenance.json",
+      "sha256": "8d0ac40ff2cc3616f2f41eec68b2712982859d301917373aa894ec49f37bf91a",
+      "bytes": 3733,
+      "status": "additional_consumed_file"
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-options.json",
+      "sha256": "6c4b0c23329e968489439a4c68329b0acbd4f5719632ae8e2b11e14325fa2ea7",
+      "bytes": 36007,
+      "status": "additional_consumed_file"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-stop-identity.test.ts",
+      "sha256": "f213110789f96d4bb0c269b91a7b65f06437dc499a8c7f8780b677aad21a3bdc",
+      "bytes": 8082,
+      "status": "additional_consumed_file"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-page.test.tsx",
+      "sha256": "dfcd6bd15af986e61126e866ed8bc37b53c51d4616b4bf339c68be6a6b3c17d8",
+      "bytes": 73800,
+      "status": "additional_consumed_file"
+    },
+    {
+      "path": "qa/revamp-r1/route-gap-20260913/audit.mjs",
+      "sha256": "588c3cd1f99065ea28f8aac978c23f63dc4320b7f6c8c2f98d292d9403461826",
+      "bytes": 24092,
+      "status": "additional_consumed_file"
+    },
+    {
+      "path": "qa/revamp-r1/route-gap-20260913/inputs.json",
+      "sha256": "1d149df57e8c2532aa592220b131fcdf1389957f9abef3b787626ce2789a3643",
+      "bytes": 9936,
+      "status": "additional_consumed_file"
+    },
+    {
+      "path": "qa/revamp-r1/route-gap-20260913/audit-2.mjs",
+      "sha256": "eceff2854168cdae8d6a48ae1391af28b42d873737e02afdc69586deedcd1289",
+      "bytes": 25477,
+      "status": "additional_consumed_file"
+    },
+    {
+      "path": "qa/revamp-r1/route-gap-20260913/report-2.json",
+      "sha256": "ecfdc75280d0dc80a7a8c0127835d5d846f9a4cef5063a657e27a9bc80e985ca",
+      "bytes": 60819,
+      "status": "additional_consumed_file"
+    },
+    {
+      "path": "qa/revamp-r1/route-gap-20260913/fix-red.json",
+      "sha256": "0da7f1631f074fb2072e139f4087f2ea3e925a3eac9f3b20f87b7f80f0b2181a",
+      "bytes": 40871,
+      "status": "additional_consumed_file"
+    },
+    {
+      "path": "qa/revamp-r1/route-gap-20260913/fix-review-red.json",
+      "sha256": "d73b793fd16aaa6d7d584785251af72fc04e0acef3ca6f4e85f14b104227bf96",
+      "bytes": 9794,
+      "status": "additional_consumed_file"
+    },
+    {
+      "path": "qa/revamp-r1/route-gap-20260913/fix-green-1.json",
+      "sha256": "f4d2b90f6c8a24f7ca1361c1f75eadead04739f67354c8ee5c32d9e4ade6b870",
+      "bytes": 38658,
+      "status": "additional_consumed_file"
+    },
+    {
+      "path": "qa/revamp-r1/route-gap-20260913/fix-regression.json",
+      "sha256": "2742d08c76ec871277d69621b69e9800686081bf6854a7e916b518501e382300",
+      "bytes": 44757,
+      "status": "additional_consumed_file"
+    },
+    {
+      "path": "qa/revamp-r1/route-gap-20260913/fix-final-green.json",
+      "sha256": "bea7f1e11fbe3baf7512778e8c372cac713694a1d4d8d26f0ae9f6bd9e568c43",
+      "bytes": 46372,
+      "status": "additional_consumed_file"
+    }
+  ],
+  "typecheck": {
+    "command": "node C:/sgSHIOK2026/web/node_modules/typescript/bin/tsc --project C:/sgSHIOK2026/web/tsconfig.json --noEmit --incremental false",
+    "exitCode": 0,
+    "emittedFiles": 0
+  },
+  "diffCheck": {
+    "exitCode": 0
+  },
+  "implementation": {
+    "sharedResolver": "web/lib/published-walk-selection.ts:publishedOptionForStop",
+    "pageWiring": "Existing POIs and resolved postal origin passed at four saved-stop lookups; matching memo/effect/callback dependencies updated.",
+    "identity": "Explicit aliases first, including rejection of unavailable/conflicting aliases. Default fallback requires one requested POI ID, exact nonempty station/exit/name fields, one station/exit identity before coordinates, a retainable MRT default with no existing aliases, and one matching default.",
+    "geometry": "Same precision-5 grid as stored encoded polylines. Each complete variant must have two outer endpoints matching origin and destination, valid nonempty coordinate arrays, and one connected graph. No nearest-radius alias, route synthesis, or source evidence mutation.",
+    "highlight": "Canonical category_default clears URL stopId; actual component handlers with POIs for both C and E retain E highlight in cross-category and both delayed deep-link cases.",
+    "originalFailedAttempt": "audit.mjs and inputs.json preserved byte-for-byte. report-2.json records the authorized STATE drift and pre-fix diagnosis. Only mutable STATE/API/map context excluded; protected anchors never repinned."
+  },
+  "boundaries": {
+    "postal": "018956",
+    "publicScorePartitions": 1,
+    "publicGeometryShards": 1,
+    "poiShards": 6,
+    "missingPoiCell": 1,
+    "fixture": "Existing public published-walks and published-options only; no new fixture or private postal.",
+    "networkCalls": 0,
+    "pipelineScoringRuns": 0,
+    "exports": 0,
+    "ingests": 0,
+    "inputRebuilds": 0,
+    "fullBundleScans": 0,
+    "builds": 0,
+    "browserRuns": 0,
+    "commits": 0,
+    "docsChanges": 0,
+    "apiChanges": 0,
+    "mapComponentChanges": 0,
+    "limitations": "Focused hook-host/component and library tests, not browser/physical-device acceptance. 55 markers still have no saved route in this postal payload. No all-routes-fixed claim; parent owns build/release and commits."
+  },
+  "changedWebPaths": [
+    "web/lib/published-walk-selection.ts",
+    "web/app/page.tsx",
+    "web/lib/__tests__/published-walk-stop-identity.test.ts",
+    "web/lib/__tests__/published-walk-page.test.tsx"
+  ],
+  "newQaPaths": [
+    "qa/revamp-r1/route-gap-20260913/audit-2.mjs",
+    "qa/revamp-r1/route-gap-20260913/report-2.json",
+    "qa/revamp-r1/route-gap-20260913/fix-red.json",
+    "qa/revamp-r1/route-gap-20260913/fix-green-1.json",
+    "qa/revamp-r1/route-gap-20260913/fix-regression.json",
+    "qa/revamp-r1/route-gap-20260913/fix-review-red.json",
+    "qa/revamp-r1/route-gap-20260913/fix-final-green.json",
+    "qa/revamp-r1/route-gap-20260913/fix-verification.json"
+  ]
+}

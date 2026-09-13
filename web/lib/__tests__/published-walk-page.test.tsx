@@ -708,6 +708,43 @@ describe('Retired comparison entry points', () => {
 });
 
 describe('Home published-walk integration through actual handlers', () => {
+  function exitEPois(): TransitPoiCollection {
+    return { type: 'FeatureCollection', features: [{ type: 'Feature',
+      geometry: { type: 'Point', coordinates: [103.858441, 1.28110464] },
+      properties: { id: 'mrt:21677', kind: 'mrt_exit', name: 'BAYFRONT MRT STATION Exit E', station: 'BAYFRONT MRT STATION', exit: 'Exit E' },
+    }, { type: 'Feature',
+      geometry: { type: 'Point', coordinates: [103.85959687, 1.28283491] },
+      properties: { id: 'mrt:21624', kind: 'mrt_exit', name: 'BAYFRONT MRT STATION Exit C', station: 'BAYFRONT MRT STATION', exit: 'Exit C' },
+    }] };
+  }
+
+  it('saved Exit E cross-category marker click uses the existing default with zero previews', async () => {
+    await loadA();
+    expect(modeControl().props.mode).toBe('bus');
+    poiGate.resolve(exitEPois());
+    await settle();
+    map().onSelectTransitStop!('mrt:21677');
+    render(); await settle();
+    assertCoherent('BAYFRONT MRT STATION Exit E', 308.4, 0.241, originalGeometry.route_options.mrt_lrt.sheltered_parts);
+    expect(summary().option?.selectionRef).toEqual({ kind: 'category_default', category: 'mrt_lrt' });
+    expect(url.searchParams.get('transit')).toBe('mrt_lrt');
+    expect(url.searchParams.has('stop')).toBe(false);
+    expect(map().chosenStopId).toBe('mrt:21677');
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
+  it.each(['', '&transit=mrt_lrt'])('saved Exit E deep link waits for POIs and canonicalizes with zero previews: %s', async transit => {
+    await loadA(`?postal=${A}&stop=mrt%3A21677${transit}`);
+    expect(fetchSpy).not.toHaveBeenCalled();
+    poiGate.resolve(exitEPois());
+    await settle();
+    assertCoherent('BAYFRONT MRT STATION Exit E', 308.4, 0.241, originalGeometry.route_options.mrt_lrt.sheltered_parts);
+    expect(url.searchParams.get('transit')).toBe('mrt_lrt');
+    expect(url.searchParams.has('stop')).toBe(false);
+    expect(map().chosenStopId).toBe('mrt:21677');
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
   it('keeps an existing postal summary and category controls without a null-score legacy card for an unavailable category', async () => {
     // Synthetic omission: retain the real top-level bus record and geometry,
     // but remove every MRT score source. Orphan geometry cannot create an option.
