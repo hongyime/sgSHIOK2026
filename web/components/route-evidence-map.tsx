@@ -966,6 +966,7 @@ function pointCoordinates(event: maplibregl.MapLayerMouseEvent): LngLat | null {
 }
 
 function bindPoiInteractions(map: maplibregl.Map, Popup: PopupConstructor) {
+  let activePopup: maplibregl.Popup | undefined;
   for (const layerId of [
     "mrt-station-dot",
     "mrt-station-hit",
@@ -984,9 +985,31 @@ function bindPoiInteractions(map: maplibregl.Map, Popup: PopupConstructor) {
       const coordinates = pointCoordinates(event);
       if (!coordinates) return;
       const properties = (event.features?.[0]?.properties ?? {}) as Record<string, unknown>;
-      new Popup({ closeButton: false, offset: 12 })
+      const content = document.createElement("div");
+      content.className = styles.transitPopup;
+      // Keep the shared formatter's escaping; only change the disclosure layout.
+      content.innerHTML = transitPoiPopupHtml(properties);
+      const rows = content.querySelector("dl");
+      const popup = new Popup({ closeButton: true, offset: 12 });
+      if (rows) {
+        const details = document.createElement("details");
+        const summary = document.createElement("summary");
+        summary.textContent = properties.kind === "bus_stop" ? "Service details" : "Station details";
+        // MapLibre's initial-focus selector needs an explicit tabindex for summary.
+        summary.tabIndex = 0;
+        rows.removeAttribute("style");
+        rows.tabIndex = 0;
+        rows.setAttribute("aria-label", summary.textContent);
+        details.append(summary, rows);
+        details.addEventListener("toggle", () => popup.setLngLat(coordinates));
+        content.append(details);
+      }
+      // A dot and its larger hit target can both receive the same click.
+      activePopup?.remove();
+      activePopup = popup;
+      popup
         .setLngLat(coordinates)
-        .setHTML(transitPoiPopupHtml(properties))
+        .setDOMContent(content)
         .addTo(map);
     });
   }

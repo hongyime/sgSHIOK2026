@@ -169,6 +169,60 @@
   pointer-events: auto;
 }
 
+.transitPopup {
+  overflow-wrap: anywhere;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.transitPopup > strong {
+  padding-right: 20px;
+}
+
+.mapCanvas :global(.maplibregl-popup-close-button) {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  border-radius: 3px;
+  padding: 0;
+  background: transparent;
+  color: #43564f;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.mapCanvas :global(.maplibregl-popup-close-button):hover {
+  background: #eef0ed;
+}
+
+.transitPopup summary {
+  min-height: 44px;
+  box-sizing: border-box;
+  padding: 12px 0;
+  color: #43564f;
+  cursor: pointer;
+}
+
+.transitPopup dl {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 4px 8px;
+  max-height: min(192px, 30vh);
+  margin: 0;
+  overflow: auto;
+  color: #43564f;
+}
+
+.mapCanvas :global(.maplibregl-popup-close-button):focus-visible,
+.transitPopup :is(summary, dl):focus-visible {
+  outline: 2px solid #00766f;
+  outline-offset: 2px;
+}
+
 .screenReaderOnly {
   position: absolute;
   width: 1px;

@@ -4760,3 +4760,20 @@ not awaited, so provider cleanup cannot extend the handler deadline.
 - completion-20260913/checks-1789272163642:installed TypeScript exit0.
 FINDING: this was a concrete omission in the first parent patch, not an upstream
 outage. It is fixed explicitly before browser/build acceptance. No pipeline or deployment.
+
+### Popup and Report Contract Checkpoint
+
+completion-20260913/checks-1789272607041:21component popup +6formatter +34report
+contract tests =61passed,exit0. completion-20260913/checks-1789272312894 also
+passed88tests across popup/report/deadline/security files. Full build/browser pending.
+Popup keeps stop name/type, places service/station rows behind native details,
+and supplies a native close control. Marker selection remains the existing single
+map click. Parent rejected an initial redundant Walk here button that would have
+called selection a second time; it is absent from the landed slice.
+
+FINDING: local report validation is not a reporting service. Both mapping-error
+and shelter-request contracts now reject extra/server-owned fields, invalid or
+oversized geometry, malformed UTF8, duplicate JSON keys and oversized bodies.
+Canonical content is independent of client request identity. No database, receipt,
+moderator authentication, privacy acceptance or production intake exists yet.
+DISAGREEMENT: fixture success cannot establish durable delivery or device acceptance.
