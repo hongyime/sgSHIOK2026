@@ -5568,3 +5568,150 @@ DISAGREEMENTS
 
 Pipeline runs:0. Pipeline seconds:0. Installs:0. Deployments:0.
 No X access, protected-data mutation, score/input generation or locked-weight edit.
+
+## 2026-09-13: Actual production runtime capture and worker-path review
+
+Working root: C:\sgSHIOK2026
+Hostname: Prawn-E14
+Base: 5e15a36437910e2a35001234c122e7a9c9fff39d
+Goal ACTIVE, not complete. QA and documentation only; web sources unchanged.
+Evidence: qa/revamp-r1/production-runtime-20260913/summary.json
+
+The public frontend capture, response headers and metadata are in the new QA
+directory. Downloaded script text was parsed offline, never evaluated by capture.
+Only public frontend URLs and authenticated owner deployment inspection were used;
+no provider/data refresh, external notice, account change or deployment occurred.
+
+```text
+GET https://sgshiok.vercel.app/
+status=200
+bytes=12827
+sha256=047fd04d4176fd3afa15c224d94312f048dda52561ab3e21e1386321be10f636
+buildId=UzVn3WiWA2GW7dtvN27rN
+age=1198175
+cache-control=public, max-age=604800, stale-while-revalidate=2592000
+1198175 / 86400 = 13.867766203703704 days
+1198175 - 604800 = 593375 seconds beyond max-age
+
+Vercel get_project + get_deployment, read-only owner connector:
+deployment=dpl_wVnDeskyK666GwYUKWzY2aserkJR
+createdAt=2026-08-30T13:26:52.959Z
+readyAt=2026-08-30T13:27:57.773Z
+source=cli
+target=production
+nominalCommit=2a99893fa9d69411b73d94aeb6c8de5ee2a76493
+gitDirty=1
+
+Authorized GET https://sgshiok-i0g8r1azg-theprawnvercel.vercel.app/
+status=200
+decodedUtf8Bytes=12827
+sha256=047fd04d4176fd3afa15c224d94312f048dda52561ab3e21e1386321be10f636
+equalsPublicAliasBytes=true
+
+12 + 5 + 7 = 24 successful captured asset responses
+864620 + 1005311 + 3401104 = 5271035 asset bytes
+12 + 6 + 8 = 26 asset HTTP responses = 24 success + 2 HTTP404
+executableClosure=false
+
+node --test qa/revamp-r1/production-runtime-20260913/references.test.cjs
+tests=26
+pass=26
+fail=0
+cancelled=0
+skipped=0
+todo=0
+exit=0
+```
+
+Raw test output is parser-tests.txt. Initial capture passed. The two dependency
+passes did NOT pass: the first parser mistook a bare.css string for a resource;
+the reviewed parser then reached a genuine relative development shared import
+whose URL returned404. Original scripts, bodies and failed receipts are preserved,
+with no retry of either404 or substitution from installed vendor files. The
+authorized connector returns decoded text, not wire bytes; its UTF-8 serialization
+matches the separately saved alias response exactly. The unauthenticated direct
+unique-URL attempt failed before a recorded status; that is not an inferred401.
+
+Independent reviewer Russell returned26passing parser tests and no owned live
+handles. Parent reran the same26tests; these are one suite, not52unique cases.
+Parsing Acorn AST and CSS values is bounded, context-sensitive for relative paths,
+rejects extension-only/bare JS strings and lists unresolved computed references.
+Passing these tests does not prove all dynamic assets have been captured.
+
+Worker review, zero-based UTF-8 byte offsets in the captured files:
+- 0nji_gvchad9e.js: module load29358, new Map29464, glyph-only initializer12872.
+  No app worker override was found on the inspected path.
+- 0jggz8zkp0-16.js: default WORKER_URL15686, cE.url getter394993, worker helper419616,
+  worker factory419991. The getter calls t.F with the package-relative module path.
+- turbopack-0ow_qx54-jpcy.js: helper5291 returns file:///ROOT/... . The factory's
+  HTTP-only branch is skipped on that inspected default, leaving an empty worker
+  URL. This is a source-level concern, not an observed browser failure.
+- Wrapper3_0v_2b8orlqe.js exports resource URL strings, not immediate imports.
+  Captured dev main imports ./maplibre-gl-shared-dev.mjs at4876; its observed404
+  is not established on default startup. Captured production worker imports
+  ./maplibre-gl-shared.mjs at500. Examined blob helpers do not rewrite that name.
+
+The parent's preliminary development-worker inference omitted the file-scheme
+condition. The fuller peer trace corrects it here, rather than carrying it into
+the task plan as a demonstrated runtime bug. summary.json pins the exact source
+snippets and hashes. Actual worker execution remains the next narrow diagnostic.
+
+replay-observation.mjs was NOT RUN. Peer review rejected incomplete worker traffic
+controls, an outcome that wrongly required404 and a cleanup deadline outside the
+stated total. It is retained with an unconditional refusal guard. No screenshot,
+browser acceptance, provider request or speed claim resulted. The in-app browser
+bootstrap had failed with os error3. No replay is being labelled successful.
+Data-server preflight refused IPv4 but confirmed the configured localhost IPv6
+listener; this is a QA address correction, not data reconstruction. A diagnostic
+node -e ternary typo failed before execution and was corrected for read-only output.
+
+The finalizer verifies all24captured bodies, alias/deployment HTML equality,
+11input anchors, locked-weight identity and the exact389019-byte prior evidence
+prefix. It runs repository integrity, checks ignored/tracked evidence status,
+and checks that the4416preview serves the current postplan.html. The app and
+maintenance test results are retained from prior commits, not freshly rerun here.
+
+FINDINGS
+1. Actual production deployment and observed bytes are now linked. Its gitDirty1
+   metadata prevents claiming an exact clean source rebuild as the old runtime.
+2. The24captured assets are a pinned partial collection, not executable closure,
+   a server snapshot or proven rollback. Both stopped dependency passes remain.
+3. The inspected default worker path may receive an empty URL; browser proof is
+   still needed. The development shared-import404 alone does not establish it.
+4. Corrected the inherited capture parser's false.css URL with26offline tests.
+   A separate replay draft was rejected before execution, not passed by review.
+5. Real reporting/service activation, physical-device and exact deployment gates
+   remain open. This progress does not declare the user's goal complete.
+
+DISAGREEMENTS
+1. The initial parent development-worker inference was incomplete; the helper's
+   file-scheme output changes which branch executes on the inspected default.
+2. A static404, clean hash inventory or passing parser suite does not establish
+   runtime failure, executable closure, retained-client acceptance or release approval.
+
+Pipeline runs:0. Pipeline seconds:0. Installs:0. Deployments:0. Browser runs:0.
+No X access, protected-data mutation, score/input generation or locked-weight edit.
+
+### 2026-09-13: Production-capture staging checks
+
+The first staged-byte check preserved all24asset hashes but caught Git newline
+normalization in parser-tests.txt: diskc1159f7387d5e9ecf52433c5873b63e90fedb3ec66d2d4fd4e1c9cc787eaf50a
+versus index418093c9758cdc890a4db70895046a755e22f61e8cbd72abcc45111c88bed21d.
+This is a new QA log's index normalization, not an input mismatch. No input was
+repaired. Add -text for the log and re-stage without changing its captured bytes.
+The first artifact-index.json and summary.json are pre-staging snapshots; the
+final staging-verification.json and artifact-index-final.json record this later
+attribute correction, final evidence length and indexed captured-byte checks.
+
+Unscoped git diff --cached --check reported trailing whitespace in downloaded
+upstream vendor bodies. A first intended source-only glob also selected nested
+vendor.mjs files and returned2. Preserve those bodies exactly. Final source check
+uses an explicit literal list excluding captured response files; no whitespace
+rule, hook or global Git configuration is disabled. Its result is recorded in
+staging-verification.json, separately from the failed broad checks.
+
+Russell completed parser, worker-path and replay-draft review, but final JSON
+file-level review is incomplete: his non-command reader aborted on wrong cwd
+before reading either final JSON. No exact final-file approval is claimed.
+final-review.json records that limitation. The sidecar was closed with zero
+owned browser, server or command handles. Replay remains unrun and guarded.

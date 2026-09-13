@@ -1,0 +1,6 @@
+{
+  "command": "python -B scripts/check_repo_integrity.py",
+  "status": 0,
+  "stdout": "repo_integrity=ok\r\n",
+  "stderr": ""
+}

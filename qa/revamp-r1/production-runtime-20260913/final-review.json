@@ -1,0 +1,9 @@
+{
+  "reviewer": "Russell",
+  "parserAndWorkerReview": "Completed; recorded in review.json.",
+  "finalJsonFileReview": "Not completed. A non-command reader started in the wrong cwd and was aborted before reading summary.json or review.json. No exact final-file approval claimed.",
+  "finalMessage": "No contradiction in the reported figures or prior evidence. Capture/deployment identity is established within the stated scope; closure and browser acceptance remain unproven.",
+  "replay": "Unrun and review-rejected.",
+  "ownedBrowserServerCommandHandles": 0,
+  "closed": true
+}

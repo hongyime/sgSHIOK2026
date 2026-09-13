@@ -1,0 +1,164 @@
+{
+  "base": "5e15a36437910e2a35001234c122e7a9c9fff39d",
+  "indexedCapturedBodies": [
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/responses/_next/static/immutable/chunks/0c0hxoamwjsbw.js",
+      "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683"
+    },
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/responses/_next/static/immutable/chunks/2n_vh2n3ve95_.css",
+      "sha256": "63bb706f9a33afa91fcf458151dfa4ec6b6a318e9e30d9c7851dbfd87c738f9c"
+    },
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/responses/_next/static/immutable/chunks/2trqctpxw1eo0.js",
+      "sha256": "45448ab118ab4c800901e3361de1a93d5b89c9908ba3a9c34a2c5d3009736a6e"
+    },
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/responses/_next/static/immutable/chunks/2wzpamyc1af39.js",
+      "sha256": "87ee50d08e014fa3fc557d22369f100d93216d0cdaac6a34b032344110ae3324"
+    },
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/responses/_next/static/immutable/chunks/3ew8m45a2i815.js",
+      "sha256": "2a2ef2612e0ccd1f4a189845d8abd7037569c58b56b822b63ff5dcef49280158"
+    },
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/responses/_next/static/immutable/chunks/3hmvfb18su8ip.js",
+      "sha256": "f37cb9cbb323ff0ae95cf1b2a317ae09a09e8158ada0e0dbed1262286ee38c3c"
+    },
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/responses/_next/static/immutable/chunks/3k4hvnpfmr4n4.js",
+      "sha256": "29c6189bc7cedd32cc70c196d205db447d326a212c02c3f4366101034bd91a31"
+    },
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/responses/_next/static/immutable/chunks/3oze-rblz-767.js",
+      "sha256": "0a7913e3df7c2113dc543fd8f1e6c33d88c72cd7d4d0f7abaa54bca1651c227a"
+    },
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/responses/_next/static/immutable/chunks/455sb5e0fgpzb.js",
+      "sha256": "cc6ac865fa3143dd89d17c957e01109d01553b9b7b1717294b33c9a2dbabb397"
+    },
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/responses/_next/static/immutable/chunks/turbopack-0ow_qx54-jpcy.js",
+      "sha256": "98af51a1fd365ce5fdbb00a77194e90e89692f93c1860347b711378a3ef058e7"
+    },
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/responses/icon.svg",
+      "sha256": "c0bd7140b0fdf9ef8220017c4a07428301ab84e80c4090acd36da4c0da9d0dd2"
+    },
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/responses/sw.js",
+      "sha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390"
+    },
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/responses/_next/static/immutable/chunks/0_ktd11al30rm.css",
+      "sha256": "a0ec2458cf0eda0a15a0ca713e621604b520a581f69d409cc0b4bd78c4802211"
+    },
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/responses/_next/static/immutable/chunks/0jggz8zkp0-16.js",
+      "sha256": "73e3ff08c9b9b31d863d0ba36093d18a2a9945541f7273b96170f5c8b196b933"
+    },
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/responses/_next/static/immutable/chunks/0lonvkgsdra2r.js",
+      "sha256": "dae4ceb0a153a052558551bffe66856adff3c31515ca1c9a4532eeab7af3c361"
+    },
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/responses/_next/static/immutable/chunks/0nji_gvchad9e.js",
+      "sha256": "2962225cc3d3592621f729677671bfbaffa9852b01188eaa407621b101522ccb"
+    },
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/responses/_next/static/immutable/chunks/3_0v_2b8orlqe.js",
+      "sha256": "60849e008c490af6f1c52d9dbb284c04dd17d1caafca38afd36a78bffddf6656"
+    },
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/responses/_next/static/immutable/media/maplibre-gl.2l01mh3_blgbf.css",
+      "sha256": "b00645d776ad42d89f26216d2fefb256ecb1268cec95fc09edf0e65c699b0b56"
+    },
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/responses/_next/static/immutable/media/maplibre-gl-dev.10vbfbdmgxqvt.mjs",
+      "sha256": "4d3c63d4ead2fa576da8ab0d12390bfb37a474009928141b4e7b265aafcc7100"
+    },
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/responses/_next/static/immutable/media/maplibre-gl-shared-dev.3dn303nzk6zqe.mjs",
+      "sha256": "8f9f59c924c3d2bec74dd75bdde9f0c5d8dea5bc9dafc97746d21f116442da58"
+    },
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/responses/_next/static/immutable/media/maplibre-gl-shared.24yiwt8m1vm6z.mjs",
+      "sha256": "ce66c617187b6956d878d3961aceeb7c335eec3f76ee8d80737a917d8e989860"
+    },
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/responses/_next/static/immutable/media/maplibre-gl-worker-dev.3d4888162rmui.mjs",
+      "sha256": "415395c094fe76d2a31fcdd8e03140b29c54397fddd7121c93e5116d99334384"
+    },
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/responses/_next/static/immutable/media/maplibre-gl-worker.3p8qq_5zjvx0t.mjs",
+      "sha256": "5a77b4637ea5ae64f0b1f208e4b1f4d9c681e2575d96e592f2074925597224c6"
+    },
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/responses/_next/static/immutable/media/maplibre-gl.0nv_uwbc-jfm7.mjs",
+      "sha256": "1f714cf1df5c1aba7cdf8e1099cd8d2951b8fe888f3d99b2b35b9dd9c9b3e9ac"
+    },
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/parser-tests.txt",
+      "sha256": "c1159f7387d5e9ecf52433c5873b63e90fedb3ec66d2d4fd4e1c9cc787eaf50a"
+    },
+    {
+      "path": "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/index.html",
+      "sha256": "047fd04d4176fd3afa15c224d94312f048dda52561ab3e21e1386321be10f636"
+    }
+  ],
+  "allMatchDiskAndCapture": true,
+  "sourceCheck": {
+    "status": 0,
+    "stdout": "",
+    "stderr": "",
+    "literalPaths": [
+      ".agents/STATE.md",
+      "PRODUCT-PLAN.md",
+      "decisions.md",
+      "postplan.html",
+      "qa/revamp-r1/production-runtime-20260913/.gitattributes",
+      "qa/revamp-r1/production-runtime-20260913/artifact-index.json",
+      "qa/revamp-r1/production-runtime-20260913/authorized-deployment-response.json",
+      "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/dependencies-reviewed.json",
+      "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/dependencies.json",
+      "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/html-inspection.json",
+      "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/index.html",
+      "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/initial-assets.json",
+      "qa/revamp-r1/production-runtime-20260913/capture-1789294685168/response.json",
+      "qa/revamp-r1/production-runtime-20260913/capture-assets.mjs",
+      "qa/revamp-r1/production-runtime-20260913/capture-dependencies.mjs",
+      "qa/revamp-r1/production-runtime-20260913/capture-deployment.mjs",
+      "qa/revamp-r1/production-runtime-20260913/capture.mjs",
+      "qa/revamp-r1/production-runtime-20260913/deployment-html-1789295575632/response.json",
+      "qa/revamp-r1/production-runtime-20260913/deployment-observation.json",
+      "qa/revamp-r1/production-runtime-20260913/final-review.json",
+      "qa/revamp-r1/production-runtime-20260913/finalize.mjs",
+      "qa/revamp-r1/production-runtime-20260913/inspect-html.cjs",
+      "qa/revamp-r1/production-runtime-20260913/integrity.json",
+      "qa/revamp-r1/production-runtime-20260913/parser-tests.txt",
+      "qa/revamp-r1/production-runtime-20260913/references-reviewed.cjs",
+      "qa/revamp-r1/production-runtime-20260913/references.cjs",
+      "qa/revamp-r1/production-runtime-20260913/references.test.cjs",
+      "qa/revamp-r1/production-runtime-20260913/replay-observation.mjs",
+      "qa/revamp-r1/production-runtime-20260913/resume-dependencies.mjs",
+      "qa/revamp-r1/production-runtime-20260913/review.json",
+      "qa/revamp-r1/production-runtime-20260913/stage-paths.json",
+      "qa/revamp-r1/production-runtime-20260913/summary.json",
+      "qa/revamp-r1/production-runtime-20260913/verify-staging.mjs",
+      "qa/verification/REVAMP-R1-core-walk.md"
+    ],
+    "excludedCapturedResponses": 24
+  },
+  "evidence": {
+    "beforeBytes": 389019,
+    "afterBytes": 396996,
+    "addedBytes": 7977,
+    "exactPrefix": true,
+    "sha256": "caa0988bdd12db7a40f1363ad5a1d2cf7d2e906bb0e693cc01dd59e2f06b871d"
+  },
+  "correction": "First summary/artifact-index were before staging. Attribute addition preserves parser-tests.txt raw bytes; no downloaded payload or log body changed. Broad whitespace check failed on untouched captured vendor text; exact source paths pass.",
+  "finalFileReview": "Incomplete; see final-review.json. Parser/worker/replay-draft review completed.",
+  "stagedScopeOnly": true,
+  "protectedTrackedDiffEmpty": true,
+  "goalComplete": false
+}

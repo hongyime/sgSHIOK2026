@@ -1,0 +1,88 @@
+{
+  "htmlSha256": "047fd04d4176fd3afa15c224d94312f048dda52561ab3e21e1386321be10f636",
+  "buildId": "UzVn3WiWA2GW7dtvN27rN",
+  "parser": "stdlib HTMLParser + Acorn literal AST + JSON Flight rows, no script execution",
+  "htmlReferences": [
+    {
+      "tag": "link",
+      "rel": "stylesheet",
+      "as": null,
+      "url": "/_next/static/immutable/chunks/2n_vh2n3ve95_.css"
+    },
+    {
+      "tag": "link",
+      "rel": "preload",
+      "as": "script",
+      "url": "/_next/static/immutable/chunks/3oze-rblz-767.js"
+    },
+    {
+      "tag": "script",
+      "rel": null,
+      "as": null,
+      "url": "/_next/static/immutable/chunks/3ew8m45a2i815.js"
+    },
+    {
+      "tag": "script",
+      "rel": null,
+      "as": null,
+      "url": "/_next/static/immutable/chunks/3k4hvnpfmr4n4.js"
+    },
+    {
+      "tag": "script",
+      "rel": null,
+      "as": null,
+      "url": "/_next/static/immutable/chunks/3hmvfb18su8ip.js"
+    },
+    {
+      "tag": "script",
+      "rel": null,
+      "as": null,
+      "url": "/_next/static/immutable/chunks/turbopack-0ow_qx54-jpcy.js"
+    },
+    {
+      "tag": "script",
+      "rel": null,
+      "as": null,
+      "url": "/_next/static/immutable/chunks/455sb5e0fgpzb.js"
+    },
+    {
+      "tag": "script",
+      "rel": null,
+      "as": null,
+      "url": "/_next/static/immutable/chunks/2trqctpxw1eo0.js"
+    },
+    {
+      "tag": "script",
+      "rel": null,
+      "as": null,
+      "url": "/_next/static/immutable/chunks/2wzpamyc1af39.js"
+    },
+    {
+      "tag": "link",
+      "rel": "canonical",
+      "as": null,
+      "url": "https://sgshiok.vercel.app/"
+    },
+    {
+      "tag": "link",
+      "rel": "icon",
+      "as": null,
+      "url": "/icon.svg"
+    },
+    {
+      "tag": "script",
+      "rel": null,
+      "as": null,
+      "url": "/_next/static/immutable/chunks/0c0hxoamwjsbw.js"
+    },
+    {
+      "tag": "script",
+      "rel": null,
+      "as": null,
+      "url": "/_next/static/immutable/chunks/3oze-rblz-767.js"
+    }
+  ],
+  "flightModuleChunks": [],
+  "servedAgeSeconds": 1198175,
+  "limitation": "Observed cached public HTML identity, not the newest deployment, source commit, complete client asset closure or recoverable server build."
+}

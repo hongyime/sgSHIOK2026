@@ -1,0 +1,531 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "Prawn-E14",
+  "base": "5e15a36437910e2a35001234c122e7a9c9fff39d",
+  "createdAt": "2026-09-13T11:01:32.847Z",
+  "scope": "Read-only external/frontend capture; QA parser and docs, no product code changes.",
+  "deployment": {
+    "source": "Authenticated read-only Vercel get_project(sgshiok,theprawnvercel) and get_deployment(dpl_wVnDeskyK666GwYUKWzY2aserkJR,team_ARK7HKobyCMp0PCArQTLxbz6), 2026-09-13 session",
+    "selection": "Operational identity fields only. Creator/user identifiers and author email omitted; no credentials returned or stored.",
+    "projectId": "prj_y6GIQUdEyXXmtg3UTWkcJECKHdEE",
+    "projectName": "sgshiok",
+    "nodeVersion": "24.x",
+    "latestDeployment": {
+      "id": "dpl_wVnDeskyK666GwYUKWzY2aserkJR",
+      "url": "https://sgshiok-i0g8r1azg-theprawnvercel.vercel.app",
+      "createdAt": 1788096412959,
+      "createdAtUtc": "2026-08-30T13:26:52.959Z",
+      "ready": 1788096477773,
+      "readyAtUtc": "2026-08-30T13:27:57.773Z",
+      "readyState": "READY",
+      "source": "cli",
+      "target": "production",
+      "aliasError": null,
+      "alias": [
+        "sgshiok.hong-yi.me",
+        "sgshiok.vercel.app",
+        "sgshiok-theprawnvercel.vercel.app"
+      ],
+      "meta": {
+        "githubCommitSha": "2a99893fa9d69411b73d94aeb6c8de5ee2a76493",
+        "githubCommitRef": "main",
+        "gitDirty": "1",
+        "gitRootDirectory": "tmp/vercel_source_generated_20260805_prefer_scored_routed_20260830_132032",
+        "bundler": "turbopack"
+      }
+    },
+    "servedHtml": {
+      "capture": "capture-1789294685168/response.json",
+      "buildId": "UzVn3WiWA2GW7dtvN27rN",
+      "ageSeconds": 1198175,
+      "cacheControl": "public, max-age=604800, stale-while-revalidate=2592000",
+      "ageDaysArithmetic": "1198175 / 86400 = 13.867766203703704",
+      "beyondMaxAgeArithmetic": "1198175 - 604800 = 593375 seconds = 6.867766203703703 days"
+    },
+    "conclusions": [
+      "The read-only API identifies the current production alias target and latest project deployment as the Aug30 CLI deployment.",
+      "Its nominal Git commit is not an exact clean source identity because the deployment metadata says gitDirty=1.",
+      "Public HTML headers alone do not prove newest-deployment identity. They describe the observed served response; the API observation is separate evidence.",
+      "No deployment, alias, setting, protection, token or service activation was changed."
+    ]
+  },
+  "html": {
+    "buildId": "UzVn3WiWA2GW7dtvN27rN",
+    "bytes": 12827,
+    "sha256": "047fd04d4176fd3afa15c224d94312f048dda52561ab3e21e1386321be10f636",
+    "uniqueAuthorizedTextUtf8EqualsAlias": true,
+    "aliasHeaders": {
+      "accept-ranges": "bytes",
+      "access-control-allow-origin": "*",
+      "age": "1198175",
+      "cache-control": "public, max-age=604800, stale-while-revalidate=2592000",
+      "content-disposition": "inline",
+      "content-length": "12827",
+      "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "content-type": "text/html; charset=utf-8",
+      "date": "Sun, 13 Sep 2026 10:18:05 GMT",
+      "etag": "\"189afe976b5a1adec295e01c3d8eae37\"",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "Vercel",
+      "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+      "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+      "x-content-type-options": "nosniff",
+      "x-matched-path": "/",
+      "x-nextjs-prerender": "1",
+      "x-nextjs-stale-time": "300",
+      "x-vercel-cache": "HIT",
+      "x-vercel-id": "sin1::h6nfm-1789294685775-54a497a46471"
+    },
+    "uniqueHeaders": {
+      "age": "0",
+      "cache-control": "public, max-age=604800, stale-while-revalidate=2592000",
+      "content-encoding": "br",
+      "content-type": "text/html; charset=utf-8",
+      "date": "Sun, 13 Sep 2026 10:38:22 GMT",
+      "etag": "W/\"189afe976b5a1adec295e01c3d8eae37\"",
+      "x-vercel-cache": "PRERENDER",
+      "x-nextjs-prerender": "1",
+      "x-robots-tag": "noindex"
+    }
+  },
+  "assets": {
+    "files": [
+      {
+        "path": "/_next/static/immutable/chunks/0c0hxoamwjsbw.js",
+        "bytes": 112594,
+        "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+        "receipt": "initial-assets.json",
+        "file": "responses/_next/static/immutable/chunks/0c0hxoamwjsbw.js"
+      },
+      {
+        "path": "/_next/static/immutable/chunks/2n_vh2n3ve95_.css",
+        "bytes": 23194,
+        "sha256": "63bb706f9a33afa91fcf458151dfa4ec6b6a318e9e30d9c7851dbfd87c738f9c",
+        "receipt": "initial-assets.json",
+        "file": "responses/_next/static/immutable/chunks/2n_vh2n3ve95_.css"
+      },
+      {
+        "path": "/_next/static/immutable/chunks/2trqctpxw1eo0.js",
+        "bytes": 1248,
+        "sha256": "45448ab118ab4c800901e3361de1a93d5b89c9908ba3a9c34a2c5d3009736a6e",
+        "receipt": "initial-assets.json",
+        "file": "responses/_next/static/immutable/chunks/2trqctpxw1eo0.js"
+      },
+      {
+        "path": "/_next/static/immutable/chunks/2wzpamyc1af39.js",
+        "bytes": 272540,
+        "sha256": "87ee50d08e014fa3fc557d22369f100d93216d0cdaac6a34b032344110ae3324",
+        "receipt": "initial-assets.json",
+        "file": "responses/_next/static/immutable/chunks/2wzpamyc1af39.js"
+      },
+      {
+        "path": "/_next/static/immutable/chunks/3ew8m45a2i815.js",
+        "bytes": 32454,
+        "sha256": "2a2ef2612e0ccd1f4a189845d8abd7037569c58b56b822b63ff5dcef49280158",
+        "receipt": "initial-assets.json",
+        "file": "responses/_next/static/immutable/chunks/3ew8m45a2i815.js"
+      },
+      {
+        "path": "/_next/static/immutable/chunks/3hmvfb18su8ip.js",
+        "bytes": 160787,
+        "sha256": "f37cb9cbb323ff0ae95cf1b2a317ae09a09e8158ada0e0dbed1262286ee38c3c",
+        "receipt": "initial-assets.json",
+        "file": "responses/_next/static/immutable/chunks/3hmvfb18su8ip.js"
+      },
+      {
+        "path": "/_next/static/immutable/chunks/3k4hvnpfmr4n4.js",
+        "bytes": 229074,
+        "sha256": "29c6189bc7cedd32cc70c196d205db447d326a212c02c3f4366101034bd91a31",
+        "receipt": "initial-assets.json",
+        "file": "responses/_next/static/immutable/chunks/3k4hvnpfmr4n4.js"
+      },
+      {
+        "path": "/_next/static/immutable/chunks/3oze-rblz-767.js",
+        "bytes": 5364,
+        "sha256": "0a7913e3df7c2113dc543fd8f1e6c33d88c72cd7d4d0f7abaa54bca1651c227a",
+        "receipt": "initial-assets.json",
+        "file": "responses/_next/static/immutable/chunks/3oze-rblz-767.js"
+      },
+      {
+        "path": "/_next/static/immutable/chunks/455sb5e0fgpzb.js",
+        "bytes": 14384,
+        "sha256": "cc6ac865fa3143dd89d17c957e01109d01553b9b7b1717294b33c9a2dbabb397",
+        "receipt": "initial-assets.json",
+        "file": "responses/_next/static/immutable/chunks/455sb5e0fgpzb.js"
+      },
+      {
+        "path": "/_next/static/immutable/chunks/turbopack-0ow_qx54-jpcy.js",
+        "bytes": 9692,
+        "sha256": "98af51a1fd365ce5fdbb00a77194e90e89692f93c1860347b711378a3ef058e7",
+        "receipt": "initial-assets.json",
+        "file": "responses/_next/static/immutable/chunks/turbopack-0ow_qx54-jpcy.js"
+      },
+      {
+        "path": "/icon.svg",
+        "bytes": 747,
+        "sha256": "c0bd7140b0fdf9ef8220017c4a07428301ab84e80c4090acd36da4c0da9d0dd2",
+        "receipt": "initial-assets.json",
+        "file": "responses/icon.svg"
+      },
+      {
+        "path": "/sw.js",
+        "bytes": 2542,
+        "sha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+        "receipt": "initial-assets.json",
+        "file": "responses/sw.js"
+      },
+      {
+        "path": "/_next/static/immutable/chunks/0_ktd11al30rm.css",
+        "bytes": 3619,
+        "sha256": "a0ec2458cf0eda0a15a0ca713e621604b520a581f69d409cc0b4bd78c4802211",
+        "receipt": "dependencies.json",
+        "file": "responses/_next/static/immutable/chunks/0_ktd11al30rm.css"
+      },
+      {
+        "path": "/_next/static/immutable/chunks/0jggz8zkp0-16.js",
+        "bytes": 964051,
+        "sha256": "73e3ff08c9b9b31d863d0ba36093d18a2a9945541f7273b96170f5c8b196b933",
+        "receipt": "dependencies.json",
+        "file": "responses/_next/static/immutable/chunks/0jggz8zkp0-16.js"
+      },
+      {
+        "path": "/_next/static/immutable/chunks/0lonvkgsdra2r.js",
+        "bytes": 149,
+        "sha256": "dae4ceb0a153a052558551bffe66856adff3c31515ca1c9a4532eeab7af3c361",
+        "receipt": "dependencies.json",
+        "file": "responses/_next/static/immutable/chunks/0lonvkgsdra2r.js"
+      },
+      {
+        "path": "/_next/static/immutable/chunks/0nji_gvchad9e.js",
+        "bytes": 36875,
+        "sha256": "2962225cc3d3592621f729677671bfbaffa9852b01188eaa407621b101522ccb",
+        "receipt": "dependencies.json",
+        "file": "responses/_next/static/immutable/chunks/0nji_gvchad9e.js"
+      },
+      {
+        "path": "/_next/static/immutable/chunks/3_0v_2b8orlqe.js",
+        "bytes": 617,
+        "sha256": "60849e008c490af6f1c52d9dbb284c04dd17d1caafca38afd36a78bffddf6656",
+        "receipt": "dependencies.json",
+        "file": "responses/_next/static/immutable/chunks/3_0v_2b8orlqe.js"
+      },
+      {
+        "path": "/_next/static/immutable/media/maplibre-gl.2l01mh3_blgbf.css",
+        "bytes": 70065,
+        "sha256": "b00645d776ad42d89f26216d2fefb256ecb1268cec95fc09edf0e65c699b0b56",
+        "receipt": "dependencies-reviewed.json",
+        "file": "responses/_next/static/immutable/media/maplibre-gl.2l01mh3_blgbf.css"
+      },
+      {
+        "path": "/_next/static/immutable/media/maplibre-gl-dev.10vbfbdmgxqvt.mjs",
+        "bytes": 1151408,
+        "sha256": "4d3c63d4ead2fa576da8ab0d12390bfb37a474009928141b4e7b265aafcc7100",
+        "receipt": "dependencies-reviewed.json",
+        "file": "responses/_next/static/immutable/media/maplibre-gl-dev.10vbfbdmgxqvt.mjs"
+      },
+      {
+        "path": "/_next/static/immutable/media/maplibre-gl-shared-dev.3dn303nzk6zqe.mjs",
+        "bytes": 1083343,
+        "sha256": "8f9f59c924c3d2bec74dd75bdde9f0c5d8dea5bc9dafc97746d21f116442da58",
+        "receipt": "dependencies-reviewed.json",
+        "file": "responses/_next/static/immutable/media/maplibre-gl-shared-dev.3dn303nzk6zqe.mjs"
+      },
+      {
+        "path": "/_next/static/immutable/media/maplibre-gl-shared.24yiwt8m1vm6z.mjs",
+        "bytes": 479327,
+        "sha256": "ce66c617187b6956d878d3961aceeb7c335eec3f76ee8d80737a917d8e989860",
+        "receipt": "dependencies-reviewed.json",
+        "file": "responses/_next/static/immutable/media/maplibre-gl-shared.24yiwt8m1vm6z.mjs"
+      },
+      {
+        "path": "/_next/static/immutable/media/maplibre-gl-worker-dev.3d4888162rmui.mjs",
+        "bytes": 38733,
+        "sha256": "415395c094fe76d2a31fcdd8e03140b29c54397fddd7121c93e5116d99334384",
+        "receipt": "dependencies-reviewed.json",
+        "file": "responses/_next/static/immutable/media/maplibre-gl-worker-dev.3d4888162rmui.mjs"
+      },
+      {
+        "path": "/_next/static/immutable/media/maplibre-gl-worker.3p8qq_5zjvx0t.mjs",
+        "bytes": 19108,
+        "sha256": "5a77b4637ea5ae64f0b1f208e4b1f4d9c681e2575d96e592f2074925597224c6",
+        "receipt": "dependencies-reviewed.json",
+        "file": "responses/_next/static/immutable/media/maplibre-gl-worker.3p8qq_5zjvx0t.mjs"
+      },
+      {
+        "path": "/_next/static/immutable/media/maplibre-gl.0nv_uwbc-jfm7.mjs",
+        "bytes": 559120,
+        "sha256": "1f714cf1df5c1aba7cdf8e1099cd8d2951b8fe888f3d99b2b35b9dd9c9b3e9ac",
+        "receipt": "dependencies-reviewed.json",
+        "file": "responses/_next/static/immutable/media/maplibre-gl.0nv_uwbc-jfm7.mjs"
+      }
+    ],
+    "count": 24,
+    "totalBytes": 5271035,
+    "arithmetic": "864620 + 1005311 + 3401104 = 5271035 bytes; 12 + 5 + 7 = 24 successful asset responses",
+    "captureAttempts": 26,
+    "attemptArithmetic": "12 + 6 + 8 = 26 asset HTTP responses = 24 success + 2 HTTP404",
+    "failed": [
+      {
+        "phase": "dependencies.json",
+        "path": "/_next/static/immutable/chunks/.css",
+        "status": 404
+      },
+      {
+        "phase": "dependencies-reviewed.json",
+        "path": "/_next/static/immutable/media/maplibre-gl-shared-dev.mjs",
+        "status": 404
+      }
+    ],
+    "executableClosure": false
+  },
+  "phases": [
+    {
+      "path": "initial-assets.json",
+      "ok": true,
+      "totalBytes": 864620,
+      "elapsedMs": 4705
+    },
+    {
+      "path": "dependencies.json",
+      "ok": false,
+      "totalBytes": 1005311,
+      "elapsedMs": 6990,
+      "error": {
+        "name": "AssertionError",
+        "message": "STOP dependency status /_next/static/immutable/chunks/.css\n\n404 !== 200\n"
+      }
+    },
+    {
+      "path": "dependencies-reviewed.json",
+      "ok": false,
+      "totalBytes": 3401104,
+      "elapsedMs": 16765,
+      "error": {
+        "name": "AssertionError",
+        "message": "STOP dependency status /_next/static/immutable/media/maplibre-gl-shared-dev.mjs\n\n404 !== 200\n"
+      }
+    }
+  ],
+  "parser": {
+    "passed": 26,
+    "failed": 0,
+    "files": 1,
+    "receipt": "parser-tests.txt",
+    "receiptSha256": "c1159f7387d5e9ecf52433c5873b63e90fedb3ec66d2d4fd4e1c9cc787eaf50a",
+    "sourceSha256": "2d315a076c00dd7a83847e040367a084565a8ad09b634ec371027fcfac71be46",
+    "executedDownloadedScripts": false
+  },
+  "workerSources": [
+    {
+      "path": "chunks/0jggz8zkp0-16.js",
+      "offset": 394993,
+      "snippet": "cE={get url(){return t.F(\"web/node_modules/maplibre-gl/dist/maplibre-gl.mjs\")},env:{DEV:!1,PROD:!0,MODE:\"production\",BASE_URL:\"/\",SSR:!1}},cM=\"6.1.0\";function cA(){var t=new em(4);return em!=Float32Array&&(t[1]=0,t[2]=0),t[0]=1,t[3]=1,t}let cC={frame(t,i,r,a){let n=a||window,s=n.requestAnimationFrame(t=>{o(),i(t)}),{unsubscribe:o}=tP(t.signal,\"abort\",()=>{o(),n.cancelAnimationFrame(s),r(new tk(t.signal.reason))},!1)},frameAsync(t,i){return new Pr",
+      "sha256": "73e3ff08c9b9b31d863d0ba36093d18a2a9945541f7273b96170f5c8b196b933"
+    },
+    {
+      "path": "chunks/0jggz8zkp0-16.js",
+      "offset": 419991,
+      "snippet": "async function pa(){let i,r=tB.WORKER_URL||(i=cE.url,/^https?:/.test(i)?(i.endsWith(\"-dev.mjs\"),new t.U(t.r(658)).href):\"\"),a=!r?.endsWith(\".cjs\");if(!function(t){if(!t)return!1;let i=globalThis.location;if(!i)return!1;try{return new URL(t,i.href).origin!==i.origin}catch{return!1}}(r))return pi(r,a);if(a){let t,i=(t=new Blob([`import ${JSON.stringify(new URL(r,cE.url).href)}`],{type:\"text/javascript\"}),URL.createObjectURL(t));try{return pi(i,a)}f",
+      "sha256": "73e3ff08c9b9b31d863d0ba36093d18a2a9945541f7273b96170f5c8b196b933"
+    },
+    {
+      "path": "chunks/turbopack-0ow_qx54-jpcy.js",
+      "offset": 5291,
+      "snippet": "v.F=function(e){return e?`file:///ROOT/${e.split(\"/\").map(encodeURIComponent).join(\"/\")}`:\"file:///ROOT/\"},v.q=function(e,t){d.call(this,`${e}${n}`,t)};let A=/[^A-Za-z0-9\\-_.!~*'()/]/;function E(e,t=r){let o=A.test(e)?e.split(\"/\").map(encodeURIComponent).join(",
+      "sha256": "98af51a1fd365ce5fdbb00a77194e90e89692f93c1860347b711378a3ef058e7"
+    },
+    {
+      "path": "media/maplibre-gl-dev.10vbfbdmgxqvt.mjs",
+      "offset": 4876,
+      "snippet": "from \"./maplibre-gl-shared-dev.mjs\";\n//#region package.json\nvar version$2 = \"6.1.0\";\n//#endregion\n//#region src/util/bro",
+      "sha256": "4d3c63d4ead2fa576da8ab0d12390bfb37a474009928141b4e7b265aafcc7100"
+    },
+    {
+      "path": "media/maplibre-gl-worker.3p8qq_5zjvx0t.mjs",
+      "offset": 500,
+      "snippet": "from\"./maplibre-gl-shared.mjs\";var H=class{constructor(e,t){this.keyCache={},e&&this.replace(e,t)}replace(e,t){this._lay",
+      "sha256": "5a77b4637ea5ae64f0b1f208e4b1f4d9c681e2575d96e592f2074925597224c6"
+    }
+  ],
+  "review": {
+    "reviewer": "Russell, independent scoped subagent",
+    "scope": "Capture parser and actual worker default path; replay draft safety. No browser or deployment acceptance.",
+    "parser": {
+      "files": [
+        "references-reviewed.cjs",
+        "references.test.cjs"
+      ],
+      "tests": 26,
+      "passed": 26,
+      "failed": 0,
+      "agentDurationMs": 806.6564,
+      "parentDurationMs": 1469.8347,
+      "parentReceipt": "parser-tests.txt",
+      "noNetworkOrDownloadedScriptExecution": true
+    },
+    "worker": {
+      "offsetConvention": "Zero-based UTF-8 byte offsets in captured response files, not minified text character offsets.",
+      "map": {
+        "file": "0nji_gvchad9e.js",
+        "moduleLoad": 29358,
+        "newMap": 29464,
+        "glyphInitializer": 12872,
+        "workerOverrideFound": false
+      },
+      "vendor": {
+        "file": "0jggz8zkp0-16.js",
+        "emptyWorkerUrl": 15686,
+        "moduleUrlGetter": 394993,
+        "workerConstructorHelper": 419616,
+        "workerFactory": 419991,
+        "blobCopy": 419787,
+        "blobImport": 420309
+      },
+      "runtime": {
+        "file": "turbopack-0ow_qx54-jpcy.js",
+        "fileRootHelper": 5291
+      },
+      "inference": "The inspected unmodified default path has no app worker override. Turbopack F supplies file:///ROOT/...; pa's HTTP-only branch is skipped and pi receives the empty worker URL. This is source-level concern, not an observed browser failure.",
+      "dev404": "The captured development main has a genuine ./maplibre-gl-shared-dev.mjs import at byte4876. Its observed404 is not established on default startup. URL-string wrapper exports are not immediate imports.",
+      "productionWorkerImport": "Captured production worker imports ./maplibre-gl-shared.mjs at byte500. Neither examined blob path rewrites the shared filename to the hashed asset.",
+      "parentCorrection": "The parent's earlier preliminary claim that the dev module was the default worker omitted the module URL's file scheme. The more complete trace above supersedes it."
+    },
+    "replay": {
+      "file": "replay-observation.mjs",
+      "executed": false,
+      "decision": "REJECTED before browser execution; guarded with unconditional throw and retained as an unrun draft.",
+      "findings": [
+        "Worker traffic was not fully gated.",
+        "Observation completion wrongly required a known404 rather than allowing falsification.",
+        "The stated180-second deadline excluded cleanup time."
+      ],
+      "next": "New narrowly reviewed worker-path diagnostic with complete request boundary, falsifiable outcome and cleanup included in total deadline. No substitution of current installed vendor bytes."
+    },
+    "closure": "24assets,5271035bytes are pinned public responses, not executable asset closure, a server build, a rollback archive, physical-device acceptance or deployment approval.",
+    "sidecarOwnedLiveHandles": 0
+  },
+  "browser": {
+    "ran": false,
+    "reason": "Bootstrap os error3; subsequent owned-CDP draft rejected before run. Static capture only."
+  },
+  "observationsNotSuccesses": [
+    "Original parser false.css request returned404.",
+    "Reviewed static pass dev shared import returned404.",
+    "Unauthenticated unique-deployment GET failed before recorded HTTP status; authenticated owner connector then returned200.",
+    "A diagnostic node -e had a ternary syntax error before execution and was corrected.",
+    "Data preflight127.0.0.1:4340 refused; configured localhost:4340 returned200 atIPv6 ::1. No browser was run."
+  ],
+  "evidence": {
+    "path": "qa/verification/REVAMP-R1-core-walk.md",
+    "previousBytes": 389019,
+    "bytes": 395437,
+    "addedBytes": 6418,
+    "exactPrefix": true,
+    "tracked": true,
+    "checkIgnoreExit": 1
+  },
+  "protected": {
+    "trackedDiffEmpty": true,
+    "anchors": [
+      {
+        "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+        "bytes": 13626,
+        "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+      },
+      {
+        "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+        "bytes": 1751005,
+        "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+      },
+      {
+        "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+        "bytes": 5240179,
+        "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+      },
+      {
+        "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+        "bytes": 5236013,
+        "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+      },
+      {
+        "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+        "bytes": 39674,
+        "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+      },
+      {
+        "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+        "bytes": 3538342,
+        "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+      },
+      {
+        "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+        "bytes": 184,
+        "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+      },
+      {
+        "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+        "bytes": 269,
+        "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+      },
+      {
+        "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+        "bytes": 1189,
+        "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+      },
+      {
+        "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+        "bytes": 145327,
+        "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+      },
+      {
+        "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+        "bytes": 515583,
+        "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+      }
+    ],
+    "weights": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec"
+  },
+  "integrity": {
+    "exit": 0,
+    "stdout": "repo_integrity=ok\r\n",
+    "stderr": ""
+  },
+  "preview": {
+    "buildId": "vOoOxn7etjT-WJqrIExq7",
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\native-zoom-20260913-build-1",
+    "pid": 33360,
+    "dataPort": 4340,
+    "nextPort": 4415,
+    "proxyPort": 4416,
+    "readOnlyData": true,
+    "allowedApi": "GET /api/onemap-route and /api/onemap-search",
+    "oneMapCredentialsConfigured": true,
+    "nextPid": 35540
+  },
+  "taskBoardSha256": "81b5ebefd372119994e96c4d908179529f67e4667243c383a9122bbc19dede5c",
+  "retainedValidation": {
+    "webTests": 1930,
+    "webFiles": 72,
+    "dependencyGuards": 42,
+    "maintenanceTests": 1012,
+    "maintenanceFiles": 12,
+    "rerun": false
+  },
+  "findings": [
+    "Actual Aug30 CLI deployment is identified; authorized unique-deployment HTML and alias bytes match. Nominal2a99893 is gitDirty1, not clean-source recovery.",
+    "24 captured frontend responses total5271035bytes. Two dependency passes stopped and remain failed; capture is not executable closure or rollback acceptance.",
+    "Independent static trace finds a suspected empty default worker URL from Turbopack file:///ROOT module identity; no browser result is claimed. The development shared-import404 is not established on default startup.",
+    "The original parser mistook a bare.css suffix for a URL. Its replacement passes26offline tests; old failure evidence remains.",
+    "Replay draft was rejected before execution for incomplete worker traffic controls, outcome bias and cleanup deadline. Reporting/service/device/deployment gates remain open."
+  ],
+  "disagreements": [
+    "The preliminary parent inference that the development main module was the default worker omitted the file-scheme branch condition. The complete static trace supersedes it.",
+    "A static dependency404, clean asset hash list or passing parser tests do not establish runtime failure, executable closure, retained-client acceptance or permission to deploy."
+  ],
+  "pipelineRuns": 0,
+  "pipelineSeconds": 0,
+  "installations": 0,
+  "deployments": 0,
+  "externalActivation": false,
+  "goalComplete": false
+}

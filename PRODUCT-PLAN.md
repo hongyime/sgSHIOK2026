@@ -537,6 +537,19 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: OWNER physical/user participation. Does not prevent preparing the release candidate.
 
 ### [ ] T27: Prepare a bounded frontend release candidate
+- Production identity progress2026-09-13: authenticated Vercel reads identify the
+  Aug30 CLI deployment dpl_wVnDeskyK666GwYUKWzY2aserkJR, nominal2a99893 with
+  gitDirty=1. Public alias and authorized unique-deployment HTML are byte-equal
+  (12827bytes,047fd04d...); buildUzVn3WiWA2GW7dtvN27rN is not the old QA archive.
+  Captured24assets=5271035bytes, exact headers/hashes retained.26offline parser
+  tests pass. Both dependency-pass failures remain: first a parser's false.css
+  URL, then a genuine development-module shared-import404. The latter is not
+  established on app startup. Independent source trace instead finds an empty
+  default worker URL after Turbopack's file:///ROOT module URL; browser behaviour
+  is still unobserved. Peer rejected the draft replay's request/deadline/outcome
+  controls before execution. T27 remains WAIT_DEPS, not a complete runtime archive
+  or deployment pass. Next: bounded actual-worker diagnostic and exact retained
+  client replay. Evidence:qa/revamp-r1/production-runtime-20260913/summary.json.
 - Status: WAIT_DEPS. Size: M. Parent: P3.2.
 - Depends on: T01, T07, T25, T29 security disposition, T31 immutable staging.
 - Scope: existing deployment/readiness scripts, release tests and handback; no invocation of activation/deploy/data preparation.

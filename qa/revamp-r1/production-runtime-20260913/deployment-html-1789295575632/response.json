@@ -1,0 +1,16 @@
+{
+  "url": "https://sgshiok-i0g8r1azg-theprawnvercel.vercel.app/",
+  "deploymentId": "dpl_wVnDeskyK666GwYUKWzY2aserkJR",
+  "startedAt": "2026-09-13T10:32:55.637Z",
+  "requestLimit": 1,
+  "byteLimit": 2097152,
+  "deadlineSeconds": 30,
+  "authenticated": false,
+  "kind": "frontend HTML only",
+  "ok": false,
+  "error": {
+    "name": "TypeError",
+    "message": "fetch failed"
+  },
+  "elapsedMs": 1275
+}

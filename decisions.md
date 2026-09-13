@@ -3935,3 +3935,25 @@ all files, not delete, repair, bootstrap or authorize another POST.
 Run with Python -B; neither credentials nor network are needed. This supplies
 diagnostics, not operator resolution, authenticated backup, a filesystem lock,
 hosted persistence, active scheduling or authorization to operate the service.
+
+## 2026-09-13: Retain observed deployment bytes, not an assumed source rebuild
+
+The actual production HTML build is UzVn3WiWA2GW7dtvN27rN. Authorized Vercel
+deployment metadata and byte-equal alias/unique-deployment HTML tie the capture
+to the Aug30 CLI deployment. Its nominal commit2a99893 carries gitDirty=1; neither
+that commit nor today's clean checkout is an exact recovered source identity.
+
+Preserve captured HTML, assets, headers, hashes and failed collection attempts in
+fresh QA. Never replace missing old assets with installed vendor bytes, infer
+executable closure from a manifest validator, or treat arbitrary URL-like string
+constants as actual requests. The26-test reviewed parser rejects extension-only
+filenames, uses context for relative references and records computed URLs as
+unresolved. The asset collection remains partial despite24verified responses.
+
+The worker trace is static, not browser acceptance: the inspected default uses
+an empty worker URL after Turbopack's file-scheme module URL bypasses an HTTP-only
+branch. The observed development shared-import404 does not establish that path
+executed. Do not fix or rewrite captured code to make a replay pass. Supersede the
+unrun, review-rejected QA replay only after its worker network boundary, falsifiable
+outcome and total cleanup deadline are reviewed. Physical-device, retained-client,
+security and exact deployment approval remain distinct gates. No deploy occurred.

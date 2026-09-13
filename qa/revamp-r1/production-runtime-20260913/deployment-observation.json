@@ -1,0 +1,41 @@
+{
+  "source": "Authenticated read-only Vercel get_project(sgshiok,theprawnvercel) and get_deployment(dpl_wVnDeskyK666GwYUKWzY2aserkJR,team_ARK7HKobyCMp0PCArQTLxbz6), 2026-09-13 session",
+  "selection": "Operational identity fields only. Creator/user identifiers and author email omitted; no credentials returned or stored.",
+  "projectId": "prj_y6GIQUdEyXXmtg3UTWkcJECKHdEE",
+  "projectName": "sgshiok",
+  "nodeVersion": "24.x",
+  "latestDeployment": {
+    "id": "dpl_wVnDeskyK666GwYUKWzY2aserkJR",
+    "url": "https://sgshiok-i0g8r1azg-theprawnvercel.vercel.app",
+    "createdAt": 1788096412959,
+    "createdAtUtc": "2026-08-30T13:26:52.959Z",
+    "ready": 1788096477773,
+    "readyAtUtc": "2026-08-30T13:27:57.773Z",
+    "readyState": "READY",
+    "source": "cli",
+    "target": "production",
+    "aliasError": null,
+    "alias": ["sgshiok.hong-yi.me", "sgshiok.vercel.app", "sgshiok-theprawnvercel.vercel.app"],
+    "meta": {
+      "githubCommitSha": "2a99893fa9d69411b73d94aeb6c8de5ee2a76493",
+      "githubCommitRef": "main",
+      "gitDirty": "1",
+      "gitRootDirectory": "tmp/vercel_source_generated_20260805_prefer_scored_routed_20260830_132032",
+      "bundler": "turbopack"
+    }
+  },
+  "servedHtml": {
+    "capture": "capture-1789294685168/response.json",
+    "buildId": "UzVn3WiWA2GW7dtvN27rN",
+    "ageSeconds": 1198175,
+    "cacheControl": "public, max-age=604800, stale-while-revalidate=2592000",
+    "ageDaysArithmetic": "1198175 / 86400 = 13.867766203703704",
+    "beyondMaxAgeArithmetic": "1198175 - 604800 = 593375 seconds = 6.867766203703703 days"
+  },
+  "conclusions": [
+    "The read-only API identifies the current production alias target and latest project deployment as the Aug30 CLI deployment.",
+    "Its nominal Git commit is not an exact clean source identity because the deployment metadata says gitDirty=1.",
+    "Public HTML headers alone do not prove newest-deployment identity. They describe the observed served response; the API observation is separate evidence.",
+    "No deployment, alias, setting, protection, token or service activation was changed."
+  ]
+}

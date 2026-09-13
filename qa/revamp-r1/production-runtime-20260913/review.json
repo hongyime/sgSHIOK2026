@@ -1,0 +1,33 @@
+{
+  "reviewer": "Russell, independent scoped subagent",
+  "scope": "Capture parser and actual worker default path; replay draft safety. No browser or deployment acceptance.",
+  "parser": {
+    "files": ["references-reviewed.cjs", "references.test.cjs"],
+    "tests": 26,
+    "passed": 26,
+    "failed": 0,
+    "agentDurationMs": 806.6564,
+    "parentDurationMs": 1469.8347,
+    "parentReceipt": "parser-tests.txt",
+    "noNetworkOrDownloadedScriptExecution": true
+  },
+  "worker": {
+    "offsetConvention": "Zero-based UTF-8 byte offsets in captured response files, not minified text character offsets.",
+    "map": {"file": "0nji_gvchad9e.js", "moduleLoad": 29358, "newMap": 29464, "glyphInitializer": 12872, "workerOverrideFound": false},
+    "vendor": {"file": "0jggz8zkp0-16.js", "emptyWorkerUrl": 15686, "moduleUrlGetter": 394993, "workerConstructorHelper": 419616, "workerFactory": 419991, "blobCopy": 419787, "blobImport": 420309},
+    "runtime": {"file": "turbopack-0ow_qx54-jpcy.js", "fileRootHelper": 5291},
+    "inference": "The inspected unmodified default path has no app worker override. Turbopack F supplies file:///ROOT/...; pa's HTTP-only branch is skipped and pi receives the empty worker URL. This is source-level concern, not an observed browser failure.",
+    "dev404": "The captured development main has a genuine ./maplibre-gl-shared-dev.mjs import at byte4876. Its observed404 is not established on default startup. URL-string wrapper exports are not immediate imports.",
+    "productionWorkerImport": "Captured production worker imports ./maplibre-gl-shared.mjs at byte500. Neither examined blob path rewrites the shared filename to the hashed asset.",
+    "parentCorrection": "The parent's earlier preliminary claim that the dev module was the default worker omitted the module URL's file scheme. The more complete trace above supersedes it."
+  },
+  "replay": {
+    "file": "replay-observation.mjs",
+    "executed": false,
+    "decision": "REJECTED before browser execution; guarded with unconditional throw and retained as an unrun draft.",
+    "findings": ["Worker traffic was not fully gated.", "Observation completion wrongly required a known404 rather than allowing falsification.", "The stated180-second deadline excluded cleanup time."],
+    "next": "New narrowly reviewed worker-path diagnostic with complete request boundary, falsifiable outcome and cleanup included in total deadline. No substitution of current installed vendor bytes."
+  },
+  "closure": "24assets,5271035bytes are pinned public responses, not executable asset closure, a server build, a rollback archive, physical-device acceptance or deployment approval.",
+  "sidecarOwnedLiveHandles": 0
+}

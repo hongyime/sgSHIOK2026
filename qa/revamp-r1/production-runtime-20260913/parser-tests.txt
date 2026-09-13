@@ -1,0 +1,34 @@
+✔ bare extensions and arbitrary JS strings never become URLs (48.268ms)
+✔ explicit Turbopack paths retain original namespace, deduplicate and sort (8.8418ms)
+✔ known direct references accept all retention static asset extensions (15.5026ms)
+✔ real relative imports, exports, static templates and importScripts resolve against source (17.6987ms)
+✔ unbound relative literals and bare module imports are unresolved, not fetched (3.7885ms)
+✔ computed imports and URL fragments never fetch a partial literal (8.0558ms)
+✔ new URL resolves relative modules only with import.meta.url (9.3606ms)
+✔ document-relative worker/fetch URLs are not guessed relative to a JS chunk (6.3069ms)
+✔ object URL fields are accounted for without guessing computed values (4.625ms)
+✔ unsupported explicit resources remain unresolved rather than silently disappearing (6.6325ms)
+✔ static worker namespace and its module-relative imports are retained (5.4904ms)
+✔ URL policy refuses unsafe, external, encoded, query, fragment and non-runtime paths (1.7178ms)
+✔ CSS url tokens accept unquoted, quoted, mixed-case and whitespace inside parentheses (19.1251ms)
+✔ CSS bare filenames only count in actual url/import positions (4.7184ms)
+✔ CSS imports include quoted and url forms with layer/supports/media tails (3.5947ms)
+✔ CSS strings/comments containing URL-like text are not references (3.229ms)
+✔ CSS escape decoding preserves filenames without executing content (3.6607ms)
+✔ escaped CSS function names and nested URL functions are recognized (2.4103ms)
+✔ CSS comments or extra tokens inside a URL fail closed without joining fragments (1.4042ms)
+✔ data URLs are counted only, including CSS data containing semicolons and parentheses (3.3922ms)
+✔ CSS dynamic/unsupported URLs and extension-only files remain explicit unresolved facts (4.0428ms)
+✔ JS comments, regexes and extension comparison regression do not become fetch candidates (19.7045ms)
+✔ malformed JS and CSS fail instead of returning partial success (8.287ms)
+✔ input byte, token, nesting, AST node and output budgets fail closed (11.7294ms)
+✔ unresolved snippets are bounded and original caller text stays unchanged (2.1732ms)
+✔ parsing never evaluates JavaScript, CSS, embedded scripts or requests URLs (5.6539ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1469.8347

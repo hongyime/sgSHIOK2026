@@ -1,0 +1,43 @@
+{
+  "url": "https://sgshiok.vercel.app/",
+  "startedAt": "2026-09-13T10:18:05.169Z",
+  "method": "GET",
+  "requestHeaders": {
+    "accept-encoding": "identity"
+  },
+  "limits": {
+    "requests": 1,
+    "decodedBytes": 2097152,
+    "deadlineSeconds": 30
+  },
+  "pipelineRuns": 0,
+  "kind": "public frontend HTML only; no data, route provider, credentials or deployment",
+  "status": 200,
+  "headers": {
+    "accept-ranges": "bytes",
+    "access-control-allow-origin": "*",
+    "age": "1198175",
+    "cache-control": "public, max-age=604800, stale-while-revalidate=2592000",
+    "content-disposition": "inline",
+    "content-length": "12827",
+    "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+    "content-type": "text/html; charset=utf-8",
+    "date": "Sun, 13 Sep 2026 10:18:05 GMT",
+    "etag": "\"189afe976b5a1adec295e01c3d8eae37\"",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "server": "Vercel",
+    "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+    "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "x-content-type-options": "nosniff",
+    "x-matched-path": "/",
+    "x-nextjs-prerender": "1",
+    "x-nextjs-stale-time": "300",
+    "x-vercel-cache": "HIT",
+    "x-vercel-id": "sin1::h6nfm-1789294685775-54a497a46471"
+  },
+  "decodedBytes": 12827,
+  "sha256": "047fd04d4176fd3afa15c224d94312f048dda52561ab3e21e1386321be10f636",
+  "body": "index.html",
+  "ok": true,
+  "elapsedMs": 428
+}

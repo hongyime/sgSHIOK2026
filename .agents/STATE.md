@@ -6,7 +6,7 @@ Machine: Prawn-E14
 Startup: assert cwd equals C:\sgSHIOK2026; abort otherwise. Absolute C: writes only. X: cold mirror, never session root.
 Before git commands, set TEMP and TMP to C:\sgSHIOK2026\tmp so global hooks keep temporary scan files inside this root.
 
-Goal ACTIVE, not complete. Parent-only commit/push. Basef9b23bc pushed/remote verified; previous turn PROGRESS. Current coherent change: feat: inspect notice journals without repair or resend.
+Goal ACTIVE, not complete. Parent-only commit/push. Base5e15a36; current work captures actual public frontend runtime and independent worker/replay review. Commit/push this progress; no deployment.
 Only MRT/LRT exits and Bus stops, auto shortest usable saved walk, no comparison/About data. Lighting automatic and bounded.
 Server route/search now have one10s deadline including auth/retry/body, cancellation and late-token guards; browser12s remains.
 Public018956 diagnosis:61stop/exits=6saved+55unstored. Exit E saved-ID gap fixed; no new geometry or scores.
@@ -19,11 +19,11 @@ Local reporting34contracts; new append-only notice client/journal verified local
 T13 provider/privacy/retention/moderator/backup/account choices requested asynchronously, unanswered so far.
 Weekly metadata-only GitHub checks +oneissue requested, unanswered. Persistent request ledger/cooldowns,24/300 batch cap, admission-before-claim and deadline rechecks pass tests/review; no activation.
 T26 physical phone/user acceptance still required; no emulated-phone or representative-speed claim.
-Live HTML buildUzVn3WiWA2GW7dtvN27rN differs from QA archivede8Hlhkml4c3i_uMGJdd3P; not a production retention archive.
+Actual production buildUzVn3WiWA2GW7dtvN27rN: alias/authorized deployment HTML byte-equal. Aug30CLI dpl_wVnDeskyK666GwYUKWzY2aserkJR nominal2a99893 gitDirty1.24captured assets5271035B, not executable closure/rollback archive.
 Live vendor6.1.0 and old archive reproduce sanitizer skip; current6.4.1 strips it in12isolated DOM cases. Scoped review finds no untrusted attribution path, not site-wide safety.
 Monitor needs bootstrap/previous. New read-only inspector diagnoses unknown/observed/recorded notice states, request gaps and cooldowns without writes/network. Live ledger enumeration now streams. Actual operator resolution, durable store/backups and scheduler bridge plus approved account/destination remain gated.
 postplan.html and PRODUCT-PLAN are current work lists; T08-T11/U02 comparison retired.
 T19full scan exceeds900s gate. No scoring/export/ingest/network/input repair or protected data/weights changes.
 Browser plugin bootstrap still fails os error3; owned Chrome/CDP fallback recorded. No peer-quota bypass.
-Current maintenance evidence:qa/revamp-r1/notice-inspection-20260913/summary.json. Schrodinger's57cases caught eager Path.iterdir; os.scandir fix source-reviewed, combined1012pass. CLI smoke preserves7files/mtimes under audit denial. Parent finalizes exact evidence prefix/anchors, commits and pushes. Web evidence unchanged:native-zoom-20260913.
+Current QA:production-runtime-20260913/summary.json plus staging-verification.json/final artifact index.26offline parser tests pass. Preserve both stopped dependency passes (false.css URL; dev shared-import404). Static worker trace finds empty default URL via file:///ROOT helper, not confirmed browser failure. Draft replay unrun/review-rejected and guarded. Next narrowly reviewed actual-worker diagnostic; no captured-code rewrite/guessed-URL retry. No browser/install/pipeline/deploy. Russell parser/worker review complete; final JSON reader aborted before read. Sidecar closed, no owned handles.
 No installs, external activation or deployment. Absolute writes, exact staging, conventional commits and push main; never amend/force.

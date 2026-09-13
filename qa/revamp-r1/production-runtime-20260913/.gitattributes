@@ -1,0 +1,4 @@
+capture-*/index.html -text
+capture-*/responses/** -text
+authorized-deployment-response.json -text
+parser-tests.txt -text

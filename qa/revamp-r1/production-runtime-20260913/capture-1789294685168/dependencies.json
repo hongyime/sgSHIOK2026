@@ -1,0 +1,259 @@
+{
+  "buildId": "UzVn3WiWA2GW7dtvN27rN",
+  "startedAt": "2026-09-13T10:27:23.484Z",
+  "limits": {
+    "requests": 32,
+    "decodedBytes": 16777216,
+    "perFileBytes": 4194304,
+    "wallSeconds": 180
+  },
+  "responses": [
+    {
+      "path": "/_next/static/immutable/chunks/0_ktd11al30rm.css",
+      "url": "https://sgshiok.vercel.app/_next/static/immutable/chunks/0_ktd11al30rm.css",
+      "finalUrl": "https://sgshiok.vercel.app/_next/static/immutable/chunks/0_ktd11al30rm.css",
+      "discoveredFrom": "/_next/static/immutable/chunks/2trqctpxw1eo0.js",
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "public,max-age=31536000,immutable",
+        "content-disposition": "inline; filename=\"0_ktd11al30rm.css\"",
+        "content-length": "3619",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "content-type": "text/css; charset=utf-8",
+        "date": "Sun, 13 Sep 2026 10:27:26 GMT",
+        "etag": "\"_next/static/immutable/chunks/0_ktd11al30rm.css\"",
+        "last-modified": "Sun, 13 Sep 2026 10:27:26 GMT",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "x-content-type-options": "nosniff",
+        "x-matched-path": "/_next/static/immutable/chunks/0_ktd11al30rm.css",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "x-vercel-cache": "MISS",
+        "x-vercel-id": "sin1::f2fdm-1789295246305-7d153b2480b4"
+      },
+      "startedAt": "2026-09-13T10:27:25.204Z",
+      "decodedBytes": 3619,
+      "sha256": "a0ec2458cf0eda0a15a0ca713e621604b520a581f69d409cc0b4bd78c4802211",
+      "elapsedMs": 1239,
+      "file": "responses/_next/static/immutable/chunks/0_ktd11al30rm.css"
+    },
+    {
+      "path": "/_next/static/immutable/chunks/0jggz8zkp0-16.js",
+      "url": "https://sgshiok.vercel.app/_next/static/immutable/chunks/0jggz8zkp0-16.js",
+      "finalUrl": "https://sgshiok.vercel.app/_next/static/immutable/chunks/0jggz8zkp0-16.js",
+      "discoveredFrom": "/_next/static/immutable/chunks/2trqctpxw1eo0.js",
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "public,max-age=31536000,immutable",
+        "content-disposition": "inline; filename=\"0jggz8zkp0-16.js\"",
+        "content-length": "964051",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Sun, 13 Sep 2026 10:27:27 GMT",
+        "etag": "\"_next/static/immutable/chunks/0jggz8zkp0-16.js\"",
+        "last-modified": "Sun, 13 Sep 2026 10:27:27 GMT",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "x-content-type-options": "nosniff",
+        "x-matched-path": "/_next/static/immutable/chunks/0jggz8zkp0-16.js",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "x-vercel-cache": "MISS",
+        "x-vercel-id": "sin1::s7mnn-1789295246698-8c83628f8f3d"
+      },
+      "startedAt": "2026-09-13T10:27:26.453Z",
+      "decodedBytes": 964051,
+      "sha256": "73e3ff08c9b9b31d863d0ba36093d18a2a9945541f7273b96170f5c8b196b933",
+      "elapsedMs": 898,
+      "priorSha256": "73e3ff08c9b9b31d863d0ba36093d18a2a9945541f7273b96170f5c8b196b933",
+      "file": "responses/_next/static/immutable/chunks/0jggz8zkp0-16.js"
+    },
+    {
+      "path": "/_next/static/immutable/chunks/0lonvkgsdra2r.js",
+      "url": "https://sgshiok.vercel.app/_next/static/immutable/chunks/0lonvkgsdra2r.js",
+      "finalUrl": "https://sgshiok.vercel.app/_next/static/immutable/chunks/0lonvkgsdra2r.js",
+      "discoveredFrom": "/_next/static/immutable/chunks/2trqctpxw1eo0.js",
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "public,max-age=31536000,immutable",
+        "content-disposition": "inline; filename=\"0lonvkgsdra2r.js\"",
+        "content-length": "149",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Sun, 13 Sep 2026 10:27:27 GMT",
+        "etag": "\"_next/static/immutable/chunks/0lonvkgsdra2r.js\"",
+        "last-modified": "Sun, 13 Sep 2026 10:27:27 GMT",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "x-content-type-options": "nosniff",
+        "x-matched-path": "/_next/static/immutable/chunks/0lonvkgsdra2r.js",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "x-vercel-cache": "MISS",
+        "x-vercel-id": "sin1::lt7vn-1789295247596-cb099de3e032"
+      },
+      "startedAt": "2026-09-13T10:27:27.359Z",
+      "decodedBytes": 149,
+      "sha256": "dae4ceb0a153a052558551bffe66856adff3c31515ca1c9a4532eeab7af3c361",
+      "elapsedMs": 308,
+      "file": "responses/_next/static/immutable/chunks/0lonvkgsdra2r.js"
+    },
+    {
+      "path": "/_next/static/immutable/chunks/0nji_gvchad9e.js",
+      "url": "https://sgshiok.vercel.app/_next/static/immutable/chunks/0nji_gvchad9e.js",
+      "finalUrl": "https://sgshiok.vercel.app/_next/static/immutable/chunks/0nji_gvchad9e.js",
+      "discoveredFrom": "/_next/static/immutable/chunks/2trqctpxw1eo0.js",
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "public,max-age=31536000,immutable",
+        "content-disposition": "inline; filename=\"0nji_gvchad9e.js\"",
+        "content-length": "36875",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Sun, 13 Sep 2026 10:27:28 GMT",
+        "etag": "\"_next/static/immutable/chunks/0nji_gvchad9e.js\"",
+        "last-modified": "Sun, 13 Sep 2026 10:27:28 GMT",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "x-content-type-options": "nosniff",
+        "x-matched-path": "/_next/static/immutable/chunks/0nji_gvchad9e.js",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "x-vercel-cache": "MISS",
+        "x-vercel-id": "sin1::f2fdm-1789295247906-b4f8e456fe41"
+      },
+      "startedAt": "2026-09-13T10:27:27.672Z",
+      "decodedBytes": 36875,
+      "sha256": "2962225cc3d3592621f729677671bfbaffa9852b01188eaa407621b101522ccb",
+      "elapsedMs": 385,
+      "priorSha256": "2962225cc3d3592621f729677671bfbaffa9852b01188eaa407621b101522ccb",
+      "file": "responses/_next/static/immutable/chunks/0nji_gvchad9e.js"
+    },
+    {
+      "path": "/_next/static/immutable/chunks/3_0v_2b8orlqe.js",
+      "url": "https://sgshiok.vercel.app/_next/static/immutable/chunks/3_0v_2b8orlqe.js",
+      "finalUrl": "https://sgshiok.vercel.app/_next/static/immutable/chunks/3_0v_2b8orlqe.js",
+      "discoveredFrom": "/_next/static/immutable/chunks/2trqctpxw1eo0.js",
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "public,max-age=31536000,immutable",
+        "content-disposition": "inline; filename=\"3_0v_2b8orlqe.js\"",
+        "content-length": "617",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Sun, 13 Sep 2026 10:27:28 GMT",
+        "etag": "\"_next/static/immutable/chunks/3_0v_2b8orlqe.js\"",
+        "last-modified": "Sun, 13 Sep 2026 10:27:28 GMT",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "x-content-type-options": "nosniff",
+        "x-matched-path": "/_next/static/immutable/chunks/3_0v_2b8orlqe.js",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "x-vercel-cache": "MISS",
+        "x-vercel-id": "sin1::rvk8m-1789295248299-a8a3bd664e04"
+      },
+      "startedAt": "2026-09-13T10:27:28.065Z",
+      "decodedBytes": 617,
+      "sha256": "60849e008c490af6f1c52d9dbb284c04dd17d1caafca38afd36a78bffddf6656",
+      "elapsedMs": 354,
+      "priorSha256": "60849e008c490af6f1c52d9dbb284c04dd17d1caafca38afd36a78bffddf6656",
+      "file": "responses/_next/static/immutable/chunks/3_0v_2b8orlqe.js"
+    },
+    {
+      "path": "/_next/static/immutable/chunks/.css",
+      "url": "https://sgshiok.vercel.app/_next/static/immutable/chunks/.css",
+      "finalUrl": "https://sgshiok.vercel.app/_next/static/immutable/chunks/.css",
+      "discoveredFrom": "/_next/static/immutable/chunks/2wzpamyc1af39.js",
+      "status": 404,
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "public,max-age=31536000,immutable",
+        "content-disposition": "inline; filename=\".css\"",
+        "content-length": "0",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "date": "Sun, 13 Sep 2026 10:27:30 GMT",
+        "etag": "\"_next/static/immutable/chunks/.css\"",
+        "last-modified": "Sun, 13 Sep 2026 10:27:30 GMT",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "x-content-type-options": "nosniff",
+        "x-matched-path": "/_next/static/immutable/chunks/.css",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "x-vercel-cache": "MISS",
+        "x-vercel-id": "sin1::rvk8m-1789295250443-80d94dd5dfb3"
+      },
+      "startedAt": "2026-09-13T10:27:30.162Z"
+    }
+  ],
+  "parsed": [
+    {
+      "path": "/_next/static/immutable/chunks/0c0hxoamwjsbw.js",
+      "urls": [],
+      "unresolved": [],
+      "embedded": {
+        "dataUrls": 0
+      }
+    },
+    {
+      "path": "/_next/static/immutable/chunks/2n_vh2n3ve95_.css",
+      "urls": [],
+      "unresolved": [],
+      "embedded": {
+        "dataUrls": 0
+      }
+    },
+    {
+      "path": "/_next/static/immutable/chunks/2trqctpxw1eo0.js",
+      "urls": [
+        "/_next/static/immutable/chunks/0_ktd11al30rm.css",
+        "/_next/static/immutable/chunks/0jggz8zkp0-16.js",
+        "/_next/static/immutable/chunks/0lonvkgsdra2r.js",
+        "/_next/static/immutable/chunks/0nji_gvchad9e.js",
+        "/_next/static/immutable/chunks/3_0v_2b8orlqe.js"
+      ],
+      "unresolved": [],
+      "embedded": {
+        "dataUrls": 0
+      }
+    },
+    {
+      "path": "/_next/static/immutable/chunks/2wzpamyc1af39.js",
+      "urls": [
+        "/_next/static/immutable/chunks/.css"
+      ],
+      "unresolved": [],
+      "embedded": {
+        "dataUrls": 0
+      }
+    }
+  ],
+  "totalBytes": 1005311,
+  "closureComplete": false,
+  "method": "Acorn literals/static imports and PostCSS tokens, no execution. Captures a static-reference over-approximation, not arbitrary computed URLs, server build or deployment identity.",
+  "ok": false,
+  "error": {
+    "name": "AssertionError",
+    "message": "STOP dependency status /_next/static/immutable/chunks/.css\n\n404 !== 200\n"
+  },
+  "elapsedMs": 6990
+}
