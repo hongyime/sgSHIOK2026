@@ -8,6 +8,7 @@ Use one retained, pinned journal for all this monitor's callers.
 
 from email.utils import format_datetime, parsedate_to_datetime
 import json
+import os
 import time
 from typing import Callable
 
@@ -62,6 +63,43 @@ def _cooldown(rate: dict, now: float) -> tuple[float, bool]:
     return until, blocked
 
 
+def validate_request_history(identity: bytes, names: set[str], read: Callable[[str], bytes | None]) -> tuple[int, str, float, float]:
+    """Shared byte validator for live admission and a bounded read-only snapshot."""
+    names = names.copy()
+    if read("identity.json") != identity or "identity.json" not in names:
+        raise DeliveryError("STOP_GITHUB_BUDGET_IDENTITY")
+    names.remove("identity.json")
+    if len(names) > 2 * MAX_HISTORY:
+        raise DeliveryError("STOP_GITHUB_HISTORY_BOUND")
+    previous, finished, until = _sha(identity), 0, 0
+    index = 1
+    while names:
+        reservation_name, result_name = f"{index:06d}.request.json", f"{index:06d}.result.json"
+        if reservation_name not in names or result_name not in names:
+            raise DeliveryError("STOP_GITHUB_REQUEST_UNRESOLVED")
+        raw, result_raw = read(reservation_name), read(result_name)
+        try:
+            reservation, result = json.loads(raw), json.loads(result_raw)
+            if (not isinstance(reservation, dict) or set(reservation) != {"sequence", "previousSha256", "startedAt"}
+                    or type(reservation["sequence"]) is not int or reservation["sequence"] != index
+                    or reservation["previousSha256"] != previous
+                    or not _number(reservation["startedAt"]) or reservation["startedAt"] < until
+                    or raw != _encode(reservation)
+                    or not isinstance(result, dict) or set(result) != {"requestSha256", "finishedAt", "notBefore", "status"}
+                    or result["requestSha256"] != _sha(raw)
+                    or type(result["status"]) is not int or not 100 <= result["status"] <= 599
+                    or not _number(result["finishedAt"]) or result["finishedAt"] < reservation["startedAt"]
+                    or not _number(result["notBefore"]) or result["notBefore"] < result["finishedAt"] + SPACING_SECONDS
+                    or result_raw != _encode(result)):
+                raise ValueError
+        except (TypeError, ValueError, KeyError, RecursionError):
+            raise DeliveryError("STOP_GITHUB_BUDGET_CORRUPT") from None
+        previous, finished, until = _sha(result_raw), result["finishedAt"], result["notBefore"]
+        names.difference_update((reservation_name, result_name))
+        index += 1
+    return index, previous, finished, until
+
+
 class GitHubRequestBudget:
     """One api.github.com ledger inside the existing comment journal.
 
@@ -98,38 +136,13 @@ class GitHubRequestBudget:
         if (_safe_root(self.path) != self.path or _read(journal.path / "identity.json") != journal.identity
                 or _read(self.path / "identity.json") != self._identity(journal)):
             raise DeliveryError("STOP_GITHUB_BUDGET_IDENTITY")
-        names = {p.name for p in self.path.iterdir()}
-        names.remove("identity.json")
-        if len(names) > 2 * MAX_HISTORY:
-            raise DeliveryError("STOP_GITHUB_HISTORY_BOUND")
-        previous, finished, until = _sha(self._identity(journal)), 0, 0
-        index = 1
-        while names:
-            reservation_name, result_name = f"{index:06d}.request.json", f"{index:06d}.result.json"
-            if reservation_name not in names or result_name not in names:
-                raise DeliveryError("STOP_GITHUB_REQUEST_UNRESOLVED")
-            raw = _read(self.path / reservation_name)
-            result_raw = _read(self.path / result_name)
-            try:
-                reservation, result = json.loads(raw), json.loads(result_raw)
-                if (not isinstance(reservation, dict) or set(reservation) != {"sequence", "previousSha256", "startedAt"}
-                        or type(reservation["sequence"]) is not int or reservation["sequence"] != index
-                        or reservation["previousSha256"] != previous
-                        or not _number(reservation["startedAt"]) or reservation["startedAt"] < until
-                        or raw != _encode(reservation)
-                        or not isinstance(result, dict) or set(result) != {"requestSha256", "finishedAt", "notBefore", "status"}
-                        or result["requestSha256"] != _sha(raw)
-                        or type(result["status"]) is not int or not 100 <= result["status"] <= 599
-                        or not _number(result["finishedAt"]) or result["finishedAt"] < reservation["startedAt"]
-                        or not _number(result["notBefore"]) or result["notBefore"] < result["finishedAt"] + SPACING_SECONDS
-                        or result_raw != _encode(result)):
-                    raise ValueError
-            except (TypeError, ValueError, KeyError, RecursionError):
-                raise DeliveryError("STOP_GITHUB_BUDGET_CORRUPT") from None
-            previous, finished, until = _sha(result_raw), result["finishedAt"], result["notBefore"]
-            names.difference_update((reservation_name, result_name))
-            index += 1
-        return index, previous, finished, until
+        names = set()
+        with os.scandir(self.path) as entries:
+            for entry in entries:
+                if len(names) == 2 * MAX_HISTORY + 1:
+                    raise DeliveryError("STOP_GITHUB_HISTORY_BOUND")
+                names.add(entry.name)
+        return validate_request_history(self._identity(journal), names, lambda name: _read(self.path / name))
 
     def request(self, operation: Callable[[], dict]) -> dict:
         if self.stopped:

@@ -9,11 +9,12 @@ live services. Reporting choices and weekly scheduler/issue approval are pending
 LOCALLY_VERIFIED: walk-only inspector. Two tabs (MRT/LRT exits, Bus stops), shortest
 usable saved walk selected automatically, no Suggested/comparison/About data,
 automatic zoom-bounded night lighting, bounded explicit preview recovery.
-Current QA: qa/revamp-r1/native-zoom-20260913 and notice-pacing-20260913;
+Current QA: qa/revamp-r1/native-zoom-20260913 and notice-inspection-20260913;
 prior recovery/UX acceptance: keyboard-recovery-20260913 and completion-20260913.
 Build vOoOxn7etjT-WJqrIExq7: http://127.0.0.1:4416/. Current1930/72 isolated web
 tests and42dependency guards pass;179focused tests/4files,TypeScript/build pass.
-The previous955focused maintenance tests are retained, not rerun here.
+Maintenance follow-up:955existing+57inspection=1012focused tests in12files pass;
+offline CLI smoke and integrity pass. Web sources/tests/build are unchanged by it.
 Native page-zoom treatment:56checks/9captures at200% and17checks/2captures for
 default-reset at100%; all11final captures parent-inspected. Reset now focuses the
 surviving postal heading; Back to walk scrolls its summary focus into view.
@@ -360,6 +361,19 @@ No ticket is DONE merely because a document, mock, passing count or button exist
   Evidence: `qa/revamp-r1/source-freshness-20260909/summary.json`.
 
 ### [ ] T23: Establish a bounded metadata-check routine
+
+- Operator follow-up2026-09-13: `python -B -m scripts.inspect_source_notice_journal`
+  is implemented for one explicitly named and independently pinned local journal.
+  It distinguishes unknown POST outcome, recorded unverified ID and local receipt,
+  diagnoses request gaps/cooldown/capacity, and never contacts a provider, changes
+  history or authorizes resend. It reuses the delivery byte validator over bounded
+  captured inputs; link/hardlink/type/canonical/conflict/change checks stop safely.
+  Independent57case review exposed eager Path.iterdir enumeration in the live
+  budget; replaced with streaming os.scandir.955+57=1012tests/12files pass.
+  Actual CLI smoke preserves7synthetic files and mtimes under write/network audit
+  denial; integrity passes. This supplies operator diagnostics, not resolution,
+  authoritative hosted storage/backups, scheduler bridge or activation. No real
+  notice or source check. Evidence:`qa/revamp-r1/notice-inspection-20260913/summary.json`.
 
 - Current continuation2026-09-13: production GitHub requests now require an
   explicitly initialized, pinned local request ledger. Request admission is

@@ -476,10 +476,36 @@ Restoration validates its referenced predecessor/origin hashes and replays the
 allowed transition; it does not perform another GitHub verification or authenticate
 untrusted local report assertions. Retain the original referenced pairs, journal
 and trusted pins. This is not automatic latest-checkpoint selection or rollback
-protection. Hosted persistence, recovery/operator tooling, scheduler and live
+protection. Hosted persistence, operator resolution, scheduler and live
 notice activation remain unimplemented/unapproved. An ephemeral hosted checkout
 cannot replace the retained local journal or this CLI's Windows/source-anchor
 requirements. No scheduled-delivery claim follows from local fixture tests.
+
+Inspect an existing, independently pinned journal without network or mutation:
+
+```powershell
+python -B -m scripts.inspect_source_notice_journal --journal <absolute-journal-path> --journal-sha256 <retained-identity-sha256>
+```
+
+The `-B` flag prevents Python import bytecode writes. No token is required or read.
+The command opens only the named journal under `tmp/source-notice-journals/`.
+It bounds directory entries and captured bytes, validates canonical intent and
+companion hashes, checks the request chain and cooldown, and rechecks the read
+files before reporting. Links, hard-link aliases, unexpected objects, partial
+history and changed input stop inspection. Existing trusted, stable ancestors
+remain required; this is not a lock or hostile-writer filesystem sandbox.
+
+Exit 0 means locally consistent, not remotely delivered, monitored or ready to
+activate. Exit 1 means attention: setup absent, a retained cooldown/capacity limit,
+or a notice outcome needing review. Exit 2 means invalid or unreadable history.
+An intent alone means outcome unknown, never definitely sent or unsent. A posted
+ID permits investigation of that exact comment, not a resend. A recorded receipt
+still needs its independently retained pin and authenticated GET before the
+acknowledgement command; its computed hash here is not a new trusted pin.
+Request reservations have no notice ID or method, so a missing result cannot
+be assigned to a particular notice by this command. Expired cooldowns do not
+clear unresolved reservations. Preserve all files and investigate; never delete,
+repair, reinitialize or automatically retry to make the inspection pass.
 
 ### Free-Cap And Report Operations
 

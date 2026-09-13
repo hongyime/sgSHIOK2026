@@ -1,0 +1,255 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "Prawn-E14",
+  "base": "f9b23bca6dcdc40bc43788423594f83f0b639b64",
+  "createdAt": "2026-09-13T10:10:26.511Z",
+  "tests": {
+    "passed": 1012,
+    "files": 12,
+    "arithmetic": "955 existing + 57 inspection = 1012",
+    "receipt": "all-1789293884039",
+    "sourceHashesMatch": true,
+    "wholeProjectPython": false
+  },
+  "smoke": {
+    "receipt": "smoke-1789293979571",
+    "fixture": {
+      "syntheticFixture": true,
+      "journal": "C:\\sgSHIOK2026\\tmp\\source-notice-journals\\inspection-smoke-60e1705fbee4418494132bbf08b62b15",
+      "cliExit": 1,
+      "fileCount": 7,
+      "bytesAndMtimesUnchanged": true,
+      "writeAndNetworkAuditDenialEnabled": true,
+      "forbiddenEvents": [],
+      "remoteReceiptOrNoticeCreated": false
+    },
+    "output": {
+      "activationAuthorized": false,
+      "attempts": [
+        {
+          "action": "preserve_history_and_investigate_no_automatic_resend",
+          "attemptKey": "80ec2e42fbc6a8a8056d5a5ec861ae8fc0a7dadb97e16687312866d8a00447fa",
+          "authorId": 314,
+          "automaticResendAllowed": false,
+          "commentId": null,
+          "destination": "synthetic-owner/synthetic-repo#7",
+          "fileSha256": {
+            "intent": "700795a745e07cc41733fd1f116ee03e2eb9b50467d53926772341bdfc344d2f"
+          },
+          "noticeId": "synthetic_intent:1:04cc74c418a8486afe24fd9ac72b2e7699c94cfeabb03cc6b1a16b1442adefb0",
+          "remoteChecked": false,
+          "status": "post_outcome_unknown"
+        },
+        {
+          "action": "preserve_history_then_review_exact_comment_id_without_resending",
+          "attemptKey": "8a217fde09ffb5ff039b2ef8bcfc28238978f40510649744ab6ebc5109058b34",
+          "authorId": 314,
+          "automaticResendAllowed": false,
+          "commentId": 2,
+          "destination": "synthetic-owner/synthetic-repo#7",
+          "fileSha256": {
+            "intent": "35391cf54521c233b5e7c5324791e51c68472dadf0d90222cdb4bbaf09f81b65",
+            "posted": "1e0392270991919a23e806d9a3eb16031bcefa18a60c1c9c512699381306521e"
+          },
+          "noticeId": "synthetic_posted:1:c874b572adc8b60e8a0213f22aa4956855c58471cc91b05c4a90749e35139df8",
+          "remoteChecked": false,
+          "status": "post_id_recorded_unverified"
+        },
+        {
+          "action": "verify_pinned_receipt_by_authenticated_get_before_acknowledgement",
+          "attemptKey": "8b7e1b01f9f0cfd3646469c4545b70af0ca774324eb7222a85cbd2ee611c84e9",
+          "authorId": 314,
+          "automaticResendAllowed": false,
+          "commentId": 3,
+          "destination": "synthetic-owner/synthetic-repo#7",
+          "fileSha256": {
+            "intent": "8bd344231d550cf50fea9236568f631e01090e2b7c4556b19f24b547d9a856e6",
+            "receipt": "aafb8847bdab6a93f4331bac7e7b21e9e2af1c09a01a8570c4c76a52f1ed1fde"
+          },
+          "noticeId": "synthetic_receipt:1:0b1cab5e581503896f628cfd52c324013273d14c79dc60f7c752ddcc61938174",
+          "remoteChecked": false,
+          "status": "receipt_recorded_locally"
+        }
+      ],
+      "automaticResendAllowed": false,
+      "exitCode": 1,
+      "fileCount": 7,
+      "inspectedAtEpoch": 1789293981.2237794,
+      "journalIdentitySha256": "7da3ff8948d82ab2a13ee8a173e4987021a8be30b3057dd2ad294e0e9fd4e6f0",
+      "journalWrites": 0,
+      "networkRequests": 0,
+      "operation": "inspect_source_notice_journal",
+      "remoteChecked": false,
+      "requestBudget": {
+        "action": "local_history_only_not_authorization_to_send",
+        "completedRequests": 0,
+        "historyCanAuthorizeIO": false,
+        "lastResultOrIdentitySha256": "bd9badaa9c20bcee441547ad1f811a133671752025a812966ae1add2cb1f6246",
+        "notBefore": 0,
+        "remainingWaitSeconds": 0,
+        "remoteChecked": false,
+        "reservationWithoutResult": [],
+        "resultWithoutReservation": [],
+        "status": "locally_consistent"
+      },
+      "snapshotSha256": "2a6edc200ec318d7bed4e4a35f4fe6af14984b618dd280e268332f49df5be92a",
+      "status": "attention",
+      "totalBytes": 3600
+    }
+  },
+  "integrity": {
+    "receipt": "integrity-1789293982091",
+    "exit": 0
+  },
+  "review": {
+    "reviewer": "Schrodinger",
+    "ownership": "Read-only initial/final source review; authored only tests/test_source_notice_inspection.py. Parent owned runtime, QA helpers, docs, final checks and commit/push.",
+    "criteria": [
+      "Bound enumeration before validation",
+      "Canonical intent and companion validation, including receipt without observation",
+      "Explicitly local status without remote delivery/acknowledgement claims",
+      "No invented reservation-to-notice association",
+      "Regular files only, links/hardlinks rejected",
+      "Zero writes/network/credentials on inspection paths"
+    ],
+    "initialFocused": {
+      "reportedBySubagent": true,
+      "session": 93276,
+      "terminal": true,
+      "exitCode": 1,
+      "passed": 56,
+      "failed": 1,
+      "elapsedSeconds": 45.8,
+      "command": [
+        "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "--basetemp",
+        "C:\\sgSHIOK2026\\tmp\\notice-inspection-review-6e69df76277b4067aaa2abc377e196a5",
+        "tests/test_source_notice_inspection.py"
+      ],
+      "environment": {
+        "TEMP": "C:\\sgSHIOK2026\\tmp",
+        "TMP": "C:\\sgSHIOK2026\\tmp",
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1"
+      },
+      "rawOutputAsReported": "BASE_TEMP=C:\\sgSHIOK2026\\tmp\\notice-inspection-review-6e69df76277b4067aaa2abc377e196a5\n................................................F........                [100%]\n================================== FAILURES ===================================\n___ test_live_budget_entry_bound_does_not_hide_eager_directory_enumeration ____\ntests\\test_source_notice_inspection.py:586: in test_live_budget_entry_bound_does_not_hide_eager_directory_enumeration\n    history()\nscripts\\source_metadata_request_budget.py:139: in _history\n    for path in self.path.iterdir():\n                ^^^^^^^^^^^^^^^^^^^\nC:\\Program Files\\Python312\\Lib\\pathlib.py:1056: in iterdir\n    for name in os.listdir(self):\n                ^^^^^^^^^^^^^^^^\ntests\\test_source_notice_inspection.py:578: in listdir\n    pytest.fail(\"Path.iterdir used eager os.listdir before the ledger entry bound\")\nE   Failed: Path.iterdir used eager os.listdir before the ledger entry bound\n=========================== short test summary info ===========================\nFAILED tests/test_source_notice_inspection.py::test_live_budget_entry_bound_does_not_hide_eager_directory_enumeration\n1 failed, 56 passed in 45.80s\n"
+    },
+    "defect": "Live request-budget enumeration used Path.iterdir, which calls eager os.listdir in the installed Python3.12. The bound was checked too late.",
+    "fix": "Parent replaced it with context-managed os.scandir and retains the cap before insertion. The shared validator runs only after bounded enumeration completes.",
+    "finalReview": "Accepted the os.scandir source fix. No other concrete inspector defect found. Source-review acceptance only; parent955+57 run provides the final executed evidence.",
+    "limitations": [
+      "No actual journal service or remote notice inspected",
+      "Trusted stable ancestors still required; no hostile-writer filesystem sandbox",
+      "No hosted persistence, backup, operator resolution or scheduler activation",
+      "No whole-project Python or web rerun in this backend-only change"
+    ]
+  },
+  "evidence": {
+    "path": "qa/verification/REVAMP-R1-core-walk.md",
+    "previousBytes": 383369,
+    "bytes": 389019,
+    "addedBytes": 5650,
+    "exactPrefix": true,
+    "tracked": true,
+    "checkIgnoreExit": 1
+  },
+  "anchors": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "bytes": 13626,
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "bytes": 1751005,
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "bytes": 5240179,
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "bytes": 5236013,
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "bytes": 39674,
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "bytes": 3538342,
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "bytes": 184,
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "bytes": 269,
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "bytes": 1189,
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "bytes": 145327,
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "bytes": 515583,
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "weights": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+  "web": {
+    "changed": false,
+    "rerun": false,
+    "retainedTests": 1930,
+    "files": 72,
+    "guards": 42,
+    "preview": {
+      "buildId": "vOoOxn7etjT-WJqrIExq7",
+      "snapshot": "C:\\sgSHIOK2026\\tmp\\native-zoom-20260913-build-1",
+      "pid": 33360,
+      "dataPort": 4340,
+      "nextPort": 4415,
+      "proxyPort": 4416,
+      "readOnlyData": true,
+      "allowedApi": "GET /api/onemap-route and /api/onemap-search",
+      "oneMapCredentialsConfigured": true,
+      "nextPid": 35540
+    }
+  },
+  "taskBoardSha256": "723d4c4dbd44a0c31a7d05dcb742d685085dbd69e0784600576ec9d75e84ea13",
+  "findings": [
+    "A new bounded offline command exposes unknown, observed and recorded local notice states without repair or resend.",
+    "The request-history parser is shared with admission; enumeration is bounded before validation.",
+    "Synthetic CLI inspection preserved all7files and mtimes with write/network audit denial enabled.",
+    "Reporting, service activation, backups, physical-device and exact release acceptance remain open."
+  ],
+  "disagreements": [
+    "A locally consistent journal or stored verified label is not current remote delivery proof or authorization.",
+    "Request reservations contain no method or notice association; the inspector does not invent one."
+  ],
+  "pipelineRuns": 0,
+  "pipelineSeconds": 0,
+  "installations": 0,
+  "deployments": 0,
+  "externalActivation": false
+}

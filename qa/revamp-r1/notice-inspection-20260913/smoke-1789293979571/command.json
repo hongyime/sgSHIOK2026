@@ -1,0 +1,27 @@
+{
+  "command": [
+    "python",
+    "-B",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\notice-inspection-20260913\\smoke.py"
+  ],
+  "cwd": "C:\\sgSHIOK2026",
+  "elapsedMs": 1904,
+  "status": 0,
+  "stdout": "{\"activationAuthorized\": false, \"attempts\": [{\"action\": \"preserve_history_and_investigate_no_automatic_resend\", \"attemptKey\": \"80ec2e42fbc6a8a8056d5a5ec861ae8fc0a7dadb97e16687312866d8a00447fa\", \"authorId\": 314, \"automaticResendAllowed\": false, \"commentId\": null, \"destination\": \"synthetic-owner/synthetic-repo#7\", \"fileSha256\": {\"intent\": \"700795a745e07cc41733fd1f116ee03e2eb9b50467d53926772341bdfc344d2f\"}, \"noticeId\": \"synthetic_intent:1:04cc74c418a8486afe24fd9ac72b2e7699c94cfeabb03cc6b1a16b1442adefb0\", \"remoteChecked\": false, \"status\": \"post_outcome_unknown\"}, {\"action\": \"preserve_history_then_review_exact_comment_id_without_resending\", \"attemptKey\": \"8a217fde09ffb5ff039b2ef8bcfc28238978f40510649744ab6ebc5109058b34\", \"authorId\": 314, \"automaticResendAllowed\": false, \"commentId\": 2, \"destination\": \"synthetic-owner/synthetic-repo#7\", \"fileSha256\": {\"intent\": \"35391cf54521c233b5e7c5324791e51c68472dadf0d90222cdb4bbaf09f81b65\", \"posted\": \"1e0392270991919a23e806d9a3eb16031bcefa18a60c1c9c512699381306521e\"}, \"noticeId\": \"synthetic_posted:1:c874b572adc8b60e8a0213f22aa4956855c58471cc91b05c4a90749e35139df8\", \"remoteChecked\": false, \"status\": \"post_id_recorded_unverified\"}, {\"action\": \"verify_pinned_receipt_by_authenticated_get_before_acknowledgement\", \"attemptKey\": \"8b7e1b01f9f0cfd3646469c4545b70af0ca774324eb7222a85cbd2ee611c84e9\", \"authorId\": 314, \"automaticResendAllowed\": false, \"commentId\": 3, \"destination\": \"synthetic-owner/synthetic-repo#7\", \"fileSha256\": {\"intent\": \"8bd344231d550cf50fea9236568f631e01090e2b7c4556b19f24b547d9a856e6\", \"receipt\": \"aafb8847bdab6a93f4331bac7e7b21e9e2af1c09a01a8570c4c76a52f1ed1fde\"}, \"noticeId\": \"synthetic_receipt:1:0b1cab5e581503896f628cfd52c324013273d14c79dc60f7c752ddcc61938174\", \"remoteChecked\": false, \"status\": \"receipt_recorded_locally\"}], \"automaticResendAllowed\": false, \"exitCode\": 1, \"fileCount\": 7, \"inspectedAtEpoch\": 1789293981.2237794, \"journalIdentitySha256\": \"7da3ff8948d82ab2a13ee8a173e4987021a8be30b3057dd2ad294e0e9fd4e6f0\", \"journalWrites\": 0, \"networkRequests\": 0, \"operation\": \"inspect_source_notice_journal\", \"remoteChecked\": false, \"requestBudget\": {\"action\": \"local_history_only_not_authorization_to_send\", \"completedRequests\": 0, \"historyCanAuthorizeIO\": false, \"lastResultOrIdentitySha256\": \"bd9badaa9c20bcee441547ad1f811a133671752025a812966ae1add2cb1f6246\", \"notBefore\": 0, \"remainingWaitSeconds\": 0, \"remoteChecked\": false, \"reservationWithoutResult\": [], \"resultWithoutReservation\": [], \"status\": \"locally_consistent\"}, \"snapshotSha256\": \"2a6edc200ec318d7bed4e4a35f4fe6af14984b618dd280e268332f49df5be92a\", \"status\": \"attention\", \"totalBytes\": 3600}\r\n{\"syntheticFixture\": true, \"journal\": \"C:\\\\sgSHIOK2026\\\\tmp\\\\source-notice-journals\\\\inspection-smoke-60e1705fbee4418494132bbf08b62b15\", \"cliExit\": 1, \"fileCount\": 7, \"bytesAndMtimesUnchanged\": true, \"writeAndNetworkAuditDenialEnabled\": true, \"forbiddenEvents\": [], \"remoteReceiptOrNoticeCreated\": false}\r\n",
+  "stderr": "",
+  "sourceHashes": {
+    "qa/revamp-r1/notice-inspection-20260913/smoke.py": "73ac64b1aa719168986e0c373c95d92441304a98c9473d1d0ac88e11fa90e9cc",
+    "scripts/inspect_source_notice_journal.py": "1746f05c98071ba25b83a8ad1bbc4e16a7b2663544dcd5db73779684595d0abd",
+    "scripts/acknowledge_source_notices.py": "a873741a7d6021c74af58240f80b24dfd3677c1cb50f567ea1ee7dfdd3d1c854",
+    "scripts/source_metadata_comments.py": "d63b87bffafe0447da786155534374c4c90e883be733dba80512d84f14d7182a",
+    "scripts/source_metadata_github.py": "63ce9724bf6573377ba8c808de44db369d5f1a6079ca1999c18f81313b7770b7",
+    "scripts/source_metadata_request_budget.py": "c491830f2ec89df1230c67950ccbeadd90277d66f7fb060ed354500917adc887",
+    "scripts/source_metadata_delivery.py": "40ea9fac732834c2b3201b62d8f79c7fe75683b6deae6da2bddb8f4d967ffb60",
+    "scripts/source_metadata_state.py": "b462c441e9c62904e85723b4bc96c9ac7043b1310d77545eca1f01bad2e7dfa0",
+    "scripts/check_source_metadata.py": "a3a499f1158a00dab0410b2adf54c303d746a1de06173629a49024fd64f18812",
+    "scripts/source_metadata_http.py": "aae6234a2c065bc7fad1d49445061943fdd682209444b4bbf2376105bd9ca741",
+    "README.md": "de7760e8fa80528d8a30d88231cc93649d06a63c9c61abd3bc1f68f6f39ef13f"
+  },
+  "sourceStable": true,
+  "scope": "Synthetic local journals and clocks. No real source check, network notice, production payload, pipeline, install or activation."
+}

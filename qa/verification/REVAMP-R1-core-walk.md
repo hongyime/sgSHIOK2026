@@ -5481,3 +5481,90 @@ DISAGREEMENTS
 
 Pipeline runs:0. Pipeline seconds:0. Installs:0. Deployments:0.
 No X access, protected-data mutation, score/input generation or locked-weight edit.
+
+## 2026-09-13: Read-only notice-journal operator inspection
+
+Working root:C:\sgSHIOK2026. Host:Prawn-E14.
+Base:f9b23bca6dcdc40bc43788423594f83f0b639b64.
+Prior goal turn:PROGRESS, committed and remote verified. Overall goal remains ACTIVE.
+Evidence:qa/revamp-r1/notice-inspection-20260913/.
+
+New operator command:
+python -B -m scripts.inspect_source_notice_journal --journal <absolute-journal-path> --journal-sha256 <retained-identity-sha256>
+- No token, network, transport, initialization, journal mutation or repair.
+- Reads only one named pinned journal beneath tmp/source-notice-journals.
+- Bounded streaming enumeration, per-file/aggregate byte bounds, regular-file and
+  link/hardlink rejection precede reads. Canonical intent, attempt key, posted ID,
+  receipt, request-chain and cooldown checks reuse existing validation contracts.
+- Rechecks membership and all inspected bytes before successful reporting. This
+  requires trusted stable ancestors, not a filesystem lock or hostile-writer sandbox.
+- Exit0:locally consistent. Exit1:attention, including unknown outcome, unverified
+  ID, missing setup, retained cooldown or capacity. Exit2:invalid/unreadable history.
+- Local receipt status does not establish current remote delivery. Receipt hash
+  output is not a replacement for an independently retained pin. An intent proves
+  neither sent nor unsent. No operator action authorizes automatic resend.
+- Request history contains no method/notice identity. Actual missing-result sequence
+  numbers are listed without inventing a notice association. A cooldown expiring
+  does not clear an unresolved reservation. Preserve everything for investigation.
+
+Independent review:
+- Schrodinger read the local contracts and authored only
+  tests/test_source_notice_inspection.py. Parent owned runtime/docs/QA/finalization.
+- Reviewer initial run:56pass+1fail=57,45.80s,exit1,terminal session93276.
+- Failing test:test_live_budget_entry_bound_does_not_hide_eager_directory_enumeration.
+  Installed Python3.12 Path.iterdir called os.listdir eagerly before the bound.
+  Parent replaced it with context-managed os.scandir and bounds entries before
+  insertion. Reviewer accepted that source fix without claiming a rerun.
+- review.json retains the subagent-reported exact command, traceback and scope.
+  No other concrete inspector defect was found in this review. No service,
+  authoritative backup, remote notice or real source check was validated.
+
+Executed parent verification:
+node qa/revamp-r1/notice-inspection-20260913/verify.mjs all
+- all-1789293884039:1012passed in66.85s,exit0,12files.
+- Arithmetic:955existing maintenance/README +57inspection=1012;11+1=12files.
+- Covers valid local states including receipt without observation, corrupt/orphan
+  and conflicting companions, pin mismatch, unsafe objects, hardlinks, bounded
+  enumeration/bytes, request gaps/hash/clock/capacity, active/expired cooldown,
+  changed reads, CLI errors/help/output and denial of inspection side effects.
+- Existing delivery, acknowledgement, HTTP, state, catalog and README regressions
+  were included. This is not a whole-project Python suite or a web rerun.
+node qa/revamp-r1/notice-inspection-20260913/verify.mjs smoke
+- smoke-1789293979571:exit0 for smoke harness; actual inspector exit1(attention),
+  expected for the synthetic unknown/observed/recorded mixture.
+- Actual main() stdout identifies all3states. Seven synthetic journal files,
+  3600bytes, byte contents and mtimes unchanged. Write/network audit denial enabled;
+  forbiddenEvents=[]; no remote receipt or notice created.
+- Earlier smoke-1789293419629 passed before the final enumeration fix and remains
+  retained; it is not the final source-identity receipt.
+node qa/revamp-r1/notice-inspection-20260913/verify.mjs integrity
+- integrity-1789293982091:repo_integrity=ok,exit0.
+- Command receipts record source hashes before/after and exact stdout/stderr.
+
+Web sources did not change. Retained1930tests/72files+42guards,TypeScript/build
+and the native-zoom browser acceptance remain the preceding commit's evidence,
+not a new browser/device/release claim. Preview remains127.0.0.1:4416,
+buildvOoOxn7etjT-WJqrIExq7. Root postplan.html reflects current maintenance work.
+Finalizer checks served task-board identity,11input anchors,locked-weight hash,
+no protected/web diff and the exact383369-byte prior evidence prefix.
+summary.json and artifact-index.json record the checks and committed receipts.
+
+FINDINGS
+1. The operator can now inspect ambiguous local notice outcomes without invoking
+   delivery or modifying evidence. Missing results and expired cooldowns remain
+   distinct; the command never declares the service operational.
+2. Review exposed a real eager-enumeration defect in the request-budget bound.
+   The fix uses streaming enumeration and passes the new regression plus the
+   existing maintenance suite. The original failed review result is retained.
+3. Real reporting, approved accounts/privacy/storage/backups, operator resolution,
+   scheduled delivery, physical-device and exact-release acceptance remain open.
+   This command completes diagnostics only, not those external/product gates.
+
+DISAGREEMENTS
+1. Local receipt consistency or a stored verified label is not current remote
+   delivery proof, a trusted replacement pin, acknowledgement or release approval.
+2. Request reservations do not identify a notice or HTTP method. Associating an
+   unresolved reservation with a particular notice would invent missing evidence.
+
+Pipeline runs:0. Pipeline seconds:0. Installs:0. Deployments:0.
+No X access, protected-data mutation, score/input generation or locked-weight edit.

@@ -3916,3 +3916,22 @@ measured CSS dimensions halving and DPR changing from1to2; no CSS enlargement,
 pinch scale or device-metrics override stands in for it. It does not claim a
 same-document browser-menu/shortcut zoom transition or physical-device acceptance.
 Source: https://chromium.googlesource.com/chromium/src/+/lkgr/chrome/browser/ui/zoom/chrome_zoom_level_prefs.cc
+
+## 2026-09-13: Inspect notice history without silently repairing it
+
+Maintenance needs an operator-visible distinction between an unknown POST outcome,
+an unverified returned comment ID and a locally recorded receipt. Add a bounded
+read-only command over one named, independently pinned local journal. Never infer
+that intent-only means definitely sent or unsent, or that a recorded receipt means
+the remote comment still exists. Inspection does not supply a trusted receipt pin.
+
+Use the same request-history byte validator as delivery admission, over captured
+bounded files. Reject links, hard-link aliases, unexpected objects, malformed or
+conflicting companions and changed reads. An unresolved request stays blocked
+after any cooldown expires. Request reservations contain no notice identity or
+HTTP method; do not invent that association. Report the local problem and preserve
+all files, not delete, repair, bootstrap or authorize another POST.
+
+Run with Python -B; neither credentials nor network are needed. This supplies
+diagnostics, not operator resolution, authenticated backup, a filesystem lock,
+hosted persistence, active scheduling or authorization to operate the service.

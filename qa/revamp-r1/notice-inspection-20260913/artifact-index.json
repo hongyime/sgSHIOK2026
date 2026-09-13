@@ -1,0 +1,59 @@
+{
+  "files": [
+    {
+      "path": "qa/revamp-r1/notice-inspection-20260913/.gitattributes",
+      "bytes": 48,
+      "sha256": "65219c9cda7892adc4f1457e74da2fb45562e780388f446297f64d7178d0f9e0"
+    },
+    {
+      "path": "qa/revamp-r1/notice-inspection-20260913/all-1789293884039/command.json",
+      "bytes": 5035,
+      "sha256": "a10fd0cb29d9c2ad1bcd5fdb6176adadbbd72cde6fe40eda40ab33b64468f3fb"
+    },
+    {
+      "path": "qa/revamp-r1/notice-inspection-20260913/all-1789293884039/junit.xml",
+      "bytes": 155171,
+      "sha256": "140147ab68cb00d1bef862da0fe544eaf8762e6f9fe574e69672d5b93a1b181a"
+    },
+    {
+      "path": "qa/revamp-r1/notice-inspection-20260913/finalize.mjs",
+      "bytes": 5347,
+      "sha256": "9580adc7956a0a8a072fddfa1be257cc54474acef753be1855af311566231e7b"
+    },
+    {
+      "path": "qa/revamp-r1/notice-inspection-20260913/integrity-1789293982091/command.json",
+      "bytes": 1600,
+      "sha256": "a889ad9194be687912ab1df4542529c26e0623d01d5fabd819b22fea51c879d1"
+    },
+    {
+      "path": "qa/revamp-r1/notice-inspection-20260913/review.json",
+      "bytes": 3189,
+      "sha256": "eb9744b678bccf02cafa7e30e4fca0ede206f31f74aa0e2765f609c584069d23"
+    },
+    {
+      "path": "qa/revamp-r1/notice-inspection-20260913/smoke-1789293419629/command.json",
+      "bytes": 4756,
+      "sha256": "249076cd6798b7adc299a8e37b6b7d764c20df2f907726ffaf9b24d267af8ca0"
+    },
+    {
+      "path": "qa/revamp-r1/notice-inspection-20260913/smoke-1789293979571/command.json",
+      "bytes": 4756,
+      "sha256": "370f7a9bd382f05c843f4d9bc1083c709a9a77774af676bbf80c7212297064f2"
+    },
+    {
+      "path": "qa/revamp-r1/notice-inspection-20260913/smoke.py",
+      "bytes": 3416,
+      "sha256": "73ac64b1aa719168986e0c373c95d92441304a98c9473d1d0ac88e11fa90e9cc"
+    },
+    {
+      "path": "qa/revamp-r1/notice-inspection-20260913/summary.json",
+      "bytes": 11743,
+      "sha256": "a45b962e713788d2c3dc2af79e155b92deeb6ebd5518c622f9c57792020ad591"
+    },
+    {
+      "path": "qa/revamp-r1/notice-inspection-20260913/verify.mjs",
+      "bytes": 3133,
+      "sha256": "8b9d9ec29b099daea087de06ec69d23924f9d265c940052233984c379a33bf49"
+    }
+  ]
+}

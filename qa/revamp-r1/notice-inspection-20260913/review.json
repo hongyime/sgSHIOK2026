@@ -1,0 +1,21 @@
+{
+  "reviewer": "Schrodinger",
+  "ownership": "Read-only initial/final source review; authored only tests/test_source_notice_inspection.py. Parent owned runtime, QA helpers, docs, final checks and commit/push.",
+  "criteria": ["Bound enumeration before validation", "Canonical intent and companion validation, including receipt without observation", "Explicitly local status without remote delivery/acknowledgement claims", "No invented reservation-to-notice association", "Regular files only, links/hardlinks rejected", "Zero writes/network/credentials on inspection paths"],
+  "initialFocused": {
+    "reportedBySubagent": true,
+    "session": 93276,
+    "terminal": true,
+    "exitCode": 1,
+    "passed": 56,
+    "failed": 1,
+    "elapsedSeconds": 45.8,
+    "command": ["C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe", "-B", "-m", "pytest", "-q", "-p", "no:cacheprovider", "--tb=short", "--basetemp", "C:\\sgSHIOK2026\\tmp\\notice-inspection-review-6e69df76277b4067aaa2abc377e196a5", "tests/test_source_notice_inspection.py"],
+    "environment": {"TEMP": "C:\\sgSHIOK2026\\tmp", "TMP": "C:\\sgSHIOK2026\\tmp", "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1"},
+    "rawOutputAsReported": "BASE_TEMP=C:\\sgSHIOK2026\\tmp\\notice-inspection-review-6e69df76277b4067aaa2abc377e196a5\n................................................F........                [100%]\n================================== FAILURES ===================================\n___ test_live_budget_entry_bound_does_not_hide_eager_directory_enumeration ____\ntests\\test_source_notice_inspection.py:586: in test_live_budget_entry_bound_does_not_hide_eager_directory_enumeration\n    history()\nscripts\\source_metadata_request_budget.py:139: in _history\n    for path in self.path.iterdir():\n                ^^^^^^^^^^^^^^^^^^^\nC:\\Program Files\\Python312\\Lib\\pathlib.py:1056: in iterdir\n    for name in os.listdir(self):\n                ^^^^^^^^^^^^^^^^\ntests\\test_source_notice_inspection.py:578: in listdir\n    pytest.fail(\"Path.iterdir used eager os.listdir before the ledger entry bound\")\nE   Failed: Path.iterdir used eager os.listdir before the ledger entry bound\n=========================== short test summary info ===========================\nFAILED tests/test_source_notice_inspection.py::test_live_budget_entry_bound_does_not_hide_eager_directory_enumeration\n1 failed, 56 passed in 45.80s\n"
+  },
+  "defect": "Live request-budget enumeration used Path.iterdir, which calls eager os.listdir in the installed Python3.12. The bound was checked too late.",
+  "fix": "Parent replaced it with context-managed os.scandir and retains the cap before insertion. The shared validator runs only after bounded enumeration completes.",
+  "finalReview": "Accepted the os.scandir source fix. No other concrete inspector defect found. Source-review acceptance only; parent955+57 run provides the final executed evidence.",
+  "limitations": ["No actual journal service or remote notice inspected", "Trusted stable ancestors still required; no hostile-writer filesystem sandbox", "No hosted persistence, backup, operator resolution or scheduler activation", "No whole-project Python or web rerun in this backend-only change"]
+}

@@ -1,0 +1,27 @@
+{
+  "command": [
+    "python",
+    "-B",
+    "scripts/check_repo_integrity.py"
+  ],
+  "cwd": "C:\\sgSHIOK2026",
+  "elapsedMs": 988,
+  "status": 0,
+  "stdout": "repo_integrity=ok\r\n",
+  "stderr": "",
+  "sourceHashes": {
+    "qa/revamp-r1/notice-inspection-20260913/smoke.py": "73ac64b1aa719168986e0c373c95d92441304a98c9473d1d0ac88e11fa90e9cc",
+    "scripts/inspect_source_notice_journal.py": "1746f05c98071ba25b83a8ad1bbc4e16a7b2663544dcd5db73779684595d0abd",
+    "scripts/acknowledge_source_notices.py": "a873741a7d6021c74af58240f80b24dfd3677c1cb50f567ea1ee7dfdd3d1c854",
+    "scripts/source_metadata_comments.py": "d63b87bffafe0447da786155534374c4c90e883be733dba80512d84f14d7182a",
+    "scripts/source_metadata_github.py": "63ce9724bf6573377ba8c808de44db369d5f1a6079ca1999c18f81313b7770b7",
+    "scripts/source_metadata_request_budget.py": "c491830f2ec89df1230c67950ccbeadd90277d66f7fb060ed354500917adc887",
+    "scripts/source_metadata_delivery.py": "40ea9fac732834c2b3201b62d8f79c7fe75683b6deae6da2bddb8f4d967ffb60",
+    "scripts/source_metadata_state.py": "b462c441e9c62904e85723b4bc96c9ac7043b1310d77545eca1f01bad2e7dfa0",
+    "scripts/check_source_metadata.py": "a3a499f1158a00dab0410b2adf54c303d746a1de06173629a49024fd64f18812",
+    "scripts/source_metadata_http.py": "aae6234a2c065bc7fad1d49445061943fdd682209444b4bbf2376105bd9ca741",
+    "README.md": "de7760e8fa80528d8a30d88231cc93649d06a63c9c61abd3bc1f68f6f39ef13f"
+  },
+  "sourceStable": true,
+  "scope": "Synthetic local journals and clocks. No real source check, network notice, production payload, pipeline, install or activation."
+}

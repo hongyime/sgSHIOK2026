@@ -1,0 +1,4 @@
+*.json -text
+*.xml -text
+*.mjs -text
+*.py -text

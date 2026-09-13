@@ -1,0 +1,15 @@
+[
+  "qa/revamp-r1/notice-inspection-20260913/.gitattributes",
+  "qa/revamp-r1/notice-inspection-20260913/all-1789293884039/command.json",
+  "qa/revamp-r1/notice-inspection-20260913/all-1789293884039/junit.xml",
+  "qa/revamp-r1/notice-inspection-20260913/finalize.mjs",
+  "qa/revamp-r1/notice-inspection-20260913/integrity-1789293982091/command.json",
+  "qa/revamp-r1/notice-inspection-20260913/review.json",
+  "qa/revamp-r1/notice-inspection-20260913/smoke-1789293419629/command.json",
+  "qa/revamp-r1/notice-inspection-20260913/smoke-1789293979571/command.json",
+  "qa/revamp-r1/notice-inspection-20260913/smoke.py",
+  "qa/revamp-r1/notice-inspection-20260913/summary.json",
+  "qa/revamp-r1/notice-inspection-20260913/verify.mjs",
+  "qa/revamp-r1/notice-inspection-20260913/artifact-index.json",
+  "qa/revamp-r1/notice-inspection-20260913/stage-paths.json"
+]
