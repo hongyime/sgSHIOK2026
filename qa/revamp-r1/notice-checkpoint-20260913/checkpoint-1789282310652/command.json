@@ -1,0 +1,30 @@
+{
+  "command": [
+    "python",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_source_metadata_acknowledgement.py",
+    "--noconftest",
+    "-p",
+    "no:cacheprovider",
+    "-o",
+    "addopts=",
+    "--basetemp=C:\\sgSHIOK2026\\tmp\\checkpoint-tests-1789282310656\\fixtures",
+    "--junitxml=C:\\sgSHIOK2026\\qa\\revamp-r1\\notice-checkpoint-20260913\\checkpoint-1789282310652\\junit.xml"
+  ],
+  "cwd": "C:\\sgSHIOK2026",
+  "elapsedMs": 20265,
+  "status": 1,
+  "stdout": "....F....................................                                [100%]\r\n================================== FAILURES ===================================\r\n_ test_etag_and_successful_observation_survive_ack_and_next_conditional_check _\r\n\r\nprepared = {'catalog': {'anchors': {'pipeline/config/sources.yaml': 'ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e44...gSHIOK2026/tmp/checkpoint-tests-1789282310656/fixtures/test_etag_and_successful_obser0/qa/source-monitor/origin'), ...}\r\n\r\n    def test_etag_and_successful_observation_survive_ack_and_next_conditional_check(prepared):\r\n        value = prepared\r\n        root = value[\"root\"]\r\n        recovered_at = NOW + timedelta(days=4)\r\n        recovered = root / \"qa/source-monitor/recovered\"\r\n        response = {\"outcome\": \"response\", \"attempted\": True, \"statusCode\": 200, \"etag\": '\"v1\"',\r\n                    \"data\": {\"data\": {\"datasetId\": \"d_abc\", \"lastUpdatedAt\": \"2026-08-01T00:00:00Z\"}}}\r\n        result, _ = monitor.run_check(root, recovered, previous=value[\"origin\"] / \"state.json\", client=Client([response]),\r\n                                      clock=lambda: recovered_at)\r\n        notice = result[\"pendingNotices\"][0]\r\n        identity = {\"catalogSha256\": value[\"identity\"][\"catalogSha256\"], \"stateSha256\": sha((recovered / \"state.json\").read_bytes()),\r\n                    \"reportSha256\": sha((recovered / \"report.json\").read_bytes())}\r\n        plan = plan_comment(DESTINATION, identity, notice, author_id=AUTHOR)\r\n        delivered = deliver_comment(plan, journal=value[\"journal\"], transport=value[\"transport\"])\r\n        assert delivered[\"status\"] == \"verified\"\r\n        proof = {\"originState\": str(recovered / \"state.json\"), \"noticeId\": notice[\"id\"], \"receiptSha256\": delivered[\"receiptSha256\"]}\r\n        checkpoint(value, previous=recovered / \"state.json\", proofs=[proof], clock=lambda: recovered_at + timedelta(hours=1))\r\n        saved = load(root / \"qa/source-monitor/acknowledged/state.json\")[\"sources\"][\"rail\"]\r\n        before = load(recovered / \"state.json\")[\"sources\"][\"rail\"]\r\n        for field in (\"latestObservation\", \"lastKnownRevision\", \"lastSuccessfulCheckAt\", \"evaluatedAt\", \"freshness\", \"observedFreshness\"):\r\n            assert saved[field] == before[field]\r\n        client = Client([{\"outcome\": \"not_modified\", \"attempted\": True, \"statusCode\": 304}])\r\n>       following, code = monitor.run_check(root, root / \"qa/source-monitor/conditional\", previous=root / \"qa/source-monitor/acknowledged/state.json\",\r\n                                            client=client, clock=lambda: recovered_at + timedelta(hours=2))\r\n\r\ntests\\test_source_metadata_acknowledgement.py:191: \r\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\r\nscripts\\check_source_metadata.py:336: in run_check\r\n    result = observe_source(source, prior, client, credentials)\r\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nscripts\\source_metadata_http.py:286: in observe_source\r\n    prior = trusted_previous(source, previous, client.wall_clock()) if previous is not None else None\r\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nscripts\\source_metadata_state.py:235: in trusted_previous\r\n    _check_order(copied, instant)\r\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\r\n\r\nprevious = {'availability': 'available', 'availabilityReason': None, 'comparison': 'first_observation', 'conditionId': '4155f09f0beed0885e6e84b3ecbb37535e350e0fb772890bfe799068da18e570', ...}\r\nnow = datetime.datetime(2026, 9, 9, 0, 0, tzinfo=datetime.timezone.utc)\r\n\r\n    def _check_order(previous: dict, now: datetime) -> None:\r\n        for field in [\"evaluatedAt\", \"lastAcknowledgedAt\"]:\r\n            if previous[field] is not None and _instant(previous[field]) > now:\r\n>               raise ValueError(\"now precedes persisted state\")\r\nE               ValueError: now precedes persisted state\r\n\r\nscripts\\source_metadata_state.py:221: ValueError\r\n=========================== short test summary info ===========================\r\nFAILED tests/test_source_metadata_acknowledgement.py::test_etag_and_successful_observation_survive_ack_and_next_conditional_check\r\n1 failed, 40 passed in 16.71s\r\n",
+  "stderr": "",
+  "sourceHashes": {
+    "scripts/acknowledge_source_notices.py": "a4b69fd0013dab7fe62597618e5a3c3bb675b18355dc396c195dbec332bb1cc2",
+    "scripts/source_metadata_comments.py": "c3607845233275fdeda27cb0f6a39e420de3720d9e9da41d58cebe0456bf64f8",
+    "scripts/check_source_metadata.py": "b009a5fb6f6dc57390b8d3d40ee20db4d4ec7ebae51e748560144aa24260f57b",
+    "README.md": "1e70b08f159f3118637be01a7d32227df9dbf482f4c246fc156149c09dd38133",
+    "tests/test_source_metadata_acknowledgement.py": "503a3351aa27b39bc537041ac382a8ed432f8d90566c01029c71a195eb5d2634"
+  },
+  "scope": "Synthetic metadata/comment responses, real temporary checkpoint/journal files; no real input/source/notice/pipeline run."
+}

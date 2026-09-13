@@ -1,0 +1,29 @@
+{
+  "command": [
+    "python",
+    "-B",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\notice-checkpoint-20260913\\compatibility.py"
+  ],
+  "cwd": "C:\\sgSHIOK2026",
+  "elapsedMs": 2023,
+  "status": 0,
+  "stdout": "{\r\n  \"kind\": \"existing_receipt_compatibility_only\",\r\n  \"accepted\": true,\r\n  \"originalFinishedAt\": \"2026-09-09T16:19:58.411023+00:00\",\r\n  \"sourcesRestored\": 24,\r\n  \"historicalPendingNotices\": 16,\r\n  \"stateSha256\": \"ef5b04aed5e27d41fc43736fd944b4baf75c4899cfe6b323d5adb167757418bc\",\r\n  \"originalExitCode\": 1,\r\n  \"files\": [\r\n    {\r\n      \"path\": \"source-metadata-catalog.json\",\r\n      \"bytes\": 11425,\r\n      \"sha256\": \"2bac6d661c827a57035abb5be4e65d9cddb92e5cb797c35a64709710cebcb4e4\"\r\n    },\r\n    {\r\n      \"path\": \"qa/source-monitor/live-review-1/state.json\",\r\n      \"bytes\": 38848,\r\n      \"sha256\": \"ef5b04aed5e27d41fc43736fd944b4baf75c4899cfe6b323d5adb167757418bc\"\r\n    },\r\n    {\r\n      \"path\": \"qa/source-monitor/live-review-1/report.json\",\r\n      \"bytes\": 61925,\r\n      \"sha256\": \"a913ef920b1106f5467c5d1d02ea438139744f8bff8d295dc7a2aaef2059f1dc\"\r\n    }\r\n  ],\r\n  \"bytesUnchanged\": true,\r\n  \"sourceRequests\": 0,\r\n  \"commentRequests\": 0,\r\n  \"pipelineRuns\": 0\r\n}\r\n",
+  "stderr": "",
+  "sourceHashes": {
+    "scripts/acknowledge_source_notices.py": "425302026888d5aab23a1cc582d8ccaa9934da36eb9edd1c7ca05bc170bfec89",
+    "scripts/source_metadata_comments.py": "c3607845233275fdeda27cb0f6a39e420de3720d9e9da41d58cebe0456bf64f8",
+    "scripts/check_source_metadata.py": "a3a499f1158a00dab0410b2adf54c303d746a1de06173629a49024fd64f18812",
+    "README.md": "f88c1f6cf13182e142706274ffa9b32d5d7533157ca16ff381fc58cbfa7e9d28",
+    "tests/test_source_metadata_acknowledgement.py": "650ee5fcee7c2231c38f17f83c769b643f502c9071f9fec3057354d880532050",
+    "tests/test_source_metadata_receipt_verification.py": "d8b9547b6bf92c6f73c376e4959be0d2173f441a968d28e5340552371d07c159",
+    "tests/test_source_metadata_comments.py": "04578655bb6ec7b63991017dff4c7589a2c120ab6b2c9090f98dac0b4f948b4e",
+    "tests/test_source_metadata_github.py": "3f7795b0ed02be33deafb140be344d00b4cd1dd5dabcf38a52abeccd4c223881",
+    "tests/test_source_metadata_cli.py": "4ef0c70cbd5b4bd49e2ff61f92473e5fbfe79e041da9d425adaf9a97ed185713",
+    "tests/test_source_metadata_catalog.py": "6a331a47b2a67104da56a04aa11f49b0d1bd5df1997d40628d5fd63acf7a1925",
+    "tests/test_source_metadata_http.py": "b57d0eb1fec696451889cd12aee5dc3ffb969ba7a375daf8c4b13f82b1babcb3",
+    "tests/test_source_metadata_state.py": "dc8fb96cf764b9876e5982e74b2fd3439f6623e4fb282cfa0c0b5aa9a95413e3",
+    "tests/test_source_metadata_delivery.py": "a7bd6f72a6c2c86173c27a4c0cd74f9347101ac1a0ca5aa6f13b38b60e8c5f62",
+    "tests/test_readme.py": "0c407f0246059c653f704cd4038a56ed83d0834c0932567a9a1d98689c9edfac"
+  },
+  "scope": "Read-only restoration of named existing monitor state/report, network denied; no new check or acknowledgement."
+}

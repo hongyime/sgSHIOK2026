@@ -5105,3 +5105,73 @@ FINDINGS follow-up
 DISAGREEMENTS follow-up
 1. A clean project diff cannot prove that globally configured hooks wrote no
    temporary files elsewhere. The hook boundary is now recorded, not hidden.
+
+## 2026-09-13: Immutable notice-acknowledgement checkpoints
+
+Root C:\sgSHIOK2026; host Prawn-E14; basec3c8de3. Existing evidence is preserved.
+No X access, installation, pipeline execution, scoring/export/subset run, ingest,
+network build, input repair, actual source check, comment write or deployment.
+Git operations set TEMP/TMP to the repository tmp directory for inherited hooks.
+Evidence:qa/revamp-r1/notice-checkpoint-20260913/.
+
+Implemented a GET-only recorded-receipt verifier and a separate acknowledgement
+command. Independent receipt/journal pins, exact claim/receipt/observation bytes,
+comment ID, author, destination and body are checked without POST/LIST or repair.
+Each receipt keeps its original monitor identity; only the exact same notice still
+pending in the selected current predecessor can be acknowledged. Success publishes
+new state/report files with operation=notice_acknowledgement and
+sourceHealth=not_rechecked. It is not a new metadata check or a source-health pass.
+
+Only pendingNotices and lastAcknowledgedAt change. Before publication and during
+restoration, replay that change against the referenced predecessor. Preserve
+cooldowns, ETags, observations, check/attempt times, evaluation/freshness, revisions
+and episode/condition identity. Failed proofs create no checkpoint; partial local
+publication has no valid completion and cannot be selected as a predecessor.
+
+Executed evidence:
+- checkpoint-1789282310652:40passed,1failed. The inherited fake HTTP client's wall
+  clock was still at the first check while the ETag case simulated a later check.
+  Aligning the fixture clock corrected the test; production clock rejection stayed.
+- all-1789282530583:910passed in89.17s,exit0, before final follow-up cases.
+- all-1789283115427:915passed in77.83s,exit0.
+- all-1789283414126:916passed in68.01s,exit0, final frozen-source suite.
+  Arithmetic:719existing +147GET-only verifier +50checkpoint =916tests in10files.
+- integrity-1789283525820:repo_integrity=ok,exit0.
+- compatibility-1789283427091:existing qa/source-monitor/live-review-1 accepted
+  unchanged,24sources/16historical pending notices,original exit1. Original finish:
+  2026-09-09T16:19:58.411023+00:00. No new source/comment request or acknowledgement.
+  Read sizes:11425catalog +38848state +61925report =112198bytes. All3files stayed
+  byte-identical. This proves compatibility, not current source freshness.
+
+Tests exercise a later predecessor retaining an older notice, sequential partial
+checkpoints, unchanged unselected sources, normal subsequent cooldown restoration,
+ETag/304 continuity, stale/superseded notices, clock rollback, corrupt/missing
+receipts, report/state disagreement, changed references, partial publication and
+guarded companion paths. HTTP is synthetic; fixture network/worker calls are denied.
+Two subagents reviewed disjoint scopes. review.json records their findings and
+limits. The old header-only CLI fixture now supplies matching source/pending
+content, reflecting real monitor output; no tests were removed or skipped.
+
+The prior1916web tests/71files,42dependency guards and80browser checks/16captures
+remain retained results. No frontend runtime changed and none was rerun here.
+STATE, decisions, README, PRODUCT-PLAN and postplan.html record this implementation
+without claiming an active reporting service, scheduler or production release.
+
+FINDINGS
+1. Verified notice receipts now have a concrete immutable path back into monitor
+   state; delivery no longer needs to leave the same notice pending forever.
+2. Review caught operation-label downgrade, notice-matching inconsistency,
+   predecessor-clock and companion-path defects. These were corrected and tested.
+3. The actual historical monitor pair remains compatible and unchanged. Its16
+   pending notices were not sent, cleared or relabelled as current observations.
+4. Hosted persistent state, delivery pacing/cooldowns, activation and observed
+   scheduled delivery remain open, as do reporting policy/account setup, real
+   reporting implementation, physical-device acceptance and exact release approval.
+
+DISAGREEMENTS
+1. An acknowledgement's successful exit is not evidence that source data became
+   healthy, current or rechecked. The report/CLI explicitly distinguish them.
+2. Replay verifies allowed state transitions and referenced bytes under trusted
+   local report/pin assumptions. It does not authenticate arbitrary local reports,
+   prove recursive ancestry/latest selection, or verify GitHub again on every
+   subsequent metadata check. Those limits are not hidden behind a receipt hash.

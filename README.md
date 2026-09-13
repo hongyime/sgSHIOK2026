@@ -423,8 +423,33 @@ ancestors must be trusted and stable: link checks are not a sandbox against anot
 local writer changing directories into junctions between validation and open.
 The API adapter
 uses one isolated 10-second request per operation with no redirects or retries.
-No monitor-state acknowledgement integration, hosted persistence, scheduler or live
-notice has been activated by these libraries.
+`scripts/acknowledge_source_notices.py` now connects verified receipts to an
+immutable monitor checkpoint. After approved delivery setup, provide a private
+proof-reference JSON file containing 1..8 entries with `originState` (the absolute
+original `state.json` path), `noticeId` and the independently pinned
+`receiptSha256`. Supply the current predecessor separately: an unchanged pending
+notice may have originated in an earlier check. Exact original/current notice
+content must agree; equivalent but changed representations are not silently merged.
+
+The acknowledgement command requires `--previous`, `--output`, `--proofs`,
+`--journal`, `--journal-sha256`, `--destination` and `--author-id`. The private
+`SHIOK_NOTICE_TOKEN` is read from the process environment, never a command argument
+or evidence file. It makes authenticated comment GETs only, never POST, LIST,
+receipt repair, source checks or input downloads. A missing/corrupt receipt or
+changed comment stops before checkpoint publication. Existing outputs are never
+overwritten; preserve partial failures and choose a new output only after review.
+
+Success writes a new `qa/source-monitor/<label>/state.json` and verified report,
+marked `operation: notice_acknowledgement` and `sourceHealth: not_rechecked`.
+Only the selected pending notices and their acknowledgement timestamps change.
+Cooldowns, ETags, observation/freshness and actual check times remain unchanged.
+The next metadata check must explicitly select the checkpoint with `--previous`.
+Restoration validates its referenced predecessor/origin hashes and replays the
+allowed transition; it does not perform another GitHub verification or authenticate
+untrusted local report assertions. Retain the original referenced pairs, journal
+and trusted pins. This is not automatic latest-checkpoint selection or rollback
+protection. Hosted persistence, run-wide delivery pacing/cooldowns, scheduler and
+live notice activation remain unimplemented/unapproved.
 
 ### Free-Cap And Report Operations
 

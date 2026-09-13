@@ -164,6 +164,11 @@ class LocalCommentJournal:
             raise DeliveryError("STOP_ORPHAN_JOURNAL_ENTRY")
         return _publish(intent_path, plan.intent)
 
+    def require_claim(self, plan: CommentPlan) -> None:
+        """Read-only validation: acknowledgement must never create a missing intent."""
+        if _read(self._path(plan, "intent")) != plan.intent:
+            raise DeliveryError("STOP_JOURNAL_CLAIM")
+
     def receipt(self, plan: CommentPlan) -> bytes | None:
         return _read(self._path(plan, "receipt"))
 
@@ -215,6 +220,43 @@ def _receipt(plan: CommentPlan, comment_id: int) -> bytes:
 def _observation(plan: CommentPlan, comment_id: int) -> bytes:
     return _encode({"schemaVersion": 1, "status": "unverified_post_response",
                     "intentSha256": _sha(plan.intent), "commentId": comment_id})
+
+
+def verify_recorded_comment(plan: CommentPlan, *, journal: LocalCommentJournal,
+                            transport: CommentTransport, expected_receipt_sha256: str) -> dict:
+    """Read only: a pinned existing receipt and exact authenticated GET, never POST.
+
+    This is the acknowledgement/checkpoint path. It does not claim, reconcile an
+    unknown outcome, publish a receipt, or change any journal/monitor file.
+    """
+    stage = "invalid_receipt_pin"
+    try:
+        _validate_plan(plan)
+        if not _hash(expected_receipt_sha256):
+            raise DeliveryError("STOP_RECEIPT_PIN")
+        stage = "recorded_receipt_invalid"
+        journal.require_claim(plan)
+        saved = journal.receipt(plan)
+        observed = journal.observation(plan)
+        if saved is None or _sha(saved) != expected_receipt_sha256:
+            raise DeliveryError("STOP_RECEIPT_PIN")
+        comment_id = json.loads(saved)["commentId"]
+        if (type(comment_id) is not int or not 1 <= comment_id < 2**53
+                or saved != _receipt(plan, comment_id)
+                or (observed is not None and observed != _observation(plan, comment_id))):
+            raise DeliveryError("STOP_RECEIPT_CONTENT")
+        stage = "comment_readback_failed"
+        _comment(transport.read(plan, comment_id), plan, comment_id)
+        stage = "recorded_receipt_changed"
+        journal.require_claim(plan)
+        if journal.receipt(plan) != saved or journal.observation(plan) != observed:
+            raise DeliveryError("STOP_JOURNAL_CHANGED")
+        return {"status": "verified", "reason": "recorded_comment_read_back",
+                "commentId": comment_id, "acknowledgedIds": [plan.notice_id],
+                "receiptSha256": expected_receipt_sha256}
+    except Exception:
+        return {"status": "stopped", "reason": stage, "commentId": None,
+                "acknowledgedIds": [], "receiptSha256": None}
 
 
 def deliver_comment(plan: CommentPlan, *, journal: LocalCommentJournal,

@@ -358,6 +358,19 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 
 ### [ ] T23: Establish a bounded metadata-check routine
 
+- Checkpoint2026-09-13: immutable acknowledgement integration is implemented and
+  locally verified. Existing pinned receipts are GET-verified against their
+  original monitor identity and a still-pending current notice. New state/report
+  files clear only that notice; cooldowns, ETags and source-check times survive.
+  Restore replays the permitted change and rejects stripped operation labels,
+  contradictory reports, changed origins, impossible predecessor clocks and
+  unguarded companion paths. The real historical24source/16pending monitor pair
+  remains readable unchanged; that was compatibility inspection, not a new check.
+  Hosted persistence, run-wide pacing/cooldowns, approved activation and an actual
+  scheduled notice remain open. Final916tests pass:719existing +147read-only
+  receipt-verifier +50checkpoint cases. Sequential partial checkpoints and the
+  following normal metadata check preserve notice/host-cooldown continuity.
+
 - Continuation2026-09-13:8d055db requires explicit bootstrap or previous state,
   preventing accidental reset of cooldown/notice history;376focused monitor/README
   tests pass. No real check or scheduler ran. Primary GitHub docs do not support
@@ -372,7 +385,7 @@ No ticket is DONE merely because a document, mock, passing count or button exist
   operator. Received IDs are retained unverified and can be read directly later.
   This is not exactly-once delivery or a hostile-local-writer filesystem sandbox.
   Activation approval, trusted hosted persistence, run-wide delivery pacing and
-  cooldowns, immutable monitor acknowledgement integration and a real scheduled
+  cooldowns, activation of the new acknowledgement integration and a real scheduled
   notice remain open. No issue/comment/workflow was created or enabled.
 
 - Checkpoint2026-09-13: pure notice planning/delivery orchestration with injected

@@ -1,0 +1,33 @@
+{
+  "base": "c3c8de3b98c1ca3bdfeb272afb3dd6015df94505",
+  "receiptVerifierReviewer": {
+    "agentId": "01a0997c-13e3-7162-a4fe-b0b984774e80",
+    "writeScope": ["tests/test_source_metadata_receipt_verification.py"],
+    "cases": 147,
+    "sha256": "d8b9547b6bf92c6f73c376e4959be0d2173f441a968d28e5340552371d07c159",
+    "final": "No verifier defects found in covered cases; file frozen."
+  },
+  "checkpointReviewer": {
+    "agentId": "01a09983-78da-76f1-8d7e-fbd0e1cf73d0",
+    "writeScope": [],
+    "findings": [
+      "Removing the operation label bypassed acknowledgement replay because ordinary reports previously received only header checks.",
+      "Normalized notice matching at publication disagreed with exact matching at restoration, allowing an unrestorable checkpoint.",
+      "Replay validated predecessor state against the current clock rather than that predecessor's own completion time.",
+      "Predecessor/origin companion report reads initially omitted the normal safe-path guard."
+    ],
+    "disposition": [
+      "Ordinary reports must match source/pending state content and reject acknowledgement markers without the operation label.",
+      "Publication now requires exact original/current notice equality before GET.",
+      "Direct restoration and replay both reject source state postdating its enclosing completion.",
+      "Both companion paths are guarded before read; two regression variants reject linked predecessor and separate-origin reports."
+    ],
+    "final": "The original three findings and the companion-path finding were closed by read-only rereview and in-memory probes. Parent owns the final frozen-suite result.",
+    "scope": "No files changed, no network, no full-suite execution. Replay consistency assumes trusted local report assertions; no recursive ancestry or latest-pointer proof."
+  },
+  "parent": {
+    "fixtureCorrection": "The first ETag integration test used an inherited fake HTTP client's earlier wall clock. Aligning it with the later mocked check fixed the fixture; production clock-order rejection was retained.",
+    "additionalChecks": "Pre-publication replay validation, sequential partial checkpoints, real historical monitor-pair compatibility inspection and final combined suite.",
+    "noExternalActivation": true
+  }
+}

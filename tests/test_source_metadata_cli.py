@@ -145,6 +145,8 @@ def previous_state(project, state):
     path.write_text(json.dumps(envelope), encoding="utf8")
     report = {"schemaVersion": 1, "catalogSha256": envelope["catalogSha256"], "finishedAt": envelope["finishedAt"],
               "exitCode": 1, "runStatus": "attention_required",
+              "noticeDelivery": "not_configured", "pendingNotices": deepcopy(state["pendingNotices"]),
+              "sources": [{"key": catalog["sources"][0]["key"], "state": deepcopy(state)}],
               "persistence": {"status": "verified", "stateSha256": sha(path.read_bytes())}}
     (path.parent / "report.json").write_text(json.dumps(report), encoding="utf8")
     return path

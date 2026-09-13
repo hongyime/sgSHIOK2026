@@ -11,7 +11,7 @@ import time
 from typing import Any, Callable
 
 from scripts.source_metadata_http import MetadataClient, observe_source, publisher_instant
-from scripts.source_metadata_state import transition, trusted_previous
+from scripts.source_metadata_state import acknowledge, transition, trusted_previous
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -152,8 +152,131 @@ def _restore(root: Path, previous: Path | None, catalog: dict, catalog_sha: str,
             raise MonitorError("STOP_PRIOR_STATE_INVALID: persisted clock is in the future; no requests executed") from error
         if state is None:
             raise MonitorError("STOP_PRIOR_STATE_INVALID: source=" + source["key"] + "; no requests executed")
+        completion_time = datetime.fromisoformat(publisher_instant(value["finishedAt"]))
+        if any(datetime.fromisoformat(state[field].replace("Z", "+00:00")) > completion_time
+               for field in ("evaluatedAt", "lastAcknowledgedAt") if state[field] is not None):
+            raise MonitorError("STOP_PRIOR_STATE_INVALID: source state postdates completion; no requests executed")
         restored[source["key"]] = state
+    if "operation" in completion:
+        _validate_ack_completion(root, previous, value, completion, catalog, now)
+    else:
+        validate_pair_content(value, completion)
     return restored, _sha(content)
+
+
+def validate_pair_content(envelope: dict, completion: dict) -> None:
+    """A checkpoint may consume only a report whose source/notice content agrees."""
+    try:
+        _pair_content(envelope, completion)
+    except (KeyError, TypeError, ValueError, AttributeError):
+        raise MonitorError("STOP_PAIR_CONTENT: report operation or state content is inconsistent") from None
+
+
+def _pair_content(envelope: dict, completion: dict) -> None:
+    pending = [notice for state in envelope["sources"].values() for notice in state["pendingNotices"]]
+    if completion.get("pendingNotices") != pending:
+        # Source checks store processing order, which may differ from envelope order.
+        if (not isinstance(completion.get("pendingNotices"), list)
+                or sorted(completion["pendingNotices"], key=lambda item: item["id"]) != sorted(pending, key=lambda item: item["id"])):
+            raise MonitorError("STOP_PAIR_CONTENT: report and state pending notices disagree")
+    if "operation" not in completion:
+        if (completion.get("noticeDelivery") != "not_configured"
+                or any(key in completion for key in ("acknowledgements", "metadataRequests", "commentReads", "sourceHealth"))):
+            raise MonitorError("STOP_PAIR_CONTENT: report operation is missing or inconsistent")
+        entries = completion.get("sources")
+        if (not isinstance(entries, list) or len(entries) != len(envelope["sources"])
+                or any(not isinstance(entry, dict) or entry.get("key") not in envelope["sources"]
+                       or entry.get("state") != envelope["sources"][entry["key"]] for entry in entries)
+                or len({entry["key"] for entry in entries}) != len(entries)):
+            raise MonitorError("STOP_PAIR_CONTENT: report and state source entries disagree")
+
+
+def _validate_ack_completion(root: Path, previous: Path, envelope: dict, completion: dict,
+                             catalog: dict, now: datetime) -> None:
+    """Replay acknowledgement only, without recursively traversing or checking sources."""
+    try:
+        fields = {"schemaVersion", "operation", "startedAt", "finishedAt", "catalogSha256",
+                  "previousState", "previousStateSha256", "previousReportSha256", "sourceHealth",
+                  "checkCompleted", "metadataRequests", "commentReads", "destination", "authorId",
+                  "journalIdentitySha256", "acknowledgements", "pendingNotices", "exitCode", "runStatus",
+                  "noticeDelivery", "persistence"}
+        records = completion["acknowledgements"]
+        if (set(completion) != fields or completion["operation"] != "notice_acknowledgement"
+                or completion["sourceHealth"] != "not_rechecked" or completion["checkCompleted"] is not False
+                or type(completion["metadataRequests"]) is not int or completion["metadataRequests"] != 0
+                or completion["noticeDelivery"] != "verified_existing_receipts"
+                or completion["exitCode"] != 0 or completion["runStatus"] != "ok"
+                or not isinstance(records, list) or not 1 <= len(records) <= 8
+                or type(completion["commentReads"]) is not int or completion["commentReads"] != len(records)
+                or not isinstance(completion["previousState"], str)
+                or not isinstance(completion["destination"], str)
+                or not re.fullmatch(r"[a-z0-9][a-z0-9_-]{0,99}/[a-z0-9][a-z0-9_.-]{0,99}#[1-9][0-9]{0,14}", completion["destination"])
+                or type(completion["authorId"]) is not int or not 1 <= completion["authorId"] < 2**53
+                or not all(_hash(completion[key]) for key in ("previousStateSha256", "previousReportSha256", "journalIdentitySha256"))):
+            raise ValueError("checkpoint schema")
+        started = publisher_instant(completion["startedAt"])
+        finished = publisher_instant(completion["finishedAt"])
+        if not started or not finished or not datetime.fromisoformat(started) <= datetime.fromisoformat(finished) <= now:
+            raise ValueError("checkpoint clock")
+        before_path = _safe_path(root, root / completion["previousState"])
+        if before_path == previous or before_path.name != "state.json" or before_path.parent.parent != root / "qa/source-monitor":
+            raise ValueError("checkpoint predecessor")
+        before_bytes = _read(before_path)
+        before_report_bytes = _read(_safe_path(root, before_path.with_name("report.json")))
+        if _sha(before_bytes) != completion["previousStateSha256"] or _sha(before_report_bytes) != completion["previousReportSha256"]:
+            raise ValueError("checkpoint predecessor hash")
+        before = _json(before_bytes)
+        before_report = _json(before_report_bytes)
+        if (type(before["schemaVersion"]) is not int or before["schemaVersion"] != 1
+                or before["catalogSha256"] != envelope["catalogSha256"]
+                or set(before["sources"]) != set(envelope["sources"])
+                or datetime.fromisoformat(before["finishedAt"]) > datetime.fromisoformat(started)
+                or before_report.get("persistence") != {"status": "verified", "stateSha256": _sha(before_bytes)}
+                or before_report.get("catalogSha256") != envelope["catalogSha256"]
+                or before_report.get("finishedAt") != before["finishedAt"]
+                or type(before_report.get("exitCode")) is not int or before_report["exitCode"] not in (0, 1)
+                or before_report.get("runStatus") != {0: "ok", 1: "attention_required"}[before_report["exitCode"]]):
+            raise ValueError("checkpoint predecessor content")
+        validate_pair_content(before, before_report)
+        pending = {notice["id"]: notice for state in before["sources"].values() for notice in state["pendingNotices"]}
+        identifiers = []
+        for record in records:
+            if (not isinstance(record, dict) or set(record) != {"noticeId", "commentId", "receiptSha256", "originState", "originStateSha256", "originReportSha256"}
+                    or record["noticeId"] not in pending or record["noticeId"] in identifiers
+                    or type(record["commentId"]) is not int or not 1 <= record["commentId"] < 2**53
+                    or not all(_hash(record[key]) for key in ("receiptSha256", "originStateSha256", "originReportSha256"))
+                    or not isinstance(record["originState"], str)):
+                raise ValueError("checkpoint receipt reference")
+            identifiers.append(record["noticeId"])
+            origin_path = _safe_path(root, root / record["originState"])
+            if origin_path.name != "state.json" or origin_path.parent.parent != root / "qa/source-monitor":
+                raise ValueError("checkpoint origin path")
+            origin_bytes = _read(origin_path)
+            origin_report_bytes = _read(_safe_path(root, origin_path.with_name("report.json")))
+            if (_sha(origin_bytes) != record["originStateSha256"]
+                    or _sha(origin_report_bytes) != record["originReportSha256"]):
+                raise ValueError("checkpoint origin hash")
+            origin, origin_report = _json(origin_bytes), _json(origin_report_bytes)
+            if (origin["catalogSha256"] != envelope["catalogSha256"]
+                    or datetime.fromisoformat(origin["finishedAt"]) > datetime.fromisoformat(before["finishedAt"])
+                    or origin_report.get("catalogSha256") != envelope["catalogSha256"]
+                    or origin_report.get("finishedAt") != origin["finishedAt"]
+                    or origin_report.get("persistence") != {"status": "verified", "stateSha256": _sha(origin_bytes)}):
+                raise ValueError("checkpoint origin content")
+            validate_pair_content(origin, origin_report)
+            origin_notices = {item["id"]: item for state in origin["sources"].values() for item in state["pendingNotices"]}
+            if origin_notices.get(record["noticeId"]) != pending[record["noticeId"]]:
+                raise ValueError("checkpoint origin notice")
+        for source in catalog["sources"]:
+            state = trusted_previous(source, before["sources"][source["key"]], now)
+            if state is not None and any(datetime.fromisoformat(state[field].replace("Z", "+00:00")) > datetime.fromisoformat(before["finishedAt"])
+                                         for field in ("evaluatedAt", "lastAcknowledgedAt") if state[field] is not None):
+                raise ValueError("checkpoint predecessor state postdates its completion")
+            if state is None or acknowledge(state, identifiers, finished) != envelope["sources"][source["key"]]:
+                raise ValueError("checkpoint changed non-acknowledgement state")
+        validate_pair_content(envelope, completion)
+    except (ValueError, TypeError, KeyError, OverflowError, AttributeError):
+        raise MonitorError("STOP_PRIOR_STATE_INVALID: invalid acknowledgement checkpoint; no requests executed") from None
 
 
 def _write(path: Path, value: Any) -> None:

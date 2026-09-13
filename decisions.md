@@ -3817,3 +3817,35 @@ Before subsequent Git operations, set both TEMP and TMP to the existing reposito
 tmp directory in that process environment. Do not modify the global hook, inspect
 or clean its outside temporary files, or treat a delayed hook as permission to
 disable it. This covers child-hook scratch files as well as direct project writes.
+
+## 2026-09-13: Acknowledge delivered notices with immutable checkpoints
+
+Keep delivery and source checking separate. A new acknowledgement command verifies
+1..8 independently pinned existing receipts with exact authenticated comment GETs.
+It never posts, lists, repairs a journal, checks source metadata or rewrites old
+state/report files. Bind each receipt to its original monitor pair, then require
+that exact notice to remain pending in the chosen current predecessor. Original
+and current state/report hashes are different identities and must both be retained.
+
+Publish a new state/report pair only after verification. Its operation is
+notice_acknowledgement, not a new metadata check; success is not a claim that a
+source is healthy or current. Change only the selected pending-notice entries
+and lastAcknowledgedAt. Preserve evaluatedAt, freshness, observations, ETags,
+attempt/success times, revisions, episode identity and retry/cooldown state.
+The next checker explicitly selects this checkpoint with --previous. Replay the
+allowed transition before publication and during restoration, retaining all
+referenced predecessor/origin pairs. Missing/changed references, inconsistent
+report contents, impossible clocks and partial publication stop restoration.
+
+Ordinary source reports must contain source and pending-notice content consistent
+with their state. Removing an acknowledgement operation label must not downgrade
+its checks to a header-only legacy restore. Exact original/current notice matching
+is deliberately stronger than normalized body equality; equivalent representation
+changes stop for review rather than producing an unrestorable checkpoint.
+
+The independently supplied receipt/journal pins and local report history are
+trusted operator inputs. Checkpoint replay proves transition consistency, not
+remote authorship again, authenticated storage, recursive ancestry, newest-state
+selection or rollback protection. A report hash or comment ID alone is not delivery
+proof. Hosted persistence and run-wide delivery pacing/cooldowns still need work;
+no scheduler, notification, reporting service or production release was activated.
