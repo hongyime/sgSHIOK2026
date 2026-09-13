@@ -4,8 +4,9 @@ Date: 2026-09-13
 Working root: C:\sgSHIOK2026
 Machine: Prawn-E14
 Startup: assert cwd equals C:\sgSHIOK2026; abort otherwise. Absolute C: writes only. X: cold mirror, never session root.
+Before git commands, set TEMP and TMP to C:\sgSHIOK2026\tmp so global hooks keep temporary scan files inside this root.
 
-Goal ACTIVE, not complete. Parent commits/pushes only; continuation from73935b2, append-only notice delivery locally reviewed.
+Goal ACTIVE, not complete. Parent commits/pushes only; append-only notice delivery d8cc7ee pushed,719focused tests pass.
 Only MRT/LRT exits and Bus stops, auto shortest usable saved walk, no comparison/About data. Lighting automatic and bounded.
 Server route/search now have one10s deadline including auth/retry/body, cancellation and late-token guards; browser12s remains.
 Public018956 diagnosis:61stop/exits=6saved+55unstored. Exit E saved-ID gap fixed; no new geometry or scores.

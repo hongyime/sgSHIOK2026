@@ -5086,3 +5086,22 @@ Final frozen-source follow-up: all-1789280648424 is the final combined receipt,
 719passed in17.12s,exit0. It pins both new modules, the historical delivery module,
 README and all8test files. The earlier pass remains valid pre-final-doc evidence.
 No web/runtime/browser suite was repeated for this Python-only implementation.
+
+### Commit integration note2026-09-13
+
+Implementation d8cc7ee was pushed to main. Its existing global pre-commit hook ran
+scan_identity.py with an OS-standard temporary scan directory outside the repository.
+The hook completed normally and was not bypassed. No outside hook or temporary
+file contents were read, modified or cleaned by the agent. The previous statement
+about no out-of-root write describes the tested application/journal operations,
+not a guarantee about that inherited hook's scratch files. Future Git commands now
+set TEMP and TMP to C:\sgSHIOK2026\tmp; the push used those settings. STATE records
+the guard. No claim is made that the hook's old temporary directory was removed.
+
+FINDINGS follow-up
+1. Repository-root write discipline also needs to cover inherited Git-hook
+   temporary paths; explicit command working directories alone did not cover them.
+
+DISAGREEMENTS follow-up
+1. A clean project diff cannot prove that globally configured hooks wrote no
+   temporary files elsewhere. The hook boundary is now recorded, not hidden.

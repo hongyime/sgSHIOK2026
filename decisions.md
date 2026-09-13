@@ -3807,3 +3807,13 @@ Sources:
 - https://docs.github.com/en/rest/using-the-rest-api/best-practices-for-using-the-rest-api
 - https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/best-practices-for-creating-an-oauth-app#use-the-durable-unique-id-to-store-the-user
 - https://docs.github.com/en/rest/about-the-rest-api/api-versions
+
+## 2026-09-13: Keep Git-hook temporary scans inside the working root
+
+The machine's existing global pre-commit hook invokes an identity scanner with a
+temporary scan directory. The d8cc7ee commit completed normally without bypassing
+the hook, but its inherited Windows TEMP location was outside the repository.
+Before subsequent Git operations, set both TEMP and TMP to the existing repository
+tmp directory in that process environment. Do not modify the global hook, inspect
+or clean its outside temporary files, or treat a delayed hook as permission to
+disable it. This covers child-hook scratch files as well as direct project writes.
