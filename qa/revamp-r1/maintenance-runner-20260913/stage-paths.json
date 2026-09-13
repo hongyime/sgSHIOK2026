@@ -1,0 +1,19 @@
+[
+  "qa/revamp-r1/maintenance-runner-20260913/.gitattributes",
+  "qa/revamp-r1/maintenance-runner-20260913/all-CWKqK9/command.json",
+  "qa/revamp-r1/maintenance-runner-20260913/all-CWKqK9/junit.xml",
+  "qa/revamp-r1/maintenance-runner-20260913/checks.mjs",
+  "qa/revamp-r1/maintenance-runner-20260913/finalize.mjs",
+  "qa/revamp-r1/maintenance-runner-20260913/focused-4v8lpX/command.json",
+  "qa/revamp-r1/maintenance-runner-20260913/focused-4v8lpX/junit.xml",
+  "qa/revamp-r1/maintenance-runner-20260913/focused-eVpMcj/command.json",
+  "qa/revamp-r1/maintenance-runner-20260913/focused-eVpMcj/junit.xml",
+  "qa/revamp-r1/maintenance-runner-20260913/focused-vkZXJr/command.json",
+  "qa/revamp-r1/maintenance-runner-20260913/focused-vkZXJr/junit.xml",
+  "qa/revamp-r1/maintenance-runner-20260913/integrity-Oays0P/command.json",
+  "qa/revamp-r1/maintenance-runner-20260913/review.json",
+  "qa/revamp-r1/maintenance-runner-20260913/summary.json",
+  "qa/revamp-r1/maintenance-runner-20260913/test-catalogue.json",
+  "qa/revamp-r1/maintenance-runner-20260913/artifact-index.json",
+  "qa/revamp-r1/maintenance-runner-20260913/stage-paths.json"
+]

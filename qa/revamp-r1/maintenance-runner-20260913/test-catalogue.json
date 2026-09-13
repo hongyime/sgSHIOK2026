@@ -1,0 +1,167 @@
+{
+  "cases": [
+    {
+      "name": "test_one_real_local_cycle_checks_posts_reads_and_acknowledges_without_rewriting",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_healthy_check_does_not_post_or_create_ack_directory",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_following_check_restores_acknowledged_state_and_source_cooldown",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_github_budget_starts_after_metadata_phase_without_per_notice_reset",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_nine_notices_are_processed_as_eight_then_one_with_original_plans",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_failed_readback_retains_id_and_resume_never_reposts",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_unknown_post_outcome_requires_operator_and_preserves_all_history",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_pending_predecessor_stops_before_new_metadata_or_transport",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_pin_mismatch_stops_before_new_check_with_actual_hash[state_sha256]",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_pin_mismatch_stops_before_new_check_with_actual_hash[report_sha256]",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_invalid_initialization_has_no_network_or_output[changes0]",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_invalid_initialization_has_no_network_or_output[changes1]",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_invalid_initialization_has_no_network_or_output[changes2]",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_existing_output_is_never_reused[first-check]",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_existing_output_is_never_reused[first-ack]",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_acknowledgement_failure_does_not_clear_pending_or_resend",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_acknowledged_checkpoint_cannot_masquerade_as_original_check",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_input_mismatch_during_check_never_constructs_github_transport",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_unbudgeted_client_is_rejected",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_none_metadata_client_cannot_activate_checker_default",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_valid_predecessor_substitution_is_rejected_before_github",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_valid_report_substitution_at_ack_handoff_is_not_adopted",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_local_ack_io_failure_returns_original_pins_and_retains_receipts[write]",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_local_ack_io_failure_returns_original_pins_and_retains_receipts[readback]",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_rate_limit_is_persisted_and_prevents_subsequent_posts",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_pin_read_failure_after_first_delivery_preserves_receipts[1]",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    },
+    {
+      "name": "test_pin_read_failure_after_first_delivery_preserves_receipts[2]",
+      "file": "tests.test_source_maintenance_runner",
+      "failed": false,
+      "skipped": false
+    }
+  ],
+  "limits": "Synthetic local integration; no provider or scheduler activation."
+}

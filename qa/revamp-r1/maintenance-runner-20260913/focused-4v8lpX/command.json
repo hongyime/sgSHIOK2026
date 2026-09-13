@@ -1,0 +1,28 @@
+{
+  "command": [
+    "python",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_source_maintenance_runner.py",
+    "--noconftest",
+    "-p",
+    "no:cacheprovider",
+    "-o",
+    "addopts=",
+    "--basetemp=C:\\sgSHIOK2026\\tmp\\maintenance-runner-tests-J1teou\\fixtures",
+    "--junitxml=C:\\sgSHIOK2026\\qa\\revamp-r1\\maintenance-runner-20260913\\focused-4v8lpX\\junit.xml"
+  ],
+  "elapsedMs": 40780,
+  "status": 0,
+  "stdout": "...........................                                              [100%]\r\n27 passed in 36.86s\r\n",
+  "stderr": "",
+  "sources": {
+    "scripts/run_source_maintenance.py": "d50419a8b3422090323ae51c71f69d1079f367e073a7e811280761d05241d3e0",
+    "tests/test_source_maintenance_runner.py": "05ebdbe2963d5658dc20585f066cb7f16690235e69eb069a022b8846e816d136"
+  },
+  "stable": true,
+  "network": "All new runner tests deny external sockets/process workers; synthetic provider responses only.",
+  "pipelineRuns": 0
+}

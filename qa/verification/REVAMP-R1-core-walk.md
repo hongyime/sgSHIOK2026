@@ -6204,3 +6204,58 @@ In-memory CRLF->LF equals index; HEAD equals index. The test was not edited.
 check-git-source-bytes.mjs audits every169source against its raw isolated test
 snapshot and records all canonical Git differences in git-source-bytes.json.
 No source normalization, data changes or input repair is performed.
+
+### Continuation 2026-09-13: integrated inactive maintenance runner
+
+Root C:\sgSHIOK2026; host PRAWN-E14. Basee6113cfd09bd9cfbd615debad826827b6758dcac.
+Source:scripts/run_source_maintenance.py; tests:test_source_maintenance_runner.py.
+Receipts:qa/revamp-r1/maintenance-runner-20260913/summary.json.
+focused-vkZXJr:18pass/1fail, nine-source fixture supplied only one response.
+focused-eVpMcj:24pass/1fail, substitution expectation assumed publication but the
+existing receipt identity check had already rejected the changed original pair.
+The corrected case substitutes a distinct, valid carried-current report instead.
+Neither failed attempt is presented as acceptance; both raw outputs are retained.
+Finalfocused-4v8lpX:27passed in36.86s.
+Fullall-CWKqK9:1039passed in127.63s;1012existing+27new=1039;12+1=13files.
+This is the focused maintenance/README suite, not the entire Python project.
+integrity-Oays0P:repo_integrity=ok,exit0.
+Web1990/73+42guards andTypeScript remain frome6113cf; no web code/build changed.
+
+Real local checker, GitHub client, journal and acknowledgement publisher are
+integrated using synthetic responses. New tests deny external sockets/workers.
+Nine notices exercise two batches:8*(POST+GET+GET)=24calls, then1*3=3calls.
+One GitHub budget covers each whole batch and starts after metadata checking.
+Metadata and GitHub have separate bounds, not one combined300second promise.
+Pending predecessor notices stop a new check. Resume retains pinned original
+plans/currentstate. Interrupted sends never become automatic rePOST permission.
+Partial publications/receipts remain; no old check/state/report is rewritten.
+Acknowledgement does not convert unhealthy source metadata into healthy data.
+
+Independent read-only review caught implicit networking fromNone, pin loss at
+stage handoffs and escaping local IO errors. All corrected with regression tests.
+Valid predecessor/report substitution and post-delivery read/write faults now
+stop without false acknowledgement or adopting a partial current state.
+The reviewer found no further scoped blockers; source/receipt identities recorded.
+No hostile-local-writer atomicity, hosted persistence, backup, real notice or
+scheduled-delivery proof is inferred. NoCLI/scheduler/credential lookup activated.
+
+FINDINGS
+1. T14 local reporting lifecycle and T23 maintenance integration now have working
+   implementations, not only disconnected validation helpers. Services remain off.
+2. Reporter storage/moderation/privacy decisions and maintenance owner/destination/
+   cadence/storage/backup/scheduler setup remain real product dependencies.
+3. Existing missing saved routes were not generated. Physical-device, returning-
+   client and exact release acceptance are still open. No deployment was made.
+4. Both observed test failures and the independently found defects are recorded;
+   final27focused/1039broader maintenance checks pass, integrityexit0.
+5. Pipeline runs0, seconds0, installations0, external notices0, deployments0.
+
+DISAGREEMENTS
+1. A successful notice send is not a healthy-source result or an active routine.
+2. Local fixtures cannot replace a real report backend, operator ownership,
+   physical-phone participation or approval of an exact release candidate.
+
+Commit check note: the all-path git diff --cached --check reported whitespace
+inside the two preserved failed-run JUnit XML tracebacks. Those raw bytes remain
+unchanged. Source/docs use the default whitespace check, excluding only those two
+XML files; raw QA bytes are independently checked against the staged blobs.

@@ -9,7 +9,8 @@ live services. Reporting choices and weekly scheduler/issue approval are pending
 LOCALLY_VERIFIED: walk-only inspector. Two tabs (MRT/LRT exits, Bus stops), shortest
 usable saved walk selected automatically, no Suggested/comparison/About data,
 automatic zoom-bounded night lighting, bounded explicit preview recovery.
-Current QA: qa/revamp-r1/report-lifecycle-20260913 (local report lifecycle);
+Current QA: qa/revamp-r1/maintenance-runner-20260913 (inactive integrated runner);
+retained qa/revamp-r1/report-lifecycle-20260913 (local report lifecycle);
 retained qa/revamp-r1/legacy-command-20260913 (old-client timing, NOT accepted);
 retained qa/revamp-r1/legacy-reload-20260913 (two failed attempts);
 retained qa/revamp-r1/selection-recovery-20260913 (retry and keyboard acceptance);
@@ -20,8 +21,9 @@ tests add to1945; new local module is not imported by app. No build/browser reru
 Earlier UI work added14recovery cases
 and1segmented-focus CSS contract:1930+14+1=1945. Focused193/4 before CSS and47/1
 after CSS pass; the final isolated suite covers all changed sources together.
-Maintenance follow-up:955existing+57inspection=1012focused tests in12files pass;
-offline CLI smoke and integrity pass. Web sources/tests/build are unchanged by it.
+Maintenance follow-up:1012existing+27runner=1039focused tests in13files pass;
+runner/checker/journal/acknowledgement integrate with synthetic provider responses.
+Integrity passes. This is not the full Python project suite or service activation.
 Native page-zoom treatment:56checks/9captures at200% and17checks/2captures for
 default-reset at100%; all11final captures parent-inspected. Reset now focuses the
 surviving postal heading; Back to walk scrolls its summary focus into view.
@@ -46,9 +48,11 @@ setup. Command25 timed out10011ms, late reply10962ms after dispatch; reply paylo
 was discarded, so setup success is unknown. Browser26 replied1494ms. No release
 switch; no connection-loss or hardware cause claim. Two images inspected.
 Retired only superseded4418 helpers; current4420/shared4340 remain healthy.
-T14 local lifecycle/revision/duplicate guards are now implemented and tested.
-Priority now:inactiveT23 runner integration. This moves operations toward completion
-without falsely activating them. No further browser replay in this checkpoint.
+T14 lifecycle guards are committed at e6113cf. T23 check/delivery/resume integration
+passes27focused cases and1039broader maintenance cases/13files; integrity passes.
+Activation needs the operator/account/storage decisions below. The next product
+milestone is real core-walk device/release acceptance, not another isolated helper.
+No further browser replay in this checkpoint.
 Previews4414/4416/4418 are superseded; earlier390x844/four-size checks were not rerun here.
 Comparison T08-T11 is RETIRED, not an acceptance blocker. Historical outcomes
 below describe earlier work, not instructions to restore it. Existing saved
@@ -394,6 +398,18 @@ No ticket is DONE merely because a document, mock, passing count or button exist
   Evidence: `qa/revamp-r1/source-freshness-20260909/summary.json`.
 
 ### [ ] T23: Establish a bounded metadata-check routine
+
+- Runner integration2026-09-13: `scripts/run_source_maintenance.py` joins the actual
+  checker, GitHub client, local append-only journal and acknowledgement publisher.
+  Explicit pinned original/current pairs preserve notice provenance across resume;
+  unresolved notices block a new check. Eight notices use one24request/300second
+  GitHub phase, started after the independently bounded metadata phase. No per-notice
+  budget reset. None metadata client rejected, consumed predecessor/ack pins checked,
+  and partial local IO failures retain recovery references without adopting output.
+  27focused synthetic integration cases and1039broader cases/13files pass.
+  No service/CLI/scheduler/credentials
+  activated; owner cadence/destination, authoritative store/backups, operator and
+  actual scheduled delivery remain OPEN. Evidence:maintenance-runner-20260913.
 
 - Operator follow-up2026-09-13: `python -B -m scripts.inspect_source_notice_journal`
   is implemented for one explicitly named and independently pinned local journal.

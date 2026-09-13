@@ -1,0 +1,191 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "Prawn-E14",
+  "base": "e6113cfd09bd9cfbd615debad826827b6758dcac",
+  "createdAt": "2026-09-13T16:00:17.353Z",
+  "goal": "ACTIVE",
+  "tests": {
+    "focused": 27,
+    "maintenance": 1039,
+    "files": 13,
+    "failures": 0,
+    "skips": 0,
+    "arithmetic": "1012+27=1039;12+1=13",
+    "focusedReceipt": "focused-4v8lpX/command.json",
+    "allReceipt": "all-CWKqK9/command.json",
+    "scope": "Maintenance/README only, not full Python project",
+    "elapsedMs": 130771,
+    "runnerSeconds": 127.63,
+    "arithmeticTime": "Runner127.63s is inside command elapsed, not added twice",
+    "retainedWeb": {
+      "tests": 1990,
+      "files": 73,
+      "dependencyGuards": 42,
+      "typesExit": 0,
+      "rerun": false,
+      "commit": "e6113cfd09bd9cfbd615debad826827b6758dcac"
+    }
+  },
+  "failedAttempts": [
+    {
+      "receipt": "focused-vkZXJr/command.json",
+      "passed": 18,
+      "failed": 1,
+      "cause": "Nine-source fixture supplied one response"
+    },
+    {
+      "receipt": "focused-eVpMcj/command.json",
+      "passed": 24,
+      "failed": 1,
+      "cause": "Changed original report was rejected by existing receipt pin before the expected later check; corrected test uses a distinct carried-current pair"
+    }
+  ],
+  "sourceHashes": {
+    "scripts/run_source_maintenance.py": "d50419a8b3422090323ae51c71f69d1079f367e073a7e811280761d05241d3e0",
+    "scripts/check_source_metadata.py": "a3a499f1158a00dab0410b2adf54c303d746a1de06173629a49024fd64f18812",
+    "scripts/acknowledge_source_notices.py": "a873741a7d6021c74af58240f80b24dfd3677c1cb50f567ea1ee7dfdd3d1c854",
+    "scripts/source_metadata_comments.py": "d63b87bffafe0447da786155534374c4c90e883be733dba80512d84f14d7182a",
+    "scripts/source_metadata_request_budget.py": "c491830f2ec89df1230c67950ccbeadd90277d66f7fb060ed354500917adc887",
+    "scripts/source_metadata_github.py": "63ce9724bf6573377ba8c808de44db369d5f1a6079ca1999c18f81313b7770b7",
+    "scripts/source_metadata_http.py": "aae6234a2c065bc7fad1d49445061943fdd682209444b4bbf2376105bd9ca741",
+    "scripts/source_metadata_state.py": "b462c441e9c62904e85723b4bc96c9ac7043b1310d77545eca1f01bad2e7dfa0",
+    "scripts/source_metadata_delivery.py": "40ea9fac732834c2b3201b62d8f79c7fe75683b6deae6da2bddb8f4d967ffb60",
+    "scripts/inspect_source_notice_journal.py": "1746f05c98071ba25b83a8ad1bbc4e16a7b2663544dcd5db73779684595d0abd"
+  },
+  "anchors": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "bytes": 13626,
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "bytes": 1751005,
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "bytes": 5240179,
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "bytes": 5236013,
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "bytes": 39674,
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "bytes": 3538342,
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "bytes": 184,
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "bytes": 269,
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "bytes": 1189,
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "bytes": 145327,
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "bytes": 515583,
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "weightSha256": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+  "evidence": {
+    "path": "qa/verification/REVAMP-R1-core-walk.md",
+    "previousBytes": 422132,
+    "previousSha256": "42cc8623d85348a0fde5bf9f2283b721480c7fe81fc0a3504a1efd58ec154fd9",
+    "bytes": 425693,
+    "addedBytes": 3561,
+    "exactPrefix": true
+  },
+  "preview": {
+    "buildId": "l7V5uOArXwdDrUIe3Wc2s",
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\selection-recovery-20260913-build-2",
+    "pid": 37188,
+    "dataPort": 4340,
+    "nextPort": 4419,
+    "proxyPort": 4420,
+    "readOnlyData": true,
+    "allowedApi": "GET /api/onemap-route and /api/onemap-search",
+    "oneMapCredentialsConfigured": true,
+    "nextPid": 5816
+  },
+  "taskBoard": {
+    "url": "http://127.0.0.1:4420/postplan.html",
+    "sha256": "4bb5658892feb1e5c383a35d1b6d68c5b0cbfb719005bc77fa7cfe59e8c00fd1",
+    "liveEqualsDisk": true
+  },
+  "integrity": {
+    "receipt": "integrity-Oays0P/command.json",
+    "status": 0,
+    "stdout": "repo_integrity=ok\r\n"
+  },
+  "review": {
+    "reviewer": "Nietzsche",
+    "agentId": "01a09b33-bdc3-73e2-8778-41195a333689",
+    "scope": "Read-only source, tests, receipts and state/task-board review; no independent executions or edits",
+    "sourceSha256": "d50419a8b3422090323ae51c71f69d1079f367e073a7e811280761d05241d3e0",
+    "testSha256": "05ebdbe2963d5658dc20585f066cb7f16690235e69eb069a022b8846e816d136",
+    "foundAndFixed": [
+      "None metadata client could activate checker default network transport",
+      "Caller state/report pins were not checked across checker/acknowledgement handoffs",
+      "Publication and post-delivery pin-read IO failures escaped the recovery result",
+      "Stale STATE/postplan next-step and prior-test labels corrected before finalization"
+    ],
+    "finalCodeResult": "No additional scoped code or receipt blockers",
+    "receiptReadback": {
+      "focused": 27,
+      "maintenance": 1039,
+      "files": 13,
+      "integrityExit": 0,
+      "sourceHashMismatches": 0,
+      "elapsedMs": 130771,
+      "pytestSecondsIncluded": 127.63
+    },
+    "limits": "Inactive local integration only. No hostile-local-writer atomicity, activation, hosted storage/backup, physical-device or exact-release acceptance."
+  },
+  "findings": [
+    "Actual local checker/client/journal/acknowledgement integration passes;27newcases.",
+    "Review caught and corrected missing-client default networking, dropped handoff pins and escaping recovery IO errors.",
+    "Pending notices retain original check identity; eight fresh notices share24calls including acknowledgement.",
+    "Service/account/storage/operator/scheduler, physical devices and exact release remain open."
+  ],
+  "disagreements": [
+    "Successful notice delivery does not establish healthy sources or active maintenance.",
+    "Local fixtures do not replace real reporting infrastructure or physical-device acceptance."
+  ],
+  "pipelineRuns": 0,
+  "pipelineSeconds": 0,
+  "installations": 0,
+  "externalNotices": 0,
+  "deployments": 0,
+  "whitespace": {
+    "rawCheck": "Reported whitespace in two preserved failed-run JUnit XML tracebacks",
+    "exclusions": [
+      "qa/revamp-r1/maintenance-runner-20260913/focused-eVpMcj/junit.xml",
+      "qa/revamp-r1/maintenance-runner-20260913/focused-vkZXJr/junit.xml"
+    ],
+    "rawBytesPreserved": true,
+    "otherPaths": "Default whitespace check"
+  }
+}

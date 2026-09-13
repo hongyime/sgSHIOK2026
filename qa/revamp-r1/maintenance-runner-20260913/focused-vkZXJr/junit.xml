@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="19" time="23.705" timestamp="2026-09-13T23:42:28.937664+08:00" hostname="Prawn-E14"><testcase classname="tests.test_source_maintenance_runner" name="test_one_real_local_cycle_checks_posts_reads_and_acknowledges_without_rewriting" time="3.077" /><testcase classname="tests.test_source_maintenance_runner" name="test_healthy_check_does_not_post_or_create_ack_directory" time="0.542" /><testcase classname="tests.test_source_maintenance_runner" name="test_following_check_restores_acknowledged_state_and_source_cooldown" time="2.393" /><testcase classname="tests.test_source_maintenance_runner" name="test_github_budget_starts_after_metadata_phase_without_per_notice_reset" time="2.219" /><testcase classname="tests.test_source_maintenance_runner" name="test_nine_notices_are_processed_as_eight_then_one_with_original_plans" time="0.338"><failure message="IndexError: pop from empty list">setup = {'catalog': {'anchors': {'pipeline/config/sources.yaml': 'ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e44...lock(wall=1800000000.0, ticks=0.0, sleeps=[]), 'factory': &lt;function setup.&lt;locals&gt;.factory at 0x000001C279030040&gt;, ...}
+
+    def test_nine_notices_are_processed_as_eight_then_one_with_original_plans(setup):
+        base = setup["catalog"]["sources"][0]
+        setup["catalog"]["sources"] = [{**deepcopy(base), "key": f"rail_{i}"} for i in range(9)]
+        (setup["root"] / "source-metadata-catalog.json").write_text(json.dumps(setup["catalog"]), encoding="utf8")
+&gt;       first = cycle(setup)
+                ^^^^^^^^^^^^
+
+tests\test_source_maintenance_runner.py:143: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_source_maintenance_runner.py:73: in cycle
+    return runner.run_cycle(value["root"], value["root"] / f"qa/source-monitor/{label}-check",
+scripts\run_source_maintenance.py:164: in run_cycle
+    report, code = monitor.run_check(root, check_output, bootstrap=bootstrap,
+scripts\check_source_metadata.py:352: in run_check
+    result = observe_source(source, prior, client, credentials)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts\source_metadata_http.py:293: in observe_source
+    response = client.get_json(url, headers)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;tests.test_source_metadata_cli.Client object at 0x000001C27901B0B0&gt;
+url = 'https://api-production.data.gov.sg/v2/public/api/datasets/d_abc/metadata'
+headers = {}
+
+    def get_json(self, url, headers):
+        self.calls.append((url, headers))
+        self.stats["requests"] += 1
+&gt;       return deepcopy(self.responses.pop(0))
+                        ^^^^^^^^^^^^^^^^^^^^^
+E       IndexError: pop from empty list
+
+tests\test_source_metadata_cli.py:128: IndexError</failure></testcase><testcase classname="tests.test_source_maintenance_runner" name="test_failed_readback_retains_id_and_resume_never_reposts" time="2.253" /><testcase classname="tests.test_source_maintenance_runner" name="test_unknown_post_outcome_requires_operator_and_preserves_all_history" time="0.818" /><testcase classname="tests.test_source_maintenance_runner" name="test_pending_predecessor_stops_before_new_metadata_or_transport" time="0.733" /><testcase classname="tests.test_source_maintenance_runner" name="test_pin_mismatch_stops_before_new_check_with_actual_hash[state_sha256]" time="1.231" /><testcase classname="tests.test_source_maintenance_runner" name="test_pin_mismatch_stops_before_new_check_with_actual_hash[report_sha256]" time="1.094" /><testcase classname="tests.test_source_maintenance_runner" name="test_invalid_initialization_has_no_network_or_output[changes0]" time="0.111" /><testcase classname="tests.test_source_maintenance_runner" name="test_invalid_initialization_has_no_network_or_output[changes1]" time="0.105" /><testcase classname="tests.test_source_maintenance_runner" name="test_invalid_initialization_has_no_network_or_output[changes2]" time="0.113" /><testcase classname="tests.test_source_maintenance_runner" name="test_existing_output_is_never_reused[first-check]" time="0.154" /><testcase classname="tests.test_source_maintenance_runner" name="test_existing_output_is_never_reused[first-ack]" time="0.144" /><testcase classname="tests.test_source_maintenance_runner" name="test_acknowledgement_failure_does_not_clear_pending_or_resend" time="1.992" /><testcase classname="tests.test_source_maintenance_runner" name="test_acknowledged_checkpoint_cannot_masquerade_as_original_check" time="1.744" /><testcase classname="tests.test_source_maintenance_runner" name="test_input_mismatch_during_check_never_constructs_github_transport" time="0.244" /><testcase classname="tests.test_source_maintenance_runner" name="test_unbudgeted_client_is_rejected" time="0.233" /></testsuite></testsuites>

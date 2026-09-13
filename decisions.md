@@ -4075,3 +4075,37 @@ No endpoint, storage, receipt, moderator authorization, retention policy, schedu
 or publication is activated by this model. Reporting/privacy/account decisions
 remain open.45new unit cases bring the isolated web suite1945+45=1990 in73files;
 the unchanged core UI preview is retained, not rebuilt for this unimported module.
+
+## 2026-09-13: Integrate maintenance without resetting notice identity
+
+The inactive runner joins the existing metadata checker, append-only GitHub
+comment journal, persistent request pacing and immutable acknowledgement code.
+One new check must start from explicit bootstrap or a pinned predecessor with
+no pending notices. Finish unresolved notices through explicit resume first;
+do not rebuild a comment using a newer check's provenance. Resume names both
+the original check and current state by path and state/report SHA-256.
+
+Deliver at most eight notices per batch. One GitHub budget covers delivery and
+acknowledgement GETs: eight fresh notices use 8*(POST+GET+GET)=24 requests.
+The transport factory is invoked once after metadata work, so the 300-second
+GitHub phase does not expire while the separately bounded check runs. No
+overall 300-second or credential-wide/distributed-rate-limit claim is made.
+
+Stop at the first uncertain result. Keep send intent, any received comment ID
+and verified receipt; retry means readback/reconciliation, never automatic
+re-POST. Clear notices only in a fresh, validated acknowledgement pair. Return
+original/current pins and partial receipt evidence after expected local IO
+failures; do not advance the selected state or repair partial directories.
+Delivery success does not change the source-health result of the check.
+
+Independent review found and corrected implicit networking through a None
+metadata client, dropped pins between stages, and escaping publication/recheck
+IO failures. Validate consumed predecessor and acknowledgement provenance as
+well as before/after pinned bytes. These checks require trusted stable local
+storage; they are not an atomic sandbox against a hostile local writer.
+
+No CLI, scheduler, credential lookup, journal initialization or latest-state
+pointer is activated. Operation still needs approved cadence/destination and
+posting identity, authoritative storage/backup, operator ownership, scheduler
+integration and an actual observed delivery. Local fixture tests do not close
+those decisions, real reporting, physical-device acceptance or deployment.

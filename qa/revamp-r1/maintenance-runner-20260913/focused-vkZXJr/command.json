@@ -1,0 +1,28 @@
+{
+  "command": [
+    "python",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_source_maintenance_runner.py",
+    "--noconftest",
+    "-p",
+    "no:cacheprovider",
+    "-o",
+    "addopts=",
+    "--basetemp=C:\\sgSHIOK2026\\tmp\\maintenance-runner-tests-r2Ojvj\\fixtures",
+    "--junitxml=C:\\sgSHIOK2026\\qa\\revamp-r1\\maintenance-runner-20260913\\focused-vkZXJr\\junit.xml"
+  ],
+  "elapsedMs": 30158,
+  "status": 1,
+  "stdout": "....F..............                                                      [100%]\r\n================================== FAILURES ===================================\r\n____ test_nine_notices_are_processed_as_eight_then_one_with_original_plans ____\r\n\r\nsetup = {'catalog': {'anchors': {'pipeline/config/sources.yaml': 'ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e44...lock(wall=1800000000.0, ticks=0.0, sleeps=[]), 'factory': <function setup.<locals>.factory at 0x000001C279030040>, ...}\r\n\r\n    def test_nine_notices_are_processed_as_eight_then_one_with_original_plans(setup):\r\n        base = setup[\"catalog\"][\"sources\"][0]\r\n        setup[\"catalog\"][\"sources\"] = [{**deepcopy(base), \"key\": f\"rail_{i}\"} for i in range(9)]\r\n        (setup[\"root\"] / \"source-metadata-catalog.json\").write_text(json.dumps(setup[\"catalog\"]), encoding=\"utf8\")\r\n>       first = cycle(setup)\r\n                ^^^^^^^^^^^^\r\n\r\ntests\\test_source_maintenance_runner.py:143: \r\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\r\ntests\\test_source_maintenance_runner.py:73: in cycle\r\n    return runner.run_cycle(value[\"root\"], value[\"root\"] / f\"qa/source-monitor/{label}-check\",\r\nscripts\\run_source_maintenance.py:164: in run_cycle\r\n    report, code = monitor.run_check(root, check_output, bootstrap=bootstrap,\r\nscripts\\check_source_metadata.py:352: in run_check\r\n    result = observe_source(source, prior, client, credentials)\r\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nscripts\\source_metadata_http.py:293: in observe_source\r\n    response = client.get_json(url, headers)\r\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\r\n\r\nself = <tests.test_source_metadata_cli.Client object at 0x000001C27901B0B0>\r\nurl = 'https://api-production.data.gov.sg/v2/public/api/datasets/d_abc/metadata'\r\nheaders = {}\r\n\r\n    def get_json(self, url, headers):\r\n        self.calls.append((url, headers))\r\n        self.stats[\"requests\"] += 1\r\n>       return deepcopy(self.responses.pop(0))\r\n                        ^^^^^^^^^^^^^^^^^^^^^\r\nE       IndexError: pop from empty list\r\n\r\ntests\\test_source_metadata_cli.py:128: IndexError\r\n=========================== short test summary info ===========================\r\nFAILED tests/test_source_maintenance_runner.py::test_nine_notices_are_processed_as_eight_then_one_with_original_plans\r\n1 failed, 18 passed in 23.70s\r\n",
+  "stderr": "",
+  "sources": {
+    "scripts/run_source_maintenance.py": "7e56b0e3e7e602174acf8dc9b66631c05da2b622d233493d72a30e876317ed44",
+    "tests/test_source_maintenance_runner.py": "08a70a9be851ecd2f48c393f78e0c3ebb020520ccd35fdb4dcb6fdf77065224e"
+  },
+  "stable": true,
+  "network": "All new runner tests deny external sockets/process workers; synthetic provider responses only.",
+  "pipelineRuns": 0
+}
