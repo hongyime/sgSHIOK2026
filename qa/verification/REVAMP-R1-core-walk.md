@@ -5175,3 +5175,101 @@ DISAGREEMENTS
    local report/pin assumptions. It does not authenticate arbitrary local reports,
    prove recursive ancestry/latest selection, or verify GitHub again on every
    subsequent metadata check. Those limits are not hidden behind a receipt hash.
+
+## Continuation 2026-09-13: persistent request admission and cooldowns
+
+Working root: C:\sgSHIOK2026
+Hostname: Prawn-E14
+Base: 7c9ab7b17a0ea94782e36ec77eb667957b62cd29
+Evidence: qa/revamp-r1/notice-pacing-20260913/
+
+The production GitHub client now requires an explicitly initialized, pinned
+request ledger shared with the comment journal. Requests reserve exclusively
+before network IO and publish create-only, hash-linked completion records after.
+The retained state contains sanitized deadlines/statuses, not credentials, body
+text or raw rate headers. Cooldown waits survive reopening. Unknown or partially
+persisted requests stop both the current caller and later opens; no retries,
+automatic history repair, deletion or implicit initialization are performed.
+
+Admission is capped at24requests/300seconds per shared budget object, with ten
+seconds left for worker dispatch and one second after previous completion.
+Checks occur after both request-reservation and notice-claim persistence. In-process
+spacing uses monotonic time; reopened callers retain UTC cooldown deadlines.
+New notices are admitted before their exclusive claim, then claimed before POST.
+A rejected local cooldown no longer consumes an unsent notice. A successful POST
+on the last quota slot retains its returned ID even when the verification GET
+must wait. The checkpoint CLI reopens existing rate state; it never initializes it.
+
+Commands and complete captured output are retained in each command.json. Parent
+executed only the explicitly named monitor, journal, adapter, checkpoint and README
+test files with plugin autoload, conftest and pytest cache disabled. Fresh test
+directories were under repo/tmp. No whole-project Python suite was executed.
+
+```text
+node C:\sgSHIOK2026\qa\revamp-r1\notice-pacing-20260913\verify.mjs all
+all-1789284964481: 1 failed, 947 passed in 72.53s (0:01:12)
+all-1789285179332: 949 passed in 46.99s
+all-1789285532041: 1 error in 2.85s
+all-1789285553943: 955 passed in 83.85s (0:01:23)
+916 existing +28 request-budget +11 integration =955 tests in11files
+```
+
+The first failure was the existing synthetic end-to-end fixture constructing the
+new production adapter without its required budget/rate envelope. It now exercises
+the guarded path. The collection error was the parent's new test using pytest's
+reserved parameter name request; renamed request_override. Both failures remain
+in the evidence. No skipped or expected-failure tests hide them.
+
+Independent reviewer Arendt first identified the admission-before-claim issue and
+the distinction between GET-only and filesystem-read-only. Implementation review
+then reproduced three defects: false/zero or explicit-worker transport overrides
+bypassed the required budget; durable writes could consume the remaining dispatch
+deadline; and email date parsing accepted Retry-After trailing garbage. All were
+fixed, covered and narrowly re-reviewed with no remaining finding in those fixes.
+Linnaeus wrote only the28budget tests and independently reported that file passing.
+Parent's final frozen-source955-test receipt is authoritative. Review scope and
+limits are recorded in review.json; both subagents were closed before committing.
+
+Repository integrity, exact prior evidence prefix, locked-weight hash,11published
+fixture source anchors, unchanged tracked web/pipeline/checksums paths and the
+served task-board/build identity are checked by finalize.mjs. The resulting
+summary.json retains the actual sizes/hashes/results; artifact-index.json indexes
+the new receipts. Existing QA output was not overwritten.
+
+The frontend was not changed, rebuilt or browser-tested this continuation. The
+retained1916web/71file +42dependency-guard result and80checks/16captures are earlier
+results, not new proof. The current local preview remains build
+T2PK7uLhsuXtK2oAxtakU at http://127.0.0.1:4412/ . postplan.html is updated.
+Real source requests:0; real GitHub comment requests:0; notices acknowledged:0;
+pipeline runs:0; pipeline seconds:0; installations:0; deployments:0. X was untouched.
+
+FINDINGS
+1. Persistent request admission/cooldowns now cover concrete production notice
+   and acknowledgement calls; no silent reset or second automatic send is allowed.
+2. Review exposed and corrected the three concrete transport/deadline/date defects,
+   plus the earlier unsent-notice claim ordering. Passing candidate tests did not
+   establish absence of these bugs.
+3. Activation is still open: approved destination/cadence/accounts, authoritative
+   durable storage and backups, operator recovery, a runner compatible with the
+   Windows/source-anchor contract, and an observed real scheduled delivery.
+4. Real resident reporting, physical-phone/resident acceptance and exact production
+   release approval remain separate gates. Popup cleanup, server request bounds
+   and the bounded missing-saved-route diagnosis remain completed earlier work.
+
+DISAGREEMENTS
+1. GET-only acknowledgement does append separate rate records. Existing notice
+   receipts and source evidence remain unchanged; filesystem-read-only would be
+   an inaccurate claim for the production transport.
+2. One retained local journal coordinates its participating callers, not every
+   credential consumer or host. A new object resets the batch cap, not persisted
+   cooldowns. Local hashes do not supply rollback/power-loss protection or turn
+   an ephemeral hosted checkout into durable operational storage.
+3. These local tests do not activate maintenance or substitute for an actual
+   scheduled notice, service-account approval or physical-device acceptance.
+
+Finalization note 2026-09-13: the initial staging whitespace check rejected three
+blank/trailing-space lines inside the retained failed pytest traceback XML.
+No raw output bytes were changed. Only the new QA directory's XML whitespace
+attribute now exempts blank-at-eol; source checks remain enabled. The initial
+summary/index remain snapshots of that first finalization. summary-final.json and
+artifact-index-final.json are the current finalization, retaining the earlier files.

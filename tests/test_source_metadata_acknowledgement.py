@@ -463,6 +463,7 @@ def test_cli_success_identifies_acknowledgement_not_a_source_check(monkeypatch, 
     monkeypatch.setattr(monitor, "_read", lambda *_: b"[]")
     monkeypatch.setattr(ack, "LocalCommentJournal", lambda *args, **kwargs: object())
     monkeypatch.setattr(ack, "GitHubCommentClient", lambda *args, **kwargs: object())
+    monkeypatch.setattr(ack, "GitHubRequestBudget", lambda *args, **kwargs: object())
     monkeypatch.setattr(ack, "publish_checkpoint", lambda *args, **kwargs: {
         "operation": "notice_acknowledgement", "acknowledgements": [{}], "pendingNotices": []})
     assert ack.main() == 0

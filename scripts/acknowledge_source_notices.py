@@ -18,6 +18,7 @@ from typing import Callable
 from scripts import check_source_metadata as monitor
 from scripts.source_metadata_comments import LocalCommentJournal, CommentTransport, plan_comment, verify_recorded_comment
 from scripts.source_metadata_github import GitHubCommentClient
+from scripts.source_metadata_request_budget import GitHubRequestBudget
 from scripts.source_metadata_state import acknowledge, trusted_previous
 
 MAX_ACKNOWLEDGEMENTS = 8
@@ -169,7 +170,8 @@ def main() -> int:
         proofs = monitor._json(monitor._read(monitor._safe_path(monitor.ROOT, args.proofs)))
         journal = LocalCommentJournal(args.journal, expected_identity_sha256=args.journal_sha256)
         client = GitHubCommentClient(args.destination, author_id=args.author_id,
-                                     token=os.environ.get("SHIOK_NOTICE_TOKEN", ""))
+                                     token=os.environ.get("SHIOK_NOTICE_TOKEN", ""),
+                                     budget=GitHubRequestBudget(journal))
         report = publish_checkpoint(monitor.ROOT, args.output, previous=args.previous, proofs=proofs,
                                      destination=args.destination, author_id=args.author_id,
                                      journal=journal, transport=client)

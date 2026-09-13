@@ -421,8 +421,34 @@ This is at-most-once automatic attempts with unresolved outcomes, not exactly-on
 delivery, a distributed lock, rollback defense or power-loss proof. Journal
 ancestors must be trusted and stable: link checks are not a sandbox against another
 local writer changing directories into junctions between validation and open.
-The API adapter
-uses one isolated 10-second request per operation with no redirects or retries.
+The API adapter uses one isolated 10-second request per operation with no redirects
+or retries. Production calls now require a `GitHubRequestBudget` reopened from the
+same pinned journal; injected fixture transports are not an activation path.
+Explicit initialization (`GitHubRequestBudget.initialize(journal)`) is a one-time
+local setup step after choosing durable storage, never an automatic startup repair.
+The `github-requests/` child contains create-only, hash-linked request/result pairs,
+not tokens, comment bodies or raw response headers. Keep it with the journal.
+
+One budget object allows at most 24 requests in a 300-second admission window,
+leaving ten seconds for the next worker and spacing requests at least one second
+after the previous completion. All participating callers must use that same
+journal; this does not coordinate other hosts, accounts or API consumers. A new
+object resets the batch count, not the retained cooldown or unresolved history.
+An exhausted quota, `Retry-After` or 403/429 stops the batch and persists the wait.
+Long waits are not shortened to fit the batch; short spacing is the only sleep.
+History is capped at 4,096 requests, after which operator planning is required.
+These bounds follow the [GitHub REST guidance](https://docs.github.com/en/rest/using-the-rest-api/best-practices-for-using-the-rest-api)
+without adding automatic retries.
+
+For a new notice, guarded delivery admits the request before exclusively claiming
+the notice, then claims before POST. A cooldown rejection therefore leaves an
+unsent notice unclaimed and eligible for a later approved batch. A successful POST
+that consumes the last quota slot retains its ID even when verification must wait.
+Timeouts, malformed results, interrupts or failed result persistence leave an
+unresolved request reservation and block all subsequent IO. This preserves the
+uncertainty; it does not recover headers or outcomes that were never received.
+Stop for operator investigation, retaining every file; do not delete a reservation,
+reinitialize storage, or assume a cooldown has expired to bypass the stop.
 `scripts/acknowledge_source_notices.py` now connects verified receipts to an
 immutable monitor checkpoint. After approved delivery setup, provide a private
 proof-reference JSON file containing 1..8 entries with `originState` (the absolute
@@ -438,6 +464,8 @@ or evidence file. It makes authenticated comment GETs only, never POST, LIST,
 receipt repair, source checks or input downloads. A missing/corrupt receipt or
 changed comment stops before checkpoint publication. Existing outputs are never
 overwritten; preserve partial failures and choose a new output only after review.
+The notice receipts and source evidence stay byte-identical; production GETs do
+append separate request-budget records. GET-only is not filesystem-read-only.
 
 Success writes a new `qa/source-monitor/<label>/state.json` and verified report,
 marked `operation: notice_acknowledgement` and `sourceHealth: not_rechecked`.
@@ -448,8 +476,10 @@ Restoration validates its referenced predecessor/origin hashes and replays the
 allowed transition; it does not perform another GitHub verification or authenticate
 untrusted local report assertions. Retain the original referenced pairs, journal
 and trusted pins. This is not automatic latest-checkpoint selection or rollback
-protection. Hosted persistence, run-wide delivery pacing/cooldowns, scheduler and
-live notice activation remain unimplemented/unapproved.
+protection. Hosted persistence, recovery/operator tooling, scheduler and live
+notice activation remain unimplemented/unapproved. An ephemeral hosted checkout
+cannot replace the retained local journal or this CLI's Windows/source-anchor
+requirements. No scheduled-delivery claim follows from local fixture tests.
 
 ### Free-Cap And Report Operations
 

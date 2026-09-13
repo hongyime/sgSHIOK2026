@@ -13,6 +13,7 @@ import pytest
 from scripts import source_metadata_comments as comments
 from scripts.source_metadata_delivery import DeliveryError
 from scripts.source_metadata_github import GitHubCommentClient
+from scripts.source_metadata_request_budget import GitHubRequestBudget
 from scripts.source_metadata_state import transition
 
 
@@ -442,9 +443,12 @@ def test_adapter_and_real_local_journal_end_to_end_with_synthetic_http(journal):
         if operation["method"] == "POST":
             stored.append({"id": 91, "user": {"id": AUTHOR}, "body": operation["payload"]["body"],
                            "issue_url": "https://api.github.com/repos/owner/repository/issues/7"})
-        return {"data": stored[0], "nextPage": None}
+        return {"data": stored[0], "nextPage": None, "rate": {
+            "status": 201 if operation["method"] == "POST" else 200,
+            "retryAfter": None, "remaining": None, "reset": None}}
 
-    client = GitHubCommentClient(DESTINATION, author_id=AUTHOR, token="synthetic-not-a-token", request=request)
+    budget = GitHubRequestBudget.initialize(journal)
+    client = GitHubCommentClient(DESTINATION, author_id=AUTHOR, token="synthetic-not-a-token", request=request, budget=budget)
     assert send(journal, client, value)["status"] == "verified"
     assert send(journal, client, value)["status"] == "verified"
     assert calls == ["POST", "GET", "GET"]

@@ -1,0 +1,25 @@
+{
+  "reviewer": "Arendt, 01a099a9-dc48-71a3-b4c6-b86bbdef1bd7",
+  "mode": "Independent read-only design and implementation review; no real network or file writes",
+  "designFindings": [
+    "One journal is participating-caller scope, not credential-wide or distributed coordination.",
+    "Unknown outcomes must block the same object and reopening; they do not preserve unseen remote headers.",
+    "Admission must precede a fresh notice claim to avoid stranding unsent notices on cooldown rejection.",
+    "Measure spacing after response completion, with monotonic enforcement in-process.",
+    "Only ownership of an exclusive reservation authorizes a request, not equal existing content.",
+    "Production GET verification appends rate records and must not be described as filesystem-read-only."
+  ],
+  "implementationDefectsFixed": [
+    "False/zero request overrides and explicitly passing the production worker could bypass the required budget.",
+    "Reservation and notice-claim persistence could consume the remaining admission deadline before HTTP dispatch.",
+    "Retry-After HTTP-date parsing accepted trailing garbage."
+  ],
+  "finalReview": "No remaining findings in the three narrowly reviewed fixes. In-memory probes confirmed: Invalid transports and unguarded explicit production transport are rejected. Canonical dates pass; trailing garbage is rejected. Delays during reservation or notice-claim persistence prevent transport dispatch and retain unresolved reservations. All three prior findings are resolved. No files written or network called; full suite not rerun.",
+  "testWorker": "Linnaeus, 01a099ac-8c3c-7182-b382-558100a8ece3",
+  "testWorkerScope": "Wrote only tests/test_source_metadata_request_budget.py; 28 cases reported passing independently. Parent final frozen-source run is authoritative.",
+  "limits": [
+    "No actual scheduler, live GitHub comment, provider account or hosted persistence tested.",
+    "Trusted stable local journal ancestors, no rollback/deletion defense or power-loss guarantee.",
+    "Final follow-up review was narrow to the three reported fixes, not a claim to exhaustive absence of bugs."
+  ]
+}

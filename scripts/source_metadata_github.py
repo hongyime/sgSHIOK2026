@@ -14,8 +14,9 @@ import sys
 from typing import Callable
 from urllib.parse import parse_qs, urlsplit
 
-from scripts.source_metadata_comments import CommentPlan, DESTINATION, ROOT, _validate_plan
+from scripts.source_metadata_comments import CommentPlan, DESTINATION, ROOT, LocalCommentJournal, _validate_plan
 from scripts.source_metadata_delivery import DeliveryError
+from scripts.source_metadata_request_budget import GitHubRequestBudget
 
 MAX_RESPONSE_BYTES = 1024 * 1024
 MAX_PAGES = 1
@@ -99,9 +100,16 @@ def _http(value: dict, connection_factory: Callable = http.client.HTTPSConnectio
             body = json.dumps(payload, ensure_ascii=True).encode("ascii")
         connection.request(method, target, body=body, headers=headers)
         response = connection.getresponse()
+        rate = {"status": response.status, "retryAfter": response.getheader("Retry-After"),
+                "remaining": response.getheader("X-RateLimit-Remaining"),
+                "reset": response.getheader("X-RateLimit-Reset")}
+        if any(value is not None and (not isinstance(value, str) or len(value) > 128)
+               for key, value in rate.items() if key != "status"):
+            raise DeliveryError("STOP_GITHUB_RATE_HEADERS")
         if response.status != (201 if method == "POST" else 200):
-            # 3xx is not followed. Auth/rate-limit/server failures do not trigger retries.
-            raise DeliveryError("STOP_GITHUB_STATUS")
+            # Return bounded headers immediately, never error/redirect response bodies.
+            # The parent persists cooldown before reporting a failed request.
+            return {"data": None, "nextPage": None, "rate": rate}
         if response.getheader("Content-Encoding", "identity") != "identity":
             raise DeliveryError("STOP_GITHUB_ENCODING")
         content = response.read(MAX_RESPONSE_BYTES + 1)
@@ -110,7 +118,7 @@ def _http(value: dict, connection_factory: Callable = http.client.HTTPSConnectio
         result = json.loads(content.decode("utf8"))
         if not isinstance(result, (dict, list)):
             raise DeliveryError("STOP_GITHUB_RESPONSE")
-        return {"data": result, "nextPage": _next_page(response.getheader("Link"), target)}
+        return {"data": result, "nextPage": _next_page(response.getheader("Link"), target), "rate": rate}
     finally:
         connection.close()
 
@@ -127,7 +135,7 @@ def _isolated_request(value: dict) -> dict:
         if worker.returncode != 0 or len(worker.stdout.encode("utf8")) > 6 * MAX_RESPONSE_BYTES:
             raise DeliveryError("STOP_GITHUB_WORKER")
         result = json.loads(worker.stdout)
-        if not isinstance(result, dict) or set(result) != {"data", "nextPage"}:
+        if not isinstance(result, dict) or set(result) != {"data", "nextPage", "rate"}:
             raise DeliveryError("STOP_GITHUB_WORKER")
         return result
     except (OSError, ValueError, subprocess.TimeoutExpired, RecursionError):
@@ -150,29 +158,61 @@ def _normalized(value: dict, plan: CommentPlan) -> dict:
 
 class GitHubCommentClient:
     def __init__(self, destination: str, *, author_id: int, token: str,
-                 request: Callable[[dict], dict] = _isolated_request):
+                 request: Callable[[dict], dict] | None = None,
+                 budget: GitHubRequestBudget | None = None):
         if (not isinstance(destination, str) or not DESTINATION.fullmatch(destination)
                 or type(author_id) is not int or not 1 <= author_id < 2**53):
             raise DeliveryError("STOP_GITHUB_DESTINATION")
         repository, issue = destination.lower().split("#")
         self.target = f"/repos/{repository}/issues/{issue}/comments"
         self.repository = repository
-        self.destination, self.author_id, self._token, self._request = destination.lower(), author_id, token, request
+        self.destination, self.author_id, self._token = destination.lower(), author_id, token
+        if request is not None and not callable(request):
+            raise DeliveryError("STOP_GITHUB_REQUEST")
+        self._request, self._budget = _isolated_request if request is None else request, budget
+        if (request is None or request is _isolated_request) and budget is None:
+            raise DeliveryError("STOP_GITHUB_BUDGET_REQUIRED")
         _request_input({"method": "GET", "target": self.target + "?per_page=100&page=1", "payload": {}, "token": token})
 
-    def _send(self, plan: CommentPlan, method: str, target: str, payload: dict) -> dict:
+    def _send(self, plan: CommentPlan, method: str, target: str, payload: dict,
+              before_request: Callable | None = None) -> dict:
         _validate_plan(plan)
         if plan.destination != self.destination or plan.author_id != self.author_id:
             raise DeliveryError("STOP_GITHUB_PLAN_BINDING")
-        result = self._request({"method": method, "target": target, "payload": payload, "token": self._token})
-        if (not isinstance(result, dict) or set(result) != {"data", "nextPage"}
+        def operation() -> dict:
+            if before_request is not None:
+                before_request()
+            if self._budget is not None:
+                self._budget.check_dispatch()
+            return self._request({"method": method, "target": target, "payload": payload, "token": self._token})
+        result = self._budget.request(operation) if self._budget is not None else operation()
+        if (not isinstance(result, dict) or set(result) not in ({"data", "nextPage"}, {"data", "nextPage", "rate"})
                 or (result["nextPage"] is not None and (type(result["nextPage"]) is not int
                                                        or not 1 <= result["nextPage"] <= MAX_PAGES + 1))):
             raise DeliveryError("STOP_GITHUB_ENVELOPE")
+        if "rate" in result and result["rate"]["status"] != (201 if method == "POST" else 200):
+            raise DeliveryError("STOP_GITHUB_STATUS")
         return result
 
     def create(self, plan: CommentPlan) -> dict:
+        if self._budget is not None:
+            raise DeliveryError("STOP_GITHUB_CLAIM_REQUIRED")
         result = self._send(plan, "POST", self.target, {"body": plan.body})
+        if result["nextPage"] is not None:
+            raise DeliveryError("STOP_GITHUB_PAGINATION")
+        return _normalized(result["data"], plan)
+
+    def create_once(self, plan: CommentPlan, journal: LocalCommentJournal) -> dict:
+        """Admit the request before claiming the notice; claim before actual POST."""
+        if self._budget is None or (journal.path != self._budget.journal.path
+                                    or journal.identity != self._budget.journal.identity):
+            raise DeliveryError("STOP_GITHUB_JOURNAL_BINDING")
+
+        def claim() -> None:
+            if not journal.claim(plan):
+                raise DeliveryError("STOP_GITHUB_NOTICE_ALREADY_CLAIMED")
+
+        result = self._send(plan, "POST", self.target, {"body": plan.body}, before_request=claim)
         if result["nextPage"] is not None:
             raise DeliveryError("STOP_GITHUB_PAGINATION")
         return _normalized(result["data"], plan)

@@ -11,6 +11,8 @@ import traceback
 import pytest
 
 from scripts import source_metadata_github as github
+from scripts import source_metadata_comments as comments
+from scripts.source_metadata_request_budget import GitHubRequestBudget
 from scripts.source_metadata_comments import plan_comment
 from scripts.source_metadata_delivery import DeliveryError
 
@@ -57,6 +59,11 @@ def comment(plan, identifier=101, **changes):
 
 def envelope(data, next_page=None):
     return {"data": data, "nextPage": next_page}
+
+
+def http_envelope(data, next_page=None, status=200, retry=None):
+    return {**envelope(data, next_page), "rate": {"status": status, "retryAfter": retry,
+                                               "remaining": None, "reset": None}}
 
 
 def link(page, relation="next", *, path=TARGET):
@@ -503,7 +510,7 @@ def test_http_request_headers_payload_and_connection_cleanup(plan, method, statu
     value = request_input(method=method, target=TARGET if method == "POST" else LIST_TARGET,
                           payload={"body": plan.body} if method == "POST" else {})
     result = github._http(value, connection.factory)
-    assert result == envelope(comment(plan))
+    assert result == http_envelope(comment(plan), status=status)
     assert connection.factory_calls == [("api.github.com", {"timeout": 10})]
     assert len(connection.calls) == 1
     sent_method, target, options = connection.calls[0]
@@ -529,9 +536,9 @@ def test_http_errors_and_redirects_stop_without_read_or_retry(status, capsys):
     response = FakeResponse(TOKEN.encode(), status=status,
                             headers={"Location": "https://example.invalid/", "Retry-After": "0"})
     connection = FakeConnection(response)
-    with pytest.raises(DeliveryError, match="^STOP_GITHUB_STATUS$") as caught:
-        github._http(request_input(), connection.factory)
-    assert TOKEN not in str(caught.value)
+    result = github._http(request_input(), connection.factory)
+    assert result == http_envelope(None, status=status, retry="0")
+    assert TOKEN not in str(result)
     assert len(connection.calls) == 1
     assert response.read_sizes == []
     assert connection.closed == 1
@@ -540,8 +547,9 @@ def test_http_errors_and_redirects_stop_without_read_or_retry(status, capsys):
 
 def test_post_requires_201_not_200():
     connection = FakeConnection(FakeResponse(status=200))
+    result = github._http(request_input(method="POST", target=TARGET, payload={"body": "notice"}), connection.factory)
     with pytest.raises(DeliveryError, match="^STOP_GITHUB_STATUS$"):
-        github._http(request_input(method="POST", target=TARGET, payload={"body": "notice"}), connection.factory)
+        client(FakeRequests(result)).create(plan_comment(DESTINATION, MONITOR, NOTICE, author_id=AUTHOR_ID))
     assert len(connection.calls) == 1
     assert connection.closed == 1
 
@@ -565,7 +573,7 @@ def test_http_response_limit_counts_actual_bytes_not_content_length(over_limit):
         with pytest.raises(DeliveryError, match="^STOP_GITHUB_RESPONSE_BOUND$"):
             github._http(request_input(), connection.factory)
     else:
-        assert github._http(request_input(), connection.factory) == envelope([])
+        assert github._http(request_input(), connection.factory) == http_envelope([])
     assert response.read_sizes == [github.MAX_RESPONSE_BYTES + 1]
     assert connection.closed == 1
 
@@ -592,7 +600,7 @@ def test_http_transport_exceptions_close_connection_without_retry(stage):
 
 def test_http_next_link_is_parsed_before_return():
     connection = FakeConnection(FakeResponse(b"[]", headers={"Link": link(2)}))
-    assert github._http(request_input(), connection.factory) == envelope([], 2)
+    assert github._http(request_input(), connection.factory) == http_envelope([], 2)
     assert connection.closed == 1
 
 
@@ -604,11 +612,11 @@ def test_isolated_worker_kwargs_credentials_and_environment(monkeypatch, capsys)
 
     def run(argv, **kwargs):
         calls.append((argv, kwargs))
-        return subprocess.CompletedProcess(argv, 0, stdout=json.dumps(envelope([])), stderr=TOKEN)
+        return subprocess.CompletedProcess(argv, 0, stdout=json.dumps(http_envelope([])), stderr=TOKEN)
 
     monkeypatch.setattr(subprocess, "run", run)
     value = request_input()
-    assert github._isolated_request(value) == envelope([])
+    assert github._isolated_request(value) == http_envelope([])
     assert len(calls) == 1
     argv, kwargs = calls[0]
     assert argv == [github.sys.executable, "-B", "-m", "scripts.source_metadata_github", "--worker"]
@@ -627,6 +635,123 @@ def test_isolated_worker_kwargs_credentials_and_environment(monkeypatch, capsys)
     assert Path(env["TEMP"]) == Path(env["TMP"]) == github.ROOT / "tmp"
     assert TOKEN not in repr(env)
     assert capsys.readouterr() == ("", "")
+
+
+@pytest.fixture
+def retained_budget(tmp_path, monkeypatch):
+    monkeypatch.setattr(comments, "ROOT", tmp_path)
+    journal = comments.LocalCommentJournal.initialize(tmp_path / "tmp/source-notice-journals/test")
+    GitHubRequestBudget.initialize(journal)
+    now = [1000.0]
+
+    def sleep(delay):
+        now[0] += delay
+
+    def reopen():
+        return GitHubRequestBudget(journal, clock=lambda: now[0], monotonic=lambda: now[0], sleep=sleep)
+
+    return journal, now, reopen
+
+
+@pytest.mark.parametrize("request_override,signal", [(None, "STOP_GITHUB_BUDGET_REQUIRED"),
+    (False, "STOP_GITHUB_REQUEST"), (0, "STOP_GITHUB_REQUEST"),
+    (github._isolated_request, "STOP_GITHUB_BUDGET_REQUIRED")])
+def test_production_client_requires_budget_before_any_io(request_override, signal):
+    with pytest.raises(DeliveryError, match=signal):
+        github.GitHubCommentClient(DESTINATION, author_id=AUTHOR_ID, token=TOKEN, request=request_override)
+
+
+def test_guarded_delivery_claims_only_after_admission_and_reads_back(plan, retained_budget):
+    journal, now, reopen = retained_budget
+    requests = FakeRequests(http_envelope(comment(plan), status=201), http_envelope(comment(plan)))
+    adapter = client(requests, budget=reopen())
+    result = comments.deliver_comment(plan, journal=journal, transport=adapter)
+    assert result["status"] == "verified"
+    assert [call["method"] for call in requests.calls] == ["POST", "GET"]
+    assert journal.has_claim(plan) and journal.receipt(plan)
+    assert now[0] == 1001.0
+
+
+def test_guard_rejection_does_not_consume_unsent_notice(plan, retained_budget):
+    journal, now, reopen = retained_budget
+    budget = reopen()
+    limited = http_envelope(None, status=429, retry="120")
+    requests = FakeRequests(limited)
+    with pytest.raises(DeliveryError, match="STOP_GITHUB_STATUS"):
+        client(requests, budget=budget).read(plan, 101)
+    for current in (budget, reopen()):
+        result = comments.deliver_comment(plan, journal=journal, transport=client(requests, budget=current))
+        assert result["status"] == "stopped"
+        assert not journal.has_claim(plan)
+    assert len(requests.calls) == 1
+    now[0] += 120
+    requests = FakeRequests(http_envelope(comment(plan), status=201), http_envelope(comment(plan)))
+    assert comments.deliver_comment(plan, journal=journal, transport=client(requests, budget=reopen()))["status"] == "verified"
+
+
+def test_successful_last_slot_preserves_post_id_before_cooldown(plan, retained_budget):
+    journal, now, reopen = retained_budget
+    response = http_envelope(comment(plan), status=201)
+    response["rate"].update(remaining="0", reset="1120")
+    requests = FakeRequests(response)
+    result = comments.deliver_comment(plan, journal=journal, transport=client(requests, budget=reopen()))
+    assert result["status"] == "stopped"
+    assert journal.has_claim(plan) and json.loads(journal.observation(plan))["commentId"] == 101
+    assert journal.receipt(plan) is None and len(requests.calls) == 1
+    now[0] = 1121
+    requests = FakeRequests(http_envelope(comment(plan)))
+    result = comments.deliver_comment(plan, journal=journal, transport=client(requests, budget=reopen()))
+    assert result["status"] == "verified"
+    assert [call["method"] for call in requests.calls] == ["GET"]
+
+
+def test_guarded_acknowledgement_changes_only_rate_logs_not_notice_receipts(plan, retained_budget):
+    journal, now, reopen = retained_budget
+    requests = FakeRequests(http_envelope(comment(plan), status=201), http_envelope(comment(plan)))
+    sent = comments.deliver_comment(plan, journal=journal, transport=client(requests, budget=reopen()))
+    before = {path.name: path.read_bytes() for path in journal.path.glob("*.json")}
+    result = comments.verify_recorded_comment(plan, journal=journal,
+        transport=client(FakeRequests(http_envelope(comment(plan))), budget=reopen()),
+        expected_receipt_sha256=sent["receiptSha256"])
+    assert result["status"] == "verified"
+    assert before == {path.name: path.read_bytes() for path in journal.path.glob("*.json")}
+    assert len(list((journal.path / "github-requests").glob("*.result.json"))) == 3
+
+
+def test_header_cooldown_is_returned_without_reading_a_stalled_error_body():
+    response = FakeResponse(OSError("body must never be read"), status=429,
+                            headers={"Retry-After": "120", "X-RateLimit-Remaining": "0", "X-RateLimit-Reset": "2000"})
+    connection = FakeConnection(response)
+    result = github._http(request_input(), connection.factory)
+    assert result["rate"] == {"status": 429, "retryAfter": "120", "remaining": "0", "reset": "2000"}
+    assert response.read_sizes == [] and connection.closed == 1
+
+
+def test_guarded_post_cannot_skip_journal_claim(plan, retained_budget):
+    _, _, reopen = retained_budget
+    requests = FakeRequests()
+    with pytest.raises(DeliveryError, match="STOP_GITHUB_CLAIM_REQUIRED"):
+        client(requests, budget=reopen()).create(plan)
+    assert not requests.calls
+
+
+def test_slow_notice_persistence_cannot_dispatch_past_deadline(plan, retained_budget, monkeypatch):
+    journal, now, reopen = retained_budget
+    budget = reopen()
+    claim = journal.claim
+
+    def slow_claim(current):
+        result = claim(current)
+        now[0] += 301
+        return result
+
+    monkeypatch.setattr(journal, "claim", slow_claim)
+    requests = FakeRequests()
+    result = comments.deliver_comment(plan, journal=journal, transport=client(requests, budget=budget))
+    assert result["status"] == "stopped" and requests.calls == []
+    assert journal.has_claim(plan)
+    with pytest.raises(DeliveryError, match="STOP_GITHUB_REQUEST_UNRESOLVED"):
+        reopen()
 
 
 @pytest.mark.parametrize("failure_kind", ["timeout", "oserror", "valueerror", "recursion"])

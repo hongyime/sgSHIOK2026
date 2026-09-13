@@ -3849,3 +3849,34 @@ remote authorship again, authenticated storage, recursive ancestry, newest-state
 selection or rollback protection. A report hash or comment ID alone is not delivery
 proof. Hosted persistence and run-wide delivery pacing/cooldowns still need work;
 no scheduler, notification, reporting service or production release was activated.
+
+## 2026-09-13: Persist notice request admission without pretending maintenance is active
+
+All production GitHub notice IO must use one retained, pinned local request ledger
+inside the comment journal. Explicit initialization is separate from opening;
+absence, corruption, gaps or incomplete request/result pairs never authorize
+bootstrap or retry. Reserve exclusively before IO, publish a create-only result
+afterwards, retain sanitized cooldown deadlines and link records by byte hash.
+Unknown outcomes block later IO, including in the same process. This preserves
+uncertainty, not remote headers or outcomes that were never received. Operator
+recovery and durable hosting still need a reviewed operational implementation.
+
+The local batch cap is24requests/300seconds per shared object, with ten seconds
+reserved for the next worker. Space requests one second after completion, using
+monotonic time within a process and retained UTC deadlines on reopening. Stop
+rather than sleep through long cooldowns. A successful POST that exhausts the
+quota still retains its returned ID; postpone its verifying GET. Admit a new
+notice request before claiming the notice, then claim before POST, so a known
+local cooldown does not strand an unsent notice. No automatic POST retries.
+
+These guarantees cover participating callers using the same intact journal, not
+every use of a GitHub account, other hosts, a rolled-back directory or distributed
+locks. A new object resets the run cap, not stored cooldowns; retaining/pinning one
+authoritative store is mandatory. At4096requests, stop for capacity review rather
+than prune history. Existing local-file trust assumptions remain unchanged.
+
+Acknowledgement is GET-only with respect to GitHub and preserves prior notice and
+source evidence, but now appends separate request-budget records. Do not describe
+it as filesystem-read-only. No scheduler, account, issue or notice is activated by
+this change. Fixture tests cannot substitute for an observed scheduled delivery,
+an approved destination or physical-device/resident acceptance.

@@ -358,6 +358,23 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 
 ### [ ] T23: Establish a bounded metadata-check routine
 
+- Current continuation2026-09-13: production GitHub requests now require an
+  explicitly initialized, pinned local request ledger. Request admission is
+  bounded to24calls/300seconds per shared run object, serial with one second
+  after completion. Cooldowns survive reopening; unknown outcomes and incomplete
+  durable writes block subsequent IO, never automatic repair/retry. Fresh notice
+  admission precedes its claim, fixing unsent notices consumed by cooldowns.
+  Successful last-slot POST ids remain recoverable after the wait. GET-only
+  acknowledgement preserves notice/source evidence but appends rate records.
+  This is participating-caller coordination, not credential-wide/distributed
+  rate limiting. Final955focused tests pass (916existing +28budget +11integration).
+  Independent review exposed transport bypass, post-persistence deadline and
+  malformed-date defects; all corrected and narrowly re-reviewed. No new live
+  check or notice. Evidence: `qa/revamp-r1/notice-pacing-20260913/summary-final.json`.
+  Remaining activation work: approved destination/cadence/credentials, durable
+  authoritative store and backups, operator recovery, scheduler/runner bridge
+  for the current Windows/source-anchor contract, then a real observed run.
+
 - Checkpoint2026-09-13: immutable acknowledgement integration is implemented and
   locally verified. Existing pinned receipts are GET-verified against their
   original monitor identity and a still-pending current notice. New state/report

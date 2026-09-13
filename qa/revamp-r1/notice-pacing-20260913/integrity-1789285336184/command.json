@@ -1,0 +1,24 @@
+{
+  "command": [
+    "python",
+    "-B",
+    "scripts/check_repo_integrity.py"
+  ],
+  "cwd": "C:\\sgSHIOK2026",
+  "elapsedMs": 328,
+  "status": 0,
+  "stdout": "repo_integrity=ok\r\n",
+  "stderr": "",
+  "sourceHashes": {
+    "scripts/acknowledge_source_notices.py": "a873741a7d6021c74af58240f80b24dfd3677c1cb50f567ea1ee7dfdd3d1c854",
+    "scripts/source_metadata_comments.py": "d63b87bffafe0447da786155534374c4c90e883be733dba80512d84f14d7182a",
+    "scripts/source_metadata_github.py": "e010a9ebe741c9d40445885dbbe53e1e52c0471aa9f663f759d63a57558286a2",
+    "scripts/source_metadata_request_budget.py": "f0ea6460b71ce61a58eb7839cbbe813fd203140000cca287d32a316f0c69655a",
+    "README.md": "eab8083025e85ba932dd984ba5af49a1d131ac300cd4ea7f2535750be8bbea66",
+    "tests/test_source_metadata_github.py": "8c6321c558e2f22698e5dc555270888f47b09b3f2a261fa504f02c329a1cc324",
+    "tests/test_source_metadata_request_budget.py": "883ed195a1981311782bf0b1bd32792e06b2d9bedc9ab873626ad60a1d2ee7ae",
+    "tests/test_source_metadata_comments.py": "324fb6bb72fdd9bc15f8b4a4e475f2105c076619d6ceea12fb99b2220b34b87c",
+    "tests/test_source_metadata_acknowledgement.py": "968f06d88e9c974296ad9f4b3cd1f44d7571b06f5f2e3ac6be325ef3a72e1430"
+  },
+  "scope": "Synthetic responses and clocks; real temporary journals. No live notices, source checks, pipeline, frontend build or deployment."
+}

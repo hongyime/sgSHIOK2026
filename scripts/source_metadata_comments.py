@@ -164,6 +164,17 @@ class LocalCommentJournal:
             raise DeliveryError("STOP_ORPHAN_JOURNAL_ENTRY")
         return _publish(intent_path, plan.intent)
 
+    def has_claim(self, plan: CommentPlan) -> bool:
+        """Inspect before admission; never reserve a notice merely to check limits."""
+        saved = _read(self._path(plan, "intent"))
+        if saved is None:
+            if self.receipt(plan) is not None or self.observation(plan) is not None:
+                raise DeliveryError("STOP_ORPHAN_JOURNAL_ENTRY")
+            return False
+        if saved != plan.intent:
+            raise DeliveryError("STOP_JOURNAL_CONFLICT")
+        return True
+
     def require_claim(self, plan: CommentPlan) -> None:
         """Read-only validation: acknowledgement must never create a missing intent."""
         if _read(self._path(plan, "intent")) != plan.intent:
@@ -227,7 +238,8 @@ def verify_recorded_comment(plan: CommentPlan, *, journal: LocalCommentJournal,
     """Read only: a pinned existing receipt and exact authenticated GET, never POST.
 
     This is the acknowledgement/checkpoint path. It does not claim, reconcile an
-    unknown outcome, publish a receipt, or change any journal/monitor file.
+    unknown outcome or change notice evidence. A production transport separately
+    persists request-budget records; GET-only does not mean filesystem-read-only.
     """
     stage = "invalid_receipt_pin"
     try:
@@ -271,7 +283,9 @@ def deliver_comment(plan: CommentPlan, *, journal: LocalCommentJournal,
     try:
         _validate_plan(plan)
         stage = "journal_claim_failed"
-        fresh = journal.claim(plan)
+        admitted_create = getattr(transport, "create_once", None)
+        deferred_claim = callable(admitted_create) and not journal.has_claim(plan)
+        fresh = True if deferred_claim else journal.claim(plan)
         stage = "journal_receipt_failed"
         saved = journal.receipt(plan)
         observed = journal.observation(plan)
@@ -297,7 +311,7 @@ def deliver_comment(plan: CommentPlan, *, journal: LocalCommentJournal,
             comment_id = observed_id
         elif fresh:
             stage = "post_outcome_uncertain"
-            comment_id = _comment(transport.create(plan), plan)
+            comment_id = _comment(admitted_create(plan, journal) if deferred_claim else transport.create(plan), plan)
             stage = "post_observation_failed"
             journal.observe(plan, comment_id)
         else:
