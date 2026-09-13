@@ -1,0 +1,44 @@
+{
+  "scope": "New append-only metadata notice client, local journal, synthetic tests; not an activated service",
+  "apiReviewerAndTestAuthor": {
+    "agentId": "01a09954-e5ab-79e1-954f-a78ebfeeb62a",
+    "writeScope": ["tests/test_source_metadata_github.py"],
+    "cases": 278,
+    "sha256": "3f7795b0ed02be33deafb140be344d00b4cd1dd5dabcf38a52abeccd4c223881",
+    "initialRegressions": ["read must reject a different comment ID", "later last-page link without next must not prove completion"],
+    "final": "No pending issues within this test scope. Mocked subprocess tests do not establish real timeout enforcement."
+  },
+  "independentReviewer": {
+    "agentId": "01a0995d-8884-7832-bb10-053b8d3fe6fd",
+    "writeScope": [],
+    "initialFindings": [
+      "Offset pagination can skip one duplicate notice after deletion of an unrelated earlier comment, falsely permitting acknowledgement.",
+      "Claiming before orphan-receipt detection recreated the missing intent, making the second retry succeed.",
+      "Pathname checks are not a handle-based sandbox against concurrent directory-to-junction substitution.",
+      "Contradictory pagination metadata could be accepted as completion.",
+      "Adapter read did not validate the requested comment ID; the core still rejected the mismatch."
+    ],
+    "disposition": [
+      "Automatic unknown-ID reconciliation now requires one complete page; any next page stops without a second GET.",
+      "Orphan receipt or POST observation is rejected before intent creation, on every attempt.",
+      "Trusted stable ancestors are an explicit local-storage assumption; no hostile directory substitution was tested or performed.",
+      "Contradictory next/last/first/previous links are rejected.",
+      "Requested comment ID is validated in the adapter and core."
+    ],
+    "final": "No remaining concrete protocol defect found in the latest reviewed source, including posted.json.",
+    "probes": [
+      "Validated POST IDs persist before GET; restart uses exact-ID GET without POST or LIST.",
+      "Observations alone never acknowledge.",
+      "Corrupt observations, conflicting receipt IDs and orphan entries stop without mutation or network activity.",
+      "Incomplete pagination stops after one GET; contradictory links and wrong response IDs are rejected."
+    ],
+    "limits": "In-memory review probes only. No filesystem writes, directory substitutions, network requests or full-suite run by this reviewer. Retained journal/pins, stable trusted ancestors, operator reconciliation and live worker/provider acceptance remain activation constraints."
+  },
+  "sources": [
+    "https://docs.github.com/en/rest/issues/comments",
+    "https://docs.github.com/en/rest/using-the-rest-api/using-pagination-in-the-rest-api",
+    "https://docs.github.com/en/rest/using-the-rest-api/best-practices-for-using-the-rest-api",
+    "https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/best-practices-for-creating-an-oauth-app#use-the-durable-unique-id-to-store-the-user",
+    "https://docs.github.com/en/rest/about-the-rest-api/api-versions"
+  ]
+}

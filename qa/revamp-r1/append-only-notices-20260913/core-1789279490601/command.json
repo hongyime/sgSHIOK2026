@@ -1,0 +1,28 @@
+{
+  "command": [
+    "python",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_source_metadata_comments.py",
+    "--noconftest",
+    "-p",
+    "no:cacheprovider",
+    "-o",
+    "addopts=",
+    "--basetemp=C:\\sgSHIOK2026\\tmp\\notice-tests-1789279490602\\fixtures",
+    "--junitxml=C:\\sgSHIOK2026\\qa\\revamp-r1\\append-only-notices-20260913\\core-1789279490601\\junit.xml"
+  ],
+  "cwd": "C:\\sgSHIOK2026",
+  "elapsedMs": 4086,
+  "status": 0,
+  "stdout": ".......................................................                  [100%]\r\n55 passed in 2.51s\r\n",
+  "stderr": "",
+  "sourceHashes": {
+    "scripts/source_metadata_comments.py": "25963aec4d4948fa8cc6cee1b9c4b6197f4a2bf2c8673cdd9fb1286b0b79adbb",
+    "scripts/source_metadata_github.py": "19c3dfed3086dff7d9ef479e9284631880c11c0393ed82a480c868620881b20f",
+    "tests/test_source_metadata_comments.py": "2b8458f01fd5a587e16927b012dd064931f0c65d61bad9f60f503f791f8bce7a"
+  },
+  "scope": "Local file-journal fixtures and synthetic HTTP/subprocess. No external mutation, scheduler or pipeline."
+}

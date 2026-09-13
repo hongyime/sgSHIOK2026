@@ -5020,3 +5020,69 @@ Both assertions were added. checks-full-1789278073268 is the final web receipt:
 1916passed/71files plus42dependency guards,exit0. The earlier full pass is retained
 as pre-strengthening evidence, not substituted for this result. Constructor tests
 verify post-load configuration; they do not independently prove attachment timing.
+
+## 2026-09-13: Append-only maintenance delivery continuation
+
+Root C:\sgSHIOK2026; host Prawn-E14. Base73935b2. No X access, installations,
+scoring, export, rescore, subset run, ingest, network build or input repair.
+No reporting account, GitHub notice, workflow/schedule or deployment was activated.
+Scoped receipts: qa/revamp-r1/append-only-notices-20260913/.
+
+Implementation: source_metadata_comments.py uses an explicit uniquely pinned local
+journal. Exclusive intent creation, fsync and byte readback precede the sole POST.
+Received IDs are saved as unverified observations before exact authenticated GET.
+Only a validated comment and create-only receipt readback authorize acknowledgement.
+The GitHub adapter permits comment POST/GET, not issue PATCH, redirects or retries.
+The old fake-CAS contract remains historical, not a GitHub activation route.
+
+Executed checks:
+- core-1789279444689:54passed,2errors. One oversized generated test ID exceeded
+  Windows'32767character environment-variable limit during setup/teardown. The raw
+  receipt is retained; this is not a product regression or accepted red proof.
+- core-1789279490601:55passed after naming that parameter explicitly.
+- focused-1789279774791:310passed,2failed. Independent adapter regressions exposed
+  wrong-comment-ID acceptance and contradictory last-page completion metadata.
+  The core had already rejected wrong IDs; adapter-contract enforcement was missing.
+- core-1789280033749:65passed after review repairs and known-ID recovery coverage.
+- all-1789280070755:719passed in16.61s,exit0. Arithmetic:
+  80CLI +31catalog +76HTTP +85state +96historical-delivery +8README =376existing;
+  376 +65journal/recovery +278GitHub-adapter =719tests across8files.
+- integrity-1789280135410:repo_integrity=ok,exit0.
+
+Two peers reviewed disjoint scopes. The API reviewer authored the278adapter cases;
+the independent reviewer used in-memory reproducers and found no remaining concrete
+protocol defect after correction. review.json records findings and limits. Local
+file-journal fixtures are real; HTTP and subprocess tests are synthetic. No real
+worker stall/deadline, external comment or hosted persistence result is claimed.
+
+The prior1916web tests/71files,42dependency guards and80browser checks/16captures
+are retained results, not rerun here. No frontend runtime changed. Preview4412
+still identifies buildT2PK7uLhsuXtK2oAxtakU. postplan.html and PRODUCT-PLAN now show
+the local implementation and the remaining activation/integration/device gates.
+
+FINDINGS
+1. Append-only delivery removes the unsupported GitHub issue-edit CAS assumption.
+   Retained intents prevent an automatic second POST after timeout or interruption.
+2. Review reproduced a false uniqueness conclusion when offset pagination skipped
+   an existing duplicate during deletion of an unrelated earlier comment. Unknown
+   POST recovery now accepts only one complete page; pagination requires an operator.
+   Known returned IDs use direct GET and do not depend on the issue's comment count.
+3. Orphan receipts previously recreated missing intents, erasing the incident on
+   retry. Orphan receipts/observations now stop before creation on every attempt.
+   Contradictory pagination and wrong-ID adapter acceptance were also corrected.
+4. Real reporting, hosted maintenance state, run-wide pacing/cooldowns, immutable
+   monitor acknowledgement integration, observed scheduled delivery, physical-device
+   acceptance and release approval remain open. Local checks do not complete them.
+
+DISAGREEMENTS
+1. At-most-once automatic attempts with retained local history are not exactly-once
+   delivery, rollback-proof storage or power-loss durability. Do not deploy with an
+   ephemeral journal or repair missing history by reinitializing it.
+2. Existing-link checks are not a filesystem sandbox against a hostile concurrent
+   directory-to-junction substitution. The local implementation assumes trusted,
+   stable ancestors. No such substitution or out-of-root write was performed.
+
+Final frozen-source follow-up: all-1789280648424 is the final combined receipt,
+719passed in17.12s,exit0. It pins both new modules, the historical delivery module,
+README and all8test files. The earlier pass remains valid pre-final-doc evidence.
+No web/runtime/browser suite was repeated for this Python-only implementation.

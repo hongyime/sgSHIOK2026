@@ -362,9 +362,18 @@ No ticket is DONE merely because a document, mock, passing count or button exist
   preventing accidental reset of cooldown/notice history;376focused monitor/README
   tests pass. No real check or scheduler ran. Primary GitHub docs do not support
   the issue-PATCH atomic conditional update assumed by the injected delivery
-  contract. Next safe implementation: review an append-only notice/recovery
-  protocol with bounded ambiguous-write reconciliation, instead of pretending
-  GET/hash/PATCH is atomic. Activation approval and persistent state remain open.
+  contract. Append-only comment delivery and a concrete create-only local journal
+  are locally implemented; no issue body is edited. A send-intent is persisted
+  before POST, and an uncertain attempt permits read-only reconciliation, never
+  automatic resend.719focused tests pass:376existing +65journal/core +278adapter.
+  Review caught and fixed skipped duplicates across changing offset pages,
+  orphan-state repair, contradictory pagination and wrong-comment-ID acceptance.
+  Unknown POST recovery now needs one complete page (maximum100comments) or an
+  operator. Received IDs are retained unverified and can be read directly later.
+  This is not exactly-once delivery or a hostile-local-writer filesystem sandbox.
+  Activation approval, trusted hosted persistence, run-wide delivery pacing and
+  cooldowns, immutable monitor acknowledgement integration and a real scheduled
+  notice remain open. No issue/comment/workflow was created or enabled.
 
 - Checkpoint2026-09-13: pure notice planning/delivery orchestration with injected
   adapters implemented;96new +85state =181focused tests pass and independent

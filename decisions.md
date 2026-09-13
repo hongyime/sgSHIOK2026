@@ -3765,3 +3765,45 @@ This is not proof of site-wide non-exploitability or approval to retain affected
 code in a new release. No exploit was sent to production, no events were executed
 by the inert probe, and no deployment was approved by a passing security test.
 Source: https://github.com/maplibre/maplibre-gl-js/security/advisories/GHSA-jrc7-96c5-q579
+
+## 2026-09-13: Append maintenance notices without unsafe issue edits
+
+Replace the proposed GitHub issue-PATCH compare-and-swap adapter with append-only
+comments. The old abstract contract remains historical, not an activation path.
+Each immutable notice intent is claimed with exclusive file creation, synced and
+read back before its one automatic POST. A received comment ID is retained as
+unverified evidence; only an authenticated exact destination/author/body/ID GET
+and a create-only receipt readback authorize a delivery acknowledgement. This does
+not rewrite the hash-bound monitor state or make the scheduler operational.
+
+A timeout is not proof of rejection. Existing intents permit GET recovery only;
+no automatic resend, issue-body replacement or deletion is available. Pin numeric
+GitHub author identity separately from a login or installation ID. If the POST ID
+is unknown, require one complete list page of at most100comments with exactly one
+matching marker/body/author. A next-page link stops for operator review: offset
+pagination can skip an existing duplicate when unrelated comments are removed.
+Known IDs use direct GET, so most readback failures do not depend on issue size.
+Incomplete/contradictory pagination, duplicate/edited/forged comments, orphan
+receipts/observations or corrupt journal entries stop without acknowledgement.
+
+The claim is at-most-once automatic attempts while the same intact journal is
+retained, not exactly-once delivery, authenticated storage, distributed locking,
+rollback protection or power-loss durability. Journal initialization is explicit,
+has a unique identity pin, and is restricted to a designated local scratch-state
+directory. Ancestors must be trusted and stable; pre-open link checks do not defeat
+a concurrent local directory-to-junction substitution. Do not deploy this as an
+ephemeral Actions journal or treat deliberate reinitialization as recovery.
+
+The concrete HTTP adapter permits only bounded GitHub comment POST/GET operations,
+no redirects/retries, and isolated10second requests. Fixture tests exercise fake
+HTTP/subprocess boundaries and real local files, not a live request or a measured
+stalled-worker kill. Owner activation, trusted hosted persistence/backup pins,
+run-wide pacing/cooldowns, monitor acknowledgement integration and a real scheduled
+notice remain required. No issue, comment, secret, workflow or service was activated.
+
+Sources:
+- https://docs.github.com/en/rest/issues/comments
+- https://docs.github.com/en/rest/using-the-rest-api/using-pagination-in-the-rest-api
+- https://docs.github.com/en/rest/using-the-rest-api/best-practices-for-using-the-rest-api
+- https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/best-practices-for-creating-an-oauth-app#use-the-durable-unique-id-to-store-the-user
+- https://docs.github.com/en/rest/about-the-rest-api/api-versions

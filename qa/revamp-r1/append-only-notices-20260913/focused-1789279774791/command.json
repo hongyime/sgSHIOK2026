@@ -1,0 +1,30 @@
+{
+  "command": [
+    "python",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_source_metadata_comments.py",
+    "tests/test_source_metadata_github.py",
+    "--noconftest",
+    "-p",
+    "no:cacheprovider",
+    "-o",
+    "addopts=",
+    "--basetemp=C:\\sgSHIOK2026\\tmp\\notice-tests-1789279774792\\fixtures",
+    "--junitxml=C:\\sgSHIOK2026\\qa\\revamp-r1\\append-only-notices-20260913\\focused-1789279774791\\junit.xml"
+  ],
+  "cwd": "C:\\sgSHIOK2026",
+  "elapsedMs": 4544,
+  "status": 1,
+  "stdout": "........................................................................ [ 23%]\r\n........................................................................ [ 46%]\r\n.....................................................F.................. [ 69%]\r\n.....................F.................................................. [ 92%]\r\n........................                                                 [100%]\r\n================================== FAILURES ===================================\r\n________________ test_read_must_reject_a_different_comment_id _________________\r\n\r\nplan = CommentPlan(destination='synthetic-owner/synthetic-repo#17', author_id=12345, notice_id='synthetic_source:1:dddddddddd...\"noticeId\":\"synthetic_source:1:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd\",\"schemaVersion\":1}\\n')\r\n\r\n    def test_read_must_reject_a_different_comment_id(plan):\r\n        \"\"\"The transport promises a GET of the exact comment, not only its issue.\"\"\"\r\n        requests = FakeRequests(envelope(comment(plan, identifier=102)))\r\n>       with pytest.raises(DeliveryError):\r\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nE       Failed: DID NOT RAISE <class 'scripts.source_metadata_delivery.DeliveryError'>\r\n\r\ntests\\test_source_metadata_github.py:312: Failed\r\n_____ test_last_link_to_later_page_without_next_must_not_prove_completion _____\r\n\r\n    def test_last_link_to_later_page_without_next_must_not_prove_completion():\r\n        \"\"\"A contradictory Link header cannot turn an incomplete scan into absence.\"\"\"\r\n>       with pytest.raises(DeliveryError):\r\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nE       Failed: DID NOT RAISE <class 'scripts.source_metadata_delivery.DeliveryError'>\r\n\r\ntests\\test_source_metadata_github.py:372: Failed\r\n=========================== short test summary info ===========================\r\nFAILED tests/test_source_metadata_github.py::test_read_must_reject_a_different_comment_id\r\nFAILED tests/test_source_metadata_github.py::test_last_link_to_later_page_without_next_must_not_prove_completion\r\n2 failed, 310 passed in 3.28s\r\n",
+  "stderr": "",
+  "sourceHashes": {
+    "scripts/source_metadata_comments.py": "25963aec4d4948fa8cc6cee1b9c4b6197f4a2bf2c8673cdd9fb1286b0b79adbb",
+    "scripts/source_metadata_github.py": "19c3dfed3086dff7d9ef479e9284631880c11c0393ed82a480c868620881b20f",
+    "tests/test_source_metadata_comments.py": "2b8458f01fd5a587e16927b012dd064931f0c65d61bad9f60f503f791f8bce7a",
+    "tests/test_source_metadata_github.py": "5d4d018838bfcae352d3b3c198323fd660ab5ef0a19886b8083c263c502a991c"
+  },
+  "scope": "Local file-journal fixtures and synthetic HTTP/subprocess. No external mutation, scheduler or pipeline."
+}

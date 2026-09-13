@@ -1,0 +1,19 @@
+{
+  "command": [
+    "python",
+    "-B",
+    "scripts/check_repo_integrity.py"
+  ],
+  "cwd": "C:\\sgSHIOK2026",
+  "elapsedMs": 426,
+  "status": 0,
+  "stdout": "repo_integrity=ok\r\n",
+  "stderr": "",
+  "sourceHashes": {
+    "scripts/source_metadata_comments.py": "bd7a6660d3d3430e86f9424c69b0ddbe7df51a927f92f519e0bca0c8c1d1f94a",
+    "scripts/source_metadata_github.py": "8bbdf72ccb847dcfd7819138a8fcf504cf3d21852852b32a66462300646cf516",
+    "tests/test_source_metadata_comments.py": "04578655bb6ec7b63991017dff4c7589a2c120ab6b2c9090f98dac0b4f948b4e",
+    "tests/test_source_metadata_github.py": "3f7795b0ed02be33deafb140be344d00b4cd1dd5dabcf38a52abeccd4c223881"
+  },
+  "scope": "Local file-journal fixtures and synthetic HTTP/subprocess. No external mutation, scheduler or pipeline."
+}

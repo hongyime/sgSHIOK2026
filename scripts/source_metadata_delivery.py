@@ -1,4 +1,8 @@
-"""Bounded notice planning and injected delivery; no HTTP, filesystem IO or CLI.
+"""Historical abstract issue-replacement contract; not a GitHub activation path.
+
+source_metadata_comments and source_metadata_github implement the replacement
+append-only path. Keep these validation helpers and historical contract tests;
+do not wire IssueTransport.update to GitHub PATCH.
 
 Callers must first validate the monitor's immutable state/report pair. Only their
 hashes and allowlisted notice fields enter this module, never report bodies or

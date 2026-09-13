@@ -393,6 +393,39 @@ remain unverified in this inspection. Git auto-deploy is disabled in checked-in
 - Current MapLibre security disposition (T29), client upgrade acceptance and real
   immutable-stage acceptance precede release. No install, deployment or rollback ran in T24.
 
+### Append-Only Maintenance Notices (Not Activated)
+
+`scripts/source_metadata_comments.py` and `scripts/source_metadata_github.py`
+implement a locally testable issue-comment path, not a running notification service.
+They never edit the issue body. The old injected issue-replacement contract in
+`source_metadata_delivery.py` is historical and must not be adapted to GitHub PATCH.
+
+Before activation, approve the issue, separately pin the posting account's numeric
+user ID, provide repository-scoped credentials privately, and choose one authoritative
+persistent journal. Validate the monitor state/report pair before planning notices.
+The current local journal is restricted to a new directory beneath
+`tmp/source-notice-journals/`; initialization returns a unique identity hash that
+must be retained externally. Do not treat an ephemeral Actions checkout as persistence.
+Missing/corrupt history, a changed original plan or an uncertain POST stops delivery;
+never delete journal files, bootstrap again or automatically resend to repair it.
+
+One send-intent is exclusively created, synced and read back before its sole POST.
+Exact comment ID, destination, body and expected author must be read back before a
+create-only receipt authorizes acknowledgement. A received POST ID is retained as
+unverified evidence, so restart can GET that exact comment without scanning pages.
+If the POST response was lost, recovery uses one complete page of at most 100
+comments; a next-page link, absent, duplicated or conflicting evidence requires an
+operator. Offset pagination can skip duplicates during concurrent changes and is
+not a snapshot. Remote comments remain editable/deletable by authorized users.
+This is at-most-once automatic attempts with unresolved outcomes, not exactly-once
+delivery, a distributed lock, rollback defense or power-loss proof. Journal
+ancestors must be trusted and stable: link checks are not a sandbox against another
+local writer changing directories into junctions between validation and open.
+The API adapter
+uses one isolated 10-second request per operation with no redirects or retries.
+No monitor-state acknowledgement integration, hosted persistence, scheduler or live
+notice has been activated by these libraries.
+
 ### Free-Cap And Report Operations
 
 Before release, record the current account's plan, billing period, Edge Requests,
