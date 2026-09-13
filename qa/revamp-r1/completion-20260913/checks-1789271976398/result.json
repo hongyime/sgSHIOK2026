@@ -1,0 +1,23 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "--globals",
+    "--maxWorkers",
+    "1",
+    "--no-file-parallelism",
+    "--reporter=json",
+    "lib/__tests__/onemap-deadline.test.ts",
+    "lib/__tests__/onemap-api-security.test.ts"
+  ],
+  "cwd": "C:\\sgSHIOK2026\\web",
+  "exitCode": 0,
+  "elapsedMs": 4466,
+  "counts": {
+    "tests": 33,
+    "passed": 33,
+    "failed": 0
+  },
+  "failures": []
+}

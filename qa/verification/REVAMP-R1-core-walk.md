@@ -4748,3 +4748,15 @@ acceptance is claimed by this checkpoint. Other agent work remains uncommitted.
 1. No disagreement with completing the requested work. Physical-device acceptance,
    real durable report receipts and production approval must remain observed facts,
    not labels inferred from fixture success.
+
+### Server Deadline Review Follow-up
+
+Peer review identified a missed resource path: rejected authentication responses
+returned without cancelling their unread body. Added two reproducing tests and
+cancelled that body before the existing unauthenticated fallback. Cancellation is
+not awaited, so provider cleanup cannot extend the handler deadline.
+- completion-20260913/checks-1789271943248:26tests,24passed,2failed,exit1.
+- completion-20260913/checks-1789271976398:26deadline +7security =33passed,exit0.
+- completion-20260913/checks-1789272163642:installed TypeScript exit0.
+FINDING: this was a concrete omission in the first parent patch, not an upstream
+outage. It is fixed explicitly before browser/build acceptance. No pipeline or deployment.

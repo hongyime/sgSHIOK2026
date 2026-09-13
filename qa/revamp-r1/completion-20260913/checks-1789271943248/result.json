@@ -1,0 +1,35 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "--globals",
+    "--maxWorkers",
+    "1",
+    "--no-file-parallelism",
+    "--reporter=json",
+    "lib/__tests__/onemap-deadline.test.ts"
+  ],
+  "cwd": "C:\\sgSHIOK2026\\web",
+  "exitCode": 1,
+  "elapsedMs": 3503,
+  "counts": {
+    "tests": 26,
+    "passed": 24,
+    "failed": 2
+  },
+  "failures": [
+    {
+      "name": "OneMap 'route' total provider deadline cancels a rejected authentication body before unauthenticated fallback",
+      "messages": [
+        "AssertionError: expected \"vi.fn()\" to be called once, but got 0 times\n    at C:/sgSHIOK2026/web/lib/__tests__/onemap-deadline.test.ts:178:20\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    },
+    {
+      "name": "OneMap 'search' total provider deadline cancels a rejected authentication body before unauthenticated fallback",
+      "messages": [
+        "AssertionError: expected \"vi.fn()\" to be called once, but got 0 times\n    at C:/sgSHIOK2026/web/lib/__tests__/onemap-deadline.test.ts:178:20\n    at file:///C:/sgSHIOK2026/web/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20"
+      ]
+    }
+  ]
+}

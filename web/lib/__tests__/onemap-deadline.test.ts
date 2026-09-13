@@ -165,6 +165,20 @@ describe.each(handlers)("OneMap $name total provider deadline", ({ get, url, bod
     expect(vi.getTimerCount()).toBe(0);
   });
 
+  it("cancels a rejected authentication body before unauthenticated fallback", async () => {
+    vi.stubEnv("ONEMAP_EMAIL", "fixture@example.test");
+    vi.stubEnv("ONEMAP_PASSWORD", "fixture-only");
+    const cancel = vi.fn(() => new Promise<void>(() => {}));
+    vi.spyOn(console, "error").mockImplementation(() => {});
+    vi.stubGlobal("fetch", vi.fn()
+      .mockResolvedValueOnce({ ok: false, status: 503, body: { cancel } })
+      .mockResolvedValueOnce(Response.json(body)));
+    const response = await get(request(url));
+    expect(response.status).toBe(200);
+    expect(cancel).toHaveBeenCalledOnce();
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
   it("does not consume a late response or retry a late 401", async () => {
     const late = deferred<Response>();
     const fetchMock = vi.fn(() => late.promise);

@@ -106,6 +106,7 @@ export async function getOneMapToken(context: string, signal?: AbortSignal): Pro
     signal?.throwIfAborted();
 
     if (!res.ok) {
+      void res.body?.cancel().catch(() => {});
       console.error(`OneMap auth failed for ${context}:`, res.status);
       return null;
     }
