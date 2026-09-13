@@ -1,6 +1,30 @@
 import { cleanTransitPoiProperties, transitPoiLabelText, transitPoiPopupHtml } from "../transit-popup";
 
 describe("transit popup formatting", () => {
+  const fieldsByKind = {
+    bus_stop: ['name', 'code', 'road', 'services', 'service_nos', 'service_count',
+      'weekday_first_bus', 'weekday_last_bus', 'operators'],
+    mrt_station: ['name', 'exit_count', 'system', 'station_codes', 'lines', 'line'],
+    mrt_exit: ['name', 'station', 'exit', 'system', 'station_codes', 'lines', 'line'],
+  };
+  const hostileText = '<details open onload="1" ontoggle="2"><img src=x onerror="3"></details>&"\'';
+  for (const [kind, fields] of Object.entries(fieldsByKind)) {
+    it.each(fields)(`escapes ${kind}.%s independently, including fallback-only fields`, field => {
+      const html = transitPoiPopupHtml({ kind, name: 'Public stop', [field]: hostileText });
+      expect(html.toLowerCase()).toContain('&lt;details');
+      expect(html.toLowerCase()).toContain('&lt;img');
+      expect(html).toContain('&amp;&quot;\'');
+      expect(html.toLowerCase()).not.toMatch(/<(?:details|img|script)\b/);
+    });
+  }
+  it.each([
+    ['bus_stop', 'name'], ['bus_stop', 'code'], ['mrt_station', 'name'], ['mrt_exit', 'name'],
+  ])('escapes compact %s.%s without relying on MapLibre sanitization', (kind, field) => {
+    const html = transitPoiPopupHtml({ kind, name: 'Public stop', [field]: hostileText }, { compact: true });
+    expect(html.toLowerCase()).toContain('&lt;details');
+    expect(html).toContain('&amp;&quot;\'');
+    expect(html.toLowerCase()).not.toMatch(/<(?:details|img|script)\b/);
+  });
   it.each(['bus_stop', 'mrt_station', 'mrt_exit'])("escapes adjacent event attributes and markup in every %s text field", (kind) => {
     const payload = '<details open onload="1" ontoggle="alert(1)"><img src=x onerror="alert(2)"></details>';
     const fields = ['name', 'code', 'road', 'services', 'service_nos', 'service_count',

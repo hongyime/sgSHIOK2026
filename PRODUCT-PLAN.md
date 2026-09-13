@@ -9,9 +9,11 @@ live services. Reporting choices and weekly scheduler/issue approval are pending
 LOCALLY_VERIFIED: walk-only inspector. Two tabs (MRT/LRT exits, Bus stops), shortest
 usable saved walk selected automatically, no Suggested/comparison/About data,
 automatic zoom-bounded night lighting, bounded explicit preview recovery.
-Current QA: qa/revamp-r1/completion-20260913 and route-gap-20260913.
-Build T2PK7uLhsuXtK2oAxtakU: http://127.0.0.1:4412/. 1889/71 isolated web tests,
-42dependency guards,181focused Python tests, TypeScript/build/integrity pass.
+Current QA: qa/revamp-r1/release-runtime-20260913 and maintenance-continuity-20260913;
+prior UX acceptance: completion-20260913 and route-gap-20260913.
+Build T2PK7uLhsuXtK2oAxtakU: http://127.0.0.1:4412/. Current1916/71 isolated web
+tests and42dependency guards pass;376focused monitor/README tests pass. New web
+changes are tests only, not a rebuilt frontend. TypeScript/integrity checked separately.
 Browser3 passes80checks/16captures at4sizes. First attempt failed an offscreen
 disclosure target; second lacked the Enter character event. Both remain failed.
 Only browser3 is the completed current acceptance pass. Phone/representative speed,
@@ -356,6 +358,14 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 
 ### [ ] T23: Establish a bounded metadata-check routine
 
+- Continuation2026-09-13:8d055db requires explicit bootstrap or previous state,
+  preventing accidental reset of cooldown/notice history;376focused monitor/README
+  tests pass. No real check or scheduler ran. Primary GitHub docs do not support
+  the issue-PATCH atomic conditional update assumed by the injected delivery
+  contract. Next safe implementation: review an append-only notice/recovery
+  protocol with bounded ambiguous-write reconciliation, instead of pretending
+  GET/hash/PATCH is atomic. Activation approval and persistent state remain open.
+
 - Checkpoint2026-09-13: pure notice planning/delivery orchestration with injected
   adapters implemented;96new +85state =181focused tests pass and independent
   review found no blocking bug within that contract. No real GitHub CAS adapter,
@@ -483,6 +493,17 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: OWNER deployment approval. No export/rescore, existing payload overwrite or new provider implicit.
 
 ### [ ] T29: Resolve the MapLibre security advisory before deployment
+- Live-runtime finding2026-09-13:captured production HTML build
+  UzVn3WiWA2GW7dtvN27rN loads6.1.0 and is not local archived build
+  e8Hlhkml4c3i_uMGJdd3P. Their sanitizers retain adjacent dangerous attributes;
+  current6.4.1 strips them in12isolated DOM cases. Those passes deliberately
+  reproduce the old defect, not approve old code. Scoped independent review
+  finds no attacker-controlled attribution path or popup escaping bypass: maps
+  disable attribution control/use literal attribution; popups escape each text
+  insertion.27new regressions cover independent fields/fallbacks/compact mode and
+  the actual constructor/basemap boundary. No whole-site exploitability or actual
+  production-retention archive is established. Current patched runtime stays;
+  deployment/retention disposition still requires the exact release boundary.
 - Retained-client follow-up2026-09-12: current6.4.1 build plus explicitly pinned local A frontend passes retained-tab and subsequent B navigation in one cache-preserving run. Current-runtime compatibility is demonstrated; retaining A's6.1.0 assets in a real release still needs specific identity/security disposition. Do not conflate compatibility acceptance with security approval of old code. Evidence: qa/revamp-r1/retained-current-20260912/summary.json.
 - Current-build acceptance2026-09-12: resource gate cleared. Exact existing156-source build passes4viewports/20assertions,4loaded captures inspected and owned browser cleanup verified. Fresh isolated1785/65 plus42guard tests, TypeScript and integrity pass. Current browser runtime/Fetch checks53/53 with14visually reviewed captures; canceled tile command faults are joined by exact IDs, not ignored. This closes the four-viewport current-build slice, not retained-client/native-device/latency/release acceptance. See qa/revamp-r1/resume-20260912/summary.json.
 - Status: PARTIAL after owner approval on 2026-09-10. Exact-lock installation, matching versioned worker, 1785 isolated tests/65 files, TypeScript, build and package audit pass. Follow-up mobile observation renders correctly, but earlier stall and four-viewport/retained-client acceptance remain open. Size: S.

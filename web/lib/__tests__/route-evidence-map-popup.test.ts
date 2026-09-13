@@ -5,7 +5,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { transitPoiPopupHtml } from "../transit-popup";
 
 // Exercise the component's actual popup bindings with deterministic effects and
-// DOM/MapLibre doubles. Native disclosure keyboard behavior needs browser QA.
+// DOM/MapLibre doubles. Native HTML parsing and keyboard behavior need browser QA.
 const hooks = vi.hoisted(() => {
   let index = 0, dirty = false;
   const slots: any[] = [], effects: (() => void)[] = [];
@@ -38,9 +38,9 @@ const hooks = vi.hoisted(() => {
   };
 });
 vi.mock("react", async original => ({ ...await original<typeof import("react")>(), ...hooks }));
-const lib = vi.hoisted(() => ({ map: null as any, popups: [] as any[] }));
+const lib = vi.hoisted(() => ({ map: null as any, popups: [] as any[], mapOptions: [] as any[] }));
 vi.mock("maplibre-gl", () => ({
-  Map: class { constructor() { return lib.map; } },
+  Map: class { constructor(options: unknown) { lib.mapOptions.push(options); return lib.map; } },
   Popup: class {
     content?: ElementDouble;
     coordinates?: number[];
@@ -142,7 +142,7 @@ const bus = {
 };
 
 beforeEach(async () => {
-  vi.useFakeTimers(); hooks.reset(); lib.popups.length = 0;
+  vi.useFakeTimers(); hooks.reset(); lib.popups.length = 0; lib.mapOptions.length = 0;
   map = fakeMap(); lib.map = map;
   props = { routes: [], mode: "shortest", onSelectTransitStop: vi.fn() };
   vi.stubGlobal("window", { location: { search: "" }, matchMedia: () => ({ matches: true }) });
@@ -162,6 +162,20 @@ afterEach(() => {
 });
 
 describe("bounded transit map popups", () => {
+  it("constructs the map without dynamic attribution control or remote style metadata", () => {
+    expect(lib.mapOptions).toHaveLength(1);
+    const options = lib.mapOptions[0];
+    expect(options.attributionControl).toBe(false);
+    expect(options).not.toHaveProperty('customAttribution');
+    expect(typeof options.style).toBe('object');
+    expect(options.style.sources).toEqual({});
+    // Basemap attachment follows renderer startup; it does not load a remote style.
+    const basemap = map.getSource('onemap').spec;
+    expect(basemap.type).toBe('raster');
+    expect(basemap).not.toHaveProperty('url');
+    expect(basemap.tiles).toEqual(['https://www.onemap.gov.sg/maps/tiles/Grey_HD/{z}/{x}/{y}.png']);
+    expect(basemap.attribution).toBe('<img src="https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png" style="height:20px;width:20px;"/>&nbsp;<a href="https://www.onemap.gov.sg/" target="_blank" rel="noopener noreferrer">OneMap</a>&nbsp;&copy;&nbsp;contributors&nbsp;&#124;&nbsp;<a href="https://www.sla.gov.sg/" target="_blank" rel="noopener noreferrer">Singapore Land Authority</a>');
+  });
   it("shows only stop identity without service metadata or a second panel", () => {
     const content = clickPoi(bus);
     expect(content.innerHTML).toBe(transitPoiPopupHtml(bus, { compact: true }));
@@ -290,6 +304,7 @@ describe("bounded transit map popups", () => {
     clickPoi(bus);
     const attribution = tree.props.children[1];
     expect(attribution.props["data-map-overlay"]).toBe("bottom");
+    expect(attribution.props.dangerouslySetInnerHTML.__html).toBe(map.getSource('onemap').spec.attribution);
     expect(attribution.props.dangerouslySetInnerHTML.__html).toContain('href="https://www.onemap.gov.sg/"');
     expect(attribution.props.dangerouslySetInnerHTML.__html).toContain('href="https://www.sla.gov.sg/"');
     expect(attribution.props.dangerouslySetInnerHTML.__html).toContain("Singapore Land Authority");

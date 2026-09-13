@@ -3733,3 +3733,35 @@ it is not recovery from a missing or corrupt predecessor. Previously omitting
 exit-0 and exit-1 predecessor restoration remains unchanged. Explicit selection
 prevents accidental omission, not deliberate reset, predecessor rollback or loss
 of persistent storage. No scheduler, source check or notification was activated.
+
+## 2026-09-13: Do not assume atomic GitHub issue edits
+
+Primary GitHub REST guidance excludes conditional unsafe-method requests unless
+the endpoint specifically supports them; issue update documents no expected-body
+precondition. The injected `IssueTransport.update` CAS contract is therefore not
+a ready GitHub adapter. GET/hash/PATCH/readback can overwrite an intervening edit.
+Do not implement that sequence and label it atomic. Before activation, review an
+append-only notice protocol on the proposed persistent issue, with authenticated
+readback, durable receipt/state pins and bounded ambiguous-write reconciliation.
+Posting, schedule, account access and storage remain unactivated. Local fake-CAS
+tests prove the abstract contract only, not provider support or live delivery.
+Source: https://docs.github.com/en/rest/using-the-rest-api/best-practices-for-using-the-rest-api#use-conditional-requests-if-appropriate
+
+## 2026-09-13: Separate sanitizer defects from application exposure
+
+The observed production build UzVn3WiWA2GW7dtvN27rN still loads MapLibre6.1.0;
+it is not the e8Hlhkml4c3i_uMGJdd3P build in the local retained-tab test archive.
+Keep the patched6.4.1 runtime and versioned assets in current source. Do not
+hand-patch, overwrite or delete older files, or present the local archive as an
+actual production rollback/retention archive.
+
+Inert native-DOM probes reproduce adjacent-attribute survival in the old live and
+archived sanitizers; current6.4.1 removes it. Scoped review found no untrusted
+attribution reaching that sink: the reviewed maps disable attribution control and
+use literal attribution. Popup safety separately relies on per-field HTML text
+escaping, including aliases; `setDOMContent` does not sanitize a previously built
+innerHTML string. Preserve these boundaries with focused regression tests.
+This is not proof of site-wide non-exploitability or approval to retain affected
+code in a new release. No exploit was sent to production, no events were executed
+by the inert probe, and no deployment was approved by a passing security test.
+Source: https://github.com/maplibre/maplibre-gl-js/security/advisories/GHSA-jrc7-96c5-q579

@@ -1,0 +1,237 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "createdAt": "2026-09-13T05:16:16.491Z",
+  "advisory": "https://github.com/maplibre/maplibre-gl-js/security/advisories/GHSA-jrc7-96c5-q579",
+  "liveInputs": [
+    {
+      "url": "https://sgshiok.vercel.app/_next/static/immutable/chunks/2wzpamyc1af39.js",
+      "path": "tmp/release-runtime-20260913/live-app.js",
+      "status": 200,
+      "headers": {
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "public,max-age=31536000,immutable",
+        "content-disposition": "inline; filename=\"2wzpamyc1af39.js\"",
+        "content-encoding": "br",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Sun, 13 Sep 2026 05:08:44 GMT",
+        "etag": "W/\"_next/static/immutable/chunks/2wzpamyc1af39.js\"",
+        "last-modified": "Sun, 13 Sep 2026 05:08:44 GMT",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "transfer-encoding": "chunked",
+        "x-content-type-options": "nosniff",
+        "x-matched-path": "/_next/static/immutable/chunks/2wzpamyc1af39.js",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "x-vercel-cache": "MISS",
+        "x-vercel-id": "syd1:iad1::5bb72-1789276124265-4fd8eebcbe60"
+      },
+      "decodedCharacters": 272535,
+      "bytes": 272540,
+      "sha256": "87ee50d08e014fa3fc557d22369f100d93216d0cdaac6a34b032344110ae3324"
+    },
+    {
+      "url": "https://sgshiok.vercel.app/_next/static/immutable/chunks/2trqctpxw1eo0.js",
+      "path": "tmp/release-runtime-20260913/live-helper.js",
+      "status": 200,
+      "headers": {
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "public,max-age=31536000,immutable",
+        "content-disposition": "inline; filename=\"2trqctpxw1eo0.js\"",
+        "content-encoding": "br",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Sun, 13 Sep 2026 05:10:56 GMT",
+        "etag": "W/\"_next/static/immutable/chunks/2trqctpxw1eo0.js\"",
+        "last-modified": "Sun, 13 Sep 2026 05:10:56 GMT",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "transfer-encoding": "chunked",
+        "x-content-type-options": "nosniff",
+        "x-matched-path": "/_next/static/immutable/chunks/2trqctpxw1eo0.js",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "x-vercel-cache": "MISS",
+        "x-vercel-id": "syd1:iad1::vhvqm-1789276256272-f74aa562cada"
+      },
+      "decodedCharacters": 1248,
+      "bytes": 1248,
+      "sha256": "45448ab118ab4c800901e3361de1a93d5b89c9908ba3a9c34a2c5d3009736a6e"
+    },
+    {
+      "url": "https://sgshiok.vercel.app/_next/static/immutable/chunks/0nji_gvchad9e.js",
+      "path": "tmp/release-runtime-20260913/live-map.js",
+      "status": 200,
+      "headers": {
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "public,max-age=31536000,immutable",
+        "content-disposition": "inline; filename=\"0nji_gvchad9e.js\"",
+        "content-encoding": "br",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Sun, 13 Sep 2026 05:11:32 GMT",
+        "etag": "W/\"_next/static/immutable/chunks/0nji_gvchad9e.js\"",
+        "last-modified": "Sun, 13 Sep 2026 05:11:32 GMT",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "transfer-encoding": "chunked",
+        "x-content-type-options": "nosniff",
+        "x-matched-path": "/_next/static/immutable/chunks/0nji_gvchad9e.js",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "x-vercel-cache": "MISS",
+        "x-vercel-id": "syd1:iad1::xrc62-1789276292487-0c83b79dd05c"
+      },
+      "decodedCharacters": 36875,
+      "bytes": 36875,
+      "sha256": "2962225cc3d3592621f729677671bfbaffa9852b01188eaa407621b101522ccb"
+    },
+    {
+      "url": "https://sgshiok.vercel.app/_next/static/immutable/chunks/0jggz8zkp0-16.js",
+      "path": "tmp/release-runtime-20260913/live-vendor-wrapper.js",
+      "status": 200,
+      "headers": {
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "public,max-age=31536000,immutable",
+        "content-disposition": "inline; filename=\"0jggz8zkp0-16.js\"",
+        "content-encoding": "br",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Sun, 13 Sep 2026 05:12:25 GMT",
+        "etag": "W/\"_next/static/immutable/chunks/0jggz8zkp0-16.js\"",
+        "last-modified": "Sun, 13 Sep 2026 05:12:25 GMT",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "transfer-encoding": "chunked",
+        "x-content-type-options": "nosniff",
+        "x-matched-path": "/_next/static/immutable/chunks/0jggz8zkp0-16.js",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "x-vercel-cache": "MISS",
+        "x-vercel-id": "syd1:iad1::5jcf8-1789276344975-a6ce16310354"
+      },
+      "decodedCharacters": 963779,
+      "bytes": 964051,
+      "sha256": "73e3ff08c9b9b31d863d0ba36093d18a2a9945541f7273b96170f5c8b196b933"
+    },
+    {
+      "url": "https://sgshiok.vercel.app/_next/static/immutable/chunks/3_0v_2b8orlqe.js",
+      "path": "tmp/release-runtime-20260913/live-vendor.js",
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "public,max-age=31536000,immutable",
+        "content-disposition": "inline; filename=\"3_0v_2b8orlqe.js\"",
+        "content-length": "617",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "content-type": "application/javascript; charset=utf-8",
+        "date": "Sun, 13 Sep 2026 05:12:31 GMT",
+        "etag": "\"_next/static/immutable/chunks/3_0v_2b8orlqe.js\"",
+        "last-modified": "Sun, 13 Sep 2026 05:12:31 GMT",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "x-content-type-options": "nosniff",
+        "x-matched-path": "/_next/static/immutable/chunks/3_0v_2b8orlqe.js",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "x-vercel-cache": "MISS",
+        "x-vercel-id": "syd1:iad1::94mht-1789276351438-a1958e672e73"
+      },
+      "decodedCharacters": 617,
+      "bytes": 617,
+      "sha256": "60849e008c490af6f1c52d9dbb284c04dd17d1caafca38afd36a78bffddf6656"
+    }
+  ],
+  "liveBuildIdObserved": "UzVn3WiWA2GW7dtvN27rN",
+  "retainedManifest": {
+    "path": "tmp/completion-20260913-build-2/web/frontend-retention.json",
+    "sha256": "3857d143ec044900b9bf397b581759fa47719f602c3358e85ab81c9bb3660cbb",
+    "buildIds": [
+      "e8Hlhkml4c3i_uMGJdd3P"
+    ],
+    "files": 29,
+    "bytes": 5786770
+  },
+  "currentPackageVersion": "6.4.1",
+  "samples": [
+    {
+      "name": "live-map",
+      "sourceBytes": 36875,
+      "sourceSha256": "2962225cc3d3592621f729677671bfbaffa9852b01188eaa407621b101522ccb",
+      "versions": [],
+      "attributionControls": [
+        "!1"
+      ],
+      "sanitizers": []
+    },
+    {
+      "name": "live-vendor",
+      "sourceBytes": 964051,
+      "sourceSha256": "73e3ff08c9b9b31d863d0ba36093d18a2a9945541f7273b96170f5c8b196b933",
+      "versions": [
+        "6.1.0"
+      ],
+      "attributionControls": [
+        "_8"
+      ],
+      "sanitizers": [
+        {
+          "offset": 396243,
+          "className": "t",
+          "code": "class t {\nstatic sanitize(i){let r=new DOMParser().parseFromString(i,\"text/html\").body||document.createElement(\"body\");for(let t of r.querySelectorAll(\"script\"))t.remove();return t.clean(r),r.innerHTML}\nstatic isPossiblyDangerous(t,i){let r=i.replace(/\\s+/g,\"\").toLowerCase();if([\"src\",\"href\",\"xlink:href\"].includes(t)&&(r.includes(\"javascript:\")||r.includes(\"data:\"))||t.startsWith(\"on\"))return!0}\nstatic clean(i){for(let r of i.children)t.removeAttributes(r),t.clean(r)}\nstatic removeAttributes(i){for(let{name:r,value:a}of i.attributes)t.isPossiblyDangerous(r,a)&&i.removeAttribute(r)}\n}",
+          "sha256": "f364cd2e41bb21d165a4bb9e330287a8362b12ddc28cd81d82038d6a80d6267e",
+          "removalSource": "static removeAttributes(i){for(let{name:r,value:a}of i.attributes)t.isPossiblyDangerous(r,a)&&i.removeAttribute(r)}"
+        }
+      ]
+    },
+    {
+      "name": "retained-local-vendor",
+      "sourceBytes": 559120,
+      "sourceSha256": "1f714cf1df5c1aba7cdf8e1099cd8d2951b8fe888f3d99b2b35b9dd9c9b3e9ac",
+      "versions": [],
+      "attributionControls": [
+        "rp"
+      ],
+      "sanitizers": [
+        {
+          "offset": 3775,
+          "className": "e",
+          "code": "class e {\nstatic sanitize(t){let n=new DOMParser().parseFromString(t,`text/html`).body||document.createElement(`body`),r=n.querySelectorAll(`script`);for(let e of r)e.remove();return e.clean(n),n.innerHTML}\nstatic isPossiblyDangerous(e,t){let n=t.replace(/\\s+/g,``).toLowerCase();if([`src`,`href`,`xlink:href`].includes(e)&&(n.includes(`javascript:`)||n.includes(`data:`))||e.startsWith(`on`))return!0}\nstatic clean(t){let n=t.children;for(let t of n)e.removeAttributes(t),e.clean(t)}\nstatic removeAttributes(t){for(let{name:n,value:r}of t.attributes)e.isPossiblyDangerous(n,r)&&t.removeAttribute(n)}\n}",
+          "sha256": "ce21cd54513049f34921006973f6777204dd1bad83f68cbe0a5839997bf34888",
+          "removalSource": "static removeAttributes(t){for(let{name:n,value:r}of t.attributes)e.isPossiblyDangerous(n,r)&&t.removeAttribute(n)}"
+        }
+      ]
+    },
+    {
+      "name": "current-installed-vendor",
+      "sourceBytes": 567005,
+      "sourceSha256": "97e8b9a39ab8b823d6a0caf9c312237262bc9138a6162d9e29606f5f8d24127d",
+      "versions": [],
+      "attributionControls": [
+        "vp"
+      ],
+      "sanitizers": [
+        {
+          "offset": 3919,
+          "className": "e",
+          "code": "class e {\nstatic sanitize(t){let n=new DOMParser().parseFromString(t,`text/html`).body||document.createElement(`body`),r=n.querySelectorAll(`script`);for(let e of r)e.remove();return e.clean(n),n.innerHTML}\nstatic isPossiblyDangerous(e,t){let n=t.replace(/\\s+/g,``).toLowerCase();if([`src`,`href`,`xlink:href`].includes(e)&&(n.includes(`javascript:`)||n.includes(`data:`))||e.startsWith(`on`))return!0}\nstatic clean(t){let n=t.children;for(let t of n)e.removeAttributes(t),e.clean(t)}\nstatic removeAttributes(t){for(let{name:n,value:r}of Array.from(t.attributes))e.isPossiblyDangerous(n,r)&&t.removeAttribute(n)}\n}",
+          "sha256": "4d7e7b0e3375b528c8021732d25a3f56cec55da0d7998f804ea19461f4df312c",
+          "removalSource": "static removeAttributes(t){for(let{name:n,value:r}of Array.from(t.attributes))e.isPossiblyDangerous(n,r)&&t.removeAttribute(n)}"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Decoded frontend text hashes, not compressed wire hashes.",
+    "Static inspection and extracted sanitizer are not whole-application exploitability or deployment approval.",
+    "Local archived build is not the live production build. No payload or vendor file modified."
+  ]
+}

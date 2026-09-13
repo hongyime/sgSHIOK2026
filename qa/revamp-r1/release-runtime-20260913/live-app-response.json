@@ -1,0 +1,28 @@
+{
+  "url": "https://sgshiok.vercel.app/_next/static/immutable/chunks/2wzpamyc1af39.js",
+  "status": 200,
+  "headers": {
+    "access-control-allow-origin": "*",
+    "age": "0",
+    "cache-control": "public,max-age=31536000,immutable",
+    "content-disposition": "inline; filename=\"2wzpamyc1af39.js\"",
+    "content-encoding": "br",
+    "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+    "content-type": "application/javascript; charset=utf-8",
+    "date": "Sun, 13 Sep 2026 05:08:44 GMT",
+    "etag": "W/\"_next/static/immutable/chunks/2wzpamyc1af39.js\"",
+    "last-modified": "Sun, 13 Sep 2026 05:08:44 GMT",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "server": "Vercel",
+    "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+    "transfer-encoding": "chunked",
+    "x-content-type-options": "nosniff",
+    "x-matched-path": "/_next/static/immutable/chunks/2wzpamyc1af39.js",
+    "x-robots-tag": "noindex, nofollow, noarchive",
+    "x-vercel-cache": "MISS",
+    "x-vercel-id": "syd1:iad1::5bb72-1789276124265-4fd8eebcbe60"
+  },
+  "localDecodedBody": "tmp/release-runtime-20260913/live-app.js",
+  "characters": 272535,
+  "note": "Tool returned decoded text, not raw compressed transport bytes. Saved body newline may be supplied by apply_patch; identity must state that distinction."
+}

@@ -4931,3 +4931,92 @@ FINDINGS
 DISAGREEMENTS
 1. Requiring --bootstrap cannot prove it is truly the first run or prevent an
    operator deliberately selecting old state. Hosted persistence/recovery remains open.
+
+### Continuation 2026-09-13: Actual Live Runtime and Scoped Sanitizer Evidence
+
+Evidence: qa/revamp-r1/release-runtime-20260913/. No deployment or application
+runtime change. One captured production HTML response and five referenced JS
+responses were read; no data/input/provider-route requests were made by that audit.
+build-id-proof.json parses HTML with stdlib HTMLParser, inline JS literal AST with
+Acorn and the JSON Flight root:11scripts,1Flight payload,1root payload,
+field b =UzVn3WiWA2GW7dtvN27rN. This is not the local archived build
+e8Hlhkml4c3i_uMGJdd3P; local retained-tab acceptance does not pin production assets.
+All29local archive files still match their manifest:5,786,770bytes unchanged.
+
+runtime-analysis.json pins decoded-text hashes, not compressed transport bytes.
+The actual live vendor explicitly reports6.1.0 and contains the live-attributes
+removal loop. The installed6.4.1 distribution snapshots the attributes first.
+Original downloaded frontend bodies remain local under tmp; their public URLs,
+response metadata, decoded sizes/hashes and extracted methods are recorded.
+No downloaded vendor or existing archive file was modified.
+
+sanitizer-probe.json:12cases =4inputs x3implementations,17126ms,exit0,
+0observed instrumented-page requests,owned-browser cleanup verified. Both old
+implementations leave one dangerous attribute in each of3adjacency cases; current
+implementation leaves none. All3preserve the benign attribution case. Old-code
+PASS means the defect reproduced, not that old code passed a security gate.
+Only inert DOMParser output was inspected; no insertion, event execution or live
+exploit ran. The network observation does not cover every browser-process request.
+Browser plugin bootstrap failed os error3; the owned Chrome/CDP fallback is explicit.
+
+Independent read-only review matched all5decoded-body hashes and extracted
+sanitizers. Reviewed live/archived/current map paths disable attribution control,
+use literal OneMap attribution and direct raster tiles; no attacker-controlled
+attribution path was found. Old popup setHTML and current innerHTML/setDOMContent
+depend on application text escaping, not the library sanitizer. No per-field
+escaping bypass was found. This is scoped review, not site-wide non-exploitability,
+safe-retention approval or production rollback verification.
+
+27new regressions =22independent full-popup fields, including fallback-only aliases,
++4compact fields +1actual constructor/basemap contract. The first focused run was
+53pass/1fail: parent incorrectly expected the basemap in initial renderer sources.
+Current code attaches it after renderer load. The corrected test asserts both the
+empty renderer and actual literal raster source; it does not change runtime code.
+checks-focused-1789277553800:54passed. checks-full-1789277582573:1916passed in71files,
+0skips,42native dependency guards passed;1889 +27 =1916,71 +0 =71files.
+checks-types-1789277684746:installed TypeScript noEmit/incremental=false,exit0.
+No new full app build or viewport pass is claimed for these test-only changes;
+the runtime preview remains T2PK7uLhsuXtK2oAxtakU at127.0.0.1:4412.
+
+Inspection limitations preserved: initial guessed next.config/retention paths
+were absent; the actual config is next.config.js and retention is in the named QA
+snapshot. One Windows rg wildcard was invalid. Installed TypeScript7did not expose
+the assumed JS parser file; the existing Next Acorn parser was used instead. One
+ad-hoc AST inspection command had an extra brace; the committed parser script ran
+successfully. These are inspection failures, not application or input defects.
+
+FINDINGS
+1. The real live frontend and local compatibility archive are different builds.
+   Production still loads6.1.0; current source is patched to6.4.1. A commit label
+   or local A/B pass alone cannot establish production retention/rollback identity.
+2. The old sanitizer defect is reproduced, but no untrusted attribution route or
+   popup escaping bypass was found in the scoped reviewed application paths.
+3. Primary GitHub docs exclude conditional unsafe-method requests unless an
+   endpoint explicitly supports them. Issue update provides no expected-body CAS
+   guarantee. The current fake-CAS delivery contract cannot simply become a GitHub
+   GET/hash/PATCH adapter. Review an append-only delivery/recovery protocol next.
+4. Local tests do not activate reporting, persistence, scheduler or notification.
+   Owner policy/account/device and exact-release decisions remain open. No pipeline
+   runs, exports, input repairs, installations, X access or deployments this turn.
+
+DISAGREEMENTS
+1. A vulnerable dependency version is not by itself a demonstrated exploit path;
+   conversely, disabled attribution in reviewed code is not a universal safety proof.
+2. setDOMContent is not a sanitizer for HTML already assigned to innerHTML. Keep
+   the independent escaping regressions; do not claim the API change made it safe.
+3. A GitHub issue adapter cannot honestly claim the atomic update behavior assumed
+   by the synthetic provider. This is a correction to our proposed implementation,
+   not a new requirement imposed on the owner.
+
+Primary references:
+- https://github.com/maplibre/maplibre-gl-js/security/advisories/GHSA-jrc7-96c5-q579
+- https://docs.github.com/en/rest/using-the-rest-api/best-practices-for-using-the-rest-api#use-conditional-requests-if-appropriate
+- https://docs.github.com/en/rest/issues/issues#update-an-issue
+
+Final review follow-up: the peer identified two test false-pass gaps, not runtime
+defects. Reject a basemap url field (which could load TileJSON alongside tiles),
+and require the rendered attribution HTML to equal the already pinned literal.
+Both assertions were added. checks-full-1789278073268 is the final web receipt:
+1916passed/71files plus42dependency guards,exit0. The earlier full pass is retained
+as pre-strengthening evidence, not substituted for this result. Constructor tests
+verify post-load configuration; they do not independently prove attachment timing.

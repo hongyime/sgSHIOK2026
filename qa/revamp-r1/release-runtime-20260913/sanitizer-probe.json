@@ -1,0 +1,251 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "startedAt": "2026-09-13T05:18:16.407Z",
+  "profile": "C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-8cVKsF",
+  "browserFallback": "Browser plugin bootstrap failed os error3; owned Chrome/CDP on about:blank.",
+  "scope": "Extracted unmodified static sanitizer methods; inert DOMParser output only. No insertion, event execution, production browser or source/provider request.",
+  "checks": [
+    {
+      "name": "live-vendor/adjacent-event-attributes",
+      "expectedRemaining": 1,
+      "actualRemaining": 1,
+      "pass": true
+    },
+    {
+      "name": "live-vendor/attribution-details-shape",
+      "expectedRemaining": 1,
+      "actualRemaining": 1,
+      "pass": true
+    },
+    {
+      "name": "live-vendor/url-before-event",
+      "expectedRemaining": 1,
+      "actualRemaining": 1,
+      "pass": true
+    },
+    {
+      "name": "live-vendor/safe-attribution",
+      "expectedRemaining": 0,
+      "actualRemaining": 0,
+      "pass": true
+    },
+    {
+      "name": "retained-local-vendor/adjacent-event-attributes",
+      "expectedRemaining": 1,
+      "actualRemaining": 1,
+      "pass": true
+    },
+    {
+      "name": "retained-local-vendor/attribution-details-shape",
+      "expectedRemaining": 1,
+      "actualRemaining": 1,
+      "pass": true
+    },
+    {
+      "name": "retained-local-vendor/url-before-event",
+      "expectedRemaining": 1,
+      "actualRemaining": 1,
+      "pass": true
+    },
+    {
+      "name": "retained-local-vendor/safe-attribution",
+      "expectedRemaining": 0,
+      "actualRemaining": 0,
+      "pass": true
+    },
+    {
+      "name": "current-installed-vendor/adjacent-event-attributes",
+      "expectedRemaining": 0,
+      "actualRemaining": 0,
+      "pass": true
+    },
+    {
+      "name": "current-installed-vendor/attribution-details-shape",
+      "expectedRemaining": 0,
+      "actualRemaining": 0,
+      "pass": true
+    },
+    {
+      "name": "current-installed-vendor/url-before-event",
+      "expectedRemaining": 0,
+      "actualRemaining": 0,
+      "pass": true
+    },
+    {
+      "name": "current-installed-vendor/safe-attribution",
+      "expectedRemaining": 0,
+      "actualRemaining": 0,
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "network": [],
+  "sources": [
+    {
+      "name": "live-vendor",
+      "offset": 396243,
+      "className": "t",
+      "sha256": "f364cd2e41bb21d165a4bb9e330287a8362b12ddc28cd81d82038d6a80d6267e",
+      "removalSource": "static removeAttributes(i){for(let{name:r,value:a}of i.attributes)t.isPossiblyDangerous(r,a)&&i.removeAttribute(r)}"
+    },
+    {
+      "name": "retained-local-vendor",
+      "offset": 3775,
+      "className": "e",
+      "sha256": "ce21cd54513049f34921006973f6777204dd1bad83f68cbe0a5839997bf34888",
+      "removalSource": "static removeAttributes(t){for(let{name:n,value:r}of t.attributes)e.isPossiblyDangerous(n,r)&&t.removeAttribute(n)}"
+    },
+    {
+      "name": "current-installed-vendor",
+      "offset": 3919,
+      "className": "e",
+      "sha256": "4d7e7b0e3375b528c8021732d25a3f56cec55da0d7998f804ea19461f4df312c",
+      "removalSource": "static removeAttributes(t){for(let{name:n,value:r}of Array.from(t.attributes))e.isPossiblyDangerous(n,r)&&t.removeAttribute(n)}"
+    }
+  ],
+  "availableMiB": 3100.3125,
+  "pid": 13728,
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/152.0.7977.84",
+    "revision": "@4334922f44c77b1208072c4deac29db3af39bbea",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+    "jsVersion": "15.2.124.21"
+  },
+  "results": [
+    {
+      "name": "live-vendor",
+      "cases": [
+        {
+          "name": "adjacent-event-attributes",
+          "input": "<div onclick=\"1\" onmouseover=\"2\">walk</div>",
+          "output": "<div onmouseover=\"2\">walk</div>",
+          "dangerous": [
+            {
+              "tag": "DIV",
+              "name": "onmouseover",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "name": "attribution-details-shape",
+          "input": "<details open onload=\"1\" ontoggle=\"2\">walk</details>",
+          "output": "<details open=\"\" ontoggle=\"2\">walk</details>",
+          "dangerous": [
+            {
+              "tag": "DETAILS",
+              "name": "ontoggle",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "name": "url-before-event",
+          "input": "<a href=\"javascript:1\" onclick=\"2\">walk</a>",
+          "output": "<a onclick=\"2\">walk</a>",
+          "dangerous": [
+            {
+              "tag": "A",
+              "name": "onclick",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "name": "safe-attribution",
+          "input": "<a href=\"https://www.onemap.gov.sg/\">OneMap</a>",
+          "output": "<a href=\"https://www.onemap.gov.sg/\">OneMap</a>",
+          "dangerous": []
+        }
+      ]
+    },
+    {
+      "name": "retained-local-vendor",
+      "cases": [
+        {
+          "name": "adjacent-event-attributes",
+          "input": "<div onclick=\"1\" onmouseover=\"2\">walk</div>",
+          "output": "<div onmouseover=\"2\">walk</div>",
+          "dangerous": [
+            {
+              "tag": "DIV",
+              "name": "onmouseover",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "name": "attribution-details-shape",
+          "input": "<details open onload=\"1\" ontoggle=\"2\">walk</details>",
+          "output": "<details open=\"\" ontoggle=\"2\">walk</details>",
+          "dangerous": [
+            {
+              "tag": "DETAILS",
+              "name": "ontoggle",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "name": "url-before-event",
+          "input": "<a href=\"javascript:1\" onclick=\"2\">walk</a>",
+          "output": "<a onclick=\"2\">walk</a>",
+          "dangerous": [
+            {
+              "tag": "A",
+              "name": "onclick",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "name": "safe-attribution",
+          "input": "<a href=\"https://www.onemap.gov.sg/\">OneMap</a>",
+          "output": "<a href=\"https://www.onemap.gov.sg/\">OneMap</a>",
+          "dangerous": []
+        }
+      ]
+    },
+    {
+      "name": "current-installed-vendor",
+      "cases": [
+        {
+          "name": "adjacent-event-attributes",
+          "input": "<div onclick=\"1\" onmouseover=\"2\">walk</div>",
+          "output": "<div>walk</div>",
+          "dangerous": []
+        },
+        {
+          "name": "attribution-details-shape",
+          "input": "<details open onload=\"1\" ontoggle=\"2\">walk</details>",
+          "output": "<details open=\"\">walk</details>",
+          "dangerous": []
+        },
+        {
+          "name": "url-before-event",
+          "input": "<a href=\"javascript:1\" onclick=\"2\">walk</a>",
+          "output": "<a>walk</a>",
+          "dangerous": []
+        },
+        {
+          "name": "safe-attribution",
+          "input": "<a href=\"https://www.onemap.gov.sg/\">OneMap</a>",
+          "output": "<a href=\"https://www.onemap.gov.sg/\">OneMap</a>",
+          "dangerous": []
+        }
+      ]
+    }
+  ],
+  "pass": true,
+  "cleanup": {
+    "command": "$ErrorActionPreference='Stop'; $profile='C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-8cVKsF'; function Owned { @(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | Where-Object { $_.CommandLine -and $_.CommandLine.Contains($profile) }) }; $before=@(Owned | Select-Object ProcessId,Name,CommandLine); foreach($p in @(Owned)){ $live=Get-Process -Id $p.ProcessId -ErrorAction SilentlyContinue; if($live -and -not $live.HasExited){Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue} }; $until=[DateTime]::UtcNow.AddSeconds(20); do { $remaining=@(Owned | Where-Object { $p=Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue; $p -and -not $p.HasExited }); if($remaining.Count -eq 0){break}; Start-Sleep -Milliseconds 250 } while([DateTime]::UtcNow -lt $until); @{before=$before;remaining=@($remaining | Select-Object ProcessId,Name,CommandLine)} | ConvertTo-Json -Depth 4 -Compress",
+    "exitCode": 0,
+    "stdout": "{\"before\":[],\"remaining\":[]}\r\n",
+    "stderr": "",
+    "verified": true
+  },
+  "elapsedMs": 17126,
+  "completedAt": "2026-09-13T05:18:33.533Z"
+}

@@ -1,0 +1,10 @@
+{
+  "htmlSha256": "047fd04d4176fd3afa15c224d94312f048dda52561ab3e21e1386321be10f636",
+  "parser": "stdlib HTMLParser, Acorn literal AST and JSON Flight root; no script execution",
+  "scripts": 11,
+  "flightPayloads": 1,
+  "rootPayloads": 1,
+  "field": "b",
+  "buildId": "UzVn3WiWA2GW7dtvN27rN",
+  "limitation": "This pins the observed HTML build field, not all deployed files or its source commit."
+}

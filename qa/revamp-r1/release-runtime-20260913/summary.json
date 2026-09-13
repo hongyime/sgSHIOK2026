@@ -1,0 +1,271 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "createdAt": "2026-09-13T05:44:57.765Z",
+  "headBeforeFinalCommit": "8d055dbcdd71a011aa7825afb53d7c4fe0a734f3",
+  "tests": {
+    "web": {
+      "tests": 1916,
+      "files": 71,
+      "delta": "1889 +22 independent full fields +4 compact fields +1 constructor/source contract =1916",
+      "full": {
+        "path": "checks-full-1789278073268",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "web/scripts/test-without-production-data.mjs",
+          "--reporter=dot",
+          "--testTimeout=15000"
+        ],
+        "cwd": "C:\\sgSHIOK2026",
+        "status": 0,
+        "elapsedMs": 90707
+      }
+    },
+    "types": {
+      "path": "checks-types-1789278257950",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "web/node_modules/typescript/bin/tsc",
+        "--project",
+        "web/tsconfig.json",
+        "--noEmit",
+        "--incremental",
+        "false"
+      ],
+      "cwd": "C:\\sgSHIOK2026",
+      "status": 0,
+      "elapsedMs": 5049
+    },
+    "pythonFocused": {
+      "tests": 376,
+      "delta": "80 CLI +31 catalog +76 HTTP +85 state +96 delivery +8 README =376",
+      "receipt": "qa/revamp-r1/maintenance-continuity-20260913/final/command.json"
+    },
+    "dependencyGuards": 42,
+    "wholeProjectPythonSuite": false
+  },
+  "checks": [
+    {
+      "path": "checks-focused-1789277459660",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "--globals",
+        "--maxWorkers",
+        "1",
+        "--no-file-parallelism",
+        "--reporter=json",
+        "lib/__tests__/transit-popup.test.ts",
+        "lib/__tests__/route-evidence-map-popup.test.ts"
+      ],
+      "cwd": "C:\\sgSHIOK2026\\web",
+      "status": 1,
+      "elapsedMs": 3998,
+      "counts": {
+        "tests": 54,
+        "passed": 53,
+        "failed": 1
+      }
+    },
+    {
+      "path": "checks-focused-1789277553800",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "--globals",
+        "--maxWorkers",
+        "1",
+        "--no-file-parallelism",
+        "--reporter=json",
+        "lib/__tests__/transit-popup.test.ts",
+        "lib/__tests__/route-evidence-map-popup.test.ts"
+      ],
+      "cwd": "C:\\sgSHIOK2026\\web",
+      "status": 0,
+      "elapsedMs": 6981,
+      "counts": {
+        "tests": 54,
+        "passed": 54,
+        "failed": 0
+      }
+    },
+    {
+      "path": "checks-full-1789277582573",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "web/scripts/test-without-production-data.mjs",
+        "--reporter=dot",
+        "--testTimeout=15000"
+      ],
+      "cwd": "C:\\sgSHIOK2026",
+      "status": 0,
+      "elapsedMs": 67732
+    },
+    {
+      "path": "checks-full-1789278073268",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "web/scripts/test-without-production-data.mjs",
+        "--reporter=dot",
+        "--testTimeout=15000"
+      ],
+      "cwd": "C:\\sgSHIOK2026",
+      "status": 0,
+      "elapsedMs": 90707
+    },
+    {
+      "path": "checks-types-1789277684746",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "web/node_modules/typescript/bin/tsc",
+        "--project",
+        "web/tsconfig.json",
+        "--noEmit",
+        "--incremental",
+        "false"
+      ],
+      "cwd": "C:\\sgSHIOK2026",
+      "status": 0,
+      "elapsedMs": 7972
+    },
+    {
+      "path": "checks-types-1789278257950",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "web/node_modules/typescript/bin/tsc",
+        "--project",
+        "web/tsconfig.json",
+        "--noEmit",
+        "--incremental",
+        "false"
+      ],
+      "cwd": "C:\\sgSHIOK2026",
+      "status": 0,
+      "elapsedMs": 5049
+    }
+  ],
+  "browser": {
+    "newAppRun": false,
+    "previewBuild": "T2PK7uLhsuXtK2oAxtakU",
+    "previewSourceCount": 166,
+    "testOnlyChangesSinceBuild": [
+      "web/lib/__tests__/route-evidence-map-popup.test.ts",
+      "web/lib/__tests__/transit-popup.test.ts"
+    ],
+    "sanitizerCases": 12,
+    "observedInstrumentedPageRequests": 0,
+    "cleanupVerified": true,
+    "limits": "Inert DOMParser output only; no insertion/event execution or live exploit. Not whole browser-process network capture or application security approval."
+  },
+  "liveBuild": {
+    "htmlSha256": "047fd04d4176fd3afa15c224d94312f048dda52561ab3e21e1386321be10f636",
+    "parser": "stdlib HTMLParser, Acorn literal AST and JSON Flight root; no script execution",
+    "scripts": 11,
+    "flightPayloads": 1,
+    "rootPayloads": 1,
+    "field": "b",
+    "buildId": "UzVn3WiWA2GW7dtvN27rN",
+    "limitation": "This pins the observed HTML build field, not all deployed files or its source commit."
+  },
+  "review": {
+    "independent": "Einstein inspected compiled/live/current paths and source hashes; found no untrusted attribution sink path or popup escaping bypass in scoped paths.",
+    "followup": "Parent added independent fallback/compact field tests and constructor/source checks. Peer identified missing url exclusion and rendered HTML equality; both added before final full suite.",
+    "limits": "Peer read-only review did not rerun the parent test suite or approve deployment."
+  },
+  "anchors": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "bytes": 13626,
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "bytes": 1751005,
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "bytes": 5240179,
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "bytes": 5236013,
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "bytes": 39674,
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "bytes": 3538342,
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "bytes": 184,
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "bytes": 269,
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "bytes": 1189,
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "bytes": 145327,
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "bytes": 515583,
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "weightsSha256": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+  "evidenceAppendOnly": true,
+  "integrity": {
+    "stdout": "repo_integrity=ok\r\n",
+    "stderr": "",
+    "exitCode": 0
+  },
+  "checkIgnore": {
+    "stdout": "",
+    "stderr": "",
+    "exitCode": 1,
+    "tracked": true
+  },
+  "findings": [
+    "Monitor initialization now fails closed instead of silently losing cooldown/history continuity.",
+    "Actual production HTML and JS identify an older6.1.0 runtime; it is not the archived local compatibility build.",
+    "Old sanitizer defect reproduced; current patched code removes the tested attributes. Scoped reviewed app paths do not expose untrusted attribution.",
+    "GitHub issue PATCH does not document the abstract adapter CAS guarantee; delivery protocol needs provider-honest revision before activation."
+  ],
+  "disagreements": [
+    "Version presence is not proof of an exploitable application path; scoped absence is not universal safety.",
+    "setDOMContent does not sanitize prior innerHTML; application escaping remains required.",
+    "Fake conditional updates cannot establish actual GitHub atomicity or durable service delivery."
+  ],
+  "remaining": [
+    "Report account/privacy/moderator/backups and real service implementation.",
+    "Append-only maintenance notice/recovery protocol, persistence, approved schedule and actual delivery.",
+    "Actual production/rollback archive, retained-runtime disposition, quota and exact release/SW approval.",
+    "Physical phone and unaided resident acceptance."
+  ],
+  "pipelineRuns": 0,
+  "exports": 0,
+  "installs": 0,
+  "deployments": 0,
+  "protectedWrites": 0,
+  "xAccess": 0,
+  "goalComplete": false
+}

@@ -1,0 +1,160 @@
+{
+  "artifacts": [
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/.gitattributes",
+      "bytes": 165,
+      "sha256": "f515cb37d84667e2c514f91d62d6df8590a17e18bffbf7e87225b3a55c303ac2"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/analyze-runtime.cjs",
+      "bytes": 5451,
+      "sha256": "d0498e6c39f92d7af1de1aa8a1c40248ea9afc8d4dd4c0b78a7b87d399cca3ab"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/build-id-proof.json",
+      "bytes": 401,
+      "sha256": "b34d48a7409f16d5c54464b4d9933833217de6e32dfb8f47d7a630d9c20a0f2a"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/checks-focused-1789277459660/command.json",
+      "bytes": 448,
+      "sha256": "fc85d47c22c7c03727dc4b8da28cbfa36aec6619955aeee60b49633056468c23"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/checks-focused-1789277459660/stderr.txt",
+      "bytes": 375,
+      "sha256": "b4acd4f819050212c4fe3b3ed8416421330f7ff8c72cb9bb667c335f3e24a94e"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/checks-focused-1789277459660/stdout.txt",
+      "bytes": 19044,
+      "sha256": "fc589cf9ef2f6f682f94790f99104aaeda5ab5846bc765bcea589f0deb0e811f"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/checks-focused-1789277553800/command.json",
+      "bytes": 448,
+      "sha256": "0789680e23aa02b28e1b69dbebd79f4888ca2462925c8347ca7a5b956eb42f67"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/checks-focused-1789277553800/stderr.txt",
+      "bytes": 375,
+      "sha256": "b4acd4f819050212c4fe3b3ed8416421330f7ff8c72cb9bb667c335f3e24a94e"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/checks-focused-1789277553800/stdout.txt",
+      "bytes": 18140,
+      "sha256": "a4cf723eef6f1a0402cc5ac005265d7b75cc3b8223dd5f13a60f436ef8a922f2"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/checks-full-1789277582573/command.json",
+      "bytes": 231,
+      "sha256": "581985a2e8983c932758af14cdbdc9939dc87e279d1e2d6a48a7c5ada77b1304"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/checks-full-1789277582573/stderr.txt",
+      "bytes": 13788,
+      "sha256": "68fd56ddfafebabbc18c420b5bbae5985abfdefefbe522ae7f739314bf1ce724"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/checks-full-1789277582573/stdout.txt",
+      "bytes": 7494,
+      "sha256": "69d617e1ec12aa36264d6350fc15c693c09607805bf0dc78bd9153ca18c51494"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/checks-full-1789278073268/command.json",
+      "bytes": 231,
+      "sha256": "0b57d1b19be99decb2a51d7931d4e764c08463aa734c86d767574beff9875a73"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/checks-full-1789278073268/stderr.txt",
+      "bytes": 13788,
+      "sha256": "6b774941df3b2b3c8cdc909a8d8c99073eafd5a7a7eebcbe7e526e2bf5f8e881"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/checks-full-1789278073268/stdout.txt",
+      "bytes": 7533,
+      "sha256": "97d286dadd7fa387891ec671f7f290786908c5419b3eebe17904c84c9334d5e1"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/checks-types-1789277684746/command.json",
+      "bytes": 264,
+      "sha256": "708351d31f13bd0adb3f4047f9ad1e2cb2d74f7b3ae71a25a778d1da678211fb"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/checks-types-1789277684746/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/checks-types-1789277684746/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/checks-types-1789278257950/command.json",
+      "bytes": 264,
+      "sha256": "ae1c7da87fb2f7a650eb364571c89348a18092fa0da375394e635d96992c66ba"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/checks-types-1789278257950/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/checks-types-1789278257950/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/checks.mjs",
+      "bytes": 1709,
+      "sha256": "5b8c9a4552a8c22935108e238da01a294a3baa53ea23a118d80ecff9210e8b42"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/finalize.mjs",
+      "bytes": 7151,
+      "sha256": "8b01e9360f41be3a144dd72604cb204f1a9ae1de4834518ddea1438a8f7ec6eb"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/live-app-response.json",
+      "bytes": 1661,
+      "sha256": "7c7db8a9b0d0efdd4c3fd80680a86c29a8e5972013db5607846b2cf44a212b97"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/live-html.json",
+      "bytes": 16132,
+      "sha256": "5a927122b53fe50230e97a366c327c4d7ba6968e81c8ab2dc806284b1083894a"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/probe-sanitizer.mjs",
+      "bytes": 6007,
+      "sha256": "f08709f77565a29414bd9b4637a2f3bc36d4505aa765b4a93e8e691b87953b50"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/read-live-build.cjs",
+      "bytes": 2844,
+      "sha256": "788dae4765dca8de95946333f141fd5872055c14c15abbab23e88b1256232217"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/response-metadata.json",
+      "bytes": 8249,
+      "sha256": "35bb71b0de7e986df1165ddf5d2ef01e8fe99c1570ef9939c30a9759f1ee498e"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/runtime-analysis.json",
+      "bytes": 13378,
+      "sha256": "5c9f47dfa07bf8e4eaf0458b4dbadd7f5ece13e5ccfaf69db2743052365210a7"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/sanitizer-probe.json",
+      "bytes": 8452,
+      "sha256": "44a92ac38dc90d31790f57287c05b49ea3e95a4cd16fa14be2f66fcca7d55333"
+    },
+    {
+      "path": "qa/revamp-r1/release-runtime-20260913/summary.json",
+      "bytes": 9509,
+      "sha256": "046b8c3d80daa43f897ea2e9c700012a148e0621170fa7c3a82d9ae01d48b97a"
+    }
+  ],
+  "note": "Raw diagnostic bytes preserved by local .gitattributes; original vendor response bodies remain local/publicly URL-addressed, not republished as new vendor assets."
+}
