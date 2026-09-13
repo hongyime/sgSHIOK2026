@@ -1,0 +1,2377 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\keyboard-recovery-20260913\\baseline-CbZaYK",
+  "profile": "C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-Uz6SMw",
+  "origin": "http://127.0.0.1:4412",
+  "startedAt": "2026-09-13T08:08:10.804Z",
+  "checks": [
+    {
+      "name": "geometry completion preserves later keyboard focus",
+      "pass": true,
+      "detail": {
+        "laterFocus": {
+          "tag": "BUTTON",
+          "label": null,
+          "text": "Walk details",
+          "id": "",
+          "rect": {
+            "left": 21,
+            "right": 299,
+            "top": 375.78125,
+            "bottom": 419.78125
+          },
+          "visible": true,
+          "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956"
+        },
+        "settled": {
+          "tag": "BUTTON",
+          "label": null,
+          "text": "Walk details",
+          "id": "",
+          "rect": {
+            "left": 21,
+            "right": 299,
+            "top": 312.6875,
+            "bottom": 356.6875
+          },
+          "visible": true,
+          "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956"
+        }
+      }
+    },
+    {
+      "name": "real unsaved bus exists",
+      "pass": true,
+      "detail": "bus:09213"
+    },
+    {
+      "name": "unsaved marker unobscured",
+      "pass": true,
+      "detail": {
+        "x": 195.02742506693136,
+        "y": 601.9848306875847
+      }
+    },
+    {
+      "name": "preview failure preserves later keyboard focus",
+      "pass": true,
+      "detail": {
+        "previewLater": {
+          "tag": "BUTTON",
+          "label": null,
+          "text": "Back to saved walk",
+          "id": "",
+          "rect": {
+            "left": 23,
+            "right": 159,
+            "top": 158.78125,
+            "bottom": 202.78125
+          },
+          "visible": true,
+          "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956&transit=bus&stop=bus%3A09213"
+        },
+        "previewSettled": {
+          "tag": "BUTTON",
+          "label": null,
+          "text": "Back to saved walk",
+          "id": "",
+          "rect": {
+            "left": 132,
+            "right": 268,
+            "top": 158.78125,
+            "bottom": 202.78125
+          },
+          "visible": true,
+          "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956&transit=bus&stop=bus%3A09213"
+        }
+      }
+    },
+    {
+      "name": "back preserves saved geometry",
+      "pass": true
+    },
+    {
+      "name": "geometry-retry-pending focus continuity",
+      "pass": false,
+      "detail": {
+        "tag": "BODY",
+        "label": null,
+        "text": null,
+        "id": "",
+        "rect": {
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "bottom": 844
+        },
+        "visible": true,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956"
+      }
+    },
+    {
+      "name": "preview-retry-pending focus continuity",
+      "pass": false,
+      "detail": {
+        "tag": "BODY",
+        "label": null,
+        "text": null,
+        "id": "",
+        "rect": {
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "bottom": 844
+        },
+        "visible": true,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956&transit=bus&stop=bus%3A09213"
+      }
+    },
+    {
+      "name": "back-to-saved focus continuity",
+      "pass": false,
+      "detail": {
+        "tag": "BODY",
+        "label": null,
+        "text": null,
+        "id": "",
+        "rect": {
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "bottom": 844
+        },
+        "visible": true,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956"
+      }
+    },
+    {
+      "name": "all disappearing controls retain visible focus",
+      "pass": false,
+      "detail": [
+        {
+          "name": "geometry-retry-pending",
+          "pass": false,
+          "focus": {
+            "tag": "BODY",
+            "label": null,
+            "text": null,
+            "id": "",
+            "rect": {
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "bottom": 844
+            },
+            "visible": true,
+            "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956"
+          }
+        },
+        {
+          "name": "preview-retry-pending",
+          "pass": false,
+          "focus": {
+            "tag": "BODY",
+            "label": null,
+            "text": null,
+            "id": "",
+            "rect": {
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "bottom": 844
+            },
+            "visible": true,
+            "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956&transit=bus&stop=bus%3A09213"
+          }
+        },
+        {
+          "name": "back-to-saved",
+          "pass": false,
+          "focus": {
+            "tag": "BODY",
+            "label": null,
+            "text": null,
+            "id": "",
+            "rect": {
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "bottom": 844
+            },
+            "visible": true,
+            "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956"
+          }
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "denied": [],
+  "host": [
+    {
+      "at": 1789286891819,
+      "availableMiB": 2169.52734375,
+      "cpus": [
+        {
+          "user": 37720484,
+          "nice": 0,
+          "sys": 36017703,
+          "idle": 65985546,
+          "irq": 3234093
+        },
+        {
+          "user": 43472375,
+          "nice": 0,
+          "sys": 29566703,
+          "idle": 66684562,
+          "irq": 1347140
+        },
+        {
+          "user": 48483140,
+          "nice": 0,
+          "sys": 31414078,
+          "idle": 59826421,
+          "irq": 1288531
+        },
+        {
+          "user": 45225828,
+          "nice": 0,
+          "sys": 28627625,
+          "idle": 65870187,
+          "irq": 1072390
+        },
+        {
+          "user": 40488921,
+          "nice": 0,
+          "sys": 35380312,
+          "idle": 63854406,
+          "irq": 1589531
+        },
+        {
+          "user": 40293125,
+          "nice": 0,
+          "sys": 32343484,
+          "idle": 67087031,
+          "irq": 1334687
+        },
+        {
+          "user": 45022703,
+          "nice": 0,
+          "sys": 33154546,
+          "idle": 61546390,
+          "irq": 1208187
+        },
+        {
+          "user": 46489187,
+          "nice": 0,
+          "sys": 31626828,
+          "idle": 61607625,
+          "irq": 1067187
+        }
+      ]
+    },
+    {
+      "at": 1789286892831,
+      "availableMiB": 2116.7734375,
+      "cpus": [
+        {
+          "user": 37720781,
+          "nice": 0,
+          "sys": 36017796,
+          "idle": 65986171,
+          "irq": 3234109
+        },
+        {
+          "user": 43472703,
+          "nice": 0,
+          "sys": 29566875,
+          "idle": 66685078,
+          "irq": 1347140
+        },
+        {
+          "user": 48483781,
+          "nice": 0,
+          "sys": 31414171,
+          "idle": 59826703,
+          "irq": 1288546
+        },
+        {
+          "user": 45226125,
+          "nice": 0,
+          "sys": 28627734,
+          "idle": 65870796,
+          "irq": 1072406
+        },
+        {
+          "user": 40489187,
+          "nice": 0,
+          "sys": 35380468,
+          "idle": 63855000,
+          "irq": 1589546
+        },
+        {
+          "user": 40293406,
+          "nice": 0,
+          "sys": 32343546,
+          "idle": 67087703,
+          "irq": 1334687
+        },
+        {
+          "user": 45023015,
+          "nice": 0,
+          "sys": 33154671,
+          "idle": 61546968,
+          "irq": 1208187
+        },
+        {
+          "user": 46489640,
+          "nice": 0,
+          "sys": 31626937,
+          "idle": 61608078,
+          "irq": 1067187
+        }
+      ]
+    },
+    {
+      "at": 1789286893838,
+      "availableMiB": 2200.875,
+      "cpus": [
+        {
+          "user": 37721109,
+          "nice": 0,
+          "sys": 36018156,
+          "idle": 65986500,
+          "irq": 3234156
+        },
+        {
+          "user": 43472890,
+          "nice": 0,
+          "sys": 29567031,
+          "idle": 66685750,
+          "irq": 1347140
+        },
+        {
+          "user": 48484203,
+          "nice": 0,
+          "sys": 31414484,
+          "idle": 59826984,
+          "irq": 1288578
+        },
+        {
+          "user": 45226453,
+          "nice": 0,
+          "sys": 28627937,
+          "idle": 65871281,
+          "irq": 1072406
+        },
+        {
+          "user": 40489437,
+          "nice": 0,
+          "sys": 35380812,
+          "idle": 63855421,
+          "irq": 1589546
+        },
+        {
+          "user": 40293562,
+          "nice": 0,
+          "sys": 32343750,
+          "idle": 67088359,
+          "irq": 1334687
+        },
+        {
+          "user": 45023375,
+          "nice": 0,
+          "sys": 33154890,
+          "idle": 61547406,
+          "irq": 1208187
+        },
+        {
+          "user": 46489734,
+          "nice": 0,
+          "sys": 31627171,
+          "idle": 61608765,
+          "irq": 1067187
+        }
+      ]
+    },
+    {
+      "at": 1789286894843,
+      "availableMiB": 2084.42578125,
+      "cpus": [
+        {
+          "user": 37721406,
+          "nice": 0,
+          "sys": 36018562,
+          "idle": 65986796,
+          "irq": 3234234
+        },
+        {
+          "user": 43473265,
+          "nice": 0,
+          "sys": 29567375,
+          "idle": 66686031,
+          "irq": 1347156
+        },
+        {
+          "user": 48484703,
+          "nice": 0,
+          "sys": 31414875,
+          "idle": 59827093,
+          "irq": 1288593
+        },
+        {
+          "user": 45226859,
+          "nice": 0,
+          "sys": 28628281,
+          "idle": 65871531,
+          "irq": 1072437
+        },
+        {
+          "user": 40489703,
+          "nice": 0,
+          "sys": 35381328,
+          "idle": 63855640,
+          "irq": 1589562
+        },
+        {
+          "user": 40293843,
+          "nice": 0,
+          "sys": 32344125,
+          "idle": 67088703,
+          "irq": 1334687
+        },
+        {
+          "user": 45023687,
+          "nice": 0,
+          "sys": 33155265,
+          "idle": 61547718,
+          "irq": 1208187
+        },
+        {
+          "user": 46490015,
+          "nice": 0,
+          "sys": 31627562,
+          "idle": 61609093,
+          "irq": 1067203
+        }
+      ]
+    },
+    {
+      "at": 1789286895860,
+      "availableMiB": 2110.38671875,
+      "cpus": [
+        {
+          "user": 37721843,
+          "nice": 0,
+          "sys": 36019000,
+          "idle": 65986937,
+          "irq": 3234296
+        },
+        {
+          "user": 43473718,
+          "nice": 0,
+          "sys": 29567781,
+          "idle": 66686187,
+          "irq": 1347187
+        },
+        {
+          "user": 48485156,
+          "nice": 0,
+          "sys": 31415328,
+          "idle": 59827203,
+          "irq": 1288625
+        },
+        {
+          "user": 45227312,
+          "nice": 0,
+          "sys": 28628718,
+          "idle": 65871656,
+          "irq": 1072453
+        },
+        {
+          "user": 40490156,
+          "nice": 0,
+          "sys": 35381765,
+          "idle": 63855765,
+          "irq": 1589593
+        },
+        {
+          "user": 40294375,
+          "nice": 0,
+          "sys": 32344531,
+          "idle": 67088781,
+          "irq": 1334703
+        },
+        {
+          "user": 45024093,
+          "nice": 0,
+          "sys": 33155750,
+          "idle": 61547843,
+          "irq": 1208234
+        },
+        {
+          "user": 46490453,
+          "nice": 0,
+          "sys": 31627953,
+          "idle": 61609281,
+          "irq": 1067218
+        }
+      ]
+    },
+    {
+      "at": 1789286896872,
+      "availableMiB": 1994.8671875,
+      "cpus": [
+        {
+          "user": 37722562,
+          "nice": 0,
+          "sys": 36019296,
+          "idle": 65986937,
+          "irq": 3234312
+        },
+        {
+          "user": 43474421,
+          "nice": 0,
+          "sys": 29568093,
+          "idle": 66686187,
+          "irq": 1347187
+        },
+        {
+          "user": 48485859,
+          "nice": 0,
+          "sys": 31415640,
+          "idle": 59827203,
+          "irq": 1288625
+        },
+        {
+          "user": 45228000,
+          "nice": 0,
+          "sys": 28629046,
+          "idle": 65871656,
+          "irq": 1072453
+        },
+        {
+          "user": 40490609,
+          "nice": 0,
+          "sys": 35382328,
+          "idle": 63855765,
+          "irq": 1589640
+        },
+        {
+          "user": 40294890,
+          "nice": 0,
+          "sys": 32345031,
+          "idle": 67088781,
+          "irq": 1334750
+        },
+        {
+          "user": 45024765,
+          "nice": 0,
+          "sys": 33156093,
+          "idle": 61547843,
+          "irq": 1208250
+        },
+        {
+          "user": 46491093,
+          "nice": 0,
+          "sys": 31628328,
+          "idle": 61609281,
+          "irq": 1067218
+        }
+      ]
+    },
+    {
+      "at": 1789286897873,
+      "availableMiB": 1919.46875,
+      "cpus": [
+        {
+          "user": 37723281,
+          "nice": 0,
+          "sys": 36019546,
+          "idle": 65986968,
+          "irq": 3234343
+        },
+        {
+          "user": 43475031,
+          "nice": 0,
+          "sys": 29568390,
+          "idle": 66686281,
+          "irq": 1347218
+        },
+        {
+          "user": 48486562,
+          "nice": 0,
+          "sys": 31415890,
+          "idle": 59827250,
+          "irq": 1288640
+        },
+        {
+          "user": 45228703,
+          "nice": 0,
+          "sys": 28629281,
+          "idle": 65871718,
+          "irq": 1072468
+        },
+        {
+          "user": 40491218,
+          "nice": 0,
+          "sys": 35382656,
+          "idle": 63855828,
+          "irq": 1589640
+        },
+        {
+          "user": 40295453,
+          "nice": 0,
+          "sys": 32345406,
+          "idle": 67088843,
+          "irq": 1334765
+        },
+        {
+          "user": 45025406,
+          "nice": 0,
+          "sys": 33156375,
+          "idle": 61547921,
+          "irq": 1208281
+        },
+        {
+          "user": 46491703,
+          "nice": 0,
+          "sys": 31628671,
+          "idle": 61609328,
+          "irq": 1067234
+        }
+      ]
+    },
+    {
+      "at": 1789286898886,
+      "availableMiB": 1864.015625,
+      "cpus": [
+        {
+          "user": 37723765,
+          "nice": 0,
+          "sys": 36019812,
+          "idle": 65987234,
+          "irq": 3234390
+        },
+        {
+          "user": 43475562,
+          "nice": 0,
+          "sys": 29568531,
+          "idle": 66686625,
+          "irq": 1347234
+        },
+        {
+          "user": 48486937,
+          "nice": 0,
+          "sys": 31416203,
+          "idle": 59827578,
+          "irq": 1288656
+        },
+        {
+          "user": 45229312,
+          "nice": 0,
+          "sys": 28629468,
+          "idle": 65871937,
+          "irq": 1072468
+        },
+        {
+          "user": 40491625,
+          "nice": 0,
+          "sys": 35382968,
+          "idle": 63856125,
+          "irq": 1589640
+        },
+        {
+          "user": 40295984,
+          "nice": 0,
+          "sys": 32345609,
+          "idle": 67089125,
+          "irq": 1334765
+        },
+        {
+          "user": 45025796,
+          "nice": 0,
+          "sys": 33156687,
+          "idle": 61548234,
+          "irq": 1208296
+        },
+        {
+          "user": 46492250,
+          "nice": 0,
+          "sys": 31628968,
+          "idle": 61609500,
+          "irq": 1067250
+        }
+      ]
+    },
+    {
+      "at": 1789286899893,
+      "availableMiB": 1803.125,
+      "cpus": [
+        {
+          "user": 37724390,
+          "nice": 0,
+          "sys": 36020187,
+          "idle": 65987234,
+          "irq": 3234421
+        },
+        {
+          "user": 43476375,
+          "nice": 0,
+          "sys": 29568703,
+          "idle": 66686640,
+          "irq": 1347250
+        },
+        {
+          "user": 48487593,
+          "nice": 0,
+          "sys": 31416531,
+          "idle": 59827593,
+          "irq": 1288656
+        },
+        {
+          "user": 45230046,
+          "nice": 0,
+          "sys": 28629734,
+          "idle": 65871937,
+          "irq": 1072484
+        },
+        {
+          "user": 40492281,
+          "nice": 0,
+          "sys": 35383312,
+          "idle": 63856125,
+          "irq": 1589656
+        },
+        {
+          "user": 40296609,
+          "nice": 0,
+          "sys": 32345984,
+          "idle": 67089125,
+          "irq": 1334781
+        },
+        {
+          "user": 45026375,
+          "nice": 0,
+          "sys": 33157093,
+          "idle": 61548250,
+          "irq": 1208296
+        },
+        {
+          "user": 46492843,
+          "nice": 0,
+          "sys": 31629375,
+          "idle": 61609500,
+          "irq": 1067265
+        }
+      ]
+    },
+    {
+      "at": 1789286900894,
+      "availableMiB": 1383.94921875,
+      "cpus": [
+        {
+          "user": 37725062,
+          "nice": 0,
+          "sys": 36020515,
+          "idle": 65987234,
+          "irq": 3234437
+        },
+        {
+          "user": 43476937,
+          "nice": 0,
+          "sys": 29569140,
+          "idle": 66686640,
+          "irq": 1347250
+        },
+        {
+          "user": 48488250,
+          "nice": 0,
+          "sys": 31416875,
+          "idle": 59827593,
+          "irq": 1288671
+        },
+        {
+          "user": 45230781,
+          "nice": 0,
+          "sys": 28630000,
+          "idle": 65871937,
+          "irq": 1072515
+        },
+        {
+          "user": 40492671,
+          "nice": 0,
+          "sys": 35383921,
+          "idle": 63856125,
+          "irq": 1589687
+        },
+        {
+          "user": 40297156,
+          "nice": 0,
+          "sys": 32346437,
+          "idle": 67089125,
+          "irq": 1334796
+        },
+        {
+          "user": 45026828,
+          "nice": 0,
+          "sys": 33157640,
+          "idle": 61548250,
+          "irq": 1208328
+        },
+        {
+          "user": 46493312,
+          "nice": 0,
+          "sys": 31629906,
+          "idle": 61609500,
+          "irq": 1067265
+        }
+      ]
+    },
+    {
+      "at": 1789286901901,
+      "availableMiB": 1480.27734375,
+      "cpus": [
+        {
+          "user": 37725734,
+          "nice": 0,
+          "sys": 36020859,
+          "idle": 65987234,
+          "irq": 3234468
+        },
+        {
+          "user": 43477671,
+          "nice": 0,
+          "sys": 29569421,
+          "idle": 66686640,
+          "irq": 1347265
+        },
+        {
+          "user": 48489000,
+          "nice": 0,
+          "sys": 31417140,
+          "idle": 59827593,
+          "irq": 1288687
+        },
+        {
+          "user": 45231437,
+          "nice": 0,
+          "sys": 28630359,
+          "idle": 65871937,
+          "irq": 1072515
+        },
+        {
+          "user": 40493187,
+          "nice": 0,
+          "sys": 35384421,
+          "idle": 63856125,
+          "irq": 1589703
+        },
+        {
+          "user": 40297734,
+          "nice": 0,
+          "sys": 32346875,
+          "idle": 67089125,
+          "irq": 1334796
+        },
+        {
+          "user": 45027375,
+          "nice": 0,
+          "sys": 33158109,
+          "idle": 61548250,
+          "irq": 1208343
+        },
+        {
+          "user": 46494015,
+          "nice": 0,
+          "sys": 31630218,
+          "idle": 61609500,
+          "irq": 1067265
+        }
+      ]
+    },
+    {
+      "at": 1789286902901,
+      "availableMiB": 1583.55859375,
+      "cpus": [
+        {
+          "user": 37726437,
+          "nice": 0,
+          "sys": 36021156,
+          "idle": 65987234,
+          "irq": 3234500
+        },
+        {
+          "user": 43478359,
+          "nice": 0,
+          "sys": 29569734,
+          "idle": 66686640,
+          "irq": 1347343
+        },
+        {
+          "user": 48489781,
+          "nice": 0,
+          "sys": 31417359,
+          "idle": 59827593,
+          "irq": 1288718
+        },
+        {
+          "user": 45232125,
+          "nice": 0,
+          "sys": 28630671,
+          "idle": 65871937,
+          "irq": 1072515
+        },
+        {
+          "user": 40493859,
+          "nice": 0,
+          "sys": 35384750,
+          "idle": 63856125,
+          "irq": 1589734
+        },
+        {
+          "user": 40298484,
+          "nice": 0,
+          "sys": 32347125,
+          "idle": 67089125,
+          "irq": 1334828
+        },
+        {
+          "user": 45028078,
+          "nice": 0,
+          "sys": 33158406,
+          "idle": 61548250,
+          "irq": 1208343
+        },
+        {
+          "user": 46494718,
+          "nice": 0,
+          "sys": 31630515,
+          "idle": 61609500,
+          "irq": 1067265
+        }
+      ]
+    },
+    {
+      "at": 1789286903910,
+      "availableMiB": 1768.3359375,
+      "cpus": [
+        {
+          "user": 37727046,
+          "nice": 0,
+          "sys": 36021546,
+          "idle": 65987234,
+          "irq": 3234515
+        },
+        {
+          "user": 43479093,
+          "nice": 0,
+          "sys": 29570000,
+          "idle": 66686640,
+          "irq": 1347359
+        },
+        {
+          "user": 48490500,
+          "nice": 0,
+          "sys": 31417640,
+          "idle": 59827593,
+          "irq": 1288734
+        },
+        {
+          "user": 45232828,
+          "nice": 0,
+          "sys": 28630968,
+          "idle": 65871937,
+          "irq": 1072531
+        },
+        {
+          "user": 40494312,
+          "nice": 0,
+          "sys": 35385296,
+          "idle": 63856125,
+          "irq": 1589765
+        },
+        {
+          "user": 40299062,
+          "nice": 0,
+          "sys": 32347546,
+          "idle": 67089125,
+          "irq": 1334859
+        },
+        {
+          "user": 45028640,
+          "nice": 0,
+          "sys": 33158843,
+          "idle": 61548250,
+          "irq": 1208359
+        },
+        {
+          "user": 46495312,
+          "nice": 0,
+          "sys": 31630921,
+          "idle": 61609500,
+          "irq": 1067296
+        }
+      ]
+    },
+    {
+      "at": 1789286904932,
+      "availableMiB": 1677.25390625,
+      "cpus": [
+        {
+          "user": 37727812,
+          "nice": 0,
+          "sys": 36021812,
+          "idle": 65987234,
+          "irq": 3234578
+        },
+        {
+          "user": 43479875,
+          "nice": 0,
+          "sys": 29570250,
+          "idle": 66686640,
+          "irq": 1347375
+        },
+        {
+          "user": 48491203,
+          "nice": 0,
+          "sys": 31417968,
+          "idle": 59827593,
+          "irq": 1288734
+        },
+        {
+          "user": 45233609,
+          "nice": 0,
+          "sys": 28631218,
+          "idle": 65871937,
+          "irq": 1072531
+        },
+        {
+          "user": 40495031,
+          "nice": 0,
+          "sys": 35385609,
+          "idle": 63856125,
+          "irq": 1589796
+        },
+        {
+          "user": 40299781,
+          "nice": 0,
+          "sys": 32347859,
+          "idle": 67089125,
+          "irq": 1334859
+        },
+        {
+          "user": 45029406,
+          "nice": 0,
+          "sys": 33159109,
+          "idle": 61548250,
+          "irq": 1208375
+        },
+        {
+          "user": 46496078,
+          "nice": 0,
+          "sys": 31631187,
+          "idle": 61609500,
+          "irq": 1067312
+        }
+      ]
+    },
+    {
+      "at": 1789286905937,
+      "availableMiB": 1688.34375,
+      "cpus": [
+        {
+          "user": 37728578,
+          "nice": 0,
+          "sys": 36022046,
+          "idle": 65987234,
+          "irq": 3234609
+        },
+        {
+          "user": 43480593,
+          "nice": 0,
+          "sys": 29570531,
+          "idle": 66686640,
+          "irq": 1347390
+        },
+        {
+          "user": 48491921,
+          "nice": 0,
+          "sys": 31418250,
+          "idle": 59827593,
+          "irq": 1288734
+        },
+        {
+          "user": 45234515,
+          "nice": 0,
+          "sys": 28631312,
+          "idle": 65871937,
+          "irq": 1072531
+        },
+        {
+          "user": 40495687,
+          "nice": 0,
+          "sys": 35385953,
+          "idle": 63856125,
+          "irq": 1589812
+        },
+        {
+          "user": 40300453,
+          "nice": 0,
+          "sys": 32348187,
+          "idle": 67089125,
+          "irq": 1334859
+        },
+        {
+          "user": 45030109,
+          "nice": 0,
+          "sys": 33159406,
+          "idle": 61548250,
+          "irq": 1208375
+        },
+        {
+          "user": 46496781,
+          "nice": 0,
+          "sys": 31631484,
+          "idle": 61609500,
+          "irq": 1067312
+        }
+      ]
+    },
+    {
+      "at": 1789286906937,
+      "availableMiB": 1616.36328125,
+      "cpus": [
+        {
+          "user": 37729375,
+          "nice": 0,
+          "sys": 36022234,
+          "idle": 65987250,
+          "irq": 3234625
+        },
+        {
+          "user": 43481437,
+          "nice": 0,
+          "sys": 29570687,
+          "idle": 66686640,
+          "irq": 1347406
+        },
+        {
+          "user": 48492750,
+          "nice": 0,
+          "sys": 31418406,
+          "idle": 59827609,
+          "irq": 1288734
+        },
+        {
+          "user": 45235312,
+          "nice": 0,
+          "sys": 28631515,
+          "idle": 65871937,
+          "irq": 1072546
+        },
+        {
+          "user": 40496453,
+          "nice": 0,
+          "sys": 35386187,
+          "idle": 63856125,
+          "irq": 1589812
+        },
+        {
+          "user": 40301156,
+          "nice": 0,
+          "sys": 32348484,
+          "idle": 67089125,
+          "irq": 1334875
+        },
+        {
+          "user": 45030953,
+          "nice": 0,
+          "sys": 33159562,
+          "idle": 61548250,
+          "irq": 1208375
+        },
+        {
+          "user": 46497484,
+          "nice": 0,
+          "sys": 31631781,
+          "idle": 61609500,
+          "irq": 1067312
+        }
+      ]
+    },
+    {
+      "at": 1789286907937,
+      "availableMiB": 1600.359375,
+      "cpus": [
+        {
+          "user": 37730109,
+          "nice": 0,
+          "sys": 36022500,
+          "idle": 65987250,
+          "irq": 3234656
+        },
+        {
+          "user": 43482265,
+          "nice": 0,
+          "sys": 29570859,
+          "idle": 66686640,
+          "irq": 1347406
+        },
+        {
+          "user": 48493609,
+          "nice": 0,
+          "sys": 31418546,
+          "idle": 59827609,
+          "irq": 1288734
+        },
+        {
+          "user": 45236109,
+          "nice": 0,
+          "sys": 28631718,
+          "idle": 65871937,
+          "irq": 1072562
+        },
+        {
+          "user": 40497093,
+          "nice": 0,
+          "sys": 35386546,
+          "idle": 63856125,
+          "irq": 1589828
+        },
+        {
+          "user": 40301875,
+          "nice": 0,
+          "sys": 32348765,
+          "idle": 67089125,
+          "irq": 1334875
+        },
+        {
+          "user": 45031640,
+          "nice": 0,
+          "sys": 33159875,
+          "idle": 61548250,
+          "irq": 1208375
+        },
+        {
+          "user": 46498203,
+          "nice": 0,
+          "sys": 31632062,
+          "idle": 61609500,
+          "irq": 1067312
+        }
+      ]
+    },
+    {
+      "at": 1789286908944,
+      "availableMiB": 1549.96875,
+      "cpus": [
+        {
+          "user": 37730796,
+          "nice": 0,
+          "sys": 36022812,
+          "idle": 65987250,
+          "irq": 3234687
+        },
+        {
+          "user": 43483140,
+          "nice": 0,
+          "sys": 29570984,
+          "idle": 66686640,
+          "irq": 1347406
+        },
+        {
+          "user": 48494437,
+          "nice": 0,
+          "sys": 31418718,
+          "idle": 59827609,
+          "irq": 1288750
+        },
+        {
+          "user": 45236937,
+          "nice": 0,
+          "sys": 28631890,
+          "idle": 65871937,
+          "irq": 1072578
+        },
+        {
+          "user": 40497796,
+          "nice": 0,
+          "sys": 35386843,
+          "idle": 63856125,
+          "irq": 1589828
+        },
+        {
+          "user": 40302625,
+          "nice": 0,
+          "sys": 32349015,
+          "idle": 67089125,
+          "irq": 1334875
+        },
+        {
+          "user": 45032453,
+          "nice": 0,
+          "sys": 33160062,
+          "idle": 61548250,
+          "irq": 1208375
+        },
+        {
+          "user": 46498984,
+          "nice": 0,
+          "sys": 31632281,
+          "idle": 61609500,
+          "irq": 1067328
+        }
+      ]
+    },
+    {
+      "at": 1789286909958,
+      "availableMiB": 1521.10546875,
+      "cpus": [
+        {
+          "user": 37731437,
+          "nice": 0,
+          "sys": 36023187,
+          "idle": 65987250,
+          "irq": 3234703
+        },
+        {
+          "user": 43483765,
+          "nice": 0,
+          "sys": 29571375,
+          "idle": 66686640,
+          "irq": 1347453
+        },
+        {
+          "user": 48495093,
+          "nice": 0,
+          "sys": 31419078,
+          "idle": 59827609,
+          "irq": 1288796
+        },
+        {
+          "user": 45237562,
+          "nice": 0,
+          "sys": 28632281,
+          "idle": 65871937,
+          "irq": 1072578
+        },
+        {
+          "user": 40498281,
+          "nice": 0,
+          "sys": 35387375,
+          "idle": 63856125,
+          "irq": 1589875
+        },
+        {
+          "user": 40303187,
+          "nice": 0,
+          "sys": 32349468,
+          "idle": 67089125,
+          "irq": 1334875
+        },
+        {
+          "user": 45033125,
+          "nice": 0,
+          "sys": 33160406,
+          "idle": 61548250,
+          "irq": 1208375
+        },
+        {
+          "user": 46499515,
+          "nice": 0,
+          "sys": 31632765,
+          "idle": 61609500,
+          "irq": 1067328
+        }
+      ]
+    }
+  ],
+  "hostCounters": "\r\n\"(PDH-CSV 4.0)\",\"\\\\PRAWN-E14\\Memory\\Available MBytes\",\"\\\\PRAWN-E14\\Memory\\Pages Input/sec\",\"\\\\PRAWN-E14\\Memory\\Pages Output/sec\",\"\\\\PRAWN-E14\\Processor(_Total)\\% Processor Time\"\r\n\"09/13/2026 16:08:12.799\",\"2111.000000\",\"2.961331\",\"0.000000\",\"46.999924\"\r\n\"09/13/2026 16:08:13.809\",\"2202.000000\",\"811.471974\",\"0.000000\",\"51.203496\"\r\n\"09/13/2026 16:08:14.814\",\"2073.000000\",\"47.736438\",\"0.000000\",\"71.652343\"\r\n\"09/13/2026 16:08:15.911\",\"2105.000000\",\"59176.414448\",\"0.000000\",\"88.243630\"\r\n\"09/13/2026 16:08:17.416\",\"1963.000000\",\"830.133413\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 16:08:18.513\",\"1851.000000\",\"173.220596\",\"0.000000\",\"77.934103\"\r\n\"09/13/2026 16:08:19.578\",\"1877.000000\",\"312.408270\",\"0.000000\",\"90.336201\"\r\n\"09/13/2026 16:08:20.738\",\"1399.000000\",\"909.136511\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 16:08:21.919\",\"1473.000000\",\"679.108508\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 16:08:23.208\",\"1596.000000\",\"1164.657607\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 16:08:24.232\",\"1733.000000\",\"339.248387\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 16:08:25.383\",\"1660.000000\",\"743.365463\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 16:08:26.536\",\"1640.000000\",\"59.168083\",\"0.000000\",\"99.703565\"\r\n\"09/13/2026 16:08:28.281\",\"1587.000000\",\"339.004485\",\"0.000000\",\"100.000000\"\r\n\"09/13/2026 16:08:29.783\",\"1528.000000\",\"387.039025\",\"0.000000\",\"100.000000\"",
+  "last": {
+    "name": "back clears preview",
+    "value": {
+      "panelText": "Postal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+      "panel": {
+        "x": 10,
+        "y": 106.6875,
+        "width": 300,
+        "height": 261,
+        "bottom": 367.6875,
+        "right": 310
+      },
+      "search": {
+        "x": 10,
+        "y": 10,
+        "width": 300,
+        "height": 88.6875,
+        "bottom": 98.6875,
+        "right": 310
+      },
+      "pressed": [
+        "Bus stops"
+      ],
+      "controls": [
+        {
+          "text": "MRT/LRT exits",
+          "disabled": false,
+          "box": {
+            "x": 22,
+            "y": 257.6875,
+            "width": 138,
+            "height": 44,
+            "bottom": 301.6875,
+            "right": 160
+          }
+        },
+        {
+          "text": "Bus stops",
+          "disabled": false,
+          "box": {
+            "x": 160,
+            "y": 257.6875,
+            "width": 138,
+            "height": 44,
+            "bottom": 301.6875,
+            "right": 298
+          }
+        }
+      ],
+      "detailsHidden": true,
+      "bodyText": "15 Scotts\nBus stop / Stop 09213\n×\n \nOneMap\n © contributors | \nSingapore Land Authority\n\n794 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 190 MRT or LRT stations, 613 exits, and 5208 bus stops. 794 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+      "lampCount": 794,
+      "destination": "Bayfront Stn Exit B/MBS",
+      "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956",
+      "viewport": [
+        390,
+        844
+      ],
+      "overflow": false
+    }
+  },
+  "anchorsBefore": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "testOnlyDrift": [
+    {
+      "path": "web/lib/__tests__/route-evidence-map-popup.test.ts",
+      "expected": "de8a34a917758163d3c320ace771c8f6e136acc2645433a91f64e98dfa1d65dd",
+      "actual": "d2f3be58de37d1fd3ae7431c6603fcb489ecfd380d83db7f20ccc0feb9b22157"
+    },
+    {
+      "path": "web/lib/__tests__/transit-popup.test.ts",
+      "expected": "06417d3170eed48783a3cdf9dc885834a7d51058a5fb6b925ba855bd0fbe8a4e",
+      "actual": "b77778fd85515dca30ad6cb6935d8c283629db9a65ec3d5aec7b8ea64c513acb"
+    }
+  ],
+  "preview": {
+    "buildId": "T2PK7uLhsuXtK2oAxtakU",
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\completion-20260913-build-2",
+    "pid": 11268,
+    "dataPort": 4337,
+    "nextPort": 4411,
+    "proxyPort": 4412,
+    "readOnlyData": true,
+    "allowedApi": "GET /api/onemap-route and /api/onemap-search",
+    "oneMapCredentialsConfigured": true,
+    "nextPid": 35820
+  },
+  "chromePid": 20668,
+  "pageTarget": "CA6C8E1342708645613D10917A5DC6A5",
+  "mainSession": "DCF42723CEF2396CAE29F5ABCDFDE262",
+  "policy": {
+    "cold": "Fresh profile, HTTP cache cleared once; server filesystem cache uncontrolled",
+    "warm": "Same browser HTTP cache, fresh document and JS memory",
+    "serviceWorker": "bypassed",
+    "workers": "Unpaused, late Network attachment can miss worker bytes",
+    "interception": "GET allowlist IPC overhead remains",
+    "renderer": "Desktop headless SwiftShader, 390x844, not representative phone",
+    "pairs": 1
+  },
+  "samples": [
+    {
+      "name": "geometry-retry-before",
+      "before": {
+        "tag": "BUTTON",
+        "label": null,
+        "text": "Retry geometry",
+        "id": "",
+        "rect": {
+          "left": 23,
+          "right": 136,
+          "top": 158.78125,
+          "bottom": 202.78125
+        },
+        "visible": true,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956"
+      },
+      "after": {
+        "tag": "BUTTON",
+        "label": null,
+        "text": "Retry geometry",
+        "id": "",
+        "rect": {
+          "left": 23,
+          "right": 136,
+          "top": 158.78125,
+          "bottom": 202.78125
+        },
+        "visible": true,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956"
+      },
+      "state": {
+        "status": "initializing",
+        "routeKey": "3:shiokest:",
+        "count": 0,
+        "keys": [],
+        "basemap": false,
+        "geometry": [],
+        "mode": "shiokest",
+        "lampCount": 0,
+        "padding": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "timeOrigin": 1789286896491.5,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "bytes": 19665,
+      "sha256": "82561dd22dd3c6ef9444a8f49eb42449878ff0d408ddac13e06aa6245a16a63b"
+    },
+    {
+      "name": "geometry-retry-pending",
+      "before": {
+        "tag": "BODY",
+        "label": null,
+        "text": null,
+        "id": "",
+        "rect": {
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "bottom": 844
+        },
+        "visible": true,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956"
+      },
+      "after": {
+        "tag": "BODY",
+        "label": null,
+        "text": null,
+        "id": "",
+        "rect": {
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "bottom": 844
+        },
+        "visible": true,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956"
+      },
+      "state": {
+        "status": "idle",
+        "routeKey": "3:shiokest:",
+        "count": 0,
+        "keys": [],
+        "basemap": false,
+        "geometry": [],
+        "mode": "shiokest",
+        "lampCount": 0,
+        "padding": {
+          "top": 442.78125,
+          "right": 12,
+          "bottom": 40,
+          "left": 12
+        },
+        "timeOrigin": 1789286896491.5,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956",
+        "tiles": false,
+        "moving": false,
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "bytes": 184057,
+      "sha256": "1ccd7af9a5041f64f86a0b96328e7afa73bf4d90c84edd8aaf203e89987adb3d"
+    },
+    {
+      "name": "geometry-recovered",
+      "before": {
+        "tag": "BUTTON",
+        "label": null,
+        "text": "Walk details",
+        "id": "",
+        "rect": {
+          "left": 21,
+          "right": 299,
+          "top": 312.6875,
+          "bottom": 356.6875
+        },
+        "visible": true,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956"
+      },
+      "after": {
+        "tag": "BUTTON",
+        "label": null,
+        "text": "Walk details",
+        "id": "",
+        "rect": {
+          "left": 21,
+          "right": 299,
+          "top": 312.6875,
+          "bottom": 356.6875
+        },
+        "visible": true,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956"
+      },
+      "state": {
+        "status": "ready",
+        "routeKey": "4:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "4:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 794,
+        "padding": {
+          "top": 379.6875,
+          "right": 12,
+          "bottom": 40,
+          "left": 12
+        },
+        "timeOrigin": 1789286896491.5,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "bytes": 157494,
+      "sha256": "8d9229c0fef7897010cf60852d97dee713679cbc5f288de3dec91af8043dd821"
+    },
+    {
+      "name": "preview-retry-before",
+      "before": {
+        "tag": "BUTTON",
+        "label": null,
+        "text": "Retry preview",
+        "id": "",
+        "rect": {
+          "left": 23,
+          "right": 124,
+          "top": 158.78125,
+          "bottom": 202.78125
+        },
+        "visible": true,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956&transit=bus&stop=bus%3A09213"
+      },
+      "after": {
+        "tag": "BUTTON",
+        "label": null,
+        "text": "Retry preview",
+        "id": "",
+        "rect": {
+          "left": 23,
+          "right": 124,
+          "top": 158.78125,
+          "bottom": 202.78125
+        },
+        "visible": true,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956&transit=bus&stop=bus%3A09213"
+      },
+      "state": {
+        "status": "ready",
+        "routeKey": "5:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "5:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 794,
+        "padding": {
+          "top": 494.78125,
+          "right": 12,
+          "bottom": 40,
+          "left": 12
+        },
+        "timeOrigin": 1789286896491.5,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956&transit=bus&stop=bus%3A09213",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "bytes": 141707,
+      "sha256": "f0ec6c7d5a56121059262ca853482c13da8b5e02933d93fb7a81cd3692dc6d19"
+    },
+    {
+      "name": "preview-retry-pending",
+      "before": {
+        "tag": "BODY",
+        "label": null,
+        "text": null,
+        "id": "",
+        "rect": {
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "bottom": 844
+        },
+        "visible": true,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956&transit=bus&stop=bus%3A09213"
+      },
+      "after": {
+        "tag": "BODY",
+        "label": null,
+        "text": null,
+        "id": "",
+        "rect": {
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "bottom": 844
+        },
+        "visible": true,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956&transit=bus&stop=bus%3A09213"
+      },
+      "state": {
+        "status": "ready",
+        "routeKey": "5:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "5:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 794,
+        "padding": {
+          "top": 494.78125,
+          "right": 12,
+          "bottom": 40,
+          "left": 12
+        },
+        "timeOrigin": 1789286896491.5,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956&transit=bus&stop=bus%3A09213",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "bytes": 141273,
+      "sha256": "76bc1f37e053ff69bef595e9af8862063c78a8e1fe7d2577566597f05a87cc4b"
+    },
+    {
+      "name": "back-before",
+      "before": {
+        "tag": "BUTTON",
+        "label": null,
+        "text": "Back to saved walk",
+        "id": "",
+        "rect": {
+          "left": 132,
+          "right": 268,
+          "top": 158.78125,
+          "bottom": 202.78125
+        },
+        "visible": true,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956&transit=bus&stop=bus%3A09213"
+      },
+      "after": {
+        "tag": "BUTTON",
+        "label": null,
+        "text": "Back to saved walk",
+        "id": "",
+        "rect": {
+          "left": 132,
+          "right": 268,
+          "top": 158.78125,
+          "bottom": 202.78125
+        },
+        "visible": true,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956&transit=bus&stop=bus%3A09213"
+      },
+      "state": {
+        "status": "ready",
+        "routeKey": "5:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "5:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 794,
+        "padding": {
+          "top": 494.78125,
+          "right": 12,
+          "bottom": 40,
+          "left": 12
+        },
+        "timeOrigin": 1789286896491.5,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956&transit=bus&stop=bus%3A09213",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "bytes": 141709,
+      "sha256": "2ce4f3e4aa20f60983b533021b9b0b4be2ee1b9e7437f1b3321d1d3a49c9d69e"
+    },
+    {
+      "name": "back-to-saved",
+      "before": {
+        "tag": "BODY",
+        "label": null,
+        "text": null,
+        "id": "",
+        "rect": {
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "bottom": 844
+        },
+        "visible": true,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956"
+      },
+      "after": {
+        "tag": "BODY",
+        "label": null,
+        "text": null,
+        "id": "",
+        "rect": {
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "bottom": 844
+        },
+        "visible": true,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956"
+      },
+      "state": {
+        "status": "ready",
+        "routeKey": "6:shiokest:primary",
+        "count": 4,
+        "keys": [
+          "6:shiokest:primary"
+        ],
+        "basemap": true,
+        "geometry": [
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86003,
+                1.28264
+              ],
+              [
+                103.85992,
+                1.28274
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.85992,
+                1.28274
+              ],
+              [
+                103.86008,
+                1.28297
+              ],
+              [
+                103.86014,
+                1.28308
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28308
+              ],
+              [
+                103.86014,
+                1.28316
+              ]
+            ]
+          },
+          {
+            "type": "LineString",
+            "coordinates": [
+              [
+                103.86014,
+                1.28316
+              ],
+              [
+                103.86004,
+                1.28315
+              ]
+            ]
+          }
+        ],
+        "mode": "shiokest",
+        "lampCount": 794,
+        "padding": {
+          "top": 379.6875,
+          "right": 12,
+          "bottom": 40,
+          "left": 12
+        },
+        "timeOrigin": 1789286896491.5,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956",
+        "tiles": true,
+        "moving": false,
+        "viewport": [
+          390,
+          844
+        ]
+      },
+      "bytes": 157121,
+      "sha256": "e067e7c1ccd5a1f3616ea15cf543f3ac6470ae6e98565f9f7f0b0b85692d29c4"
+    }
+  ],
+  "scope": "Keyboard recovery only; controlled geometry/provider failures, SW bypassed, desktop headless. Not native browser zoom, physical phone, production retention or latency acceptance.",
+  "focusObservations": [
+    {
+      "name": "geometry-retry-pending",
+      "pass": false,
+      "focus": {
+        "tag": "BODY",
+        "label": null,
+        "text": null,
+        "id": "",
+        "rect": {
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "bottom": 844
+        },
+        "visible": true,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956"
+      }
+    },
+    {
+      "name": "preview-retry-pending",
+      "pass": false,
+      "focus": {
+        "tag": "BODY",
+        "label": null,
+        "text": null,
+        "id": "",
+        "rect": {
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "bottom": 844
+        },
+        "visible": true,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956&transit=bus&stop=bus%3A09213"
+      }
+    },
+    {
+      "name": "back-to-saved",
+      "pass": false,
+      "focus": {
+        "tag": "BODY",
+        "label": null,
+        "text": null,
+        "id": "",
+        "rect": {
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "bottom": 844
+        },
+        "visible": true,
+        "url": "http://127.0.0.1:4412/?debugMap=1&postal=018956"
+      }
+    }
+  ],
+  "geometryRequests": [
+    {
+      "url": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "mode": "fail"
+    },
+    {
+      "url": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json",
+      "mode": "fail"
+    },
+    {
+      "url": "/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "mode": "hold"
+    }
+  ],
+  "unsavedStop": "bus:09213",
+  "previewRequests": [
+    {
+      "method": "GET",
+      "path": "/api/onemap-route",
+      "scenario": "controlled HTTP 503"
+    }
+  ],
+  "failure": "Error: all disappearing controls retain visible focus\n    at check (file:///C:/sgSHIOK2026/qa/revamp-r1/keyboard-recovery-20260913/runner-baseline-1789286890776.mjs:48:155)\n    at file:///C:/sgSHIOK2026/qa/revamp-r1/keyboard-recovery-20260913/runner-baseline-1789286890776.mjs:260:3",
+  "samplerExit": null,
+  "cleanup": {
+    "command": "$ErrorActionPreference='Stop'; $profile='C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-Uz6SMw'; function Owned { @(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | Where-Object { $_.CommandLine -and $_.CommandLine.Contains($profile) }) }; $before=@(Owned | Select-Object ProcessId,Name,CommandLine); foreach($p in @(Owned)){ $live=Get-Process -Id $p.ProcessId -ErrorAction SilentlyContinue; if($live -and -not $live.HasExited){Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue} }; $until=[DateTime]::UtcNow.AddSeconds(20); do { $remaining=@(Owned | Where-Object { $p=Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue; $p -and -not $p.HasExited }); if($remaining.Count -eq 0){break}; Start-Sleep -Milliseconds 250 } while([DateTime]::UtcNow -lt $until); @{before=$before;remaining=@($remaining | Select-Object ProcessId,Name,CommandLine)} | ConvertTo-Json -Depth 4 -Compress",
+    "exitCode": 0,
+    "stdout": "{\"before\":[],\"remaining\":[]}\r\n",
+    "stderr": "",
+    "verified": true
+  },
+  "anchorsAfter": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "anchorsUnchanged": true,
+  "stderr": "\r\nDevTools listening on ws://127.0.0.1:44089/devtools/browser/c484ce69-6eeb-4880-87fd-58ab28030739\r\n[20668:20992:0913/160823.847:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[20668:20992:0913/160823.847:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[20668:20992:0913/160823.857:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\r\n[20668:20992:0913/160823.990:ERROR:google_apis\\gcm\\engine\\mcs_client.cc:702]   Error code: 401  Error message: Authentication Failed: wrong_secret\r\n[20668:20992:0913/160823.990:ERROR:google_apis\\gcm\\engine\\mcs_client.cc:704] Failed to log in to GCM, resetting connection.\r\n",
+  "elapsedMs": 21224,
+  "ok": false,
+  "rawTrace": {
+    "file": "browser.json.gz",
+    "rawBytes": 3495952,
+    "rawSha256": "08252561023223b94ec6d24f562fe4b04a6bd3af6e5494f3f373d09903399e0d",
+    "compressedBytes": 1079678,
+    "compressedSha256": "4e568043802304a75877d246ae0ebc1b06efaf7df65ed81ba0d5b459164c5d1a",
+    "entryCount": 1301
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "Prawn-E14",
+  "recordedAt": "2026-09-13T08:14:55.199Z",
+  "scope": "Read-only release investigation before switching to the independently identified keyboard-recovery gap.",
+  "deployment": {
+    "id": "dpl_wVnDeskyK666GwYUKWzY2aserkJR",
+    "state": "READY",
+    "target": "production",
+    "createdAt": 1788096412959,
+    "source": "cli",
+    "githubCommitSha": "2a99893fa9d69411b73d94aeb6c8de5ee2a76493",
+    "gitDirty": "1",
+    "gitRootDirectory": "tmp/vercel_source_generated_20260805_prefer_scored_routed_20260830_132032",
+    "publicAliasConfirmed": true
+  },
+  "namedBuildChecks": [
+    {
+      "path": "tmp/vercel_source_generated_20260805_prefer_scored_routed_20260830_132032/web/.next/BUILD_ID",
+      "present": false
+    },
+    {
+      "path": "tmp/vercel_source_generated_20260805_prefer_scored_routed_20260830_132032/.next/BUILD_ID",
+      "present": false
+    }
+  ],
+  "limits": [
+    "Only these two named paths were tested; no other clone/backup search.",
+    "No fresh production archive was captured; no byte-equivalence claim from rebuilding a dirty deployment's nominal commit.",
+    "No Vercel settings, aliases, deployments, pipeline inputs or X contents changed."
+  ],
+  "browserPlugin": {
+    "attempted": true,
+    "error": "failed to write kernel assets: The system cannot find the path specified. (os error 3)",
+    "fallback": "owned Chrome/CDP with unique repo-contained profile"
+  },
+  "initialHeadroom": {
+    "observedAt": "2026-09-13T15:56:59.1832417+08:00",
+    "availableMiB": 2261.24,
+    "requiredMiB": 1024
+  },
+  "nextAction": "Current keyboard recovery acceptance is unblocked and user-visible; exact production retention/security disposition remains separate."
+}

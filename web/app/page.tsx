@@ -2000,6 +2000,7 @@ export default function Home() {
   const autoSelectionRequest = useRef<number | null>(null);
   const lastSavedSelection = useRef<{ selection: LoadedSelection; mode: TransitAccessMode; stop: string | null; route: RouteDisplayMode } | null>(null);
   const panelRef = useRef<HTMLElement | null>(null);
+  const walkSummaryHeadingRef = useRef<HTMLHeadingElement | null>(null);
   const walkDetailsButtonRef = useRef<HTMLButtonElement | null>(null);
   const restoreWalkControlFocus = useCallback(() => {
     walkDetailsButtonRef.current?.focus({ preventScroll: true });
@@ -2009,6 +2010,7 @@ export default function Home() {
   const [mapInstanceKey, setMapInstanceKey] = useState(0);
   const [previewRetryKey, setPreviewRetryKey] = useState(0);
   const [geometryError, setGeometryError] = useState(false);
+  const [geometryRetrying, setGeometryRetrying] = useState(false);
   const geometryAttemptRef = useRef(0);
   const currentMapInstance = useRef(mapInstanceKey);
   currentMapInstance.current = mapInstanceKey;
@@ -2022,6 +2024,10 @@ export default function Home() {
   const pendingUrlPostalRef = useRef<string | null>(null);
   const [transitPoisReady, setTransitPoisReady] = useState(false);
   const searchInputRef = useRef<HTMLInputElement | null>(null);
+  const focusRecoveryTarget = (control?: HTMLButtonElement) => {
+    if (!control || document.activeElement !== control) return;
+    (walkSummaryHeadingRef.current ?? searchInputRef.current)?.focus();
+  };
   const lastNavigationHref = useRef<string | null>(null);
   const navigationHandler = useRef<() => void>(() => {});
   useEffect(() => {
@@ -2346,6 +2352,7 @@ export default function Home() {
     autoSelectionRequest.current = requestId;
     lastSavedSelection.current = null;
     const geometryAttempt = ++geometryAttemptRef.current;
+    setGeometryRetrying(false);
     preloadRouteMap();
     requestServiceWorkerCache();
     setLoading(true);
@@ -2461,6 +2468,7 @@ export default function Home() {
     setGeometryError(false);
     setGeometryFailure(null);
     setExposureSelection(null);
+    setGeometryRetrying(false);
     const params = new URLSearchParams(window.location.search);
     const postal = normalizePostal(params.get('postal') || '');
     pendingUrlPostalRef.current = postal;
@@ -2492,11 +2500,13 @@ export default function Home() {
     };
   }, []);
 
-  const retryGeometry = async () => {
+  const retryGeometry = async (event?: React.MouseEvent<HTMLButtonElement>) => {
     if (!primary) return;
+    focusRecoveryTarget(event?.currentTarget);
     const requestId = loadSelectionRequestIdRef.current;
     const postal = primary.result.POSTAL;
     const attempt = ++geometryAttemptRef.current;
+    setGeometryRetrying(true);
     setGeometryError(false);
     setGeometryFailure(null);
     try {
@@ -2508,6 +2518,10 @@ export default function Home() {
         setGeometryError(true);
         setGeometryFailure({ value: serializeFailureDiagnostics({ area: 'geometry-data', status: 'error',
           artifactFailure: getArtifactFailure(error) }, DATA_BASE), request: requestId, attempt });
+      }
+    } finally {
+      if (requestId === loadSelectionRequestIdRef.current && attempt === geometryAttemptRef.current) {
+        setGeometryRetrying(false);
       }
     }
   };
@@ -2636,7 +2650,8 @@ export default function Home() {
       && current.retry === next.retry && current.context === next.context ? current : next);
   }, [mapInstanceKey, mapRetryKey]);
 
-  const backToSavedWalk = () => {
+  const backToSavedWalk = (event?: React.MouseEvent<HTMLButtonElement>) => {
+    focusRecoveryTarget(event?.currentTarget);
     const saved = lastSavedSelection.current;
     if (!saved || saved.selection.result.POSTAL !== primary?.result.POSTAL) {
       handleStopSelect(null);
@@ -2725,10 +2740,11 @@ export default function Home() {
           {liveRoutePreviewStatuses[chosenStopId] === "unavailable"
             ? mapRoutes.length ? "Online preview unavailable. Your saved walk is still shown." : "Online preview unavailable. No saved walk is available for this stop."
             : mapRoutes.length ? "Checking this stop. Your saved walk stays on the map." : "Checking this stop..."}
-          {liveRoutePreviewStatuses[chosenStopId] === "unavailable" && <button type="button" onClick={() => setPreviewRetryKey(key => key + 1)}>Retry preview</button>}
+          {liveRoutePreviewStatuses[chosenStopId] === "unavailable" && <button type="button" onClick={event => { focusRecoveryTarget(event?.currentTarget); setPreviewRetryKey(key => key + 1); }}>Retry preview</button>}
           <button type="button" onClick={backToSavedWalk}>Back to saved walk</button>
         </div>}
-        {primary?.score?.paths && !primary.geom && !loading && !geometryError && <div className={styles.errorBox} role="status">No route geometry is published for this walk. Record evidence is still available.</div>}
+        {geometryRetrying && <div className={styles.walkLoading} role="status">Loading saved walk...</div>}
+        {primary?.score?.paths && !primary.geom && !loading && !geometryError && !geometryRetrying && <div className={styles.errorBox} role="status">No route geometry is published for this walk. Record evidence is still available.</div>}
         <SearchFeedback results={results} loading={loading} error={error} searched={searchAttempted}>
         {error && selectionFailure?.request === loadSelectionRequestIdRef.current
           && <FailureDiagnosticsControl value={selectionFailure.value} snapshotKey={'selection:' + selectionFailure.key} />}
@@ -2752,7 +2768,7 @@ export default function Home() {
 
         {showDetailOverlay && (
           <aside ref={panelRef} className={`${styles.resultPanel} ${sheetExpanded ? styles.sheetExpanded : ""}`}>
-            <WalkSummary postal={primary!.result.POSTAL} score={activeSelection?.score ?? null} option={activeSelection?.publishedOption} shortest={mapRouteMode === "shortest" && !sameSelectedRoute} />
+            <WalkSummary headingRef={walkSummaryHeadingRef} postal={primary!.result.POSTAL} score={activeSelection?.score ?? null} option={activeSelection?.publishedOption} shortest={mapRouteMode === "shortest" && !sameSelectedRoute} />
             {primary?.score && <TransitModeControl score={primary.score} mode={publishedCategory} setMode={handleTransitModeChange}
               availability={{
                 bus: Boolean(categoryWalks.bus) || (loading && !primary.geom && Boolean(primary.score.route_options?.bus?.paths)),

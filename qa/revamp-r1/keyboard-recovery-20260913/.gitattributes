@@ -1,0 +1,4 @@
+*.txt -text whitespace=-blank-at-eol,cr-at-eol
+*.json -text
+*.mjs -text
+*.gz -text

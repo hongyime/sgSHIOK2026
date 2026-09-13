@@ -1,0 +1,21 @@
+{
+  "sourceReviewer": "Planck",
+  "testContributor": "Hypatia",
+  "ownership": "Hypatia wrote only the new Home recovery test file; parent owns runtime and documentation. Planck read-only. Only parent commits.",
+  "sourceReview": {
+    "materialFindings": [],
+    "checked": ["Owned synchronous focus before button removal", "No async focus theft", "Stable non-Tab-stop heading and focus-visible outline", "Request and attempt ownership including navigation reset", "Pending geometry copy"],
+    "harnessFinding": "Initial acceptance only rejected BODY focus. Parent strengthened treatment to exact visible summary H2, Postal018956, focus-visible and solid outline at least3px before executing it."
+  },
+  "imageReview": {
+    "directory": "treatment-N3VGwc",
+    "files": ["geometry-retry-pending.png", "preview-retry-pending.png", "back-to-saved.png"],
+    "result": "No material findings. All three captures show an unclipped focus outline on Postal 018956; geometry-pending shows loading without the false missing-geometry message. Preview and Back retain saved-route rendering.",
+    "receipt": "Treatment JSON confirms10/10checks and the expected build. No blocker to the parent commit from this narrow390x844keyboard-recovery review. No edits or additional tests performed."
+  },
+  "parentImageReview": {
+    "treatment": ["geometry-retry-before.png", "geometry-retry-pending.png", "geometry-recovered.png", "preview-retry-before.png", "preview-retry-pending.png", "back-before.png", "back-to-saved.png"],
+    "baseline": ["baseline-946wHM/geometry-retry-pending.png", "baseline-CbZaYK/preview-retry-pending.png", "baseline-CbZaYK/back-to-saved.png"],
+    "limitations": ["Geometry before/pending intentionally have no current route under held failure", "Existing preview pending box retains its pink styling; not a comprehensive visual redesign", "Headless390x844 only; no physical-device, native zoom, assistive technology, latency or current-release SW acceptance"]
+  }
+}

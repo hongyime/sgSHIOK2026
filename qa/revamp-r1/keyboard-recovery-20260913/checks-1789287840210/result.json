@@ -1,0 +1,14 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "web/node_modules/typescript/bin/tsc",
+    "--project",
+    "web/tsconfig.json",
+    "--noEmit",
+    "--incremental",
+    "false"
+  ],
+  "cwd": "C:\\sgSHIOK2026",
+  "exitCode": 0,
+  "elapsedMs": 28929
+}

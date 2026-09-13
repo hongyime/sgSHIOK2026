@@ -1,0 +1,344 @@
+{
+  "files": [
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/.gitattributes",
+      "bytes": 83,
+      "sha256": "ba2809bf18ee522521ca5e2f99144664b39a67f0019cbaeec3608eb9d3e0a555"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/baseline-946wHM/browser.json.gz",
+      "bytes": 671148,
+      "sha256": "721603dd1228ca9a4a6f69ad85d6840092aeb1ea41193b496951fa436829a9bc"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/baseline-946wHM/geometry-recovered.png",
+      "bytes": 157494,
+      "sha256": "8d9229c0fef7897010cf60852d97dee713679cbc5f288de3dec91af8043dd821"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/baseline-946wHM/geometry-retry-before.png",
+      "bytes": 164684,
+      "sha256": "05aa6627c1791c860ba6be718ee92b286ecbe0124e6b703874c2e83c028e8755"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/baseline-946wHM/geometry-retry-pending.png",
+      "bytes": 184057,
+      "sha256": "1ccd7af9a5041f64f86a0b96328e7afa73bf4d90c84edd8aaf203e89987adb3d"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/baseline-946wHM/receipt.json",
+      "bytes": 165845,
+      "sha256": "a4657088f7f27ca84205de2e4e7e752040b0ad41dd687c16cbab66ce2e8b720e"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/baseline-946wHM/runner.mjs",
+      "bytes": 23143,
+      "sha256": "c79333447c99caea60cc7171c6face1bb88a84d2a405a5032297ca1ca1fc1518"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/baseline-CbZaYK/back-before.png",
+      "bytes": 141709,
+      "sha256": "2ce4f3e4aa20f60983b533021b9b0b4be2ee1b9e7437f1b3321d1d3a49c9d69e"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/baseline-CbZaYK/back-to-saved.png",
+      "bytes": 157121,
+      "sha256": "e067e7c1ccd5a1f3616ea15cf543f3ac6470ae6e98565f9f7f0b0b85692d29c4"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/baseline-CbZaYK/browser.json.gz",
+      "bytes": 1079678,
+      "sha256": "4e568043802304a75877d246ae0ebc1b06efaf7df65ed81ba0d5b459164c5d1a"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/baseline-CbZaYK/geometry-recovered.png",
+      "bytes": 157494,
+      "sha256": "8d9229c0fef7897010cf60852d97dee713679cbc5f288de3dec91af8043dd821"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/baseline-CbZaYK/geometry-retry-before.png",
+      "bytes": 19665,
+      "sha256": "82561dd22dd3c6ef9444a8f49eb42449878ff0d408ddac13e06aa6245a16a63b"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/baseline-CbZaYK/geometry-retry-pending.png",
+      "bytes": 184057,
+      "sha256": "1ccd7af9a5041f64f86a0b96328e7afa73bf4d90c84edd8aaf203e89987adb3d"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/baseline-CbZaYK/preview-retry-before.png",
+      "bytes": 141707,
+      "sha256": "f0ec6c7d5a56121059262ca853482c13da8b5e02933d93fb7a81cd3692dc6d19"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/baseline-CbZaYK/preview-retry-pending.png",
+      "bytes": 141273,
+      "sha256": "76bc1f37e053ff69bef595e9af8862063c78a8e1fe7d2577566597f05a87cc4b"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/baseline-CbZaYK/receipt.json",
+      "bytes": 60180,
+      "sha256": "d7652bd2935827789cf8afa7a037da7feee04f81a4d5b38270d1ec4e5adef676"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/baseline-CbZaYK/runner.mjs",
+      "bytes": 24046,
+      "sha256": "bd91e85fd3a4c22fd944400ff1c8ed79b976ee62a4a0e30783ab4ad942effd54"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/baseline-qjdNNL/browser.json.gz",
+      "bytes": 2548,
+      "sha256": "ff3781d96ccee43697995db32afd40213e95bc7261faa7b1feaf8b7862f82905"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/baseline-qjdNNL/receipt.json",
+      "bytes": 11091,
+      "sha256": "71fce1bf83f2b625c74fe9e10d2d0c2756bdd70c174a8f0bb51411009c1eb68c"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/baseline-qjdNNL/runner.mjs",
+      "bytes": 22584,
+      "sha256": "e517548bf6fa748fb2b520c859e0d7f7fdb00de13c1f6c21e1e593e1745cbbe3"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/browser.mjs",
+      "bytes": 10617,
+      "sha256": "7b0ab985c9b56b9a2ed1bc5532b816517be62562f862f5e3deee3e3059b8a63b"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/build-1/build.json",
+      "bytes": 26803,
+      "sha256": "1112d9377f774d4932a0134d02c3e00b3c01fa36e8a37c5e934c3f38c63587f1"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/build-1/runner.mjs",
+      "bytes": 5002,
+      "sha256": "0a794fd04385b3836db473a883194929d14b8c6e5e739f2f933e3182d1be4fb2"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/build-1/started.json",
+      "bytes": 26401,
+      "sha256": "fc5c181b8a3b2bf3996e9843b83b4d9bbda195f6f3c91085d2e26fa5e0ad2599"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/build-1/stderr.txt",
+      "bytes": 177,
+      "sha256": "9ab3a3b2d688613039e0a91133a4c3c632f73251d69c79d5cb14a50230644748"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/build-1/stdout.txt",
+      "bytes": 1036,
+      "sha256": "df060125993b68f81988941057671f866e4beb380df4dcdd952d39020acd7c10"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/build-1789287977414.mjs",
+      "bytes": 5002,
+      "sha256": "0a794fd04385b3836db473a883194929d14b8c6e5e739f2f933e3182d1be4fb2"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/build.mjs",
+      "bytes": 848,
+      "sha256": "d138eacef500bdb9d49898f7225e34ed5518c4fc28d969b57d46fc42f2ea1f77"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/checks-1789287216362.mjs",
+      "bytes": 1905,
+      "sha256": "7c47b8b57efe259f64e68675cef19e3a22cb298a1b0b09bcf3e96c816f3825a7"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/checks-1789287216367/result.json",
+      "bytes": 5472,
+      "sha256": "4b80da8aec0244b2056bb19665bd3498361d7931c1b34287dd6abf59677b16c1"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/checks-1789287216367/stderr.txt",
+      "bytes": 375,
+      "sha256": "b4acd4f819050212c4fe3b3ed8416421330f7ff8c72cb9bb667c335f3e24a94e"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/checks-1789287216367/stdout.txt",
+      "bytes": 46073,
+      "sha256": "b5c0dcc4267aa4944da3b5675a984f3c110d242cef202135639db311d3744818"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/checks-1789287331043.mjs",
+      "bytes": 1905,
+      "sha256": "7c47b8b57efe259f64e68675cef19e3a22cb298a1b0b09bcf3e96c816f3825a7"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/checks-1789287331052/result.json",
+      "bytes": 551,
+      "sha256": "1c4ef70d1cfd3317cb45b28db85efa65debb4395075b60ce6fbc07f71abdee41"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/checks-1789287331052/stderr.txt",
+      "bytes": 375,
+      "sha256": "b4acd4f819050212c4fe3b3ed8416421330f7ff8c72cb9bb667c335f3e24a94e"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/checks-1789287331052/stdout.txt",
+      "bytes": 41802,
+      "sha256": "c652b3372bda8e2e6422b9dbd44cd5bd2f483335a1ae596dab8a5a5499e67f31"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/checks-1789287367838.mjs",
+      "bytes": 1905,
+      "sha256": "7c47b8b57efe259f64e68675cef19e3a22cb298a1b0b09bcf3e96c816f3825a7"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/checks-1789287367862/result.json",
+      "bytes": 234,
+      "sha256": "5ec05387d53d32ca54d0495a7ac8d518addceba247abb2a37f50cf73bf7f3d99"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/checks-1789287367862/stderr.txt",
+      "bytes": 18793,
+      "sha256": "8f79772493c88152b42f291257099cd131e3296a05dc6d42d6ea66cabb70b58b"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/checks-1789287367862/stdout.txt",
+      "bytes": 7518,
+      "sha256": "14d434e3f129b2fcb4f9f649016c008ac1ebd8e9562046147bd22ae775c09f35"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/checks-1789287840199.mjs",
+      "bytes": 1905,
+      "sha256": "7c47b8b57efe259f64e68675cef19e3a22cb298a1b0b09bcf3e96c816f3825a7"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/checks-1789287840210/result.json",
+      "bytes": 267,
+      "sha256": "5ab50e41d2fbb4cfa7bce4dbf706fb39eaade812bda98a8e8a9e5d624e591da1"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/checks-1789287840210/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/checks-1789287840210/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/checks.mjs",
+      "bytes": 742,
+      "sha256": "57ca6724f3b9b97111a60c5cf5bcc2f05d662ea8d4d74edec2d736a5bb1327d9"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/finalize.mjs",
+      "bytes": 7870,
+      "sha256": "eb9635ce4511349ddeaca182928f3c95c3634d5fe9d59eac4f0904b64377e516"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/inspection.json",
+      "bytes": 1753,
+      "sha256": "7aa57ba3fa64d06da88cdb21f362ef83a1812be7ba3a119b2c61b0f5e61a9171"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/integrity.json",
+      "bytes": 146,
+      "sha256": "d2b0f82fdc8e858f6c82e62835688a3cb16bd2adc19a295fc98dbef4da7bdc9c"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/preview-1789288328441.mjs",
+      "bytes": 4959,
+      "sha256": "484d15e8f1aa46ee3630fe536d7d3aad4999d3d5ce470b5dc6435d7e135827dd"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/preview-2.json",
+      "bytes": 339,
+      "sha256": "c8d05a3d51168bbd841c7fefd92f76df6db820a670b7d2ccd55f0035607a6fb8"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/preview.mjs",
+      "bytes": 800,
+      "sha256": "09313d81bd20ba6a5460405578f8e06b153883d5c92ba40e6a3cc5703682d1f8"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/review.json",
+      "bytes": 1982,
+      "sha256": "abdfbbe6a93d2851a25f58fa7eaa00e85790a7e3c515f03c0a95187f2956ac37"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/runner-baseline-1789286613982.mjs",
+      "bytes": 22584,
+      "sha256": "e517548bf6fa748fb2b520c859e0d7f7fdb00de13c1f6c21e1e593e1745cbbe3"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/runner-baseline-1789286683434.mjs",
+      "bytes": 23143,
+      "sha256": "c79333447c99caea60cc7171c6face1bb88a84d2a405a5032297ca1ca1fc1518"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/runner-baseline-1789286890776.mjs",
+      "bytes": 24046,
+      "sha256": "bd91e85fd3a4c22fd944400ff1c8ed79b976ee62a4a0e30783ab4ad942effd54"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/runner-treatment-1789288348024.mjs",
+      "bytes": 24091,
+      "sha256": "03f596d0693ee860c008f78673eed8e12a2340da327a175e19428c67148aacff"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/source-check-2.json",
+      "bytes": 78,
+      "sha256": "8edb0f266669b782a83f2097f8f9a3280aa0645dae7307c40b732096d7ac1457"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/summary.json",
+      "bytes": 20647,
+      "sha256": "d4b158ea0495c281b0dc8ade67330b3fab9063fea3887eea0c25f30e98072113"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/treatment-N3VGwc/back-before.png",
+      "bytes": 141709,
+      "sha256": "2ce4f3e4aa20f60983b533021b9b0b4be2ee1b9e7437f1b3321d1d3a49c9d69e"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/treatment-N3VGwc/back-to-saved.png",
+      "bytes": 157034,
+      "sha256": "6e6e175be16dcdf15154cd6a5d0474571adb30c95c0a7e4410ce0d07fc527557"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/treatment-N3VGwc/browser.json.gz",
+      "bytes": 898496,
+      "sha256": "696a2f50baf0d9cb86b27d37fe3d5e87e493387bf7c621d259f4718cd7210f50"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/treatment-N3VGwc/geometry-recovered.png",
+      "bytes": 157494,
+      "sha256": "8d9229c0fef7897010cf60852d97dee713679cbc5f288de3dec91af8043dd821"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/treatment-N3VGwc/geometry-retry-before.png",
+      "bytes": 19665,
+      "sha256": "82561dd22dd3c6ef9444a8f49eb42449878ff0d408ddac13e06aa6245a16a63b"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/treatment-N3VGwc/geometry-retry-pending.png",
+      "bytes": 15597,
+      "sha256": "965b89c40779c8564b65e81d9b29b27c5f364e515533681e596bc1568770fa7a"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/treatment-N3VGwc/preview-retry-before.png",
+      "bytes": 141707,
+      "sha256": "f0ec6c7d5a56121059262ca853482c13da8b5e02933d93fb7a81cd3692dc6d19"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/treatment-N3VGwc/preview-retry-pending.png",
+      "bytes": 141221,
+      "sha256": "54fe0cbe5b53eced97e22276d66f6b24a13c88841ec677c5e0822053c2f0f7f8"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/treatment-N3VGwc/receipt.json",
+      "bytes": 122305,
+      "sha256": "7501e9bf2ff99720a04c0214e5b2dae5f20a3dcbf36ae680bf45ff015e04f119"
+    },
+    {
+      "path": "qa/revamp-r1/keyboard-recovery-20260913/treatment-N3VGwc/runner.mjs",
+      "bytes": 24091,
+      "sha256": "03f596d0693ee860c008f78673eed8e12a2340da327a175e19428c67148aacff"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+installed_dependencies=ok
+✔ test entry refuses the real MapLibre 6.4.1 lock versus 6.1.0 install shape before Vitest (447.3742ms)
+✔ matching versions may launch the test entry (1760.2792ms)
+✔ a failing native guard contract suite prevents Vitest from starting (1410.5405ms)
+✔ build entry refuses stale dependencies before even the preparation double (908.8402ms)
+✔ matching build reaches only the refusing preparation double, never Next (1867.9403ms)
+✔ release CLI checks dependencies before retention/build with installed 6.1.0 (612.4507ms)
+✔ release CLI checks dependencies before retention/build with installed 6.4.1 (620.9797ms)
+✔ reports exact resolved versions for runtime and development dependencies (47.5655ms)
+✔ development dependency drift also fails (69.686ms)
+✔ a manifest edit without matching lock-root metadata is not accepted (87.8147ms)
+✔ refuses invalid JSON in package.json (58.8039ms)
+✔ refuses null in package.json (43.6005ms)
+✔ refuses [] in package.json (123.5022ms)
+✔ refuses invalid JSON in package-lock.json (64.4323ms)
+✔ refuses null in package-lock.json (55.431ms)
+✔ refuses [] in package-lock.json (47.1403ms)
+✔ refuses invalid JSON in node_modules/maplibre-gl/package.json (53.1524ms)
+✔ refuses null in node_modules/maplibre-gl/package.json (48.2177ms)
+✔ refuses [] in node_modules/maplibre-gl/package.json (65.4219ms)
+✔ refuses malformed dependencies (93.8689ms)
+✔ refuses malformed devDependencies (71.2031ms)
+✔ unsupported lock format 1 fails closed (67.2114ms)
+✔ unsupported lock format 4 fails closed (71.084ms)
+✔ unsupported lock format "3" fails closed (81.5882ms)
+✔ unsupported lock format null fails closed (71.9256ms)
+✔ lock v2 resolved-package metadata is supported (69.4289ms)
+✔ refuses unresolved lock entry null (78.6454ms)
+✔ refuses unresolved lock entry {} (79.596ms)
+✔ refuses unresolved lock entry {"link":true,"version":"6.4.1"} (66.7971ms)
+✔ refuses unresolved lock entry {"version":""} (46.1577ms)
+✔ missing installed package is reported without loading or executing it (76.867ms)
+✔ refuses unsafe dependency name ../escape (81.166ms)
+✔ refuses unsafe dependency name @scope/../../escape (77.7925ms)
+✔ refuses unsafe dependency name C:\escape (72.02ms)
+✔ refuses unsafe dependency name /escape (72.2615ms)
+✔ refuses unsafe dependency name @scope\escape (54.8771ms)
+✔ refuses unsafe dependency name .hidden (86.8869ms)
+✔ scoped packages and a dependency listed in both sections are checked once (116.3113ms)
+✔ empty dependency metadata cannot authorize a vacuous success (116.7627ms)
+✔ matching null dependencies sections are invalid, not absent (88.0575ms)
+✔ matching null devDependencies sections are invalid, not absent (97.5883ms)
+✔ package executable exports are never imported by the version check (71.6867ms)
+ℹ tests 42
+ℹ suites 0
+ℹ pass 42
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10819.4205
+
+ RUN  v4.1.11 C:/sgSHIOK2026/tmp/test-without-data-cMsEhc/web
+
+·····································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································
+
+ Test Files  72 passed (72)
+      Tests  1925 passed (1925)
+   Start at  16:16:24
+   Duration  337.44s (transform 32.96s, setup 0ms, import 71.85s, tests 115.25s, environment 67ms)
+
+{
+  "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-cMsEhc",
+  "copiedFiles": 243,
+  "productionDataDirectoryAbsent": true,
+  "guardProbePassed": true,
+  "forbiddenPaths": [
+    "C:\\sgSHIOK2026\\web\\public\\data",
+    "C:\\sgSHIOK2026\\tmp\\test-without-data-cMsEhc\\web\\public\\data"
+  ],
+  "dependencies": "Existing node_modules linked; no installation",
+  "testArgs": [
+    "--reporter=dot",
+    "--testTimeout=15000"
+  ],
+  "exitCode": 0
+}

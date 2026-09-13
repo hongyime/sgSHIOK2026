@@ -1561,6 +1561,8 @@ button.gapItem:hover,
 .sheetToggle:focus-visible { outline: 3px solid #147ca3; outline-offset: 2px; }
 .walkSummary { flex: none; }
 .walkSummary h2 { margin: 4px 0; font-size: 19px; }
+.walkSummary h2:focus-visible { outline: 3px solid #147ca3; outline-offset: 2px; }
+.walkLoading { padding: 10px 12px; border: 1px solid #d7dfdb; border-radius: 6px; background: #fff; color: #34443c; }
 .walkDestination { margin: 8px 0; padding: 8px 0; border-block: 1px solid #e0e7e3; font-size: 12px; }
 .walkDestination strong { display: block; margin-top: 3px; font-size: 15px; }
 .walkMetrics { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px 8px; margin: 12px 0 4px; }

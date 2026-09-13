@@ -6,8 +6,9 @@ import styles from '../app/page.module.css';
 
 export { walkMetrics } from '../lib/walk-metrics';
 
-export function WalkSummary({ postal, score, shortest = false, option }: {
+export function WalkSummary({ postal, score, shortest = false, option, headingRef }: {
   postal: string; score: ScoreRecord | null; shortest?: boolean; option?: PublishedTransitOption | null;
+  headingRef?: React.Ref<HTMLHeadingElement>;
 }) {
   const m = walkMetrics(score, shortest, option);
   const name = option !== undefined ? option?.name : score?.best_node?.name;
@@ -17,7 +18,7 @@ export function WalkSummary({ postal, score, shortest = false, option }: {
   const notice = availabilityNotice(score, option);
   const metres = (n: number | null) => n === null ? 'Unavailable' : `${Math.round(n)} m`;
   return <section className={styles.walkSummary} aria-label="Walk summary" data-postal={postal}>
-    <h2>Postal {postal}</h2>
+    <h2 ref={headingRef} tabIndex={-1}>Postal {postal}</h2>
     <p className={styles.walkDestination}>Walk to{destinationType ? ` ${destinationType}` : ''} <strong>{name || 'Destination unavailable'}</strong></p>
     <div className={styles.walkMetrics}>
       {[['Walk distance',metres(m.distance)],['Covered',m.coverage === null ? 'Unavailable' : `${m.coverage}%`],['Uncovered',metres(m.uncovered)],['Longest gap',metres(m.longest)]].map(([label,value]) =>

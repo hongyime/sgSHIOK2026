@@ -1,0 +1,25 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "--globals",
+    "--maxWorkers",
+    "1",
+    "--no-file-parallelism",
+    "--reporter=json",
+    "lib/__tests__/walk-recovery-focus.test.tsx",
+    "lib/__tests__/published-walk-page.test.tsx",
+    "lib/__tests__/map-recovery-actions.test.tsx",
+    "--testTimeout=15000"
+  ],
+  "cwd": "C:\\sgSHIOK2026\\web",
+  "exitCode": 0,
+  "elapsedMs": 8422,
+  "counts": {
+    "tests": 104,
+    "passed": 104,
+    "failed": 0
+  },
+  "failures": []
+}

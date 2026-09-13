@@ -9,16 +9,18 @@ live services. Reporting choices and weekly scheduler/issue approval are pending
 LOCALLY_VERIFIED: walk-only inspector. Two tabs (MRT/LRT exits, Bus stops), shortest
 usable saved walk selected automatically, no Suggested/comparison/About data,
 automatic zoom-bounded night lighting, bounded explicit preview recovery.
-Current QA: qa/revamp-r1/release-runtime-20260913 and maintenance-continuity-20260913;
+Current QA: qa/revamp-r1/keyboard-recovery-20260913 and notice-pacing-20260913;
 prior UX acceptance: completion-20260913 and route-gap-20260913.
-Build T2PK7uLhsuXtK2oAxtakU: http://127.0.0.1:4412/. Current1916/71 isolated web
-tests and42dependency guards pass;376focused monitor/README tests pass. New web
-changes are tests only, not a rebuilt frontend. TypeScript/integrity checked separately.
-Browser3 passes80checks/16captures at4sizes. First attempt failed an offscreen
-disclosure target; second lacked the Enter character event. Both remain failed.
-Only browser3 is the completed current acceptance pass. Phone/representative speed,
-current-release SW/production identity and deployment remain unaccepted. Old4410
-preview from this turn was identity-checked and stopped; old4406 is superseded.
+Build X5gzHuoOU1Div5U-qBlgj: http://127.0.0.1:4414/. Current1925/72 isolated web
+tests and42dependency guards pass;955focused maintenance tests are retained from
+the preceding commit, not rerun by this frontend change. TypeScript/build pass.
+New keyboard treatment passes10checks/7inspected captures at390x844: geometry
+Retry, preview Retry and Back keep focus on the result heading; later completion
+does not steal subsequent focus. Pending geometry retry says Loading saved walk.
+Baseline BODY-focus/false-missing-message failures and harness mistakes remain
+recorded. Prior80checks/16captures at4sizes are earlier acceptance, not a rerun
+of this build. Phone/representative speed, native zoom, current-release SW,
+production identity and deployment remain unaccepted. Preview4412 is superseded.
 Comparison T08-T11 is RETIRED, not an acceptance blocker. Historical outcomes
 below describe earlier work, not instructions to restore it. Existing saved
 shortlists are not read, written or deleted by Home. Technical evidence moves
@@ -506,6 +508,8 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Request-audit follow-up2026-09-10:36native contracts pass, including the new real trace. A controlled offscreen-raster cancellation probe on the pinned pre-merge build joins16 Invalid InterceptionId errors to exact Fetch/Network IDs and canceled ERR_ABORTED events. The corrected browser attempt still exits1:4gzip404s and5missing terminal page events(4responses+worker).3plain JSON fallbacks complete; optional transit shard absent. Both before/after captures have4current-route features; all5images across2attempts parent-inspected. The first attempt's cyclic map-return serialization error is preserved. Do not retroactively relabel old5faults, infer worker failure from page-only telemetry or suppress404s. Next: worker-target lifecycle and failed-body terminal-event fixtures before another replay. No current-lock/full-suite/release acceptance. Evidence: `qa/revamp-r1/request-audit-20260910/summary.json`.
 - Lifecycle isolation2026-09-10:26native tests/3files and7checks in a corrected localhost-only browser fixture pass.6retained404 bodies lacked terminal notifications until handled;4drained requests then reported earlier CDP finish timestamps,2cancellations reported ERR_ABORTED. The worker entry request crosses from page to explicitly attached worker session; entry/import/data requests all crossed parent interception. Strict identity/URL/parent/sequence tests reject false handoffs. First attempt's unsupported worker Fetch.enable error remains recorded. This proves diagnostic mechanisms, not old-app fault causes, speed gains or current-lock acceptance. No app replay/source change; T25 stays PARTIAL. Evidence: `qa/revamp-r1/lifecycle-probe-20260910/summary.json`.
 - Integration boundary: final fetch discovered Dependabot05effee/85d4c9e changing only web/package.json and web/package-lock.json. The1765-test build at a325f16 used installed MapLibre6.1.0/Next16.3.0. Merged declarations now require6.4.1/16.3.3 while static worker remains6.1.0. Preserve prior results as pre-merge validation, not new-dependency acceptance. T29 coordinated installation/worker/cache/tests/build gate remains; no install or deployment occurred. Evidence: `qa/revamp-r1/cross-feature-motion-20260910/remote-advance.json`.
+
+- Keyboard recovery follow-up 2026-09-13: current Home reproduced focus falling to BODY after geometry Retry, preview Retry and Back. Transfer owned focus synchronously to the stable result heading before removing the button; never focus from async completion. Geometry retry now has an explicit loading state instead of falsely claiming missing published geometry. Nine new hook-host regression cases;104focused/3files,1925isolated/72files+42guards,TypeScript/build pass. Browser treatment10checks/7parent-inspected captures at390x844 proves exact H2 focus with a visible3px outline, subsequent Tab ownership,4route features after geometry recovery and saved geometry retention through preview failure/Back. Baseline and failed harness/test attempts remain recorded. This completes the narrow current-Home recovery slice, not native zoom, screen-reader, physical-phone, representative performance or exact-release acceptance. Evidence: `qa/revamp-r1/keyboard-recovery-20260913/summary.json`.
 
 ### [ ] T26: Owner/device and real-user task acceptance
 - Status: OWNER. Size: S. Parent: P3.1.

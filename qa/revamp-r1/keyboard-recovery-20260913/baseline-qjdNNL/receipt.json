@@ -1,0 +1,317 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\keyboard-recovery-20260913\\baseline-qjdNNL",
+  "profile": "C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-ZTsMu7",
+  "origin": "http://127.0.0.1:4412",
+  "startedAt": "2026-09-13T08:03:34.019Z",
+  "checks": [],
+  "errors": [],
+  "denied": [],
+  "host": [
+    {
+      "at": 1789286615030,
+      "availableMiB": 2387.7734375,
+      "cpus": [
+        {
+          "user": 37629078,
+          "nice": 0,
+          "sys": 35936062,
+          "idle": 65881812,
+          "irq": 3225718
+        },
+        {
+          "user": 43371687,
+          "nice": 0,
+          "sys": 29500437,
+          "idle": 66574734,
+          "irq": 1343500
+        },
+        {
+          "user": 48369640,
+          "nice": 0,
+          "sys": 31344125,
+          "idle": 59733093,
+          "irq": 1285062
+        },
+        {
+          "user": 45116390,
+          "nice": 0,
+          "sys": 28562312,
+          "idle": 65768156,
+          "irq": 1069578
+        },
+        {
+          "user": 40392234,
+          "nice": 0,
+          "sys": 35300453,
+          "idle": 63754171,
+          "irq": 1585640
+        },
+        {
+          "user": 40193125,
+          "nice": 0,
+          "sys": 32273593,
+          "idle": 66980140,
+          "irq": 1331140
+        },
+        {
+          "user": 44912281,
+          "nice": 0,
+          "sys": 33082906,
+          "idle": 61451671,
+          "irq": 1205140
+        },
+        {
+          "user": 46378765,
+          "nice": 0,
+          "sys": 31558546,
+          "idle": 61509546,
+          "irq": 1064265
+        }
+      ]
+    },
+    {
+      "at": 1789286616043,
+      "availableMiB": 2351.4921875,
+      "cpus": [
+        {
+          "user": 37629359,
+          "nice": 0,
+          "sys": 35936421,
+          "idle": 65882187,
+          "irq": 3225718
+        },
+        {
+          "user": 43371968,
+          "nice": 0,
+          "sys": 29500734,
+          "idle": 66575171,
+          "irq": 1343500
+        },
+        {
+          "user": 48370171,
+          "nice": 0,
+          "sys": 31344281,
+          "idle": 59733421,
+          "irq": 1285062
+        },
+        {
+          "user": 45116843,
+          "nice": 0,
+          "sys": 28562437,
+          "idle": 65768593,
+          "irq": 1069578
+        },
+        {
+          "user": 40392718,
+          "nice": 0,
+          "sys": 35300609,
+          "idle": 63754546,
+          "irq": 1585640
+        },
+        {
+          "user": 40193562,
+          "nice": 0,
+          "sys": 32273781,
+          "idle": 66980531,
+          "irq": 1331156
+        },
+        {
+          "user": 44912593,
+          "nice": 0,
+          "sys": 33083171,
+          "idle": 61452109,
+          "irq": 1205171
+        },
+        {
+          "user": 46379140,
+          "nice": 0,
+          "sys": 31558812,
+          "idle": 61509921,
+          "irq": 1064265
+        }
+      ]
+    },
+    {
+      "at": 1789286617063,
+      "availableMiB": 2246.5703125,
+      "cpus": [
+        {
+          "user": 37629484,
+          "nice": 0,
+          "sys": 35936593,
+          "idle": 65882906,
+          "irq": 3225750
+        },
+        {
+          "user": 43372156,
+          "nice": 0,
+          "sys": 29500796,
+          "idle": 66575937,
+          "irq": 1343531
+        },
+        {
+          "user": 48370515,
+          "nice": 0,
+          "sys": 31344562,
+          "idle": 59733812,
+          "irq": 1285078
+        },
+        {
+          "user": 45117109,
+          "nice": 0,
+          "sys": 28562515,
+          "idle": 65769265,
+          "irq": 1069578
+        },
+        {
+          "user": 40393078,
+          "nice": 0,
+          "sys": 35300812,
+          "idle": 63755000,
+          "irq": 1585640
+        },
+        {
+          "user": 40193796,
+          "nice": 0,
+          "sys": 32274000,
+          "idle": 66981093,
+          "irq": 1331187
+        },
+        {
+          "user": 44912890,
+          "nice": 0,
+          "sys": 33083437,
+          "idle": 61452562,
+          "irq": 1205171
+        },
+        {
+          "user": 46379578,
+          "nice": 0,
+          "sys": 31558953,
+          "idle": 61510359,
+          "irq": 1064265
+        }
+      ]
+    }
+  ],
+  "hostCounters": "\r\n\"(PDH-CSV 4.0)\",\"\\\\PRAWN-E14\\Memory\\Available MBytes\",\"\\\\PRAWN-E14\\Memory\\Pages Input/sec\",\"\\\\PRAWN-E14\\Memory\\Pages Output/sec\",\"\\\\PRAWN-E14\\Processor(_Total)\\% Processor Time\"\r\n\"09/13/2026 16:03:37.295\",\"2238.000000\",\"48.380368\",\"0.000000\",\"41.547630\"",
+  "last": {
+    "name": "valid host counters before browser",
+    "value": "\r\n\"(PDH-CSV 4.0)\",\"\\\\PRAWN-E14\\Memory\\Available MBytes\",\"\\\\PRAWN-E14\\Memory\\Pages Input/sec\",\"\\\\PRAWN-E14\\Memory\\Pages Output/sec\",\"\\\\PRAWN-E14\\Processor(_Total)\\% Processor Time\"\r\n\"09/13/2026 16:03:37.295\",\"2238.000000\",\"48.380368\",\"0.000000\",\"41.547630\""
+  },
+  "anchorsBefore": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "failure": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(build.sources.every(s => hash(readFileSync(resolve(root, s.path))) === s.sha256))\n\n    at file:///C:/sgSHIOK2026/qa/revamp-r1/keyboard-recovery-20260913/runner-baseline-1789286613982.mjs:78:10",
+  "samplerExit": null,
+  "cleanup": {
+    "command": "$ErrorActionPreference='Stop'; $profile='C:\\sgSHIOK2026\\tmp\\layout-confirmation-browser-ZTsMu7'; function Owned { @(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | Where-Object { $_.CommandLine -and $_.CommandLine.Contains($profile) }) }; $before=@(Owned | Select-Object ProcessId,Name,CommandLine); foreach($p in @(Owned)){ $live=Get-Process -Id $p.ProcessId -ErrorAction SilentlyContinue; if($live -and -not $live.HasExited){Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue} }; $until=[DateTime]::UtcNow.AddSeconds(20); do { $remaining=@(Owned | Where-Object { $p=Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue; $p -and -not $p.HasExited }); if($remaining.Count -eq 0){break}; Start-Sleep -Milliseconds 250 } while([DateTime]::UtcNow -lt $until); @{before=$before;remaining=@($remaining | Select-Object ProcessId,Name,CommandLine)} | ConvertTo-Json -Depth 4 -Compress",
+    "exitCode": 0,
+    "stdout": "{\"before\":[],\"remaining\":[]}\r\n",
+    "stderr": "",
+    "verified": true
+  },
+  "anchorsAfter": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "anchorsUnchanged": true,
+  "stderr": "",
+  "elapsedMs": 5466,
+  "ok": false,
+  "rawTrace": {
+    "file": "browser.json.gz",
+    "rawBytes": 10807,
+    "rawSha256": "52060a0d01bfc5dacea493eccdaa973a5dfc6ded4489a277c7840767fe5ca19e",
+    "compressedBytes": 2548,
+    "compressedSha256": "ff3781d96ccee43697995db32afd40213e95bc7261faa7b1feaf8b7862f82905",
+    "entryCount": 0
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "buildId": "X5gzHuoOU1Div5U-qBlgj",
+  "snapshot": "C:\\sgSHIOK2026\\tmp\\keyboard-recovery-20260913-build-1",
+  "pid": 13080,
+  "dataPort": 4338,
+  "nextPort": 4413,
+  "proxyPort": 4414,
+  "readOnlyData": true,
+  "allowedApi": "GET /api/onemap-route and /api/onemap-search",
+  "oneMapCredentialsConfigured": true,
+  "nextPid": 36004
+}

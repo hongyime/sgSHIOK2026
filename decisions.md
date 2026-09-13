@@ -3880,3 +3880,20 @@ source evidence, but now appends separate request-budget records. Do not describ
 it as filesystem-read-only. No scheduler, account, issue or notice is activated by
 this change. Fixture tests cannot substitute for an observed scheduled delivery,
 an approved destination or physical-device/resident acceptance.
+
+## 2026-09-13: Keep keyboard recovery anchored to the selected walk
+
+A focused Retry or Back button may disappear immediately after activation. Move
+its focus synchronously to the existing postal result heading before changing
+state, but only when that button currently owns focus. The heading is not an
+extra Tab stop and has a visible keyboard outline. Never focus from asynchronous
+completion: subsequent search or Tab navigation belongs to the user. Retain the
+existing selection/request-attempt guards so stale requests cannot clear the
+current loading state or replace the selected route.
+
+Geometry retry is loading, not evidence that a route was never published. Show
+that pending state explicitly. Retain saved geometry through online preview
+failure; Back restores it without another provider request. These are frontend
+recovery changes, not new route coverage or score computation. The controlled
+keyboard browser pass complements the prior pointer checks; it does not replace
+native zoom, assistive technology, physical-device or release-specific acceptance.

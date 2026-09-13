@@ -5273,3 +5273,94 @@ No raw output bytes were changed. Only the new QA directory's XML whitespace
 attribute now exempts blank-at-eol; source checks remain enabled. The initial
 summary/index remain snapshots of that first finalization. summary-final.json and
 artifact-index-final.json are the current finalization, retaining the earlier files.
+
+## Keyboard recovery continuation 2026-09-13
+
+Working root: C:\sgSHIOK2026. Host: Prawn-E14. Base:0e2245180f7a4201408ce74dcb7a2097e343f3c8.
+Evidence directory: qa/revamp-r1/keyboard-recovery-20260913/.
+The actual production deployment remains the old dirty CLI deployment; its two
+explicitly named local BUILD_ID paths are absent. inspection.json records the
+selected metadata and exact checks, not an archive recovery or production change.
+The independent audit instead identified a concrete current-Home keyboard gap.
+
+Baseline browser attempts, in order:
+- baseline-qjdNNL: source guard stopped before browser launch; two strengthened
+  test files differed from the existing preview. The final harness permits only
+  those exact two expected test-only drifts for the baseline, never runtime drift.
+- baseline-946wHM: reproduced geometry Retry losing focus to BODY and falsely
+  reporting missing geometry while the retry was held. Later preview setup timed
+  out because an unsaved-stop deep link returned to the saved category default.
+  This is a failed harness assumption, not evidence of provider failure.
+- baseline-CbZaYK: actual POI selection followed by keyboard recovery reproduced
+  all three lost-focus cases: geometry Retry, preview Retry and Back. Its nine
+  checks include failures; it is not a passing acceptance run. Full traces and
+  the exact generated runners are retained alongside captures.
+
+Changes: synchronously focus the existing result heading only when the activated
+button owns focus; keep it out of sequential Tab order and show a keyboard outline.
+No asynchronous completion moves focus. Preserve request/attempt ownership and
+clear retry loading on navigation. Pending geometry retry now says Loading saved
+walk instead of claiming absent published geometry. Saved preview fallback remains.
+
+Commands and terminal receipts:
+node qa/revamp-r1/keyboard-recovery-20260913/checks.mjs focused lib/__tests__/walk-recovery-focus.test.tsx lib/__tests__/published-walk-page.test.tsx lib/__tests__/map-recovery-actions.test.tsx --testTimeout=15000
+- checks-1789287216367:101passed,3failed. Programmatic Retry preview calls lacked
+  an event; corrected event?.currentTarget rather than weakening the tests.
+- checks-1789287331052:104passed,3files,exit0. Nine new Home hook-host cases;
+  these test handlers/state contracts, not actual browser layout or MapLibre.
+node qa/revamp-r1/keyboard-recovery-20260913/checks.mjs full
+- checks-1789287367862:1925passed,72files,exit0;42dependency guards also pass.
+- Arithmetic:1916existing+9new=1925;71existing files+1new=72.
+-243tracked source files copied; original/copied production data denied; guard
+  probe passed; existing dependencies linked, no installation. Wrapper355844ms.
+node qa/revamp-r1/keyboard-recovery-20260913/checks.mjs types
+- checks-1789287840210:installed TypeScript --noEmit --incremental false,exit0.
+node qa/revamp-r1/keyboard-recovery-20260913/build.mjs
+- build-1/build.json:exit0,sourceStable=true,buildId=X5gzHuoOU1Div5U-qBlgj.
+- Existing QA-only retained A archive remains e8Hlhkml4c3i_uMGJdd3P, not the
+  actual old production build and not an approval to retain its runtime publicly.
+node qa/revamp-r1/keyboard-recovery-20260913/browser.mjs treatment
+- treatment-N3VGwc:10checks passed,7captures,owned-browser cleanup verified.
+- Exact target: visible H2 inside Walk summary, Postal018956, focus-visible with
+  a solid3px outline after each disappearing control. Subsequent Tab focus survives
+  successful geometry completion and failed preview completion. Back retains the
+  exact saved geometry; no extra provider call. Initial/retried online previews
+  are controlled503/held responses, not measurements of the actual provider.
+- Geometry before/pending captures have0route features under the controlled
+  geometry failure. Recovered geometry and all preview/Back captures have4current
+  route features. Parent inspected all7treatment captures, plus3baseline captures.
+- Browser plugin bootstrap failed os error3; the existing owned Chrome/CDP
+  fallback was used. Headless390x844, service worker bypassed, not a real phone,
+  native browser zoom, screen reader, latency benchmark or release-upgrade test.
+
+Current local preview: http://127.0.0.1:4414/.
+Current task board: http://127.0.0.1:4414/postplan.html.
+Older4412 remains a superseded baseline, not this source. Prior80checks/16captures
+at four sizes are earlier acceptance, not rerun or relabeled for this build.
+The previous955focused Python maintenance tests are retained, not rerun here.
+summary.json records final source/test/build identity, exact evidence prefix,
+11input anchors, locked-weight hash, integrity and served task-board identity.
+review.json records the independent source and focused image review boundary.
+
+FINDINGS
+1. Current Home really lost keyboard focus on three disappearing recovery
+   controls. The synchronous owned-focus fix is now exercised in browser and tests.
+2. A pending geometry retry incorrectly claimed geometry was unpublished. Its
+   explicit loading state now distinguishes an in-flight request from missing data.
+3. Optional callback event handling was corrected after three focused failures;
+   the failed tests and baseline/harness attempts remain evidence, not erased work.
+4. Popup simplification, server bounds and bounded missing-route diagnosis were
+   completed earlier. This adds no saved routes and does not activate reporting,
+   maintenance or production. Their account/policy/storage/device/release gates
+   remain explicit in STATE, PRODUCT-PLAN and postplan.html.
+
+DISAGREEMENTS
+1. A passing focused keyboard replay is not full device acceptance. Native zoom,
+   assistive technology, physical residents/devices and current-release returning
+   users still require their own checks. Test count is not product completion.
+2. Rebuilding the nominal commit of a dirty deployment would not recover its exact
+   old runtime. The named local build absence does not establish absence of every
+   possible archive; no broader backup search or deployment was performed.
+
+Pipeline runs:0. Pipeline seconds:0. Installs:0. Deployments:0.
+No X access, protected-data mutation, score/input generation or locked-weight edit.

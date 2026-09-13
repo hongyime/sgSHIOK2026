@@ -1,0 +1,7 @@
+{
+  "command": "python scripts/check_repo_integrity.py",
+  "exitCode": 0,
+  "signal": null,
+  "stdout": "repo_integrity=ok\r\n",
+  "stderr": ""
+}
