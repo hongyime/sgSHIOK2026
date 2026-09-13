@@ -1,0 +1,81 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "createdAt": "2026-09-13T16:12:56.873Z",
+  "host": {
+    "status": 0,
+    "stdout": "{\"at\":\"2026-09-13T16:12:51.2123971Z\",\"availableMiB\":2191.359375,\"cpu\":21,\"pagesIn\":623,\"pagesOut\":0}\r\n{\"at\":\"2026-09-13T16:12:54.0809906Z\",\"availableMiB\":2218.8515625,\"cpu\":30,\"pagesIn\":242,\"pagesOut\":0}\r\n{\"at\":\"2026-09-13T16:12:56.8216933Z\",\"availableMiB\":2191.5546875,\"cpu\":26,\"pagesIn\":245,\"pagesOut\":0}\r\n",
+    "stderr": "",
+    "samples": [
+      {
+        "at": "2026-09-13T16:12:51.2123971Z",
+        "availableMiB": 2191.359375,
+        "cpu": 21,
+        "pagesIn": 623,
+        "pagesOut": 0
+      },
+      {
+        "at": "2026-09-13T16:12:54.0809906Z",
+        "availableMiB": 2218.8515625,
+        "cpu": 30,
+        "pagesIn": 242,
+        "pagesOut": 0
+      },
+      {
+        "at": "2026-09-13T16:12:56.8216933Z",
+        "availableMiB": 2191.5546875,
+        "cpu": 26,
+        "pagesIn": 245,
+        "pagesOut": 0
+      }
+    ],
+    "elapsedMs": 8998,
+    "pass": false,
+    "gate": "Three samples,each available>=1024MiB,CPU<85%,no observed paging. A conservative run-admission gate, not representative performance or causation proof."
+  },
+  "sources": {
+    "browser.mjs": "59f31bcfdb5d1d71df2921e66acb1436f45223d37b755ecd090f83f17a0e1422",
+    "run.mjs": "f0cf980b618878bcf0c347c70e47d5257c50f2a2713fe77050976a5774bef8e7",
+    "preservation.mjs": "b449501f80fa171df11b8cf8bccbdfd55b1406879f67fccbd3177a0a782b37f2",
+    "preservation.test.mjs": "d177127d2fd72e3ad06e1449a03d121df3b7e87d7a5ce18eabd096db87c8c334"
+  },
+  "pluginBootstrap": {
+    "error": "failed to write kernel assets: The system cannot find the path specified. (os error 3)",
+    "fallback": "Existing owned Chrome/CDP harness; no plugin retry"
+  },
+  "tests": [
+    {
+      "command": [
+        "node",
+        "--check",
+        "browser.mjs"
+      ],
+      "status": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "run.mjs"
+      ],
+      "status": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "--test",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\legacy-preservation-20260914\\preservation.test.mjs",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\legacy-command-20260913\\cdp-commands.test.mjs",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\legacy-reload-20260913\\release-server-v2.test.mjs",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\legacy-reload-20260913\\navigation-proof.test.mjs"
+      ],
+      "status": 0,
+      "stdout": "✔ records command identity and timing without request/result payloads (11.8819ms)\n✔ timeout is identified and a late reply cannot satisfy a later command (15.3315ms)\n✔ protocol errors preserve caller semantics but do not enter the journal (1.6794ms)\n✔ write failures remove pending timers and identify the command (1.7779ms)\n✔ close settles all outstanding commands and rejects later admission (2.1137ms)\n✔ work deadline and command count bound admission (1.472ms)\n✔ per-command wait is capped by remaining work budget (11.5636ms)\n✔ events and unrelated reply IDs do not consume pending commands (1.5719ms)\n✔ all named steps execute and read back actual synthetic storage/cache (125.7502ms)\n✔ steps share one ten-second budget, not one budget each (3.1715ms)\n✔ remaining browser-work time caps preparation (2.0327ms)\n✔ failed readback halts before any later step (4.7045ms)\n✔ command failure retains command identity and stops (1.4638ms)\n✔ the exact received current HTML may replace the old canonical page (1.0871ms)\n✔ unchanged canonical HTML remains acceptable (0.5604ms)\n✔ does not permit changed immutableasset (1.0063ms)\n✔ does not permit changed data (1.0231ms)\n✔ does not permit changed unrelatedcache (0.9582ms)\n✔ does not permit changed query (0.5892ms)\n✔ does not permit changed otherorigin (0.4294ms)\n✔ missing entries, arbitrary HTML and incorrect byte sizes fail (3.7053ms)\n✔ only navigation context destruction is retryable (4.8086ms)\n✔ preserve original query/hash and permit only absent canonical bus default (5.6114ms)\n✔ bind a worker-served document to top frame, loader and exact requested URL (1.4554ms)\n✔ reject a different frame, loader, session, URL or missing request (1.5597ms)\n✔ reject ambiguous matching document responses (0.8711ms)\n✔ oversized captured HTML and assets reject before listening (11.894ms)\n✔ only required local frontend/data GET paths are admitted (2.9069ms)\n✔ response credentials are not forwarded (3.8773ms)\n✔ old captured bodies, genuine worker switch, current query and data read-only path (342.0915ms)\n✔ request bound stops admission (30.6393ms)\n✔ byte bound rejects captured body without sending it (17.0296ms)\n✔ discarded upstream bodies remain charged across failed requests (80.5285ms)\n✔ concurrent shutdown callers await the same socket and upstream closure (42.0117ms)\n✔ wall-triggered shutdown is awaitable by final cleanup (65.8826ms)\n✔ automatic lamp data uses only its known read-only prefix (1.2887ms)\nℹ tests 36\nℹ suites 0\nℹ pass 36\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 1191.8789\n",
+      "stderr": ""
+    }
+  ],
+  "admitted": false
+}

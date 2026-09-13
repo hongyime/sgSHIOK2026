@@ -6259,3 +6259,71 @@ Commit check note: the all-path git diff --cached --check reported whitespace
 inside the two preserved failed-run JUnit XML tracebacks. Those raw bytes remain
 unchanged. Source/docs use the default whitespace check, excluding only those two
 XML files; raw QA bytes are independently checked against the staged blobs.
+
+## 2026-09-14: Bounded legacy-preservation checkpoint
+
+New evidence: qa/revamp-r1/legacy-preservation-20260914/summary.json.
+The original preflight.json, correction admission.json and final source-pinned
+revised-admission.json are retained. The final latter receipt contains raw test
+stdout:24new preservation cases +8command +10server +5navigation =47passed;
+0failed,0skipped. Browser/run syntax checks pass. Existing1990web/73files plus
+42guards and1039maintenancePython/13files are retained, not rerun in this task.
+
+The old worker caches navigation HTML at the canonical origin root. The harness
+previously treated this as immutable. Only that exact entry may now match either
+its prior bytes or the exact current browser Document SHA/length. All other
+entries and storage remain strict. Missing/corrupt/duplicate sentinels stop
+before release switch. Preparation has five named steps sharing one10s budget,
+not five10s budgets. The browser did not reach these corrected checks.
+
+The single observed-0t2Mmh attempt exited1. Five old/setup preconditions passed.
+Command26 Page.captureScreenshot returned after3923ms and wrote old-selected.png.
+Command27 screenshot:old-selected:after Runtime.evaluate timed out:
+25453-15453=10000ms. Late reply36302-15453=20849ms;36302-25453=10849ms
+after timeout; its payload is discarded, not a completed bracket or success.
+Command28 Browser.getVersion timed out28526-25454=3072ms.
+Command29 failure screenshot timed out32599-28526=4073ms.
+Command30 Browser.close timed out36646-32646=4000ms; cleanup forcibly ended
+only the owned Chrome profile, with exit4294967295 and no remaining processes.
+Driver47748ms; supervisor53820ms. Supervisor limit:
+240000child +45000cleanup +15000reserve =300000ms;53820<300000.
+Server release=old;releaseSwitches=0;requests=33;totalBytes=7212377;
+activeUpstreams=0;activeSockets=0;closed=true;limitHit=null.
+No preservationSteps/cacheBefore/currentDocument/reload. No accepted captures.
+One226847byte PNG exists, inspected directly by parent: old UI, partial map tiles,
+no visually identifiable selected route. The after-bracket failed, so this is
+not selected-route, migration, current-app, phone or performance acceptance.
+All11source anchors unchanged; immutable source/weight checks are in summary.
+No second attempt, installation, pipeline work, service activation or deployment.
+
+Our initial preflight added unsupported CPU85/zero-page-in gates. Its samples
+passed the existing1GiB rule but had nonzero page-ins. Keep the rejected receipt;
+admission was corrected without resampling. Runtime free memory4076.171875MiB
+passed the original rule, yet the browser still timed out. This does not prove
+memory, page-ins, the application, the transport or hardware is the sole cause.
+Primary source: https://learn.microsoft.com/en-us/troubleshoot/windows-client/performance/how-to-determine-the-appropriate-page-file-size-for-64-bit-versions-of-windows
+Performance counters section: page-ins also include DLL and memory-mapped reads.
+Browser plugin bootstrap failed before code execution with os error3; the owned
+Chrome/CDP fallback and its terminal failure are explicit, not plugin success.
+
+FINDINGS
+1. Corrected an inherited harness assumption that would reject legitimate
+   canonical HTML refresh while preserving unrelated caches.47offline cases pass.
+2. Actual old-to-current release acceptance remains unproven: this attempt did
+   not switch releases. The failed browser probes and late reply are retained.
+3. Our zero-page-in gate was overstrict; its rejection is preserved and corrected,
+   not passed off as proof of host overload or silently replaced by new samples.
+4. Reporting contracts and maintenance integration are not activated services.
+   Account/policy/operator choices, physical-device work and exact release remain.
+5. Pipeline runs0, seconds0, installs0, external notices0, deployments0.
+
+DISAGREEMENTS
+1. An old-page timeout does not establish a current-app defect or justify a PASS.
+2. Neither additional fixture counts nor memory headroom replaces returning-user
+   acceptance, a real reporting backend, operation ownership or a physical phone.
+
+Independent review clarification, 2026-09-14: Peirce confirmed the scoped failure
+claims. Its missing-summary concern was resolved by executing finalize.mjs.
+The plan previously phrased a usable device session OR limited-release approval
+as alternatives. Corrected: risk acceptance is a separate owner decision, never
+a passing reload/physical-device test. No repeated attempt in this checkpoint.

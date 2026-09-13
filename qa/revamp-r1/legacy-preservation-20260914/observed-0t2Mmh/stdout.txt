@@ -1,0 +1,9 @@
+{
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\legacy-preservation-20260914\\observed-0t2Mmh",
+  "ok": false,
+  "failure": "Error: Runtime.evaluate timeout (command 27)\n    at Timeout.<anonymous> (file:///C:/sgSHIOK2026/qa/revamp-r1/legacy-command-20260913/cdp-commands.mjs:28:67)\n    at listOnTimeout (node:internal/timers:635:17)\n    at process.processTimers (node:internal/timers:571:7)",
+  "checks": 5,
+  "passed": 5,
+  "cleanup": true,
+  "elapsedMs": 47748
+}

@@ -4109,3 +4109,28 @@ pointer is activated. Operation still needs approved cadence/destination and
 posting identity, authoritative storage/backup, operator ownership, scheduler
 integration and an actual observed delivery. Local fixture tests do not close
 those decisions, real reporting, physical-device acceptance or deployment.
+
+## 2026-09-14: Preserve cache evidence without freezing canonical HTML
+
+The captured old worker writes navigation HTML into sgshiok-static-v1 at the
+exact origin root URL. A reload-preservation harness must not require that one
+entry to retain old HTML forever. Permit unchanged bytes or the exact new
+browser-received Document hash and length, already bound to frame, loader, URL
+and release identity. This exception does not include query URLs, other origins,
+immutable assets, data or unrelated caches. Validate both storage sentinels and
+one exact unrelated cache sentinel before switching releases. No app cache
+policy changes are implied.24new+23retained=47offline cases pass.
+
+One independently reviewed bounded attempt failed before this preparation:
+old-page screenshot after-check timed out, then the browser-version probe also
+timed out. The saved PNG has no completed after-bracket. It is an old interface
+observation, not a new-release acceptance result. Preserve the failure, discarded
+late-reply timing and forced owned-browser cleanup. No replay in this checkpoint.
+
+Our initially added zero-page-in admission gate was unsupported. Microsoft notes
+that page-ins can include DLLs and memory-mapped files, not only pagefile reads.
+Keep the failed preflight, use the established1GiB memory gate without resampling,
+and retain strict command/work/supervisor bounds. Counters are observations, not
+hardware causation. Runtime free memory of4076.171875MiB did not ensure a
+responsive browser. Do not increase deadlines or claim the current app regressed
+from a failure before the current release was served.

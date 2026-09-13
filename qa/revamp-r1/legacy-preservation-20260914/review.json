@@ -1,0 +1,19 @@
+{
+  "reviewer": "Peirce",
+  "scope": "Read-only preflight and failed-run claim review; no staged-content verification by reviewer",
+  "preflight": "Approved one bounded attempt after requiring exact storage/cache sentinel baseline and 11 additional cases",
+  "outcome": "Five old/setup preconditions passed; command 27 and browser-level probe timed out before release switch; no migration acceptance",
+  "findings": [
+    {
+      "issue": "summary.json absent when review began",
+      "resolution": "finalize.mjs subsequently exited 0 and created summary.json, redacted trace, artifact inventory and integrity/prefix receipts"
+    },
+    {
+      "issue": "Usable session or limited-release decision can read as equivalent acceptance paths",
+      "resolution": "Plan and task board now separate diagnostics/device testing from risk acceptance. Evidence clarification appended. Limited release never marks an unpassed test as PASS"
+    }
+  ],
+  "retry": "No further browser attempt in this checkpoint",
+  "remaining": ["returning-client acceptance", "physical-device acceptance", "exact-release approval"],
+  "rawBrowserTrace": "Retain local original; publish redacted trace and hash, not cookie-bearing raw JSON"
+}

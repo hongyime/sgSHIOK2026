@@ -1,12 +1,12 @@
 # Current State
 
-Date: 2026-09-13
+Date: 2026-09-14
 Working root: C:\sgSHIOK2026
 Machine: Prawn-E14
 Startup: assert cwd equals C:\sgSHIOK2026; abort otherwise. Absolute C: writes only. X: cold mirror, never session root.
 Before git commands, set TEMP and TMP to C:\sgSHIOK2026\tmp so global hooks keep temporary scan files inside this root.
 
-Goal ACTIVE, not complete.5b2dee0timing audit/e6113cfT14 lifecycle pushed. Report79focused=34+45,1990isolated/73files+42guards andTS pass. T23 inactive check/delivery/resume integration now27focused and1039Python/13files pass; integrityOK. No real services/activation/browser replay.
+Goal ACTIVE, not complete. Legacy/current reload attempt observed-0t2Mmh is TERMINAL FAILED; session90830 exit1, cleanupverified,53.820s. No restart. Command27 old-screenshot after-check timed out before preservation/release switch; command28 browserprobe also timed out. One unbracketed old-page PNG inspected, no current-app acceptance. QA legacy-preservation-20260914:24new+23retained=47native tests pass. Original>=1GiB gate/deadlines retained after correcting our unsupported zero-page-in gate without resampling. No product source change; service/physical/release gates remain.
 Only MRT/LRT exits and Bus stops, auto shortest usable saved walk, no comparison/About data. Lighting automatic and bounded.
 Server route/search now have one10s deadline including auth/retry/body, cancellation and late-token guards; browser12s remains.
 Public018956 diagnosis:61stop/exits=6saved+55unstored. Exit E saved-ID gap fixed; no new geometry or scores.

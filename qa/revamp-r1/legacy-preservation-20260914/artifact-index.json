@@ -1,0 +1,124 @@
+{
+  "files": [
+    {
+      "path": "qa/revamp-r1/legacy-preservation-20260914/.gitattributes",
+      "bytes": 8,
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-preservation-20260914/admission.json",
+      "bytes": 1136,
+      "sha256": "39180338c86b675e06af3ce2ec0db01af50491e78d7be0c764c5356661202175"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-preservation-20260914/admit.mjs",
+      "bytes": 1978,
+      "sha256": "39de778da81e0da8be8b8fc94b8757dbeaf5be2363fff1e703e066853cb0a670"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-preservation-20260914/browser.mjs",
+      "bytes": 20126,
+      "sha256": "d0e721295b1f512fcf14f82cedb7b91d5238887ebb236f6059f787b90e3d4918"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-preservation-20260914/finalize.mjs",
+      "bytes": 10021,
+      "sha256": "548de952dd644884ca273cda1f1ea2f84526e5b75d55fb037122402c806a63cd"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-preservation-20260914/integrity.json",
+      "bytes": 175,
+      "sha256": "8a8d98ee58e7f258af753b40e94bbc557ccf6eaf92134f4058bfcc61f9a2162b"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-preservation-20260914/observed-0t2Mmh/browser.public.json.gz",
+      "bytes": 115443,
+      "sha256": "1567dc8bc179b9d61309b5e7f6bcc85b7781867a5ebfb04a00654212171ab7c3"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-preservation-20260914/observed-0t2Mmh/controller.json",
+      "bytes": 225,
+      "sha256": "bbacbaaa61d0c358fed5c905ad2449ae18d0914c17d0a30a9a87a43ebfe97012"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-preservation-20260914/observed-0t2Mmh/old-selected.png",
+      "bytes": 226847,
+      "sha256": "337407c911f077357a20b1c6bff257c01b07c77f438d9a4fa6db0c56b64474b3"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-preservation-20260914/observed-0t2Mmh/receipt.json",
+      "bytes": 59004,
+      "sha256": "cfe8adc53317a6c3ecd0b3616e8639d2bddb9640d3a22bd1ceb4e085f311ce44"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-preservation-20260914/observed-0t2Mmh/runner.mjs",
+      "bytes": 20126,
+      "sha256": "d0e721295b1f512fcf14f82cedb7b91d5238887ebb236f6059f787b90e3d4918"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-preservation-20260914/observed-0t2Mmh/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-preservation-20260914/observed-0t2Mmh/stdout.txt",
+      "bytes": 464,
+      "sha256": "1fc99e96cfb4dd3babf5d6b774cd7e8e4c5270ee64f87259fa5da3b5261d6e59"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-preservation-20260914/observed-0t2Mmh/supervisor.json",
+      "bytes": 1403,
+      "sha256": "07d8acf5ff4fb76dabb7d975ce33e96cf2986165517d5789868af6976bfae727"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-preservation-20260914/preflight.json",
+      "bytes": 5347,
+      "sha256": "94e44025157c3382983ca34964bd501a584f366ee2bbd54d1bb75733130ab51d"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-preservation-20260914/preflight.mjs",
+      "bytes": 3038,
+      "sha256": "0b9892bc2df8da3e8595b17743cb979f3e94e8be7b557c5c91d099010951a4f9"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-preservation-20260914/preservation.mjs",
+      "bytes": 3013,
+      "sha256": "a30d942f675e96c8ee7625ee6be469470e7f4431b117803f855454641b008f6d"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-preservation-20260914/preservation.test.mjs",
+      "bytes": 5268,
+      "sha256": "7b12d8d4f060f8fe1ce78633d067ad6240cb4762661c9a5710a84bd9b1afe91c"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-preservation-20260914/review.json",
+      "bytes": 1216,
+      "sha256": "6e33b93d9198e7178c8b0df42f4cca2e3618d0ce9432d4c21e81f13d6b95ca2f"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-preservation-20260914/revised-admission.json",
+      "bytes": 5865,
+      "sha256": "df4feb398d8780682c69b3ce1ebdad1ea1a33e2f136a56e76f4dc7ec1947d7c4"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-preservation-20260914/run.mjs",
+      "bytes": 1844,
+      "sha256": "f0cf980b618878bcf0c347c70e47d5257c50f2a2713fe77050976a5774bef8e7"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-preservation-20260914/summary.json",
+      "bytes": 11043,
+      "sha256": "e230da82364a5f3835afc38da0a1ea9e919121864b5b8a2f45dde0cc81e2fbbc"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-preservation-20260914/tracking.json",
+      "bytes": 247,
+      "sha256": "76013f5c1c5cc58a0a5fd2305403d52c260457024575da9d1bddf0465ad335b5"
+    },
+    {
+      "path": "qa/revamp-r1/legacy-preservation-20260914/verify-revision.mjs",
+      "bytes": 1909,
+      "sha256": "6a1280ffdd152dfec0294c3261b90b748ed0f34a4c1d7c683849db0c99680013"
+    }
+  ]
+}

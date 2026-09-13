@@ -1,0 +1,62 @@
+{
+  "createdAt": "2026-09-13T16:18:56.978Z",
+  "supersedes": "admission.json",
+  "reason": "Peer required synchronous validation of captured storage/cache sentinels before release switch;11regressions added.",
+  "sources": {
+    "browser.mjs": "d0e721295b1f512fcf14f82cedb7b91d5238887ebb236f6059f787b90e3d4918",
+    "run.mjs": "f0cf980b618878bcf0c347c70e47d5257c50f2a2713fe77050976a5774bef8e7",
+    "preservation.mjs": "a30d942f675e96c8ee7625ee6be469470e7f4431b117803f855454641b008f6d",
+    "preservation.test.mjs": "7b12d8d4f060f8fe1ce78633d067ad6240cb4762661c9a5710a84bd9b1afe91c"
+  },
+  "checks": [
+    {
+      "command": [
+        "node",
+        "--check",
+        "browser.mjs"
+      ],
+      "status": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "run.mjs"
+      ],
+      "status": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "--test",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\legacy-preservation-20260914\\preservation.test.mjs",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\legacy-command-20260913\\cdp-commands.test.mjs",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\legacy-reload-20260913\\release-server-v2.test.mjs",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\legacy-reload-20260913\\navigation-proof.test.mjs"
+      ],
+      "status": 0,
+      "stdout": "✔ records command identity and timing without request/result payloads (12.3036ms)\n✔ timeout is identified and a late reply cannot satisfy a later command (26.7552ms)\n✔ protocol errors preserve caller semantics but do not enter the journal (1.418ms)\n✔ write failures remove pending timers and identify the command (1.1135ms)\n✔ close settles all outstanding commands and rejects later admission (1.6848ms)\n✔ work deadline and command count bound admission (1.0389ms)\n✔ per-command wait is capped by remaining work budget (15.8679ms)\n✔ events and unrelated reply IDs do not consume pending commands (1.1544ms)\n✔ all named steps execute and read back actual synthetic storage/cache (108.646ms)\n✔ steps share one ten-second budget, not one budget each (1.5726ms)\n✔ remaining browser-work time caps preparation (0.6563ms)\n✔ failed readback halts before any later step (2.481ms)\n✔ command failure retains command identity and stops (1.3164ms)\n✔ the exact received current HTML may replace the old canonical page (1.1434ms)\n✔ unchanged canonical HTML remains acceptable (0.4545ms)\n✔ does not permit changed immutableasset (0.5395ms)\n✔ does not permit changed data (0.4485ms)\n✔ does not permit changed unrelatedcache (0.6726ms)\n✔ does not permit changed query (0.5507ms)\n✔ does not permit changed otherorigin (0.3841ms)\n✔ missing entries, arbitrary HTML and incorrect byte sizes fail (1.0543ms)\n✔ baseline requires both storage sentinels and one exact cache sentinel (2.0088ms)\n✔ baseline rejects missinglocal (0.6551ms)\n✔ baseline rejects wronglocal (0.4409ms)\n✔ baseline rejects missingsession (0.5058ms)\n✔ baseline rejects wrongsession (0.4331ms)\n✔ baseline rejects missingcache (0.2929ms)\n✔ baseline rejects wronghash (0.3181ms)\n✔ baseline rejects wrongsize (0.2415ms)\n✔ baseline rejects wrongorigin (0.2301ms)\n✔ baseline rejects wrongcache (0.218ms)\n✔ baseline rejects duplicate (0.2469ms)\n✔ only navigation context destruction is retryable (4.8247ms)\n✔ preserve original query/hash and permit only absent canonical bus default (10.0507ms)\n✔ bind a worker-served document to top frame, loader and exact requested URL (2.011ms)\n✔ reject a different frame, loader, session, URL or missing request (1.2672ms)\n✔ reject ambiguous matching document responses (0.9192ms)\n✔ oversized captured HTML and assets reject before listening (6.6848ms)\n✔ only required local frontend/data GET paths are admitted (3.4693ms)\n✔ response credentials are not forwarded (5.0572ms)\n✔ old captured bodies, genuine worker switch, current query and data read-only path (256.602ms)\n✔ request bound stops admission (15.3931ms)\n✔ byte bound rejects captured body without sending it (13.474ms)\n✔ discarded upstream bodies remain charged across failed requests (69.95ms)\n✔ concurrent shutdown callers await the same socket and upstream closure (21.1264ms)\n✔ wall-triggered shutdown is awaitable by final cleanup (54.1145ms)\n✔ automatic lamp data uses only its known read-only prefix (0.9059ms)\nℹ tests 47\nℹ suites 0\nℹ pass 47\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 915.4908\n",
+      "stderr": ""
+    }
+  ],
+  "admitted": true,
+  "hostAdmission": {
+    "createdAt": "2026-09-13T16:16:15.172Z",
+    "preflightSha256": "94e44025157c3382983ca34964bd501a584f366ee2bbd54d1bb75733130ab51d",
+    "admitted": true,
+    "originalPreflightRetained": true,
+    "resampled": false,
+    "appSourceChanges": 0,
+    "reason": "The added zero-page-in and CPU85 gates were not established policy. Use existing >=1024MiB admission plus unchanged180swork/240schild/300ssupervisor bounds. Runtime memory recheck remains.",
+    "originalFailure": "Rejected only by newly introduced zero-page-in criterion; not established host overload.",
+    "counters": "PagesInput can include DLL/executable/memory-mapped-file disk reads. CPU and page counters retained as observations, not a responsiveness or representative-performance proof.",
+    "source": "https://learn.microsoft.com/en-us/troubleshoot/windows-client/performance/how-to-determine-the-appropriate-page-file-size-for-64-bit-versions-of-windows",
+    "sourceSection": "Performance counters: Memory Page/sec and other hard page fault counters",
+    "peerReview": "Peirce agrees the new host criteria were unsupported; original memory rule and strict work bounds remain."
+  },
+  "resampled": false
+}

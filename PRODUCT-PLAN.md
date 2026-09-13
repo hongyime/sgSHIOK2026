@@ -9,7 +9,8 @@ live services. Reporting choices and weekly scheduler/issue approval are pending
 LOCALLY_VERIFIED: walk-only inspector. Two tabs (MRT/LRT exits, Bus stops), shortest
 usable saved walk selected automatically, no Suggested/comparison/About data,
 automatic zoom-bounded night lighting, bounded explicit preview recovery.
-Current QA: qa/revamp-r1/maintenance-runner-20260913 (inactive integrated runner);
+Current QA: qa/revamp-r1/legacy-preservation-20260914 (failed bounded reload attempt);
+retained qa/revamp-r1/maintenance-runner-20260913 (inactive integrated runner);
 retained qa/revamp-r1/report-lifecycle-20260913 (local report lifecycle);
 retained qa/revamp-r1/legacy-command-20260913 (old-client timing, NOT accepted);
 retained qa/revamp-r1/legacy-reload-20260913 (two failed attempts);
@@ -52,7 +53,24 @@ T14 lifecycle guards are committed at e6113cf. T23 check/delivery/resume integra
 passes27focused cases and1039broader maintenance cases/13files; integrity passes.
 Activation needs the operator/account/storage decisions below. The next product
 milestone is real core-walk device/release acceptance, not another isolated helper.
-No further browser replay in this checkpoint.
+14 September checkpoint: one reviewed, bounded legacy/current attempt failed
+before the release switch. Old-page screenshot after-check command27 timed out
+at10,000ms; its late reply arrived20,849ms after dispatch and was discarded.
+Browser.getVersion also timed out. No preservation step or Reload was reached.
+One old-page PNG is inspected but lacks its completed after-bracket; it shows
+partial tiles and is not current-app, selected-route or migration acceptance.
+Supervisor53.820s, driver47.748s, forced owned-Chrome cleanup verified.
+The harness now permits only exact browser-received current HTML to replace the
+old canonical cached HTML; all other cache/storage entries remain strict.
+24new+23retained=47offline checks pass. This path was not reached in the browser.
+We rejected our added zero-page-in gate as unsupported, preserved that failed
+preflight and used the established1GiB rule without resampling. Runtime memory
+was4076.171875MiB; neither memory alone nor page-ins explain the timeout.
+No further browser replay in this checkpoint. Another diagnostic needs a concrete
+reason and a bounded preflight; physical-device acceptance needs a real session.
+Separately, an owner may approve a limited release with documented risks. That
+decision does not pass any outstanding test. Raising the timeout or declaring
+the current app defective is not justified by this failed old-page attempt.
 Previews4414/4416/4418 are superseded; earlier390x844/four-size checks were not rerun here.
 Comparison T08-T11 is RETIRED, not an acceptance blocker. Historical outcomes
 below describe earlier work, not instructions to restore it. Existing saved
