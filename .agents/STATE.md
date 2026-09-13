@@ -5,22 +5,22 @@ Working root: C:\sgSHIOK2026
 Machine: Prawn-E14
 Startup: assert cwd equals C:\sgSHIOK2026; abort otherwise. Absolute C: writes only. X: cold mirror, never session root.
 
-LOCALLY_VERIFIED: owner walk-only revision from ea825bc. Only MRT/LRT exits and Bus stops; auto shortest usable saved walk.
-Comparison and About data removed from Home; no shortlist restore/write/shared loading. Lighting automatic, bounded by zoom/viewport.
-Preview transport has HTTP checks and12s deadline; retains last saved walk/marker through cross-category failure; explicit retry/back.
-Old QA proxy blocked every API. New preview permits GET /api/onemap-route only and existing server credentials; no values logged/copied.
-Fresh preview http://127.0.0.1:4406/ build LWmaOWIMR0lOcdFZ1XlYd; tmp/walk-only-20260913-build-2.
-Preview identity:qa/revamp-r1/walk-only-20260913/preview-2.json. Old4404/4386/4384/4374/4362 snapshots are not current.
-Focused99tests, final1784/67 isolated suite,42dependency guards, TypeScript/build2 and integrity pass.
-Final browser64checks/13captures pass; earlier camera-target failures retained. One live public-case API200 in355.585ms.
-Positive payload replay renders correctly (21checks) but retains2CDP faults and failed audit. No phone/performance/deployment claim.
-ProxyPID11476,NextPID32480. Current browser profiles cleaned; preview intentionally running.
-Current plan:postplan.html; detailed PRODUCT-PLAN.md. T08-T11comparison RETIRED, not pending acceptance.
-Remaining: device/core-walk acceptance; bounded route-gap diagnosis; T13report-provider/privacy/moderator/backup then T14-T18; maintenance activation; release identity and deployment.
-T19full scan exceeds900s gate. No scoring/export/ingest/network/input repair. Weights/existing data/QA remain untouched.
-Goal ACTIVE: complete remaining popup/API bounds, bounded route diagnosis, reporting, maintenance and release acceptance.
-Current work: server deadlines locally; agents own popup simplification and read-only maintenance/route diagnosis. No concurrent commits.
-Reporting account/privacy/moderator/backup choices and weekly metadata/issue activation requested; other work continues.
-Peer spawning succeeded this resume. Browser plugin previously failed os error3; use documented browser fallback only if needed.
-Evidence:qa/revamp-r1/walk-only-20260913/ and append-only qa/verification/REVAMP-R1-core-walk.md.
-No installs, pipeline, account activation or deployment. Exact staging, conventional commit and push main; never amend/force/rewrite.
+Goal ACTIVE, not complete. Parent commits/pushes only; scoped peer work completed and reviewed.
+Only MRT/LRT exits and Bus stops, auto shortest usable saved walk, no comparison/About data. Lighting automatic and bounded.
+Server route/search now have one10s deadline including auth/retry/body, cancellation and late-token guards; browser12s remains.
+Public018956 diagnosis:61stop/exits=6saved+55unstored. Exit E saved-ID gap fixed; no new geometry or scores.
+Popup now identity only, not service/timetable details. First disclosure design and failed browser attempts retained.
+Current preview http://127.0.0.1:4412/ build T2PK7uLhsuXtK2oAxtakU; tmp/completion-20260913-build-2.
+Identity:qa/revamp-r1/completion-20260913/preview-2.json. Proxy11268/Next35820. Old4410/4406 are superseded.
+Final1889/71 isolated web tests,42dependency guards,181focused Python tests, TypeScript/build2/integrity pass.
+Browser3 passes80checks/16captures, no errors/denied requests, cleanup verified. Prior2failed attempts remain failed.
+Local report contracts34tests and monitor delivery96newtests implemented; neither is an activated service.
+T13 provider/privacy/retention/moderator/backup/account choices requested asynchronously, unanswered so far.
+Weekly metadata-only GitHub checks +oneissue requested, unanswered. Real adapter/state persistence/notice delivery remain open.
+T26 physical phone/user acceptance still required; no emulated-phone or representative-speed claim.
+Release audit: production metadata gitDirty=1; retained MapLibre6.1.0 security/exact release identity unresolved. No deployment approval.
+postplan.html and PRODUCT-PLAN are current work lists; T08-T11/U02 comparison retired.
+T19full scan exceeds900s gate. No scoring/export/ingest/network/input repair or protected data/weights changes.
+Browser plugin bootstrap still fails os error3; owned Chrome/CDP fallback recorded. No peer-quota bypass.
+Evidence:qa/revamp-r1/completion-20260913/,route-gap-20260913/ and append-only qa/verification/REVAMP-R1-core-walk.md.
+No installs, external activation or deployment. Absolute writes, exact staging, conventional commits and push main; never amend/force.

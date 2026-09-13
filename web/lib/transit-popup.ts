@@ -28,7 +28,7 @@ function formatPeakMinutes(value: unknown): string | null {
   return `${value} min best scheduled`;
 }
 
-export function transitPoiPopupHtml(properties: Record<string, unknown>): string {
+export function transitPoiPopupHtml(properties: Record<string, unknown>, options: { compact?: boolean } = {}): string {
   const kind =
     properties.kind === "bus_stop"
       ? "Bus stop"
@@ -36,6 +36,10 @@ export function transitPoiPopupHtml(properties: Record<string, unknown>): string
         ? "MRT/LRT station"
         : "MRT/LRT exit";
   const title = typeof properties.name === "string" ? toProperCase(properties.name) : kind;
+  if (options.compact) {
+    const code = properties.kind === "bus_stop" ? asPopupText(properties.code) : null;
+    return `<strong style="display:block;color:#17211f;font-size:12px;line-height:1.25">${escapeHtml(title)}</strong><span style="display:block;color:#4f625b;font-size:11px;margin-top:2px">${escapeHtml(kind)}${code ? ` / Stop ${escapeHtml(code)}` : ""}</span>`;
+  }
   const rows: Array<[string, string]> = [];
 
   if (properties.kind === "bus_stop") {

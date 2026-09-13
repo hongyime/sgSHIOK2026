@@ -1,0 +1,2 @@
+# Preserve the byte hashes recorded in artifact-index.json, including raw CRLF logs.
+* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

@@ -3678,3 +3678,47 @@ storage must separately authenticate retries, verify challenges, transact report
 quota/audit writes and return a receipt only after actual durable commit. Current
 fixtures cannot prove any of that. No resident service, privacy notice approval,
 moderation authority, backend activation or paid plan is implied by these helpers.
+
+## 2026-09-13: Resolve saved MRT identity before optional online preview
+
+The bounded018956 audit found a saved MRT category default whose best_node has
+station/exit/name but no published marker ID. Treating every unmatched ID as an
+unstored walk made Bayfront Exit E unnecessarily depend on an online preview.
+Resolve this alias only when station/exit/name are unique and agree exactly, the
+saved source is a routed default without aliases, and validated connected geometry
+has the postal and POI as its two outer endpoints on the stored precision-5 grid.
+Reject ambiguous/conflicting identity, disconnected geometry and coordinate mismatch.
+Existing exact IDs remain first. Use the same resolver for marker clicks, selected
+views and deep links; never create geometry or inherit a candidate's unrelated score.
+
+This repairs one frontend identity gap, not all nearby routes. In the bounded
+7-cell public example61stop/exit markers contain6saved destinations and55unstored
+destinations;7station-parent markers are excluded. It is not an island-wide count
+or evidence of lost data. Online preview success and frozen saved coverage remain
+separate capabilities. Expanding stored routes requires separate approved data work.
+
+## 2026-09-13: Prepare monitor delivery with explicit adapter limits
+
+The local delivery module plans one bounded issue body, deduplicates exact notice
+IDs and returns delivery acknowledgements only after matching issue and receipt
+readbacks. It never rewrites the hash-bound source-monitor state/report pair.
+Injected adapters must enforce deadlines, byte bounds, conditional updates and
+durable receipt publication. Synthetic tests establish neither live delivery nor
+GitHub atomic compare-and-swap support; read-then-PATCH is not atomic. A concrete
+provider adapter, preserved state/receipts, owner activation and a real scheduled
+receipt are still required. No workflow or public issue is activated by this code.
+
+## 2026-09-13: Keep transit popups to identity
+
+The final popup contains stop/exit name, type and bus-stop code where present,
+with MapLibre's native close control. The first implementation collapsed service
+details; browser review still found this unnecessary for the requested walk-first
+surface. Remove that secondary panel entirely. Route selection remains the single
+existing marker action; do not add a second Walk here command. The detailed
+formatter remains available to existing non-map consumers, and required basemap
+attribution is retained. This is a presentation change, not a route-coverage claim.
+
+Final desktop and mobile viewport checks exercise saved-route identity, category
+changes, popup dismissal and failed-preview recovery on the rebuilt preview.
+They are headless browser checks with controlled provider failures, not physical
+phone, representative latency, service-worker release or production acceptance.

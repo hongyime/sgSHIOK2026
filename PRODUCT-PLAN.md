@@ -1,21 +1,22 @@
 # SHIOK Revamp Execution Plan
 Current scope: 2026-09-13 owner revision, replacing the 12 September UI scope.
-Completion resume: ACTIVE. OneMap route/search share a 10s server deadline including
-auth, one retry and response bodies; caller disconnect propagates and late tokens
-cannot populate the cache. 38 focused API/search tests pass; build acceptance pending.
-Popup, route-gap diagnosis, local report contracts and maintenance delivery work
-continue in disjoint scopes. Reporting policy/account and weekly issue/scheduler
-activation requested; no provider service or production activation claimed.
+Completion resume: ACTIVE, not complete. OneMap route/search share a 10s server
+deadline across auth/retry/body, caller cancellation and late-token protection.
+Popups show identity only. The saved Bayfront Exit E marker/deep link resolves
+without preview. Bounded018956 coverage is6saved +55unstored =61stop/exit markers.
+Report validation and monitor delivery contracts are implemented and tested, not
+live services. Reporting choices and weekly scheduler/issue approval are pending.
 LOCALLY_VERIFIED: walk-only inspector. Two tabs (MRT/LRT exits, Bus stops), shortest
 usable saved walk selected automatically, no Suggested/comparison/About data,
 automatic zoom-bounded night lighting, bounded explicit preview recovery.
-Current implementation/focused checks are in qa/revamp-r1/walk-only-20260913.
-Build LWmaOWIMR0lOcdFZ1XlYd: http://127.0.0.1:4406/. 1784/67 isolated web tests,
-42 dependency checks, TypeScript/integrity and64 built-browser checks pass.
-The public live route API probe returned200 in355.585ms. The separate successful
-payload replay rendered correctly but retains2CDP faults and an overall failed
-audit. Earlier camera-target setup failures remain preserved. postplan.html is
-the readable live list; no deployment, processing, phone or complete-coverage claim.
+Current QA: qa/revamp-r1/completion-20260913 and route-gap-20260913.
+Build T2PK7uLhsuXtK2oAxtakU: http://127.0.0.1:4412/. 1889/71 isolated web tests,
+42dependency guards,181focused Python tests, TypeScript/build/integrity pass.
+Browser3 passes80checks/16captures at4sizes. First attempt failed an offscreen
+disclosure target; second lacked the Enter character event. Both remain failed.
+Only browser3 is the completed current acceptance pass. Phone/representative speed,
+current-release SW/production identity and deployment remain unaccepted. Old4410
+preview from this turn was identity-checked and stopped; old4406 is superseded.
 Comparison T08-T11 is RETIRED, not an acceptance blocker. Historical outcomes
 below describe earlier work, not instructions to restore it. Existing saved
 shortlists are not read, written or deleted by Home. Technical evidence moves
@@ -253,6 +254,10 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: OWNER. Does not block T01-T11, T19-T20 or T22-T25.
 
 ### [ ] T14: Implement report validation and lifecycle contracts
+
+- Checkpoint2026-09-13: local provider-neutral validation/body parsing complete,
+  34tests. No endpoint, persistence, receipt, moderation lifecycle or service claim.
+  T13 choices still govern activation and the remaining contract decisions.
 - Status: WAIT_DEPS. Size: M. Parent: P1.3.
 - Depends on: T13.
 - Scope: proposed `web/lib/reports.ts` and focused schema/lifecycle tests; existing feedback point/segment types.
@@ -350,6 +355,12 @@ No ticket is DONE merely because a document, mock, passing count or button exist
   Evidence: `qa/revamp-r1/source-freshness-20260909/summary.json`.
 
 ### [ ] T23: Establish a bounded metadata-check routine
+
+- Checkpoint2026-09-13: pure notice planning/delivery orchestration with injected
+  adapters implemented;96new +85state =181focused tests pass and independent
+  review found no blocking bug within that contract. No real GitHub CAS adapter,
+  hosted runner, persistence, issue or scheduled run exists. Weekly GitHub metadata
+  checks/one-issue activation requested; live verification remains mandatory.
 - Status: PARTIAL; local checker, review fixes, runbook and one bounded live pass complete; operational activation outstanding. Size: M. Parent: P2.3.
 - Depends on: T22.
 - Scope: inspect existing freshness/check automation, then a narrowly scoped read-only checker and workflow only if needed; runbook/fixtures.
@@ -451,7 +462,7 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Status: OWNER. Size: S. Parent: P3.1.
 - Depends on: T25.
 - Scope: task script and append-only observations; fixes return to the responsible ticket.
-- Do: supply the owner with exact unaided tasks: inspect an unfamiliar postal, explain exposure, compare two homes, interpret missing data, and submit a report only if enabled. Ask for a real phone check and a small agreed user sample; do not invent users or timings.
+- Do: supply the owner with exact unaided tasks: inspect an unfamiliar postal, explain exposure, change bus/MRT category, interpret missing data, and submit a report only if enabled. Home comparison/U02 is retired. Ask for a real phone check and a small agreed user sample; do not invent users or timings.
 - Tests/done: U01-U05 and reviewed M12 profile. Actual task completion/blockers, device/context and owner acceptance recorded. Unrun report tasks stay pending. No private home postals or notes in public evidence.
 - Gate: OWNER physical/user participation. Does not prevent preparing the release candidate.
 

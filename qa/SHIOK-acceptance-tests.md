@@ -55,7 +55,7 @@ Every case specifies a trigger and observable outcome.
 | M13 | B | Capture screenshot and feature counts together | Visible route asserted at same viewport/time |
 | M14 | B | Reduced motion and keyboard map controls | Usable focus, labels and nonanimated alternative |
 | M15 | B | All viewports | Attribution visible; no overlapping controls |
-| M16 | B | Plain home, typed search, shared URL and normal revisit | Basemap appears before selection; equal-width search/results beneath top-left SHIOK; About data bottom right; selected route visible |
+| M16 | B | Plain home, typed search, shared URL and normal revisit | Basemap appears before selection; equal-width search/results beneath top-left SHIOK; no About data or comparison controls; selected route visible |
 | M17 | B | Old-to-new build on the same origin with service worker enabled | No stale-shell/chunk blank screen or reload loop; unrelated caches preserved; versioned data caching retained |
 | M18 | I | Copy diagnostics after worker/tile/geometry failure | Correct stage and retry; no postal history, query strings, tokens, report text or automatic upload |
 
@@ -115,7 +115,7 @@ Every case specifies a trigger and observable outcome.
 | ID | Level | Trigger | Expected result |
 | --- | --- | --- | --- |
 | U01 | M | Resident inspects a postal unaided | Identifies stop, uncovered distance and longest gap |
-| U02 | M | Home seeker compares two candidates | Explains trade-off without composite-score coaching |
+| U02 | Retired | Home comparison removed by owner on 2026-09-13 | Not a release prerequisite; historical evidence retained |
 | U03 | M | Resident reports mapping error | Distinguishes correction from new shelter request |
 | U04 | M | User sees incomplete result | Understands uncertainty instead of reading zero as fact |
 | U05 | M | Mobile user inspects route and returns to summary | Completes without panel/map obstruction |

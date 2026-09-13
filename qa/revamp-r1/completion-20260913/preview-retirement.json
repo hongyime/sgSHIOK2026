@@ -1,0 +1,32 @@
+{
+  "filesDeleted": 0,
+  "before": [
+    {
+      "ProcessId": 27692,
+      "ParentProcessId": 34180,
+      "CreationDate": "2026-09-13T12:24:00.181112+08:00",
+      "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" C:\\sgSHIOK2026\\web\\node_modules\\next\\dist\\bin\\next start C:\\sgSHIOK2026\\tmp\\completion-20260913-build-1\\web -p 4409 -H 127.0.0.1"
+    },
+    {
+      "ProcessId": 34180,
+      "ParentProcessId": 12784,
+      "CreationDate": "2026-09-13T12:23:58.547188+08:00",
+      "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" C:\\sgSHIOK2026\\qa\\revamp-r1\\completion-20260913\\preview.mjs"
+    }
+  ],
+  "oldBuild": "8z6nKCn928ewUCKOAf5gb",
+  "current": {
+    "buildId": "T2PK7uLhsuXtK2oAxtakU",
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\completion-20260913-build-2",
+    "pid": 11268,
+    "dataPort": 4337,
+    "nextPort": 4411,
+    "proxyPort": 4412,
+    "readOnlyData": true,
+    "allowedApi": "GET /api/onemap-route and /api/onemap-search",
+    "oneMapCredentialsConfigured": true,
+    "nextPid": 35820
+  },
+  "completedAt": "2026-09-13T04:44:17.0977644Z",
+  "remaining": 0
+}

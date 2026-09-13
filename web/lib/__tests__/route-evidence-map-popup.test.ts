@@ -162,32 +162,24 @@ afterEach(() => {
 });
 
 describe("bounded transit map popups", () => {
-  it("retains the stop title/type and moves every secondary row behind a closed native disclosure", () => {
+  it("shows only stop identity without service metadata or a second panel", () => {
     const content = clickPoi(bus);
-    expect(content.innerHTML).toBe(transitPoiPopupHtml(bus));
+    expect(content.innerHTML).toBe(transitPoiPopupHtml(bus, { compact: true }));
     expect(content.innerHTML).toContain("Opp Mayflower Sec Sch");
     expect(content.innerHTML).toContain("Bus stop");
-    expect(content.children.map(child => child.tagName)).toEqual(["details"]);
-    const details = content.querySelector("details")!;
-    expect(details.open).toBe(false);
-    expect(details.children.map(child => child.tagName)).toEqual(["summary", "dl"]);
-    expect(details.children[0].textContent).toBe("Service details");
-    expect(details.children[0].tabIndex).toBe(0);
-    expect(details.children[1].tabIndex).toBe(0);
-    expect(details.children[1].attributes.get("aria-label")).toBe("Service details");
-    expect(content.innerHTML).toContain("71, 76, 262");
-    expect(content.innerHTML).toContain("05:45");
-    expect(content.innerHTML).toContain("00:38");
-    expect(content.innerHTML).toContain("4 min best scheduled");
-    expect(content.innerHTML).toContain("6 min best scheduled");
+    expect(content.children).toEqual([]);
+    expect(content.innerHTML).toContain("Stop 54211");
+    for (const secondary of ["71, 76, 262", "05:45", "00:38", "4 min", "6 min", "<dl", "<details"]) {
+      expect(content.innerHTML).not.toContain(secondary);
+    }
   });
 
-  it.each(["mrt_station", "mrt_exit"])("keeps %s identity while collapsing station rows", kind => {
+  it.each(["mrt_station", "mrt_exit"])("keeps %s identity without secondary station rows", kind => {
     const content = clickPoi({ kind, id: kind, name: "MAYFLOWER MRT STATION EXIT 5", station_codes: "TE6" });
     expect(content.innerHTML).toContain("Mayflower MRT Station Exit 5");
     expect(content.innerHTML).toContain(kind === "mrt_station" ? "MRT/LRT station" : "MRT/LRT exit");
-    expect(content.querySelector("summary")?.textContent).toBe("Station details");
-    expect(content.querySelector("details")?.open).toBe(false);
+    expect(content.querySelector("summary")).toBeNull();
+    expect(content.querySelector("details")).toBeNull();
   });
 
   it("omits empty disclosures and never adds a redundant route action", () => {
@@ -253,27 +245,17 @@ describe("bounded transit map popups", () => {
     expect(lib.popups[1].remove).not.toHaveBeenCalled();
   });
 
-  it("opening and closing details only repositions the popup, without selecting or retrying", () => {
+  it("has no secondary popup interaction that can select or retry a route", () => {
     const content = clickPoi(bus);
-    const details = content.querySelector("details")!;
     const popup = lib.popups.at(-1);
     map.queryRenderedFeatures.mockReturnValue([{ properties: bus }]);
     map.emit("click", { point: { x: 12, y: 34 } });
     expect(props.onSelectTransitStop).toHaveBeenCalledExactlyOnceWith(bus.id);
-    popup.setLngLat.mockClear();
-    for (const open of [true, false, true]) {
-      details.open = open;
-      details.querySelector("summary")?.listeners.get("click")?.({ stopPropagation: vi.fn() });
-      details.listeners.get("toggle")!({ stopPropagation: vi.fn() });
-      expect(popup.setLngLat).toHaveBeenLastCalledWith([103.85, 1.29]);
-      expect(props.onSelectTransitStop).toHaveBeenCalledExactlyOnceWith(bus.id);
-    }
-    expect(popup.setLngLat).toHaveBeenCalledTimes(3);
+    expect(popup.setLngLat).toHaveBeenCalledExactlyOnceWith([103.85, 1.29]);
     expect(map.queryRenderedFeatures).toHaveBeenCalledOnce();
     expect(popup.remove).not.toHaveBeenCalled();
     expect(content.listeners.size).toBe(0);
-    expect(details.querySelector("summary")?.listeners.size).toBe(0);
-    expect([...details.listeners.keys()]).toEqual(["toggle"]);
+    expect(content.querySelector("details")).toBeNull();
   });
 
   it("uses MapLibre's existing close control without a custom dismissal or selection handler", () => {
@@ -295,13 +277,13 @@ describe("bounded transit map popups", () => {
       "lines", "line", "station", "exit", "exit_count"];
     const properties = { kind, id: "safe-id", ...Object.fromEntries(fields.map(field => [field, payload])) };
     const content = clickPoi(properties);
-    expect(content.innerHTML).toBe(transitPoiPopupHtml(properties));
+    expect(content.innerHTML).toBe(transitPoiPopupHtml(properties, { compact: true }));
     expect(content.innerHTML.toLowerCase()).not.toMatch(/<(?:details|img|script)\b/);
     expect(content.innerHTML.toLowerCase()).toContain("&lt;details");
     expect(content.innerHTML).toContain("&quot;");
     expect(content.innerHTML).toContain("&amp;");
-    expect(content.querySelector("summary")?.textContent).not.toContain(payload);
-    expect(content.querySelector("details")?.open).toBe(false);
+    expect(content.querySelector("summary")).toBeNull();
+    expect(content.querySelector("details")).toBeNull();
   });
 
   it("leaves required attribution outside the popup disclosure", () => {
@@ -313,14 +295,12 @@ describe("bounded transit map popups", () => {
     expect(attribution.props.dangerouslySetInnerHTML.__html).toContain("Singapore Land Authority");
   });
 
-  it("styles keyboard focus, touch targets, long text and bounded scrollable details", () => {
+  it("styles keyboard focus, close target and long identity text without secondary panels", () => {
     const css = readFileSync(join(__dirname, "../../components/route-evidence-map.module.css"), "utf8");
-    expect(css).toContain(".transitPopup :is(summary, dl):focus-visible");
     expect(css).toContain(".mapCanvas :global(.maplibregl-popup-close-button):focus-visible");
     expect(css).toMatch(/\.mapCanvas :global\(\.maplibregl-popup-close-button\)\s*\{[^}]*width: 24px;[^}]*height: 24px;/);
     expect(css).not.toContain(".popupRouteAction");
-    expect(css).toMatch(/\.transitPopup summary\s*\{[^}]*min-height: 44px/);
     expect(css).toMatch(/\.transitPopup\s*\{[^}]*overflow-wrap: anywhere/);
-    expect(css).toMatch(/\.transitPopup dl\s*\{[^}]*minmax\(0, 1fr\)[^}]*max-height: min\(192px, 30vh\)[^}]*overflow: auto/);
+    expect(css).not.toContain(".transitPopup dl");
   });
 });

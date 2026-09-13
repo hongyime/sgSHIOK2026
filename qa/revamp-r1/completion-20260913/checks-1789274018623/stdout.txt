@@ -1,0 +1,77 @@
+installed_dependencies=ok
+✔ test entry refuses the real MapLibre 6.4.1 lock versus 6.1.0 install shape before Vitest (401.1729ms)
+✔ matching versions may launch the test entry (1377.3015ms)
+✔ a failing native guard contract suite prevents Vitest from starting (634.6375ms)
+✔ build entry refuses stale dependencies before even the preparation double (386.4344ms)
+✔ matching build reaches only the refusing preparation double, never Next (546.6243ms)
+✔ release CLI checks dependencies before retention/build with installed 6.1.0 (329.5063ms)
+✔ release CLI checks dependencies before retention/build with installed 6.4.1 (334.3421ms)
+✔ reports exact resolved versions for runtime and development dependencies (39.5005ms)
+✔ development dependency drift also fails (58.6583ms)
+✔ a manifest edit without matching lock-root metadata is not accepted (54.4356ms)
+✔ refuses invalid JSON in package.json (49.5392ms)
+✔ refuses null in package.json (42.3168ms)
+✔ refuses [] in package.json (43.6489ms)
+✔ refuses invalid JSON in package-lock.json (51.8425ms)
+✔ refuses null in package-lock.json (42.9134ms)
+✔ refuses [] in package-lock.json (46.4247ms)
+✔ refuses invalid JSON in node_modules/maplibre-gl/package.json (58.9091ms)
+✔ refuses null in node_modules/maplibre-gl/package.json (51.0865ms)
+✔ refuses [] in node_modules/maplibre-gl/package.json (53.6806ms)
+✔ refuses malformed dependencies (56.1811ms)
+✔ refuses malformed devDependencies (81.7176ms)
+✔ unsupported lock format 1 fails closed (48.4565ms)
+✔ unsupported lock format 4 fails closed (72.7655ms)
+✔ unsupported lock format "3" fails closed (71.4132ms)
+✔ unsupported lock format null fails closed (69.0844ms)
+✔ lock v2 resolved-package metadata is supported (72.1571ms)
+✔ refuses unresolved lock entry null (74.6411ms)
+✔ refuses unresolved lock entry {} (78.2632ms)
+✔ refuses unresolved lock entry {"link":true,"version":"6.4.1"} (78.0712ms)
+✔ refuses unresolved lock entry {"version":""} (79.861ms)
+✔ missing installed package is reported without loading or executing it (82.8003ms)
+✔ refuses unsafe dependency name ../escape (78.0212ms)
+✔ refuses unsafe dependency name @scope/../../escape (79.7605ms)
+✔ refuses unsafe dependency name C:\escape (54.5105ms)
+✔ refuses unsafe dependency name /escape (56.1502ms)
+✔ refuses unsafe dependency name @scope\escape (80.6765ms)
+✔ refuses unsafe dependency name .hidden (94.3857ms)
+✔ scoped packages and a dependency listed in both sections are checked once (101.744ms)
+✔ empty dependency metadata cannot authorize a vacuous success (58.2189ms)
+✔ matching null dependencies sections are invalid, not absent (99.3067ms)
+✔ matching null devDependencies sections are invalid, not absent (61.6728ms)
+✔ package executable exports are never imported by the version check (92.7499ms)
+ℹ tests 42
+ℹ suites 0
+ℹ pass 42
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6760.7806
+
+ RUN  v4.1.11 C:/sgSHIOK2026/tmp/test-without-data-qtXsdo/web
+
+·································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································
+
+ Test Files  71 passed (71)
+      Tests  1889 passed (1889)
+   Start at  12:33:49
+   Duration  103.60s (transform 8.51s, setup 0ms, import 17.36s, tests 31.36s, environment 35ms)
+
+{
+  "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-qtXsdo",
+  "copiedFiles": 238,
+  "productionDataDirectoryAbsent": true,
+  "guardProbePassed": true,
+  "forbiddenPaths": [
+    "C:\\sgSHIOK2026\\web\\public\\data",
+    "C:\\sgSHIOK2026\\tmp\\test-without-data-qtXsdo\\web\\public\\data"
+  ],
+  "dependencies": "Existing node_modules linked; no installation",
+  "testArgs": [
+    "--reporter=dot",
+    "--testTimeout=15000"
+  ],
+  "exitCode": 0
+}

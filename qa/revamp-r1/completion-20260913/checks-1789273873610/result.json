@@ -1,0 +1,23 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "--globals",
+    "--maxWorkers",
+    "1",
+    "--no-file-parallelism",
+    "--reporter=json",
+    "lib/__tests__/route-evidence-map-popup.test.ts",
+    "lib/__tests__/transit-popup.test.ts"
+  ],
+  "cwd": "C:\\sgSHIOK2026\\web",
+  "exitCode": 0,
+  "elapsedMs": 5944,
+  "counts": {
+    "tests": 27,
+    "passed": 27,
+    "failed": 0
+  },
+  "failures": []
+}

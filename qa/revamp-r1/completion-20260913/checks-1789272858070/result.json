@@ -1,0 +1,11 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "web/scripts/test-without-production-data.mjs",
+    "--reporter=dot",
+    "--testTimeout=15000"
+  ],
+  "cwd": "C:\\sgSHIOK2026",
+  "exitCode": 1,
+  "elapsedMs": 179879
+}

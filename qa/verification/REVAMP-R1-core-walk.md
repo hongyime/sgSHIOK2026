@@ -4777,3 +4777,124 @@ oversized geometry, malformed UTF8, duplicate JSON keys and oversized bodies.
 Canonical content is independent of client request identity. No database, receipt,
 moderator authentication, privacy acceptance or production intake exists yet.
 DISAGREEMENT: fixture success cannot establish durable delivery or device acceptance.
+
+### Bounded Route Diagnosis and Maintenance Preparation
+
+qa/revamp-r1/route-gap-20260913/report-2.json records one public postal018956,
+one score partition, one geometry shard and6of7requested POI cells.61stops/exits =
+27bus +34MRT exits. Before repair5exactly resolved +1saved default identity gap +
+55unstored =61. After repair6saved +55unstored =61.7station parents are excluded.
+55unstored =24bus +31MRT exits, not lost files or an island-wide coverage claim.
+No network/pipeline/geometry creation ran. All11protected/fixture/POI anchors match.
+
+The first audit stopped because it pinned mutable handoff STATE alongside data:
+expected d75c7d65059657c531554e9bbe1f6e3ab585979034e56fe115586d5bc3bb71bb;
+observed41e65db306ecd19954ca200d25e34585222a8173978269ee3a924fef1ef800c1.
+Parent had intentionally updated STATE. Originalaudit.mjs/inputs.json remain;
+audit-2 excludes concurrent mutable context without repinning protected anchors.
+fix-verification.json distinguishes changed implementation from untouched data.
+Focused route tests:67passed,0failed,56excluded by name filter, not123passed.
+The first full isolated run found1888passes and1stale source-string assertion;
+its retained receipt is completion-20260913/checks-1789272858070. Assertion updated
+to require the new validated POI/origin arguments, not removed. Full rerun pending.
+
+Parent maintenance command (no conftest/cache/automatic plugins):
+python -B -m pytest -q tests/test_source_metadata_delivery.py tests/test_source_metadata_state.py --noconftest -p no:cacheprovider -o addopts=
+181passed in1.43s,exit0; exact output:completion-20260913/maintenance-tests.txt.
+85existing state +96new delivery tests =181. No entire Python-suite claim.
+Independent review found no blocking bug within injected-adapter contracts;
+live GitHub CAS, real persistence/deadlines and activation remain unverified.
+
+FINDINGS: a saved route was wrongly treated as requiring preview; it now resolves
+with strict identity/connectedness checks. Parent review added rejection of a
+disconnected cycle that endpoint-counting alone would accept. Reports and monitor
+delivery preparation have tests, but neither live service has been activated.
+DISAGREEMENTS: a green fixture or a passing viewport is not actual service delivery,
+physical-phone acceptance or approval to serve retained vulnerable runtime code.
+
+### Completion Checkpoint 2026-09-13: Final Popup and Browser Verification
+
+The popup design above is superseded, not silently rewritten: the final map popup
+shows identity only. Service/timetable details and the secondary disclosure are
+removed; the native close control and existing single selection action remain.
+The historical detailed formatter remains the default for its other consumers.
+
+Final receipts under qa/revamp-r1/completion-20260913:
+- checks-1789274018623:1889passed,0failed,0skipped in71web files;42native dependency
+  guards passed.1784 +26deadline +21popup +34report +24saved-ID =1889;67 +4 =71files.
+- maintenance-tests.txt:181focused Python tests passed;85existing +96new =181.
+  No entire Python-suite execution or acceptance claim.
+- build-2/build.json:exit0,sourceStable=true,build T2PK7uLhsuXtK2oAxtakU;
+  installed TypeScript validation included. No dependency installation.
+- observed-QC2YjF/browser.json:80checks passed,16captures,0browser errors,
+  0denied requests,2controlled503preview requests; owned browser cleanup verified.
+- preview-2.json:current http://127.0.0.1:4412/ and /postplan.html.
+- preview-retirement.json:only the owned superseded4410preview processes stopped,
+  remaining0,filesDeleted0. The older4406preview was not retired by this operation.
+
+The successful browser pass covers1440x950,390x844,390x667 and320x667. Category
+switches keep current geometry and route keys coherent. Actual marker click and
+deep link for the saved public Exit E use no online preview. An unsaved bus click
+makes one controlled failing request, explicit Retry makes the second, and Back
+restores the saved walk without a third request. Keyboard popup dismissal works.
+Parent visually inspected collapsed-1440.png,collapsed-320.png,
+saved-exit-e-marker.png and bus-preview-unavailable.png: maps/routes are nonblank,
+controls fit and the tested popup/failure state is visible.
+
+Failed attempts are preserved. observed-7VqjtJ had74of75checks pass before the
+offscreen secondary-disclosure interaction failed after a320resize. That target
+is not claimed as a passing interaction. observed-MV325c had58checks pass before
+the harness keyboard-close timeout; it omitted the Enter char event. browser-3
+uses the repository's existing rawKeyDown/char/keyUp pattern. No application
+keyboard fix is claimed for that harness correction. The final80check pass is
+not a physical-phone or representative-speed benchmark. Service workers were
+bypassed in this UX pass; exact release/SW acceptance remains separate. Browser
+plugin bootstrap failed os error3; owned Chrome/CDP was the recorded fallback.
+
+summary.json and artifact-index.json record final source identities, protected
+anchors, screenshots, receipts and lossless gzip paths for large raw logs. The
+existing one-CRLF normalization difference in revamp-layout.test.ts is identified
+separately from exact source-byte matches; it is not called raw-byte identity.
+No prior verification lines, protected payloads or weights were changed. Pipeline
+runs0, exports0, installations0, deployments0, external activations0; pipeline cost$0.
+
+### FINDINGS: Final Completion Checkpoint
+
+1. Server provider work is bounded by one10s transaction deadline including auth,
+   retry and body reads. An unread auth-error body omission was reproduced and
+   corrected explicitly during peer review; cancellation does not extend the deadline.
+2. Popups now show identity only. The saved Exit E lookup defect is fixed without
+   new route geometry. The bounded sample still has55unstored destinations;
+   6saved +55unstored =61, not universal nearby-stop coverage.
+3. Report validation and notice-delivery contracts are tested local code, not real
+   activated services. Account/privacy/operator choices, actual persistence/adapters,
+   schedule and notice readback remain open and are shown in postplan.html.
+4. Vercel is connected. Observed production metadata has gitDirty=1, so its commit
+   alone cannot identify deployed bytes. Actual retained-runtime security, current
+   quota, exact staging/SW/rollback and owner release approval remain unresolved.
+5. Final tests/build/browser checks pass within the stated scope. Real phone and
+   unaided resident acceptance remain open; this goal is active, not complete.
+
+### DISAGREEMENTS: Final Completion Checkpoint
+
+1. A nearby marker is not a promise of stored geometry. The frontend cannot create
+   the55unstored routes diagnosed here; no scoring or export is authorized by this fix.
+2. Fixture and viewport success cannot establish report durability, a real scheduled
+   notice, physical-phone acceptance or permission to deploy retained runtime assets.
+3. The initial collapsed-service popup still exposed unnecessary detail. The final
+   identity-only design is the smaller walk-first surface; old failures remain recorded.
+
+Receipt publication note: root Git attributes would normalize raw CRLF stdout.
+The new completion-20260913/.gitattributes disables text conversion in this QA
+directory only, preserving artifact-index.json's byte hashes. No root attributes
+or older evidence are changed. Large raw logs are retained in lossless gzip;
+mutable serving logs are explicitly excluded. This is not an app-source change.
+
+Privacy gate: the first final-commit attempt was rejected by the existing identity
+hook for account metadata in release-audit.json. No commit was created and the
+hook was not bypassed. Publication explicitly redacts creator/author identity,
+account IDs and account-specific URLs in command blocks5and6. Those blocks are
+labelled redacted, not raw. Deployment ID, commit, gitDirty status and acceptance
+conclusions are unchanged. Unredacted originals remain private under repo/tmp;
+publish-receipts.mjs records the structured transformation and original hash.
+summary.json and artifact-index.json were regenerated for the published bytes.

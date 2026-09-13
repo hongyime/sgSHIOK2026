@@ -1,0 +1,697 @@
+{
+  "schema_version": 1,
+  "receipt_type": "read_only_release_readiness_audit",
+  "workspace_root": "C:\\sgSHIOK2026",
+  "scope": {
+    "root_asserted": true,
+    "requested_reads": [
+      ".agents/STATE.md",
+      "web/AGENTS.md",
+      "PRODUCT-PLAN.md T25-T31",
+      "README.md release and maintenance runbook",
+      "tracked Vercel configuration",
+      "existing QA receipts",
+      "installed dependency metadata and MapLibre runtime bytes"
+    ],
+    "original_audit_writes": 0,
+    "original_audit_installs": 0,
+    "original_audit_deployments": 0,
+    "original_audit_pipeline_runs": 0,
+    "original_audit_settings_changes": 0,
+    "receipt_write_authorization": "Follow-up user explicitly authorized only this new JSON file, absolute apply_patch, JSON parse validation, no commit. Parent owns documentation.",
+    "no_secrets_or_account_tokens_saved": true,
+    "no_live_provider_or_production_artifact_fetch_performed_by_this_audit": true,
+    "network_scope_used": "Existing authenticated GitHub/Vercel read-only status plus official public documentation/advisory reads. No pipeline/network-input fetch."
+  },
+  "timing": {
+    "audit_observation_date_local": "2026-09-13",
+    "timezone": "Asia/Singapore",
+    "audit_start_time": "not_saved",
+    "per_call_observation_times": "not_saved",
+    "timing_rule": "No per-call wall-clock timestamps were retained. Tool wall_time_seconds are durations, not observation times. Do not infer them from build/deployment timestamps.",
+    "clock_observation_near_audit_end": {
+      "command": "Get-Date -Format 'yyyy-MM-dd HH:mm:ss zzz'",
+      "exec_chunk_id": "08700c",
+      "raw_output_excerpt": "2026-09-13 11:56:56 +08:00\r\n",
+      "meaning": "Exact clock output near the end of the original audit, not the time of every earlier observation."
+    },
+    "receipt_preparation_clock_observation": "2026-09-13T12:00:05.1041695+08:00",
+    "receipt_preparation_clock_command": "[DateTimeOffset]::Now.ToString('o')",
+    "receipt_preparation_exec_chunk_id": "a939fc"
+  },
+  "observation_time_boundary": {
+    "observed_local_head": "1a8d72004c73f2ee77a2177b238228fa8b9beeb9",
+    "observed_remote_main": "1a8d72004c73f2ee77a2177b238228fa8b9beeb9",
+    "claim_scope": "Point-in-time observations during the original audit only. Not current HEAD/main at receipt creation or release approval.",
+    "later_parent_update": {
+      "source": "User follow-up after the audit",
+      "statement": "Parent pushed a16 during the audit.",
+      "reported_commit_prefix": "a16",
+      "full_commit_sha": "not_saved",
+      "independent_verification": "not_run",
+      "effect": "Do not reuse the audit's 1a8 identity as current or claim it covers the parent's later source."
+    },
+    "concurrent_work": "Parent API/popup files and later documentation changed during the audit. Existing preview hashes did not match the five inspected API/popup source files. This audit did not modify or validate those changing sources end to end."
+  },
+  "verdict_at_audit": "Hold deployment approval pending exact candidate/production identity, retained-runtime security disposition, real immutable staging, release-specific SW/device/performance acceptance, account/free-tier review and explicit release approval.",
+  "fresh_observations": [
+    {
+      "id": "git_identity",
+      "result": "Local HEAD and remote main both returned 1a8d720 at their observation times; these are historical point-in-time results.",
+      "evidence_ids": [
+        "git-local",
+        "git-remote-and-alerts"
+      ]
+    },
+    {
+      "id": "installed_dependencies",
+      "result": "All 12 inspected direct installed dependencies matched the lockfile. MapLibre 6.4.1, Next 16.3.3 and Vitest 4.1.11 were installed.",
+      "limitation": "The local guard is not a fresh transitive vulnerability or package-integrity audit.",
+      "evidence_ids": [
+        "installed-dependencies"
+      ]
+    },
+    {
+      "id": "maplibre_runtime_bytes",
+      "result": "The public MapLibre 6.4.1 worker, shared module and license SHA256 values matched the installed package copies.",
+      "evidence_ids": [
+        "worker-byte-identity"
+      ],
+      "source": {
+        "path": "web/components/route-evidence-map.tsx",
+        "line_at_audit": 1455,
+        "link": "C:/sgSHIOK2026/web/components/route-evidence-map.tsx:1455",
+        "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+      }
+    },
+    {
+      "id": "github_alerts",
+      "result": "Authenticated GitHub query returned an empty list of open Dependabot alerts.",
+      "limitation": "Not security approval for retained historical runtime assets or evidence of the production package version.",
+      "evidence_ids": [
+        "git-remote-and-alerts"
+      ]
+    },
+    {
+      "id": "tracked_vercel_configuration",
+      "result": "web/vercel.json sets git.deploymentEnabled=false and ignoreCommand=node scripts/ignore-build.mjs. The ignore script examines whether changed files touch the web project.",
+      "limitation": "Checked-in policy is not confirmation of effective remote dashboard/build/trigger configuration.",
+      "evidence_ids": [
+        "tracked-vercel"
+      ],
+      "source": {
+        "path": "web/vercel.json",
+        "line_at_audit": 1,
+        "link": "C:/sgSHIOK2026/web/vercel.json:1",
+        "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+      }
+    },
+    {
+      "id": "vercel_project_and_deployment",
+      "result": "The project lookup returned sgshiok, the expected project/team IDs and nextjs. Its latest production deployment was dpl_wVnDeskyK666GwYUKWzY2aserkJR, READY, created 2026-08-30T13:26:52.959Z, with the three production aliases in the saved response.",
+      "deployment_metadata_commit": "2a99893fa9d69411b73d94aeb6c8de5ee2a76493",
+      "deployment_metadata_gitDirty": "1",
+      "limitation": "The dirty CLI-staged deployment's commit metadata alone does not identify deployed bytes. READY is provider status, not a new production browser-health check. The project response's live:false field was not interpreted as an outage.",
+      "unverified": [
+        "effective project root/output/build/install/trigger settings",
+        "relevant production environment-variable metadata",
+        "current account plan/usage/reset window/headroom",
+        "actual browser build/worker/requested-artifact identity",
+        "eligible healthy rollback target"
+      ],
+      "evidence_ids": [
+        "vercel-project",
+        "vercel-deployment"
+      ]
+    }
+  ],
+  "command_evidence": [
+    {
+      "id": "git-local",
+      "tool": "exec_command",
+      "workdir": "C:\\sgSHIOK2026",
+      "command": "git log -1 --format='%H %cI %s'",
+      "exec_chunk_id": "91ed16",
+      "observed_at": "not_saved",
+      "raw_output_status": "verbatim_excerpt_from_original_combined_tool_output",
+      "raw_output_excerpt": "1a8d72004c73f2ee77a2177b238228fa8b9beeb9 2026-09-13T11:02:24+08:00 feat: focus the map on shortest saved transit walks\n",
+      "full_combined_tool_output": "not_saved",
+      "note": "The timestamp within this output is commit time, not observation time."
+    },
+    {
+      "id": "git-remote-and-alerts",
+      "tool": "exec_command",
+      "workdir": "C:\\sgSHIOK2026",
+      "commands_in_original_order": [
+        "gh api repos/hongyime/sgSHIOK2026/commits/main --jq '{sha:.sha,date:.commit.committer.date}'",
+        "gh api 'repos/hongyime/sgSHIOK2026/dependabot/alerts?state=open&per_page=100' --jq '[.[] | {number,state,package:.dependency.package.name,manifest:.dependency.manifest_path,severity:.security_advisory.severity,ghsa:.security_advisory.ghsa_id,patched:.security_vulnerability.first_patched_version.identifier}]'"
+      ],
+      "exec_chunk_id": "e6fb1c",
+      "observed_at": "not_saved",
+      "raw_output_status": "verbatim_contiguous_excerpt_from_original_combined_tool_output",
+      "raw_output_excerpt": "{\"date\":\"2026-09-13T03:02:24Z\",\"sha\":\"1a8d72004c73f2ee77a2177b238228fa8b9beeb9\"}\n[]\n",
+      "full_combined_tool_output": "not_saved",
+      "command_exit_codes": "not_saved_individually",
+      "note": "The combined shell call later exited 1 because unrelated rg paths failed. No individual gh exit code was captured. The two JSON outputs above were returned; commit date is not observation time."
+    },
+    {
+      "id": "installed-dependencies",
+      "tool": "exec_command",
+      "workdir": "C:\\sgSHIOK2026",
+      "command": "node --input-type=module -e \"import {inspectInstalledDependencies} from './web/scripts/check-installed-dependencies.mjs'; console.log(JSON.stringify(inspectInstalledDependencies('C:/sgSHIOK2026/web'),null,2))\"",
+      "exec_chunk_id": "6f289b",
+      "observed_at": "not_saved",
+      "raw_output_status": "verbatim_excerpt_from_original_combined_tool_output",
+      "raw_output_excerpt": "{\n  \"ok\": true,\n  \"checked\": [\n    {\n      \"name\": \"@mapbox/tiny-sdf\",\n      \"locked\": \"2.2.0\",\n      \"installed\": \"2.2.0\"\n    },\n    {\n      \"name\": \"@types/node\",\n      \"locked\": \"26.1.2\",\n      \"installed\": \"26.1.2\"\n    },\n    {\n      \"name\": \"@types/react\",\n      \"locked\": \"19.2.18\",\n      \"installed\": \"19.2.18\"\n    },\n    {\n      \"name\": \"@types/react-dom\",\n      \"locked\": \"19.2.4\",\n      \"installed\": \"19.2.4\"\n    },\n    {\n      \"name\": \"h3-js\",\n      \"locked\": \"4.5.0\",\n      \"installed\": \"4.5.0\"\n    },\n    {\n      \"name\": \"maplibre-gl\",\n      \"locked\": \"6.4.1\",\n      \"installed\": \"6.4.1\"\n    },\n    {\n      \"name\": \"next\",\n      \"locked\": \"16.3.3\",\n      \"installed\": \"16.3.3\"\n    },\n    {\n      \"name\": \"pbf\",\n      \"locked\": \"5.1.2\",\n      \"installed\": \"5.1.2\"\n    },\n    {\n      \"name\": \"react\",\n      \"locked\": \"19.2.8\",\n      \"installed\": \"19.2.8\"\n    },\n    {\n      \"name\": \"react-dom\",\n      \"locked\": \"19.2.8\",\n      \"installed\": \"19.2.8\"\n    },\n    {\n      \"name\": \"typescript\",\n      \"locked\": \"7.0.2\",\n      \"installed\": \"7.0.2\"\n    },\n    {\n      \"name\": \"vitest\",\n      \"locked\": \"4.1.11\",\n      \"installed\": \"4.1.11\"\n    }\n  ],\n  \"failures\": []\n}\n",
+      "full_combined_tool_output": "not_saved",
+      "source": {
+        "path": "web/scripts/check-installed-dependencies.mjs",
+        "link": "C:/sgSHIOK2026/web/scripts/check-installed-dependencies.mjs",
+        "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+      }
+    },
+    {
+      "id": "worker-byte-identity",
+      "tool": "exec_command",
+      "workdir": "C:\\sgSHIOK2026",
+      "command": "Get-ChildItem -LiteralPath 'web/public/maplibre/6.4.1' -File | ForEach-Object { $candidate = if ($_.Name -eq 'LICENSE.txt') { 'web/node_modules/maplibre-gl/LICENSE.txt' } else { Join-Path 'web/node_modules/maplibre-gl/dist' $_.Name }; [pscustomobject]@{ file=$_.Name; publicHash=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash; installedHash=if(Test-Path -LiteralPath $candidate){(Get-FileHash -LiteralPath $candidate -Algorithm SHA256).Hash}else{'not located'} } } | ConvertTo-Json",
+      "exec_chunk_id": "8e84dd",
+      "observed_at": "not_saved",
+      "raw_output_status": "verbatim_excerpt_from_original_combined_tool_output",
+      "raw_output_excerpt": "[\r\n  {\r\n    \"file\": \"LICENSE.txt\",\r\n    \"publicHash\": \"EE5FC05A0677EAF69601D2C7DB0D9ECD6CC27C3ABC1D0733BC9ED34707CF8EF2\",\r\n    \"installedHash\": \"EE5FC05A0677EAF69601D2C7DB0D9ECD6CC27C3ABC1D0733BC9ED34707CF8EF2\"\r\n  },\r\n  {\r\n    \"file\": \"maplibre-gl-shared.mjs\",\r\n    \"publicHash\": \"FCF4D81450DF235DA0AEA74897CC23926774B5228D38AE1DE6A7D701C5905785\",\r\n    \"installedHash\": \"FCF4D81450DF235DA0AEA74897CC23926774B5228D38AE1DE6A7D701C5905785\"\r\n  },\r\n  {\r\n    \"file\": \"maplibre-gl-worker.mjs\",\r\n    \"publicHash\": \"CE4957017FE705AC2F9EBEF206CCA966D08D8621756C39326A78CF09757E7D75\",\r\n    \"installedHash\": \"CE4957017FE705AC2F9EBEF206CCA966D08D8621756C39326A78CF09757E7D75\"\r\n  }\r\n]\r\n",
+      "full_combined_tool_output": "not_saved"
+    },
+    {
+      "id": "tracked-vercel",
+      "tool": "exec_command",
+      "workdir": "C:\\sgSHIOK2026",
+      "command": "Get-Content -LiteralPath 'web/vercel.json'",
+      "exec_chunk_id": "d8ab04",
+      "observed_at": "not_saved",
+      "raw_output_status": "verbatim_excerpt_from_original_combined_tool_output",
+      "raw_output_excerpt": "{\r\n  \"$schema\": \"https://openapi.vercel.sh/vercel.json\",\r\n  \"git\": {\r\n    \"deploymentEnabled\": false\r\n  },\r\n  \"ignoreCommand\": \"node scripts/ignore-build.mjs\"\r\n}\r\n",
+      "full_combined_tool_output": "not_saved"
+    },
+    {
+      "id": "vercel-project",
+      "tool": "mcp__codex_apps__vercel_get_project",
+      "arguments": {
+        "projectId": "prj_y6GIQUdEyXXmtg3UTWkcJECKHdEE",
+        "teamId": "team_ARK7HKobyCMp0PCArQTLxbz6"
+      },
+      "observed_at": "not_saved",
+      "raw_output_status": "exact_retained_tool_text_blocks",
+      "raw_text_blocks": [
+        "{\n  \"id\": \"prj_y6GIQUdEyXXmtg3UTWkcJECKHdEE\",\n  \"name\": \"sgshiok\",\n  \"framework\": \"nextjs\",\n  \"accountId\": \"[REDACTED: private account metadata]\",\n  \"createdAt\": 1785037769440,\n  \"updatedAt\": 1788096478091,\n  \"nodeVersion\": \"24.x\",\n  \"live\": false,\n  \"latestDeployment\": {\n    \"id\": \"dpl_wVnDeskyK666GwYUKWzY2aserkJR\",\n    \"url\": \"[REDACTED: private account metadata]\",\n    \"createdAt\": 1788096412959,\n    \"readyState\": \"READY\",\n    \"target\": \"production\"\n  },\n  \"domains\": [\n    \"[REDACTED: private account metadata]\",\n    \"sgshiok.vercel.app\",\n    \"[REDACTED: private account metadata]\"\n  ]\n}"
+      ],
+      "isError": false,
+      "note": "Copied from the original functions session store; not re-queried or reconstructed. Omitted remote configuration fields remain unknown.",
+      "publication_redaction": "Account IDs, creator/author identity and account-specific URLs redacted; this block is not byte-for-byte raw output."
+    },
+    {
+      "id": "vercel-deployment",
+      "tool": "mcp__codex_apps__vercel_get_deployment",
+      "arguments": {
+        "idOrUrl": "dpl_wVnDeskyK666GwYUKWzY2aserkJR",
+        "teamId": "team_ARK7HKobyCMp0PCArQTLxbz6"
+      },
+      "observed_at": "not_saved",
+      "raw_output_status": "exact_retained_tool_text_blocks",
+      "raw_text_blocks": [
+        "{\n  \"deployment\": {\n    \"id\": \"dpl_wVnDeskyK666GwYUKWzY2aserkJR\",\n    \"name\": \"sgshiok\",\n    \"url\": \"[REDACTED: private account metadata]\",\n    \"type\": \"LAMBDAS\",\n    \"state\": \"READY\",\n    \"createdAt\": 1788096412959,\n    \"creator\": {\n      \"uid\": \"[REDACTED: private account metadata]\",\n      \"username\": \"[REDACTED: private account metadata]\"\n    },\n    \"project\": {\n      \"id\": \"prj_y6GIQUdEyXXmtg3UTWkcJECKHdEE\",\n      \"name\": \"sgshiok\",\n      \"framework\": \"nextjs\"\n    },\n    \"meta\": {\n      \"githubCommitAuthorName\": \"[REDACTED: private account metadata]\",\n      \"githubCommitAuthorEmail\": \"[REDACTED: private account metadata]\",\n      \"githubCommitMessage\": \"docs: update agent state after postal map status fix\",\n      \"githubCommitOrg\": \"hongyime\",\n      \"githubCommitRef\": \"main\",\n      \"githubCommitRepo\": \"sgSHIOK2026\",\n      \"githubCommitSha\": \"2a99893fa9d69411b73d94aeb6c8de5ee2a76493\",\n      \"githubDeployment\": \"1\",\n      \"githubOrg\": \"hongyime\",\n      \"githubRepo\": \"sgSHIOK2026\",\n      \"gitDirty\": \"1\",\n      \"gitRootDirectory\": \"tmp/vercel_source_generated_20260805_prefer_scored_routed_20260830_132032\",\n      \"actor\": \"[REDACTED: private account metadata]\",\n      \"lambdaRuntimeStats\": \"{\\\"nodejs\\\":2}\",\n      \"bundler\": \"turbopack\"\n    },\n    \"alias\": [\n      \"[REDACTED: private account metadata]\",\n      \"sgshiok.vercel.app\",\n      \"[REDACTED: private account metadata]\"\n    ],\n    \"target\": \"production\",\n    \"regions\": [\n      \"iad1\"\n    ],\n    \"buildingAt\": 1788096414383,\n    \"ready\": 1788096477773,\n    \"readyState\": \"READY\",\n    \"source\": \"cli\",\n    \"aliasError\": null\n  }\n}"
+      ],
+      "isError": false,
+      "note": "Copied from the original functions session store; not re-queried or reconstructed. Commit metadata is not a complete staged-source inventory.",
+      "publication_redaction": "Account IDs, creator/author identity and account-specific URLs redacted; this block is not byte-for-byte raw output."
+    },
+    {
+      "id": "vercel-cli-incomplete",
+      "tool": "exec_command",
+      "workdir": "C:\\sgSHIOK2026",
+      "command": "vercel api --help",
+      "session_id_at_audit": 28446,
+      "observed_at": "not_saved",
+      "raw_output_status": "verbatim_excerpt_of_only_observed_cli_output",
+      "raw_output_excerpt": "Vercel CLI 59.5.0 (Node.js 26.5.0) | api is in beta — https://vercel.com/feedback\n",
+      "result": "Stalled; interrupted with Ctrl-C. Final tool result exit_code=1. No project configuration/status request completed through this CLI attempt.",
+      "complete_help_output": "not_saved",
+      "rerun_for_receipt": false
+    }
+  ],
+  "historical_receipts": [
+    {
+      "source": {
+        "path": "qa/revamp-r1/walk-only-20260913/summary.json",
+        "link": "C:/sgSHIOK2026/qa/revamp-r1/walk-only-20260913/summary.json",
+        "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+      },
+      "receipt_date": "2026-09-13",
+      "build_id": "LWmaOWIMR0lOcdFZ1XlYd",
+      "preview_url_at_receipt": "http://127.0.0.1:4406/",
+      "reported_evidence": {
+        "isolated_tests": 1784,
+        "test_files": 67,
+        "dependency_guard_tests": 42,
+        "focused_tests": 99,
+        "browser_checks": 64,
+        "inspected_captures": 13,
+        "build_sources": 160
+      },
+      "limitations": [
+        "Existing receipt, not tests rerun by this audit.",
+        "Headless desktop Chrome at four emulated sizes, not physical-phone acceptance.",
+        "No representative timing or new service-worker upgrade acceptance.",
+        "Positive payload replay had 21 functional checks but two CDP faults and a failed overall audit.",
+        "One historical live public-case provider response in 355.585ms is not a representative latency result.",
+        "Five parent API/popup files inspected during the audit no longer matched this preview receipt."
+      ],
+      "preview_source": {
+        "path": "qa/revamp-r1/walk-only-20260913/preview-2.json",
+        "link": "C:/sgSHIOK2026/qa/revamp-r1/walk-only-20260913/preview-2.json",
+        "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+      },
+      "raw_read_output": "not_saved_in_full"
+    },
+    {
+      "source": {
+        "path": "qa/revamp-r1/retained-current-20260912/summary.json",
+        "link": "C:/sgSHIOK2026/qa/revamp-r1/retained-current-20260912/summary.json",
+        "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+      },
+      "receipt_date": "2026-09-12",
+      "build_id": "uvi18B-a0b6Sit2hVCydw",
+      "retained_build_id": "e8Hlhkml4c3i_uMGJdd3P",
+      "reported_evidence": {
+        "checks": 27,
+        "captures": 7
+      },
+      "limitations": [
+        "Controlled local A/B retained-tab and subsequent-navigation sequence passed.",
+        "Not identification of the actual production generation.",
+        "Not security approval for old MapLibre runtime assets.",
+        "Do not repeat merely to obtain PASS."
+      ],
+      "raw_read_output": "not_saved_in_full"
+    },
+    {
+      "source": {
+        "path": "qa/revamp-r1/worker-alignment-20260910/summary.json",
+        "link": "C:/sgSHIOK2026/qa/revamp-r1/worker-alignment-20260910/summary.json",
+        "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+      },
+      "receipt_date": "2026-09-10",
+      "reported_evidence": "Owner-approved exact-lock installation, package/worker alignment, existing package audit and tests.",
+      "limitation": "Historical npm audit success is not a new registry audit by this release audit.",
+      "raw_read_output": "not_saved_in_full"
+    },
+    {
+      "source": {
+        "path": "qa/verification/REVAMP-R1-core-walk.md",
+        "link": "C:/sgSHIOK2026/qa/verification/REVAMP-R1-core-walk.md",
+        "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+      },
+      "receipt_date": "2026-09-13",
+      "observation": "Near the audit end, the parent appended a synthetic deadline-test/TypeScript checkpoint explicitly stating old preview 4406 had not been rebuilt and no browser/deployment acceptance was claimed.",
+      "raw_read_output": "not_saved_in_full"
+    },
+    {
+      "source": {
+        "path": "qa/revamp-r1/maintenance-20260910/verification.json",
+        "link": "C:/sgSHIOK2026/qa/revamp-r1/maintenance-20260910/verification.json",
+        "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+      },
+      "receipt_date": "2026-09-10",
+      "observation": "The historical production/local manifest comparison did not establish all shard bytes or complete browser/deployment identity.",
+      "limitation": "No production manifest fetch was repeated by this audit.",
+      "raw_read_output": "not_saved_in_full"
+    }
+  ],
+  "acceptance_sequence": [
+    {
+      "order": 1,
+      "actor": "agent/parent",
+      "action": "Finish and review API/popup fixes, pin the final commit/lock/build and unchanged main/overlay artifacts, run focused tests plus isolated regression/build checks, and perform one bounded current walk-only accessibility/failure pass.",
+      "artifacts": [
+        "generated_20260805_prefer_scored_routed",
+        "lamp_posts_v1"
+      ],
+      "limitation": "Do not attribute 4406 receipts to the later final candidate."
+    },
+    {
+      "order": 2,
+      "actor": "agent with account metadata access; owner for security disposition",
+      "action": "Verify effective project/team/root/output/build/install/trigger settings and relevant production-variable metadata without exposing values. Identify actual deployed frontend/worker/artifact and an eligible rollback target. Explicitly assess and approve any retained affected old runtime.",
+      "source": {
+        "path": "README.md",
+        "line_at_audit": 146,
+        "link": "C:/sgSHIOK2026/README.md:146",
+        "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+      }
+    },
+    {
+      "order": 3,
+      "actor": "owner explicitly approves preparation; agent executes only that scope",
+      "action": "Exercise canonical immutable staging with the explicitly reviewed previous-frontend archive and manifest hash; validate all source/artifact ledgers and the staged build.",
+      "constraints": [
+        "T31 fixture/source acceptance is already complete; real staging remains unaccepted.",
+        "Ordinary npm run build still invokes the data-preparation hook.",
+        "Older PowerShell wrappers cannot forward required archive selections.",
+        "No data refresh, overwrite, local install or deploy follows implicitly."
+      ],
+      "source": {
+        "path": "README.md",
+        "line_at_audit": 102,
+        "link": "C:/sgSHIOK2026/README.md:102",
+        "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+      }
+    },
+    {
+      "order": 4,
+      "actor": "agent",
+      "action": "On the exact staged candidate, complete release-specific SW-enabled fresh/returning/retained-tab acceptance: uncached old chunk, postal preservation, normal navigation, visited-walk outage/retry, worker/CSP health, data identity and bounded request counts.",
+      "constraints": [
+        "Retain/explain failures instead of repeating for a green label.",
+        "Use actual approved production-generation identity, not the historical local A fixture as a substitute."
+      ],
+      "source": {
+        "path": "PRODUCT-PLAN.md",
+        "line_at_audit": 452,
+        "link": "C:/sgSHIOK2026/PRODUCT-PLAN.md:452",
+        "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+      }
+    },
+    {
+      "order": 5,
+      "actor": "physical owner/users, assisted by agent",
+      "action": "Run unaided U01/U04/U05 tasks on the real owner phone and each additional claimed mobile platform: unfamiliar postal, exposure and missing-data interpretation, category changes, popup/details, rotation, route-to-summary return. Include native zoom/assistive technology, an agreed small user sample, and reviewed constrained cold/warm timing/transfer budgets.",
+      "access_boundary": "127.0.0.1:4406 on the PC is not a phone URL. Arrange owner-approved phone-accessible secure-context access to the exact candidate. Any new hosting or tunnel exposure needs its own approval.",
+      "source": {
+        "path": "qa/SHIOK-acceptance-tests.md",
+        "line_at_audit": 117,
+        "link": "C:/sgSHIOK2026/qa/SHIOK-acceptance-tests.md:117",
+        "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+      }
+    },
+    {
+      "order": 6,
+      "actor": "account owner or already-authorized read-only account access",
+      "action": "Record actual account plan/eligibility, usage/reset window, Edge Requests, transfer, function invocations/CPU/memory and headroom. Agree the release/request budget and first-day review.",
+      "constraints": [
+        "80% review and 95% optional-release hold are proposed internal controls, not automatic provider guarantees.",
+        "Per-instance throttles and CDN caching are not an account-wide request cap.",
+        "Do not infer account headroom from old quota receipts.",
+        "No paid upgrade, overage acceptance, project protection/pause/firewall mutation is authorized."
+      ],
+      "source": {
+        "path": "README.md",
+        "line_at_audit": 393,
+        "link": "C:/sgSHIOK2026/README.md:393",
+        "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+      }
+    },
+    {
+      "order": 7,
+      "actor": "owner explicitly approves exact release; agent then executes approved scope",
+      "action": "Approve exact candidate/target/artifacts, retention security, device results and rollback action. Deploy once, inspect that attempt through READY, verify production identity and fresh/returning users, and schedule first-day error/quota review.",
+      "constraints": [
+        "Push is not deployment authorization.",
+        "Do not silently replace requested full device acceptance with a limited-release exception.",
+        "Ambiguous submission or timeout requires inspecting the existing attempt, not resubmitting."
+      ],
+      "source": {
+        "path": "PRODUCT-PLAN.md",
+        "line_at_audit": 460,
+        "link": "C:/sgSHIOK2026/PRODUCT-PLAN.md:460",
+        "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+      }
+    }
+  ],
+  "owner_only_boundaries": {
+    "physical_participation": [
+      "Real-phone/native task evidence on the agreed supported-platform scope.",
+      "Agreed small real-user sample and owner acceptance of task results.",
+      "Review and acceptance of representative performance budgets."
+    ],
+    "account_or_operator_actions": [
+      "Obtain missing account usage/settings/environment metadata if current read-only tools cannot expose it.",
+      "Confirm Hobby/non-commercial eligibility and quota headroom.",
+      "Confirm eligible rollback target/configuration.",
+      "Credentials/MFA setup, private backup/key custody and any new exposure/settings changes require the owner; no secrets in chat."
+    ],
+    "explicit_approvals": [
+      "Real immutable preparation/artifact copying.",
+      "Retained vulnerable-runtime security disposition.",
+      "Any phone-accessible hosting/tunnel exposure not already authorized.",
+      "Exact production candidate, target, unchanged artifacts and rollback action."
+    ],
+    "separate_nonblocking_service_decisions": [
+      "Reporting provider/privacy/moderator/absence-cover/backup before enabling reporting.",
+      "Maintenance schedule/notice activation.",
+      "Any expanded data job or source refresh."
+    ]
+  },
+  "unnecessary_historical_gates": [
+    "Comparison T08-T11, C01-C09 and U02 are retired for walk-only scope.",
+    "About data presence and a manual lighting-toggle acceptance case are superseded by the owner's current UI scope.",
+    "Reports/U03 are excluded while reporting is disabled; do not fake passing report tasks.",
+    "T19 full scanning, rescoring, data expansion, reporting-provider selection and maintenance activation are separate work, not prerequisites for this explicitly scoped core-walk release.",
+    "Do not reinstall already aligned dependencies to close an old mismatch receipt.",
+    "Do not rerun accepted local retained-A/B or worker-lifecycle diagnosis merely for PASS; validate the new actual release identity where required.",
+    "Old host-headroom and earlier superseded browser failures are not perpetual release blockers; retain their history without treating them as current observations.",
+    "T31 fixture/source acceptance is done, while real staging and production acceptance remain required."
+  ],
+  "parent_source_finding": {
+    "id": "auth-error-body-cleanup",
+    "source": {
+      "path": "web/app/api/onemap.ts",
+      "line_at_audit": 108,
+      "link": "C:/sgSHIOK2026/web/app/api/onemap.ts:108",
+      "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+    },
+    "audit_observation": "At the read, getOneMapToken returned null on a non-OK auth response without consuming/cancelling its body, unlike route/search error responses. Completing the subsequent operation clears the shared deadline, potentially leaving that auth body transport open.",
+    "evidence": {
+      "exec_chunk_id": "08700c",
+      "observed_at": "not_saved",
+      "raw_output_status": "verbatim_excerpt_from_original_combined_tool_output",
+      "raw_output_excerpt": "106:    signal?.throwIfAborted();\r\n107:\r\n108:    if (!res.ok) {\r\n109:      console.error(`OneMap auth failed for ${context}:`, res.status);\r\n110:      return null;\r\n111:    }\r\n112:\r\n113:    const data = await res.json();\r\n",
+      "full_combined_tool_output": "not_saved"
+    },
+    "status_at_audit": "Source-review risk, not runtime-reproduced by this auditor.",
+    "later_parent_report": {
+      "source": "User follow-up",
+      "report": "Auth body finding reproduced with two red tests, then cancellation fixed; parent tests continuing.",
+      "status": "Reported fixed by parent; do not retain as an independently verified current open defect.",
+      "independent_retest_by_auditor": "not_run",
+      "fix_commit_and_final_test_receipt": "not_saved"
+    }
+  },
+  "source_links": [
+    {
+      "path": ".agents/STATE.md",
+      "link": "C:/sgSHIOK2026/.agents/STATE.md",
+      "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+    },
+    {
+      "path": "web/AGENTS.md",
+      "link": "C:/sgSHIOK2026/web/AGENTS.md",
+      "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+    },
+    {
+      "path": "PRODUCT-PLAN.md",
+      "line_at_audit": 424,
+      "link": "C:/sgSHIOK2026/PRODUCT-PLAN.md:424",
+      "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+    },
+    {
+      "path": "PRODUCT-PLAN.md",
+      "line_at_audit": 444,
+      "link": "C:/sgSHIOK2026/PRODUCT-PLAN.md:444",
+      "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+    },
+    {
+      "path": "PRODUCT-PLAN.md",
+      "line_at_audit": 452,
+      "link": "C:/sgSHIOK2026/PRODUCT-PLAN.md:452",
+      "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+    },
+    {
+      "path": "PRODUCT-PLAN.md",
+      "line_at_audit": 460,
+      "link": "C:/sgSHIOK2026/PRODUCT-PLAN.md:460",
+      "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+    },
+    {
+      "path": "PRODUCT-PLAN.md",
+      "line_at_audit": 468,
+      "link": "C:/sgSHIOK2026/PRODUCT-PLAN.md:468",
+      "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+    },
+    {
+      "path": "PRODUCT-PLAN.md",
+      "line_at_audit": 483,
+      "link": "C:/sgSHIOK2026/PRODUCT-PLAN.md:483",
+      "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+    },
+    {
+      "path": "PRODUCT-PLAN.md",
+      "line_at_audit": 492,
+      "link": "C:/sgSHIOK2026/PRODUCT-PLAN.md:492",
+      "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+    },
+    {
+      "path": "README.md",
+      "line_at_audit": 102,
+      "link": "C:/sgSHIOK2026/README.md:102",
+      "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+    },
+    {
+      "path": "README.md",
+      "line_at_audit": 146,
+      "link": "C:/sgSHIOK2026/README.md:146",
+      "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+    },
+    {
+      "path": "README.md",
+      "line_at_audit": 345,
+      "link": "C:/sgSHIOK2026/README.md:345",
+      "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+    },
+    {
+      "path": "README.md",
+      "line_at_audit": 366,
+      "link": "C:/sgSHIOK2026/README.md:366",
+      "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+    },
+    {
+      "path": "README.md",
+      "line_at_audit": 393,
+      "link": "C:/sgSHIOK2026/README.md:393",
+      "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+    },
+    {
+      "path": "web/vercel.json",
+      "line_at_audit": 1,
+      "link": "C:/sgSHIOK2026/web/vercel.json:1",
+      "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+    },
+    {
+      "path": "web/package.json",
+      "link": "C:/sgSHIOK2026/web/package.json",
+      "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+    },
+    {
+      "path": "web/package-lock.json",
+      "link": "C:/sgSHIOK2026/web/package-lock.json",
+      "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+    },
+    {
+      "path": "web/data-bundle.json",
+      "link": "C:/sgSHIOK2026/web/data-bundle.json",
+      "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+    },
+    {
+      "path": "web/next.config.js",
+      "link": "C:/sgSHIOK2026/web/next.config.js",
+      "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+    },
+    {
+      "path": "web/public/sw.js",
+      "link": "C:/sgSHIOK2026/web/public/sw.js",
+      "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+    },
+    {
+      "path": "qa/SHIOK-acceptance-tests.md",
+      "link": "C:/sgSHIOK2026/qa/SHIOK-acceptance-tests.md",
+      "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+    },
+    {
+      "path": "qa/revamp-r1/release-staging-20260910/summary.json",
+      "link": "C:/sgSHIOK2026/qa/revamp-r1/release-staging-20260910/summary.json",
+      "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+    },
+    {
+      "path": "qa/revamp-r1/worker-lifecycle-20260912/summary.json",
+      "link": "C:/sgSHIOK2026/qa/revamp-r1/worker-lifecycle-20260912/summary.json",
+      "version_boundary": "Path/line refers to the source read during the audit; parent edits can move or supersede it."
+    }
+  ],
+  "official_source_reads": [
+    {
+      "url": "https://github.com/maplibre/maplibre-gl-js/security/advisories/GHSA-jrc7-96c5-q579",
+      "tool": "web__run",
+      "command": {
+        "open": [
+          {
+            "ref_id": "https://github.com/maplibre/maplibre-gl-js/security/advisories/GHSA-jrc7-96c5-q579"
+          }
+        ]
+      },
+      "invocation_scope": "This open item was part of a four-URL call; later find requests read Affected versions and setHTML.",
+      "observed_at": "not_saved",
+      "raw_output": "not_saved",
+      "finding": "Publisher lists affected versions <=6.4.0, patched 6.4.1, and untrusted attribution HTML as the impacted boundary."
+    },
+    {
+      "url": "https://vercel.com/docs/plans/hobby",
+      "tool": "web__run",
+      "command": {
+        "open": [
+          {
+            "ref_id": "https://vercel.com/docs/plans/hobby"
+          }
+        ]
+      },
+      "invocation_scope": "This open item was part of the four-URL call.",
+      "observed_at": "not_saved",
+      "raw_output": "not_saved",
+      "finding": "Current public documentation lists Hobby personal/non-commercial restrictions, up to 1,000,000 Edge Requests, function resource limits, and no billing cycle. Actual usage/reset timing remains account-specific and was not observed."
+    },
+    {
+      "url": "https://vercel.com/docs/instant-rollback",
+      "tool": "web__run",
+      "command": {
+        "open": [
+          {
+            "ref_id": "https://vercel.com/docs/instant-rollback"
+          }
+        ]
+      },
+      "invocation_scope": "This open item was part of the four-URL call; a later find request read Hobby.",
+      "observed_at": "not_saved",
+      "raw_output": "not_saved",
+      "finding": "Hobby rollback is limited to the immediately previous deployment; old configuration is reused and production auto-assignment changes. This does not establish this project's target eligibility or successful rollback."
+    },
+    {
+      "url": "https://vercel.com/docs/limits/fair-use-guidelines",
+      "tool": "web__run",
+      "command": {
+        "open": [
+          {
+            "ref_id": "https://vercel.com/docs/limits/fair-use-guidelines"
+          }
+        ]
+      },
+      "invocation_scope": "This open item was part of the four-URL call.",
+      "observed_at": "not_saved",
+      "raw_output": "not_saved",
+      "finding": "Official current usage-policy reference, not account status."
+    }
+  ],
+  "output_retention_limitations": [
+    "This is not a complete raw terminal transcript. Exact saved Vercel text blocks are retained directly; named terminal excerpts are copied verbatim from original tool output.",
+    "Complete combined shell outputs and unrecorded timestamps are marked not_saved rather than recreated from summaries.",
+    "No expensive, provider or authenticated status calls were rerun to fill evidence gaps.",
+    "Several original read commands returned path/glob errors or excessive output; they are not represented as successful validation.",
+    "No screenshot reinspection, new browser acceptance, live provider probe, package installation or full test/build run was performed by this audit."
+  ],
+  "publication_redactions": {
+    "reason": "Pre-commit identity scan rejected the original account metadata. The privacy guard was not bypassed.",
+    "commandEvidenceIndices": [
+      5,
+      6
+    ],
+    "deploymentIdAndCommitAndDirtyStatusUnchanged": true,
+    "originalSha256": "687937d6a37c3f04a7ba977ffeee0827bfbe681085daa94ed12acafd3f082555",
+    "originalRetainedLocallyNotPublished": "tmp/completion-20260913-private/release-audit.json"
+  }
+}
