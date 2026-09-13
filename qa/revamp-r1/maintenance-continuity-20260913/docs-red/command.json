@@ -1,0 +1,23 @@
+{
+  "command": [
+    "python",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_readme.py",
+    "--noconftest",
+    "-p",
+    "no:cacheprovider",
+    "-o",
+    "addopts=",
+    "--basetemp=C:\\sgSHIOK2026\\tmp\\maintenance-continuity-docs-red-20260913\\fixtures",
+    "--junitxml=C:\\sgSHIOK2026\\qa\\revamp-r1\\maintenance-continuity-20260913\\docs-red\\junit.xml"
+  ],
+  "cwd": "C:\\sgSHIOK2026",
+  "elapsedMs": 4532,
+  "status": 1,
+  "stdout": "....F...                                                                 [100%]\r\n================================== FAILURES ===================================\r\n____ test_readme_monitor_requires_verified_state_without_pipeline_commands ____\r\n\r\n    def test_readme_monitor_requires_verified_state_without_pipeline_commands() -> None:\r\n        text = README.read_text(encoding=\"utf-8\")\r\n        normalized = compact(text)\r\n    \r\n>       assert \"-B -m scripts.check_source_metadata --output\" in normalized\r\nE       AssertionError: assert '-B -m scripts.check_source_metadata --output' in '# S.H.I.O.K. Shelter Map A free, non-commercial civic web app for Singapore postal records that answers: if I move he...ENSE](LICENSE) and [NOTICE](NOTICE). Source data and map attribution are recorded in [ATTRIBUTION.md](ATTRIBUTION.md).'\r\n\r\ntests\\test_readme.py:188: AssertionError\r\n=========================== short test summary info ===========================\r\nFAILED tests/test_readme.py::test_readme_monitor_requires_verified_state_without_pipeline_commands\r\n1 failed, 7 passed in 0.90s\r\n",
+  "stderr": "",
+  "scope": "Mocked tests, no live monitor or pipeline invocation"
+}

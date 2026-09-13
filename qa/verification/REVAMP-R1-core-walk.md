@@ -4898,3 +4898,36 @@ labelled redacted, not raw. Deployment ID, commit, gitDirty status and acceptanc
 conclusions are unchanged. Unredacted originals remain private under repo/tmp;
 publish-receipts.mjs records the structured transformation and original hash.
 summary.json and artifact-index.json were regenerated for the published bytes.
+
+### Continuation 2026-09-13: Prevent Silent Monitor Reinitialization
+
+Base0680184. Read-only peer review identified that omitted --previous reached
+_restore(None), resetting metadata observations, cooldowns and pending notices
+despite the README continuation rule. CLI and run_check now require exactly one
+explicit bootstrap or previous state before clock/catalog/client/output activity.
+Existing corrupt-predecessor, cooldown, notice and completion-receipt checks remain.
+README first-run/continuation commands and their contract are updated explicitly.
+
+Receipts: qa/revamp-r1/maintenance-continuity-20260913/.
+- red-1:failed harness, not accepted red evidence. A broad environment mock
+  interrupted pytest reporting. The failure is retained in freeze-1.json/logs.
+- red-2:19expected initialization regressions failed;61existing cases deselected.
+- green-1:19focused regressions pass. green-2:80CLI tests pass;61 +19 =80.
+- docs-red:old README command assertion fails after the approved CLI change;
+  7pass +1fail =8. Assertion strengthened for explicit bootstrap and continuation.
+- final/command.json:376passed,exit0,8.74s pytest time.80CLI +31catalog +76HTTP
+  +85state +96delivery +8README =376. No whole-project Python-suite claim.
+
+Parent reviewed the13-line CLI change and initialization tests; all broader
+monitor tests use fixtures/mocked transports. No live catalog/anchor read, source
+check, workflow, external notice, pipeline or data repair was run by these tests.
+The prior frontend1889tests/80browser checks are unchanged historical acceptance,
+not rerun claims for this Python/docs-only repair.
+
+FINDINGS
+1. A missing option could silently erase monitoring continuity. Explicit first-run
+   initialization now fails closed instead of looking like a normal repeat check.
+2. This is a local safety repair, not an activated maintenance service.
+DISAGREEMENTS
+1. Requiring --bootstrap cannot prove it is truly the first run or prevent an
+   operator deliberately selecting old state. Hosted persistence/recovery remains open.

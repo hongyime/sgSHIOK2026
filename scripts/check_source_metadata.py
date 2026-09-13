@@ -178,10 +178,13 @@ def _publish_report(output: Path, report: dict) -> None:
         raise MonitorError("STOP_REPORT_PUBLICATION: no completion committed; preserve staged files and inspect local IO") from error
 
 
-def run_check(root: Path, output: Path, *, previous: Path | None = None,
+def run_check(root: Path, output: Path, *, bootstrap: bool = False, previous: Path | None = None,
               client: MetadataClient | None = None, credentials: dict[str, str] | None = None,
               clock: Callable[[], datetime] = lambda: datetime.now(UTC)) -> tuple[dict, int]:
-    """One sequential pass. A fresh directory and complete prior state are mandatory."""
+    """One pass into a fresh directory; explicitly bootstrap or restore complete prior state."""
+    if (type(bootstrap) is not bool or bootstrap == (previous is not None)
+            or (previous is not None and not isinstance(previous, Path))):
+        raise MonitorError("STOP_INITIALIZATION: choose exactly one of bootstrap=True or previous=Path; no IO executed")
     started = clock()
     monotonic_start = time.monotonic()
     _safe_path(root, output)
@@ -275,13 +278,15 @@ def main() -> int:
         raise SystemExit("Wrong working root: this local command requires C:\\sgSHIOK2026")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True, help="Fresh absolute qa/source-monitor/<label> directory")
-    parser.add_argument("--previous", type=Path, help="Complete state.json from the previous successful local check")
+    initialization = parser.add_mutually_exclusive_group(required=True)
+    initialization.add_argument("--bootstrap", action="store_true", help="Explicit first run without prior state; not a recovery fallback")
+    initialization.add_argument("--previous", type=Path, help="Prior state.json with matching verified exit-0 or exit-1 report.json")
     parser.add_argument("--max-requests", type=int, default=24)
     parser.add_argument("--max-seconds", type=float, default=300)
     args = parser.parse_args()
     try:
         client = MetadataClient(max_requests=args.max_requests, max_seconds=args.max_seconds)
-        report, code = run_check(ROOT, args.output, previous=args.previous, client=client,
+        report, code = run_check(ROOT, args.output, bootstrap=args.bootstrap, previous=args.previous, client=client,
                                  credentials={"LTA_DATAMALL_ACCOUNT_KEY": os.environ.get("LTA_DATAMALL_ACCOUNT_KEY", "")})
     except (MonitorError, OSError, ValueError) as error:
         message = str(error) if isinstance(error, MonitorError) else "STOP_LOCAL_CHECK: invalid bounds or local IO failure; no retry"

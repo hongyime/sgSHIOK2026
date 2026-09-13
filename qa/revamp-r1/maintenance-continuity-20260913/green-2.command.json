@@ -1,0 +1,32 @@
+{
+  "executable": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+  "arguments": [
+    "-B",
+    "-m",
+    "pytest",
+    "C:\\sgSHIOK2026\\tests\\test_source_metadata_cli.py",
+    "-q",
+    "--tb=short",
+    "--capture=sys",
+    "--noconftest",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\maintenance-continuity-20260913\\green-2-basetemp",
+    "--junitxml",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\maintenance-continuity-20260913\\green-2.junit.xml"
+  ],
+  "cwd": "C:\\sgSHIOK2026",
+  "environment": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "TMP": "C:\\sgSHIOK2026\\qa\\revamp-r1\\maintenance-continuity-20260913\\green-2-temp",
+    "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+    "PYTEST_PLUGINS": "",
+    "PYTEST_ADDOPTS": "",
+    "TEMP": "C:\\sgSHIOK2026\\qa\\revamp-r1\\maintenance-continuity-20260913\\green-2-temp"
+  },
+  "startedUtc": "2026-09-13T05:17:00.4393184Z",
+  "finishedUtc": "2026-09-13T05:17:04.8194980Z",
+  "exitCode": 0,
+  "scope": "Mocked monitor tests only; no live check or durability claim"
+}

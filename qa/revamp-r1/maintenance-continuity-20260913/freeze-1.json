@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "status": "frozen_for_parent_review",
+  "recordedUtc": "2026-09-13T05:18:12.6876667Z",
+  "baseCommit": "0680184",
+  "files": [
+    {
+      "path": "C:\\sgSHIOK2026\\scripts\\check_source_metadata.py",
+      "bytes": 18210,
+      "sha256": "864eaa72fe7887728e9b225a4c15cac9cc950e2e1743361043e85d907bf35ee4"
+    },
+    {
+      "path": "C:\\sgSHIOK2026\\tests\\test_source_metadata_cli.py",
+      "bytes": 25441,
+      "sha256": "78c6cdaedbef9c8cff591ca9037a9b14190eae95ea16cc5744d810514346e762"
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": "red-1",
+      "command": "C:\\sgSHIOK2026\\qa\\revamp-r1\\maintenance-continuity-20260913\\red-1.command.json",
+      "log": "C:\\sgSHIOK2026\\qa\\revamp-r1\\maintenance-continuity-20260913\\red-1.log",
+      "junit": "C:\\sgSHIOK2026\\qa\\revamp-r1\\maintenance-continuity-20260913\\red-1.junit.xml",
+      "exitCode": 1,
+      "tests": 11,
+      "failures": 11,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": "1.599"
+    },
+    {
+      "attempt": "red-2",
+      "command": "C:\\sgSHIOK2026\\qa\\revamp-r1\\maintenance-continuity-20260913\\red-2.command.json",
+      "log": "C:\\sgSHIOK2026\\qa\\revamp-r1\\maintenance-continuity-20260913\\red-2.log",
+      "junit": "C:\\sgSHIOK2026\\qa\\revamp-r1\\maintenance-continuity-20260913\\red-2.junit.xml",
+      "exitCode": 1,
+      "tests": 19,
+      "failures": 19,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": "3.084"
+    },
+    {
+      "attempt": "green-1",
+      "command": "C:\\sgSHIOK2026\\qa\\revamp-r1\\maintenance-continuity-20260913\\green-1.command.json",
+      "log": "C:\\sgSHIOK2026\\qa\\revamp-r1\\maintenance-continuity-20260913\\green-1.log",
+      "junit": "C:\\sgSHIOK2026\\qa\\revamp-r1\\maintenance-continuity-20260913\\green-1.junit.xml",
+      "exitCode": 0,
+      "tests": 19,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": "0.274"
+    },
+    {
+      "attempt": "green-2",
+      "command": "C:\\sgSHIOK2026\\qa\\revamp-r1\\maintenance-continuity-20260913\\green-2.command.json",
+      "log": "C:\\sgSHIOK2026\\qa\\revamp-r1\\maintenance-continuity-20260913\\green-2.log",
+      "junit": "C:\\sgSHIOK2026\\qa\\revamp-r1\\maintenance-continuity-20260913\\green-2.junit.xml",
+      "exitCode": 0,
+      "tests": 80,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": "3.400"
+    }
+  ],
+  "diffCheckExitCode": 0,
+  "limitations": [
+    "Mocked CLI/fixture verification only; no live source check, schedule, service or physical durability verified",
+    "Existing fixture paths resembling pipeline/raw are synthetic files under green-2-basetemp; real pipeline/input files were not read",
+    "No dependencies installed; no shared documentation/state files edited; no commit or push"
+  ],
+  "failures": [
+    "red-1: credential guard mocked all environment reads and interrupted pytest reporting after 12 reported failures; this is a failed harness attempt, not accepted red evidence",
+    "red-2: 19 expected initialization regression failures; 61 existing cases deselected",
+    "One apply_patch invocation was rejected for mismatched test context; no files changed in that rejected invocation"
+  ],
+  "parentUpdates": [
+    "README.md:263 append --bootstrap to first-run command; subsequent runs use --previous without --bootstrap",
+    "README.md:266 explain required exclusive modes and no bootstrap recovery fallback",
+    "tests/test_readme.py:188 strengthen initialization documentation assertions; existing command substring remains valid if --bootstrap is appended",
+    "No other standalone monitor execution callers found in searched scripts/tests/workflow sources; build_source_metadata_catalog.py:86 only imports validate_catalog"
+  ]
+}

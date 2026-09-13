@@ -254,17 +254,20 @@ or proof of the deployed bundle. The standalone checker does not import the
 pipeline, load `.env`, download datasets, follow listing download links, refresh
 inputs, score, export or deploy. Do not use `run.py check` for this routine.
 
-From the internal working root, using the existing environment and a fresh output
-directory:
+For the first metadata-check history only, from the internal working root, using
+the existing environment and a fresh output directory:
 
 ```powershell
 if ((Get-Location).Path -ne 'C:\sgSHIOK2026') { throw 'Wrong working root' }
 $run = Get-Date -Format 'yyyyMMdd_HHmmss'
-C:\sgSHIOK2026\.venv\Scripts\python.exe -B -m scripts.check_source_metadata --output "C:\sgSHIOK2026\qa\source-monitor\$run"
+C:\sgSHIOK2026\.venv\Scripts\python.exe -B -m scripts.check_source_metadata --bootstrap --output "C:\sgSHIOK2026\qa\source-monitor\$run"
 ```
 
-On subsequent runs, also pass `--previous` with the absolute path to the preceding
-run's `state.json`. Keep its sibling `report.json`: restoration requires a matching
+On subsequent runs, replace `--bootstrap` with `--previous` and the absolute path
+to the preceding run's `state.json`. Exactly one mode is required: omitting both
+or supplying both stops before catalog reads, requests or output creation. Do not
+use bootstrap to work around a missing/corrupt predecessor or to reset a cooldown.
+Keep its sibling `report.json`: restoration requires a matching
 verified completion receipt, catalog identity and state hash. A verified exit-1
 attention report is reusable, including deferred checks, so retry deadlines and
 known observations survive. Do not select an interrupted run without that receipt

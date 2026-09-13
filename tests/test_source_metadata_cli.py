@@ -3,6 +3,7 @@ from datetime import UTC, datetime
 import hashlib
 import json
 from pathlib import Path
+import sys
 
 import pytest
 
@@ -12,6 +13,77 @@ from scripts.source_metadata_state import acknowledge, transition
 
 
 NOW = datetime(2026, 9, 9, tzinfo=UTC)
+
+
+@pytest.mark.parametrize("initialization", [
+    {}, {"bootstrap": False},
+    {"bootstrap": True, "previous": Path("prior/state.json")},
+    *({"bootstrap": value} for value in (None, 0, 1, "true", [])),
+    *({"previous": value} for value in (False, "", "prior/state.json")),
+])
+def test_initialization_run_check_rejects_invalid_mode_before_io(monkeypatch, initialization):
+    def forbidden(*args, **kwargs):
+        raise AssertionError("Initialization must be checked before clock, paths, client or IO")
+
+    for name in ("_safe_path", "_read", "_write", "_verify_anchors", "_restore", "MetadataClient"):
+        monkeypatch.setattr(monitor, name, forbidden)
+    with pytest.raises(MonitorError, match="STOP_INITIALIZATION"):
+        run_check(monitor.ROOT, monitor.ROOT / "qa/source-monitor/unused",
+                  clock=forbidden, **initialization)
+
+
+@pytest.mark.parametrize("arguments,diagnostic", [
+    ([], "one of the arguments --bootstrap --previous is required"),
+    (["--bootstrap", "--previous", "prior/state.json"], "not allowed with argument"),
+])
+def test_initialization_cli_rejects_missing_or_conflicting_modes_before_io(monkeypatch, capsys,
+                                                                        arguments, diagnostic):
+    def forbidden(*args, **kwargs):
+        raise AssertionError("Invalid CLI initialization must not construct a client or run")
+
+    class NoCredentials(dict):
+        def get(self, key, default=None):
+            if key == "LTA_DATAMALL_ACCOUNT_KEY":
+                forbidden()
+            return super().get(key, default)
+
+    monkeypatch.setattr(sys, "argv", ["check_source_metadata", "--output",
+                                    str(monitor.ROOT / "qa/source-monitor/unused"), *arguments])
+    monkeypatch.setattr(monitor, "MetadataClient", forbidden)
+    monkeypatch.setattr(monitor, "run_check", forbidden)
+    monkeypatch.setattr(monitor.os, "environ", NoCredentials())
+    with pytest.raises(SystemExit) as stopped:
+        monitor.main()
+    assert stopped.value.code == 2
+    assert diagnostic in capsys.readouterr().err
+
+
+@pytest.mark.parametrize("bootstrap", [True, False])
+@pytest.mark.parametrize("code", [0, 1, 2])
+def test_initialization_cli_forwards_explicit_mode_and_exit_code(monkeypatch, capsys, bootstrap, code):
+    output = monitor.ROOT / "qa/source-monitor/unused"
+    previous = None if bootstrap else monitor.ROOT / "qa/source-monitor/prior/state.json"
+    arguments = ["--bootstrap"] if bootstrap else ["--previous", str(previous)]
+    client = object()
+    calls = []
+
+    def checked(root, selected_output, **kwargs):
+        calls.append(kwargs)
+        assert root == monitor.ROOT and selected_output == output
+        assert kwargs["bootstrap"] is bootstrap and kwargs["previous"] == previous
+        assert kwargs["client"] is client
+        # This stub tests CLI dispatch only, not a completed check or persistence.
+        return {"elapsedSeconds": 0, "counts": {}, "pendingNotices": [],
+                "noticeDelivery": "not_configured", "integrity": {"status": "mocked"}}, code
+
+    monkeypatch.setattr(sys, "argv", ["check_source_metadata", "--output", str(output), *arguments])
+    monkeypatch.setattr(monitor, "MetadataClient", lambda **kwargs: client)
+    monkeypatch.setattr(monitor, "run_check", checked)
+    monkeypatch.setattr(monitor.os, "environ", {})
+    assert monitor.main() == code
+    assert len(calls) == 1
+    result = json.loads(capsys.readouterr().out)
+    assert result["exitCode"] == code and result["noticeDelivery"] == "not_configured"
 
 
 def sha(content):
@@ -56,10 +128,10 @@ class Client:
         return deepcopy(self.responses.pop(0))
 
 
-def run(project, label="run1", client=None, previous=None):
+def run(project, label="run1", client=None, previous=None, *, bootstrap=False):
     root, _ = project
     client = client or Client()
-    result = run_check(root, root / "qa/source-monitor" / label, previous=previous,
+    result = run_check(root, root / "qa/source-monitor" / label, bootstrap=bootstrap, previous=previous,
                        client=client, credentials={}, clock=lambda: NOW)
     return result, client
 
@@ -79,7 +151,7 @@ def previous_state(project, state):
 
 
 def test_first_observation_writes_fresh_report_and_restorable_state_without_delivery(project):
-    (report, code), client = run(project)
+    (report, code), client = run(project, bootstrap=True)
     root, _ = project
     assert code == 0 and len(client.calls) == 1
     assert report["sources"][0]["state"]["comparison"] == "first_observation"
@@ -120,7 +192,7 @@ def test_uncheckable_sources_are_explicit_without_requests(project, adapter, out
     if adapter == "datamall_listing":
         source["keyword"] = "CoveredLinkWay"
     persist_catalog(project)
-    (report, code), client = run(project)
+    (report, code), client = run(project, bootstrap=True)
     assert client.calls == [] and report["sources"][0]["result"]["outcome"] == outcome
     assert code == (0 if adapter == "manual" else 1)
 
@@ -142,7 +214,7 @@ def test_invalid_catalog_fails_before_network_or_output(project, mutation):
     persist_catalog(project)
     client = Client()
     with pytest.raises(MonitorError):
-        run(project, client=client)
+        run(project, client=client, bootstrap=True)
     assert not client.calls and not (project[0] / "qa/source-monitor/run1").exists()
 
 
@@ -151,7 +223,7 @@ def test_input_hash_mismatch_stops_without_rebuilding(project):
     path.write_bytes(b"different")
     client = Client()
     with pytest.raises(MonitorError, match="STOP_INPUT_MISMATCH.*actual=" + sha(b"different")):
-        run(project, client=client)
+        run(project, client=client, bootstrap=True)
     assert not client.calls and path.read_bytes() == b"different"
 
 
@@ -159,7 +231,7 @@ def test_input_hash_mismatch_stops_without_rebuilding(project):
 def test_bad_or_duplicate_json_never_authorizes_requests(project, content):
     (project[0] / "source-metadata-catalog.json").write_bytes(content)
     with pytest.raises(MonitorError):
-        run(project)
+        run(project, bootstrap=True)
 
 
 @pytest.mark.parametrize("case", ["invalid_state", "wrong_catalog", "missing_key", "future_state", "missing_file", "truncated", "oversized"])
@@ -193,15 +265,15 @@ def test_bad_previous_state_fails_closed_without_conditional_request(project, ca
 def test_output_scope_rejects_non_fresh_monitor_directory(project, relative):
     root = project[0]
     with pytest.raises(MonitorError):
-        run_check(root, root / relative, client=Client(), credentials={}, clock=lambda: NOW)
+        run_check(root, root / relative, bootstrap=True, client=Client(), credentials={}, clock=lambda: NOW)
 
 
 def test_existing_output_is_never_overwritten(project):
-    run(project)
+    run(project, bootstrap=True)
     before = (project[0] / "qa/source-monitor/run1/report.json").read_bytes()
     client = Client()
     with pytest.raises(MonitorError):
-        run(project, client=client)
+        run(project, client=client, bootstrap=True)
     assert not client.calls
     assert (project[0] / "qa/source-monitor/run1/report.json").read_bytes() == before
 
@@ -216,7 +288,7 @@ def test_mid_run_anchor_change_is_preserved_as_failure_not_success(project):
         return result
 
     client.get_json = mutate
-    (report, code), _ = run(project, client=client)
+    (report, code), _ = run(project, client=client, bootstrap=True)
     assert code == 2 and report["integrity"]["status"] == "failed"
     assert "STOP_INPUT_MISMATCH" in report["integrity"]["error"]
     assert len(report["sources"]) == 1
@@ -225,7 +297,7 @@ def test_mid_run_anchor_change_is_preserved_as_failure_not_success(project):
 def test_unchanged_rerun_preserves_pending_notice_id_without_claiming_delivery(project):
     project[1]["sources"][0]["baseline"]["publisherUpdatedAt"] = "2025-01-01T00:00:00Z"
     persist_catalog(project)
-    (first, code), _ = run(project)
+    (first, code), _ = run(project, bootstrap=True)
     prior = project[0] / "qa/source-monitor/run1/state.json"
     (second, code2), _ = run(project, "run2", previous=prior)
     assert code == code2 == 1
@@ -234,7 +306,7 @@ def test_unchanged_rerun_preserves_pending_notice_id_without_claiming_delivery(p
 
 
 def test_deferred_previously_available_source_is_not_an_all_clear(project):
-    run(project)
+    run(project, bootstrap=True)
     client = Client([{"outcome": "deferred", "attempted": False, "reason": "request_budget"}])
     (report, code), _ = run(project, "run2", client, project[0] / "qa/source-monitor/run1/state.json")
     assert code == 1 and report["checkCompleted"] is False
@@ -245,7 +317,7 @@ def test_deferred_previously_available_source_is_not_an_all_clear(project):
 def test_acknowledged_staleness_still_requires_attention(project):
     project[1]["sources"][0]["baseline"]["publisherUpdatedAt"] = "2025-01-01T00:00:00Z"
     persist_catalog(project)
-    (report, _), _ = run(project)
+    (report, _), _ = run(project, bootstrap=True)
     state = report["sources"][0]["state"]
     state = acknowledge(state, [n["id"] for n in state["pendingNotices"]], NOW)
     prior = previous_state(project, state)
@@ -268,7 +340,7 @@ def test_cooldown_on_one_dataset_defers_other_datasets_on_same_host(project):
         return result
 
     client.get_json = rate_limit
-    (report, code), _ = run(project, client=client)
+    (report, code), _ = run(project, client=client, bootstrap=True)
     assert code == 1 and len(client.calls) == 1
     assert report["counts"]["outcomes"] == {"rate_limited": 1, "deferred": 1}
     restored = Client([])
@@ -282,13 +354,13 @@ def test_outside_or_linked_output_is_rejected_before_any_requests(project, monke
     real_resolve = Path.resolve
     monkeypatch.setattr(Path, "resolve", lambda self, *a, **kw: root.parent / "escape" if self == output else real_resolve(self, *a, **kw))
     with pytest.raises(MonitorError, match="linked"):
-        run_check(root, output, client=Client(), credentials={}, clock=lambda: NOW)
+        run_check(root, output, bootstrap=True, client=Client(), credentials={}, clock=lambda: NOW)
 
 
 def test_invalid_credentials_stop_without_echoing_or_network(project):
     client = Client()
     with pytest.raises(MonitorError) as failure:
-        run_check(project[0], project[0] / "qa/source-monitor/invalid", client=client,
+        run_check(project[0], project[0] / "qa/source-monitor/invalid", bootstrap=True, client=client,
                   credentials={"LTA_DATAMALL_ACCOUNT_KEY": "private\nvalue"}, clock=lambda: NOW)
     assert "private" not in str(failure.value) and not client.calls
 
@@ -299,11 +371,11 @@ def test_runtime_anchor_never_uses_git_identity_in_place_of_recorded_local_bytes
     path.write_bytes(b'{}\r\n')
     catalog["anchors"]["raw/manifest.json"] = sha(b'{}\r\n')
     persist_catalog(project)
-    run(project)
+    run(project, bootstrap=True)
     path.write_bytes(b'{}\n')
     client = Client()
     with pytest.raises(MonitorError, match="STOP_INPUT_MISMATCH"):
-        run(project, "run2", client)
+        run(project, "run2", client, bootstrap=True)
     assert not client.calls
 
 
@@ -320,7 +392,7 @@ def test_success_report_follows_verified_state_persistence(project, monkeypatch)
         writes.append(path.name)
 
     monkeypatch.setattr(monitor, "_write", inspect)
-    (report, code), _ = run(project)
+    (report, code), _ = run(project, bootstrap=True)
     assert code == 0 and report["persistence"]["status"] == "verified"
     assert writes == ["started.json", "state.json", "report.pending.json"]
     output = project[0] / "qa/source-monitor/run1"
@@ -339,7 +411,7 @@ def test_failed_state_write_can_only_leave_a_failure_report(project, monkeypatch
         original(path, value)
 
     monkeypatch.setattr(monitor, "_write", fail)
-    (report, code), _ = run(project)
+    (report, code), _ = run(project, bootstrap=True)
     assert code == 2 and report["runStatus"] == "stopped"
     assert report["persistence"] == {"status": "failed", "reason": "state_persistence_failed"}
     stored = json.loads((project[0] / "qa/source-monitor/run1/report.json").read_bytes())
@@ -358,7 +430,7 @@ def test_state_readback_failure_is_not_reported_as_success(project, monkeypatch,
             path.write_bytes(replacement)
 
     monkeypatch.setattr(monitor, "_write", change)
-    (report, code), _ = run(project)
+    (report, code), _ = run(project, bootstrap=True)
     assert code == 2 and report["persistence"]["status"] == "failed"
 
 
@@ -380,7 +452,7 @@ def test_state_fsync_failure_does_not_authorize_a_completion_report_or_restore(p
 
     monkeypatch.setattr(monitor, "_write", write)
     monkeypatch.setattr(monitor.os, "fsync", fsync)
-    (report, code), _ = run(project)
+    (report, code), _ = run(project, bootstrap=True)
     assert code == 2 and report["persistence"]["status"] == "failed"
     prior = project[0] / "qa/source-monitor/run1/state.json"
     client = Client()
@@ -429,7 +501,7 @@ def test_report_write_or_close_error_cannot_publish_success(project, monkeypatch
 
     monkeypatch.setattr(monitor, "_write", fail)
     with pytest.raises(MonitorError, match="STOP_REPORT_PUBLICATION"):
-        run(project)
+        run(project, bootstrap=True)
     output = project[0] / "qa/source-monitor/run1"
     assert not (output / "report.json").exists()
     with pytest.raises(MonitorError):
@@ -455,7 +527,7 @@ def test_report_fsync_error_cannot_publish_success(project, monkeypatch):
     monkeypatch.setattr(monitor, "_write", write)
     monkeypatch.setattr(monitor.os, "fsync", fsync)
     with pytest.raises(MonitorError, match="STOP_REPORT_PUBLICATION"):
-        run(project)
+        run(project, bootstrap=True)
     assert not (project[0] / "qa/source-monitor/run1/report.json").exists()
 
 
@@ -469,7 +541,7 @@ def test_report_readback_mismatch_never_publishes_success(project, monkeypatch):
 
     monkeypatch.setattr(monitor, "_write", alter)
     with pytest.raises(MonitorError, match="STOP_REPORT_READBACK_MISMATCH"):
-        run(project)
+        run(project, bootstrap=True)
     assert not (project[0] / "qa/source-monitor/run1/report.json").exists()
 
 
@@ -483,7 +555,7 @@ def test_report_publication_error_preserves_prior_files_without_fallback_write(p
 
     monkeypatch.setattr(monitor.os, "link", fail_link)
     with pytest.raises(MonitorError, match="STOP_REPORT_PUBLICATION"):
-        run(project)
+        run(project, bootstrap=True)
     output = project[0] / "qa/source-monitor/run1"
     assert (output / "report.pending.json").exists()
     if existing:

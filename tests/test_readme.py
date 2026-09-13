@@ -185,7 +185,10 @@ def test_readme_monitor_requires_verified_state_without_pipeline_commands() -> N
     text = README.read_text(encoding="utf-8")
     normalized = compact(text)
 
-    assert "-B -m scripts.check_source_metadata --output" in normalized
+    assert "-B -m scripts.check_source_metadata --bootstrap --output" in normalized
+    assert "replace `--bootstrap` with `--previous`" in normalized
+    assert "omitting both or supplying both stops before catalog reads, requests or output creation" in normalized
+    assert "Do not use bootstrap to work around a missing/corrupt predecessor or to reset a cooldown" in normalized
     assert "verified exit-1 attention report is reusable, including deferred checks" in normalized
     assert "exit-2 stopped run" in normalized
     assert "pending notices are intents, not delivered alerts" in normalized.lower()

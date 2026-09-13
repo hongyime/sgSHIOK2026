@@ -3722,3 +3722,14 @@ Final desktop and mobile viewport checks exercise saved-route identity, category
 changes, popup dismissal and failed-preview recovery on the rebuilt preview.
 They are headless browser checks with controlled provider failures, not physical
 phone, representative latency, service-worker release or production acceptance.
+
+## 2026-09-13: Require explicit source-monitor initialization
+
+The local metadata checker must receive exactly one of `--bootstrap` or
+`--previous PATH`. Its Python entry point has the same rule before clock, catalog,
+anchor, client or output activity. Bootstrap is for an intentional first history;
+it is not recovery from a missing or corrupt predecessor. Previously omitting
+`--previous` silently discarded cooldown and notice continuity. Existing verified
+exit-0 and exit-1 predecessor restoration remains unchanged. Explicit selection
+prevents accidental omission, not deliberate reset, predecessor rollback or loss
+of persistent storage. No scheduler, source check or notification was activated.

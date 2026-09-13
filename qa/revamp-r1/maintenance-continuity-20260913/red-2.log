@@ -1,0 +1,190 @@
+FFFFFFFFFFFFFFFFFFF                                                      [100%]
+================================== FAILURES ===================================
+_ test_initialization_run_check_rejects_invalid_mode_before_io[initialization0] _
+tests\test_source_metadata_cli.py:31: in test_initialization_run_check_rejects_invalid_mode_before_io
+    run_check(monitor.ROOT, monitor.ROOT / "qa/source-monitor/unused",
+scripts\check_source_metadata.py:185: in run_check
+    started = clock()
+              ^^^^^^^
+tests\test_source_metadata_cli.py:26: in forbidden
+    raise AssertionError("Initialization must be checked before clock, paths, client or IO")
+E   AssertionError: Initialization must be checked before clock, paths, client or IO
+_ test_initialization_run_check_rejects_invalid_mode_before_io[initialization1] _
+tests\test_source_metadata_cli.py:31: in test_initialization_run_check_rejects_invalid_mode_before_io
+    run_check(monitor.ROOT, monitor.ROOT / "qa/source-monitor/unused",
+E   TypeError: run_check() got an unexpected keyword argument 'bootstrap'
+_ test_initialization_run_check_rejects_invalid_mode_before_io[initialization2] _
+tests\test_source_metadata_cli.py:31: in test_initialization_run_check_rejects_invalid_mode_before_io
+    run_check(monitor.ROOT, monitor.ROOT / "qa/source-monitor/unused",
+E   TypeError: run_check() got an unexpected keyword argument 'bootstrap'
+_ test_initialization_run_check_rejects_invalid_mode_before_io[initialization3] _
+tests\test_source_metadata_cli.py:31: in test_initialization_run_check_rejects_invalid_mode_before_io
+    run_check(monitor.ROOT, monitor.ROOT / "qa/source-monitor/unused",
+E   TypeError: run_check() got an unexpected keyword argument 'bootstrap'
+_ test_initialization_run_check_rejects_invalid_mode_before_io[initialization4] _
+tests\test_source_metadata_cli.py:31: in test_initialization_run_check_rejects_invalid_mode_before_io
+    run_check(monitor.ROOT, monitor.ROOT / "qa/source-monitor/unused",
+E   TypeError: run_check() got an unexpected keyword argument 'bootstrap'
+_ test_initialization_run_check_rejects_invalid_mode_before_io[initialization5] _
+tests\test_source_metadata_cli.py:31: in test_initialization_run_check_rejects_invalid_mode_before_io
+    run_check(monitor.ROOT, monitor.ROOT / "qa/source-monitor/unused",
+E   TypeError: run_check() got an unexpected keyword argument 'bootstrap'
+_ test_initialization_run_check_rejects_invalid_mode_before_io[initialization6] _
+tests\test_source_metadata_cli.py:31: in test_initialization_run_check_rejects_invalid_mode_before_io
+    run_check(monitor.ROOT, monitor.ROOT / "qa/source-monitor/unused",
+E   TypeError: run_check() got an unexpected keyword argument 'bootstrap'
+_ test_initialization_run_check_rejects_invalid_mode_before_io[initialization7] _
+tests\test_source_metadata_cli.py:31: in test_initialization_run_check_rejects_invalid_mode_before_io
+    run_check(monitor.ROOT, monitor.ROOT / "qa/source-monitor/unused",
+E   TypeError: run_check() got an unexpected keyword argument 'bootstrap'
+_ test_initialization_run_check_rejects_invalid_mode_before_io[initialization8] _
+tests\test_source_metadata_cli.py:31: in test_initialization_run_check_rejects_invalid_mode_before_io
+    run_check(monitor.ROOT, monitor.ROOT / "qa/source-monitor/unused",
+scripts\check_source_metadata.py:185: in run_check
+    started = clock()
+              ^^^^^^^
+tests\test_source_metadata_cli.py:26: in forbidden
+    raise AssertionError("Initialization must be checked before clock, paths, client or IO")
+E   AssertionError: Initialization must be checked before clock, paths, client or IO
+_ test_initialization_run_check_rejects_invalid_mode_before_io[initialization9] _
+tests\test_source_metadata_cli.py:31: in test_initialization_run_check_rejects_invalid_mode_before_io
+    run_check(monitor.ROOT, monitor.ROOT / "qa/source-monitor/unused",
+scripts\check_source_metadata.py:185: in run_check
+    started = clock()
+              ^^^^^^^
+tests\test_source_metadata_cli.py:26: in forbidden
+    raise AssertionError("Initialization must be checked before clock, paths, client or IO")
+E   AssertionError: Initialization must be checked before clock, paths, client or IO
+_ test_initialization_run_check_rejects_invalid_mode_before_io[initialization10] _
+tests\test_source_metadata_cli.py:31: in test_initialization_run_check_rejects_invalid_mode_before_io
+    run_check(monitor.ROOT, monitor.ROOT / "qa/source-monitor/unused",
+scripts\check_source_metadata.py:185: in run_check
+    started = clock()
+              ^^^^^^^
+tests\test_source_metadata_cli.py:26: in forbidden
+    raise AssertionError("Initialization must be checked before clock, paths, client or IO")
+E   AssertionError: Initialization must be checked before clock, paths, client or IO
+_ test_initialization_cli_rejects_missing_or_conflicting_modes_before_io[arguments0-one of the arguments --bootstrap --previous is required] _
+tests\test_source_metadata_cli.py:56: in test_initialization_cli_rejects_missing_or_conflicting_modes_before_io
+    monitor.main()
+scripts\check_source_metadata.py:283: in main
+    client = MetadataClient(max_requests=args.max_requests, max_seconds=args.max_seconds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_source_metadata_cli.py:42: in forbidden
+    raise AssertionError("Invalid CLI initialization must not construct a client or run")
+E   AssertionError: Invalid CLI initialization must not construct a client or run
+_ test_initialization_cli_rejects_missing_or_conflicting_modes_before_io[arguments1-not allowed with argument] _
+tests\test_source_metadata_cli.py:58: in test_initialization_cli_rejects_missing_or_conflicting_modes_before_io
+    assert diagnostic in capsys.readouterr().err
+E   AssertionError: assert 'not allowed with argument' in 'usage: check_source_metadata [-h] --output OUTPUT [--previous PREVIOUS]\n                             [--max-requests...                      [--max-seconds MAX_SECONDS]\ncheck_source_metadata: error: unrecognized arguments: --bootstrap\n'
+E    +  where 'usage: check_source_metadata [-h] --output OUTPUT [--previous PREVIOUS]\n                             [--max-requests...                      [--max-seconds MAX_SECONDS]\ncheck_source_metadata: error: unrecognized arguments: --bootstrap\n' = CaptureResult(out='', err='usage: check_source_metadata [-h] --output OUTPUT [--previous PREVIOUS]\n                  ...                     [--max-seconds MAX_SECONDS]\ncheck_source_metadata: error: unrecognized arguments: --bootstrap\n').err
+E    +    where CaptureResult(out='', err='usage: check_source_metadata [-h] --output OUTPUT [--previous PREVIOUS]\n                  ...                     [--max-seconds MAX_SECONDS]\ncheck_source_metadata: error: unrecognized arguments: --bootstrap\n') = readouterr()
+E    +      where readouterr = <_pytest.capture.CaptureFixture object at 0x0000018862086CF0>.readouterr
+____ test_initialization_cli_forwards_explicit_mode_and_exit_code[0-True] _____
+tests\test_source_metadata_cli.py:83: in test_initialization_cli_forwards_explicit_mode_and_exit_code
+    assert monitor.main() == code
+           ^^^^^^^^^^^^^^
+scripts\check_source_metadata.py:281: in main
+    args = parser.parse_args()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\argparse.py:1908: in parse_args
+    self.error(msg)
+C:\Program Files\Python312\Lib\argparse.py:2650: in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+C:\Program Files\Python312\Lib\argparse.py:2637: in exit
+    _sys.exit(status)
+E   SystemExit: 2
+---------------------------- Captured stderr call -----------------------------
+usage: check_source_metadata [-h] --output OUTPUT [--previous PREVIOUS]
+                             [--max-requests MAX_REQUESTS]
+                             [--max-seconds MAX_SECONDS]
+check_source_metadata: error: unrecognized arguments: --bootstrap
+____ test_initialization_cli_forwards_explicit_mode_and_exit_code[0-False] ____
+tests\test_source_metadata_cli.py:83: in test_initialization_cli_forwards_explicit_mode_and_exit_code
+    assert monitor.main() == code
+           ^^^^^^^^^^^^^^
+scripts\check_source_metadata.py:284: in main
+    report, code = run_check(ROOT, args.output, previous=args.previous, client=client,
+tests\test_source_metadata_cli.py:73: in checked
+    assert kwargs["bootstrap"] is bootstrap and kwargs["previous"] == previous
+           ^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'bootstrap'
+____ test_initialization_cli_forwards_explicit_mode_and_exit_code[1-True] _____
+tests\test_source_metadata_cli.py:83: in test_initialization_cli_forwards_explicit_mode_and_exit_code
+    assert monitor.main() == code
+           ^^^^^^^^^^^^^^
+scripts\check_source_metadata.py:281: in main
+    args = parser.parse_args()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\argparse.py:1908: in parse_args
+    self.error(msg)
+C:\Program Files\Python312\Lib\argparse.py:2650: in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+C:\Program Files\Python312\Lib\argparse.py:2637: in exit
+    _sys.exit(status)
+E   SystemExit: 2
+---------------------------- Captured stderr call -----------------------------
+usage: check_source_metadata [-h] --output OUTPUT [--previous PREVIOUS]
+                             [--max-requests MAX_REQUESTS]
+                             [--max-seconds MAX_SECONDS]
+check_source_metadata: error: unrecognized arguments: --bootstrap
+____ test_initialization_cli_forwards_explicit_mode_and_exit_code[1-False] ____
+tests\test_source_metadata_cli.py:83: in test_initialization_cli_forwards_explicit_mode_and_exit_code
+    assert monitor.main() == code
+           ^^^^^^^^^^^^^^
+scripts\check_source_metadata.py:284: in main
+    report, code = run_check(ROOT, args.output, previous=args.previous, client=client,
+tests\test_source_metadata_cli.py:73: in checked
+    assert kwargs["bootstrap"] is bootstrap and kwargs["previous"] == previous
+           ^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'bootstrap'
+____ test_initialization_cli_forwards_explicit_mode_and_exit_code[2-True] _____
+tests\test_source_metadata_cli.py:83: in test_initialization_cli_forwards_explicit_mode_and_exit_code
+    assert monitor.main() == code
+           ^^^^^^^^^^^^^^
+scripts\check_source_metadata.py:281: in main
+    args = parser.parse_args()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python312\Lib\argparse.py:1908: in parse_args
+    self.error(msg)
+C:\Program Files\Python312\Lib\argparse.py:2650: in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+C:\Program Files\Python312\Lib\argparse.py:2637: in exit
+    _sys.exit(status)
+E   SystemExit: 2
+---------------------------- Captured stderr call -----------------------------
+usage: check_source_metadata [-h] --output OUTPUT [--previous PREVIOUS]
+                             [--max-requests MAX_REQUESTS]
+                             [--max-seconds MAX_SECONDS]
+check_source_metadata: error: unrecognized arguments: --bootstrap
+____ test_initialization_cli_forwards_explicit_mode_and_exit_code[2-False] ____
+tests\test_source_metadata_cli.py:83: in test_initialization_cli_forwards_explicit_mode_and_exit_code
+    assert monitor.main() == code
+           ^^^^^^^^^^^^^^
+scripts\check_source_metadata.py:284: in main
+    report, code = run_check(ROOT, args.output, previous=args.previous, client=client,
+tests\test_source_metadata_cli.py:73: in checked
+    assert kwargs["bootstrap"] is bootstrap and kwargs["previous"] == previous
+           ^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'bootstrap'
+=========================== short test summary info ===========================
+FAILED tests/test_source_metadata_cli.py::test_initialization_run_check_rejects_invalid_mode_before_io[initialization0]
+FAILED tests/test_source_metadata_cli.py::test_initialization_run_check_rejects_invalid_mode_before_io[initialization1]
+FAILED tests/test_source_metadata_cli.py::test_initialization_run_check_rejects_invalid_mode_before_io[initialization2]
+FAILED tests/test_source_metadata_cli.py::test_initialization_run_check_rejects_invalid_mode_before_io[initialization3]
+FAILED tests/test_source_metadata_cli.py::test_initialization_run_check_rejects_invalid_mode_before_io[initialization4]
+FAILED tests/test_source_metadata_cli.py::test_initialization_run_check_rejects_invalid_mode_before_io[initialization5]
+FAILED tests/test_source_metadata_cli.py::test_initialization_run_check_rejects_invalid_mode_before_io[initialization6]
+FAILED tests/test_source_metadata_cli.py::test_initialization_run_check_rejects_invalid_mode_before_io[initialization7]
+FAILED tests/test_source_metadata_cli.py::test_initialization_run_check_rejects_invalid_mode_before_io[initialization8]
+FAILED tests/test_source_metadata_cli.py::test_initialization_run_check_rejects_invalid_mode_before_io[initialization9]
+FAILED tests/test_source_metadata_cli.py::test_initialization_run_check_rejects_invalid_mode_before_io[initialization10]
+FAILED tests/test_source_metadata_cli.py::test_initialization_cli_rejects_missing_or_conflicting_modes_before_io[arguments0-one of the arguments --bootstrap --previous is required]
+FAILED tests/test_source_metadata_cli.py::test_initialization_cli_rejects_missing_or_conflicting_modes_before_io[arguments1-not allowed with argument]
+FAILED tests/test_source_metadata_cli.py::test_initialization_cli_forwards_explicit_mode_and_exit_code[0-True]
+FAILED tests/test_source_metadata_cli.py::test_initialization_cli_forwards_explicit_mode_and_exit_code[0-False]
+FAILED tests/test_source_metadata_cli.py::test_initialization_cli_forwards_explicit_mode_and_exit_code[1-True]
+FAILED tests/test_source_metadata_cli.py::test_initialization_cli_forwards_explicit_mode_and_exit_code[1-False]
+FAILED tests/test_source_metadata_cli.py::test_initialization_cli_forwards_explicit_mode_and_exit_code[2-True]
+FAILED tests/test_source_metadata_cli.py::test_initialization_cli_forwards_explicit_mode_and_exit_code[2-False]
+19 failed, 61 deselected in 3.26s

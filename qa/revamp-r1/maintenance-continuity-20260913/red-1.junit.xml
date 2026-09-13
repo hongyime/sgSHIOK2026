@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="11" skipped="0" tests="11" time="1.599" timestamp="2026-09-13T13:13:13.059152+08:00" hostname="Prawn-E14"><testcase classname="tests.test_source_metadata_cli" name="test_initialization_run_check_rejects_invalid_mode_before_io[initialization0]" time="0.003"><failure message="AssertionError: Initialization must be checked before clock, paths, client or IO">tests\test_source_metadata_cli.py:31: in test_initialization_run_check_rejects_invalid_mode_before_io
+    run_check(monitor.ROOT, monitor.ROOT / "qa/source-monitor/unused",
+scripts\check_source_metadata.py:185: in run_check
+    started = clock()
+              ^^^^^^^
+tests\test_source_metadata_cli.py:26: in forbidden
+    raise AssertionError("Initialization must be checked before clock, paths, client or IO")
+E   AssertionError: Initialization must be checked before clock, paths, client or IO</failure></testcase><testcase classname="tests.test_source_metadata_cli" name="test_initialization_run_check_rejects_invalid_mode_before_io[initialization1]" time="0.001"><failure message="TypeError: run_check() got an unexpected keyword argument 'bootstrap'">tests\test_source_metadata_cli.py:31: in test_initialization_run_check_rejects_invalid_mode_before_io
+    run_check(monitor.ROOT, monitor.ROOT / "qa/source-monitor/unused",
+E   TypeError: run_check() got an unexpected keyword argument 'bootstrap'</failure></testcase><testcase classname="tests.test_source_metadata_cli" name="test_initialization_run_check_rejects_invalid_mode_before_io[initialization2]" time="0.001"><failure message="TypeError: run_check() got an unexpected keyword argument 'bootstrap'">tests\test_source_metadata_cli.py:31: in test_initialization_run_check_rejects_invalid_mode_before_io
+    run_check(monitor.ROOT, monitor.ROOT / "qa/source-monitor/unused",
+E   TypeError: run_check() got an unexpected keyword argument 'bootstrap'</failure></testcase><testcase classname="tests.test_source_metadata_cli" name="test_initialization_run_check_rejects_invalid_mode_before_io[initialization3]" time="0.001"><failure message="TypeError: run_check() got an unexpected keyword argument 'bootstrap'">tests\test_source_metadata_cli.py:31: in test_initialization_run_check_rejects_invalid_mode_before_io
+    run_check(monitor.ROOT, monitor.ROOT / "qa/source-monitor/unused",
+E   TypeError: run_check() got an unexpected keyword argument 'bootstrap'</failure></testcase><testcase classname="tests.test_source_metadata_cli" name="test_initialization_run_check_rejects_invalid_mode_before_io[initialization4]" time="0.001"><failure message="TypeError: run_check() got an unexpected keyword argument 'bootstrap'">tests\test_source_metadata_cli.py:31: in test_initialization_run_check_rejects_invalid_mode_before_io
+    run_check(monitor.ROOT, monitor.ROOT / "qa/source-monitor/unused",
+E   TypeError: run_check() got an unexpected keyword argument 'bootstrap'</failure></testcase><testcase classname="tests.test_source_metadata_cli" name="test_initialization_run_check_rejects_invalid_mode_before_io[initialization5]" time="0.001"><failure message="TypeError: run_check() got an unexpected keyword argument 'bootstrap'">tests\test_source_metadata_cli.py:31: in test_initialization_run_check_rejects_invalid_mode_before_io
+    run_check(monitor.ROOT, monitor.ROOT / "qa/source-monitor/unused",
+E   TypeError: run_check() got an unexpected keyword argument 'bootstrap'</failure></testcase><testcase classname="tests.test_source_metadata_cli" name="test_initialization_run_check_rejects_invalid_mode_before_io[initialization6]" time="0.001"><failure message="TypeError: run_check() got an unexpected keyword argument 'bootstrap'">tests\test_source_metadata_cli.py:31: in test_initialization_run_check_rejects_invalid_mode_before_io
+    run_check(monitor.ROOT, monitor.ROOT / "qa/source-monitor/unused",
+E   TypeError: run_check() got an unexpected keyword argument 'bootstrap'</failure></testcase><testcase classname="tests.test_source_metadata_cli" name="test_initialization_run_check_rejects_invalid_mode_before_io[initialization7]" time="0.002"><failure message="TypeError: run_check() got an unexpected keyword argument 'bootstrap'">tests\test_source_metadata_cli.py:31: in test_initialization_run_check_rejects_invalid_mode_before_io
+    run_check(monitor.ROOT, monitor.ROOT / "qa/source-monitor/unused",
+E   TypeError: run_check() got an unexpected keyword argument 'bootstrap'</failure></testcase><testcase classname="tests.test_source_metadata_cli" name="test_initialization_run_check_rejects_invalid_mode_before_io[initialization8]" time="0.002"><failure message="AssertionError: Initialization must be checked before clock, paths, client or IO">tests\test_source_metadata_cli.py:31: in test_initialization_run_check_rejects_invalid_mode_before_io
+    run_check(monitor.ROOT, monitor.ROOT / "qa/source-monitor/unused",
+scripts\check_source_metadata.py:185: in run_check
+    started = clock()
+              ^^^^^^^
+tests\test_source_metadata_cli.py:26: in forbidden
+    raise AssertionError("Initialization must be checked before clock, paths, client or IO")
+E   AssertionError: Initialization must be checked before clock, paths, client or IO</failure></testcase><testcase classname="tests.test_source_metadata_cli" name="test_initialization_run_check_rejects_invalid_mode_before_io[initialization9]" time="0.001"><failure message="AssertionError: Initialization must be checked before clock, paths, client or IO">tests\test_source_metadata_cli.py:31: in test_initialization_run_check_rejects_invalid_mode_before_io
+    run_check(monitor.ROOT, monitor.ROOT / "qa/source-monitor/unused",
+scripts\check_source_metadata.py:185: in run_check
+    started = clock()
+              ^^^^^^^
+tests\test_source_metadata_cli.py:26: in forbidden
+    raise AssertionError("Initialization must be checked before clock, paths, client or IO")
+E   AssertionError: Initialization must be checked before clock, paths, client or IO</failure></testcase><testcase classname="tests.test_source_metadata_cli" name="test_initialization_run_check_rejects_invalid_mode_before_io[initialization10]" time="0.001"><failure message="AssertionError: Initialization must be checked before clock, paths, client or IO">tests\test_source_metadata_cli.py:31: in test_initialization_run_check_rejects_invalid_mode_before_io
+    run_check(monitor.ROOT, monitor.ROOT / "qa/source-monitor/unused",
+scripts\check_source_metadata.py:185: in run_check
+    started = clock()
+              ^^^^^^^
+tests\test_source_metadata_cli.py:26: in forbidden
+    raise AssertionError("Initialization must be checked before clock, paths, client or IO")
+E   AssertionError: Initialization must be checked before clock, paths, client or IO</failure></testcase><testcase classname="tests.test_source_metadata_cli" name="test_initialization_cli_rejects_missing_or_conflicting_modes_before_io[arguments0-one of the arguments --bootstrap --previous is required]" time="0.001" /></testsuite></testsuites>
