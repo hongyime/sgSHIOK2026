@@ -3660,3 +3660,21 @@ delivery components may progress under the owner's completion request, but no
 report intake, external account, scheduler, issue, or deployment is activated by
 the implementation alone. Outstanding privacy/account/operator choices were asked
 explicitly; physical-device acceptance cannot be supplied by an agent.
+
+## 2026-09-13: Prepare private report validation without fake submission
+
+The owner's completion request authorizes local implementation of provider-neutral
+report contracts while T13's account/privacy/operator choices are unanswered.
+`web/lib/reports.ts` is not an endpoint or persistence adapter. Both mapping errors
+and shelter requests accept a finite point or a cumulative segment up to1200m and
+32vertices, with up to1000Unicode code points of untrusted note text. The entire
+wire body is bounded to8192UTF8bytes; unknown and server-owned fields are rejected.
+The OneMap sanity box, lowercase UUIDv4 request syntax and128-character identifier
+syntax are explicit proposed validation choices, not jurisdiction or authenticity
+claims. No report reference is established as a real bundle/route by syntax alone.
+
+Canonical content has stable schema order and excludes request identity. Future
+storage must separately authenticate retries, verify challenges, transact report/
+quota/audit writes and return a receipt only after actual durable commit. Current
+fixtures cannot prove any of that. No resident service, privacy notice approval,
+moderation authority, backend activation or paid plan is implied by these helpers.
