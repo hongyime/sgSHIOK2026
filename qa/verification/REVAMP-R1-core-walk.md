@@ -6766,3 +6766,106 @@ FINDINGS
 DISAGREEMENTS
 1. None with the owner's stop instruction. The earlier designation claim was
    an agent error and is corrected explicitly without rewriting old evidence.
+
+## Dedicated SHIOK Supabase setup, 15 September 2026
+
+Working root C:\sgSHIOK2026, Prawn-E14. Pulled main from0030fb5 to6f3b632;
+the sole advanced file was last_sync.txt. That unrelated change was preserved.
+Owner supplied the dedicated project URL. No request was made to sgbuslaobu,
+and its old scripts remain retired. No cleanup, copy or migration from it occurred.
+
+Evidence: qa/revamp-r1/dedicated-report-project-20260915/summary.json.
+All command arguments, exit codes and stdout/stderr are retained in checks-*;
+sanitized Management API receipts are retained in remote-*.
+No PAT, publishable key value, server key or database password was written there.
+
+Verified target (remote-OMUoZG):
+```json
+{
+  "name": "sgshiok",
+  "ref": "ztjilsfgoephcdcsgcks",
+  "region": "ap-southeast-1",
+  "status": "ACTIVE_HEALTHY",
+  "plan": "free",
+  "postgres": "17.6.1.166"
+}
+```
+Organization is ixonsqiqglwriirutigr. Non-secret web/lib/report-project.json pins
+this identity. Server transport accepts only its exact project origin. Management
+setup requires the matching project argument, verifies live identity/Free plan,
+and allowlists destination paths. No ambient management-token fallback is used.
+
+remote-OMUoZG:14PostgreSQL groups passed inside BEGIN/ROLLBACK. Before and after:
+report_schemas=0,report_functions=0,public_tables=[],migration_history=[].
+remote-FE8FdN: applied exactly once, new native version20260914161526. The existing
+schema SQL file was renamed to that version, byte-identically; historical evidence
+and earlier Git versions retain its old filename. No duplicate migration added.
+6849bytes, sha2569de35faa5275c5c10706167195df81f1832a246b2d336adab192fd1b6a046604.
+remote-eTMwDV:3private RLS tables; no anon/authenticated read or RPC execution;
+service-only security-invoker RPC.3expected INFO no-policy advisories, no report
+WARN/ERROR. A service secret bypasses RLS; this is not moderator authentication.
+
+remote-P1L02N live HTTP results, unchanged empty/disabled state after probing:
+```json
+[
+  {
+    "name": "publishable_rpc_denied",
+    "status": 401,
+    "code": "42501"
+  },
+  {
+    "name": "private_schema_not_exposed",
+    "status": 406,
+    "code": "PGRST106"
+  },
+  {
+    "name": "service_intake_disabled",
+    "status": 503,
+    "code": "PT503"
+  }
+]
+```
+enabled=false; reports=0; quota_rows=0; allowed_bundles=[];
+policy_approved_at=null; cleanup_verified_at=null.
+The supplied publishable key was verified against this project's keys. Its
+existing secret key was held only in process memory for the disabled-service
+probe. No keys were created or persisted; the placeholder password URL was unused.
+
+Local verification:
+- checks-CcIWRC: initial exact-target regression red,123pass/1fail of124,exit1.
+- checks-RgJoqT: new setup harness3fail/old retired scripts3pass,exit1. Node eval
+  argument slicing differed; explicit process.argv.slice(2) fixed the harness.
+- checks-kQ7T5j:124/124tests,3files,exit0.
+- checks-rwRC9p:124/124tests,3files,42/42dependency guards,exit0;251tracked files
+  copied into tmp/test-without-data-9BhPBX, production paths denied, dependencies
+  linked without install. Five final source hashes match that tested snapshot.
+- checks-XgDpnF:6/6guards,exit0; explicit missing/wrong target rejection plus
+  the three retired remote-script guards. Network/output effects are trapped.
+- checks-QAoNOK:41 passed in 11.20s,exit0.
+- checks-kFfHNh:installed TypeScript --noEmit --incremental false,exit0.
+- checks-dnYfli:repo_integrity=ok,exit0.
+Count arithmetic:120prior +3origin cases +1publishable-key rejection =124.
+These focused tests do not claim a fresh full web or Python suite pass.
+
+Preserved evidence prefix:454842bytes,
+sha256635efe321066fed145ae4b44828768da60b23a574f4fab58b0b0821a44be7237.
+Weights unchanged:5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec.
+No scoring/export/ingest/network/input repair, protected-artifact changes,
+Cloudflare, paid plan, UI build, browser rerun or frontend deployment.
+
+Official references checked: Supabase changelog.md; Management API get-project,
+apply-a-migration, list-migration-history and get-project-api-keys; securing-your-api.
+API-generated version is UTC14September; this session is15September Singapore.
+
+FINDINGS
+1. Dedicated SHIOK storage now exists on the verified owner-supplied project;
+   no unrelated project is an accepted runtime or setup fallback.
+2. Real HTTP denial/disabled-admission checks supplement SQL-role tests. Zero
+   stored reports remains intentional, not a successful resident submission claim.
+3. Public API, trusted abuse bucket, genuine concurrency/uncertain-commit tests,
+   moderator authentication/queue, cleanup policy/implementation and form remain.
+   Project/account setup is no longer a blocker and needs no repeated owner action.
+
+DISAGREEMENTS
+1. None with the project selection. Publishable keys cannot authorize private
+   writes; management PATs and server keys do not belong in browser/public records.

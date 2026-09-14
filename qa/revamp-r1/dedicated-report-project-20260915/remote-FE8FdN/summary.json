@@ -1,0 +1,131 @@
+{
+  "target": {
+    "projectRef": "ztjilsfgoephcdcsgcks",
+    "projectName": "sgshiok",
+    "projectUrl": "https://ztjilsfgoephcdcsgcks.supabase.co",
+    "organizationId": "ixonsqiqglwriirutigr",
+    "region": "ap-southeast-1",
+    "plan": "free"
+  },
+  "mode": "apply",
+  "startedAt": "2026-09-14T16:15:22.545Z",
+  "requests": [
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks",
+      "method": "GET",
+      "status": 200,
+      "elapsedMs": 1462
+    },
+    {
+      "path": "organizations/ixonsqiqglwriirutigr",
+      "method": "GET",
+      "status": 200,
+      "elapsedMs": 220
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/postgrest",
+      "method": "GET",
+      "status": 200,
+      "elapsedMs": 133
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "method": "POST",
+      "status": 201,
+      "elapsedMs": 231
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/migrations",
+      "method": "GET",
+      "status": 200,
+      "elapsedMs": 152
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/migrations",
+      "method": "POST",
+      "status": 200,
+      "elapsedMs": 255
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/migrations",
+      "method": "GET",
+      "status": 200,
+      "elapsedMs": 168
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "method": "POST",
+      "status": 201,
+      "elapsedMs": 447
+    }
+  ],
+  "passed": true,
+  "identity": {
+    "name": "sgshiok",
+    "ref": "ztjilsfgoephcdcsgcks",
+    "region": "ap-southeast-1",
+    "status": "ACTIVE_HEALTHY",
+    "plan": "free",
+    "postgres": "17.6.1.166"
+  },
+  "exposedSchemas": "public,graphql_public",
+  "before": [
+    {
+      "report_schemas": 0,
+      "report_functions": 0,
+      "public_tables": []
+    }
+  ],
+  "migrationsBefore": [],
+  "migration": {
+    "path": "supabase/migrations/20260914085103_shiok_private_reports_v1.sql",
+    "sha256": "9de35faa5275c5c10706167195df81f1832a246b2d336adab192fd1b6a046604",
+    "bytes": 6849,
+    "testsSha256": "89cfe2275a14eb708829d025e814ef22a300bacddf9bceff616c9e48c19bed93"
+  },
+  "proof": "remote-OMUoZG",
+  "applyAttempted": true,
+  "applied": true,
+  "migrationsAfter": [
+    {
+      "version": "20260914161526",
+      "name": "shiok_private_reports_v1"
+    }
+  ],
+  "remoteVersion": "20260914161526",
+  "storage": {
+    "enabled": false,
+    "policy_approved_at": null,
+    "cleanup_verified_at": null,
+    "allowed_bundles": [],
+    "reports": 0,
+    "quota_rows": 0,
+    "tables": [
+      {
+        "rls": true,
+        "table": "control",
+        "anon_read": false,
+        "authenticated_read": false
+      },
+      {
+        "rls": true,
+        "table": "daily_usage",
+        "anon_read": false,
+        "authenticated_read": false
+      },
+      {
+        "rls": true,
+        "table": "reports",
+        "anon_read": false,
+        "authenticated_read": false
+      }
+    ],
+    "rpc": {
+      "anon_execute": false,
+      "service_execute": true,
+      "security_definer": false,
+      "authenticated_execute": false
+    }
+  },
+  "finishedAt": "2026-09-14T16:15:25.873Z"
+}

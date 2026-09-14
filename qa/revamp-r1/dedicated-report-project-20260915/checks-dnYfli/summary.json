@@ -1,0 +1,11 @@
+{
+  "mode": "integrity",
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "scripts/check_repo_integrity.py"
+  ],
+  "exit": 0,
+  "elapsedMs": 458,
+  "error": null
+}

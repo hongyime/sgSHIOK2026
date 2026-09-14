@@ -584,7 +584,10 @@ and the private database tests are specified in `ARCHITECTURE.md` and T15-T18.
 [Supabase Free](https://supabase.com/pricing) does not include automatic backups
 or point-in-time recovery. [Low-activity pausing](https://supabase.com/docs/guides/platform/free-project-pausing)
 is possible; the old Cloudflare proposal's recovery claims do not transfer.
-Dedicated SHIOK project creation is pending with the owner; reporting is disabled.
+Dedicated SHIOK storage is installed; reporting remains disabled.
+The owner supplied `sgshiok` (`ztjilsfgoephcdcsgcks`) on15September. Identity,
+Singapore region and Free plan are verified. `web/lib/report-project.json`
+pins the sole allowed destination. No other account project is a fallback.
 Do not use sgbuslaobu for SHIOK. The agent selected it in error; its separate,
 disabled report schema is not a SHIOK deployment and has not been deleted.
 The old project scripts are retired and the server adapter rejects that target.

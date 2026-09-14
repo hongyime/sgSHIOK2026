@@ -1,0 +1,171 @@
+{
+  "target": {
+    "projectRef": "ztjilsfgoephcdcsgcks",
+    "projectName": "sgshiok",
+    "projectUrl": "https://ztjilsfgoephcdcsgcks.supabase.co",
+    "organizationId": "ixonsqiqglwriirutigr",
+    "region": "ap-southeast-1",
+    "plan": "free"
+  },
+  "mode": "http",
+  "startedAt": "2026-09-14T16:16:15.922Z",
+  "requests": [
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks",
+      "method": "GET",
+      "status": 200,
+      "elapsedMs": 412
+    },
+    {
+      "path": "organizations/ixonsqiqglwriirutigr",
+      "method": "GET",
+      "status": 200,
+      "elapsedMs": 163
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/postgrest",
+      "method": "GET",
+      "status": 200,
+      "elapsedMs": 181
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "method": "POST",
+      "status": 201,
+      "elapsedMs": 256
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/migrations",
+      "method": "GET",
+      "status": 200,
+      "elapsedMs": 176
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "method": "POST",
+      "status": 201,
+      "elapsedMs": 180
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/api-keys?reveal=true",
+      "method": "GET",
+      "status": 200,
+      "elapsedMs": 117
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "method": "POST",
+      "status": 201,
+      "elapsedMs": 295
+    }
+  ],
+  "passed": true,
+  "identity": {
+    "name": "sgshiok",
+    "ref": "ztjilsfgoephcdcsgcks",
+    "region": "ap-southeast-1",
+    "status": "ACTIVE_HEALTHY",
+    "plan": "free",
+    "postgres": "17.6.1.166"
+  },
+  "exposedSchemas": "public,graphql_public",
+  "before": [
+    {
+      "report_schemas": 1,
+      "report_functions": 1,
+      "public_tables": []
+    }
+  ],
+  "migrationsBefore": [
+    {
+      "version": "20260914161526",
+      "name": "shiok_private_reports_v1"
+    }
+  ],
+  "storage": {
+    "enabled": false,
+    "policy_approved_at": null,
+    "cleanup_verified_at": null,
+    "allowed_bundles": [],
+    "reports": 0,
+    "quota_rows": 0,
+    "tables": [
+      {
+        "rls": true,
+        "table": "control",
+        "anon_read": false,
+        "authenticated_read": false
+      },
+      {
+        "rls": true,
+        "table": "daily_usage",
+        "anon_read": false,
+        "authenticated_read": false
+      },
+      {
+        "rls": true,
+        "table": "reports",
+        "anon_read": false,
+        "authenticated_read": false
+      }
+    ],
+    "rpc": {
+      "anon_execute": false,
+      "service_execute": true,
+      "security_definer": false,
+      "authenticated_execute": false
+    }
+  },
+  "http": [
+    {
+      "name": "publishable_rpc_denied",
+      "status": 401,
+      "code": "42501"
+    },
+    {
+      "name": "private_schema_not_exposed",
+      "status": 406,
+      "code": "PGRST106"
+    },
+    {
+      "name": "service_intake_disabled",
+      "status": 503,
+      "code": "PT503"
+    }
+  ],
+  "afterHttp": {
+    "enabled": false,
+    "policy_approved_at": null,
+    "cleanup_verified_at": null,
+    "allowed_bundles": [],
+    "reports": 0,
+    "quota_rows": 0,
+    "tables": [
+      {
+        "rls": true,
+        "table": "control",
+        "anon_read": false,
+        "authenticated_read": false
+      },
+      {
+        "rls": true,
+        "table": "daily_usage",
+        "anon_read": false,
+        "authenticated_read": false
+      },
+      {
+        "rls": true,
+        "table": "reports",
+        "anon_read": false,
+        "authenticated_read": false
+      }
+    ],
+    "rpc": {
+      "anon_execute": false,
+      "service_execute": true,
+      "security_definer": false,
+      "authenticated_execute": false
+    }
+  },
+  "finishedAt": "2026-09-14T16:16:19.775Z"
+}

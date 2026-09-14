@@ -4350,3 +4350,59 @@ FINDINGS
 DISAGREEMENTS
 1. None with the owner's stop instruction. The earlier designation claim was
    an agent error, not an authorization supplied by the owner.
+
+## 2026-09-15: Pin reporting to the dedicated SHIOK project
+
+The owner supplied https://ztjilsfgoephcdcsgcks.supabase.co. Management API
+verification confirms name sgshiok, ref ztjilsfgoephcdcsgcks, organization
+ixonsqiqglwriirutigr, Singapore ap-southeast-1, ACTIVE_HEALTHY and Free plan.
+This explicitly selected project replaces no other app's data. The unrelated
+sgbuslaobu project was not accessed, cleaned up, reactivated or migrated.
+
+web/lib/report-project.json is the non-secret target record. The adapter accepts
+only its exact origin, not any syntactically valid Supabase hostname. Setup also
+requires that exact project argument and verifies project name, organization,
+region and Free plan before schema operations. Account access, historical test
+receipts and a publishable key do not authorize selecting another project.
+The three older wrong-project scripts remain retired before IO.
+
+Existing schema SQL passed all14PostgreSQL groups inside a rollback transaction
+on the new project. The before/after catalog and migration history were empty.
+Management API then applied it once as version20260914161526. The canonical
+migration file was renamed, byte-identically, to that native version; no duplicate
+CREATE migration or remote history repair was added. Earlier files/results retain
+the old filename as historical evidence in Git. SQL remains6849bytes with sha256
+9de35faa5275c5c10706167195df81f1832a246b2d336adab192fd1b6a046604.
+
+Readback: three private RLS tables, service-role-only security-invoker RPC,
+enabled=false, no allowed bundles/policy approval/cleanup approval, zero reports
+and zero quota rows. Advisor returns three expected INFO no-policy notices,
+no report WARN/ERROR. Do not add permissive policies to silence default denial.
+
+Live Data API probes prove the supplied publishable key belongs to this project:
+public submission fails401/42501; private schema access fails406/PGRST106;
+server-secret submission fails503/PT503 while intake is disabled. Table/control
+state is unchanged after the probes. Existing server key was used only in memory
+for this verification; no credential was created, committed, stored as a runtime
+environment value, or sent to another project. The management PAT is not a runtime
+key. The provided database connection string contains a password placeholder,
+so no direct password connection was attempted or needed for this setup.
+
+This closes dedicated-project setup, not reporting delivery. Public submission
+handler, genuine concurrent admission/uncertain-commit tests, moderator sign-in
+and private queue, cleanup/retention and resident UI remain. No frontend deployment,
+paid upgrade, source refresh, scoring/export or locked-artifact mutation occurred.
+The map and saved walks do not depend on report service availability.
+
+FINDINGS
+1. The correct dedicated project now has verified private storage. No unrelated
+   project is an allowed fallback for either the adapter or setup script.
+2. Real HTTP access-denial tests extend the earlier SQL-role and mocked transport
+   evidence; they do not claim successful resident or moderator acceptance.
+3. Exact-target restriction fixes the prior adapter's acceptance of other valid
+   Supabase project origins. SQL content and published artifacts did not change.
+
+DISAGREEMENTS
+1. None with the dedicated project choice. A publishable key is intentionally
+   public, but cannot authorize private report writes; management PATs and server
+   secrets must remain outside browser code and public records.

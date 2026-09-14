@@ -1,0 +1,12 @@
+{
+  "mode": "guards",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "--test",
+    "qa/revamp-r1/dedicated-report-project-20260915/project-guard.test.mjs",
+    "qa/revamp-r1/report-project-stop-20260914/retired-scripts.test.mjs"
+  ],
+  "exit": 0,
+  "elapsedMs": 1424,
+  "error": null
+}

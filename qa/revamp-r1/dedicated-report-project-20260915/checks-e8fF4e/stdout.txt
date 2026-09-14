@@ -1,0 +1,14 @@
+✔ setup rejects unapproved/missing project missing before IO (275.0602ms)
+✔ setup rejects unapproved/missing project ajvenxqkedajbrbnnfko before IO (278.4057ms)
+✔ setup rejects unapproved/missing project aaaaaaaaaaaaaaaaaaaa before IO (282.0178ms)
+✔ database-check.mjs refuses before filesystem writes or provider requests (269.294ms)
+✔ apply-schema.mjs refuses before filesystem writes or provider requests (266.034ms)
+✔ inspect-installed.mjs refuses before filesystem writes or provider requests (266.9892ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1146.8124

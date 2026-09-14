@@ -1,0 +1,125 @@
+✖ setup rejects unapproved/missing project missing before IO (519.2943ms)
+✖ setup rejects unapproved/missing project ajvenxqkedajbrbnnfko before IO (559.8852ms)
+✖ setup rejects unapproved/missing project aaaaaaaaaaaaaaaaaaaa before IO (686.1932ms)
+✔ database-check.mjs refuses before filesystem writes or provider requests (507.7277ms)
+✔ apply-schema.mjs refuses before filesystem writes or provider requests (498.3957ms)
+✔ inspect-installed.mjs refuses before filesystem writes or provider requests (775.7911ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 3
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2644.4536
+
+✖ failing tests:
+
+test at qa\revamp-r1\dedicated-report-project-20260915\project-guard.test.mjs:7:3
+✖ setup rejects unapproved/missing project missing before IO (519.2943ms)
+  AssertionError [ERR_ASSERTION]: node:internal/util/parse_args/parse_args:383
+          throw new ERR_PARSE_ARGS_UNEXPECTED_POSITIONAL(token.value);
+                ^
+  
+  TypeError [ERR_PARSE_ARGS_UNEXPECTED_POSITIONAL]: Unexpected argument 'project.mjs'. This command does not take positional arguments
+      at node:internal/util/parse_args/parse_args:383:15
+      at Array.forEach (<anonymous>)
+      at parseArgs (node:internal/util/parse_args/parse_args:374:3)
+      at file:///C:/sgSHIOK2026/qa/revamp-r1/dedicated-report-project-20260915/project.mjs:9:20
+      at ModuleJob.run (node:internal/modules/esm/module_job:569:25)
+      at async node:internal/modules/esm/loader:650:26
+      at async file:///C:/sgSHIOK2026/[eval1]:6:13 {
+    code: 'ERR_PARSE_ARGS_UNEXPECTED_POSITIONAL'
+  }
+  
+  Node.js v26.5.0
+  
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///C:/sgSHIOK2026/qa/revamp-r1/dedicated-report-project-20260915/project-guard.test.mjs:17:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at qa\revamp-r1\dedicated-report-project-20260915\project-guard.test.mjs:7:3
+✖ setup rejects unapproved/missing project ajvenxqkedajbrbnnfko before IO (559.8852ms)
+  AssertionError [ERR_ASSERTION]: node:internal/util/parse_args/parse_args:383
+          throw new ERR_PARSE_ARGS_UNEXPECTED_POSITIONAL(token.value);
+                ^
+  
+  TypeError [ERR_PARSE_ARGS_UNEXPECTED_POSITIONAL]: Unexpected argument 'project.mjs'. This command does not take positional arguments
+      at node:internal/util/parse_args/parse_args:383:15
+      at Array.forEach (<anonymous>)
+      at parseArgs (node:internal/util/parse_args/parse_args:374:3)
+      at file:///C:/sgSHIOK2026/qa/revamp-r1/dedicated-report-project-20260915/project.mjs:9:20
+      at ModuleJob.run (node:internal/modules/esm/module_job:569:25)
+      at async node:internal/modules/esm/loader:650:26
+      at async file:///C:/sgSHIOK2026/[eval1]:6:13 {
+    code: 'ERR_PARSE_ARGS_UNEXPECTED_POSITIONAL'
+  }
+  
+  Node.js v26.5.0
+  
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///C:/sgSHIOK2026/qa/revamp-r1/dedicated-report-project-20260915/project-guard.test.mjs:17:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at qa\revamp-r1\dedicated-report-project-20260915\project-guard.test.mjs:7:3
+✖ setup rejects unapproved/missing project aaaaaaaaaaaaaaaaaaaa before IO (686.1932ms)
+  AssertionError [ERR_ASSERTION]: node:internal/util/parse_args/parse_args:383
+          throw new ERR_PARSE_ARGS_UNEXPECTED_POSITIONAL(token.value);
+                ^
+  
+  TypeError [ERR_PARSE_ARGS_UNEXPECTED_POSITIONAL]: Unexpected argument 'project.mjs'. This command does not take positional arguments
+      at node:internal/util/parse_args/parse_args:383:15
+      at Array.forEach (<anonymous>)
+      at parseArgs (node:internal/util/parse_args/parse_args:374:3)
+      at file:///C:/sgSHIOK2026/qa/revamp-r1/dedicated-report-project-20260915/project.mjs:9:20
+      at ModuleJob.run (node:internal/modules/esm/module_job:569:25)
+      at async node:internal/modules/esm/loader:650:26
+      at async file:///C:/sgSHIOK2026/[eval1]:6:13 {
+    code: 'ERR_PARSE_ARGS_UNEXPECTED_POSITIONAL'
+  }
+  
+  Node.js v26.5.0
+  
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///C:/sgSHIOK2026/qa/revamp-r1/dedicated-report-project-20260915/project-guard.test.mjs:17:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

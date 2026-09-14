@@ -14,7 +14,8 @@ def test_supabase_choice_is_recorded_without_claiming_live_reports() -> None:
     state = (root / ".agents/STATE.md").read_text(encoding="utf-8")
     plan = (root / "postplan.html").read_text(encoding="utf-8")
     assert "Supabase Free was approved on 14 September for private resident reports" in readme
-    assert "Dedicated SHIOK project creation is pending with the owner; reporting is disabled" in readme
+    assert "Dedicated SHIOK storage is installed; reporting remains disabled" in readme
+    assert "ztjilsfgoephcdcsgcks" in readme
     assert "Do not use sgbuslaobu for SHIOK" in readme
     assert "sgbuslaobu is NOT a SHIOK project" in state
     assert "owner-designated sgbuslaobu" not in plan

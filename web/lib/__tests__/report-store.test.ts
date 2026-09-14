@@ -1,8 +1,9 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { createHash } from 'node:crypto';
 import { REPORT_STORE_TIMEOUT_MS, submitPrivateReport } from '../../app/api/reports/store';
+import project from '../report-project.json';
 
-const config = { projectUrl: `https://${'a'.repeat(20)}.supabase.co`, secretKey: ['sb', 'secret', 'synthetic'.repeat(4)].join('_') };
+const config = { projectUrl: project.projectUrl, secretKey: ['sb', 'secret', 'synthetic'.repeat(4)].join('_') };
 const retrySecret = 'a'.repeat(43);
 const bucket = 'b'.repeat(64);
 const fixture = { schema_version: 1, client_request_id: '12345678-1234-4123-8123-123456789abc', report_type: 'mapping_error', geometry: { type: 'Point', coordinates: [103.85, 1.35] }, referenced_bundle_version: 'synthetic-bundle-v1', note: 'synthetic only' };
@@ -36,6 +37,16 @@ describe('Server-only report RPC transport, not a public endpoint', () => {
   it('does not accept a Supabase personal access token as a runtime secret key', async () => {
     const transport = vi.fn();
     expect(await submitPrivateReport({ ...config, secretKey: ['sbp', 'synthetic'].join('_') }, fixture, retrySecret, bucket, new AbortController().signal, transport)).toEqual({ ok: false, error: 'unconfigured' });
+    expect(transport).not.toHaveBeenCalled();
+  });
+  it.each([`https://${'a'.repeat(20)}.supabase.co`, `${config.projectUrl}/`, `${config.projectUrl}\n`])('only permits the exact owner-approved project origin %#', async projectUrl => {
+    const transport = vi.fn();
+    expect(await submitPrivateReport({ ...config, projectUrl }, fixture, retrySecret, bucket, new AbortController().signal, transport)).toEqual({ ok: false, error: 'unconfigured' });
+    expect(transport).not.toHaveBeenCalled();
+  });
+  it('never treats a publishable key as a server secret', async () => {
+    const transport = vi.fn();
+    expect(await submitPrivateReport({ ...config, secretKey: ['sb', 'publishable', 'synthetic'].join('_') }, fixture, retrySecret, bucket, new AbortController().signal, transport)).toEqual({ ok: false, error: 'unconfigured' });
     expect(transport).not.toHaveBeenCalled();
   });
   it.each(['', '\n', '\r', '\r\n'])('never sends SHIOK reports to the unrelated sgbuslaobu project %#', async suffix => {

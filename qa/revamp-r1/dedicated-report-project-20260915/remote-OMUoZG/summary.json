@@ -1,0 +1,152 @@
+{
+  "target": {
+    "projectRef": "ztjilsfgoephcdcsgcks",
+    "projectName": "sgshiok",
+    "projectUrl": "https://ztjilsfgoephcdcsgcks.supabase.co",
+    "organizationId": "ixonsqiqglwriirutigr",
+    "region": "ap-southeast-1",
+    "plan": "free"
+  },
+  "mode": "test",
+  "startedAt": "2026-09-14T16:14:30.277Z",
+  "requests": [
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks",
+      "method": "GET",
+      "status": 200,
+      "elapsedMs": 365
+    },
+    {
+      "path": "organizations/ixonsqiqglwriirutigr",
+      "method": "GET",
+      "status": 200,
+      "elapsedMs": 95
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/postgrest",
+      "method": "GET",
+      "status": 200,
+      "elapsedMs": 147
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "method": "POST",
+      "status": 201,
+      "elapsedMs": 231
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/migrations",
+      "method": "GET",
+      "status": 200,
+      "elapsedMs": 905
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "method": "POST",
+      "status": 201,
+      "elapsedMs": 2407
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "method": "POST",
+      "status": 201,
+      "elapsedMs": 196
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/migrations",
+      "method": "GET",
+      "status": 200,
+      "elapsedMs": 157
+    }
+  ],
+  "passed": true,
+  "identity": {
+    "name": "sgshiok",
+    "ref": "ztjilsfgoephcdcsgcks",
+    "region": "ap-southeast-1",
+    "status": "ACTIVE_HEALTHY",
+    "plan": "free",
+    "postgres": "17.6.1.166"
+  },
+  "exposedSchemas": "public,graphql_public",
+  "before": [
+    {
+      "report_schemas": 0,
+      "report_functions": 0,
+      "public_tables": []
+    }
+  ],
+  "migrationsBefore": [],
+  "migration": {
+    "path": "supabase/migrations/20260914085103_shiok_private_reports_v1.sql",
+    "sha256": "9de35faa5275c5c10706167195df81f1832a246b2d336adab192fd1b6a046604",
+    "bytes": 6849,
+    "testsSha256": "89cfe2275a14eb708829d025e814ef22a300bacddf9bceff616c9e48c19bed93"
+  },
+  "testResults": [
+    {
+      "name": "anon_privileges_denied",
+      "passed": true
+    },
+    {
+      "name": "atomic_pending_receipt_and_both_caps",
+      "passed": true
+    },
+    {
+      "name": "authenticated_privileges_denied",
+      "passed": true
+    },
+    {
+      "name": "bundle_and_envelope_validation",
+      "passed": true
+    },
+    {
+      "name": "disabled_by_default",
+      "passed": true
+    },
+    {
+      "name": "expired_identity_not_recreated",
+      "passed": true
+    },
+    {
+      "name": "global_and_bucket_caps_preserve_receipt",
+      "passed": true
+    },
+    {
+      "name": "nul_rejected_like_server_contract",
+      "passed": true
+    },
+    {
+      "name": "pending_capacity",
+      "passed": true
+    },
+    {
+      "name": "policy_and_cleanup_required",
+      "passed": true
+    },
+    {
+      "name": "proof_and_content_conflicts",
+      "passed": true
+    },
+    {
+      "name": "retained_capacity",
+      "passed": true
+    },
+    {
+      "name": "rls_and_invoker",
+      "passed": true
+    },
+    {
+      "name": "same_identity_retry_no_second_debit",
+      "passed": true
+    }
+  ],
+  "after": [
+    {
+      "report_schemas": 0,
+      "report_functions": 0,
+      "public_tables": []
+    }
+  ],
+  "finishedAt": "2026-09-14T16:14:34.817Z"
+}

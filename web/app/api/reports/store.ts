@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 import { validateReport } from '../../../lib/reports';
+import project from '../../../lib/report-project.json';
 
 export const REPORT_STORE_TIMEOUT_MS = 8000;
 const MAX_REPLY_BYTES = 1024;
@@ -12,10 +13,8 @@ export type ReportStoreResult =
   | { ok: false; error: 'invalid_request' | 'unconfigured' | 'conflict' | 'expired' | 'limited' | 'unavailable' | 'outcome_unknown' };
 
 function configured(config: ReportStoreConfig): boolean {
-  // This unrelated project was selected in error. Never send SHIOK traffic there.
-  if (config.projectUrl.startsWith('https://ajvenxqkedajbrbnnfko.supabase.co')) return false;
-  // Fixed Supabase origin only. Never send a server credential to a redirect or caller URL.
-  return /^https:\/\/[a-z0-9]{20}\.supabase\.co$/.test(config.projectUrl)
+  // An account credential is not authorization to use another project's storage.
+  return config.projectUrl === project.projectUrl
     && /^sb_secret_[A-Za-z0-9_-]{16,256}$/.test(config.secretKey);
 }
 

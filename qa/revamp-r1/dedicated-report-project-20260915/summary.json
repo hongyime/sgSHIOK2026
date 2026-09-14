@@ -1,0 +1,230 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "target": {
+    "projectRef": "ztjilsfgoephcdcsgcks",
+    "projectName": "sgshiok",
+    "projectUrl": "https://ztjilsfgoephcdcsgcks.supabase.co",
+    "organizationId": "ixonsqiqglwriirutigr",
+    "region": "ap-southeast-1",
+    "plan": "free"
+  },
+  "sources": [
+    {
+      "path": "web/lib/report-project.json",
+      "sha256": "900adc3b06a795b856386d4c8c392da63327e55a60142dbd3c89a270886bc4f4",
+      "matchesIsolatedSnapshot": true
+    },
+    {
+      "path": "web/app/api/reports/store.ts",
+      "sha256": "04082f080fd9cb7429a13f95cfbf2b3d7f84017b56e9db3c568ae29e0c221677",
+      "matchesIsolatedSnapshot": true
+    },
+    {
+      "path": "web/lib/__tests__/report-store.test.ts",
+      "sha256": "12655928f821a5c1c348846c79c16e0616b2dfa5db8702b52b60e4ef7526e7a4",
+      "matchesIsolatedSnapshot": true
+    },
+    {
+      "path": "web/lib/reports.ts",
+      "sha256": "dfa7aa5888a71fee298619e01bf539ddca3536b28ff3a81723b2b351db7168ff",
+      "matchesIsolatedSnapshot": true
+    },
+    {
+      "path": "web/lib/report-lifecycle.ts",
+      "sha256": "0ac7c2003faf1860877aaf145203d4b7eedb1106ec23966dc468b2c53339caee",
+      "matchesIsolatedSnapshot": true
+    }
+  ],
+  "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-9BhPBX",
+  "checks": [
+    {
+      "name": "checks-kQ7T5j",
+      "mode": "web",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "web/node_modules/vitest/vitest.mjs",
+        "run",
+        "--root",
+        "C:\\sgSHIOK2026\\web",
+        "--globals",
+        "--maxWorkers",
+        "1",
+        "--no-file-parallelism",
+        "--reporter=json",
+        "lib/__tests__/report-store.test.ts",
+        "lib/__tests__/reports.test.ts",
+        "lib/__tests__/report-lifecycle.test.ts"
+      ],
+      "exit": 0,
+      "elapsedMs": 4754,
+      "error": null,
+      "tests": 124,
+      "passed": 124,
+      "failed": 0,
+      "files": 3
+    },
+    {
+      "name": "checks-rwRC9p",
+      "mode": "isolated",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "web/scripts/test-without-production-data.mjs",
+        "lib/__tests__/report-store.test.ts",
+        "lib/__tests__/reports.test.ts",
+        "lib/__tests__/report-lifecycle.test.ts",
+        "--reporter=dot",
+        "--testTimeout=15000"
+      ],
+      "exit": 0,
+      "elapsedMs": 34225,
+      "error": null
+    },
+    {
+      "name": "checks-QAoNOK",
+      "mode": "docs",
+      "command": [
+        "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "tests/test_readme.py",
+        "tests/test_agent_docs.py",
+        "tests/test_repo_integrity.py",
+        "-q",
+        "-p",
+        "no:cacheprovider"
+      ],
+      "exit": 0,
+      "elapsedMs": 15352,
+      "error": null
+    },
+    {
+      "name": "checks-kFfHNh",
+      "mode": "types",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "web/node_modules/typescript/bin/tsc",
+        "--project",
+        "web/tsconfig.json",
+        "--noEmit",
+        "--incremental",
+        "false"
+      ],
+      "exit": 0,
+      "elapsedMs": 2593,
+      "error": null
+    },
+    {
+      "name": "checks-XgDpnF",
+      "mode": "guards",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "--test",
+        "qa/revamp-r1/dedicated-report-project-20260915/project-guard.test.mjs",
+        "qa/revamp-r1/report-project-stop-20260914/retired-scripts.test.mjs"
+      ],
+      "exit": 0,
+      "elapsedMs": 941,
+      "error": null
+    },
+    {
+      "name": "checks-dnYfli",
+      "mode": "integrity",
+      "command": [
+        "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+        "-B",
+        "scripts/check_repo_integrity.py"
+      ],
+      "exit": 0,
+      "elapsedMs": 458,
+      "error": null
+    }
+  ],
+  "remoteReceipts": [
+    "remote-OMUoZG",
+    "remote-FE8FdN",
+    "remote-P1L02N",
+    "remote-eTMwDV"
+  ],
+  "migration": {
+    "path": "supabase/migrations/20260914161526_shiok_private_reports_v1.sql",
+    "sha256": "9de35faa5275c5c10706167195df81f1832a246b2d336adab192fd1b6a046604",
+    "bytes": 6849,
+    "remoteVersion": "20260914161526"
+  },
+  "http": [
+    {
+      "name": "publishable_rpc_denied",
+      "status": 401,
+      "code": "42501"
+    },
+    {
+      "name": "private_schema_not_exposed",
+      "status": 406,
+      "code": "PGRST106"
+    },
+    {
+      "name": "service_intake_disabled",
+      "status": 503,
+      "code": "PT503"
+    }
+  ],
+  "storage": {
+    "enabled": false,
+    "policy_approved_at": null,
+    "cleanup_verified_at": null,
+    "allowed_bundles": [],
+    "reports": 0,
+    "quota_rows": 0,
+    "tables": [
+      {
+        "rls": true,
+        "table": "control",
+        "anon_read": false,
+        "authenticated_read": false
+      },
+      {
+        "rls": true,
+        "table": "daily_usage",
+        "anon_read": false,
+        "authenticated_read": false
+      },
+      {
+        "rls": true,
+        "table": "reports",
+        "anon_read": false,
+        "authenticated_read": false
+      }
+    ],
+    "rpc": {
+      "anon_execute": false,
+      "service_execute": true,
+      "security_definer": false,
+      "authenticated_execute": false
+    }
+  },
+  "evidencePrefix": {
+    "bytes": 454842,
+    "sha256": "635efe321066fed145ae4b44828768da60b23a574f4fab58b0b0821a44be7237"
+  },
+  "weightsSha256": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+  "findings": [
+    "Dedicated target verified and sole allowed origin.",
+    "Installed private storage disabled and empty.",
+    "Live public denial and disabled service admission verified."
+  ],
+  "disagreements": [
+    "Publishable key is not authorization for private writes; no resident feature completion is claimed."
+  ],
+  "remaining": [
+    "Submission API and trusted abuse buckets",
+    "Real concurrent admission and uncertain-commit recovery",
+    "Moderator authentication/queue",
+    "Retention cleanup and policy",
+    "Resident form and browser acceptance"
+  ],
+  "unrelatedProjectRequests": 0,
+  "frontendDeployments": 0,
+  "pipelineRuns": 0,
+  "credentialsSaved": false
+}

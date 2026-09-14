@@ -1,0 +1,15 @@
+{
+  "mode": "isolated",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "web/scripts/test-without-production-data.mjs",
+    "lib/__tests__/report-store.test.ts",
+    "lib/__tests__/reports.test.ts",
+    "lib/__tests__/report-lifecycle.test.ts",
+    "--reporter=dot",
+    "--testTimeout=15000"
+  ],
+  "exit": 0,
+  "elapsedMs": 34225,
+  "error": null
+}

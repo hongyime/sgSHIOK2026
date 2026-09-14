@@ -1,0 +1,25 @@
+{
+  "mode": "web",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "web/node_modules/vitest/vitest.mjs",
+    "run",
+    "--root",
+    "C:\\sgSHIOK2026\\web",
+    "--globals",
+    "--maxWorkers",
+    "1",
+    "--no-file-parallelism",
+    "--reporter=json",
+    "lib/__tests__/report-store.test.ts",
+    "lib/__tests__/reports.test.ts",
+    "lib/__tests__/report-lifecycle.test.ts"
+  ],
+  "exit": 1,
+  "elapsedMs": 28073,
+  "error": null,
+  "tests": 124,
+  "passed": 123,
+  "failed": 1,
+  "files": 3
+}

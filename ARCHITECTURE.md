@@ -125,11 +125,13 @@ the provider-choice gate, not the tests required before accepting real reports.
 Keep the existing Vercel frontend and Node server; do not add Cloudflare.
 Use the owner-designated Free project, verifying its organization plan first.
 Project name/dashboard URL is safe setup information; secret keys are not chat,
-public evidence or NEXT_PUBLIC configuration. The owner will create a dedicated
-SHIOK project. The earlier use of sgbuslaobu was an agent targeting error, not
-owner approval. No correctly targeted SHIOK storage is installed. The unrelated
-project is prohibited in the server adapter; its three remote QA scripts are
-retired before IO. No resident endpoint or runtime secret is configured.
+public evidence or NEXT_PUBLIC configuration. On15September the owner supplied
+the dedicated sgshiok project, ztjilsfgoephcdcsgcks. Its identity, Singapore region
+and Free organization are verified; web/lib/report-project.json pins the only
+allowed origin for both setup and the server adapter. Storage is installed with
+intake disabled. The earlier use of sgbuslaobu was an agent targeting error, not
+owner approval. That project remains prohibited; its three remote QA scripts
+stay retired. No resident endpoint or runtime secret is configured.
 
 Use a same-origin report API with the existing bounded report parser. The browser
 must not have database read/moderation privileges. Store report content in a
@@ -166,17 +168,23 @@ Reporting failure must leave the map and saved walks usable.
 Owner testing currently means desktop Chrome with resized viewports. Record
 responsive acceptance separately from unperformed physical-phone acceptance.
 
-Historical wrong-project checkpoint, not an active SHIOK backend:
-migration20260914085103 creates only shiok_reports and one
+Dedicated-project checkpoint: migration20260914161526 creates only shiok_reports and one
 service-role-only public RPC. All three tables have RLS and no public/authenticated
 grants or policies; this is intentional default denial, not missing resident access.
 The schema is not exposed through the Data API. The existing transit schema and
 its grants/settings are outside this migration. The RPC is security invoker,
 not an anonymously executable privileged function.
-The existing remote objects were last verified disabled and empty. Do not access,
-reactivate or delete them without a separately approved cleanup. Before any future
-schema application, confirm the dedicated project's identity and Free plan; never
-derive a deployment target from historical test receipts or general account access.
+This migration is byte-identical to the old schema SQL; its filename now matches
+the native history on the dedicated project, avoiding duplicate local migrations.
+Historical wrong-project objects remain outside this setup; do not access,
+reactivate or delete them without separately approved cleanup. Before any future
+schema application, confirm the exact project's identity and Free plan; never
+derive a target from an unrelated test receipt or general account access.
+
+Real dedicated-project HTTP checks deny the publishable-key RPC (401/42501),
+deny access to the private schema (406/PGRST106), and reject server-key admission
+while disabled (503/PT503), with zero reports/quota rows before and after. These
+are not moderator authentication or successful resident-submission acceptance.
 
 Server adapter: web/app/api/reports/store.ts, not route.ts. It accepts only a
 Supabase project origin and a server secret key, never a management PAT. It reuses
