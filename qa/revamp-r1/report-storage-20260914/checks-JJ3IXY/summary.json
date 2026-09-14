@@ -1,0 +1,15 @@
+{
+  "mode": "types",
+  "command": [
+    "node",
+    "web/node_modules/typescript/bin/tsc",
+    "--project",
+    "web/tsconfig.json",
+    "--noEmit",
+    "--incremental",
+    "false"
+  ],
+  "exit": 0,
+  "elapsedMs": 14561,
+  "error": null
+}

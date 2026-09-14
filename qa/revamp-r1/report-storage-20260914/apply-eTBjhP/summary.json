@@ -1,0 +1,51 @@
+{
+  "project": "ajvenxqkedajbrbnnfko",
+  "proof": "database-uKSa8t",
+  "migrationSha256": "9de35faa5275c5c10706167195df81f1832a246b2d336adab192fd1b6a046604",
+  "requests": [
+    {
+      "path": "organizations/mvoevnoamtddjisdqfhr",
+      "status": 200
+    },
+    {
+      "path": "projects/ajvenxqkedajbrbnnfko",
+      "status": 200
+    },
+    {
+      "path": "projects/ajvenxqkedajbrbnnfko/database/query",
+      "status": 201
+    },
+    {
+      "path": "projects/ajvenxqkedajbrbnnfko/database/migrations",
+      "status": 200
+    },
+    {
+      "path": "projects/ajvenxqkedajbrbnnfko/database/migrations",
+      "status": 200
+    },
+    {
+      "path": "projects/ajvenxqkedajbrbnnfko/database/migrations",
+      "status": 200
+    },
+    {
+      "path": "projects/ajvenxqkedajbrbnnfko/database/query",
+      "status": 201
+    }
+  ],
+  "applied": true,
+  "verified": true,
+  "priorMigrationCount": 1,
+  "applyReply": [],
+  "remoteVersion": "20260914085103",
+  "localPathRequired": "supabase/migrations/20260914085103_shiok_private_reports_v1.sql",
+  "storage": [
+    {
+      "enabled": false,
+      "policy_approved_at": null,
+      "cleanup_verified_at": null,
+      "allowed_bundles": [],
+      "reports": 0,
+      "quota_rows": 0
+    }
+  ]
+}

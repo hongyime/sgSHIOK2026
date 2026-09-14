@@ -14,7 +14,7 @@ def test_supabase_choice_is_recorded_without_claiming_live_reports() -> None:
     state = (root / ".agents/STATE.md").read_text(encoding="utf-8")
     plan = (root / "postplan.html").read_text(encoding="utf-8")
     assert "Supabase Free was approved on 14 September for private resident reports" in readme
-    assert "No report backend is connected or enabled yet" in readme
+    assert "Private storage is installed but intake remains disabled" in readme
     assert "not physical-phone acceptance" in readme
     assert "Supabase Free APPROVED" in state
     assert "not approved/provisioned" not in state

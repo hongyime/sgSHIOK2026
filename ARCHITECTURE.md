@@ -125,7 +125,9 @@ the provider-choice gate, not the tests required before accepting real reports.
 Keep the existing Vercel frontend and Node server; do not add Cloudflare.
 Use the owner-designated Free project, verifying its organization plan first.
 Project name/dashboard URL is safe setup information; secret keys are not chat,
-public evidence or NEXT_PUBLIC configuration. No project is connected yet.
+public evidence or NEXT_PUBLIC configuration. The owner designated sgbuslaobu;
+its Free organization and Singapore region are verified. Private storage is
+installed with intake disabled; no resident endpoint or runtime secret is configured.
 
 Use a same-origin report API with the existing bounded report parser. The browser
 must not have database read/moderation privileges. Store report content in a
@@ -161,6 +163,30 @@ Reporting failure must leave the map and saved walks usable.
 
 Owner testing currently means desktop Chrome with resized viewports. Record
 responsive acceptance separately from unperformed physical-phone acceptance.
+
+Storage checkpoint: migration20260914085103 creates only shiok_reports and one
+service-role-only public RPC. All three tables have RLS and no public/authenticated
+grants or policies; this is intentional default denial, not missing resident access.
+The schema is not exposed through the Data API. The existing transit schema and
+its grants/settings are outside this migration. The RPC is security invoker,
+not an anonymously executable privileged function.
+
+Server adapter: web/app/api/reports/store.ts, not route.ts. It accepts only a
+Supabase project origin and a server secret key, never a management PAT. It reuses
+the wire validator, hashes retry proof and bounds provider/body IO to eight seconds.
+No redirects, logs, public reads or automatic retries. A timed-out write has
+unknown outcome, not proof it failed to commit. No public API or UI imports it yet.
+NUL in a note is now explicitly invalid_note because PostgreSQL cannot represent
+it; literal backslash-u0000 text is preserved. No text is stripped or normalized.
+
+The singleton admission lock covers report identity and both usage counters.
+Retries with matching proof/content return the original receipt without another
+debit; altered proof/content conflicts, expired identity cannot become a new report.
+Activation additionally requires policy approval, an allowed bundle and verified
+cleanup within26hours. Those controls are deliberately unset. The proposed caps
+are implemented but not activated. Moderation, cleanup/deletion, idempotency
+tombstones across cleanup and genuine concurrent RPC races remain unfinished.
+No complete F04-F12 or durable browser receipt claim follows from rollback tests.
 
 ## Freshness and operations
 Check source metadata on a documented schedule, within source/API constraints.

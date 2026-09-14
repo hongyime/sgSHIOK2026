@@ -136,7 +136,8 @@ function note(value: unknown): value is string {
   let characters = 0;
   for (const character of value) {
     const code = character.codePointAt(0)!;
-    if (++characters > MAX_REPORT_NOTE_CHARACTERS || (code >= 0xd800 && code <= 0xdfff)) return false;
+    // PostgreSQL cannot represent NUL in text; reject rather than strip or fail after submission.
+    if (++characters > MAX_REPORT_NOTE_CHARACTERS || code === 0 || (code >= 0xd800 && code <= 0xdfff)) return false;
   }
   return true;
 }

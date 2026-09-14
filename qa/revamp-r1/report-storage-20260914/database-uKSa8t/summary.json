@@ -1,0 +1,359 @@
+{
+  "project": "ajvenxqkedajbrbnnfko",
+  "organization": "mvoevnoamtddjisdqfhr",
+  "migrationPath": "supabase/migrations/20260914082919_shiok_private_reports_v1.sql",
+  "migrationSha256": "9de35faa5275c5c10706167195df81f1832a246b2d336adab192fd1b6a046604",
+  "testsSha256": "89cfe2275a14eb708829d025e814ef22a300bacddf9bceff616c9e48c19bed93",
+  "mode": "rollback-only",
+  "requests": [
+    {
+      "path": "organizations/mvoevnoamtddjisdqfhr",
+      "status": 200,
+      "elapsedMs": 796
+    },
+    {
+      "path": "projects/ajvenxqkedajbrbnnfko",
+      "status": 200,
+      "elapsedMs": 79
+    },
+    {
+      "path": "projects/ajvenxqkedajbrbnnfko/postgrest",
+      "status": 200,
+      "elapsedMs": 103
+    },
+    {
+      "path": "projects/ajvenxqkedajbrbnnfko/database/query",
+      "status": 201,
+      "elapsedMs": 2618
+    },
+    {
+      "path": "projects/ajvenxqkedajbrbnnfko/database/query",
+      "status": 201,
+      "elapsedMs": 413
+    },
+    {
+      "path": "projects/ajvenxqkedajbrbnnfko/database/query",
+      "status": 201,
+      "elapsedMs": 181
+    }
+  ],
+  "testsPassed": true,
+  "plan": "free",
+  "projectName": "sgbuslaobu",
+  "region": "ap-southeast-1",
+  "exposedSchemas": "public,graphql_public",
+  "before": [
+    {
+      "report_schemas": 0,
+      "report_functions": 0,
+      "transit_definitions": [
+        {
+          "rls": true,
+          "table": "archive_manifest",
+          "columns": [
+            {
+              "name": "snapshot",
+              "type": "text"
+            },
+            {
+              "name": "source_path",
+              "type": "text"
+            },
+            {
+              "name": "bytes",
+              "type": "bigint"
+            },
+            {
+              "name": "sha256",
+              "type": "text"
+            },
+            {
+              "name": "object_path",
+              "type": "text"
+            }
+          ],
+          "constraints": [
+            "PRIMARY KEY (snapshot, source_path)",
+            "CHECK ((length(sha256) = 64))"
+          ]
+        },
+        {
+          "rls": true,
+          "table": "facts",
+          "columns": [
+            {
+              "name": "id",
+              "type": "boolean"
+            },
+            {
+              "name": "payload",
+              "type": "jsonb"
+            }
+          ],
+          "constraints": [
+            "CHECK (id)",
+            "PRIMARY KEY (id)"
+          ]
+        },
+        {
+          "rls": true,
+          "table": "routes",
+          "columns": [
+            {
+              "name": "service",
+              "type": "text"
+            },
+            {
+              "name": "direction",
+              "type": "integer"
+            },
+            {
+              "name": "sequence",
+              "type": "integer"
+            },
+            {
+              "name": "stop_code",
+              "type": "text"
+            }
+          ],
+          "constraints": [
+            "PRIMARY KEY (service, direction, sequence)"
+          ]
+        },
+        {
+          "rls": true,
+          "table": "station_stops",
+          "columns": [
+            {
+              "name": "stop_code",
+              "type": "integer"
+            },
+            {
+              "name": "station",
+              "type": "text"
+            },
+            {
+              "name": "line",
+              "type": "text"
+            }
+          ],
+          "constraints": [
+            "PRIMARY KEY (stop_code)",
+            "FOREIGN KEY (stop_code) REFERENCES transit.stops(code)"
+          ]
+        },
+        {
+          "rls": true,
+          "table": "stops",
+          "columns": [
+            {
+              "name": "code",
+              "type": "integer"
+            },
+            {
+              "name": "description",
+              "type": "text"
+            },
+            {
+              "name": "latitude",
+              "type": "double precision"
+            },
+            {
+              "name": "longitude",
+              "type": "double precision"
+            }
+          ],
+          "constraints": [
+            "PRIMARY KEY (code)"
+          ]
+        }
+      ]
+    }
+  ],
+  "testReply": [
+    {
+      "name": "anon_privileges_denied",
+      "passed": true
+    },
+    {
+      "name": "atomic_pending_receipt_and_both_caps",
+      "passed": true
+    },
+    {
+      "name": "authenticated_privileges_denied",
+      "passed": true
+    },
+    {
+      "name": "bundle_and_envelope_validation",
+      "passed": true
+    },
+    {
+      "name": "disabled_by_default",
+      "passed": true
+    },
+    {
+      "name": "expired_identity_not_recreated",
+      "passed": true
+    },
+    {
+      "name": "global_and_bucket_caps_preserve_receipt",
+      "passed": true
+    },
+    {
+      "name": "nul_rejected_like_server_contract",
+      "passed": true
+    },
+    {
+      "name": "pending_capacity",
+      "passed": true
+    },
+    {
+      "name": "policy_and_cleanup_required",
+      "passed": true
+    },
+    {
+      "name": "proof_and_content_conflicts",
+      "passed": true
+    },
+    {
+      "name": "retained_capacity",
+      "passed": true
+    },
+    {
+      "name": "rls_and_invoker",
+      "passed": true
+    },
+    {
+      "name": "same_identity_retry_no_second_debit",
+      "passed": true
+    }
+  ],
+  "after": [
+    {
+      "report_schemas": 0,
+      "report_functions": 0,
+      "transit_definitions": [
+        {
+          "rls": true,
+          "table": "archive_manifest",
+          "columns": [
+            {
+              "name": "snapshot",
+              "type": "text"
+            },
+            {
+              "name": "source_path",
+              "type": "text"
+            },
+            {
+              "name": "bytes",
+              "type": "bigint"
+            },
+            {
+              "name": "sha256",
+              "type": "text"
+            },
+            {
+              "name": "object_path",
+              "type": "text"
+            }
+          ],
+          "constraints": [
+            "PRIMARY KEY (snapshot, source_path)",
+            "CHECK ((length(sha256) = 64))"
+          ]
+        },
+        {
+          "rls": true,
+          "table": "facts",
+          "columns": [
+            {
+              "name": "id",
+              "type": "boolean"
+            },
+            {
+              "name": "payload",
+              "type": "jsonb"
+            }
+          ],
+          "constraints": [
+            "CHECK (id)",
+            "PRIMARY KEY (id)"
+          ]
+        },
+        {
+          "rls": true,
+          "table": "routes",
+          "columns": [
+            {
+              "name": "service",
+              "type": "text"
+            },
+            {
+              "name": "direction",
+              "type": "integer"
+            },
+            {
+              "name": "sequence",
+              "type": "integer"
+            },
+            {
+              "name": "stop_code",
+              "type": "text"
+            }
+          ],
+          "constraints": [
+            "PRIMARY KEY (service, direction, sequence)"
+          ]
+        },
+        {
+          "rls": true,
+          "table": "station_stops",
+          "columns": [
+            {
+              "name": "stop_code",
+              "type": "integer"
+            },
+            {
+              "name": "station",
+              "type": "text"
+            },
+            {
+              "name": "line",
+              "type": "text"
+            }
+          ],
+          "constraints": [
+            "PRIMARY KEY (stop_code)",
+            "FOREIGN KEY (stop_code) REFERENCES transit.stops(code)"
+          ]
+        },
+        {
+          "rls": true,
+          "table": "stops",
+          "columns": [
+            {
+              "name": "code",
+              "type": "integer"
+            },
+            {
+              "name": "description",
+              "type": "text"
+            },
+            {
+              "name": "latitude",
+              "type": "double precision"
+            },
+            {
+              "name": "longitude",
+              "type": "double precision"
+            }
+          ],
+          "constraints": [
+            "PRIMARY KEY (code)"
+          ]
+        }
+      ]
+    }
+  ]
+}

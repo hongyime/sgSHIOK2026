@@ -6582,3 +6582,125 @@ DISAGREEMENTS
 1. Correct our earlier inference of physical-phone participation: the owner's
    answer means desktop Chrome resizing. Useful responsive feedback, not phone
    acceptance or phone performance. No disagreement with the selected provider.
+
+## Designated Supabase project and disabled report storage, 14 September 2026
+
+Working root: C:\sgSHIOK2026. Host: Prawn-E14. Baseline: bfba3a6.
+Owner identified sgbuslaobu, resolving the preceding project-name question.
+Existing authenticated SUPABASE_ACCESS_TOKEN environment was sufficient. No
+credential value from chat was put into code, files, evidence or commits.
+Rotate all chat-disclosed credentials; Cloudflare was not used. No billing,
+account membership, Vercel deployment or GitHub access settings were changed.
+
+```text
+project=sgbuslaobu
+project_ref=ajvenxqkedajbrbnnfko
+organization_plan=free
+status=ACTIVE_HEALTHY
+region=ap-southeast-1
+postgres_version=17.6
+initial_database_bytes=14429331
+existing_transit_tables=5
+```
+
+Scope: new shiok_reports schema and service-role-only public RPC, plus a
+server-only adapter (store.ts, NOT route.ts). Intake remains disabled. No
+resident form, authentication, cleanup job or public endpoint is claimed.
+Existing transit record contents were not read or changed. The catalog's five
+table column/constraint/RLS definitions match before and after. No protected
+local data, input/config weights or old evidence lines were modified.
+
+Database check command:
+node qa/revamp-r1/report-storage-20260914/database-check.mjs
+Initial13groups passed in database-TmUAi7. Added NUL preservation case failed
+in database-Cu2gZb (PT400) and database-0E2IaH (22P05). Both rollback experiments
+are retained. PostgreSQL JSON text processing cannot represent NUL. Fix the
+server parser to return invalid_note; do not strip/normalize a resident note.
+Literal backslash-u0000 remains valid. The max-body fixture now uses SOH with
+the same six-byte JSON escape cost, preserving the original byte-limit test.
+Final database-uKSa8t returns14passed groups. All test data and temporary DDL
+were rolled back; catalog identity and absent reporting schema verified afterward.
+
+The groups exercise actual anonymous/authenticated SQL-role denial, invoker/RLS,
+disabled intake, policy/cleanup gates, initial pending receipt with two quota
+debits, proof/content conflicts, retry without another charge, envelope/bundle
+validation, NUL rejection, global/IP-bucket caps, expiry, pending and retained caps.
+These are sequential PostgreSQL checks, not concurrent HTTP or moderator tests.
+
+Apply command:
+node qa/revamp-r1/report-storage-20260914/apply-schema.mjs --apply-disabled-reviewed-schema
+Receipt: qa/revamp-r1/report-storage-20260914/apply-eTBjhP/summary.json
+```text
+applied=true
+verified=true
+priorMigrationCount=1
+remoteVersion=20260914085103
+enabled=false
+policy_approved_at=null
+cleanup_verified_at=null
+allowed_bundles=[]
+reports=0
+quota_rows=0
+```
+
+The CLI-created candidate's original name was20260914082919. Management API
+assigned20260914085103; the uncommitted local file was moved to that version,
+without byte changes or history rewriting. Final migration:
+supabase/migrations/20260914085103_shiok_private_reports_v1.sql
+SHA256=9de35faa5275c5c10706167195df81f1832a246b2d336adab192fd1b6a046604.
+The prior native migration remains unchanged. No migration retry or destructive
+reset. The bootstrap/apply helpers deliberately refuse an existing namespace.
+
+Readback: node qa/revamp-r1/report-storage-20260914/inspect-installed.mjs
+inspection-kZ1dKh confirms all3tables RLS/default-denied; anon/authenticated
+cannot execute the RPC, service_role can, security_definer=false. Exposed schemas
+remain public,graphql_public. Advisor returns3report INFO no-policy notices,
+no report WARN/ERROR, and1unrelated INFO. No-policy is deliberate denial, not
+permission to expose reports. This is not a full application security audit.
+
+Validation receipts: qa/revamp-r1/report-storage-20260914/final-e6D9YW/summary.json
+and checks-k8113X/summary.json; original stdout/stderr and isolation receipt retained.
+```text
+node qa/revamp-r1/report-storage-20260914/checks.mjs focused
+tests=116
+passed=116
+failed=0
+files=3
+node web/scripts/test-without-production-data.mjs lib/__tests__/report-store.test.ts lib/__tests__/reports.test.ts lib/__tests__/report-lifecycle.test.ts --reporter=dot --testTimeout=15000
+Test Files  3 passed (3)
+Tests  116 passed (116)
+dependency_guards=42
+productionDataDirectoryAbsent=true
+guardProbePassed=true
+exitCode=0
+.venv/Scripts/python.exe -B -m pytest tests/test_readme.py tests/test_agent_docs.py tests/test_repo_integrity.py -q -p no:cacheprovider
+41 passed in 12.49s
+.venv/Scripts/python.exe -B scripts/check_repo_integrity.py
+repo_integrity=ok
+node web/node_modules/typescript/bin/tsc --project web/tsconfig.json --noEmit --incremental false
+exit=0
+```
+
+Report arithmetic:34prior validation +1NUL regression +45lifecycle +36transport
+=116tests. The42dependency guards,41documentation checks and14PostgreSQL groups
+are separate checks, not one aggregated suite. No full web/Python suite or new
+UI build/browser run is claimed. Five reporting source hashes match the isolated
+snapshot; all11published source anchors match. Weights SHA256 remains
+5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec.
+Original445529evidence bytes remain an identical prefix, SHA256
+9faf8079f99beb2e938a2f2a7ffe907d1cf1fc49714e68679b6e296e4c55cb41.
+
+FINDINGS
+1. Designated Free project found; isolated disabled storage is actually applied.
+   Reporting is not yet usable by residents; no project/access question remains.
+2. Corrected NUL acceptance/storage mismatch before application; both failed
+   experiments and the equal-byte size-fixture correction are recorded.
+3. No public read/list/moderation surface was opened. RLS does not protect against
+   a compromised service secret; future server authorization is mandatory.
+4. Next work is the same-origin API, genuine concurrency/uncertain-commit HTTP
+   tests, moderator sign-in/queue, retention/deletion and resident form. Keep
+   intake disabled until those and the remaining policy decisions are complete.
+
+DISAGREEMENTS
+1. Broad account PATs are management credentials, not report runtime credentials.
+   Rotate the chat-disclosed credentials and keep keys out of the public repo.

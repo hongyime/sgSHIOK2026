@@ -584,7 +584,11 @@ and the private database tests are specified in `ARCHITECTURE.md` and T15-T18.
 [Supabase Free](https://supabase.com/pricing) does not include automatic backups
 or point-in-time recovery. [Low-activity pausing](https://supabase.com/docs/guides/platform/free-project-pausing)
 is possible; the old Cloudflare proposal's recovery claims do not transfer.
-No report backend is connected or enabled yet. Owner UI feedback is desktop Chrome
+Private storage is installed but intake remains disabled in the owner-designated
+sgbuslaobu project. The separate shiok_reports schema leaves existing transit
+tables alone. The server adapter has no public route or resident form yet;
+moderator authentication, retention cleanup and real concurrent/HTTP acceptance
+remain before activation. Owner UI feedback is desktop Chrome
 with a resized viewport, not physical-phone acceptance.
 
 ### Preserve And Recover Local Payloads

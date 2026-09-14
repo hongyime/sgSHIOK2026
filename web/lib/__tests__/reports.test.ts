@@ -34,6 +34,10 @@ function stream(chunks: Uint8Array[], cancel = vi.fn()) {
 }
 
 describe('Proposed report contract: F01/F13 data preparation only', () => {
+  it('rejects an actual NUL before PostgreSQL storage but preserves literal escape text', () => {
+    expect(validateReport(fixture({ note: '\u0000' }))).toEqual({ ok: false, error: 'invalid_note' });
+    expect(valid(validateReport(fixture({ note: '\\u0000' }))).report.note).toBe('\\u0000');
+  });
   it('pins the proposed caps and existing Singapore sanity box', () => {
     expect([REPORT_SCHEMA_VERSION, MAX_REPORT_VERTICES, MAX_REPORT_SEGMENT_METERS,
       MAX_REPORT_NOTE_CHARACTERS, MAX_REPORT_BODY_BYTES]).toEqual([1, 32, 1200, 1000, 8192]);
@@ -237,7 +241,7 @@ describe('Report UTF-8 body boundary', () => {
 
   it('keeps dense, individually maximum-sized fields within the complete canonical request cap', () => {
     const input = { ...line(Array.from({ length: 32 }, (_, i) => [103.85000000000001 + i * 0.000000000001, 1.3500000000000001 + i * 0.000000000001])),
-      note: '\0'.repeat(1000), referenced_bundle_version: 'b'.repeat(128),
+      note: '\u0001'.repeat(1000), referenced_bundle_version: 'b'.repeat(128),
       context: { postal_code: '001001', destination_id: 'd'.repeat(128), transit_category: 'mrt_lrt', published_route_id: 'r'.repeat(128) } };
     const result = valid(validateReport(input));
     expect(bytes(result.report).byteLength).toBe(bytes(input).byteLength);

@@ -6,7 +6,7 @@ real scheduler active with verified issue delivery and cross-run journal recover
 Repository owner operates issue34. Owner uses desktop Chrome with a resized
 viewport; physical-phone participation was not established by that answer.
 Tentative generic assent is not an exact tested release identity. Reporting still
-uses the approved Supabase Free provider; project connection and service/privacy
+uses the approved Supabase Free provider and designated sgbuslaobu project; service/privacy
 acceptance remain open. Do not repeat the provider-choice question. T19/T21 retain their data
 budget gates. Do not repeat failed browser work merely for PASS.
 The full product goal remains unchanged; a limited release is not completion.
@@ -21,6 +21,8 @@ LOCALLY_VERIFIED: walk-only inspector. Two tabs (MRT/LRT exits, Bus stops), shor
 usable saved walk selected automatically, no Suggested/comparison/About data,
 automatic zoom-bounded night lighting, bounded explicit preview recovery.
 Current QA: qa/revamp-r1/weekly-metadata-20260914 (approved scheduler implementation);
+latest qa/revamp-r1/report-storage-20260914 (installed private, disabled report storage;
+116focused/isolated tests across3files +42guards,14PostgreSQL rollback groups);
 retained qa/revamp-r1/legacy-preservation-20260914 (failed bounded reload attempt);
 retained qa/revamp-r1/maintenance-runner-20260913 (inactive integrated runner);
 retained qa/revamp-r1/report-lifecycle-20260913 (local report lifecycle);
@@ -313,6 +315,12 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 
 ### [ ] T13: Owner approves the reporting service boundary
 - Status: OWNER. Size: S. Parent: P1.3.
+- Follow-up2026-09-14: owner designated sgbuslaobu; existing authenticated
+  environment accesses it. Organization plan free, project healthy in Singapore.
+  Project identification/setup gate is closed, not a reason to ask for credentials
+  again. Rotate chat-disclosed credentials; do not record their values in repo.
+  Private schema installed disabled; remaining privacy/moderation/operations
+  decisions do not disappear with provider or account access.
 - Decision2026-09-14: Supabase Free approved for private resident reports;
   Cloudflare rejected. Provider selection is complete, not the whole ticket.
   CLI2.111.0 lists no SHIOK-named project and repository configuration contains
@@ -346,7 +354,22 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: Approved infrastructure contract; zero pipeline.
 
 ### [ ] T15: Persist reports and issue truthful receipts
-- Status: WAIT_DEPS. Size: M. Parent: P1.3.
+- Status: PARTIAL (private storage installed; no resident endpoint). Size: M. Parent: P1.3.
+- Checkpoint2026-09-14: migration20260914085103 applied to the designated Free
+  project after14PostgreSQL rollback test groups. New schema and service-only RPC;
+  zero stored reports/quota rows, enabled=false, no policy/cleanup approval or
+  allowed bundle. Existing transit definitions and previous migration preserved.
+  Matching retry proof/content returns one receipt and one debit; mismatches,
+  expired identities and four cap classes reject. RLS/role denial exercised on
+  the actual database, not just mocked. Supabase advisor:3expected INFO no-policy
+  notes for default-denied tables; no report WARN/ERROR.
+  Server-only adapter uses8s total deadline, bounded receipt parsing, credential
+  destination restriction and unknown-write-outcome recovery, with no auto retry.
+  36transport +35validation +45lifecycle =116tests across3files pass in production-
+  data-denied isolation;42dependency guards also pass. Fixed NUL mismatch and
+  preserved failed experiments. No public route, HTTP Data API integration,
+  authenticated moderation, real concurrent transactions or cleanup acceptance yet.
+  Keep T15/T17/T18 open, not merely waiting on a provider choice.
 - Depends on: T14.
 - Integration obligation: serialize source and every traversed target existence/revision guard with the state/audit write; neverreuse receipt identities or reset revisions. Test concurrentA->B/B->A, deleted/changed terminal targets and changed intermediate revisions against the real adapter, not just the local Map fixture.
 - Scope: proposed report API route and approved storage adapter, integration tests; no public data writes.

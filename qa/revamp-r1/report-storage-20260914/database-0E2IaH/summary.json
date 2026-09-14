@@ -1,0 +1,171 @@
+{
+  "project": "ajvenxqkedajbrbnnfko",
+  "organization": "mvoevnoamtddjisdqfhr",
+  "migrationPath": "supabase/migrations/20260914082919_shiok_private_reports_v1.sql",
+  "migrationSha256": "a5e7363dafd7ba9e8f51d3ac841768f1fece24d65a787ee6f83193b8fc82e22e",
+  "testsSha256": "c6564a82a10e6c8bebccaa32ff373b1585221a182b8db137fd3cfa0a9f134cd2",
+  "mode": "rollback-only",
+  "requests": [
+    {
+      "path": "organizations/mvoevnoamtddjisdqfhr",
+      "status": 200,
+      "elapsedMs": 557
+    },
+    {
+      "path": "projects/ajvenxqkedajbrbnnfko",
+      "status": 200,
+      "elapsedMs": 118
+    },
+    {
+      "path": "projects/ajvenxqkedajbrbnnfko/postgrest",
+      "status": 200,
+      "elapsedMs": 455
+    },
+    {
+      "path": "projects/ajvenxqkedajbrbnnfko/database/query",
+      "status": 201,
+      "elapsedMs": 255
+    },
+    {
+      "path": "projects/ajvenxqkedajbrbnnfko/database/query",
+      "status": 400,
+      "elapsedMs": 2066
+    }
+  ],
+  "testsPassed": false,
+  "plan": "free",
+  "projectName": "sgbuslaobu",
+  "region": "ap-southeast-1",
+  "exposedSchemas": "public,graphql_public",
+  "before": [
+    {
+      "report_schemas": 0,
+      "report_functions": 0,
+      "transit_definitions": [
+        {
+          "rls": true,
+          "table": "archive_manifest",
+          "columns": [
+            {
+              "name": "snapshot",
+              "type": "text"
+            },
+            {
+              "name": "source_path",
+              "type": "text"
+            },
+            {
+              "name": "bytes",
+              "type": "bigint"
+            },
+            {
+              "name": "sha256",
+              "type": "text"
+            },
+            {
+              "name": "object_path",
+              "type": "text"
+            }
+          ],
+          "constraints": [
+            "PRIMARY KEY (snapshot, source_path)",
+            "CHECK ((length(sha256) = 64))"
+          ]
+        },
+        {
+          "rls": true,
+          "table": "facts",
+          "columns": [
+            {
+              "name": "id",
+              "type": "boolean"
+            },
+            {
+              "name": "payload",
+              "type": "jsonb"
+            }
+          ],
+          "constraints": [
+            "CHECK (id)",
+            "PRIMARY KEY (id)"
+          ]
+        },
+        {
+          "rls": true,
+          "table": "routes",
+          "columns": [
+            {
+              "name": "service",
+              "type": "text"
+            },
+            {
+              "name": "direction",
+              "type": "integer"
+            },
+            {
+              "name": "sequence",
+              "type": "integer"
+            },
+            {
+              "name": "stop_code",
+              "type": "text"
+            }
+          ],
+          "constraints": [
+            "PRIMARY KEY (service, direction, sequence)"
+          ]
+        },
+        {
+          "rls": true,
+          "table": "station_stops",
+          "columns": [
+            {
+              "name": "stop_code",
+              "type": "integer"
+            },
+            {
+              "name": "station",
+              "type": "text"
+            },
+            {
+              "name": "line",
+              "type": "text"
+            }
+          ],
+          "constraints": [
+            "PRIMARY KEY (stop_code)",
+            "FOREIGN KEY (stop_code) REFERENCES transit.stops(code)"
+          ]
+        },
+        {
+          "rls": true,
+          "table": "stops",
+          "columns": [
+            {
+              "name": "code",
+              "type": "integer"
+            },
+            {
+              "name": "description",
+              "type": "text"
+            },
+            {
+              "name": "latitude",
+              "type": "double precision"
+            },
+            {
+              "name": "longitude",
+              "type": "double precision"
+            }
+          ],
+          "constraints": [
+            "PRIMARY KEY (code)"
+          ]
+        }
+      ]
+    }
+  ],
+  "failureCode": null,
+  "failureMessage": "Failed to run sql query: ERROR:  22P05: unsupported Unicode escape sequence\nDETAIL:  \\u0000 cannot be converted to text.\nCONTEXT:  JSON data, line 1: ...dle_version\":\"synthetic-bundle-v1\",\"note\":\"\\u0000...\nSQL expression \"(payload ->> 'schema_version') is distinct from '1'\n    or (payload ->> 'report_type') is null\n    or (payload ->> 'report_type') not in ('mapping_error', 'shelter_request')\n    or (payload ->> 'referenced_bundle_version') is null\n    or json_typeof(payload -> 'geometry') is distinct from 'object'\n    or (select count(*) <> count(distinct k) from json_object_keys(payload) k)\n    or exists (select 1 from json_object_keys(payload) k where k not in ('schema_version', 'report_type', 'geometry', 'referenced_bundle_version', 'context', 'note'))\"\nPL/pgSQL function public.shiok_report_submit_v1(uuid,text,text,text) line 26 at IF\nPL/pgSQL function inline_code_block line 90 at assignment\n",
+  "error": "Supabase HTTP 400"
+}

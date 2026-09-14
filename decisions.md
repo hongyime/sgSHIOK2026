@@ -4251,3 +4251,68 @@ FINDINGS
 DISAGREEMENTS
 1. Desktop Chrome viewport resizing is not physical-phone acceptance. This is a
    correction of our earlier interpretation, not disagreement with the owner's choice.
+
+## 2026-09-14: Private report storage on the designated Supabase project
+
+Owner supplied the existing project name sgbuslaobu. The configured Supabase
+environment already accesses it; no token was copied from chat into a file.
+The project is healthy in Singapore, its organization plan is free, and existing
+transit tables are private. Do not rename, migrate or change that transit schema.
+Owner-disclosed credentials must be rotated; never retain their values in public
+evidence, commits or application logs. Cloudflare remains unused.
+
+Install reporting separately in shiok_reports, with a single service-role-only
+public.shiok_report_submit_v1 RPC. Tables have RLS with no public/authenticated
+policies or grants. The schema is not a Data API exposed schema. The function is
+security invoker with a fixed empty search_path, not public SECURITY DEFINER.
+The server secret bypasses RLS, so future HTTP/moderator authorization is still
+mandatory; the management PAT must never become a browser/runtime report key.
+
+Admission serializes on one control row before checking identity and both daily
+counters. Exact proof/content retries return the same receipt without charging
+again, including at the quota cap. Wrong proof/content conflicts, expiry cannot
+resurrect the identity, and new submissions stop at100/day,5/bucket/day,500pending
+or5000retained. The opaque bucket must come from future server HMAC, not a claimed
+client IP. Approved policy time, allowed bundle and cleanup health are mandatory
+activation controls, currently unset with enabled=false.
+
+The CLI-created candidate20260914082919 was tested inside rollback transactions.
+Management API assigned version20260914085103 on application; the local new file
+was renamed byte-identically to that version before commit. SQL SHA256:
+9de35faa5275c5c10706167195df81f1832a246b2d336adab192fd1b6a046604.
+One prior remote migration is preserved. Readback confirms0reports and0quota rows;
+existing five transit table column/constraint/RLS definitions remain unchanged.
+The new three no-policy advisor INFO entries are expected default denial, not a
+reason to grant resident SELECT. No report WARN/ERROR was returned by the advisor.
+
+Two rollback experiments exposed the report validator's acceptance of NUL, which
+PostgreSQL JSON processing cannot represent. Reject NUL as invalid_note rather than
+strip it, silently normalize text or return an opaque storage error. Literal
+backslash-u0000 text is unchanged. Keep the maximum-body fixture meaningful by
+using escaped SOH instead: identical serialized byte cost, no changed size limit.
+Failed experiments remain in report-storage-20260914, not replaced with PASS.
+
+Server transport validates the existing report contract, hashes the separate
+retry secret, forbids credential redirects, bounds success bodies to1024bytes and
+shares one8second budget across provider/body processing. No logs or automatic
+retries. Malformed success, lost replies and timeouts are outcome_unknown, since
+the database may already have committed. This is a store adapter, not route.ts.
+
+Fourteen actual PostgreSQL rollback groups and116isolated web tests pass, with
+42dependency guards. The36transport tests and1NUL regression extend the79existing
+report tests. Real concurrent/HTTP tests, moderator authentication/queue, cleanup,
+deletion/tombstones and resident composition remain. The limits are implemented
+but inactive; this is not approval of the remaining retention/operations policy
+or a deployed reporting feature. No scoring, export, input changes or deployment.
+
+FINDINGS
+1. Project identification is resolved; the private disabled schema is applied,
+   not merely proposed. Existing transit record contents were not read or changed.
+2. Corrected the NUL validation/storage mismatch before installing the schema.
+3. Same-ID and quota semantics are proved sequentially on PostgreSQL. Genuine
+   concurrency, timeout-after-commit HTTP recovery and moderator access remain
+   separate tests; do not inflate their status from an atomic-lock design.
+
+DISAGREEMENTS
+1. Broad account credentials are not application authorization. Keep management
+   tokens out of the reporting runtime and rotate the credentials disclosed in chat.

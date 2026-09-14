@@ -1,0 +1,26 @@
+{
+  "mode": "focused",
+  "command": [
+    "node",
+    "web/node_modules/vitest/vitest.mjs",
+    "run",
+    "--root",
+    "C:\\sgSHIOK2026\\web",
+    "--globals",
+    "--maxWorkers",
+    "1",
+    "--no-file-parallelism",
+    "--reporter=json",
+    "lib/__tests__/report-store.test.ts",
+    "lib/__tests__/reports.test.ts",
+    "lib/__tests__/report-lifecycle.test.ts"
+  ],
+  "exit": 0,
+  "elapsedMs": 9568,
+  "error": null,
+  "tests": 116,
+  "passed": 116,
+  "failed": 0,
+  "files": 3,
+  "failures": []
+}

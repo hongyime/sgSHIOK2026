@@ -1,0 +1,19 @@
+{
+  "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-i8Kk2L",
+  "copiedFiles": 250,
+  "productionDataDirectoryAbsent": true,
+  "guardProbePassed": true,
+  "forbiddenPaths": [
+    "C:\\sgSHIOK2026\\web\\public\\data",
+    "C:\\sgSHIOK2026\\tmp\\test-without-data-i8Kk2L\\web\\public\\data"
+  ],
+  "dependencies": "Existing node_modules linked; no installation",
+  "testArgs": [
+    "lib/__tests__/report-store.test.ts",
+    "lib/__tests__/reports.test.ts",
+    "lib/__tests__/report-lifecycle.test.ts",
+    "--reporter=dot",
+    "--testTimeout=15000"
+  ],
+  "exitCode": 0
+}

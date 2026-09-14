@@ -1,0 +1,96 @@
+{
+  "sources": [
+    {
+      "path": "web/lib/reports.ts",
+      "sha256": "dfa7aa5888a71fee298619e01bf539ddca3536b28ff3a81723b2b351db7168ff"
+    },
+    {
+      "path": "web/lib/__tests__/reports.test.ts",
+      "sha256": "dae73f6ff475871497f93a7b76ad1392ca2af3cc010dce6a7733d1a0b6614917"
+    },
+    {
+      "path": "web/app/api/reports/store.ts",
+      "sha256": "8590ef6ecd286823aa8ad5c925f9c333ff905905dd17e437dc7692ded7844dfc"
+    },
+    {
+      "path": "web/lib/__tests__/report-store.test.ts",
+      "sha256": "793c9a51d41d7006d004475b7804ca1721f2a8894695e6712dd0a3da58dd02cb"
+    },
+    {
+      "path": "web/lib/report-lifecycle.ts",
+      "sha256": "0ac7c2003faf1860877aaf145203d4b7eedb1106ec23966dc468b2c53339caee"
+    }
+  ],
+  "checks": [
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "tests/test_readme.py",
+        "tests/test_agent_docs.py",
+        "tests/test_repo_integrity.py",
+        "-q",
+        "-p",
+        "no:cacheprovider"
+      ],
+      "exit": 0,
+      "elapsedMs": 32858,
+      "error": null
+    },
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-B",
+        "scripts/check_repo_integrity.py"
+      ],
+      "exit": 0,
+      "elapsedMs": 747,
+      "error": null
+    },
+    {
+      "command": [
+        "web/node_modules/typescript/bin/tsc",
+        "--project",
+        "web/tsconfig.json",
+        "--noEmit",
+        "--incremental",
+        "false"
+      ],
+      "exit": 0,
+      "elapsedMs": 7042,
+      "error": null
+    }
+  ],
+  "anchorsMatched": 11,
+  "postgresTests": 14,
+  "focusedTests": 116,
+  "isolatedFiles": 3,
+  "dependencyGuards": 42,
+  "appliedMigration": "20260914085103",
+  "applyReceipt": "apply-eTBjhP/summary.json",
+  "inspection": "inspection-kZ1dKh/summary.json",
+  "failedDatabaseExperiments": [
+    "database-Cu2gZb",
+    "database-0E2IaH"
+  ],
+  "findings": [
+    "Private schema is installed disabled and empty on the named Free project.",
+    "NUL validation mismatch corrected, failed experiments retained.",
+    "Existing transit table definitions unchanged; no resident data inspected or stored."
+  ],
+  "disagreements": [
+    "Account PATs are not report runtime keys; rotate chat-disclosed credentials."
+  ],
+  "remaining": [
+    "Public endpoint and trusted abuse bucket",
+    "Actual concurrent transactions and HTTP uncertain-commit recovery",
+    "Moderator authentication and queue",
+    "Retention/cleanup/deletion policy and implementation",
+    "Resident composition/receipt UI and browser acceptance"
+  ],
+  "pipelineRuns": 0,
+  "frontendDeployments": 0,
+  "fullWebSuiteRerun": false
+}
