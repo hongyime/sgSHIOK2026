@@ -8,6 +8,20 @@ def compact(text: str) -> str:
     return " ".join(text.split())
 
 
+def test_supabase_choice_is_recorded_without_claiming_live_reports() -> None:
+    root = README.parent
+    readme = compact(README.read_text(encoding="utf-8"))
+    state = (root / ".agents/STATE.md").read_text(encoding="utf-8")
+    plan = (root / "postplan.html").read_text(encoding="utf-8")
+    assert "Supabase Free was approved on 14 September for private resident reports" in readme
+    assert "No report backend is connected or enabled yet" in readme
+    assert "not physical-phone acceptance" in readme
+    assert "Supabase Free APPROVED" in state
+    assert "not approved/provisioned" not in state
+    assert "Provider choice is complete: Supabase Free" in plan
+    assert "Supabase Free has been offered, not provisioned" not in plan
+
+
 def test_readme_documents_universe_source_policy() -> None:
     text = README.read_text(encoding="utf-8")
     normalized = compact(text)
@@ -234,7 +248,8 @@ def test_readme_maintenance_approval_keeps_other_operations_gated() -> None:
     assert "Cloudflare was explicitly rejected" in normalized
     assert "Quota exhaustion means honest unavailability, not paid scaling or a false receipt" in normalized
     assert "Keep deletion evidence independent of restored snapshots" in normalized
-    assert "Credential/MFA/payment-method setup and moderator/backup-key custody require the owner" in normalized
+    assert "Credential/MFA setup and moderator/backup-key custody require the owner" in normalized
+    assert "Do not select a paid plan or add billing to work around a quota" in normalized
 
 
 def test_readme_distinguishes_inspection_from_production_and_backup_proof() -> None:

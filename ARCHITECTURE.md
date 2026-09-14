@@ -118,7 +118,49 @@ and a separately approved data change before affecting published routes.
 Do not request contact details. Warn against personal information in free text.
 Storage, abuse limits, deletion/retention and moderator access are an explicit
 design gate: do not claim a draft was submitted until durable receipt exists.
-No new backend or provider is approved by this design.
+### Supabase implementation boundary, 14 September 2026
+
+The owner approved Supabase Free for private resident reports. This supersedes
+the provider-choice gate, not the tests required before accepting real reports.
+Keep the existing Vercel frontend and Node server; do not add Cloudflare.
+Use the owner-designated Free project, verifying its organization plan first.
+Project name/dashboard URL is safe setup information; secret keys are not chat,
+public evidence or NEXT_PUBLIC configuration. No project is connected yet.
+
+Use a same-origin report API with the existing bounded report parser. The browser
+must not have database read/moderation privileges. Store report content in a
+non-exposed schema, with RLS and explicit privilege revocation as defense in depth.
+Expose only narrowly granted server RPCs, never general anonymous table access.
+Supabase secret keys remain server-only. Moderator identity must be authenticated
+and independently allowlisted; user-editable metadata cannot grant moderation.
+Secret-key service access bypasses RLS: server authorization is mandatory and
+RLS must not be cited as protection against a compromised server secret.
+
+One Postgres transaction must own idempotency, private receipt, pending state
+and quota debit. Bind retries to a separate random secret, store its hash, and
+never expose report content through receipt lookup. A timeout can follow a commit:
+retry the same identity rather than issue a new report or pretend it was unsent.
+Serialize moderation against every revision in the lifecycle plan's read set,
+including duplicate targets and intermediate links, with the audit write.
+
+Before activation, verify direct API access denial, real transaction races,
+timeout-after-commit recovery, revoked moderator access, expiry and cap exhaustion
+on synthetic reports. Local validation tests are not proof of database privacy.
+Implement resident composition and the private queue after that boundary works.
+No report acceptance changes published shelter evidence or the locked scores.
+
+Existing caps/retention are proposed defaults pending the remaining policy
+decision: 100/day, 5 per short-lived IP bucket/day, 500 pending, 5,000 retained;
+earlier of 90 days from receipt or 30 days after resolution, with daily cleanup.
+Free Supabase has no included automatic backups/PITR; do not carry over D1's
+seven-day recovery claim. Any private backup requires a destination, key owner,
+retention and independently retained deletion rules. Do not invent a backup.
+Provider pauses and quota exhaustion mean unavailable reporting, never a false
+receipt, paid upgrade, automatic public-issue fallback or artificial keepalive.
+Reporting failure must leave the map and saved walks usable.
+
+Owner testing currently means desktop Chrome with resized viewports. Record
+responsive acceptance separately from unperformed physical-phone acceptance.
 
 ## Freshness and operations
 Check source metadata on a documented schedule, within source/API constraints.

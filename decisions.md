@@ -4202,3 +4202,52 @@ committed. Retain originals locally, publish explicitly redacted copies with ori
 hashes, and query only source-notice bodies in future captures. Do not bypass the
 guard or exclude a private identity from scanning. This changes no source notice,
 artifact, delivery receipt or service result.
+
+## 2026-09-14: Supabase Free approved; Chrome viewport testing clarified
+
+The owner explicitly selected Supabase Free for private resident reports and
+clarified that the available browser is desktop Chrome with resized viewports.
+Do not ask them to choose the provider again. Cloudflare remains rejected and
+the budget remains $0; neither a paid organization nor paid upgrades is approved.
+Responsive browser feedback is not a physical-phone test or phone-speed evidence.
+This corrects the prior inference that the owner had agreed to a real-phone session.
+
+Use existing Vercel server routes plus private Supabase Postgres storage and
+moderator authentication. ARCHITECTURE records the exact implementation sequence:
+bounded existing parser, atomic receipt/idempotency/quota transaction, server-only
+access, authenticated allowlisted moderation, whole-read-set revision checks,
+expiry, failure recovery, then resident form and owner queue. Prove these against
+a designated synthetic backend before real intake, not only fixture plans.
+
+No Supabase connection is configured in the repository. Installed CLI2.111.0
+lists no project with SHIOK in its name; this does not prove the owner has no
+project under a different name/account. Ask for intended project name/dashboard
+URL only. Do not choose an unrelated project or request keys/passwords in chat.
+Docker's local Linux engine is unavailable; it was not started or installed.
+No project, schema, report endpoint, moderation service or resident data was created.
+
+Provider choice does not silently settle the previously proposed retention,
+cap, moderator/absence and backup policies. Keep those decisions visible, while
+removing the obsolete provider-choice blocker. Supabase Free has no included
+automatic backups/PITR, so the rejected D1 proposal's seven-day recovery is not
+a promise for this service. Paused/read-only/quota failures must produce honest
+unavailability, with no artificial keepalive, paid upgrade or public-issue fallback.
+Source metadata notices continue in issue34; resident reports must never go there.
+
+Official sources reviewed14September2026:
+- https://supabase.com/docs/guides/database/functions (transactional RPC, invoker
+  defaults and explicit execute revocation; RLS alone does not secure functions).
+- https://supabase.com/docs/guides/getting-started/api-keys (server-only secret keys).
+- https://supabase.com/pricing (Free plan and backup limits).
+- https://supabase.com/docs/guides/platform/free-project-pausing (availability limit).
+
+FINDINGS
+1. Provider choice is now complete; private reporting itself is not connected.
+2. Existing79validation/lifecycle tests do not establish database confidentiality,
+   concurrency or durable receipts. No additional service PASS is claimed here.
+3. Project identification is the next owner setup action. Account/project names
+   and Free plan must be confirmed before any remote schema mutation.
+
+DISAGREEMENTS
+1. Desktop Chrome viewport resizing is not physical-phone acceptance. This is a
+   correction of our earlier interpretation, not disagreement with the owner's choice.

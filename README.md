@@ -559,9 +559,10 @@ an owner decision. Never upgrade a plan or accept paid overages automatically.
 Check [Vercel's current usage policy](https://vercel.com/docs/limits/fair-use-guidelines),
 including Hobby's non-commercial restriction, instead of relying on old quota figures.
 
-Reports are still drafts, not a live moderation service. T13 must explicitly
-approve a non-Cloudflare provider (Cloudflare was explicitly rejected on14September),
-owner access, privacy, caps and absence cover before T14-T18. The reviewed proposal
+Reports are still drafts, not a live moderation service. Supabase Free was
+approved on 14 September for private resident reports. Cloudflare was explicitly rejected.
+T13 still needs the intended project connection and the remaining owner access,
+privacy, caps and absence-cover decisions before service activation. The reviewed proposal
 is `qa/revamp-r1/report-service-proposal-20260908.json`; its application caps are
 100 new reports/day, five per short-lived IP bucket/day, 500 pending and 5,000
 retained, all proposed rather than implemented. Provider quotas are shared and
@@ -571,8 +572,20 @@ not paid scaling or a false receipt. Moderation acceptance never edits map truth
 The proposal expires content at the earlier of 90 days from receipt or 30 days
 after resolution, with daily cleanup. Cleanup outages and recovery copies can
 extend physical retention. Keep deletion evidence independent of restored snapshots;
-apply expiry/deletion before reopening access. Credential/MFA/payment-method setup
+apply expiry/deletion before reopening access. Credential/MFA setup
 and moderator/backup-key custody require the owner; never request secrets in chat.
+
+Supabase setup: identify or create a dedicated project in a **Free organization**,
+prefer Singapore where available, and share only its project name/dashboard URL.
+Do not select a paid plan or add billing to work around a quota. Confirm the project
+before linking or applying any schema. Keep server credentials in approved secret
+storage, not `NEXT_PUBLIC_*`, public issues, report bodies or Git. Implementation
+and the private database tests are specified in `ARCHITECTURE.md` and T15-T18.
+[Supabase Free](https://supabase.com/pricing) does not include automatic backups
+or point-in-time recovery. [Low-activity pausing](https://supabase.com/docs/guides/platform/free-project-pausing)
+is possible; the old Cloudflare proposal's recovery claims do not transfer.
+No report backend is connected or enabled yet. Owner UI feedback is desktop Chrome
+with a resized viewport, not physical-phone acceptance.
 
 ### Preserve And Recover Local Payloads
 

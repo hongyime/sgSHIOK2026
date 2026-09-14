@@ -6514,3 +6514,71 @@ redaction and record the original file hash. All16source notices and operational
 proof remain intact. These are redacted captures, not claimed verbatim stdout.
 Future capture helpers now request source-notice comments only. No public issue
 comment was edited or deleted. The metadata activation itself is unaffected.
+
+## Supabase provider approval and browser clarification, 14 September 2026
+
+Working root: C:\sgSHIOK2026. Host: Prawn-E14. Baseline: c152a55.
+Owner selected Supabase Free for private resident reports, with no Cloudflare.
+Owner uses desktop Chrome with resized viewports, not a physical phone.
+STATE, PRODUCT-PLAN, ARCHITECTURE, README, decisions and postplan now reflect
+that selection. Provider choice is no longer a question. The architecture
+records the private RPC/receipt/moderation/retention and real-backend test order.
+No application code, database schema or report endpoint was implemented here.
+
+Command/check receipts:
+qa/revamp-r1/report-provider-20260914/checks-T9uggQ/summary.json
+qa/revamp-r1/report-provider-20260914/verify.mjs
+
+```text
+git pull --no-rebase --ff-only origin main
+Already up to date.
+supabase --version
+2.111.0
+supabase projects list -o json
+exit=0
+SHIOK-named matching projects=0
+stderr=Cannot find project ref. Have you run supabase link?
+```
+
+The match count is a filtered observation, not an assertion that the owner has
+no project under a different name/account. Other account resources were not
+published. The earlier --output-format json attempt mixed stderr with stdout
+and failed JSON parsing; it is not used as project-absence evidence.
+Named local env files contain no Supabase key names; supabase/config.toml is
+absent. No credentials were printed, copied or requested in chat. Docker's
+Linux engine pipe is unavailable; no daemon start or installation was attempted.
+Asked owner for intended project name/dashboard URL only before remote mutation.
+
+```text
+.venv/Scripts/python.exe -B -m pytest tests/test_readme.py tests/test_agent_docs.py tests/test_repo_integrity.py -q -p no:cacheprovider
+.........................................                                [100%]
+41 passed in 7.25s
+exit=0
+.venv/Scripts/python.exe -B scripts/check_repo_integrity.py
+repo_integrity=ok
+exit=0
+```
+
+40 prior documentation/agent/integrity cases + 1 approval-state regression = 41.
+Corrected the obsolete payment-method assertion from the rejected provider;
+Supabase Free approval does not authorize adding billing to bypass a quota.
+Prior 1,990 web/73-file results are retained, not rerun for these documentation
+changes. No UI build/browser/phone test or deployment occurred.
+The evidence's prior442163bytes remain an identical prefix with SHA256
+1ac691827104c7b30a609f24a48286a737eb36ec32c9c0358c31064794c49243.
+Weights SHA256 remains
+5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec.
+No pipeline runs, inputs, published data or existing evidence lines changed.
+
+FINDINGS
+1. Supabase Free is explicitly approved. No more provider-choice gate; actual
+   project identification and remaining privacy/operations decisions stay visible.
+2. No SHIOK-named project was identified or linked. Private receipts/moderation
+   cannot be claimed from79local validation/lifecycle tests; backend work remains.
+3. The rejected D1 proposal's seven-day recovery does not apply to Supabase Free.
+   Do not promise backups, uninterrupted service or secret-safe RLS from fixtures.
+
+DISAGREEMENTS
+1. Correct our earlier inference of physical-phone participation: the owner's
+   answer means desktop Chrome resizing. Useful responsive feedback, not phone
+   acceptance or phone performance. No disagreement with the selected provider.

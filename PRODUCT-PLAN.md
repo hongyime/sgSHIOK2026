@@ -3,9 +3,11 @@ Current scope: 2026-09-13 owner revision, replacing the 12 September UI scope.
 Completion resume: IN PROGRESS after14September owner answers, not complete.
 Cloudflare rejected. Weekly metadata-only GitHub checks and one issue approved;
 real scheduler active with verified issue delivery and cross-run journal recovery.
-Repository owner operates issue34. Phone participation agreed, not yet performed.
+Repository owner operates issue34. Owner uses desktop Chrome with a resized
+viewport; physical-phone participation was not established by that answer.
 Tentative generic assent is not an exact tested release identity. Reporting still
-needs a non-Cloudflare private-store/account decision. T19/T21 retain their data
+uses the approved Supabase Free provider; project connection and service/privacy
+acceptance remain open. Do not repeat the provider-choice question. T19/T21 retain their data
 budget gates. Do not repeat failed browser work merely for PASS.
 The full product goal remains unchanged; a limited release is not completion.
 OneMap route/search share a 10s server
@@ -311,6 +313,14 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 
 ### [ ] T13: Owner approves the reporting service boundary
 - Status: OWNER. Size: S. Parent: P1.3.
+- Decision2026-09-14: Supabase Free approved for private resident reports;
+  Cloudflare rejected. Provider selection is complete, not the whole ticket.
+  CLI2.111.0 lists no SHIOK-named project and repository configuration contains
+  no Supabase connection. Ask for the intended project name/dashboard URL only;
+  do not infer a project from unrelated account resources or ask for secrets in chat.
+  Existing privacy/cap/retention proposals are not automatically approved by a
+  provider choice. No remote schema, project, resident data or paid plan created.
+  ARCHITECTURE now specifies the Supabase implementation and verification order.
 - Owner request2026-09-12: sent concrete asynchronous questions covering the current no-Cloudflare policy exception, proposed private payload/90day-or30day retention and7day recovery residue, caps, moderator/absence handling and backup/key owner. Official Access onboarding and D1 Free-limit behaviour rechecked. No answer, provisioning, paid plan, resident storage or activation assumed. T14-T18 remain gated pending the actual decision and required setup.
 - Depends on: T12.
 - Scope: approval recorded in decisions.md; owner account/credential setup only after explicit authorization.
@@ -367,6 +377,23 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Do: test cap exhaustion, spam/idempotency races, unavailable storage, expired sessions and retention/deletion on synthetic records. Verify report lookup/receipt cannot enumerate another person's report. Document owner moderation and incident actions.
 - Tests/done: F04-F07/F11-F12. Bounded costs, private state, honest failure and deletion evidence meet the approved policy; no test touches real resident data. No production receipt claim without controlled real-backend validation.
 - Gate: T13-approved infrastructure only. Required before enabling reporting in production.
+
+Supabase implementation sequence (14 September 2026):
+1. Connect the owner-designated Free project; verify plan/region and use only a
+   new report schema. No resident notes in public fixtures, logs or GitHub issues.
+2. Implement one database transaction for receipt, request identity, retry proof
+   and exact quota debit. Test real concurrent retries and timeout-after-commit.
+   Reuse the existing report parser rather than introducing a second wire schema.
+3. Deny anonymous/authenticated general reads and writes; server-only database
+   access plus a specifically authorized moderator. Exercise direct Data API and
+   API-route denial, not only mock authorization.
+4. Implement atomic whole-read-set moderation using the existing lifecycle rules,
+   including concurrent duplicate cycles; no published-data mutation.
+5. Implement expiry/cleanup, private operator recovery and unavailable/free-cap
+   behavior. Verify on synthetic records in the designated backend before intake.
+6. Wire the resident form and private queue; visually test desktop Chrome/resized
+   viewports, then record physical-device and exact-release limitations separately.
+No scoring, exports, data copying, Cloudflare or paid scaling is involved.
 
 ### [ ] T19: Build a read-only walk-coverage gap register
 - Current-source pilot2026-09-12: compile-4 identity passed;200records reproduce251428raw bytes at9cb1e4b0fcb9d43b6f6913c6de7ca39fa559f86a764fbb4a775f2238ce4dd144. Fixed61.4576921s + read11.3649837s + finalization0.0303538s =72.8530296s. Conservative projected7264.4022826s yields9111s budget >900s gate. Full scan NOT run. No representative speed inference from different cache/host sessions. Next remains fixture-only cost work or a separately agreed budget; do not claim national coverage from200rows.
