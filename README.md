@@ -346,6 +346,22 @@ GitHub schedules are best effort and public-repository inactivity can disable
 them after 60 days. A manual activation is not proof of a natural cron run.
 [GitHub schedule rules](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
 
+Activation on 14 September: [first manual run](https://github.com/hongyime/sgSHIOK2026/actions/runs/34798579347)
+completed 14 metadata requests and 48 notice API requests, delivering and verifying
+16 notices with none pending. Its retained checkpoint is `ready`; exit 1 / Actions
+failure represents source attention, not a stopped scheduler. Source outcomes:
+14 observed + 3 credentials_required + 4 unsupported + 3 manual = 24.
+The missing credentials affect Covered Linkway,
+Pedestrian Overhead Bridge/Underpass and Traffic Signals. No input was refreshed.
+Standard GitHub-hosted runners for this public repository are covered by
+[GitHub's free Actions policy](https://docs.github.com/en/billing/concepts/product-billing/github-actions).
+A [normal follow-up dispatch](https://github.com/hongyime/sgSHIOK2026/actions/runs/34799037563)
+restored all 157 retained files, checked metadata again and made zero notice API
+requests. It retained the same 16 verified comments and added five monitor files.
+Both downloaded checkpoints passed every recorded hash and state-pair pin.
+The first eligible natural weekly run is 21 September 2026 at 09:17 SGT; it has
+not been observed. See `qa/revamp-r1/weekly-metadata-20260914/` for the receipts.
+
 Documented endpoints: [data.gov.sg metadata API](https://guide.data.gov.sg/developer-guide/dataset-apis/get-dataset-metadata)
 and [DataMall API guide](https://datamall.lta.gov.sg/content/dam/datamall/datasets/LTA_DataMall_API_User_Guide.pdf).
 Evidence and limitations: `qa/verification/REVAMP-R1-core-walk.md`, task T23 in

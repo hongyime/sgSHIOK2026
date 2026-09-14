@@ -1,0 +1,23 @@
+{
+  "runId": 34799037563,
+  "attempt": 1,
+  "status": "ready",
+  "issue": "https://github.com/hongyime/sgSHIOK2026/issues/34",
+  "exitCode": 1,
+  "metadataRequests": 14,
+  "githubNoticeRequests": 0,
+  "batches": 1,
+  "pendingCount": 0,
+  "metadataCheckPerformed": true,
+  "elapsedSeconds": 169.73461014600002,
+  "checkpoint": {
+    "files": 162,
+    "bytes": 519191,
+    "archiveBytes": 597033,
+    "archiveSha256": "218151fcf48f64959193570af5cba73ebdad18f960ee808f3f5c205f7ba08a9c",
+    "manifestSha256": "960df6ea906ac4c83253c54b64bdcfe14f2bdd6b8adbf665a75e18cf1b5e0e25"
+  },
+  "sourceHealth": "attention_required",
+  "error": null,
+  "pipelineRuns": 0
+}

@@ -6429,3 +6429,88 @@ DISAGREEMENTS
    is rejected, not a pending exception. Weekly GitHub activation is approved.
 2. Phone assent is not physical acceptance, and vague deployment assent does not
    identify a tested candidate. No public report intake or deployment is claimed.
+
+## 2026-09-14: Weekly metadata activation and actual cross-run continuity
+
+Implementation0eec7fe1212f50e5b7110c949aed1e235afe8f40 pushed to main.
+Workflow357467753 reports state active. Before first dispatch, run list was empty.
+Exactly one bootstrap dispatch and one normal NEW dispatch, both CLIexit0:
+https://github.com/hongyime/sgSHIOK2026/actions/runs/34798579347
+https://github.com/hongyime/sgSHIOK2026/actions/runs/34799037563
+No rerun, rebootstrap, skipped predecessor or pipeline operation.
+
+Both are terminal Actions failure/exit1 with checkpoint status ready,
+sourceHealth=attention_required,error=null,pendingCount=0. Artifact uploads succeed.
+This is source-health attention, not an operational scheduler stop.24source entries
+=14observed+3credentials_required+4unsupported+3manual on both actual checks.
+Missing DataMall secret affects covered_linkway,overhead_bridge_underpass,
+traffic_signals. Unsupported:bus_routes,bus_services,bus_stops,
+overture_addresses_sg_candidate. Full per-source statuses in artifact inspections.
+Observed metadata does not update source inputs or published-map freshness.
+
+First:243.331235985s,14metadata requests,2notice batches,48notice API requests,
+16verified source comments,0pending. One unrelated welcome-bot comment is excluded.
+Follow-up:169.734610146s,14metadata requests,0notice API requests,0pending.
+Retained16verified comments and48request records; no duplicate POST occurred.
+Operation time243.331235985+169.734610146=413.065846131s. Requests14+14=28metadata;
+48+0=48notice requests. These are not pipeline execution seconds; pipeline remains0.
+Actions setup/download/upload time is outside the measured scheduler operation.
+
+Downloaded artifacts underqa/revamp-r1/weekly-metadata-20260914/:
+activation-34798579347/checkpoint.zip:429195bytes,
+SHAdd02a42c0d4babe33dbfca65d04c58053a521a8863dc53b177cbafb1f1748f99.
+activation-34799037563/checkpoint.zip:597033bytes,
+SHA218151fcf48f64959193570af5cba73ebdad18f960ee808f3f5c205f7ba08a9c.
+Inner byte totals342795 and519191 are sums over157 and162manifest entries;
+inspection.json records every addend.157+5=162; all157prior files byte-identical.
+Outer Actions artifact digests are distinct from these inner checkpoint hashes.
+Both archives' file hashes, manifest hashes and current/origin state/report pins
+match. No archive restored into the working tree or protected evidence paths.
+
+Raw remote readbacks:remote-1789352278511.json(in-progress),
+remote-1789352386269.json(first terminal),remote-1789352852768.json(second terminal).
+The issue's setup body was updated once after exact original-body readback,
+to the retained issue-body-active.txt; comments were not edited or deleted.
+The workflow never edits the issue body. First natural cron remains unobserved;
+next eligible Monday21September2026,09:17SGT. Do not equate dispatch with schedule.
+
+Final docs/agent/integrity rerun:docs-1789353339850.json,40passed6.78s.
+All earlier source/functional test hashes remain bound to0eec7fe; no functional
+implementation changed during activation. No fresh web/browser/build claim.
+README,PRODUCT-PLAN,postplan.html and STATE now distinguish active metadata
+operations from private-report,physical-device and exact-release gates.
+Before this append, committed evidence436718bytes SHA256
+c49e808defa2ba4f020c9580eb9a3b725cd67621949b8dc0f83a9aa4343389e4.
+
+FINDINGS
+1. Weekly metadata operations are genuinely active. Two real GitHub-hosted runs
+   prove first delivery and cross-run continuity without duplicate source notices.
+2. Missing credentials, unsupported metadata and stale/unknown dates remain
+   explicit. The job's attention exit does not mean it lost its checkpoint.
+3. Natural cron has not fired. Artifact expiry, finite journal capacity, uncertain
+   sends and missing history require owner investigation, never silent repair.
+4. Cloudflare is rejected. Supabase Free was offered for private reporting, with
+   free-plan pause/quota limits, but no provider/account/retention approval assumed.
+   Phone/browser question is also outstanding; no physical acceptance was invented.
+5. No pipeline inputs, protected data, locked weights or old verification lines
+   changed. No data refresh, scoring, export, local reinstall or deployment ran.
+
+DISAGREEMENTS
+1. No new factual disagreement with the owner's approval. The metadata work is
+   no longer blocked on that approval and was implemented rather than deferred.
+2. The whole product is not complete: private report storage/account decisions,
+   real-device participation and the exact-release review remain necessary.
+
+### Publication correction, 14 September 2026
+
+The final docs/evidence commit was blocked by the existing pre-commit privacy
+guard before creation/push. Four generated receipts included an unrelated
+welcome-bot comment containing a personal GitHub handle. Do not bypass that
+guard or add an exclusion. Raw files remain local, unchanged and unstaged.
+Public copies remote-1789352278511.public.json,
+remote-1789352386269.public.json,remote-1789352852768.public.json and
+summary.public.json omit only that non-source comment, explicitly identify the
+redaction and record the original file hash. All16source notices and operational
+proof remain intact. These are redacted captures, not claimed verbatim stdout.
+Future capture helpers now request source-notice comments only. No public issue
+comment was edited or deleted. The metadata activation itself is unaffected.

@@ -1,0 +1,105 @@
+{
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_readme.py",
+    "tests/test_agent_docs.py",
+    "tests/test_repo_integrity.py",
+    "-v",
+    "--durations=10",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\tmp\\weekly-metadata-1789353339850"
+  ],
+  "exitCode": 0,
+  "stdout": "============================= test session starts =============================\r\nplatform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0 -- C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe\r\nhypothesis profile 'default'\r\nrootdir: C:\\sgSHIOK2026\r\nconfigfile: pyproject.toml\r\nplugins: anyio-4.14.2, hypothesis-6.161.5\r\ncollecting ... collected 40 items\r\n\r\ntests/test_readme.py::test_readme_documents_universe_source_policy PASSED [  2%]\r\ntests/test_readme.py::test_readme_documents_local_lamp_overlay_artifact PASSED [  5%]\r\ntests/test_readme.py::test_readme_documents_full_batch_approval_boundary PASSED [  7%]\r\ntests/test_readme.py::test_readme_does_not_overclaim_legacy_bundle_reproducibility PASSED [ 10%]\r\ntests/test_readme.py::test_readme_monitor_requires_verified_state_without_pipeline_commands PASSED [ 12%]\r\ntests/test_readme.py::test_readme_distinguishes_fixture_preparation_from_approved_release_and_rollback PASSED [ 15%]\r\ntests/test_readme.py::test_readme_maintenance_approval_keeps_other_operations_gated PASSED [ 17%]\r\ntests/test_readme.py::test_readme_distinguishes_inspection_from_production_and_backup_proof PASSED [ 20%]\r\ntests/test_agent_docs.py::test_claude_doc_uses_shelter_map_product_frame PASSED [ 22%]\r\ntests/test_agent_docs.py::test_scoring_comments_point_to_root_decisions_file PASSED [ 25%]\r\ntests/test_agent_docs.py::test_runpy_freshness_help_names_sources_config PASSED [ 27%]\r\ntests/test_repo_integrity.py::test_repo_integrity_accepts_current_tripwire_files PASSED [ 30%]\r\ntests/test_repo_integrity.py::test_notice_names_shelter_map_and_lamp_posts PASSED [ 32%]\r\ntests/test_repo_integrity.py::test_repo_integrity_rejects_notice_revert PASSED [ 35%]\r\ntests/test_repo_integrity.py::test_repo_integrity_rejects_agents_override_revert PASSED [ 37%]\r\ntests/test_repo_integrity.py::test_repo_integrity_rejects_combined_sync_damage_without_deleting_files PASSED [ 40%]\r\ntests/test_repo_integrity.py::test_repo_integrity_rejects_vercelignore_allowlist_revert PASSED [ 42%]\r\ntests/test_repo_integrity.py::test_repo_integrity_rejects_removed_project_ignore_rule[!.vercelignore] PASSED [ 45%]\r\ntests/test_repo_integrity.py::test_repo_integrity_rejects_removed_project_ignore_rule[.env.*] PASSED [ 47%]\r\ntests/test_repo_integrity.py::test_repo_integrity_rejects_removed_project_ignore_rule[venv/] PASSED [ 50%]\r\ntests/test_repo_integrity.py::test_repo_integrity_rejects_removed_project_ignore_rule[dist/] PASSED [ 52%]\r\ntests/test_repo_integrity.py::test_repo_integrity_rejects_removed_project_ignore_rule[build/] PASSED [ 55%]\r\ntests/test_repo_integrity.py::test_repo_integrity_rejects_removed_project_ignore_rule[coverage/] PASSED [ 57%]\r\ntests/test_repo_integrity.py::test_repo_integrity_rejects_project_rule_only_inside_sync_block[!.vercelignore] PASSED [ 60%]\r\ntests/test_repo_integrity.py::test_repo_integrity_rejects_project_rule_only_inside_sync_block[.env.*] PASSED [ 62%]\r\ntests/test_repo_integrity.py::test_repo_integrity_rejects_project_rule_only_inside_sync_block[venv/] PASSED [ 65%]\r\ntests/test_repo_integrity.py::test_repo_integrity_rejects_project_rule_only_inside_sync_block[dist/] PASSED [ 67%]\r\ntests/test_repo_integrity.py::test_repo_integrity_rejects_project_rule_only_inside_sync_block[build/] PASSED [ 70%]\r\ntests/test_repo_integrity.py::test_repo_integrity_rejects_project_rule_only_inside_sync_block[coverage/] PASSED [ 72%]\r\ntests/test_repo_integrity.py::test_project_ignore_behavior_with_git[.env.local-True] PASSED [ 75%]\r\ntests/test_repo_integrity.py::test_project_ignore_behavior_with_git[web/.env.production-True] PASSED [ 77%]\r\ntests/test_repo_integrity.py::test_project_ignore_behavior_with_git[venv/Lib/example.py-True] PASSED [ 80%]\r\ntests/test_repo_integrity.py::test_project_ignore_behavior_with_git[web/dist/bundle.js-True] PASSED [ 82%]\r\ntests/test_repo_integrity.py::test_project_ignore_behavior_with_git[build/generated.js-True] PASSED [ 85%]\r\ntests/test_repo_integrity.py::test_project_ignore_behavior_with_git[coverage/lcov.info-True] PASSED [ 87%]\r\ntests/test_repo_integrity.py::test_project_ignore_behavior_with_git[.vercelignore-False] PASSED [ 90%]\r\ntests/test_repo_integrity.py::test_project_ignore_behavior_with_git[.agents/STATE.md-False] PASSED [ 92%]\r\ntests/test_repo_integrity.py::test_project_ignore_behavior_with_git[web/app/page.tsx-False] PASSED [ 95%]\r\ntests/test_repo_integrity.py::test_project_ignore_behavior_with_git[web/lib/__tests__/fixtures/published-walks.json-False] PASSED [ 97%]\r\ntests/test_repo_integrity.py::test_repo_integrity_workflow_has_schedule_trigger PASSED [100%]\r\n\r\n============================ slowest 10 durations =============================\r\n0.41s call     tests/test_repo_integrity.py::test_project_ignore_behavior_with_git[.agents/STATE.md-False]\r\n0.41s call     tests/test_repo_integrity.py::test_project_ignore_behavior_with_git[.vercelignore-False]\r\n0.40s call     tests/test_repo_integrity.py::test_project_ignore_behavior_with_git[web/lib/__tests__/fixtures/published-walks.json-False]\r\n0.37s call     tests/test_repo_integrity.py::test_project_ignore_behavior_with_git[.env.local-True]\r\n0.36s call     tests/test_repo_integrity.py::test_project_ignore_behavior_with_git[web/app/page.tsx-False]\r\n0.36s call     tests/test_repo_integrity.py::test_project_ignore_behavior_with_git[coverage/lcov.info-True]\r\n0.35s call     tests/test_repo_integrity.py::test_project_ignore_behavior_with_git[build/generated.js-True]\r\n0.34s call     tests/test_repo_integrity.py::test_project_ignore_behavior_with_git[web/.env.production-True]\r\n0.34s call     tests/test_repo_integrity.py::test_project_ignore_behavior_with_git[web/dist/bundle.js-True]\r\n0.34s call     tests/test_repo_integrity.py::test_project_ignore_behavior_with_git[venv/Lib/example.py-True]\r\n============================= 40 passed in 6.78s ==============================\r\n",
+  "stderr": "",
+  "elapsedMs": 10075,
+  "sources": [
+    {
+      "path": "scripts/acknowledge_source_notices.py",
+      "sha256": "76498c81c243122400cc6d8293b8a402484b707700048acfcf2a0c3eeb548e83"
+    },
+    {
+      "path": "scripts/check_source_metadata.py",
+      "sha256": "0e29a7e7822dea7e1b594eddd03702d2f51876b119ce6901f464b505382015a5"
+    },
+    {
+      "path": "scripts/inspect_source_notice_journal.py",
+      "sha256": "1746f05c98071ba25b83a8ad1bbc4e16a7b2663544dcd5db73779684595d0abd"
+    },
+    {
+      "path": "scripts/run_source_maintenance.py",
+      "sha256": "6aa7280621a787c187c125e42e0acfe324696c44772d7cb779a2966acf9e5077"
+    },
+    {
+      "path": "scripts/scheduled_source_metadata.py",
+      "sha256": "31123949f523c0ea7676e96398d4c34623d66d52b15470015768471ee5162f9c"
+    },
+    {
+      "path": "scripts/source_metadata_comments.py",
+      "sha256": "46185c1584d4f088f59a731562bd13f45d0c605123414b142c07700b85845e5a"
+    },
+    {
+      "path": "scripts/source_metadata_delivery.py",
+      "sha256": "40ea9fac732834c2b3201b62d8f79c7fe75683b6deae6da2bddb8f4d967ffb60"
+    },
+    {
+      "path": "scripts/source_metadata_github.py",
+      "sha256": "63ce9724bf6573377ba8c808de44db369d5f1a6079ca1999c18f81313b7770b7"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": "aae6234a2c065bc7fad1d49445061943fdd682209444b4bbf2376105bd9ca741"
+    },
+    {
+      "path": "scripts/source_metadata_request_budget.py",
+      "sha256": "c491830f2ec89df1230c67950ccbeadd90277d66f7fb060ed354500917adc887"
+    },
+    {
+      "path": "scripts/source_metadata_state.py",
+      "sha256": "b462c441e9c62904e85723b4bc96c9ac7043b1310d77545eca1f01bad2e7dfa0"
+    },
+    {
+      "path": "tests/test_readme.py",
+      "sha256": "212939fb7f39bda8a03422d0bdb3a2f68a46df717a12fb6bc8ba6680157eaf79"
+    },
+    {
+      "path": "tests/test_agent_docs.py",
+      "sha256": "6f19ac08aad30af045d551694750436282bc5814b90df66271214065ac4ad969"
+    },
+    {
+      "path": "tests/test_repo_integrity.py",
+      "sha256": "24d6c47910121518af1945df0868eef0aa9646094e605a76811af71adb198dab"
+    },
+    {
+      "path": ".github/workflows/source-metadata-weekly.yml",
+      "sha256": "d7b4f1997676c921a6644f646066e81dd5d6e01b3e25a51723ac449caeaa88c0"
+    },
+    {
+      "path": "README.md",
+      "sha256": "ae1f3c5feaf1df44601fe866e3aa22809effa59656aec79168cec001b1f1317a"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "9bd783b4f2b3249da2c35ddcf8cc713bbbf57e8acf5cc273a8f087fe33e6914a"
+    },
+    {
+      "path": "NOTICE",
+      "sha256": "273f426ee99a6d040130591dd9796275614f725181612a362bc102c92baad4b1"
+    },
+    {
+      "path": ".vercelignore",
+      "sha256": "f45e2fc7104cab16bc5d10b1434b92d409e90a5fc17761a2351c9d4d78ebe544"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "80fa4e293b4e6ce0c49ee064b85dff2e2ac7914f7af909e2a993d184cc621a65"
+    }
+  ],
+  "sourcesUnchanged": true,
+  "pipelineRuns": 0
+}

@@ -4175,3 +4175,30 @@ Phone participation was agreed, not completed. Generic tentative deployment asse
 does not identify a tested candidate. Reporting stays disabled pending a private
 non-Cloudflare provider decision. Neither approval supplies retention/moderation
 policy or waives protected data, device acceptance and release gates.
+
+### Activation and continuity observed, 14 September 2026
+
+0eec7fe is pushed. First manual run34798579347:14metadata requests,16verified
+notices,48notice requests,0pending,243.331235985s; checkpoint ready. Normal NEW
+dispatch34799037563 restored that artifact:14metadata requests,0notice requests,
+0pending,169.734610146s. Both return exit1/source attention, not stopped operation.
+The same16source comments survive, distinct from one unrelated welcome-bot comment.
+Every archive file hash and state/report pin matches; all157previous files remain
+byte-identical in the second162file checkpoint. Metadata outcomes on both passes:
+14observed+3credentials_required+4unsupported+3manual=24. No source payload changed.
+The approved routine is active, not merely proposed. First natural weekly execution
+remains unobserved; manual dispatches do not satisfy that separate evidence claim.
+
+For private reporting, a Supabase Free alternative has been offered for owner choice,
+not provisioned or approved. The current plan includes500MB database allowance and
+can pause for low activity over7days; quota/paused states must be honest unavailability,
+not paid upgrades, fake receipts or artificial keepalive traffic. Provider evidence:
+https://supabase.com/pricing and https://supabase.com/docs/guides/platform/free-project-pausing.
+No replacement of the rejected Cloudflare service is silently authorized.
+
+Public operations evidence must exclude unrelated personal comments. The existing
+commit privacy guard caught a welcome-bot handle in four captures before they were
+committed. Retain originals locally, publish explicitly redacted copies with origin
+hashes, and query only source-notice bodies in future captures. Do not bypass the
+guard or exclude a private identity from scanning. This changes no source notice,
+artifact, delivery receipt or service result.

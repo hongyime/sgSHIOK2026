@@ -1,0 +1,91 @@
+{
+  "at": "2026-09-14T02:17:58.511Z",
+  "runId": "34798579347",
+  "results": [
+    {
+      "command": [
+        "gh",
+        "api",
+        "repos/hongyime/sgSHIOK2026/actions/workflows/source-metadata-weekly.yml",
+        "--jq",
+        "{id,name,path,state}"
+      ],
+      "exitCode": 0,
+      "stdout": "{\"id\":357467753,\"name\":\"Weekly Source Metadata\",\"path\":\".github/workflows/source-metadata-weekly.yml\",\"state\":\"active\"}\n",
+      "stderr": "",
+      "elapsedMs": 4571
+    },
+    {
+      "command": [
+        "gh",
+        "run",
+        "view",
+        "34798579347",
+        "--repo",
+        "hongyime/sgSHIOK2026",
+        "--json",
+        "databaseId,attempt,event,headSha,status,conclusion,createdAt,updatedAt,url,jobs"
+      ],
+      "exitCode": 0,
+      "stdout": "{\"attempt\":1,\"conclusion\":\"\",\"createdAt\":\"2026-09-14T02:15:04Z\",\"databaseId\":34798579347,\"event\":\"workflow_dispatch\",\"headSha\":\"0eec7fe1212f50e5b7110c949aed1e235afe8f40\",\"jobs\":[{\"completedAt\":\"0001-01-01T00:00:00Z\",\"conclusion\":\"\",\"databaseId\":103836434620,\"name\":\"metadata\",\"startedAt\":\"2026-09-14T02:15:09Z\",\"status\":\"in_progress\",\"steps\":[{\"completedAt\":\"2026-09-14T02:15:11Z\",\"conclusion\":\"success\",\"name\":\"Set up job\",\"number\":1,\"startedAt\":\"2026-09-14T02:15:10Z\",\"status\":\"completed\"},{\"completedAt\":\"2026-09-14T02:15:15Z\",\"conclusion\":\"success\",\"name\":\"Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1\",\"number\":2,\"startedAt\":\"2026-09-14T02:15:11Z\",\"status\":\"completed\"},{\"completedAt\":\"2026-09-14T02:15:15Z\",\"conclusion\":\"success\",\"name\":\"Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97\",\"number\":3,\"startedAt\":\"2026-09-14T02:15:15Z\",\"status\":\"completed\"},{\"completedAt\":\"0001-01-01T00:00:00Z\",\"conclusion\":\"\",\"name\":\"Check metadata and deliver bounded notices\",\"number\":4,\"startedAt\":\"2026-09-14T02:15:15Z\",\"status\":\"in_progress\"},{\"completedAt\":\"0001-01-01T00:00:00Z\",\"conclusion\":\"\",\"name\":\"Retain immutable checkpoint including stopped runs\",\"number\":5,\"startedAt\":\"0001-01-01T00:00:00Z\",\"status\":\"pending\"},{\"completedAt\":\"0001-01-01T00:00:00Z\",\"conclusion\":\"\",\"name\":\"Post Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97\",\"number\":9,\"startedAt\":\"0001-01-01T00:00:00Z\",\"status\":\"pending\"},{\"completedAt\":\"0001-01-01T00:00:00Z\",\"conclusion\":\"\",\"name\":\"Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1\",\"number\":10,\"startedAt\":\"0001-01-01T00:00:00Z\",\"status\":\"pending\"}],\"url\":\"https://github.com/hongyime/sgSHIOK2026/actions/runs/34798579347/job/103836434620\"}],\"status\":\"in_progress\",\"updatedAt\":\"2026-09-14T02:15:09Z\",\"url\":\"https://github.com/hongyime/sgSHIOK2026/actions/runs/34798579347\"}\n",
+      "stderr": "",
+      "elapsedMs": 3950
+    },
+    {
+      "command": [
+        "gh",
+        "api",
+        "repos/hongyime/sgSHIOK2026/actions/runs/34798579347/artifacts?per_page=100"
+      ],
+      "exitCode": 0,
+      "stdout": "{\"total_count\":0,\"artifacts\":[]}",
+      "stderr": "",
+      "elapsedMs": 5703
+    },
+    {
+      "command": [
+        "gh",
+        "api",
+        "repos/hongyime/sgSHIOK2026/issues/34/comments?per_page=100",
+        "--jq",
+        "map({id,html_url,created_at,updated_at,body,user:{id:.user.id,login:.user.login}})"
+      ],
+      "exitCode": 0,
+      "stdout": "[]\n",
+      "stderr": "",
+      "elapsedMs": 5160,
+      "stdoutRedaction": {
+        "omittedNonSourceComments": 1,
+        "reason": "Unrelated welcome-bot comment contains a personal handle; not maintenance evidence."
+      }
+    },
+    {
+      "command": [
+        "gh",
+        "run",
+        "list",
+        "--repo",
+        "hongyime/sgSHIOK2026",
+        "--workflow",
+        "source-metadata-weekly.yml",
+        "--event",
+        "schedule",
+        "--limit",
+        "5",
+        "--json",
+        "databaseId,event,status,conclusion,createdAt,headSha"
+      ],
+      "exitCode": 0,
+      "stdout": "[]\n",
+      "stderr": "",
+      "elapsedMs": 5042
+    }
+  ],
+  "publication": {
+    "redacted": true,
+    "originalLocalFile": "remote-1789352278511.json",
+    "originalSha256": "805b48e2407336877d25647f204dfb8a4b0091327d97fd25d782dfeace9c6ec7",
+    "omittedNonSourceComments": 1,
+    "originalPreservedLocally": true
+  }
+}

@@ -1,0 +1,328 @@
+{
+  "runId": "34799037563",
+  "summary": {
+    "runId": 34799037563,
+    "attempt": 1,
+    "status": "ready",
+    "issue": "https://github.com/hongyime/sgSHIOK2026/issues/34",
+    "exitCode": 1,
+    "metadataRequests": 14,
+    "githubNoticeRequests": 0,
+    "batches": 1,
+    "pendingCount": 0,
+    "metadataCheckPerformed": true,
+    "elapsedSeconds": 169.73461014600002,
+    "checkpoint": {
+      "files": 162,
+      "bytes": 519191,
+      "archiveBytes": 597033,
+      "archiveSha256": "218151fcf48f64959193570af5cba73ebdad18f960ee808f3f5c205f7ba08a9c",
+      "manifestSha256": "960df6ea906ac4c83253c54b64bdcfe14f2bdd6b8adbf665a75e18cf1b5e0e25"
+    },
+    "sourceHealth": "attention_required",
+    "error": null,
+    "pipelineRuns": 0
+  },
+  "allArchiveHashesMatched": true,
+  "allStatePairPinsMatched": true,
+  "archiveFiles": 162,
+  "archiveBytesArithmetic": "7803+7803+37233+5184+5184+34390+39227+63954+63954+622+39972+35556+52874+52874+683+34409+1047+161+285+1002+161+285+990+161+285+1020+161+285+1025+161+285+1002+161+285+1034+161+285+1010+161+285+984+161+285+995+161+285+1032+161+285+996+161+285+1017+161+285+990+161+285+981+161+285+986+161+285+130+161+130+159+130+161+130+157+130+161+129+161+130+161+129+161+130+161+131+161+131+161+131+161+131+159+131+161+131+161+130+159+131+161+131+161+130+161+131+159+131+161+131+161+131+161+131+161+131+161+130+159+131+161+131+161+130+157+130+159+131+161+131+161+131+161+130+161+130+161+130+161+131+161+131+159+131+159+131+161+131+157+131+159+131+161+131+161+131+161+131+161+131+161+131+161+135+120=519191",
+  "originState": {
+    "path": "qa/source-monitor/ci-34799037563-1-check/state.json",
+    "stateSha256": "f00bb89da9030322e4d1654d0c8aa0adbeec4b372e753321a3ef4120fef0f98f",
+    "reportSha256": "13ebd4cf134ff1eb73065fbf680b7a235127dbb6b98b727b81cb4974a962be48"
+  },
+  "currentState": {
+    "path": "qa/source-monitor/ci-34799037563-1-check/state.json",
+    "stateSha256": "f00bb89da9030322e4d1654d0c8aa0adbeec4b372e753321a3ef4120fef0f98f",
+    "reportSha256": "13ebd4cf134ff1eb73065fbf680b7a235127dbb6b98b727b81cb4974a962be48"
+  },
+  "sourceCounts": {
+    "sources": 24,
+    "attempted": 14,
+    "outcomes": {
+      "credentials_required": 3,
+      "manual": 3,
+      "observed": 14,
+      "unsupported": 4
+    }
+  },
+  "sources": [
+    {
+      "key": "bus_routes",
+      "outcome": "unsupported",
+      "reason": null,
+      "freshness": "unknown",
+      "observedFreshness": "unknown",
+      "availability": "unsupported"
+    },
+    {
+      "key": "bus_services",
+      "outcome": "unsupported",
+      "reason": null,
+      "freshness": "unknown",
+      "observedFreshness": "unknown",
+      "availability": "unsupported"
+    },
+    {
+      "key": "bus_stops",
+      "outcome": "unsupported",
+      "reason": null,
+      "freshness": "unknown",
+      "observedFreshness": "unknown",
+      "availability": "unsupported"
+    },
+    {
+      "key": "covered_linkway",
+      "outcome": "credentials_required",
+      "reason": null,
+      "freshness": "stale",
+      "observedFreshness": "unknown",
+      "availability": "credentials_required"
+    },
+    {
+      "key": "osm_extract",
+      "outcome": "manual",
+      "reason": null,
+      "freshness": "manual",
+      "observedFreshness": "manual",
+      "availability": "manual"
+    },
+    {
+      "key": "overhead_bridge_underpass",
+      "outcome": "credentials_required",
+      "reason": null,
+      "freshness": "stale",
+      "observedFreshness": "unknown",
+      "availability": "credentials_required"
+    },
+    {
+      "key": "overture_addresses_sg_candidate",
+      "outcome": "unsupported",
+      "reason": null,
+      "freshness": "unknown",
+      "observedFreshness": "unknown",
+      "availability": "unsupported"
+    },
+    {
+      "key": "postal_universe_onemap_2020",
+      "outcome": "manual",
+      "reason": null,
+      "freshness": "manual",
+      "observedFreshness": "manual",
+      "availability": "manual"
+    },
+    {
+      "key": "traffic_signals",
+      "outcome": "credentials_required",
+      "reason": null,
+      "freshness": "stale",
+      "observedFreshness": "unknown",
+      "availability": "credentials_required"
+    },
+    {
+      "key": "train_station_codes",
+      "outcome": "manual",
+      "reason": null,
+      "freshness": "manual",
+      "observedFreshness": "manual",
+      "availability": "manual"
+    },
+    {
+      "key": "acra_registered_entities",
+      "outcome": "observed",
+      "reason": null,
+      "freshness": "unknown",
+      "observedFreshness": "current",
+      "availability": "available"
+    },
+    {
+      "key": "building_points",
+      "outcome": "observed",
+      "reason": null,
+      "freshness": "current",
+      "observedFreshness": "current",
+      "availability": "available"
+    },
+    {
+      "key": "lamp_posts",
+      "outcome": "observed",
+      "reason": null,
+      "freshness": "current",
+      "observedFreshness": "current",
+      "availability": "available"
+    },
+    {
+      "key": "leaf_area_index",
+      "outcome": "observed",
+      "reason": null,
+      "freshness": "stale",
+      "observedFreshness": "stale",
+      "availability": "available"
+    },
+    {
+      "key": "mrt_lrt_exits",
+      "outcome": "observed",
+      "reason": null,
+      "freshness": "current",
+      "observedFreshness": "current",
+      "availability": "available"
+    },
+    {
+      "key": "nparks_heritage_road_green_buffers",
+      "outcome": "observed",
+      "reason": null,
+      "freshness": "stale",
+      "observedFreshness": "current",
+      "availability": "available"
+    },
+    {
+      "key": "nparks_heritage_trees",
+      "outcome": "observed",
+      "reason": null,
+      "freshness": "stale",
+      "observedFreshness": "current",
+      "availability": "available"
+    },
+    {
+      "key": "nparks_nature_ways",
+      "outcome": "observed",
+      "reason": null,
+      "freshness": "stale",
+      "observedFreshness": "current",
+      "availability": "available"
+    },
+    {
+      "key": "nparks_park_connector_loop",
+      "outcome": "observed",
+      "reason": null,
+      "freshness": "current",
+      "observedFreshness": "current",
+      "availability": "available"
+    },
+    {
+      "key": "nparks_tracks",
+      "outcome": "observed",
+      "reason": null,
+      "freshness": "stale",
+      "observedFreshness": "stale",
+      "availability": "available"
+    },
+    {
+      "key": "other_uen_registered_entities",
+      "outcome": "observed",
+      "reason": null,
+      "freshness": "unknown",
+      "observedFreshness": "current",
+      "availability": "available"
+    },
+    {
+      "key": "planning_area_boundary",
+      "outcome": "observed",
+      "reason": null,
+      "freshness": "stale",
+      "observedFreshness": "stale",
+      "availability": "available"
+    },
+    {
+      "key": "sla_dwelling_information",
+      "outcome": "observed",
+      "reason": null,
+      "freshness": "current",
+      "observedFreshness": "current",
+      "availability": "available"
+    },
+    {
+      "key": "ura_no_dwelling_units",
+      "outcome": "observed",
+      "reason": null,
+      "freshness": "unknown",
+      "observedFreshness": "stale",
+      "availability": "available"
+    }
+  ],
+  "retainedVerifiedComments": [
+    {
+      "commentId": 5658110314,
+      "bodySha256": "152b6c5e216c8963a4f05fc77c87e27f095f9468a3e5e25e3088cbefadf4ad11",
+      "authorId": 41898282
+    },
+    {
+      "commentId": 5658110988,
+      "bodySha256": "3e2147fd5f854ff76db51df266471eb59d08390e714ddcf213f00ff63e48831d",
+      "authorId": 41898282
+    },
+    {
+      "commentId": 5658105407,
+      "bodySha256": "dbb177282dd7670d7e6d2227d909a79c049015c3630c0cbaa3ea8af4aeca7a85",
+      "authorId": 41898282
+    },
+    {
+      "commentId": 5658111354,
+      "bodySha256": "8ecf2cb93f1336b174c53c31842087bd9c41cfbfc2f8d3aa60b4f846882c8bf2",
+      "authorId": 41898282
+    },
+    {
+      "commentId": 5658109563,
+      "bodySha256": "743e5690fd8378c24adf0f48fd6d7ec451b58a59080d32460442e2574735b087",
+      "authorId": 41898282
+    },
+    {
+      "commentId": 5658106101,
+      "bodySha256": "d96cc7a51d44a2e1104e795096102ad8ae3ec136c2c83a9f3133ca8d178037d8",
+      "authorId": 41898282
+    },
+    {
+      "commentId": 5658106796,
+      "bodySha256": "25da59a9432fcac6fa543f7b2ac7a63bf081ba30e80ba4bec90c7c9a5e73b78d",
+      "authorId": 41898282
+    },
+    {
+      "commentId": 5658104679,
+      "bodySha256": "2097e7b873cace409951b5c11a4f093b1110e5dbc7457c6f5098ba689a2ae590",
+      "authorId": 41898282
+    },
+    {
+      "commentId": 5658105044,
+      "bodySha256": "dc5bcf7845e5d7e13a93df3d2dc17d8cc26d1fb47c02dc215b4ab4ad4ac38e1c",
+      "authorId": 41898282
+    },
+    {
+      "commentId": 5658107125,
+      "bodySha256": "8f3b4a1e6606f1d95f395a6b8bc1381f9f0a5e8e211e411573430c86bda9cc91",
+      "authorId": 41898282
+    },
+    {
+      "commentId": 5658109945,
+      "bodySha256": "34c1c81f696daf61cc3c85aa7a2726b45401255d5e4bfc8173fe8ec083bbdebe",
+      "authorId": 41898282
+    },
+    {
+      "commentId": 5658106461,
+      "bodySha256": "1934d84ed09acf21db97d89475810b84f5950f2fd56754c946fb2fab202252d9",
+      "authorId": 41898282
+    },
+    {
+      "commentId": 5658110658,
+      "bodySha256": "4b8d61f93072f263fd2968ae0e6e2a83154d08cef02eae53d0f0ff93bf713985",
+      "authorId": 41898282
+    },
+    {
+      "commentId": 5658109158,
+      "bodySha256": "96990b8e282d26a2218579a4f77b5fe2166f4cdfabff252379cd7ff573c8b01e",
+      "authorId": 41898282
+    },
+    {
+      "commentId": 5658105748,
+      "bodySha256": "6cc0c89b1b3c2b4e0aba978018c3b384ed04c6d53f1acab9395eaaa9ed907aae",
+      "authorId": 41898282
+    },
+    {
+      "commentId": 5658108800,
+      "bodySha256": "a699f963989e576ebe6e4920e3153a790bb566d1d40f54dfcbb8df34406c7206",
+      "authorId": 41898282
+    }
+  ],
+  "retainedNoticeRequestCount": 48,
+  "pipelineRuns": 0
+}

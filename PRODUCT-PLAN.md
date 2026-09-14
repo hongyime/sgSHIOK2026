@@ -2,7 +2,7 @@
 Current scope: 2026-09-13 owner revision, replacing the 12 September UI scope.
 Completion resume: IN PROGRESS after14September owner answers, not complete.
 Cloudflare rejected. Weekly metadata-only GitHub checks and one issue approved;
-implementing and reviewing the real scheduler, retained journal and activation.
+real scheduler active with verified issue delivery and cross-run journal recovery.
 Repository owner operates issue34. Phone participation agreed, not yet performed.
 Tentative generic assent is not an exact tested release identity. Reporting still
 needs a non-Cloudflare private-store/account decision. T19/T21 retain their data
@@ -13,8 +13,8 @@ deadline across auth/retry/body, caller cancellation and late-token protection.
 Popups show identity only. The saved Bayfront Exit E marker/deep link resolves
 without preview. Bounded018956 coverage is6saved +55unstored =61stop/exit markers.
 Report validation and monitor delivery contracts are implemented and tested, not
-live reporting. Weekly scheduler/issue approval is received; actual activation
-will be recorded in T23 and the new weekly-metadata evidence.
+live reporting. Weekly scheduler is active; T23 and the new weekly-metadata evidence
+record two actual runs, with natural cron execution still unobserved.
 LOCALLY_VERIFIED: walk-only inspector. Two tabs (MRT/LRT exits, Bus stops), shortest
 usable saved walk selected automatically, no Suggested/comparison/About data,
 automatic zoom-bounded night lighting, bounded explicit preview recovery.
@@ -61,7 +61,7 @@ switch; no connection-loss or hardware cause claim. Two images inspected.
 Retired only superseded4418 helpers; current4420/shared4340 remain healthy.
 T14 lifecycle guards are committed at e6113cf. T23 check/delivery/resume integration
 passes27focused cases and1039broader maintenance cases/13files; integrity passes.
-Weekly activation is now approved; implementation/readback are underway. The next product
+Weekly activation and readback are now verified. The next product
 milestone is real core-walk device/release acceptance, not another isolated helper.
 14 September checkpoint: one reviewed, bounded legacy/current attempt failed
 before the release switch. Old-page screenshot after-check command27 timed out
@@ -444,6 +444,19 @@ No ticket is DONE merely because a document, mock, passing count or button exist
   +40doc=1197cases/17files across those runs, not one fresh all-green suite.
   Initial300s interrupted run and all failures retained. Independent review has
   no remaining activation blocker; no runtime delivery claim from that review.
+- First actual activation:run34798579347 on0eec7fe, manual first bootstrap,
+  checkpoint ready;14metadata requests,16verified notices,48notice requests,
+  0pending,243.331235985seconds. Actions failure/exit1 is source attention,
+  not a scheduler failure.24sources=14observed+3credentials_required+4unsupported
+  +3manual.16source comments plus1unrelated welcome-bot comment in issue34.
+  Follow-up NEW manual dispatch34799037563 is checking actual cross-run restore;
+  this is not a rerun of the first attempt and no bootstrap repair is used.
+  Natural cron remains unobserved; first eligible Monday is21September09:17SGT.
+- Cross-run verification:34799037563 completed with ready checkpoint and retained
+  source-health attention,14metadata requests/0notice calls/0pending,169.734610146s.
+  All157prior files retained byte-identically;157+5=162files. Same16verified source
+  comments, no duplicate POST. T23 is ACTIVE with real manual activation/continuity
+  proved; natural weekly execution remains the one unobserved scheduler criterion.
 
 - Runner integration2026-09-13: `scripts/run_source_maintenance.py` joins the actual
   checker, GitHub client, local append-only journal and acknowledgement publisher.
@@ -522,7 +535,7 @@ No ticket is DONE merely because a document, mock, passing count or button exist
   review found no blocking bug within that contract. No real GitHub CAS adapter,
   hosted runner, persistence, issue or scheduled run exists. Weekly GitHub metadata
   checks/one-issue activation requested; live verification remains mandatory.
-- Status: PARTIAL; weekly scheduler/issue approved14September and implemented/reviewed; real activation and natural cron evidence still outstanding at this checkpoint. Size: M. Parent: P2.3.
+- Status: ACTIVE; weekly scheduler/issue approved14September, two real manual runs verify delivery and cross-run recovery. First natural cron observation remains outstanding. Size: M. Parent: P2.3.
 - Depends on: T22.
 - Scope: inspect existing freshness/check automation, then a narrowly scoped read-only checker and workflow only if needed; runbook/fixtures.
 - Do: choose a documented cadence and inspect source metadata, not datasets. Deduplicate notices, handle rate limits and errors, record successful/failed checks and give the owner an actionable failure notice. No automatic processing or blanket workflow rewrite.

@@ -1,0 +1,30 @@
+Weekly source metadata checks
+
+Active schedule: Monday 01:17 UTC (09:17 Singapore time).
+Operator: repository owner. This is the single destination for source notices.
+
+Activation verified on 14 September 2026:
+- First manual run: https://github.com/hongyime/sgSHIOK2026/actions/runs/34798579347
+  14 metadata requests, 16 delivered/read-back notices, 48 notice API requests, no pending notices.
+- Normal follow-up: https://github.com/hongyime/sgSHIOK2026/actions/runs/34799037563
+  Restored the previous checkpoint, made 14 metadata requests and zero notice API requests. No duplicate notices.
+- Both checkpoints are ready. Actions reports failure/exit 1 because source health needs attention, not because the scheduler stopped. No natural scheduled run has been observed yet.
+
+Latest source outcomes: 14 observed + 3 credentials_required + 4 unsupported + 3 manual = 24.
+Covered Linkway, Pedestrian Overhead Bridge/Underpass and Traffic Signals need the LTA_DATAMALL_ACCOUNT_KEY repository Actions secret. No laptop credential was copied. Never put credentials in this issue.
+Unsupported entries: Bus Routes, Bus Services, Bus Stops and Overture address candidates. Other stale/unknown conditions are detailed in the source notices below; an observation is not a dataset refresh.
+The separate welcome-bot comment is not a source notice.
+
+This routine reads publisher metadata only. It does not download datasets, ingest inputs, score routes, export data, deploy the app, change published maps or store private resident reports.
+
+Operations:
+- Standard public-repository GitHub-hosted runner, no paid service or Cloudflare.
+- Maximum 24 metadata requests plus 3 batches of 24 notice API requests; 25-minute job cap.
+- Immutable 30-day artifacts carry the whole retained monitor and send history, with bounded storage. The newest verified artifact is required for continuity.
+- Do not use Re-run jobs. All reruns are rejected because deleted newer history cannot be ruled out. A new manual dispatch is allowed only with an intact ready predecessor, with bootstrap=false.
+- Missing, expired, stopped or conflicting history requires investigation. Never delete journals, bootstrap again or automatically resend to repair it.
+- GitHub schedules are best effort and can be disabled after public-repository inactivity. Check for a missing weekly run as well as new notices. GitHub delivery failures remain visible in Actions.
+
+Runbook and evidence:
+https://github.com/hongyime/sgSHIOK2026#bounded-source-metadata-monitor-local
+https://github.com/hongyime/sgSHIOK2026/tree/main/qa/revamp-r1/weekly-metadata-20260914
