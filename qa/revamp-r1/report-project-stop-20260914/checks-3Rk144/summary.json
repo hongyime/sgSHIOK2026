@@ -1,0 +1,15 @@
+{
+  "mode": "integrity",
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "scripts/check_repo_integrity.py"
+  ],
+  "exit": 0,
+  "elapsedMs": 339,
+  "error": null,
+  "evidence": {
+    "bytes": 451613,
+    "sha256": "e4fbc68b0e45bc9405f6468e6ccb0fad40f410fbca8fd0baf94387c9da75e276"
+  }
+}

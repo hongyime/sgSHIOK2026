@@ -4316,3 +4316,37 @@ FINDINGS
 DISAGREEMENTS
 1. Broad account credentials are not application authorization. Keep management
    tokens out of the reporting runtime and rotate the credentials disclosed in chat.
+
+## 2026-09-14: Stop the mistaken sgbuslaobu integration
+
+Correction to the preceding project-designation entry: the owner mentioned an
+existing project, but did not designate that unrelated app as SHIOK's database.
+The agent inferred approval incorrectly and installed reporting objects there.
+The owner explicitly stopped that use and will create a dedicated SHIOK project.
+Supabase Free remains the chosen provider; the project-identity gate is open.
+
+Do not access sgbuslaobu (ajvenxqkedajbrbnnfko) for SHIOK again. The server adapter
+rejects this destination before transport. The three historical remote scripts
+abort before reading credentials, creating output directories or making requests.
+Keep their original bodies and result files as historical evidence, not recipes
+to rerun. Never derive a new target from those old receipts or mere account access.
+
+No public reporting route, resident UI or runtime Supabase configuration was
+connected. The existing remote schema was last verified disabled and empty;
+this stop does not re-query, delete, migrate or reactivate it. Removing only the
+mistaken additions requires separately approved cleanup. Existing transit data
+and shared account credentials must not be altered to stop this integration.
+
+The earlier project-list check used a different locally configured PAT. Checking
+the exact supplied PAT returned the same ten accessible project names, with no
+SHIOK-named project. The owner subsequently confirmed one does not yet exist.
+Do not preserve tokens or their comparison hashes in public evidence.
+
+FINDINGS
+1. The wrong target existed in operational scripts and current-state docs even
+   though no public report endpoint was wired. Both paths required correction.
+2. Historical test success cannot substitute for approval of the project target.
+
+DISAGREEMENTS
+1. None with the owner's stop instruction. The earlier designation claim was
+   an agent error, not an authorization supplied by the owner.

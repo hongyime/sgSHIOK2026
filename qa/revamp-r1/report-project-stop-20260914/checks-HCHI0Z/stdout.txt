@@ -1,0 +1,11 @@
+✔ database-check.mjs refuses before filesystem writes or provider requests (643.9974ms)
+✔ apply-schema.mjs refuses before filesystem writes or provider requests (584.6162ms)
+✔ inspect-installed.mjs refuses before filesystem writes or provider requests (931.314ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3040.0431

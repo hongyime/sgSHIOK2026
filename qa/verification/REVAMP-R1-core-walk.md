@@ -6704,3 +6704,65 @@ FINDINGS
 DISAGREEMENTS
 1. Broad account PATs are management credentials, not report runtime credentials.
    Rotate the chat-disclosed credentials and keep keys out of the public repo.
+
+## Correction 2026-09-14: Stop using the unrelated Supabase project
+
+The earlier "owner-designated sgbuslaobu" claim was an agent inference and was
+wrong. The owner explicitly stopped SHIOK's use of that project and will create
+a dedicated project. Prior database outputs remain unchanged as historical
+evidence, not acceptance of an authorized SHIOK backend.
+
+No Supabase request, database change, cleanup, migration or project creation was
+performed for this stop. The mistaken remote schema has not been deleted; its
+last verified state was disabled with zero reports. No fresh state is claimed.
+Existing transit tables, credentials, published artifacts and inputs are untouched.
+
+The server adapter now rejects the unrelated project before any transport call.
+database-check.mjs, apply-schema.mjs and inspect-installed.mjs retain their old
+bodies but unconditionally abort first. The executed subprocess tests replace
+fetch, synchronous output writes and temporary-directory creation with throwing
+guards, including when the old apply flag and a synthetic credential are present.
+Current STATE, README, architecture, product plan and postplan now identify the
+dedicated project as pending, not installed. Durable correction is in decisions.md.
+
+Evidence directory: qa/revamp-r1/report-project-stop-20260914
+Command form: node <absolute directory>/check.mjs <mode>
+Every run retains its exact command, stdout, stderr, exit and elapsed time.
+
+Initial red regressions (retained, not replaced):
+checks-UPFJVt, guard: exit1, tests3/pass0/fail3, 2000ms process time.
+checks-7UPxMl, web: exit1, tests120/pass119/fail1, 17885ms process time.
+The base project URL was not denied; existing malformed-URL cases already denied
+the newline variants. The injected transport made no real provider request.
+
+Final checks:
+checks-HCHI0Z, guard: exit0, tests3/pass3/fail0, 3808ms process time.
+checks-fZE7k7, web: exit0, tests120/pass120/fail0, 3files, 17722ms process time.
+checks-YmVjZ4, docs: exit0, 21726ms process time. Raw stdout:
+```text
+.........................................                                [100%]
+41 passed in 14.08s
+```
+checks-Kfc1hT, types: exit0, 5582ms process time, empty stdout/stderr.
+checks-3Rk144, integrity: exit0, 339ms process time. Raw stdout:
+```text
+repo_integrity=ok
+```
+Reporting count arithmetic: 116 prior + 4 destination regressions = 120.
+Retired-script tests are 3 separate Node tests, not part of that 120.
+No new isolated-full-suite, browser, deployment or pipeline claim.
+
+Preserved evidence prefix before this append:
+451613 bytes, sha256 e4fbc68b0e45bc9405f6468e6ccb0fad40f410fbca8fd0baf94387c9da75e276.
+Unchanged weights sha256:
+5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec.
+
+FINDINGS
+1. No public Supabase connection was wired, but executable setup scripts and
+   current-state documents still promoted the wrong target. Both are stopped.
+2. The wrong-project schema is not silently removed or claimed to be SHIOK's
+   production storage. Cleanup requires separate approval; no cleanup was run.
+
+DISAGREEMENTS
+1. None with the owner's stop instruction. The earlier designation claim was
+   an agent error and is corrected explicitly without rewriting old evidence.

@@ -1,3 +1,5 @@
+// Historical wrong-project experiment: retained, but must never execute again.
+throw new Error('RETIRED: sgbuslaobu is not a SHIOK project. No access permitted.');
 import assert from 'node:assert/strict';
 import { readFileSync, writeFileSync, mkdtempSync } from 'node:fs';
 import { createHash } from 'node:crypto';

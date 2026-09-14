@@ -6,7 +6,8 @@ real scheduler active with verified issue delivery and cross-run journal recover
 Repository owner operates issue34. Owner uses desktop Chrome with a resized
 viewport; physical-phone participation was not established by that answer.
 Tentative generic assent is not an exact tested release identity. Reporting still
-uses the approved Supabase Free provider and designated sgbuslaobu project; service/privacy
+uses the approved Supabase Free provider but has no dedicated project yet; the
+owner will create it. Stop all use of sgbuslaobu, selected in error. Service/privacy
 acceptance remain open. Do not repeat the provider-choice question. T19/T21 retain their data
 budget gates. Do not repeat failed browser work merely for PASS.
 The full product goal remains unchanged; a limited release is not completion.
@@ -315,12 +316,12 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 
 ### [ ] T13: Owner approves the reporting service boundary
 - Status: OWNER. Size: S. Parent: P1.3.
-- Follow-up2026-09-14: owner designated sgbuslaobu; existing authenticated
-  environment accesses it. Organization plan free, project healthy in Singapore.
-  Project identification/setup gate is closed, not a reason to ask for credentials
-  again. Rotate chat-disclosed credentials; do not record their values in repo.
-  Private schema installed disabled; remaining privacy/moderation/operations
-  decisions do not disappear with provider or account access.
+- Correction2026-09-14: the agent wrongly treated the mentioned sgbuslaobu project
+  as designated for SHIOK. Owner stopped its use and will create a dedicated
+  project. No more remote access to the unrelated project; adapter denies it and
+  the three old remote scripts abort before IO. Its disabled schema was not
+  deleted; cleanup requires separate approval. Await the new project's identity,
+  not another PAT. Reporting remains inactive; no correct SHIOK backend exists yet.
 - Decision2026-09-14: Supabase Free approved for private resident reports;
   Cloudflare rejected. Provider selection is complete, not the whole ticket.
   CLI2.111.0 lists no SHIOK-named project and repository configuration contains
@@ -354,8 +355,11 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: Approved infrastructure contract; zero pipeline.
 
 ### [ ] T15: Persist reports and issue truthful receipts
-- Status: PARTIAL (private storage installed; no resident endpoint). Size: M. Parent: P1.3.
-- Checkpoint2026-09-14: migration20260914085103 applied to the designated Free
+- Status: WAIT_DEPS (dedicated project pending; local adapter tested, no resident endpoint). Size: M. Parent: P1.3.
+- Correction2026-09-14: the following checkpoint used the wrong project. It is
+  historical test evidence, not a SHIOK deployment. Stop all access to that
+  project; no cleanup/deletion is authorized. Owner will create SHIOK's project.
+- Historical checkpoint2026-09-14: migration20260914085103 applied to the unrelated Free
   project after14PostgreSQL rollback test groups. New schema and service-only RPC;
   zero stored reports/quota rows, enabled=false, no policy/cleanup approval or
   allowed bundle. Existing transit definitions and previous migration preserved.

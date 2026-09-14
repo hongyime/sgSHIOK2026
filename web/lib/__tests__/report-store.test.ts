@@ -38,6 +38,12 @@ describe('Server-only report RPC transport, not a public endpoint', () => {
     expect(await submitPrivateReport({ ...config, secretKey: ['sbp', 'synthetic'].join('_') }, fixture, retrySecret, bucket, new AbortController().signal, transport)).toEqual({ ok: false, error: 'unconfigured' });
     expect(transport).not.toHaveBeenCalled();
   });
+  it.each(['', '\n', '\r', '\r\n'])('never sends SHIOK reports to the unrelated sgbuslaobu project %#', async suffix => {
+    const transport = vi.fn();
+    const projectUrl = `https://ajvenxqkedajbrbnnfko.supabase.co${suffix}`;
+    expect(await submitPrivateReport({ ...config, projectUrl }, fixture, retrySecret, bucket, new AbortController().signal, transport)).toEqual({ ok: false, error: 'unconfigured' });
+    expect(transport).not.toHaveBeenCalled();
+  });
   it.each([null, {}, { ...fixture, email: 'not-allowed' }, { ...fixture, note: 'a'.repeat(1001) }])('validates before persistence %#', async body => {
     const transport = vi.fn();
     expect(await send(transport, undefined, body)).toEqual({ ok: false, error: 'invalid_request' });

@@ -125,9 +125,11 @@ the provider-choice gate, not the tests required before accepting real reports.
 Keep the existing Vercel frontend and Node server; do not add Cloudflare.
 Use the owner-designated Free project, verifying its organization plan first.
 Project name/dashboard URL is safe setup information; secret keys are not chat,
-public evidence or NEXT_PUBLIC configuration. The owner designated sgbuslaobu;
-its Free organization and Singapore region are verified. Private storage is
-installed with intake disabled; no resident endpoint or runtime secret is configured.
+public evidence or NEXT_PUBLIC configuration. The owner will create a dedicated
+SHIOK project. The earlier use of sgbuslaobu was an agent targeting error, not
+owner approval. No correctly targeted SHIOK storage is installed. The unrelated
+project is prohibited in the server adapter; its three remote QA scripts are
+retired before IO. No resident endpoint or runtime secret is configured.
 
 Use a same-origin report API with the existing bounded report parser. The browser
 must not have database read/moderation privileges. Store report content in a
@@ -164,12 +166,17 @@ Reporting failure must leave the map and saved walks usable.
 Owner testing currently means desktop Chrome with resized viewports. Record
 responsive acceptance separately from unperformed physical-phone acceptance.
 
-Storage checkpoint: migration20260914085103 creates only shiok_reports and one
+Historical wrong-project checkpoint, not an active SHIOK backend:
+migration20260914085103 creates only shiok_reports and one
 service-role-only public RPC. All three tables have RLS and no public/authenticated
 grants or policies; this is intentional default denial, not missing resident access.
 The schema is not exposed through the Data API. The existing transit schema and
 its grants/settings are outside this migration. The RPC is security invoker,
 not an anonymously executable privileged function.
+The existing remote objects were last verified disabled and empty. Do not access,
+reactivate or delete them without a separately approved cleanup. Before any future
+schema application, confirm the dedicated project's identity and Free plan; never
+derive a deployment target from historical test receipts or general account access.
 
 Server adapter: web/app/api/reports/store.ts, not route.ts. It accepts only a
 Supabase project origin and a server secret key, never a management PAT. It reuses
