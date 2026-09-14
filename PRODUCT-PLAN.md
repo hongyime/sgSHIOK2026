@@ -1,25 +1,25 @@
 # SHIOK Revamp Execution Plan
 Current scope: 2026-09-13 owner revision, replacing the 12 September UI scope.
-Completion resume: BLOCKED on external decisions/actions, not complete.
-14 September audit: the previous checkpoint made progress; this audit found no
-new independently startable implementation. Kant independently checked the open
-dependencies; parent checked T27 release preparation. Reporting needs T13 policy
-and account setup, maintenance needs operator/storage/scheduler authorization,
-T26 needs real participation, and T28 needs an exact release decision. T19/T21
-retain their scan/job budget gates. These conditions have remained unanswered
-across the recent goal turns. Concrete reporting and weekly-check approval
-questions have been sent. Do not repeat failed browser work merely for PASS.
+Completion resume: IN PROGRESS after14September owner answers, not complete.
+Cloudflare rejected. Weekly metadata-only GitHub checks and one issue approved;
+implementing and reviewing the real scheduler, retained journal and activation.
+Repository owner operates issue34. Phone participation agreed, not yet performed.
+Tentative generic assent is not an exact tested release identity. Reporting still
+needs a non-Cloudflare private-store/account decision. T19/T21 retain their data
+budget gates. Do not repeat failed browser work merely for PASS.
 The full product goal remains unchanged; a limited release is not completion.
 OneMap route/search share a 10s server
 deadline across auth/retry/body, caller cancellation and late-token protection.
 Popups show identity only. The saved Bayfront Exit E marker/deep link resolves
 without preview. Bounded018956 coverage is6saved +55unstored =61stop/exit markers.
 Report validation and monitor delivery contracts are implemented and tested, not
-live services. Reporting choices and weekly scheduler/issue approval are pending.
+live reporting. Weekly scheduler/issue approval is received; actual activation
+will be recorded in T23 and the new weekly-metadata evidence.
 LOCALLY_VERIFIED: walk-only inspector. Two tabs (MRT/LRT exits, Bus stops), shortest
 usable saved walk selected automatically, no Suggested/comparison/About data,
 automatic zoom-bounded night lighting, bounded explicit preview recovery.
-Current QA: qa/revamp-r1/legacy-preservation-20260914 (failed bounded reload attempt);
+Current QA: qa/revamp-r1/weekly-metadata-20260914 (approved scheduler implementation);
+retained qa/revamp-r1/legacy-preservation-20260914 (failed bounded reload attempt);
 retained qa/revamp-r1/maintenance-runner-20260913 (inactive integrated runner);
 retained qa/revamp-r1/report-lifecycle-20260913 (local report lifecycle);
 retained qa/revamp-r1/legacy-command-20260913 (old-client timing, NOT accepted);
@@ -61,7 +61,7 @@ switch; no connection-loss or hardware cause claim. Two images inspected.
 Retired only superseded4418 helpers; current4420/shared4340 remain healthy.
 T14 lifecycle guards are committed at e6113cf. T23 check/delivery/resume integration
 passes27focused cases and1039broader maintenance cases/13files; integrity passes.
-Activation needs the operator/account/storage decisions below. The next product
+Weekly activation is now approved; implementation/readback are underway. The next product
 milestone is real core-walk device/release acceptance, not another isolated helper.
 14 September checkpoint: one reviewed, bounded legacy/current attempt failed
 before the release switch. Old-page screenshot after-check command27 timed out
@@ -427,6 +427,24 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 
 ### [ ] T23: Establish a bounded metadata-check routine
 
+- Owner-approved2026-09-14: Monday01:17UTC/09:17SGT metadata-only checks to
+  https://github.com/hongyime/sgSHIOK2026/issues/34, repository owner operating.
+  New serialized Actions adapter uses pinned Git anchor profile, GITHUB_TOKEN,
+  and30day immutable full-history artifacts. No Cloudflare or copied credentials.
+  Initial review caught unrelated tracked QA traversal, stale predecessor rollback
+  and post-send capacity checks; corrected before any activation. At most24metadata
+  requests plus3*24=72notice requests;25min job cap. Reserve27.625MiB worst-case
+  growth before external IO,64MiB archive/raw caps and12,000files. No pruning;
+  missing/stopped/expired history and old-run reruns stop. Natural cron and actual
+  first dispatch remain unobserved at this implementation checkpoint.
+  Evidence:`qa/revamp-r1/weekly-metadata-20260914/`.
+  Validation:46scheduler cases pass; full1197case run had1195pass/2README failures.
+  Restored the dropped pending-intent caveat and corrected old unapproved-policy
+  assertions; all40doc/integrity cases then pass. Final code coverage1157non-doc
+  +40doc=1197cases/17files across those runs, not one fresh all-green suite.
+  Initial300s interrupted run and all failures retained. Independent review has
+  no remaining activation blocker; no runtime delivery claim from that review.
+
 - Runner integration2026-09-13: `scripts/run_source_maintenance.py` joins the actual
   checker, GitHub client, local append-only journal and acknowledgement publisher.
   Explicit pinned original/current pairs preserve notice provenance across resume;
@@ -504,7 +522,7 @@ No ticket is DONE merely because a document, mock, passing count or button exist
   review found no blocking bug within that contract. No real GitHub CAS adapter,
   hosted runner, persistence, issue or scheduled run exists. Weekly GitHub metadata
   checks/one-issue activation requested; live verification remains mandatory.
-- Status: PARTIAL; local checker, review fixes, runbook and one bounded live pass complete; operational activation outstanding. Size: M. Parent: P2.3.
+- Status: PARTIAL; weekly scheduler/issue approved14September and implemented/reviewed; real activation and natural cron evidence still outstanding at this checkpoint. Size: M. Parent: P2.3.
 - Depends on: T22.
 - Scope: inspect existing freshness/check automation, then a narrowly scoped read-only checker and workflow only if needed; runbook/fixtures.
 - Do: choose a documented cadence and inspect source metadata, not datasets. Deduplicate notices, handle rate limits and errors, record successful/failed checks and give the owner an actionable failure notice. No automatic processing or blanket workflow rewrite.

@@ -306,20 +306,45 @@ in this command.
   unchanged. Checking an old baseline today never makes it current.
 - The initial builder records Git and local text identities separately after an
   exact LF/CRLF-only comparison of the two allowlisted metadata files. Runtime checks
-  still require the exact recorded local raw-byte hashes. Do not rewrite protected
+  default to the exact recorded local raw-byte hashes. The approved Actions adapter
+  explicitly selects the separately pinned `gitAnchors` profile; it never falls
+  back between profiles or converts inputs. Do not rewrite protected
   inputs or substitute expected hashes. Routine read-only diagnosis is approved;
   unresolved content differences stop consumption of the affected input. A changed
   checkout representation needs a separately reviewed local catalog, not a payload
   repair or automatic catalog overwrite.
 
-The proposed cadence is weekly, Tuesday 09:43 UTC. It is **not scheduled or an alert
-service yet**. GitHub Actions plus one persistent issue for durable state and
-deduplicated notices remains a proposal requiring explicit external-write approval.
-No workflow, issue, external cache, secret or notification delivery is configured by
-this checker. Pending notices are intents, not delivered alerts. Actual scheduled
-execution, state restoration and destination readback remain T23 acceptance work.
-The current command intentionally requires the Windows root; it is not yet a hosted
-Actions runner. T24 covers the broader ownership/recovery procedure separately.
+Owner approval on 14 September supersedes the proposed Tuesday cadence: weekly
+Monday 01:17 UTC / 09:17 SGT to [one issue](https://github.com/hongyime/sgSHIOK2026/issues/34).
+The repository owner operates the routine. `source-metadata-weekly.yml` is the
+serialized GitHub Actions adapter; activation evidence is recorded separately from
+its fixture tests. The local CLI still requires the Windows root. The adapter
+requires this repository's main-branch Actions environment and uses only its
+short-lived `GITHUB_TOKEN`, with contents/actions read and issues write permissions.
+No laptop credential is copied. Missing `LTA_DATAMALL_ACCOUNT_KEY` is reported as
+`credentials_required`; unsupported sources remain unsupported, not healthy.
+
+The first manual dispatch alone uses `bootstrap=true`. Later attempts restore the
+immediately preceding run's immutable artifact, never a guessed older success.
+Deleted, expired, stopped or conflicting history stops before source/notice IO;
+all reruns are rejected, since deleted newer runs are invisible to discovery.
+Use a new manual dispatch only with an intact ready predecessor. Preserve evidence and investigate,
+never bootstrap again to clear a fault. Each 30-day artifact carries the whole
+retained monitor/send/request history with hashes, not pipeline inputs or tokens.
+Bounds: 12,000 files, 64 MiB raw/ZIP, 4,096 lifetime notice requests; reserve worst
+case growth before IO and stop at capacity without pruning. This is bounded
+operational persistence, not indefinite archival or a backup of project data.
+At most 24 metadata requests/300 seconds plus three notice batches of eight
+notices and 24 requests/300 seconds each: 3 * 24 = 72 notice API requests per
+workflow, separately from bounded Actions control-plane requests. Job cap:25min.
+
+Pending notices are intents, not delivered alerts; only read-back receipts prove delivery.
+Only minimized source notices go to the issue. No dataset refresh, scoring,
+export, resident-report storage or deployment runs. Missing receipts are unknown,
+not success; an Actions failure remains visible if issue delivery is unavailable.
+GitHub schedules are best effort and public-repository inactivity can disable
+them after 60 days. A manual activation is not proof of a natural cron run.
+[GitHub schedule rules](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
 
 Documented endpoints: [data.gov.sg metadata API](https://guide.data.gov.sg/developer-guide/dataset-apis/get-dataset-metadata)
 and [DataMall API guide](https://datamall.lta.gov.sg/content/dam/datamall/datasets/LTA_DataMall_API_User_Guide.pdf).
@@ -328,20 +353,20 @@ Evidence and limitations: `qa/verification/REVAMP-R1-core-walk.md`, task T23 in
 
 ## Maintenance And Recovery
 
-This is T24's operating proposal, not activation of monitoring, reporting, backup
-or deployment. The project owner is accountable for release and privacy decisions;
+T24's reporting, backup and deployment procedures remain proposals. The weekly
+metadata routine above is now owner-approved. The project owner is accountable for release and privacy decisions;
 an agent can execute approved checks but cannot become the permanent operator.
 
 ### Ownership And Cadence
 
 | Routine | Proposed cadence | Agent action | Owner action and fallback |
 | --- | --- | --- | --- |
-| Source metadata | Tuesday 09:43 UTC / 17:43 SGT | Run the bounded local monitor; retain verified state and every outcome. | Review the receipt that day. T23 schedule/delivery is unapproved; no unattended check is promised. Missing receipt is unknown, not success. |
+| Source metadata | Monday 01:17 UTC / 09:17 SGT | Approved metadata-only Actions routine; retain immutable checkpoints and notices in issue34. | Review the issue and terminal run that day. Missing receipt is unknown, not success. Investigate stopped/expired history without deleting or reinitializing it. |
 | Resident reports, only after T13-T18 | Tuesday and Friday 18:00 SGT; privacy/abuse incidents promptly when noticed | After approval, inspect the private queue, retention and quotas using least privilege. | Name moderator and absence cover before enabling intake. Close intake if nobody can maintain review/cleanup; no public issue containing resident notes. |
 | Release | Each candidate, then first-day error/quota review after an approved publish | Assemble exact identities, tests, unresolved gates and rollback target. | Approve the exact candidate and target. A failed stage stops further action; inspect actual remote state before retry or rollback. |
 | Capacity and recoverability | First Saturday monthly, and before input changes or releases | Inspect bounded metadata/receipts; propose backup scope and record gaps. | Check free-plan usage, own private backup destination/keys, and separately approve a restore drill. No existing backup is assumed. |
 
-No response-time SLA or activated calendar job is established by this table. Keep
+No response-time SLA is established by this table. Keep
 maintenance receipts linked from `.agents/STATE.md` and durable decisions here or
 in `decisions.md`; never place secrets or resident report content in public Git.
 
@@ -393,16 +418,16 @@ remain unverified in this inspection. Git auto-deploy is disabled in checked-in
 - Current MapLibre security disposition (T29), client upgrade acceptance and real
   immutable-stage acceptance precede release. No install, deployment or rollback ran in T24.
 
-### Append-Only Maintenance Notices (Not Activated)
+### Append-Only Maintenance Notices
 
 `scripts/source_metadata_comments.py` and `scripts/source_metadata_github.py`
-implement a locally testable issue-comment path, not a running notification service.
+implement the issue-comment path used by the approved weekly adapter above.
 They never edit the issue body. The old injected issue-replacement contract in
 `source_metadata_delivery.py` is historical and must not be adapted to GitHub PATCH.
 
-Before activation, approve the issue, separately pin the posting account's numeric
-user ID, provide repository-scoped credentials privately, and choose one authoritative
-persistent journal. Validate the monitor state/report pair before planning notices.
+The approved destination is issue34, posting as `github-actions[bot]`, numeric ID
+41898282 verified through GitHub's API. The artifact chain is the authoritative
+journal for this serialized workflow. Validate the monitor state/report pair before planning notices.
 The current local journal is restricted to a new directory beneath
 `tmp/source-notice-journals/`; initialization returns a unique identity hash that
 must be retained externally. Do not treat an ephemeral Actions checkout as persistence.
@@ -476,10 +501,11 @@ Restoration validates its referenced predecessor/origin hashes and replays the
 allowed transition; it does not perform another GitHub verification or authenticate
 untrusted local report assertions. Retain the original referenced pairs, journal
 and trusted pins. This is not automatic latest-checkpoint selection or rollback
-protection. Hosted persistence, operator resolution, scheduler and live
-notice activation remain unimplemented/unapproved. An ephemeral hosted checkout
-cannot replace the retained local journal or this CLI's Windows/source-anchor
-requirements. No scheduled-delivery claim follows from local fixture tests.
+protection by itself. The approved weekly adapter adds explicit Git-profile
+selection and artifact-backed continuity; it does not relax this local CLI's
+Windows/source-anchor requirements. An ephemeral checkout without the trusted
+predecessor cannot resume. Operator resolution is still manual. No actual
+scheduled-delivery claim follows from local fixture tests.
 
 Inspect an existing, independently pinned journal without network or mutation:
 
@@ -518,7 +544,7 @@ Check [Vercel's current usage policy](https://vercel.com/docs/limits/fair-use-gu
 including Hobby's non-commercial restriction, instead of relying on old quota figures.
 
 Reports are still drafts, not a live moderation service. T13 must explicitly
-approve the provider (including any change to the current no-Cloudflare policy),
+approve a non-Cloudflare provider (Cloudflare was explicitly rejected on14September),
 owner access, privacy, caps and absence cover before T14-T18. The reviewed proposal
 is `qa/revamp-r1/report-service-proposal-20260908.json`; its application caps are
 100 new reports/day, five per short-lived IP bucket/day, 500 pending and 5,000

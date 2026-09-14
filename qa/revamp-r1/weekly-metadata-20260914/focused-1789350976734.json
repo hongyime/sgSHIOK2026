@@ -1,0 +1,75 @@
+{
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_scheduled_source_metadata.py",
+    "-v",
+    "--durations=10",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\tmp\\weekly-metadata-1789350976734"
+  ],
+  "exitCode": 0,
+  "stdout": "============================= test session starts =============================\r\nplatform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0 -- C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe\r\nhypothesis profile 'default'\r\nrootdir: C:\\sgSHIOK2026\r\nconfigfile: pyproject.toml\r\nplugins: anyio-4.14.2, hypothesis-6.161.5\r\ncollecting ... collected 46 items\r\n\r\ntests/test_scheduled_source_metadata.py::test_checkpoint_round_trip_preserves_exact_bytes PASSED [  2%]\r\ntests/test_scheduled_source_metadata.py::test_wrong_or_stopped_checkpoint_rejected_before_restore[runId-2] PASSED [  4%]\r\ntests/test_scheduled_source_metadata.py::test_wrong_or_stopped_checkpoint_rejected_before_restore[attempt-2] PASSED [  6%]\r\ntests/test_scheduled_source_metadata.py::test_wrong_or_stopped_checkpoint_rejected_before_restore[repository-other/project] PASSED [  8%]\r\ntests/test_scheduled_source_metadata.py::test_wrong_or_stopped_checkpoint_rejected_before_restore[workflow-other.yml] PASSED [ 10%]\r\ntests/test_scheduled_source_metadata.py::test_wrong_or_stopped_checkpoint_rejected_before_restore[anchorProfile-local] PASSED [ 13%]\r\ntests/test_scheduled_source_metadata.py::test_wrong_or_stopped_checkpoint_rejected_before_restore[status-stopped] PASSED [ 15%]\r\ntests/test_scheduled_source_metadata.py::test_wrong_or_stopped_checkpoint_rejected_before_restore[catalogSha256-0000000000000000000000000000000000000000000000000000000000000000] PASSED [ 17%]\r\ntests/test_scheduled_source_metadata.py::test_archive_paths_are_allowlisted[../outside] PASSED [ 19%]\r\ntests/test_scheduled_source_metadata.py::test_archive_paths_are_allowlisted[/absolute] PASSED [ 21%]\r\ntests/test_scheduled_source_metadata.py::test_archive_paths_are_allowlisted[C:/outside] PASSED [ 23%]\r\ntests/test_scheduled_source_metadata.py::test_archive_paths_are_allowlisted[web/public/data/input.json] PASSED [ 26%]\r\ntests/test_scheduled_source_metadata.py::test_archive_paths_are_allowlisted[raw/manifest.json] PASSED [ 28%]\r\ntests/test_scheduled_source_metadata.py::test_archive_paths_are_allowlisted[.env] PASSED [ 30%]\r\ntests/test_scheduled_source_metadata.py::test_archive_paths_are_allowlisted[tmp/source-notice-journals/github-weekly/token.txt] PASSED [ 32%]\r\ntests/test_scheduled_source_metadata.py::test_hash_mismatch_is_not_repaired PASSED [ 34%]\r\ntests/test_scheduled_source_metadata.py::test_existing_file_is_not_overwritten PASSED [ 36%]\r\ntests/test_scheduled_source_metadata.py::test_extra_unlisted_file_prevents_all_writes PASSED [ 39%]\r\ntests/test_scheduled_source_metadata.py::test_snapshot_bounds_total_history PASSED [ 41%]\r\ntests/test_scheduled_source_metadata.py::test_only_explicit_first_workflow_run_can_bootstrap PASSED [ 43%]\r\ntests/test_scheduled_source_metadata.py::test_missing_history_does_not_allow_implicit_or_repeated_bootstrap[1-1-False] PASSED [ 45%]\r\ntests/test_scheduled_source_metadata.py::test_missing_history_does_not_allow_implicit_or_repeated_bootstrap[2-1-True] PASSED [ 47%]\r\ntests/test_scheduled_source_metadata.py::test_missing_history_does_not_allow_implicit_or_repeated_bootstrap[2-1-False] PASSED [ 50%]\r\ntests/test_scheduled_source_metadata.py::test_missing_history_does_not_allow_implicit_or_repeated_bootstrap[1-2-True] PASSED [ 52%]\r\ntests/test_scheduled_source_metadata.py::test_latest_failed_attempt_is_predecessor_not_older_success PASSED [ 54%]\r\ntests/test_scheduled_source_metadata.py::test_predecessor_must_be_terminal_main_trusted_event[changes0] PASSED [ 56%]\r\ntests/test_scheduled_source_metadata.py::test_predecessor_must_be_terminal_main_trusted_event[changes1] PASSED [ 58%]\r\ntests/test_scheduled_source_metadata.py::test_predecessor_must_be_terminal_main_trusted_event[changes2] PASSED [ 60%]\r\ntests/test_scheduled_source_metadata.py::test_rerun_requires_a_new_dispatch_not_an_old_attempt PASSED [ 63%]\r\ntests/test_scheduled_source_metadata.py::test_deleted_intermediate_run_cannot_roll_back_journal PASSED [ 65%]\r\ntests/test_scheduled_source_metadata.py::test_stale_rerun_cannot_roll_back_journal PASSED [ 67%]\r\ntests/test_scheduled_source_metadata.py::test_rerun_cannot_bypass_discovery PASSED [ 69%]\r\ntests/test_scheduled_source_metadata.py::test_deleted_newer_run_cannot_make_old_rerun_safe PASSED [ 71%]\r\ntests/test_scheduled_source_metadata.py::test_tracked_live_review_evidence_is_not_checkpoint_history PASSED [ 73%]\r\ntests/test_scheduled_source_metadata.py::test_capacity_stop_precedes_metadata_notice_and_journal_io[MAX_TOTAL] PASSED [ 76%]\r\ntests/test_scheduled_source_metadata.py::test_capacity_stop_precedes_metadata_notice_and_journal_io[MAX_FILES] PASSED [ 78%]\r\ntests/test_scheduled_source_metadata.py::test_capacity_stop_precedes_metadata_notice_and_journal_io[MAX_ZIP] PASSED [ 80%]\r\ntests/test_scheduled_source_metadata.py::test_oversize_archive_is_not_upload_visible PASSED [ 82%]\r\ntests/test_scheduled_source_metadata.py::test_monitor_and_journal_writers_refuse_oversize_before_creation PASSED [ 84%]\r\ntests/test_scheduled_source_metadata.py::test_local_invocation_cannot_activate_service PASSED [ 86%]\r\ntests/test_scheduled_source_metadata.py::test_archive_identity_rejects_invalid_ids PASSED [ 89%]\r\ntests/test_scheduled_source_metadata.py::test_one_real_synthetic_scheduler_cycle_retains_checkpoint PASSED [ 91%]\r\ntests/test_scheduled_source_metadata.py::test_batches_keep_original_notice_identity_and_cap_work[9-2-0] PASSED [ 93%]\r\ntests/test_scheduled_source_metadata.py::test_batches_keep_original_notice_identity_and_cap_work[27-3-3] PASSED [ 95%]\r\ntests/test_scheduled_source_metadata.py::test_uncertain_send_retains_journal_and_stops_instead_of_retrying PASSED [ 97%]\r\ntests/test_scheduled_source_metadata.py::test_workflow_is_schedule_and_manual_only_with_least_privilege PASSED [100%]\r\n\r\n============================ slowest 10 durations =============================\r\n61.45s call     tests/test_scheduled_source_metadata.py::test_batches_keep_original_notice_identity_and_cap_work[27-3-3]\r\n14.93s call     tests/test_scheduled_source_metadata.py::test_batches_keep_original_notice_identity_and_cap_work[9-2-0]\r\n1.60s call     tests/test_scheduled_source_metadata.py::test_uncertain_send_retains_journal_and_stops_instead_of_retrying\r\n0.92s call     tests/test_scheduled_source_metadata.py::test_one_real_synthetic_scheduler_cycle_retains_checkpoint\r\n0.25s call     tests/test_scheduled_source_metadata.py::test_wrong_or_stopped_checkpoint_rejected_before_restore[attempt-2]\r\n0.24s call     tests/test_scheduled_source_metadata.py::test_extra_unlisted_file_prevents_all_writes\r\n0.23s call     tests/test_scheduled_source_metadata.py::test_tracked_live_review_evidence_is_not_checkpoint_history\r\n0.20s call     tests/test_scheduled_source_metadata.py::test_checkpoint_round_trip_preserves_exact_bytes\r\n0.19s call     tests/test_scheduled_source_metadata.py::test_workflow_is_schedule_and_manual_only_with_least_privilege\r\n0.15s call     tests/test_scheduled_source_metadata.py::test_wrong_or_stopped_checkpoint_rejected_before_restore[status-stopped]\r\n======================== 46 passed in 87.49s (0:01:27) ========================\r\n",
+  "stderr": "",
+  "elapsedMs": 96374,
+  "sources": [
+    {
+      "path": "scripts/acknowledge_source_notices.py",
+      "sha256": "76498c81c243122400cc6d8293b8a402484b707700048acfcf2a0c3eeb548e83"
+    },
+    {
+      "path": "scripts/check_source_metadata.py",
+      "sha256": "0e29a7e7822dea7e1b594eddd03702d2f51876b119ce6901f464b505382015a5"
+    },
+    {
+      "path": "scripts/inspect_source_notice_journal.py",
+      "sha256": "1746f05c98071ba25b83a8ad1bbc4e16a7b2663544dcd5db73779684595d0abd"
+    },
+    {
+      "path": "scripts/run_source_maintenance.py",
+      "sha256": "6aa7280621a787c187c125e42e0acfe324696c44772d7cb779a2966acf9e5077"
+    },
+    {
+      "path": "scripts/scheduled_source_metadata.py",
+      "sha256": "31123949f523c0ea7676e96398d4c34623d66d52b15470015768471ee5162f9c"
+    },
+    {
+      "path": "scripts/source_metadata_comments.py",
+      "sha256": "46185c1584d4f088f59a731562bd13f45d0c605123414b142c07700b85845e5a"
+    },
+    {
+      "path": "scripts/source_metadata_delivery.py",
+      "sha256": "40ea9fac732834c2b3201b62d8f79c7fe75683b6deae6da2bddb8f4d967ffb60"
+    },
+    {
+      "path": "scripts/source_metadata_github.py",
+      "sha256": "63ce9724bf6573377ba8c808de44db369d5f1a6079ca1999c18f81313b7770b7"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": "aae6234a2c065bc7fad1d49445061943fdd682209444b4bbf2376105bd9ca741"
+    },
+    {
+      "path": "scripts/source_metadata_request_budget.py",
+      "sha256": "c491830f2ec89df1230c67950ccbeadd90277d66f7fb060ed354500917adc887"
+    },
+    {
+      "path": "scripts/source_metadata_state.py",
+      "sha256": "b462c441e9c62904e85723b4bc96c9ac7043b1310d77545eca1f01bad2e7dfa0"
+    },
+    {
+      "path": "tests/test_scheduled_source_metadata.py",
+      "sha256": "f8d0c41b75713cfdb73fe4356b1e6a7e06ab1849cb175e0ee1a6cb3a7ece2800"
+    },
+    {
+      "path": ".github/workflows/source-metadata-weekly.yml",
+      "sha256": "d7b4f1997676c921a6644f646066e81dd5d6e01b3e25a51723ac449caeaa88c0"
+    }
+  ],
+  "sourcesUnchanged": true,
+  "pipelineRuns": 0
+}

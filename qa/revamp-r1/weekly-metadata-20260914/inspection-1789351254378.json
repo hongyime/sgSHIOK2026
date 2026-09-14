@@ -1,0 +1,174 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "Prawn-E14",
+  "at": "2026-09-14T02:00:54.370Z",
+  "anchors": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "bytes": 13626,
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "bytes": 1751005,
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "bytes": 5240179,
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "bytes": 5236013,
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "bytes": 39674,
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "bytes": 3538342,
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "bytes": 184,
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "bytes": 269,
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "bytes": 1189,
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "bytes": 145327,
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f",
+      "match": true
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "bytes": 515583,
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7",
+      "match": true
+    }
+  ],
+  "weights": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+  "metadataPins": {
+    "pipeline/config/sources.yaml": "a693817607edbafa7710598e408f369b2f8b255de0c613288fa817c78bca22cf",
+    "raw/manifest.json": "ad90df61621bea3d4a3cb207c012b988d2e9338e116ce521b00307198919ae5a"
+  },
+  "evidenceBefore": {
+    "bytes": 432437,
+    "sha256": "da3b2386355fa56c0ac06651921dc3409d7543776e20cf177f35ce820209f850"
+  },
+  "commands": [
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exitCode": 0,
+      "stdout": "f4de99c16185e1a9a101e45068d835d713a365ee\n",
+      "stderr": "",
+      "elapsedMs": 288
+    },
+    {
+      "command": [
+        "git",
+        "ls-remote",
+        "origin",
+        "main"
+      ],
+      "exitCode": 0,
+      "stdout": "f4de99c16185e1a9a101e45068d835d713a365ee\trefs/heads/main\n",
+      "stderr": "",
+      "elapsedMs": 1167
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "warning: in the working copy of 'decisions.md', CRLF will be replaced by LF the next time Git touches it\n",
+      "elapsedMs": 536
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "scripts/check_repo_integrity.py"
+      ],
+      "exitCode": 0,
+      "stdout": "repo_integrity=ok\r\n",
+      "stderr": "",
+      "elapsedMs": 763
+    },
+    {
+      "command": [
+        "gh",
+        "issue",
+        "view",
+        "34",
+        "--repo",
+        "hongyime/sgSHIOK2026",
+        "--json",
+        "number,url,title,state,assignees,body"
+      ],
+      "exitCode": 0,
+      "stdout": "{\"assignees\":[],\"body\":\"Weekly source metadata checks\\n\\nOwner-approved schedule: Monday 01:17 UTC (09:17 Singapore time).\\nOperator: repository owner. This issue is the single destination for source notices.\\n\\nSetup is in progress. The first verified Actions run will be linked here.\\n\\nThis routine checks publisher metadata only. It does not download datasets,\\ningest inputs, score routes, export data, deploy the app or change published maps.\\nMissing credentials, unsupported metadata and stale/unknown dates remain explicit.\\nThere is currently no LTA_DATAMALL_ACCOUNT_KEY Actions secret; no credential is\\ncopied from the laptop and no token belongs in this issue.\\n\\nThe workflow uses bounded requests and immutable state artifacts. An uncertain\\ncomment send or missing/corrupt checkpoint stops recovery; it is not permission\\nto post again or recreate empty history. Operational failures remain visible in\\nActions even when GitHub cannot deliver an issue notice.\\n\\nGitHub schedules are best-effort, not a timer SLA. A successful manual activation\\nrun does not prove a natural scheduled run has occurred. No reporting service or\\nproduction deployment is approved by this maintenance activation.\\n\",\"number\":34,\"state\":\"OPEN\",\"title\":\"[Maintenance] Weekly source metadata\",\"url\":\"https://github.com/hongyime/sgSHIOK2026/issues/34\"}\n",
+      "stderr": "",
+      "elapsedMs": 1696
+    },
+    {
+      "command": [
+        "gh",
+        "api",
+        "users/github-actions[bot]",
+        "--jq",
+        "{id,login,type}"
+      ],
+      "exitCode": 0,
+      "stdout": "{\"id\":41898282,\"login\":\"github-actions[bot]\",\"type\":\"Bot\"}\n",
+      "stderr": "",
+      "elapsedMs": 1418
+    },
+    {
+      "command": [
+        "gh",
+        "secret",
+        "list",
+        "--repo",
+        "hongyime/sgSHIOK2026",
+        "--json",
+        "name,updatedAt"
+      ],
+      "exitCode": 0,
+      "stdout": "[{\"name\":\"GH_PAT\",\"updatedAt\":\"2026-09-07T14:56:05Z\"}]\n",
+      "stderr": "",
+      "elapsedMs": 1875
+    }
+  ],
+  "pipelineRuns": 0
+}

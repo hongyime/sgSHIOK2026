@@ -16,7 +16,7 @@ from typing import Callable
 
 from scripts import check_source_metadata as monitor
 from scripts.acknowledge_source_notices import publish_checkpoint, MAX_ACKNOWLEDGEMENTS
-from scripts.source_metadata_comments import LocalCommentJournal, deliver_comment, plan_comment
+from scripts.source_metadata_comments import CommentPlan, CommentTransport, LocalCommentJournal, deliver_comment, plan_comment
 from scripts.source_metadata_github import GitHubCommentClient
 from scripts.source_metadata_http import MetadataClient
 
@@ -33,7 +33,8 @@ def _pin(path: Path) -> StateRef:
                     monitor._sha(monitor._read(path.with_name("report.json"))))
 
 
-def _load(root: Path, ref: StateRef, now: datetime) -> tuple[dict, dict, dict]:
+def _load(root: Path, ref: StateRef, now: datetime, anchor_profile: str = "local") -> tuple[dict, dict, dict]:
+    monitor._validate_anchor_profile(anchor_profile)
     if (not isinstance(ref, StateRef) or not isinstance(ref.path, Path)
             or ref.path.name != "state.json" or ref.path.parent.parent != root / "qa/source-monitor"
             or not monitor._hash(ref.state_sha256) or not monitor._hash(ref.report_sha256)):
@@ -48,10 +49,11 @@ def _load(root: Path, ref: StateRef, now: datetime) -> tuple[dict, dict, dict]:
     catalog_path = monitor._safe_path(root, root / "source-metadata-catalog.json")
     catalog_raw = monitor._read(catalog_path)
     catalog = monitor.validate_catalog(monitor._json(catalog_raw))
-    monitor._verify_anchors(root, catalog)
+    monitor._verify_anchors(root, catalog, anchor_profile)
     catalog_sha = monitor._sha(catalog_raw)
-    states, state_sha = monitor._restore(root, path, catalog, catalog_sha, now)
+    states, state_sha = monitor._restore(root, path, catalog, catalog_sha, now, anchor_profile)
     report = monitor._json(report_raw)
+    monitor._require_report_profile(report, anchor_profile)
     monitor.validate_pair_content(monitor._json(raw), report)
     if (state_sha != ref.state_sha256 or monitor._read(path) != raw
             or monitor._read(companion) != report_raw or monitor._read(catalog_path) != catalog_raw):
@@ -76,6 +78,30 @@ def _client(journal: LocalCommentJournal, transport: GitHubCommentClient) -> Non
     transport._budget.check_dispatch()
 
 
+class _PinnedTransport(CommentTransport):
+    """Revalidate between POST, reconciliation and GET without changing admission."""
+
+    def __init__(self, transport: GitHubCommentClient, revalidate: Callable[[], None]):
+        self.transport = transport
+        self.revalidate = revalidate
+
+    def create_once(self, plan: CommentPlan, journal: LocalCommentJournal) -> dict:
+        self.revalidate()
+        return self.transport.create_once(plan, journal)
+
+    def create(self, plan: CommentPlan) -> dict:
+        self.revalidate()
+        return self.transport.create(plan)
+
+    def read(self, plan: CommentPlan, comment_id: int) -> dict:
+        self.revalidate()
+        return self.transport.read(plan, comment_id)
+
+    def find(self, plan: CommentPlan) -> list[dict]:
+        self.revalidate()
+        return self.transport.find(plan)
+
+
 def _pending(states: dict) -> dict:
     return {notice["id"]: notice for state in states.values() for notice in state["pendingNotices"]}
 
@@ -93,6 +119,7 @@ def _stopped(result: dict, transport: GitHubCommentClient, reason: str, error: E
 
 def resume_pending(root: Path, output: Path, *, origin: StateRef, current: StateRef,
                    journal: LocalCommentJournal, transport: GitHubCommentClient,
+                   anchor_profile: str = "local",
                    clock: Callable[[], datetime] = lambda: datetime.now(UTC)) -> dict:
     """At most eight notices, one shared 24-request/300-second GitHub budget.
 
@@ -100,18 +127,26 @@ def resume_pending(root: Path, output: Path, *, origin: StateRef, current: State
     earlier receipts remain in the journal, but no partial acknowledgement is
     invented. A later explicit resume may GET-verify them, never re-POST them.
     """
+    monitor._validate_anchor_profile(anchor_profile)
     _fresh(root, output)
-    _client(journal, transport)
     now = clock()
-    origins, original_report, identity = _load(root, origin, now)
-    states, current_report, _ = _load(root, current, now)
+    origins, original_report, identity = _load(root, origin, now, anchor_profile)
+    states, current_report, _ = _load(root, current, now, anchor_profile)
+    _client(journal, transport)
     if "operation" in original_report:
         raise monitor.MonitorError("STOP_RUNNER_ORIGIN: original metadata check required")
     pending, original = _pending(states), _pending(origins)
     if (datetime.fromisoformat(original_report["finishedAt"]) > datetime.fromisoformat(current_report["finishedAt"])
             or any(original.get(key) != notice for key, notice in pending.items())):
         raise monitor.MonitorError("STOP_RUNNER_ORIGIN: pending notices differ from original check")
+
+    def revalidate() -> None:
+        _load(root, origin, clock(), anchor_profile)
+        _load(root, current, clock(), anchor_profile)
+
+    guarded = _PinnedTransport(transport, revalidate)
     result = {"operation": "maintenance_delivery_batch", "status": "no_pending_notices",
+              "anchorProfile": anchor_profile,
               "originState": _reference(origin), "currentState": _reference(current),
               "sourceHealth": "not_rechecked", "metadataRequests": 0,
               "pendingCount": len(pending), "acknowledgedIds": [], "deliveries": []}
@@ -119,12 +154,11 @@ def resume_pending(root: Path, output: Path, *, origin: StateRef, current: State
     for key in sorted(pending)[:MAX_ACKNOWLEDGEMENTS]:
         # Revalidate pins and anchors before each potentially external request.
         try:
-            _load(root, origin, clock())
-            _load(root, current, clock())
+            revalidate()
         except (monitor.MonitorError, OSError) as error:
             return _stopped(result, transport, "input_revalidation_failed", error)
         plan = plan_comment(transport.destination, identity, pending[key], author_id=transport.author_id)
-        delivery = deliver_comment(plan, journal=journal, transport=transport)
+        delivery = deliver_comment(plan, journal=journal, transport=guarded)
         result["deliveries"].append({"noticeId": key, **delivery})
         if delivery["status"] != "verified":
             return {**result, "status": "stopped", "reason": delivery["reason"],
@@ -133,13 +167,12 @@ def resume_pending(root: Path, output: Path, *, origin: StateRef, current: State
                        "receiptSha256": delivery["receiptSha256"]})
     if proofs:
         try:
-            _load(root, origin, clock())
-            _load(root, current, clock())
+            revalidate()
             report = publish_checkpoint(root, output, previous=current.path, proofs=proofs,
                 destination=transport.destination, author_id=transport.author_id,
-                journal=journal, transport=transport, clock=clock)
+                journal=journal, transport=guarded, clock=clock, anchor_profile=anchor_profile)
             ref = _pin(output / "state.json")
-            _, saved_report, _ = _load(root, ref, clock())
+            _, saved_report, _ = _load(root, ref, clock(), anchor_profile)
             if (saved_report != report or report["previousStateSha256"] != current.state_sha256
                     or report["previousReportSha256"] != current.report_sha256
                     or {entry["noticeId"] for entry in report["acknowledgements"]} != {p["noticeId"] for p in proofs}
@@ -147,8 +180,7 @@ def resume_pending(root: Path, output: Path, *, origin: StateRef, current: State
                            or entry["originReportSha256"] != origin.report_sha256
                            for entry in report["acknowledgements"])):
                 raise monitor.MonitorError("STOP_RUNNER_ACK_PIN_MISMATCH")
-            _load(root, origin, clock())
-            _load(root, current, clock())
+            revalidate()
         except (monitor.MonitorError, OSError) as error:
             return _stopped(result, transport, "acknowledgement_failed", error)
         result.update(status="acknowledged", currentState=_reference(ref),
@@ -161,12 +193,14 @@ def run_cycle(root: Path, check_output: Path, acknowledgement_output: Path, *,
               bootstrap: bool = False, previous: StateRef | None = None,
               metadata_client: MetadataClient, journal: LocalCommentJournal,
               transport_factory: Callable[[], GitHubCommentClient], credentials: dict[str, str] | None = None,
+              anchor_profile: str = "local",
               clock: Callable[[], datetime] = lambda: datetime.now(UTC)) -> dict:
     """Check once, then deliver. Pending prior notices require explicit resume first.
 
     Passing clients is not service approval. No default real transport is created.
     Metadata and GitHub have separate bounded budgets; no overall300s claim.
     """
+    monitor._validate_anchor_profile(anchor_profile)
     if type(bootstrap) is not bool or bootstrap == (previous is not None):
         raise monitor.MonitorError("STOP_INITIALIZATION: choose bootstrap or pinned previous state")
     if metadata_client is None:
@@ -178,24 +212,26 @@ def run_cycle(root: Path, check_output: Path, acknowledgement_output: Path, *,
     if not isinstance(journal, LocalCommentJournal) or not callable(transport_factory):
         raise monitor.MonitorError("STOP_RUNNER_CLIENT_FACTORY")
     if previous is not None:
-        states, _, _ = _load(root, previous, clock())
+        states, _, _ = _load(root, previous, clock(), anchor_profile)
         if _pending(states):
             raise monitor.MonitorError("STOP_RUNNER_PENDING: resume original notice batch before another check")
     report, code = monitor.run_check(root, check_output, bootstrap=bootstrap,
         previous=previous.path if previous else None, client=metadata_client,
-        credentials=credentials, clock=clock)
+        credentials=credentials, clock=clock, anchor_profile=anchor_profile)
     if code == 2:
         return {"status": "stopped", "reason": "metadata_check_stopped", "checkExitCode": code,
+                "anchorProfile": anchor_profile,
                 "checkOutput": str(check_output), "integrity": report["integrity"], "githubRequests": 0}
     if previous is not None:
         if report["previousStateSha256"] != previous.state_sha256:
             raise monitor.MonitorError("STOP_RUNNER_CONSUMED_STATE_PIN_MISMATCH")
-        _load(root, previous, clock())
+        _load(root, previous, clock(), anchor_profile)
     ref = _pin(check_output / "state.json")
+    _load(root, ref, clock(), anchor_profile)
     # Start the GitHub phase's one budget after metadata work, never per notice.
     transport = transport_factory()
     result = resume_pending(root, acknowledgement_output, origin=ref, current=ref,
-                            journal=journal, transport=transport, clock=clock)
+                            journal=journal, transport=transport, clock=clock, anchor_profile=anchor_profile)
     return {**result, "operation": "maintenance_cycle", "checkExitCode": code,
             "metadataRequests": report["transport"]["requests"],
             "sourceHealth": report["runStatus"], "checkCompleted": report["checkCompleted"]}

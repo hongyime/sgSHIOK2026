@@ -116,16 +116,30 @@ def validate_catalog(catalog: Any) -> dict:
     return catalog
 
 
-def _verify_anchors(root: Path, catalog: dict) -> dict[str, str]:
+def _validate_anchor_profile(anchor_profile: str) -> None:
+    if not isinstance(anchor_profile, str) or anchor_profile not in ("local", "git"):
+        raise MonitorError("STOP_ANCHOR_PROFILE: choose exactly local or git; no IO executed")
+
+
+def _require_report_profile(completion: dict, anchor_profile: str) -> None:
+    # Reports predating profiles describe only the strict local representation.
+    if not isinstance(completion, dict) or completion.get("anchorProfile", "local") != anchor_profile:
+        raise MonitorError("STOP_PRIOR_STATE_INVALID: anchor profile differs; no requests executed")
+
+
+def _verify_anchors(root: Path, catalog: dict, anchor_profile: str = "local") -> dict[str, str]:
+    _validate_anchor_profile(anchor_profile)
     actual = {}
-    for relative, expected in sorted(catalog["anchors"].items()):
+    for relative, expected in sorted(catalog["anchors" if anchor_profile == "local" else "gitAnchors"].items()):
         actual[relative] = _sha(_read(_safe_path(root, root / relative)))
         if actual[relative] != expected:
             raise MonitorError(f"STOP_INPUT_MISMATCH {relative} expected={expected} actual={actual[relative]}")
     return actual
 
 
-def _restore(root: Path, previous: Path | None, catalog: dict, catalog_sha: str, now: datetime) -> tuple[dict, str | None]:
+def _restore(root: Path, previous: Path | None, catalog: dict, catalog_sha: str, now: datetime,
+             anchor_profile: str = "local") -> tuple[dict, str | None]:
+    _validate_anchor_profile(anchor_profile)
     if previous is None:
         return {}, None
     content = _read(_safe_path(root, previous))
@@ -144,6 +158,7 @@ def _restore(root: Path, previous: Path | None, catalog: dict, catalog_sha: str,
             or completion.get("catalogSha256") != catalog_sha or completion.get("finishedAt") != value["finishedAt"]
             or completion.get("persistence") != {"status": "verified", "stateSha256": _sha(content)}):
         raise MonitorError("STOP_PRIOR_STATE_INVALID: no matching verified completion receipt; no requests executed")
+    _require_report_profile(completion, anchor_profile)
     restored = {}
     for source in catalog["sources"]:
         try:
@@ -158,7 +173,7 @@ def _restore(root: Path, previous: Path | None, catalog: dict, catalog_sha: str,
             raise MonitorError("STOP_PRIOR_STATE_INVALID: source state postdates completion; no requests executed")
         restored[source["key"]] = state
     if "operation" in completion:
-        _validate_ack_completion(root, previous, value, completion, catalog, now)
+        _validate_ack_completion(root, previous, value, completion, catalog, now, anchor_profile)
     else:
         validate_pair_content(value, completion)
     return restored, _sha(content)
@@ -173,6 +188,7 @@ def validate_pair_content(envelope: dict, completion: dict) -> None:
 
 
 def _pair_content(envelope: dict, completion: dict) -> None:
+    _validate_anchor_profile(completion.get("anchorProfile", "local"))
     pending = [notice for state in envelope["sources"].values() for notice in state["pendingNotices"]]
     if completion.get("pendingNotices") != pending:
         # Source checks store processing order, which may differ from envelope order.
@@ -192,16 +208,18 @@ def _pair_content(envelope: dict, completion: dict) -> None:
 
 
 def _validate_ack_completion(root: Path, previous: Path, envelope: dict, completion: dict,
-                             catalog: dict, now: datetime) -> None:
+                             catalog: dict, now: datetime, anchor_profile: str = "local") -> None:
     """Replay acknowledgement only, without recursively traversing or checking sources."""
     try:
+        _validate_anchor_profile(anchor_profile)
+        _require_report_profile(completion, anchor_profile)
         fields = {"schemaVersion", "operation", "startedAt", "finishedAt", "catalogSha256",
                   "previousState", "previousStateSha256", "previousReportSha256", "sourceHealth",
                   "checkCompleted", "metadataRequests", "commentReads", "destination", "authorId",
                   "journalIdentitySha256", "acknowledgements", "pendingNotices", "exitCode", "runStatus",
                   "noticeDelivery", "persistence"}
         records = completion["acknowledgements"]
-        if (set(completion) != fields or completion["operation"] != "notice_acknowledgement"
+        if (set(completion) - {"anchorProfile"} != fields or completion["operation"] != "notice_acknowledgement"
                 or completion["sourceHealth"] != "not_rechecked" or completion["checkCompleted"] is not False
                 or type(completion["metadataRequests"]) is not int or completion["metadataRequests"] != 0
                 or completion["noticeDelivery"] != "verified_existing_receipts"
@@ -237,6 +255,7 @@ def _validate_ack_completion(root: Path, previous: Path, envelope: dict, complet
                 or type(before_report.get("exitCode")) is not int or before_report["exitCode"] not in (0, 1)
                 or before_report.get("runStatus") != {0: "ok", 1: "attention_required"}[before_report["exitCode"]]):
             raise ValueError("checkpoint predecessor content")
+        _require_report_profile(before_report, anchor_profile)
         validate_pair_content(before, before_report)
         pending = {notice["id"]: notice for state in before["sources"].values() for notice in state["pendingNotices"]}
         identifiers = []
@@ -263,6 +282,7 @@ def _validate_ack_completion(root: Path, previous: Path, envelope: dict, complet
                     or origin_report.get("finishedAt") != origin["finishedAt"]
                     or origin_report.get("persistence") != {"status": "verified", "stateSha256": _sha(origin_bytes)}):
                 raise ValueError("checkpoint origin content")
+            _require_report_profile(origin_report, anchor_profile)
             validate_pair_content(origin, origin_report)
             origin_notices = {item["id"]: item for state in origin["sources"].values() for item in state["pendingNotices"]}
             if origin_notices.get(record["noticeId"]) != pending[record["noticeId"]]:
@@ -280,9 +300,11 @@ def _validate_ack_completion(root: Path, previous: Path, envelope: dict, complet
 
 
 def _write(path: Path, value: Any) -> None:
-    with path.open("x", encoding="utf8", newline="\n") as stream:
-        json.dump(value, stream, indent=2, ensure_ascii=True, allow_nan=False)
-        stream.write("\n")
+    raw = (json.dumps(value, indent=2, ensure_ascii=True, allow_nan=False) + "\n").encode("utf8")
+    if len(raw) > MAX_FILE_BYTES:
+        raise MonitorError("STOP_OUTPUT_FILE_BOUND")
+    with path.open("xb") as stream:
+        stream.write(raw)
         stream.flush()
         os.fsync(stream.fileno())
 
@@ -303,8 +325,10 @@ def _publish_report(output: Path, report: dict) -> None:
 
 def run_check(root: Path, output: Path, *, bootstrap: bool = False, previous: Path | None = None,
               client: MetadataClient | None = None, credentials: dict[str, str] | None = None,
+              anchor_profile: str = "local",
               clock: Callable[[], datetime] = lambda: datetime.now(UTC)) -> tuple[dict, int]:
     """One pass into a fresh directory; explicitly bootstrap or restore complete prior state."""
+    _validate_anchor_profile(anchor_profile)
     if (type(bootstrap) is not bool or bootstrap == (previous is not None)
             or (previous is not None and not isinstance(previous, Path))):
         raise MonitorError("STOP_INITIALIZATION: choose exactly one of bootstrap=True or previous=Path; no IO executed")
@@ -317,8 +341,8 @@ def run_check(root: Path, output: Path, *, bootstrap: bool = False, previous: Pa
     catalog_bytes = _read(catalog_path)
     catalog = validate_catalog(_json(catalog_bytes))
     catalog_sha = _sha(catalog_bytes)
-    before = _verify_anchors(root, catalog)
-    states, previous_sha = _restore(root, previous, catalog, catalog_sha, started)
+    before = _verify_anchors(root, catalog, anchor_profile)
+    states, previous_sha = _restore(root, previous, catalog, catalog_sha, started, anchor_profile)
     client = client if client is not None else MetadataClient()
     credentials = credentials or {}
     for value in credentials.values():
@@ -335,6 +359,7 @@ def run_check(root: Path, output: Path, *, bootstrap: bool = False, previous: Pa
                 client.blocked_hosts[host] = retry
     output.mkdir(parents=True, exist_ok=False)
     report = {"schemaVersion": 1, "startedAt": started.isoformat(), "catalogSha256": catalog_sha,
+              "anchorProfile": anchor_profile,
               "baselineMeaning": catalog["baselineMeaning"], "stateRestored": previous is not None,
               "previousStateSha256": previous_sha, "noticeDelivery": "not_configured", "sources": [],
               "bounds": {"maxRequests": getattr(client, "max_requests", 24), "maxSeconds": getattr(client, "budget_seconds", 300),
@@ -343,6 +368,7 @@ def run_check(root: Path, output: Path, *, bootstrap: bool = False, previous: Pa
     _write(output / "started.json", report)
     sources = sorted(catalog["sources"], key=lambda source: (states.get(source["key"], {}).get("lastAttemptAt") or "", source["key"]))
     with (output / "observations.jsonl").open("x", encoding="utf8", newline="\n") as journal:
+        journal_bytes = 0
         for source in sources:
             prior = states.get(source["key"])
             host = HOSTS.get(source["adapter"])
@@ -353,7 +379,11 @@ def run_check(root: Path, output: Path, *, bootstrap: bool = False, previous: Pa
             state = transition(source, prior, result, clock())
             entry = {"key": source["key"], "name": source["name"], "adapter": source["adapter"], "result": result, "state": state}
             report["sources"].append(entry)
-            journal.write(json.dumps(entry, ensure_ascii=True, allow_nan=False) + "\n")
+            line = json.dumps(entry, ensure_ascii=True, allow_nan=False) + "\n"
+            journal_bytes += len(line.encode("utf8"))
+            if journal_bytes > MAX_FILE_BYTES:
+                raise MonitorError("STOP_OUTPUT_FILE_BOUND")
+            journal.write(line)
             journal.flush()
             states[source["key"]] = state
     report["finishedAt"] = clock().isoformat()
@@ -370,7 +400,7 @@ def run_check(root: Path, output: Path, *, bootstrap: bool = False, previous: Pa
         for entry in report["sources"])
     code = int(attention or not report["checkCompleted"])
     try:
-        after = _verify_anchors(root, catalog)
+        after = _verify_anchors(root, catalog, anchor_profile)
         if _sha(_read(catalog_path)) != catalog_sha:
             raise MonitorError("STOP_CATALOG_CHANGED: catalog modified during the check")
         report["integrity"] = {"status": "ok", "before": before, "after": after}

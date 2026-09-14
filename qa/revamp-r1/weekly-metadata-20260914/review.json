@@ -1,0 +1,33 @@
+{
+  "reviewer": "James",
+  "reviewType": "independent read-only pre-activation review, not runtime acceptance",
+  "findings": [
+    {
+      "severity": "P1",
+      "finding": "Scanning all qa/source-monitor would include tracked live-review-1 evidence and fail the scheduler allowlist after possible delivery.",
+      "resolution": "Only scheduler-owned ci-ID-attempt-check/ack directories are traversed; tracked unrelated evidence has a preservation regression."
+    },
+    {
+      "severity": "P1",
+      "finding": "Missing run numbers and old reruns could restore stale send history, permitting duplicate POSTs.",
+      "resolution": "Require exactly the immediately previous run number and reject every rerun. Follow-up review showed that deleting a newer run hides it from discovery; rejecting only visible-newer reruns was insufficient. Deleted-newer regression added."
+    },
+    {
+      "severity": "P2",
+      "finding": "Archive capacity was checked after delivery; an oversize upload-visible archive or no checkpoint could remain.",
+      "resolution": "Reserve worst-case growth before external IO, enforce writer size bounds, validate stored ZIP before exclusive staged write/readback/hardlink publication. Capacity crossing tests verify no external operation or journal initialization."
+    }
+  ],
+  "finalDisposition": "Final blocker closed by inspection. No remaining blocker from this review. Tests were not rerun by reviewer; this is not activation or runtime acceptance.",
+  "implementationAgent": "Kepler",
+  "implementationScope": "Explicit local/git anchor profile propagation through monitor, runner and acknowledgement, checked again between notice IO; 80 new synthetic cases.",
+  "implementationAgentTestReport": "Initial 227 passed/1 failure; earlier stricter pin rejection required correcting an inherited assertion. Final 237 passed reported. Raw subagent command output was not saved; parent receipts are authoritative.",
+  "issueCreation": {
+    "firstAttempt": "exit1: could not assign user: 'hongyime' not found",
+    "followUpExactTitleSearch": [],
+    "secondAttempt": "Single issue34 created without assignee. Operator remains repository owner; no API assignment claimed.",
+    "url": "https://github.com/hongyime/sgSHIOK2026/issues/34"
+  },
+  "pipelineRuns": 0,
+  "deployment": false
+}

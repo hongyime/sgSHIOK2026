@@ -4134,3 +4134,44 @@ and retain strict command/work/supervisor bounds. Counters are observations, not
 hardware causation. Runtime free memory of4076.171875MiB did not ensure a
 responsive browser. Do not increase deadlines or claim the current app regressed
 from a failure before the current release was served.
+
+## 2026-09-14: Approve GitHub-only weekly metadata operations, reject Cloudflare
+
+The owner explicitly rejected Cloudflare and approved weekly metadata-only checks
+to one GitHub issue. Issue34 is the destination; the repository owner operates it.
+Monday01:17UTC/09:17SGT is the chosen off-hour schedule. Use standard public-repo
+GitHub-hosted Actions, no paid service. GITHUB_TOKEN posts as github-actions[bot]
+(API-verified ID41898282), with contents/actions read and issues write only.
+No GH_PAT or laptop credential migration. Absent DataMall credentials remain an
+explicit credentials_required result; metadata notices never imply input refresh.
+
+Reuse existing bounded checker, append-only journal and acknowledgement contracts.
+Select the catalogue's independently recorded gitAnchors only in the hosted adapter;
+keep local raw-byte pins as the default. Bind profiles into reports and validate
+again between notice IO operations. No input conversion, catalogue rewrite or
+profile fallback. No pipeline or deployment job is added.
+
+Serialize all runs. The first manual run alone can bootstrap. Restore the immediate
+predecessor's named artifact, including failed attempts; never skip history gaps
+or rerun any existing run: deleted newer history is invisible to discovery.
+Use new dispatches only with intact ready predecessors. Missing/expired/stopped artifacts require
+operator investigation, not implicit bootstrap/resend. Each immutable30day artifact
+contains the full retained owned history, not unrelated QA or protected inputs.
+Capacity is finite:12,000files,64MiB raw/ZIP and4,096 lifetime notice requests.
+Before IO reserve14*1MiB+218*64KiB=27.625MiB, ZIP/manifest overhead and free disk.
+Publish the validated ZIP exclusively after staging/readback. Stop rather than
+delete history. This is operational continuity, not an indefinite archive or data backup.
+
+One metadata phase permits24requests/300s. Each of at most three notice batches
+permits8notices/24requests/300s:3*24=72notice requests per workflow, distinct from
+Actions control-plane requests. Job cap25min. Backlogged notices drain before
+another check. Uncertain sends preserve evidence and stop; no automatic retry.
+Independent review found three activation defects in the first adapter draft;
+fix them and test before the first external dispatch. A successful manual run does
+not establish natural cron execution. Schedules are best effort; the operator must
+notice absent runs as well as alerts. GitHub public inactivity can disable cron.
+
+Phone participation was agreed, not completed. Generic tentative deployment assent
+does not identify a tested candidate. Reporting stays disabled pending a private
+non-Cloudflare provider decision. Neither approval supplies retention/moderation
+policy or waives protected data, device acceptance and release gates.

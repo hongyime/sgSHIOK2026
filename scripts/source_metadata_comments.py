@@ -108,6 +108,8 @@ def _read(path: Path) -> bytes | None:
 
 def _publish(path: Path, value: bytes) -> bool:
     """Exclusive creation is the send claim. Partial files are retained and stop recovery."""
+    if len(value) > MAX_FILE_BYTES:
+        raise DeliveryError("STOP_JOURNAL_BOUND")
     try:
         with path.open("xb") as handle:
             handle.write(value)

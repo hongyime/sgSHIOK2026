@@ -304,9 +304,9 @@ def test_valid_report_substitution_at_ack_handoff_is_not_adopted(setup, monkeypa
     monkeypatch.setattr(runner, "publish_checkpoint", substitute)
     result = resume(setup, first)
     assert result["status"] == "stopped" and result["reason"] == "acknowledgement_failed"
-    assert result["detail"] == "STOP_RUNNER_ACK_PIN_MISMATCH"
+    assert result["detail"] == "STOP_ACK_RECEIPT: comment_readback_failed; no checkpoint created"
     assert result["currentState"] == first["currentState"] and result["acknowledgedIds"] == []
-    assert (setup["root"] / "qa/source-monitor/resume/report.json").exists()
+    assert not (setup["root"] / "qa/source-monitor/resume").exists()
 
 
 @pytest.mark.parametrize("phase", ["write", "readback"])

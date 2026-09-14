@@ -193,7 +193,8 @@ def test_readme_monitor_requires_verified_state_without_pipeline_commands() -> N
     assert "exit-2 stopped run" in normalized
     assert "pending notices are intents, not delivered alerts" in normalized.lower()
     assert "never reads credentials from `.env`" in normalized
-    assert "No workflow, issue, external cache, secret or notification delivery is configured" in normalized
+    assert "requires this repository's main-branch Actions environment" in normalized
+    assert "never falls back between profiles or converts inputs" in normalized
     assert "exact recorded local raw-byte hashes" in normalized
     assert "A changed publisher timestamp is a metadata signal, not evidence of changed dataset bytes" in normalized
     assert "`check --freshness-only`" not in text
@@ -220,14 +221,17 @@ def test_readme_distinguishes_fixture_preparation_from_approved_release_and_roll
     assert "Deploy production with" not in normalized
 
 
-def test_readme_maintenance_ownership_is_proposed_not_activated() -> None:
+def test_readme_maintenance_approval_keeps_other_operations_gated() -> None:
     normalized = compact(README.read_text(encoding="utf-8"))
 
     assert "### Ownership And Cadence" in normalized
-    assert "T23 schedule/delivery is unapproved" in normalized
+    assert "Owner approval on 14 September" in normalized
+    assert "Monday 01:17 UTC / 09:17 SGT" in normalized
+    assert "all reruns are rejected" in normalized
+    assert "A manual activation is not proof of a natural cron run" in normalized
     assert "Name moderator and absence cover before enabling intake" in normalized
-    assert "No response-time SLA or activated calendar job" in normalized
-    assert "including any change to the current no-Cloudflare policy" in normalized
+    assert "No response-time SLA is established" in normalized
+    assert "Cloudflare was explicitly rejected" in normalized
     assert "Quota exhaustion means honest unavailability, not paid scaling or a false receipt" in normalized
     assert "Keep deletion evidence independent of restored snapshots" in normalized
     assert "Credential/MFA/payment-method setup and moderator/backup-key custody require the owner" in normalized

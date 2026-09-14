@@ -1,0 +1,62 @@
+name: Weekly Source Metadata
+
+on:
+  schedule:
+    - cron: "17 1 * * 1" # Monday 09:17 Singapore; GitHub scheduling is best effort.
+  workflow_dispatch:
+    inputs:
+      bootstrap:
+        description: "First run only. Never use to recover missing or failed history."
+        type: boolean
+        required: true
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: source-metadata-weekly
+  cancel-in-progress: false
+
+jobs:
+  metadata:
+    if: github.repository == 'hongyime/sgSHIOK2026' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+      actions: read
+      issues: write
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONUTF8: "1"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.12"
+      - name: Check metadata and deliver bounded notices
+        timeout-minutes: 22
+        env:
+          GH_TOKEN: ${{ github.token }}
+          LTA_DATAMALL_ACCOUNT_KEY: ${{ secrets.LTA_DATAMALL_ACCOUNT_KEY }}
+          FIRST_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.bootstrap }}
+        shell: bash
+        run: |
+          args=()
+          if [[ "$FIRST_RUN" == "true" ]]; then args+=(--bootstrap); fi
+          python -B -m scripts.scheduled_source_metadata "${args[@]}"
+      - name: Retain immutable checkpoint including stopped runs
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: source-metadata-state-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            qa/source-monitor-runs/${{ github.run_id }}-${{ github.run_attempt }}/checkpoint.zip
+            qa/source-monitor-runs/${{ github.run_id }}-${{ github.run_attempt }}/summary.json
+          if-no-files-found: error
+          retention-days: 30
+          overwrite: false
+          compression-level: 0

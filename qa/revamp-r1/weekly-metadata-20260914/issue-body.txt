@@ -1,0 +1,21 @@
+Weekly source metadata checks
+
+Owner-approved schedule: Monday 01:17 UTC (09:17 Singapore time).
+Operator: repository owner. This issue is the single destination for source notices.
+
+Setup is in progress. The first verified Actions run will be linked here.
+
+This routine checks publisher metadata only. It does not download datasets,
+ingest inputs, score routes, export data, deploy the app or change published maps.
+Missing credentials, unsupported metadata and stale/unknown dates remain explicit.
+There is currently no LTA_DATAMALL_ACCOUNT_KEY Actions secret; no credential is
+copied from the laptop and no token belongs in this issue.
+
+The workflow uses bounded requests and immutable state artifacts. An uncertain
+comment send or missing/corrupt checkpoint stops recovery; it is not permission
+to post again or recreate empty history. Operational failures remain visible in
+Actions even when GitHub cannot deliver an issue notice.
+
+GitHub schedules are best-effort, not a timer SLA. A successful manual activation
+run does not prove a natural scheduled run has occurred. No reporting service or
+production deployment is approved by this maintenance activation.

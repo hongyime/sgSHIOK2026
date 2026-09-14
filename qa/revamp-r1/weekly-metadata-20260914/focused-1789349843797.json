@@ -1,0 +1,74 @@
+{
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_scheduled_source_metadata.py",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\tmp\\weekly-metadata-1789349843797"
+  ],
+  "exitCode": 0,
+  "stdout": "....................................                                     [100%]\r\n36 passed in 77.86s (0:01:17)\r\n",
+  "stderr": "",
+  "elapsedMs": 82382,
+  "sources": [
+    {
+      "path": "scripts/acknowledge_source_notices.py",
+      "sha256": "76498c81c243122400cc6d8293b8a402484b707700048acfcf2a0c3eeb548e83"
+    },
+    {
+      "path": "scripts/check_source_metadata.py",
+      "sha256": "3b145e5f790922d3187f6aa3dddc361a6a8276ce493fbe68c730e8e6402fc858"
+    },
+    {
+      "path": "scripts/inspect_source_notice_journal.py",
+      "sha256": "1746f05c98071ba25b83a8ad1bbc4e16a7b2663544dcd5db73779684595d0abd"
+    },
+    {
+      "path": "scripts/run_source_maintenance.py",
+      "sha256": "6aa7280621a787c187c125e42e0acfe324696c44772d7cb779a2966acf9e5077"
+    },
+    {
+      "path": "scripts/scheduled_source_metadata.py",
+      "sha256": "43a74f3193ef8229373d15c5e79cd76179c3f89d7eb23e74e783a071f96be515"
+    },
+    {
+      "path": "scripts/source_metadata_comments.py",
+      "sha256": "d63b87bffafe0447da786155534374c4c90e883be733dba80512d84f14d7182a"
+    },
+    {
+      "path": "scripts/source_metadata_delivery.py",
+      "sha256": "40ea9fac732834c2b3201b62d8f79c7fe75683b6deae6da2bddb8f4d967ffb60"
+    },
+    {
+      "path": "scripts/source_metadata_github.py",
+      "sha256": "63ce9724bf6573377ba8c808de44db369d5f1a6079ca1999c18f81313b7770b7"
+    },
+    {
+      "path": "scripts/source_metadata_http.py",
+      "sha256": "aae6234a2c065bc7fad1d49445061943fdd682209444b4bbf2376105bd9ca741"
+    },
+    {
+      "path": "scripts/source_metadata_request_budget.py",
+      "sha256": "c491830f2ec89df1230c67950ccbeadd90277d66f7fb060ed354500917adc887"
+    },
+    {
+      "path": "scripts/source_metadata_state.py",
+      "sha256": "b462c441e9c62904e85723b4bc96c9ac7043b1310d77545eca1f01bad2e7dfa0"
+    },
+    {
+      "path": "tests/test_scheduled_source_metadata.py",
+      "sha256": "4623e07764992996bb2815acff41ceae10ab1769b1b4fc6f95caaced372de9c3"
+    },
+    {
+      "path": ".github/workflows/source-metadata-weekly.yml",
+      "sha256": "d7b4f1997676c921a6644f646066e81dd5d6e01b3e25a51723ac449caeaa88c0"
+    }
+  ],
+  "sourcesUnchanged": true,
+  "pipelineRuns": 0
+}

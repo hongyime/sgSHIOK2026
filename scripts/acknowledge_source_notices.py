@@ -36,7 +36,7 @@ def _pending(states: dict) -> dict:
 
 def publish_checkpoint(root: Path, output: Path, *, previous: Path, proofs: list[dict],
                        destination: str, author_id: int, journal: LocalCommentJournal,
-                       transport: CommentTransport,
+                       transport: CommentTransport, anchor_profile: str = "local",
                        clock: Callable[[], datetime] = lambda: datetime.now(UTC)) -> dict:
     """Bounded (1..8) receipt GETs followed by a new state/report pair, no other network.
 
@@ -44,6 +44,7 @@ def publish_checkpoint(root: Path, output: Path, *, previous: Path, proofs: list
     pointer, old state/report or comment is modified. All proof failures occur
     before output creation; partial local publications remain non-restorable.
     """
+    monitor._validate_anchor_profile(anchor_profile)
     if (not isinstance(proofs, list) or not 1 <= len(proofs) <= MAX_ACKNOWLEDGEMENTS
             or any(not isinstance(proof, dict) or set(proof) != {"originState", "noticeId", "receiptSha256"}
                    or not isinstance(proof["originState"], str) or not isinstance(proof["noticeId"], str)
@@ -69,6 +70,7 @@ def publish_checkpoint(root: Path, output: Path, *, previous: Path, proofs: list
     catalog_bytes = read(catalog_path)
     catalog_sha = monitor._sha(catalog_bytes)
     catalog = monitor.validate_catalog(monitor._json(catalog_bytes))
+    monitor._verify_anchors(root, catalog, anchor_profile)
     cache = {}
 
     def load(path: Path) -> tuple[dict, dict, dict]:
@@ -78,11 +80,13 @@ def publish_checkpoint(root: Path, output: Path, *, previous: Path, proofs: list
         if path not in cache:
             state_bytes = read(path)
             report_bytes = read(path.with_name("report.json"))
-            states, state_sha = monitor._restore(root, path, catalog, catalog_sha, started)
+            states, state_sha = monitor._restore(root, path, catalog, catalog_sha, started, anchor_profile)
             if state_sha != monitor._sha(state_bytes):
                 raise monitor.MonitorError("STOP_ACK_INPUT_CHANGED: state changed during restoration")
             envelope = monitor._json(state_bytes)
-            monitor.validate_pair_content(envelope, monitor._json(report_bytes))
+            completion = monitor._json(report_bytes)
+            monitor._require_report_profile(completion, anchor_profile)
+            monitor.validate_pair_content(envelope, completion)
             cache[path] = (states, envelope,
                            {"catalogSha256": catalog_sha, "stateSha256": state_sha,
                             "reportSha256": monitor._sha(report_bytes)})
@@ -106,6 +110,7 @@ def publish_checkpoint(root: Path, output: Path, *, previous: Path, proofs: list
 
     verified = []
     for proof, origin_path, plan in prepared:
+        monitor._verify_anchors(root, catalog, anchor_profile)
         result = verify_recorded_comment(plan, journal=journal, transport=transport,
                                           expected_receipt_sha256=proof["receiptSha256"])
         if result["status"] != "verified":
@@ -128,12 +133,14 @@ def publish_checkpoint(root: Path, output: Path, *, previous: Path, proofs: list
     if set(_pending(updated)) != set(pending) - set(identifiers):
         raise monitor.MonitorError("STOP_ACK_STATE: requested notice removal did not occur")
     # Recheck all pinned local inputs after remote reads and before any publication.
+    monitor._verify_anchors(root, catalog, anchor_profile)
     for path, expected in watched.items():
         if monitor._read(monitor._safe_path(root, path)) != expected:
             raise monitor.MonitorError("STOP_ACK_INPUT_CHANGED: monitor input changed; no checkpoint created")
     envelope = {"schemaVersion": 1, "catalogSha256": catalog_sha,
                 "finishedAt": finished.isoformat(), "sources": updated}
     report = {"schemaVersion": 1, "operation": "notice_acknowledgement",
+              "anchorProfile": anchor_profile,
               "startedAt": started.isoformat(), "finishedAt": finished.isoformat(),
               "catalogSha256": catalog_sha, "previousStateSha256": current_identity["stateSha256"],
               "previousState": previous.relative_to(root).as_posix(),
@@ -151,7 +158,7 @@ def publish_checkpoint(root: Path, output: Path, *, previous: Path, proofs: list
     if saved != expected:
         raise monitor.MonitorError("STOP_ACK_STATE_READBACK: no completion published")
     report["persistence"] = {"status": "verified", "stateSha256": monitor._sha(saved)}
-    monitor._validate_ack_completion(root, output / "state.json", envelope, report, catalog, finished)
+    monitor._validate_ack_completion(root, output / "state.json", envelope, report, catalog, finished, anchor_profile)
     monitor._publish_report(output, report)
     return report
 

@@ -6364,3 +6364,68 @@ DISAGREEMENTS
    physical participation, data budget or exact-release approval requirements.
 2. More independent helpers or repeated failing rehearsals would not complete
    the requested product. No new feature or fresh full-suite PASS is claimed.
+
+## 2026-09-14: Owner-approved weekly metadata scheduler, before activation
+
+Root C:\sgSHIOK2026; hostname Prawn-E14; base f4de99c16185e1a9a101e45068d835d713a365ee.
+Owner rejected Cloudflare and approved weekly metadata-only checks to one GitHub
+issue. Phone participation agreed, not executed; generic tentative release assent
+does not identify an exact tested deployment. No pipeline or deployment run.
+
+Raw command receipts and source hashes:qa/revamp-r1/weekly-metadata-20260914/.
+inspection-1789351254378.json records matching HEAD/remote, repo_integrity=ok,
+11unchanged published anchors, unchanged locked weights and both metadata pins.
+Existing evidence prefix432437bytes SHA256
+da3b2386355fa56c0ac06651921dc3409d7543776e20cf177f35ce820209f850 is preserved.
+git check-ignore -v qa/verification/REVAMP-R1-core-walk.md:exit1,no output.
+git diff --name-only protected paths:exit0,no output.
+
+Issue creation initially failed with `could not assign user: 'hongyime' not found`.
+Exact-title readback found no issue; creation without assignee made only issue34.
+It is OPEN and unassigned; repository owner is documented as operator, not falsely
+reported as an API assignee. GitHub API confirms github-actions[bot] ID41898282.
+Secret names contain GH_PAT only; it is not used. No DataMall secret or copied key.
+
+Independent review:review.json. Three draft blockers were corrected before any
+dispatch:unrelated tracked monitor evidence traversal, stale-history restoration,
+and archive capacity checked after possible sends. Follow-up found that deleting
+a newer run defeats visible-newer rerun checks; ALL reruns now stop. Final review
+has no remaining blocker by inspection, not runtime acceptance.
+
+Tests, raw stdout/stderr retained in named JSON receipts:
+focused-1789349573722.json:33passed; focused-1789349843797.json:36passed.
+all-1789350523581.json:300120ms,ETIMEDOUT,partial progress,not PASS; no matching
+owned Python remained on inspection. Detailed final run cap600s follows measured
+87.49s scheduler tests and retained127.63s pre-change maintenance timing, without
+changing any product/provider deadline. No timeout result was discarded.
+focused-1789350976734.json:46passed87.49s,including storage/send/rollback cases.
+all-1789351166545.json:1195passed/2failed,531.80s; command535941ms includes pytest.
+Failures:test_readme_monitor_requires_verified_state_without_pipeline_commands
+and test_readme_maintenance_ownership_is_proposed_not_activated.
+Restored an accidentally removed pending-notice caveat; replaced outdated
+unapproved-scheduler/Cloudflare-exception expectations with the owner's approval
+and rejection. Renamed the ownership test to reflect selective approval.
+docs-1789351827814.json:40passed13.90s,including all8README tests.
+Final coverage:1195-38+40=1197unique cases across17files; not a single new full
+green invocation. Prior1039+80profile+46scheduler+32agent/integrity=1197.
+No Python pipeline imports/execution; no new web build or browser rerun.
+
+FINDINGS
+1. Real GitHub scheduler is implemented and independently reviewed, targeting
+   Monday09:17SGT and issue34. Activation/readback still pending at this commit.
+2. Exact local/Git anchor profiles preserve existing pinned byte identities;
+   reports and consumed state bind the profile, with revalidation between IO.
+3. Before external IO reserve14*1MiB+218*64KiB=27.625MiB plus archive/manifest
+   overhead. Owned-only checkpoint caps64MiB/12000files; journal4096requests.
+   No deletion/pruning/rebootstrap. Three batches*24=72notice requests maximum,
+   separate from24metadata requests and bounded Actions control-plane requests.
+4. All inherited approval-test defects and our draft scheduler/storage defects
+   were explicitly corrected. Incomplete and failed tests remain in evidence.
+5. Source-health attention, missing DataMall credentials and unsupported metadata
+   will remain visible. A successful manual run cannot prove natural cron execution.
+
+DISAGREEMENTS
+1. No wrong owner factual premise identified in this resumed task. Cloudflare
+   is rejected, not a pending exception. Weekly GitHub activation is approved.
+2. Phone assent is not physical acceptance, and vague deployment assent does not
+   identify a tested candidate. No public report intake or deployment is claimed.
