@@ -289,6 +289,18 @@ cron.alter_job API in a checked serializable transaction, not new cron table gra
 Expiry at30days is not an exact physical-erasure instant: a daily job introduces
 up to one job interval, and outages/recovery copies need explicit handling.
 
+The ReportComposer keeps one validated original selection and one prepared
+request envelope in memory. Review precedes explicit Send; uncertainty preserves
+the exact body, ID and retry proof. Closing uncertain work does not cancel or
+delete a possible write. Received confirms only storage, not implementation.
+Home integrates point/section selection with bounded validation, measured active
+overlays and draft-loss/focus guards. UI availability is a separate hard-disabled
+capability, not a server secret or an intake authorization. The default page
+offers no reporting entry or feedback handler while it is false. Same-page
+history keeps the original report mounted; cross-route SPA departures without
+a cancelable Navigation API need an app-level guard before activation. Synthetic
+component browser observations are not integrated Home or durable HTTP acceptance.
+
 Migration20260915013223 revokes public/anon/authenticated execution of the platform
 rls_auto_enable event-trigger helper without changing its body or trigger. Six
 rollback groups plus post-apply metadata confirm automatic RLS, unchanged owner/

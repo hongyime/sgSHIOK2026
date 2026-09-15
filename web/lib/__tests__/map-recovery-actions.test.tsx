@@ -67,7 +67,8 @@ let fetch: ReturnType<typeof vi.fn>;
 
 function render() {
   host.begin();
-  tree = Home();
+  const entry = Home();
+  tree = (entry.type as (props: typeof entry.props) => ReactNode)(entry.props);
 }
 
 function elements(node: ReactNode): Element[] {

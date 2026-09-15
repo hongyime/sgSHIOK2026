@@ -192,7 +192,10 @@ function mountNodes() {
 }
 function render() {
   for (let attempt = 0; attempt < 40; attempt++) {
-    host.begin(); tree = Home(); mountNodes(); host.commitEffects();
+    host.begin();
+    const entry = Home();
+    tree = (entry.type as (props: typeof entry.props) => ReactNode)(entry.props);
+    mountNodes(); host.commitEffects();
     if (!host.isDirty()) return;
   }
   throw Error('Home effects did not settle within 40 renders');

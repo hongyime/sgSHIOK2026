@@ -1,0 +1,508 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "PRAWN-E14",
+  "proofs": {
+    "full": "checks-full-lmnBqi",
+    "focused": "checks-focused-DhvBiC",
+    "types": "checks-types-3L4DKf",
+    "docs": "checks-docs-yCfVkA"
+  },
+  "validation": {
+    "full": {
+      "passed": 2482,
+      "files": 78,
+      "dependencyGuards": 42
+    },
+    "focused": {
+      "passed": 381,
+      "failed": 0,
+      "files": 8
+    },
+    "typesExit": 0,
+    "docs": {
+      "passed": 41,
+      "exit": 0
+    },
+    "arithmetic": "2387 + 65 composer + 30 Home integration = 2482; 77 + 1 test file = 78. Focused counts overlap the full suite; 42 guards are separate.",
+    "isolated": {
+      "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-Pa1zF4",
+      "copiedFiles": 261,
+      "productionDataDirectoryAbsent": true,
+      "guardProbePassed": true,
+      "forbiddenPaths": [
+        "C:\\sgSHIOK2026\\web\\public\\data",
+        "C:\\sgSHIOK2026\\tmp\\test-without-data-Pa1zF4\\web\\public\\data"
+      ],
+      "dependencies": "Existing node_modules linked; no installation",
+      "testArgs": [
+        "--reporter=dot",
+        "--testTimeout=15000"
+      ],
+      "exitCode": 0
+    },
+    "sourceBindings": {
+      "web/app/page.tsx": "e873aa64cdba8c3736c44d47b67345cdd359fa89af46724544a1074604819174",
+      "web/components/report-composer.tsx": "0c96311dcc926c1506499f6092ed7412ecdaeeea36663d77110d8fd474fceeb9",
+      "web/components/report-composer.module.css": "386d548cc8cd06e019274be0266d4797c58536063ec073b8c5b35bc2c541270f",
+      "web/lib/reports.ts": "1e6ffff787f664ccd3f2a66ac5dbe08dd4af3bf54143dbcd6593111b7e1d3299",
+      "web/lib/report-submission.ts": "c0d99a16830456d36cd39d34aca284d7a05fb11496db13f126d98719f6fa8e49",
+      "web/lib/__tests__/published-walk-page.test.tsx": "53f4c5d48f86d1a52a645c04a6e7b07493b03b746da46f8e7b89eebd6520bf64",
+      "web/lib/__tests__/walk-recovery-focus.test.tsx": "cd6c9bcd161d9a29a42050c06de8cb8d9a236e622176261a0bfa485c7de9a710",
+      "web/lib/__tests__/report-composer.test.tsx": "aa2e71c54477379859a0331b19b96f5cac719f2150626ab54a1355939e1730eb",
+      "web/lib/__tests__/report-submission.test.ts": "44248d371209aa7365ee786264ba8175d65d67691b26097d3a13c893091a50ab",
+      "web/lib/__tests__/reports.test.ts": "ff424da8152b39ca11ae770d026c6847dac28478b6be4db46a254d3ec2967866",
+      "web/lib/__tests__/accessibility-render.test.tsx": "27c4d45e87f050c355e5119f6d716086a7ffcb7340ca2c717f372e5de50d7001",
+      "web/lib/__tests__/map-recovery-actions.test.tsx": "b47a0db6ce18a250cba977a05e2aff0c6ec8d68fe362648f7452b92040f99147",
+      "web/lib/__tests__/map-first-shell.test.ts": "62c8d2e604df21025441b3814b6d08e49d334d56a3ef45734096905332a99f3f"
+    }
+  },
+  "browser": {
+    "receipt": "composer-browser-MUbSsS",
+    "overallPassed": false,
+    "runtimeChecks": [
+      {
+        "name": "draft-1440 no horizontal overflow",
+        "passed": true
+      },
+      {
+        "name": "draft-1440 target sizes",
+        "passed": true
+      },
+      {
+        "name": "draft-390 no horizontal overflow",
+        "passed": true
+      },
+      {
+        "name": "draft-390 target sizes",
+        "passed": true
+      },
+      {
+        "name": "draft-390 no horizontal overflow",
+        "passed": true
+      },
+      {
+        "name": "draft-390 target sizes",
+        "passed": true
+      },
+      {
+        "name": "draft-320 no horizontal overflow",
+        "passed": true
+      },
+      {
+        "name": "draft-320 target sizes",
+        "passed": true
+      },
+      {
+        "name": "review-320 no horizontal overflow",
+        "passed": true
+      },
+      {
+        "name": "review-320 target sizes",
+        "passed": true
+      },
+      {
+        "name": "no dispatch before explicit Send",
+        "passed": true
+      },
+      {
+        "name": "uncertain-320 no horizontal overflow",
+        "passed": true
+      },
+      {
+        "name": "uncertain-320 target sizes",
+        "passed": true
+      },
+      {
+        "name": "uncertain remains unsaved",
+        "passed": true
+      },
+      {
+        "name": "close-uncertain-320 no horizontal overflow",
+        "passed": true
+      },
+      {
+        "name": "close-uncertain-320 target sizes",
+        "passed": true
+      },
+      {
+        "name": "same immutable request body and retry secret",
+        "passed": true
+      },
+      {
+        "name": "receipt clears unsaved state",
+        "passed": true
+      },
+      {
+        "name": "received-320 no horizontal overflow",
+        "passed": true
+      },
+      {
+        "name": "received-320 target sizes",
+        "passed": true
+      },
+      {
+        "name": "no page exceptions",
+        "passed": true
+      }
+    ],
+    "captures": [
+      {
+        "file": "draft-1440x950.png",
+        "sha256": "9388613cef1357e8cc078d8d7bd773f820a985a81a33d40d85b23a394e60b032",
+        "bytes": 12466,
+        "fit": {
+          "width": 1440,
+          "scroll": 1440,
+          "buttons": [
+            {
+              "label": "×",
+              "w": 44,
+              "h": 44
+            },
+            {
+              "label": "Review report",
+              "w": 113,
+              "h": 44
+            }
+          ],
+          "heading": "Draft report"
+        }
+      },
+      {
+        "file": "draft-390x844.png",
+        "sha256": "32711ce4559d14d5b5b44ae463a6f107b2e36f7b2f24dc130824d23e813f1299",
+        "bytes": 8690,
+        "fit": {
+          "width": 390,
+          "scroll": 390,
+          "buttons": [
+            {
+              "label": "×",
+              "w": 44,
+              "h": 44
+            },
+            {
+              "label": "Review report",
+              "w": 113,
+              "h": 44
+            }
+          ],
+          "heading": "Draft report"
+        }
+      },
+      {
+        "file": "draft-390x667.png",
+        "sha256": "2573febef04986bac65d9e22a8885db446fe2afd3fdf7e9f8c608984f0bfe9c8",
+        "bytes": 8038,
+        "fit": {
+          "width": 390,
+          "scroll": 390,
+          "buttons": [
+            {
+              "label": "×",
+              "w": 44,
+              "h": 44
+            },
+            {
+              "label": "Review report",
+              "w": 113,
+              "h": 44
+            }
+          ],
+          "heading": "Draft report"
+        }
+      },
+      {
+        "file": "draft-320x667.png",
+        "sha256": "4088bc8b18f551e920e53b46a91eead7cfa113235e6cc9ba3785c19d7306fdfc",
+        "bytes": 7745,
+        "fit": {
+          "width": 320,
+          "scroll": 320,
+          "buttons": [
+            {
+              "label": "×",
+              "w": 44,
+              "h": 44
+            },
+            {
+              "label": "Review report",
+              "w": 113,
+              "h": 44
+            }
+          ],
+          "heading": "Draft report"
+        }
+      },
+      {
+        "file": "review-320x667.png",
+        "sha256": "436bdbc6891df76424b4bd470cc8c5ad15e005d623dc75487ac7d3a9f6e8ef57",
+        "bytes": 7012,
+        "fit": {
+          "width": 320,
+          "scroll": 320,
+          "buttons": [
+            {
+              "label": "×",
+              "w": 44,
+              "h": 44
+            },
+            {
+              "label": "Edit draft",
+              "w": 83,
+              "h": 44
+            },
+            {
+              "label": "Send report",
+              "w": 101,
+              "h": 44
+            }
+          ],
+          "heading": "Review report"
+        }
+      },
+      {
+        "file": "uncertain-320x667.png",
+        "sha256": "30d36b2ce1e170727159fb0df4704613a4465e625914c20d0d105eb1109cee22",
+        "bytes": 7271,
+        "fit": {
+          "width": 320,
+          "scroll": 320,
+          "buttons": [
+            {
+              "label": "×",
+              "w": 44,
+              "h": 44
+            },
+            {
+              "label": "Retry same report",
+              "w": 140,
+              "h": 44
+            }
+          ],
+          "heading": "Save not confirmed"
+        }
+      },
+      {
+        "file": "close-uncertain-320x667.png",
+        "sha256": "1f46fbd9cd7fa992efe7960eb1638c8ca9e98c57bda8910f517655eb1dfb24ac",
+        "bytes": 5766,
+        "fit": {
+          "width": 320,
+          "scroll": 320,
+          "buttons": [
+            {
+              "label": "×",
+              "w": 44,
+              "h": 44
+            },
+            {
+              "label": "Keep report open",
+              "w": 137,
+              "h": 44
+            },
+            {
+              "label": "Close without receipt",
+              "w": 157,
+              "h": 44
+            }
+          ],
+          "heading": "Leave this report?"
+        }
+      },
+      {
+        "file": "received-320x667.png",
+        "sha256": "e6f31aa893eb0808e5066fa4e68412aafdf9dca9287b16f85f4f16fb072ea911",
+        "bytes": 7659,
+        "fit": {
+          "width": 320,
+          "scroll": 320,
+          "buttons": [
+            {
+              "label": "×",
+              "w": 44,
+              "h": 44
+            },
+            {
+              "label": "Done",
+              "w": 60,
+              "h": 44
+            }
+          ],
+          "heading": "Report received"
+        }
+      }
+    ],
+    "parentVisuallyInspected": [
+      "draft-1440x950.png",
+      "draft-390x844.png",
+      "draft-390x667.png",
+      "draft-320x667.png",
+      "review-320x667.png",
+      "uncertain-320x667.png",
+      "close-uncertain-320x667.png",
+      "received-320x667.png"
+    ],
+    "scope": "Synthetic component, not integrated Home or real report submission",
+    "cleanupReconciled": {
+      "processes": {
+        "OwnedChrome": 0,
+        "OwnedDriver": 0
+      },
+      "portChecks": {
+        "vite": {
+          "port": 25395,
+          "closed": true
+        },
+        "cdp": {
+          "port": 25398,
+          "closed": true
+        }
+      }
+    },
+    "limitations": {
+      "date": "2026-09-15",
+      "runs": [
+        {
+          "directory": "composer-browser-o15Ggn",
+          "exit": 1,
+          "summaryWritten": false,
+          "observedFailure": "Vite could not resolve react/jsx-dev-runtime, then its watcher hit EBUSY on the owned Chrome Cookies file. No screenshot exists.",
+          "correction": "Added installed JSX-runtime aliases and watch:null; no dependencies installed. A subsequent exact-profile process check returned zero owned Chrome processes."
+        },
+        {
+          "directory": "composer-browser-PMccIj",
+          "exit": 1,
+          "summaryWritten": false,
+          "observedFailure": "Eight screenshots were written, then taskkill reported already-exited child processes and the cleanup exception masked the final receipt.",
+          "correction": "Persist work before cleanup and reconcile exact-profile processes rather than assume taskkill exit status proves remaining processes. No whole-run PASS claim."
+        },
+        {
+          "directory": "composer-browser-MUbSsS",
+          "exit": 1,
+          "summaryWritten": true,
+          "runtimeChecksPassed": 21,
+          "screenshots": 8,
+          "observedFailure": "The immediate post-Stop-Process query still counted one terminating Chrome process. The runner remained open after its cleanup assertion skipped server shutdown.",
+          "reconciliation": "Later exact-profile check returned Remaining=0. The only node driver matching this exact script was PID50612, created2026-09-15T10:55:10.865576+08:00, and was stopped. Exec session46138 then completed exit1.",
+          "correction": "Wait for selected processes and always attempt server closure even after browser cleanup errors. This latest cleanup correction has not been rerun; preserve the original failed receipt."
+        }
+      ],
+      "acceptance": "Standalone synthetic component only. Runtime/layout observations are not integrated Home, actual resident submission, representative latency or physical-phone acceptance.",
+      "hostGateAfterRuns": {
+        "freePhysicalMemoryKiB": 2636128,
+        "cpuLoadPercent": 100
+      },
+      "noFurtherBrowserReplay": true
+    }
+  },
+  "httpCountCorrection": {
+    "originalField": "database-checkpoint.json.managementRequestArithmetic",
+    "actualMeaning": "Combined Management and PostgREST requests, not Management-only",
+    "requestCounts": [
+      {
+        "receipt": "pilot-ZQKVgw",
+        "management": 11,
+        "rest": 0,
+        "total": 11
+      },
+      {
+        "receipt": "read-pilot-71tZlo",
+        "management": 11,
+        "rest": 0,
+        "total": 11
+      },
+      {
+        "receipt": "rest-pilot-W9n4u6",
+        "management": 10,
+        "rest": 2,
+        "total": 12
+      },
+      {
+        "receipt": "scheduler-acceptance-3Uos6d",
+        "management": 51,
+        "rest": 0,
+        "total": 51
+      },
+      {
+        "receipt": "scheduler-activate-DGKfpe",
+        "management": 5,
+        "rest": 0,
+        "total": 5
+      },
+      {
+        "receipt": "scheduler-activate-yi7bGl",
+        "management": 4,
+        "rest": 0,
+        "total": 4
+      },
+      {
+        "receipt": "scheduler-apply-zlSGKF",
+        "management": 9,
+        "rest": 0,
+        "total": 9
+      },
+      {
+        "receipt": "scheduler-inspect-1qAKbB",
+        "management": 4,
+        "rest": 0,
+        "total": 4
+      },
+      {
+        "receipt": "scheduler-inspect-vcoMJ5",
+        "management": 5,
+        "rest": 0,
+        "total": 5
+      },
+      {
+        "receipt": "scheduler-test-migration-emb0v3",
+        "management": 6,
+        "rest": 0,
+        "total": 6
+      },
+      {
+        "receipt": "test-cross-BIzwHD",
+        "management": 40,
+        "rest": 16,
+        "total": 56
+      },
+      {
+        "receipt": "test-cross-GQMPpO",
+        "management": 28,
+        "rest": 4,
+        "total": 32
+      },
+      {
+        "receipt": "test-cross-mxvP2K",
+        "management": 60,
+        "rest": 23,
+        "total": 83
+      }
+    ],
+    "totals": {
+      "management": 244,
+      "rest": 45,
+      "total": 289
+    },
+    "arithmetic": "244 + 45 = 289"
+  },
+  "protectedAnchorsVerified": 11,
+  "weights": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+  "previousEvidence": {
+    "bytes": 491827,
+    "sha256": "87a93071aabf07dc3ed64f7662b43c8e82761440139d65d0d2cf46a1d8e346ca"
+  },
+  "findings": [
+    "Report composer and Home selection/review/retry/receipt integration implemented;65newcomposer and30newHome tests preserve frozen context and uncertain outcomes.",
+    "Parent review corrected active-panel measurement and prevented an unfinished public entry. UI capabilityfalse and server admissionfalse remain separate gates.",
+    "2482isolatedweb tests/78files and42dependency guards pass;381focused/8files,TypeScript and41docs/integrity tests pass.13source bindings match the isolated snapshot.",
+    "21standalonebrowser interaction/layout checks and8inspectedcaptures do not override the overall cleanup failure. Laterexact-profile and portchecks verify no owned browser/driver remains; latest harness cleanup change is not rerun.",
+    "Earlier HTTP total was mislabeled;244Management+45PostgREST=289combinedcalls. Originalrecord preserved, correction appended.",
+    "No scoring/export/ingest/network/input repair, frozen artifact change, runtime secret saved, Cloudflare use or paid upgrade. No frontend deployment command executed."
+  ],
+  "disagreements": [
+    "No disagreement with30days. A tested but disabled composer is not a launched resident service.",
+    "Browser cleanup reconciliation is not a retrospective overall PASS; integrated navigation, actual durable receipt, moderator authorization and release acceptance remain."
+  ],
+  "next": "Keep full goal active: private moderator authorization/queue, health monitoring, cross-route navigation guard and integrated acceptance; exact core-map release can proceed separately from report activation."
+}

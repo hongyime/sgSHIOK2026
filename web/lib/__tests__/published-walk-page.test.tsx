@@ -4,6 +4,7 @@ import type { RouteEvidenceMap } from '../../components/route-evidence-map';
 import type { PostalGeom, ScoreRecord, TransitAccessMode, TransitPoiCollection } from '../types';
 import fixture from './fixtures/published-options.json';
 import { decodePolyline } from '../polyline';
+import { overlayPadding, type OverlayBounds } from '../map-viewport';
 
 // Deterministic Home-only hook host: run dependency-bound effects and cleanups,
 // retain actual page handlers, and batch their updates between explicit renders.
@@ -118,6 +119,7 @@ import { TransitStopPicker } from '../../components/transit-stop-picker';
 import { ExposureSectionExplorer } from '../../components/exposure-section-explorer';
 import { HomeComparison } from '../../components/home-comparison';
 import { ComparisonShareDialog } from '../../components/comparison-share-dialog';
+import { ReportComposer } from '../../components/report-composer';
 import { FailureDiagnosticsControl } from '../../components/failure-diagnostics-control';
 import { recordArtifactFailure } from '../artifact-failure';
 import { comparisonLinkFragment } from '../comparison-link';
@@ -156,6 +158,11 @@ let comparisonWrites: string[];
 let replaceState: ReturnType<typeof vi.fn>;
 let pushState: ReturnType<typeof vi.fn>;
 let navigationListeners: Map<string, Set<() => void>>;
+let reportDocument: EventTarget;
+let browserNavigation: EventTarget;
+let confirmReport: ReturnType<typeof vi.fn>;
+let reloadPage: ReturnType<typeof vi.fn>;
+let residentReportingAvailable: boolean | undefined;
 let sourceScore: ScoreRecord;
 let sourceGeometry: PostalGeom;
 let approvedPreviews: Array<{
@@ -236,7 +243,12 @@ function focusFirstSection() {
 function render(commitEffects = true) {
   for (let attempt = 0; attempt < 40; attempt++) {
     host.begin();
-    tree = Home();
+    const entry = Home();
+    // Exercise the internal deployment-capability view; the public route keeps
+    // its actual default and accepts no test/environment/query-string switch.
+    const props = residentReportingAvailable === undefined ? entry.props
+      : { ...entry.props, residentReportingAvailable };
+    tree = (entry.type as (props: { residentReportingAvailable: boolean }) => ReactNode)(props);
     // Models a pending passive-effect commit, not browser hydration or event replay.
     if (!commitEffects) return;
     host.commitEffects();
@@ -534,10 +546,18 @@ beforeEach(() => {
   replaceState = vi.fn((_state, _title, next: string) => { url = new URL(next, url); });
   pushState = vi.fn((_state, _title, next: string) => { url = new URL(next, url); });
   navigationListeners = new Map();
+  reportDocument = new EventTarget();
+  browserNavigation = new EventTarget();
+  confirmReport = vi.fn(() => false);
+  reloadPage = vi.fn();
+  residentReportingAvailable = undefined;
   vi.stubGlobal('HTMLInputElement', PostalInputDouble);
   vi.stubGlobal('fetch', fetchSpy);
+  vi.stubGlobal('document', reportDocument);
   vi.stubGlobal('window', {
-    location: { get href() { return url.href; }, get search() { return url.search; }, get hash() { return url.hash; } },
+    location: { get href() { return url.href; }, get search() { return url.search; }, get hash() { return url.hash; }, reload: reloadPage },
+    navigation: browserNavigation,
+    confirm: confirmReport,
     history: { replaceState, pushState },
     addEventListener: (name: string, handler: () => void) => {
       if (!navigationListeners.has(name)) navigationListeners.set(name, new Set());
@@ -564,6 +584,319 @@ afterEach(() => {
     host.reset();
     vi.unstubAllGlobals();
   }
+});
+
+describe('T16 Home report integration with the real composer contract', () => {
+  beforeEach(() => { residentReportingAvailable = true; });
+  const report = () => child<ComponentProps<typeof ReportComposer>>(ReportComposer);
+  const reportPoint = { lng: 103.85, lat: 1.35 };
+  async function start() { await loadA(); await clickPageButton('Report a map issue'); }
+  function point(value = reportPoint) { map().onFeedbackPoint!(value); render(); }
+  async function compose() { await start(); point(); await clickPageButton('Continue report'); }
+  function unknownSave() {
+    // The isolated real composer tests execute POST/retry. Here inject only its
+    // documented status callbacks, without activating Home or accessing a provider.
+    report().props.onUnsavedChange(true);
+    report().props.onPhaseChange!('uncertain');
+  }
+  function beforeUnload() {
+    const event = new Event('beforeunload', { cancelable: true });
+    for (const listener of navigationListeners.get('beforeunload') ?? []) (listener as (value: Event) => void)(event);
+    return event;
+  }
+  function browserNavigate(href: string, sameDocument: boolean) {
+    const event = new Event('navigate', { cancelable: true });
+    Object.defineProperty(event, 'destination', { value: { url: href, sameDocument } });
+    browserNavigation.dispatchEvent(event);
+    render();
+    return event;
+  }
+  function linkClick(overrides: Record<string, unknown> = {}) {
+    const event = new Event('click', { cancelable: true });
+    const anchor = { href: 'https://example.test/other', target: '', hasAttribute: () => false };
+    Object.defineProperties(event, {
+      button: { value: 0 }, target: { value: { closest: () => anchor } },
+      ...Object.fromEntries(Object.entries(overrides).map(([key, value]) => [key, { value }])),
+    });
+    reportDocument.dispatchEvent(event); render();
+    return event;
+  }
+
+  it('keeps the public route reporting capability off and exposes no report entry or trace', async () => {
+    residentReportingAvailable = undefined;
+    expect(Home().props.residentReportingAvailable).toBe(false);
+    await loadA();
+    expect(nodeText(tree)).not.toContain('Report a map issue');
+    expect(nodeText(tree)).not.toContain('Draft report');
+    expect(elements(tree).some(e => e.type === ReportComposer)).toBe(false);
+    expect(map().feedbackEnabled).toBeUndefined();
+    expect(map().onFeedbackPoint).toBeUndefined();
+    expect(map().feedbackPoints).toBeUndefined();
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
+  it('rejects a captured opener after the deployment capability is disabled', async () => {
+    await loadA();
+    const open = elements(tree).find(e => e.type === 'button' && nodeText(e) === 'Report a map issue')!.props.onClick as () => void;
+    residentReportingAvailable = false; render(); open(); render();
+    expect(nodeText(tree)).not.toContain('Report a map issue');
+    expect(elements(tree).some(e => e.props['aria-label'] === 'Private report')).toBe(false);
+    expect(map().feedbackEnabled).toBeUndefined();
+    expect(map().onFeedbackPoint).toBeUndefined();
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
+  it.each([{ width: 1440, height: 950 }, { width: 390, height: 844 }])(
+    'measures only the active panel, preserving walk refs, at $width x $height', async ({ width, height }) => {
+      await loadA();
+      const marked = () => elements(tree).filter(e => e.props['data-map-overlay']);
+      const walk = elements(tree).find(e => e.type === 'aside')!;
+      const headingRef = summary().headingRef;
+      expect(marked().map(e => e.type)).toEqual(['section', 'aside']);
+      expect(marked()[1]).toBe(walk);
+      await clickPageButton('Report a map issue');
+      const active = elements(tree).find(e => e.type === 'aside' && e.props['aria-label'] === 'Private report')!;
+      const hidden = elements(tree).find(e => e.type === 'aside' && e.props['aria-label'] !== 'Private report')!;
+      expect(hidden.props.ref).toBe(walk.props.ref);
+      expect(summary().headingRef).toBe(headingRef);
+      expect(hidden.props.style).toEqual({ display: 'none' });
+      expect(hidden.props['data-map-overlay']).toBeUndefined();
+      expect(marked()).toHaveLength(2);
+      expect(marked()[1]).toBe(active);
+      // Real padding arithmetic over synthetic measured bounds. This checks the
+      // Home/observer contract, not DOM layout or browser ResizeObserver timing.
+      const bounds = (panelBottom: number): OverlayBounds[] => marked().map((element, index) => ({
+        left: 12, right: 312, top: index ? 160 : 12, bottom: index ? panelBottom : 152,
+        edge: element.props['data-map-overlay'] as OverlayBounds['edge'],
+      }));
+      expect(overlayPadding(width, height, bounds(420))).toMatchObject(width > 700
+        ? { left: 324, top: 12 } : { left: 12, top: 432 });
+      point(); await clickPageButton('Continue report');
+      expect(marked()[1].props['aria-label']).toBe('Private report');
+      expect(overlayPadding(width, height, bounds(580))).toMatchObject(width > 700
+        ? { left: 324, top: 12 } : { left: 12, top: 592 });
+      report().props.onClose(); render();
+      expect(marked()[1].props.ref).toBe(walk.props.ref);
+      expect(summary().headingRef).toBe(headingRef);
+    });
+
+  it('starts empty, preserves the saved map, and passes the validated point/context with sending off', async () => {
+    await loadA(); const routes = clone(map().routes);
+    await clickPageButton('Report a map issue');
+    expect(map().feedbackEnabled).toBe(true); expect(map().feedbackPoints).toEqual([]);
+    expect(elements(tree).some(e => e.type === ReportComposer)).toBe(false);
+    point(); await clickPageButton('Continue report');
+    expect(report().props).toMatchObject({ geometry: { type: 'Point', coordinates: [103.85, 1.35] },
+      context: { postal_code: A, transit_category: 'bus' },
+      bundleVersion: 'generated_20260805_prefer_scored_routed', enabled: false });
+    expect(report().props.context?.destination_id).toBe(summary().option?.aliases[0]);
+    expect(map().feedbackEnabled).toBe(false); expect(map().feedbackPoints).toEqual([reportPoint]);
+    expect(map().routes).toEqual(routes);
+    expect(nodeText(tree)).not.toContain('Copy correction report');
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
+  it('provides a keyboard-activatable postal point without geolocation or network', async () => {
+    await start(); await clickPageButton('Use postal location');
+    expect(map().feedbackPoints).toHaveLength(1);
+    expect(map().feedbackPoints![0].lng).toBeGreaterThan(103);
+    await clickPageButton('Continue report');
+    expect(report().props.geometry?.type).toBe('Point'); expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
+  it('moves focus after the report panel is mounted and restores the opener only after closing commits', async () => {
+    await loadA();
+    const opener = elements(tree).find(e => e.type === 'button' && nodeText(e) === 'Report a map issue')!;
+    const focusOpener = vi.fn(), focusHeading = vi.fn();
+    (opener.props.ref as { current: unknown }).current = { focus: focusOpener };
+    (opener.props.onClick as () => void)(); render(false);
+    const panel = elements(tree).find(e => e.type === 'aside' && e.props['aria-label'] === 'Private report')!;
+    (panel.props.ref as { current: unknown }).current = { querySelector: () => ({ focus: focusHeading }) };
+    expect(focusHeading).not.toHaveBeenCalled();
+    host.commitEffects(); render(); expect(focusHeading).toHaveBeenCalledTimes(1);
+    point(); await clickPageButton('Continue report');
+    report().props.onClose();
+    expect(focusOpener).not.toHaveBeenCalled();
+    render(); expect(focusOpener).toHaveBeenCalledExactlyOnceWith({ preventScroll: true });
+  });
+
+  it('retains the entire traced section and supports undo before composition', async () => {
+    await start(); await clickPageButton('Section');
+    point(); point({ lng: 103.851, lat: 1.351 }); point({ lng: 103.852, lat: 1.352 });
+    await clickPageButton('Undo point');
+    expect(map().feedbackPoints).toHaveLength(2);
+    await clickPageButton('Continue report');
+    expect(report().props.geometry).toEqual({ type: 'LineString', coordinates: [[103.85, 1.35], [103.851, 1.351]] });
+  });
+
+  it.each([{ lng: NaN, lat: 1.35 }, { lng: 0, lat: 0 }, { lng: 103.85, lat: Infinity }])('refuses malformed/out-of-bounds points without storing them: %j', async invalid => {
+    await start(); point(invalid);
+    expect(map().feedbackPoints).toEqual([]);
+    expect(nodeText(tree)).toContain('Choose a valid point or a section up to 1.2 km');
+    expect(elements(tree).find(e => nodeText(e) === 'Continue report')?.props.disabled).toBe(true);
+  });
+
+  it('bounds traced path length and vertex count without silently truncating the accepted selection', async () => {
+    await start(); await clickPageButton('Section'); point();
+    point({ lng: 103.87, lat: 1.35 }); expect(map().feedbackPoints).toEqual([reportPoint]);
+    for (let i = 1; i < 32; i++) point({ lng: reportPoint.lng + i * 0.000001, lat: reportPoint.lat });
+    const accepted = clone(map().feedbackPoints);
+    point({ lng: 103.850032, lat: 1.35 });
+    expect(map().feedbackPoints).toEqual(accepted); expect(map().feedbackPoints).toHaveLength(32);
+    await clickPageButton('Continue report'); expect(report().props.geometry?.type).toBe('LineString');
+  });
+
+  it('requires confirmation before replacing a selected location mode', async () => {
+    await start(); point();
+    await clickPageButton('Section');
+    expect(confirmReport).toHaveBeenCalledTimes(1); expect(map().feedbackPoints).toEqual([reportPoint]);
+    confirmReport.mockReturnValue(true); await clickPageButton('Section');
+    expect(map().feedbackPoints).toEqual([]);
+    expect(elements(tree).find(e => e.type === 'button' && nodeText(e) === 'Section')?.props['aria-pressed']).toBe(true);
+  });
+
+  it('does not let captured tracing/undo/continue callbacks edit a prepared composition', async () => {
+    await start(); point();
+    const oldPoint = map().onFeedbackPoint!;
+    const undo = elements(tree).find(e => e.type === 'button' && nodeText(e) === 'Undo point')!.props.onClick as () => void;
+    const proceed = elements(tree).find(e => e.type === 'button' && nodeText(e) === 'Continue report')!.props.onClick as () => void;
+    proceed(); render(); const key = report().key;
+    oldPoint({ lng: 103.86, lat: 1.36 }); undo(); proceed(); render();
+    expect(report().key).toBe(key); expect(map().feedbackPoints).toEqual([reportPoint]);
+    expect(report().props.geometry).toEqual({ type: 'Point', coordinates: [103.85, 1.35] });
+  });
+
+  it('blocks a new search and a stale captured search while an uncertain report has no leave consent', async () => {
+    await compose(); unknownSave();
+    const form = elements(tree).find(e => e.type === 'form')!;
+    const captured = form.props.onSubmit as (e: unknown) => Promise<void>;
+    const key = report().key;
+    await submit(B); await captured({ preventDefault() {}, currentTarget: { elements: { namedItem: () => new PostalInputDouble(B) } } });
+    render();
+    expect(confirmReport).toHaveBeenCalledTimes(2);
+    expect(confirmReport.mock.calls[0][0]).toContain('may have been saved even without a receipt');
+    expect(dependencies.fetchScoreForPostal.mock.calls).toEqual([[A]]);
+    expect(report().key).toBe(key); expect(summary().postal).toBe(A);
+  });
+
+  it('leaves for a new search only after explicit consent and ignores old child callbacks afterward', async () => {
+    await compose(); unknownSave(); const old = report().props;
+    confirmReport.mockReturnValue(true);
+    const pending = submit(B);
+    expect(elements(tree).some(e => e.type === ReportComposer)).toBe(false);
+    scores.get(B)!.resolve(null); geometries.get(B)!.resolve(null); await settle(); await pending;
+    await clickPageButton('Report a map issue'); point(); await clickPageButton('Continue report');
+    unknownSave(); const next = report();
+    old.onUnsavedChange(false); old.onPhaseChange!('received'); old.onClose(); render();
+    expect(report().key).toBe(next.key); expect(report().props.context?.postal_code).toBe(B);
+    expect(beforeUnload().defaultPrevented).toBe(true);
+  });
+
+  it('keeps the same composer and original geometry across back/hash/plain-map navigation', async () => {
+    await compose(); unknownSave(); const original = report();
+    for (const [kind, destination] of [['popstate', `https://example.test/?postal=${B}`], ['hashchange', 'https://example.test/#map'], ['popstate', 'https://example.test/']] as const) {
+      url = new URL(destination);
+      for (const listener of navigationListeners.get(kind) ?? []) listener();
+      render();
+      expect(report().key).toBe(original.key); expect(report().props.context).toEqual(original.props.context);
+      expect(report().props.geometry).toEqual(original.props.geometry);
+      expect(beforeUnload().defaultPrevented).toBe(true);
+    }
+    expect(elements(tree).some(e => e.type === WalkSummary)).toBe(false);
+    expect(nodeText(tree)).toContain('report remains tied to its original location');
+    expect(confirmReport).not.toHaveBeenCalled();
+  });
+
+  it('pauses an unfinished trace when history changes its walk instead of appending to a new context', async () => {
+    await start(); await clickPageButton('Section'); point(); const oldPoint = map().onFeedbackPoint!;
+    url = new URL('https://example.test/');
+    for (const listener of navigationListeners.get('popstate') ?? []) listener();
+    render(); oldPoint({ lng: 103.851, lat: 1.351 }); render();
+    expect(map().feedbackEnabled).toBe(false); expect(map().feedbackPoints).toEqual([reportPoint]);
+    expect(nodeText(tree)).toContain(`Postal ${A}`); expect(beforeUnload().defaultPrevented).toBe(true);
+  });
+
+  it('guards selected stops, category changes, saved choices and route changes with current report state', async () => {
+    await loadA();
+    const stop = map().onSelectTransitStop!;
+    const chooseSaved = picker().onSelect;
+    const mode = modeControl().props.setMode as (mode: TransitAccessMode) => void;
+    const routeControl = elements(tree).find(e => typeof e.props.sameRoute === 'boolean' && typeof e.props.setMode === 'function')!;
+    const changeRoute = routeControl.props.setMode as (mode: string) => void;
+    await clickPageButton('Report a map issue'); point(); await clickPageButton('Continue report'); unknownSave();
+    const original = report().key, routes = clone(map().routes);
+    stop('mrt:synthetic-other'); chooseSaved(null); mode('mrt_lrt'); changeRoute('shortest'); render();
+    expect(confirmReport).toHaveBeenCalledTimes(4); expect(report().key).toBe(original); expect(map().routes).toEqual(routes);
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
+  it('keeps the report/trace across map retry and rejects the retired map point callback', async () => {
+    await start(); point(); const old = map();
+    old.onStatusChange!('error', 'Synthetic failure', undefined, { stage: 'map-startup', reason: 'error' }); render();
+    await clickPageButton('Retry map');
+    expect(map().feedbackEnabled).toBe(true);
+    old.onFeedbackPoint!({ lng: 103.86, lat: 1.36 }); render();
+    expect(map().feedbackPoints).toEqual([reportPoint]);
+    point({ lng: 103.851, lat: 1.351 }); expect(map().feedbackPoints).toEqual([{ lng: 103.851, lat: 1.351 }]);
+  });
+
+  it('requires consent for the explicit reload action without inventing cancellation of a submitted report', async () => {
+    await compose(); unknownSave();
+    map().onStatusChange!('error', 'Synthetic failure', 'reload', { stage: 'library-download', reason: 'rejected' }); render();
+    await clickPageButton('Reload page'); expect(reloadPage).not.toHaveBeenCalled(); expect(report()).toBeDefined();
+    confirmReport.mockReturnValue(true); await clickPageButton('Reload page');
+    expect(reloadPage).toHaveBeenCalledTimes(1); expect(elements(tree).some(e => e.type === ReportComposer)).toBe(false);
+  });
+
+  it('guards native unload until a confirmed receipt or explicit composer close', async () => {
+    await compose(); expect(beforeUnload().defaultPrevented).toBe(true);
+    unknownSave(); expect(beforeUnload().defaultPrevented).toBe(true);
+    report().props.onUnsavedChange(false); report().props.onPhaseChange!('received');
+    expect(beforeUnload().defaultPrevented).toBe(false);
+    report().props.onClose(); render(); expect(beforeUnload().defaultPrevented).toBe(false);
+  });
+
+  it('intercepts same-tab links before routing and permits departures only after explicit leave consent', async () => {
+    await compose(); unknownSave();
+    expect(linkClick().defaultPrevented).toBe(true); expect(report()).toBeDefined();
+    confirmReport.mockReturnValue(true);
+    expect(linkClick().defaultPrevented).toBe(false); expect(elements(tree).some(e => e.type === ReportComposer)).toBe(false);
+  });
+
+  it.each(['ctrlKey', 'metaKey', 'shiftKey', 'altKey'])('does not discard a report for a %s modified link', async key => {
+    await compose(); unknownSave();
+    expect(linkClick({ [key]: true }).defaultPrevented).toBe(false);
+    expect(confirmReport).not.toHaveBeenCalled(); expect(report()).toBeDefined();
+  });
+
+  it('guards cancelable router/browser departures before unmount and retains same-page history', async () => {
+    await compose(); unknownSave(); const original = report().key;
+    expect(browserNavigate(`https://example.test/?postal=${B}`, true).defaultPrevented).toBe(false);
+    expect(report().key).toBe(original); expect(confirmReport).not.toHaveBeenCalled();
+    expect(browserNavigate('https://example.test/other', true).defaultPrevented).toBe(true);
+    expect(browserNavigate('https://other.example.test/', false).defaultPrevented).toBe(true);
+    expect(report().key).toBe(original);
+    confirmReport.mockReturnValue(true);
+    expect(browserNavigate('https://example.test/other', true).defaultPrevented).toBe(false);
+    expect(elements(tree).some(e => e.type === ReportComposer)).toBe(false);
+  });
+
+  it('fails closed if the confirmation API is unavailable or throws', async () => {
+    await compose(); unknownSave(); confirmReport.mockImplementation(() => { throw Error('Synthetic unavailable confirm'); });
+    await submit(B); expect(report()).toBeDefined();
+    expect(dependencies.fetchScoreForPostal.mock.calls).toEqual([[A]]);
+  });
+
+  it('removes native guards and rejects captured callbacks after Home unmounts', async () => {
+    await compose(); unknownSave(); const old = report().props;
+    const capturedPoint = map().onFeedbackPoint!;
+    host.reset();
+    expect(navigationListeners.get('beforeunload')?.size).toBe(0);
+    const click = new Event('click', { cancelable: true }); reportDocument.dispatchEvent(click);
+    expect(click.defaultPrevented).toBe(false);
+    old.onUnsavedChange(true); old.onPhaseChange!('uncertain'); old.onClose(); capturedPoint(reportPoint);
+    expect(host.stateUpdates).toEqual([]);
+  });
 });
 
 describe('T30 native postal search and initial navigation ownership', () => {

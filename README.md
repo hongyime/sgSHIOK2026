@@ -603,7 +603,13 @@ pins the sole allowed destination. No other account project is a fallback.
 Do not use sgbuslaobu for SHIOK. The agent selected it in error; its separate,
 disabled report schema is not a SHIOK deployment and has not been deleted.
 The old project scripts are retired and the server adapter rejects that target.
-The public POST route is implemented but disabled by default; no resident form is wired yet.
+The public POST route and map report composer are implemented but disabled.
+The resident entry is hidden behind an explicit closed UI capability; it must
+not advertise sending until operational and navigation acceptance pass. The
+form prepares one in-memory report, reviews it before Send and preserves the
+same identity/content for an explicit retry after an uncertain result. It does
+not silently persist notes or put them in URLs. A receipt confirms storage,
+not a map correction or a commitment to build shelter.
 Moderator authentication, cleanup-health monitoring and resident HTTP acceptance
 remain before activation. Owner UI feedback is desktop Chrome
 with a resized viewport, not physical-phone acceptance.

@@ -1,0 +1,32 @@
+{
+  "date": "2026-09-15",
+  "runs": [
+    {
+      "directory": "composer-browser-o15Ggn",
+      "exit": 1,
+      "summaryWritten": false,
+      "observedFailure": "Vite could not resolve react/jsx-dev-runtime, then its watcher hit EBUSY on the owned Chrome Cookies file. No screenshot exists.",
+      "correction": "Added installed JSX-runtime aliases and watch:null; no dependencies installed. A subsequent exact-profile process check returned zero owned Chrome processes."
+    },
+    {
+      "directory": "composer-browser-PMccIj",
+      "exit": 1,
+      "summaryWritten": false,
+      "observedFailure": "Eight screenshots were written, then taskkill reported already-exited child processes and the cleanup exception masked the final receipt.",
+      "correction": "Persist work before cleanup and reconcile exact-profile processes rather than assume taskkill exit status proves remaining processes. No whole-run PASS claim."
+    },
+    {
+      "directory": "composer-browser-MUbSsS",
+      "exit": 1,
+      "summaryWritten": true,
+      "runtimeChecksPassed": 21,
+      "screenshots": 8,
+      "observedFailure": "The immediate post-Stop-Process query still counted one terminating Chrome process. The runner remained open after its cleanup assertion skipped server shutdown.",
+      "reconciliation": "Later exact-profile check returned Remaining=0. The only node driver matching this exact script was PID50612, created2026-09-15T10:55:10.865576+08:00, and was stopped. Exec session46138 then completed exit1.",
+      "correction": "Wait for selected processes and always attempt server closure even after browser cleanup errors. This latest cleanup correction has not been rerun; preserve the original failed receipt."
+    }
+  ],
+  "acceptance": "Standalone synthetic component only. Runtime/layout observations are not integrated Home, actual resident submission, representative latency or physical-phone acceptance.",
+  "hostGateAfterRuns": { "freePhysicalMemoryKiB": 2636128, "cpuLoadPercent": 100 },
+  "noFurtherBrowserReplay": true
+}

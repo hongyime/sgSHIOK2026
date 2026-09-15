@@ -4610,3 +4610,35 @@ DISAGREEMENTS
    intervals and outages cannot promise erasure at the exact expiry instant.
 2. Neither a cron succeeded label nor synthetic form receipts establish a
    functioning resident service. Moderation, monitoring and release work remain.
+
+## 2026-09-15: Keep unfinished resident reporting off the public map
+
+Integrate the real in-memory composer with bounded point/section selection and
+original published-bundle context. Never silently retarget an open report or
+replace its identity after an uncertain write. Explicit review precedes sending;
+the same report is retried, and a receipt means stored, not accepted as map truth.
+Warn before losing unsent or uncertain work. Notes, context and retry proof stay
+out of storage, share URLs, telemetry and public issues. Expiry copy is30days.
+
+Keep RESIDENT_REPORT_UI_AVAILABLE=false in the default page until private
+moderation, monitoring and integrated navigation/browser acceptance pass. Server
+admission stays independently disabled; the UI switch is not authorization.
+Hide the entry instead of leading residents through an unsendable report. Map
+padding measures only the visible report/walk panel; preserve the existing refs.
+Cross-route SPA departures on browsers without cancelable Navigation API still
+need a guard; do not treat ordinary unload tests as complete navigation coverage.
+
+FINDINGS
+1. The composer and Home integration add real review/retry/receipt behavior,
+   frozen location and stale-callback protection; they do not activate storage.
+2. Parent review corrected active-panel measurement and removed an unfinished
+   public entry. The default map exposes no dormant feedback handler.
+3. Standalone browser work achieved21 runtime checks and8 captures, but cleanup
+   failures prevent an overall runner PASS. Original failed receipts remain.
+4. Earlier database-checkpoint.json mislabeled combined HTTP traffic as
+   managementRequestArithmetic: it is244Management+45PostgREST=289total calls,
+   not289Management calls. The original record is preserved and corrected here.
+
+DISAGREEMENTS
+1. No disagreement with30days. Report implementation and mocked receipts are
+   not a launched service; release and authenticated moderation still remain.

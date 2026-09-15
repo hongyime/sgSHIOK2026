@@ -33,6 +33,8 @@ import type {
 } from "../components/route-evidence-map";
 import { RouteMapLoader as RouteEvidenceMap, preloadRouteMap } from "../components/route-map-loader";
 import { FailureDiagnosticsControl } from "../components/failure-diagnostics-control";
+import { ReportComposer, type ReportComposerPhase } from "../components/report-composer";
+import { validateReport, MAX_REPORT_VERTICES, type ReportContext, type ReportGeometry } from "../lib/reports";
 import { serializeFailureDiagnostics } from "../lib/failure-diagnostics";
 import { getArtifactFailure, type ArtifactFailure } from "../lib/artifact-failure";
 import {
@@ -72,6 +74,34 @@ import { requestWalkPreview } from "../lib/walk-preview-request";
 import { parseFreshnessDate, sourceFreshnessAtCheck, RECORDED_SOURCE_FRESHNESS } from "../lib/source-freshness";
 
 const EMPTY_TRANSIT_POIS: TransitPoiCollection = { type: "FeatureCollection", features: [] };
+
+interface ResidentReportSession {
+  id: number;
+  stage: "selecting" | "composing";
+  mode: "point" | "section";
+  points: FeedbackPoint[];
+  context: ReportContext;
+  bundleVersion: string;
+  sourceKey: string;
+  postalPoint: FeedbackPoint | null;
+  error: string | null;
+}
+
+const REPORT_LEAVE_WARNING = "Leave this report? Its selected location, unsent draft and retry details will be lost. A report already sent may have been saved even without a receipt. Leaving does not cancel or delete it. Do not create another copy to check.";
+const REPORT_VALIDATION_ID = "00000000-0000-7000-8000-000000000000";
+
+function residentReportGeometry(points: FeedbackPoint[], mode: ResidentReportSession["mode"]): ReportGeometry | null {
+  if (points.length === 0 || points.length > MAX_REPORT_VERTICES || (mode === "section" && points.length < 2)) return null;
+  const coordinates = points.map(point => [point.lng, point.lat] as const);
+  return mode === "point" ? { type: "Point", coordinates: coordinates[0] } : { type: "LineString", coordinates };
+}
+
+function validResidentReportLocation(session: ResidentReportSession): boolean {
+  return validateReport({ schema_version: 1, client_request_id: REPORT_VALIDATION_ID,
+    report_type: "mapping_error", geometry: residentReportGeometry(session.points, session.mode),
+    referenced_bundle_version: session.bundleVersion, context: session.context,
+  }).ok;
+}
 
 export type LoadedSelection = PublishedWalkSelection;
 
@@ -1971,7 +2001,15 @@ export function DataDetails({ manifest, onToggle, children }: { manifest: Manife
   );
 }
 
+// UI availability is separate from server admission. Keep closed until the
+// operational and integrated navigation/browser acceptance gates are satisfied.
+const RESIDENT_REPORT_UI_AVAILABLE = false;
+
 export default function Home() {
+  return <HomeView residentReportingAvailable={RESIDENT_REPORT_UI_AVAILABLE} />;
+}
+
+function HomeView({ residentReportingAvailable }: { residentReportingAvailable: boolean }) {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<SearchResult[]>([]);
   const [primary, setPrimary] = useState<LoadedSelection | null>(null);
@@ -2030,6 +2068,79 @@ export default function Home() {
   };
   const lastNavigationHref = useRef<string | null>(null);
   const navigationHandler = useRef<() => void>(() => {});
+  const [residentReport, setResidentReport] = useState<ResidentReportSession | null>(null);
+  const reportRef = useRef<ResidentReportSession | null>(null);
+  const reportPhase = useRef<ReportComposerPhase>("draft");
+  const reportUnsaved = useRef(false);
+  const reportSerial = useRef(0);
+  const reportAlive = useRef(true);
+  const reportUiAvailable = useRef(residentReportingAvailable);
+  reportUiAvailable.current = residentReportingAvailable;
+  const reportOpener = useRef<HTMLButtonElement | null>(null);
+  const reportPanel = useRef<HTMLElement | null>(null);
+  const restoreReportFocus = useRef(false);
+  const updateResidentReport = useCallback((next: ResidentReportSession | null) => {
+    if (!reportAlive.current) return;
+    reportRef.current = next;
+    setResidentReport(next);
+  }, []);
+  const hasReportToLose = useCallback(() => {
+    const current = reportRef.current;
+    return !!current && (current.stage === "selecting" ? current.points.length > 0
+      : reportUnsaved.current || reportPhase.current !== "received");
+  }, []);
+  const leaveResidentReport = useCallback(() => {
+    if (!reportAlive.current) return false;
+    if (hasReportToLose()) {
+      // An unavailable/suppressed confirmation must fail closed, never imply consent.
+      try { if (!window.confirm(REPORT_LEAVE_WARNING)) return false; } catch { return false; }
+    }
+    reportUnsaved.current = false;
+    reportPhase.current = "closed";
+    updateResidentReport(null);
+    return true;
+  }, [hasReportToLose, updateResidentReport]);
+  useEffect(() => {
+    reportAlive.current = true;
+    return () => { reportAlive.current = false; reportRef.current = null; };
+  }, []);
+  useEffect(() => {
+    if (residentReport) reportPanel.current?.querySelector?.<HTMLElement>("h2")?.focus();
+    else if (restoreReportFocus.current) {
+      restoreReportFocus.current = false;
+      (reportOpener.current ?? searchInputRef.current)?.focus({ preventScroll: true });
+    }
+  }, [residentReport?.id, residentReport?.stage]);
+  useEffect(() => {
+    const beforeUnload = (event: BeforeUnloadEvent) => {
+      if (!hasReportToLose()) return;
+      event.preventDefault(); event.returnValue = "";
+    };
+    const followLink = (event: MouseEvent) => {
+      if (event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      const anchor = (event.target as Element | null)?.closest?.("a[href]") as HTMLAnchorElement | null;
+      if (!anchor || anchor.hasAttribute("download") || (anchor.target && anchor.target !== "_self")) return;
+      if (anchor.href === window.location.href || !hasReportToLose()) return;
+      if (!leaveResidentReport()) { event.preventDefault(); event.stopImmediatePropagation(); }
+    };
+    // Same-page history keeps the independent composer mounted. Guard departures before
+    // a supporting browser/Next router can unmount Home; other documents use beforeunload.
+    const navigation = (window as Window & { navigation?: EventTarget }).navigation;
+    const navigate = (event: Event) => {
+      const destination = (event as Event & { destination?: { url: string; sameDocument: boolean } }).destination;
+      if (!destination || !event.cancelable || !hasReportToLose()) return;
+      if (destination.sameDocument && new URL(destination.url).pathname === new URL(window.location.href).pathname) return;
+      if (!leaveResidentReport()) { event.preventDefault(); event.stopImmediatePropagation(); }
+    };
+    window.addEventListener("beforeunload", beforeUnload);
+    if (typeof document !== "undefined") document.addEventListener?.("click", followLink, true);
+    navigation?.addEventListener("navigate", navigate);
+    return () => {
+      window.removeEventListener("beforeunload", beforeUnload);
+      if (typeof document !== "undefined") document.removeEventListener?.("click", followLink, true);
+      navigation?.removeEventListener("navigate", navigate);
+    };
+  }, [hasReportToLose, leaveResidentReport]);
   useEffect(() => {
     // Bootstrap the optional cache without loading a postal record.
     void requestServiceWorkerCache();
@@ -2248,6 +2359,60 @@ export default function Home() {
     [primary, selectedPublishedOption, transitSelection, chosenStopId, liveRouteCache]
   );
 
+  const reportSourceKey = [primary?.result.POSTAL ?? "", activeSelection?.publishedOption?.key ?? "", routeMode].join("|");
+  const currentReportSource = useRef(reportSourceKey);
+  currentReportSource.current = reportSourceKey;
+  const startResidentReport = () => {
+    if (!reportUiAvailable.current || !reportAlive.current || loading || !primary || reportRef.current || currentReportSource.current !== reportSourceKey) return;
+    const safeIdentifier = (value: unknown): value is string => typeof value === "string" && !/[\r\n]/.test(value)
+      && /^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$/.test(value);
+    const destination = activeSelection?.publishedOption?.aliases[0];
+    const context: ReportContext = Object.freeze({ postal_code: primary.result.POSTAL,
+      ...(activeSelection?.publishedOption ? { transit_category: activeSelection.publishedOption.category } : {}),
+      ...(safeIdentifier(destination) ? { destination_id: destination } : {}),
+    });
+    // Reference the actual selected published dataset, not a timestamp or guessed report version.
+    const bundleVersion = DATA_BASE.split("/").filter(Boolean).at(-1) ?? "";
+    reportPhase.current = "draft"; reportUnsaved.current = false;
+    updateResidentReport({ id: ++reportSerial.current, stage: "selecting", mode: "point", points: [],
+      context, bundleVersion, sourceKey: reportSourceKey,
+      postalPoint: originLatLng ? { ...originLatLng } : null, error: null });
+  };
+  const reportSelectionCurrent = residentReport?.sourceKey === reportSourceKey;
+  const addReportPoint = (point: FeedbackPoint) => {
+    const current = reportRef.current;
+    if (!current || current.id !== residentReport?.id || current.stage !== "selecting"
+      || current.sourceKey !== currentReportSource.current || currentMapInstance.current !== mapInstanceKey) return;
+    const points = current.mode === "point" ? [{ ...point }] : [...current.points, { ...point }];
+    const candidate = { ...current, points, error: null };
+    const validation = current.mode === "section" && points.length === 1 ? { ...candidate, mode: "point" as const } : candidate;
+    if (!validResidentReportLocation(validation)) {
+      updateResidentReport({ ...current, error: "Choose a valid point or a section up to 1.2 km with at most 32 points." });
+      return;
+    }
+    updateResidentReport(candidate);
+  };
+  const changeReportMode = (mode: ResidentReportSession["mode"]) => {
+    const current = reportRef.current;
+    if (!current || current.id !== residentReport?.id || current.stage !== "selecting" || current.mode === mode) return;
+    if (current.points.length > 0) {
+      try { if (!window.confirm("Replace this selected report location? Nothing has been sent.")) return; } catch { return; }
+    }
+    updateResidentReport({ ...current, mode, points: [], error: null });
+  };
+  const composeResidentReport = () => {
+    const current = reportRef.current;
+    if (!current || current.id !== residentReport?.id || current.stage !== "selecting" || !validResidentReportLocation(current)) return;
+    reportPhase.current = "draft";
+    updateResidentReport({ ...current, stage: "composing", points: current.points.map(point => ({ ...point })) });
+  };
+  const closeResidentReport = () => {
+    if (reportRef.current?.id !== residentReport?.id) return;
+    reportUnsaved.current = false; reportPhase.current = "closed";
+    restoreReportFocus.current = true;
+    updateResidentReport(null);
+  };
+
   const mapRoutes = useMemo(() => buildRouteItems(activeSelection), [activeSelection]);
   const sameSelectedRoute = activeSelection?.publishedOption
     ? activeSelection.publishedOption.geometry.shortest.signature !== null
@@ -2345,6 +2510,7 @@ export default function Home() {
       setError("This OneMap match has no 6-digit postal code. Choose another match or enter the postal code directly.");
       return;
     }
+    if (!preserveInitialUrl && !leaveResidentReport()) return;
     if (!preserveInitialUrl) discardPendingUrlIntent();
     setExposureSelection(null);
     const requestId = loadSelectionRequestIdRef.current + 1;
@@ -2534,13 +2700,15 @@ export default function Home() {
   );
 
   const handleRouteModeChange = useCallback((mode: RouteDisplayMode) => {
+    if (!leaveResidentReport()) return;
     discardPendingUrlIntent();
     setRouteMode(mode);
     setExposureSelection(null);
     syncStopUrl(chosenStopId, transitMode, mode);
-  }, [chosenStopId, transitMode, syncStopUrl, discardPendingUrlIntent]);
+  }, [chosenStopId, transitMode, syncStopUrl, discardPendingUrlIntent, leaveResidentReport]);
 
   const handleTransitModeChange = useCallback((mode: TransitAccessMode) => {
+    if (!leaveResidentReport()) return;
     discardPendingUrlIntent();
     const closest = mode === "best_transit" ? shortestSavedWalk(primary, DATA_BASE) : categoryWalks[mode];
     if (!closest) {
@@ -2558,10 +2726,11 @@ export default function Home() {
     setLiveRoutePreviewStatuses({});
     setExposureSelection(null);
     syncStopUrl(target.stopId, target.mode, closest.route);
-  }, [primary, categoryWalks, syncStopUrl, discardPendingUrlIntent]);
+  }, [primary, categoryWalks, syncStopUrl, discardPendingUrlIntent, leaveResidentReport]);
 
   const handleStopSelect = useCallback(
     (nextStopId: string | null) => {
+      if (!leaveResidentReport()) return;
       discardPendingUrlIntent();
       if (primary && nextStopId) {
         for (const category of ["bus", "mrt_lrt"] as const) {
@@ -2588,12 +2757,13 @@ export default function Home() {
       setExposureSelection(null);
       syncStopUrl(resolved, mode);
     },
-    [primary, mapTransitPois, originLatLng, transitMode, bestCandidateId, syncStopUrl, discardPendingUrlIntent]
+    [primary, mapTransitPois, originLatLng, transitMode, bestCandidateId, syncStopUrl, discardPendingUrlIntent, leaveResidentReport]
   );
 
   const handlePublishedChoice = (key: string | null) => {
     const option = publishedPool.options.find(item => item.key === (key ?? publishedChoices.defaultKey));
     if (!option || (key !== null && !option.retainable)) return;
+    if (!leaveResidentReport()) return;
     discardPendingUrlIntent();
     const target = publishedChoiceTarget(option);
     setTransitMode(target.mode);
@@ -2651,6 +2821,7 @@ export default function Home() {
   }, [mapInstanceKey, mapRetryKey]);
 
   const backToSavedWalk = (event?: React.MouseEvent<HTMLButtonElement>) => {
+    if (!leaveResidentReport()) return;
     focusRecoveryTarget(event?.currentTarget);
     const saved = lastSavedSelection.current;
     if (!saved || saved.selection.result.POSTAL !== primary?.result.POSTAL) {
@@ -2680,15 +2851,19 @@ export default function Home() {
           onSelectTransitStop={handleStopSelect}
           chosenStopId={displayedStopId}
           showLampOverlay
+          feedbackEnabled={residentReport ? residentReport.stage === "selecting" && reportSelectionCurrent : undefined}
+          feedbackPoints={residentReport?.points}
+          onFeedbackPoint={residentReport ? addReportPoint : undefined}
           focusedExposureGap={focusedExposureGap}
           mappedExposureContextKey={exposureModel.contextKey}
           onStatusChange={handleMapStatusChange}
           diagnosticContext={diagnosticContext}
           retryKey={mapRetryKey}
         />
-      <div className={styles.searchStack} data-map-overlay="top-left">
+      <div className={styles.searchStack}>
       <section
         className={styles.searchOverlay}
+        data-map-overlay="top-left"
         aria-label="Postal-code search"
         aria-busy={loading}
       >
@@ -2726,6 +2901,7 @@ export default function Home() {
         {(effectiveMapStatus === "partial" || effectiveMapStatus === "error") && <div className={styles.errorBox} role="status">
           {visibleMapStatus} <button type="button" onClick={event => {
             if (mapRecovery === "reload") {
+              if (!leaveResidentReport()) return;
               window.location.reload();
             } else {
               focusRecoveryTarget(event?.currentTarget);
@@ -2775,7 +2951,7 @@ export default function Home() {
       </section>
 
         {showDetailOverlay && (
-          <aside ref={panelRef} className={`${styles.resultPanel} ${sheetExpanded ? styles.sheetExpanded : ""}`}>
+          <aside ref={panelRef} data-map-overlay={residentReport ? undefined : "top-left"} className={`${styles.resultPanel} ${sheetExpanded ? styles.sheetExpanded : ""}`} style={residentReport ? { display: "none" } : undefined}>
             <WalkSummary headingRef={walkSummaryHeadingRef} postal={primary!.result.POSTAL} score={activeSelection?.score ?? null} option={activeSelection?.publishedOption} shortest={mapRouteMode === "shortest" && !sameSelectedRoute} />
             {primary?.score && <TransitModeControl score={primary.score} mode={publishedCategory} setMode={handleTransitModeChange}
               availability={{
@@ -2787,6 +2963,7 @@ export default function Home() {
               aria-controls="walk-details" onClick={() => setSheetExpanded(value => !value)}>
               {sheetExpanded ? "Collapse walk details" : "Walk details"}
             </button>
+            {residentReportingAvailable && <button ref={reportOpener} type="button" className={styles.sheetToggle} disabled={loading} onClick={startResidentReport}>Report a map issue</button>}
             </div>
             <div id="walk-details" className={styles.secondaryDetails} hidden={!sheetExpanded}>
             <ExposureSectionExplorer model={exposureModel} selectedKey={focusedExposureGap?.key ?? null}
@@ -2799,6 +2976,36 @@ export default function Home() {
             </div>
           </aside>
         )}
+        {residentReport && <aside ref={reportPanel} data-map-overlay="top-left" className={styles.resultPanel} aria-label="Private report">
+          {!reportSelectionCurrent && <p role="status">The walk changed. This report remains tied to its original location.</p>}
+          {residentReport.stage === "selecting" ? <>
+            <h2 tabIndex={-1}>Report location</h2>
+            <p>{residentReport.context.postal_code ? `Postal ${residentReport.context.postal_code}` : "Selected map"}</p>
+            <div className={styles.segmented} role="group" aria-label="Report location type">
+              <button type="button" aria-pressed={residentReport.mode === "point"} onClick={() => changeReportMode("point")}>Point</button>
+              <button type="button" aria-pressed={residentReport.mode === "section"} onClick={() => changeReportMode("section")}>Section</button>
+            </div>
+            <p role="status">{residentReport.points.length === 0 ? "No location selected." : `${residentReport.points.length} selected ${residentReport.points.length === 1 ? "point" : "points"}.`}</p>
+            {residentReport.error && <p role="alert">{residentReport.error}</p>}
+            <div className={styles.walkActions}>
+              {residentReport.mode === "point" && residentReport.postalPoint && <button type="button" className={styles.sheetToggle}
+                disabled={!reportSelectionCurrent} onClick={() => { if (residentReport.postalPoint) addReportPoint(residentReport.postalPoint); }}>Use postal location</button>}
+              <button type="button" className={styles.sheetToggle} disabled={residentReport.points.length === 0} onClick={() => {
+                const current = reportRef.current;
+                if (current?.id !== residentReport.id || current.stage !== "selecting") return;
+                updateResidentReport({ ...current, points: current.points.slice(0, -1), error: null });
+              }}>Undo point</button>
+              <button type="button" className={styles.sheetToggle} disabled={!validResidentReportLocation(residentReport)} onClick={composeResidentReport}>Continue report</button>
+              <button type="button" className={styles.sheetToggle} onClick={() => {
+                if (reportRef.current?.id === residentReport.id && leaveResidentReport()) restoreReportFocus.current = true;
+              }}>Cancel report</button>
+            </div>
+          </> : <ReportComposer key={residentReport.id} geometry={residentReportGeometry(residentReport.points, residentReport.mode)}
+            context={residentReport.context} bundleVersion={residentReport.bundleVersion} enabled={false}
+            onClose={closeResidentReport}
+            onUnsavedChange={value => { if (reportRef.current?.id === residentReport.id) reportUnsaved.current = value; }}
+            onPhaseChange={phase => { if (reportRef.current?.id === residentReport.id) reportPhase.current = phase; }} />}
+        </aside>}
       </div>
 
     </main>

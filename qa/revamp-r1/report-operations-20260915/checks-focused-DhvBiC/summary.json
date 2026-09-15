@@ -1,0 +1,57 @@
+{
+  "mode": "focused",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "web/scripts/test-web.mjs",
+    "lib/__tests__/published-walk-page.test.tsx",
+    "lib/__tests__/walk-recovery-focus.test.tsx",
+    "lib/__tests__/report-composer.test.tsx",
+    "lib/__tests__/report-submission.test.ts",
+    "lib/__tests__/reports.test.ts",
+    "lib/__tests__/accessibility-render.test.tsx",
+    "lib/__tests__/map-recovery-actions.test.tsx",
+    "lib/__tests__/map-first-shell.test.ts",
+    "--reporter=json",
+    "--outputFile=C:\\sgSHIOK2026\\qa\\revamp-r1\\report-operations-20260915\\checks-focused-DhvBiC\\vitest.json",
+    "--testTimeout=15000"
+  ],
+  "exit": 0,
+  "error": null,
+  "elapsedMs": 53123,
+  "before": {
+    "web/app/page.tsx": "e873aa64cdba8c3736c44d47b67345cdd359fa89af46724544a1074604819174",
+    "web/components/report-composer.tsx": "0c96311dcc926c1506499f6092ed7412ecdaeeea36663d77110d8fd474fceeb9",
+    "web/components/report-composer.module.css": "386d548cc8cd06e019274be0266d4797c58536063ec073b8c5b35bc2c541270f",
+    "web/lib/reports.ts": "1e6ffff787f664ccd3f2a66ac5dbe08dd4af3bf54143dbcd6593111b7e1d3299",
+    "web/lib/report-submission.ts": "c0d99a16830456d36cd39d34aca284d7a05fb11496db13f126d98719f6fa8e49",
+    "web/lib/__tests__/published-walk-page.test.tsx": "53f4c5d48f86d1a52a645c04a6e7b07493b03b746da46f8e7b89eebd6520bf64",
+    "web/lib/__tests__/walk-recovery-focus.test.tsx": "cd6c9bcd161d9a29a42050c06de8cb8d9a236e622176261a0bfa485c7de9a710",
+    "web/lib/__tests__/report-composer.test.tsx": "aa2e71c54477379859a0331b19b96f5cac719f2150626ab54a1355939e1730eb",
+    "web/lib/__tests__/report-submission.test.ts": "44248d371209aa7365ee786264ba8175d65d67691b26097d3a13c893091a50ab",
+    "web/lib/__tests__/reports.test.ts": "ff424da8152b39ca11ae770d026c6847dac28478b6be4db46a254d3ec2967866",
+    "web/lib/__tests__/accessibility-render.test.tsx": "27c4d45e87f050c355e5119f6d716086a7ffcb7340ca2c717f372e5de50d7001",
+    "web/lib/__tests__/map-recovery-actions.test.tsx": "b47a0db6ce18a250cba977a05e2aff0c6ec8d68fe362648f7452b92040f99147",
+    "web/lib/__tests__/map-first-shell.test.ts": "62c8d2e604df21025441b3814b6d08e49d334d56a3ef45734096905332a99f3f"
+  },
+  "after": {
+    "web/app/page.tsx": "e873aa64cdba8c3736c44d47b67345cdd359fa89af46724544a1074604819174",
+    "web/components/report-composer.tsx": "0c96311dcc926c1506499f6092ed7412ecdaeeea36663d77110d8fd474fceeb9",
+    "web/components/report-composer.module.css": "386d548cc8cd06e019274be0266d4797c58536063ec073b8c5b35bc2c541270f",
+    "web/lib/reports.ts": "1e6ffff787f664ccd3f2a66ac5dbe08dd4af3bf54143dbcd6593111b7e1d3299",
+    "web/lib/report-submission.ts": "c0d99a16830456d36cd39d34aca284d7a05fb11496db13f126d98719f6fa8e49",
+    "web/lib/__tests__/published-walk-page.test.tsx": "53f4c5d48f86d1a52a645c04a6e7b07493b03b746da46f8e7b89eebd6520bf64",
+    "web/lib/__tests__/walk-recovery-focus.test.tsx": "cd6c9bcd161d9a29a42050c06de8cb8d9a236e622176261a0bfa485c7de9a710",
+    "web/lib/__tests__/report-composer.test.tsx": "aa2e71c54477379859a0331b19b96f5cac719f2150626ab54a1355939e1730eb",
+    "web/lib/__tests__/report-submission.test.ts": "44248d371209aa7365ee786264ba8175d65d67691b26097d3a13c893091a50ab",
+    "web/lib/__tests__/reports.test.ts": "ff424da8152b39ca11ae770d026c6847dac28478b6be4db46a254d3ec2967866",
+    "web/lib/__tests__/accessibility-render.test.tsx": "27c4d45e87f050c355e5119f6d716086a7ffcb7340ca2c717f372e5de50d7001",
+    "web/lib/__tests__/map-recovery-actions.test.tsx": "b47a0db6ce18a250cba977a05e2aff0c6ec8d68fe362648f7452b92040f99147",
+    "web/lib/__tests__/map-first-shell.test.ts": "62c8d2e604df21025441b3814b6d08e49d334d56a3ef45734096905332a99f3f"
+  },
+  "sourceStable": true,
+  "tests": {
+    "passed": 381,
+    "failed": 0,
+    "files": 8
+  }
+}

@@ -3,7 +3,7 @@ Current scope: 2026-09-13 owner revision, replacing the 12 September UI scope.
 Completion resume: IN PROGRESS after14September owner answers, not complete.
 15September scope confirmation: the active goal includes ALL remaining build and
 ship tasks, not just Supabase setup. Report HTTP/retry and private cleanup are
-implemented with independent review, then scheduling, resident UI, moderator access,
+implemented with independent review and daily scheduling, then resident activation, moderator access,
 retention/failure acceptance and the exact release/deployment path. Do not close
 the goal at an implementation checkpoint. Protected-data processing and actual
 physical-device participation still need their specific gates.
@@ -428,7 +428,25 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: T13 approval, local/test backend first. No production deployment implicit.
 
 ### [ ] T16: Ship the report composition and receipt flow
-- Status: PARTIAL (retry transport implemented; resident form/integration not delivered). Size: M. Parent: P1.3.
+- Status: PARTIAL (composer and Home integration implemented behind a disabled release switch). Size: M. Parent: P1.3.
+- Current15September follow-up: point/bounded-section selection, optional note,
+  review, explicit Send/same-identity retry and confirmed receipt now use the real
+  client transport. Original context is frozen; selection-specific callbacks,
+  draft-loss prompts, same-page history preservation and focus are covered by
+  handler/effect tests. Map padding measures the active panel, not its hidden
+  predecessor. The public entry and feedback handler remain absent while the
+  hard-disabled UI capability is false; server admission stays separately off.
+  Standalone synthetic browser work recorded21 passing interaction/layout checks
+  and8 visually inspected captures at4viewport sizes. Its overall runner failed
+  cleanup; later exact-profile reconciliation found no browser and stopped the
+  owned leftover driver. No whole-run browser PASS, integrated Home acceptance,
+  physical-phone or real resident receipt is claimed. Cross-route SPA departures
+  without cancelable Navigation API still need an app-level guard before activation.
+  Parent verification:381focused/8files and2482production-data-denied isolated
+  tests/78files plus42dependency guards; TypeScript and41docs/integrity pass.
+  2387+65composer+30Home=2482;77+1testfile=78. Thirteen bound sources match the
+  isolated snapshot. Existing recovery tests only adapt to the internal HomeView
+  boundary; no new page exports or deleted assertions.
 - Current request preparation uses a cryptographically random RFC9562 UUIDv7
   plus the independent retry proof. Saved-receipt IDs remain UUIDv4. Existing
   retry uncertainty is preserved; no automatic retry or replacement identity.

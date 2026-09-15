@@ -1,0 +1,302 @@
+{
+  "startedAt": "2026-09-15T02:55:12.370Z",
+  "scope": "Synthetic component, not integrated Home or real report submission",
+  "checks": [
+    {
+      "name": "draft-1440 no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "draft-1440 target sizes",
+      "passed": true
+    },
+    {
+      "name": "draft-390 no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "draft-390 target sizes",
+      "passed": true
+    },
+    {
+      "name": "draft-390 no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "draft-390 target sizes",
+      "passed": true
+    },
+    {
+      "name": "draft-320 no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "draft-320 target sizes",
+      "passed": true
+    },
+    {
+      "name": "review-320 no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "review-320 target sizes",
+      "passed": true
+    },
+    {
+      "name": "no dispatch before explicit Send",
+      "passed": true
+    },
+    {
+      "name": "uncertain-320 no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "uncertain-320 target sizes",
+      "passed": true
+    },
+    {
+      "name": "uncertain remains unsaved",
+      "passed": true
+    },
+    {
+      "name": "close-uncertain-320 no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "close-uncertain-320 target sizes",
+      "passed": true
+    },
+    {
+      "name": "same immutable request body and retry secret",
+      "passed": true
+    },
+    {
+      "name": "receipt clears unsaved state",
+      "passed": true
+    },
+    {
+      "name": "received-320 no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "received-320 target sizes",
+      "passed": true
+    },
+    {
+      "name": "no page exceptions",
+      "passed": true
+    }
+  ],
+  "captures": [
+    {
+      "file": "draft-1440x950.png",
+      "sha256": "9388613cef1357e8cc078d8d7bd773f820a985a81a33d40d85b23a394e60b032",
+      "bytes": 12466,
+      "fit": {
+        "width": 1440,
+        "scroll": 1440,
+        "buttons": [
+          {
+            "label": "×",
+            "w": 44,
+            "h": 44
+          },
+          {
+            "label": "Review report",
+            "w": 113,
+            "h": 44
+          }
+        ],
+        "heading": "Draft report"
+      }
+    },
+    {
+      "file": "draft-390x844.png",
+      "sha256": "32711ce4559d14d5b5b44ae463a6f107b2e36f7b2f24dc130824d23e813f1299",
+      "bytes": 8690,
+      "fit": {
+        "width": 390,
+        "scroll": 390,
+        "buttons": [
+          {
+            "label": "×",
+            "w": 44,
+            "h": 44
+          },
+          {
+            "label": "Review report",
+            "w": 113,
+            "h": 44
+          }
+        ],
+        "heading": "Draft report"
+      }
+    },
+    {
+      "file": "draft-390x667.png",
+      "sha256": "2573febef04986bac65d9e22a8885db446fe2afd3fdf7e9f8c608984f0bfe9c8",
+      "bytes": 8038,
+      "fit": {
+        "width": 390,
+        "scroll": 390,
+        "buttons": [
+          {
+            "label": "×",
+            "w": 44,
+            "h": 44
+          },
+          {
+            "label": "Review report",
+            "w": 113,
+            "h": 44
+          }
+        ],
+        "heading": "Draft report"
+      }
+    },
+    {
+      "file": "draft-320x667.png",
+      "sha256": "4088bc8b18f551e920e53b46a91eead7cfa113235e6cc9ba3785c19d7306fdfc",
+      "bytes": 7745,
+      "fit": {
+        "width": 320,
+        "scroll": 320,
+        "buttons": [
+          {
+            "label": "×",
+            "w": 44,
+            "h": 44
+          },
+          {
+            "label": "Review report",
+            "w": 113,
+            "h": 44
+          }
+        ],
+        "heading": "Draft report"
+      }
+    },
+    {
+      "file": "review-320x667.png",
+      "sha256": "436bdbc6891df76424b4bd470cc8c5ad15e005d623dc75487ac7d3a9f6e8ef57",
+      "bytes": 7012,
+      "fit": {
+        "width": 320,
+        "scroll": 320,
+        "buttons": [
+          {
+            "label": "×",
+            "w": 44,
+            "h": 44
+          },
+          {
+            "label": "Edit draft",
+            "w": 83,
+            "h": 44
+          },
+          {
+            "label": "Send report",
+            "w": 101,
+            "h": 44
+          }
+        ],
+        "heading": "Review report"
+      }
+    },
+    {
+      "file": "uncertain-320x667.png",
+      "sha256": "30d36b2ce1e170727159fb0df4704613a4465e625914c20d0d105eb1109cee22",
+      "bytes": 7271,
+      "fit": {
+        "width": 320,
+        "scroll": 320,
+        "buttons": [
+          {
+            "label": "×",
+            "w": 44,
+            "h": 44
+          },
+          {
+            "label": "Retry same report",
+            "w": 140,
+            "h": 44
+          }
+        ],
+        "heading": "Save not confirmed"
+      }
+    },
+    {
+      "file": "close-uncertain-320x667.png",
+      "sha256": "1f46fbd9cd7fa992efe7960eb1638c8ca9e98c57bda8910f517655eb1dfb24ac",
+      "bytes": 5766,
+      "fit": {
+        "width": 320,
+        "scroll": 320,
+        "buttons": [
+          {
+            "label": "×",
+            "w": 44,
+            "h": 44
+          },
+          {
+            "label": "Keep report open",
+            "w": 137,
+            "h": 44
+          },
+          {
+            "label": "Close without receipt",
+            "w": 157,
+            "h": 44
+          }
+        ],
+        "heading": "Leave this report?"
+      }
+    },
+    {
+      "file": "received-320x667.png",
+      "sha256": "e6f31aa893eb0808e5066fa4e68412aafdf9dca9287b16f85f4f16fb072ea911",
+      "bytes": 7659,
+      "fit": {
+        "width": 320,
+        "scroll": 320,
+        "buttons": [
+          {
+            "label": "×",
+            "w": 44,
+            "h": 44
+          },
+          {
+            "label": "Done",
+            "w": 60,
+            "h": 44
+          }
+        ],
+        "heading": "Report received"
+      }
+    }
+  ],
+  "errors": [],
+  "passed": false,
+  "sources": {
+    "web/components/report-composer.tsx": "0c96311dcc926c1506499f6092ed7412ecdaeeea36663d77110d8fd474fceeb9",
+    "web/components/report-composer.module.css": "386d548cc8cd06e019274be0266d4797c58536063ec073b8c5b35bc2c541270f",
+    "web/lib/reports.ts": "1e6ffff787f664ccd3f2a66ac5dbe08dd4af3bf54143dbcd6593111b7e1d3299",
+    "web/lib/report-submission.ts": "c0d99a16830456d36cd39d34aca284d7a05fb11496db13f126d98719f6fa8e49",
+    "qa/revamp-r1/report-operations-20260915/composer-entry.tsx": "0e720cf4081df40efd3458a7f4203e5724b9dba5dad894cd04d4cd657a674ebf",
+    "qa/revamp-r1/report-operations-20260915/composer.html": "01240cf5dff00a29e625cf2a5a8c06e2f3e2add144c3f4ebc46d98a5187c2238"
+  },
+  "freeKiB": 1916664,
+  "origin": "http://127.0.0.1:25395",
+  "chromePid": 26812,
+  "cleanupReconciliation": {
+    "Selected": [
+      26812,
+      46704
+    ],
+    "Remaining": 1
+  },
+  "cleanupError": "Expected values to be strictly equal:\n\n1 !== 0\n",
+  "closed": false,
+  "finishedAt": "2026-09-15T02:55:36.424Z",
+  "sourcesUnchanged": true
+}
