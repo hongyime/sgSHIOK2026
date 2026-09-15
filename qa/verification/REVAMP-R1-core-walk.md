@@ -8419,3 +8419,119 @@ NEXT: actual concurrency and scheduler cancellation, daily cleanup, early-deleti
   "next": "Finish owner sign-in/enrollment, HTTP adapter/queue UI, actual Auth-to-RPC and overlapping revocation/moderation acceptance; continue health delivery, integrated resident/navigation and exact frontend release. Full goal active."
 }
 ```
+
+
+## 2026-09-15: Content-free cleanup health acceptance
+
+```json
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "PRAWN-E14",
+  "receipts": {
+    "failed": "live-sbvIlY",
+    "clock": "clock-A4cKDh",
+    "accepted": "live-Wpd1JP",
+    "tests": "tests-Nfx9mm"
+  },
+  "collectorCommand": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "scripts/collect_report_cleanup_health.py"
+  ],
+  "collectorExit": 1,
+  "liveHealth": {
+    "schema_version": 1,
+    "status": "unobserved",
+    "cleanup": "fresh",
+    "scheduler": "unobserved",
+    "intake_enabled": false,
+    "natural_run_observed": false,
+    "cleanup_admission_ready": false,
+    "reason": null,
+    "target": {
+      "projectRef": "ztjilsfgoephcdcsgcks",
+      "projectName": "sgshiok",
+      "projectUrl": "https://ztjilsfgoephcdcsgcks.supabase.co",
+      "organizationId": "ixonsqiqglwriirutigr",
+      "region": "ap-southeast-1",
+      "plan": "free"
+    },
+    "observed_at": "2026-09-15T04:36:58.060480+00:00",
+    "database_now": "2026-09-15T04:36:58.103008+00:00"
+  },
+  "firstAttempt": {
+    "accepted": false,
+    "reason": "future_timestamp"
+  },
+  "clockProbe": {
+    "localStarted": "2026-09-15T04:28:32.936Z",
+    "localEnded": "2026-09-15T04:28:33.978Z",
+    "elapsedMonotonicMs": 1045.9053999999999,
+    "httpDate": "Tue, 15 Sep 2026 04:28:34 GMT",
+    "query": "select current_user, clock_timestamp() database_now,\n  row_security_active('cron.job') job_rls_active,\n  row_security_active('cron.job_run_details') runs_rls_active,\n  (select count(*) from cron.job where jobid=1 or jobname='shiok-report-cleanup-v1') visible_job_count,\n  (select count(*) from cron.job_run_details where jobid=1) visible_run_count,\n  (select cleanup_verified_at from shiok_reports.control where singleton) verified_at;",
+    "querySha256": "2dec76faffac987fbbafaf1a435c11473f11ccf9ae67e44dabfcad56d934d7a0",
+    "row": {
+      "current_user": "supabase_read_only_user",
+      "database_now": "2026-09-15 04:28:33.987873+00",
+      "job_rls_active": false,
+      "runs_rls_active": false,
+      "visible_job_count": 1,
+      "visible_run_count": 0,
+      "verified_at": "2026-09-15 02:53:29.975663+00"
+    },
+    "databaseAheadOfLocalEndMs": 9
+  },
+  "sourceBindings": {
+    "scripts/report_cleanup_health.py": "ead21154dc2320d045895d089f92883e4a8f13bddf4c51d7777c907fcd7a1ed9",
+    "scripts/collect_report_cleanup_health.py": "dabc8a4d8ea1cadb2cf0e6694b747d83f44b6f716f2decb7e556cd3ecd1da684",
+    "tests/test_report_cleanup_health.py": "2be1f94e8c8b2c61963e40d0df5e5595503ec9479601c29c58525eb6c9705f77",
+    "tests/test_collect_report_cleanup_health.py": "b6eaeb567098bb2ff2dc343dbbf3d68a33bcb942c6d56b6325d9144745b7bc10"
+  },
+  "tests": {
+    "command": [
+      "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "pytest",
+      "tests/test_report_cleanup_health.py",
+      "tests/test_collect_report_cleanup_health.py",
+      "tests/test_readme.py",
+      "tests/test_agent_docs.py",
+      "tests/test_repo_integrity.py",
+      "-q",
+      "-p",
+      "no:cacheprovider"
+    ],
+    "exit": 0,
+    "passed": 102,
+    "arithmetic": "54 initial health + 7 clock regressions + 41 docs/integrity = 102; 61 health + 41 = 102"
+  },
+  "network": {
+    "collectorRequestsPerCompletedPass": 3,
+    "clockProbeRequests": 1,
+    "requestCountBasis": "Fixed verified code path, not packet tracing",
+    "arithmetic": "3 first collector + 1 diagnostic probe + 3 corrected collector = 7; no retries"
+  },
+  "protectedAnchorsVerified": 11,
+  "weights": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+  "integrity": "repo_integrity=ok\r\n",
+  "review": {
+    "status": {
+      "01a0a32c-00e5-7881-b36d-f0b606247f9d": {
+        "completed": "Patched only the evaluator, collector, and their two test files.\n\n- DB-only clock lead: maximum five seconds.\n- Observation ordering and cleanup/run timestamps remain strict.\n- Freshness uses `max(local_now, database_now)`; DB timestamps remain unchanged.\n- Worker validation applies the same rule.\n\n```text\npython -B -m unittest tests.test_report_cleanup_health tests.test_collect_report_cleanup_health -v\n61 tests passed\n```\n\nIncludes the actual 9.873ms regression, >5-second denial, and 26h+1ms stale rejection under 5-second skew.\n\nNo provider rerun. Failure receipts, SQL, permissions, and unrelated files untouched."
+      }
+    },
+    "timed_out": false
+  },
+  "findings": [
+    "Actual read-only health collection accepted, with no resident rows, return_message or credentials emitted. The observed state is unobserved, not healthy.",
+    "Initial HTTP200-only assumption was corrected before live collection; first live pass then exposed a 9ms database clock lead. Original failure preserved.",
+    "DB-only5s skew allowance retains strict event ordering and conservative26h age. Neither retention nor scoring/hash tolerances changed.",
+    "No monitor job or alert delivery activated; no PAT persisted, runtime secret configured, frontend deployed, frozen data mutated or pipeline run."
+  ],
+  "disagreements": [
+    "Collector acceptance0 must not be confused with its CLI exit1 or reported unobserved cleanup. This is not operational release acceptance.",
+    "No disagreement with30day retention. Full build-and-ship goal remains active; auth/queue integration, concurrency/navigation acceptance and release work remain."
+  ]
+}
+```

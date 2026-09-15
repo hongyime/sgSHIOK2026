@@ -4686,3 +4686,47 @@ DISAGREEMENTS
    arbitrary transaction isolation. Unsupported modes now fail explicitly.
 2. Authentication alone is not authorization; this helper does not enroll a
    moderator, enable reports or establish a launched private service.
+
+## 2026-09-15: Content-free cleanup health, not a cron-success shortcut
+
+Use a bounded local collector for the pinned SHIOK project. Verify identity and
+Free organization first, then issue one fixed read-only diagnostic query. Never
+read report rows or expose cron return_message, arbitrary errors or credentials.
+GETs require200; the Management query POST requires201. No redirects, retries,
+file-stored token, or arbitrary endpoint/query input. Bound response bytes and
+the complete child process to30seconds, including stalled network operations.
+This is not a scheduled alert service; do not store a broad account PAT in
+GitHub Actions merely to automate it. A narrower deployed monitoring boundary
+and actual owner alert delivery still need implementation and acceptance.
+
+Require matching job settings, a fresh success timestamp, no failure latch and
+agreement with the latest completed scheduled execution. A cron success alone
+can hide cleanup's caught failure. No natural execution is unobserved, not healthy.
+The first live attempt failed on a timestamp ahead of the local clock. A separate
+read-only probe measured a9ms lead at millisecond precision (9.873ms from the raw
+timestamps), with one visible job and zero runs. RLS was not hiding scheduler data.
+Allow at most five seconds of database-clock lead, but keep all cleanup/run events
+strictly at or before that database sample. Evaluate freshness using the later
+of the local and database clocks; this never extends the26-hour gate. This is
+metadata clock handling, not a tolerance for differing hashes or score values.
+
+The revised live collector correctly returns unobserved with exit1, fresh cleanup,
+intakefalse and no first natural run. Its acceptance wrapper exits0 because that
+specific observed state was expected, not because cleanup is proven healthy.
+61health tests plus41docs/integrity tests pass. The original failed receipt and
+the earlier95-test checkpoint remain; seven clock regressions raise95to102.
+
+FINDINGS
+1. Content-free health collection is implemented and accepted against the actual
+   dedicated Free project. It changes no database settings or report content.
+2. Parent review fixed an incorrect HTTP200-only assumption before the first
+   live run. Live acceptance then exposed and corrected the zero-clock-skew
+   false alarm. Both would have been missed by the initial green fixture suite.
+3. Job1 has not yet executed naturally. Alert delivery is not active; the report
+   service, owner UI and exact frontend release remain unfinished.
+
+DISAGREEMENTS
+1. A collector acceptance pass is not a healthy-cleanup or launched-monitoring
+   claim. The actual CLI still exits1 for its explicit unobserved state.
+2. No disagreement with30-day retention. The clock correction neither changes
+   that policy nor authorizes scoring, data repair or a new release.

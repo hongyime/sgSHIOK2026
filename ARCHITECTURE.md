@@ -310,6 +310,21 @@ cleanup; moderation never extends its30-day expiry or changes published data.
 Queue pages contain at most25unexpired reports and use received-time/receipt-ID
 keyset pagination. Retry proofs, request IDs and quota buckets are never returned.
 
+Operational health is a separate, content-free check. A fresh cleanup success
+timestamp must agree with the latest successful scheduled run; a failure latch,
+inactive/mismatched job, stale success or stale/invalid observation blocks health.
+An enabled job with no observed natural execution remains explicitly unobserved.
+The local collector pins project/organization/Free identity before one read-only
+database query. It has a30-second process deadline and emits no report content,
+raw provider errors or credentials. No broad account PAT belongs in Actions.
+
+The database may lead the collector clock by at most five seconds. Cleanup/run
+events must still not be ahead of the database sample, and freshness uses the
+later of local time and database time. This fixes an observed9ms clock-offset
+false alarm without extending the26-hour limit. Observations expire after five
+minutes; health at observed_at is neither an intake lease nor an activation command.
+Alert delivery and scheduled-monitor activation require separate acceptance.
+
 The ReportComposer keeps one validated original selection and one prepared
 request envelope in memory. Review precedes explicit Send; uncertainty preserves
 the exact body, ID and retry proof. Closing uncertain work does not cancel or

@@ -1,0 +1,18 @@
+{
+  "localStarted": "2026-09-15T04:28:32.936Z",
+  "localEnded": "2026-09-15T04:28:33.978Z",
+  "elapsedMonotonicMs": 1045.9053999999999,
+  "httpDate": "Tue, 15 Sep 2026 04:28:34 GMT",
+  "query": "select current_user, clock_timestamp() database_now,\n  row_security_active('cron.job') job_rls_active,\n  row_security_active('cron.job_run_details') runs_rls_active,\n  (select count(*) from cron.job where jobid=1 or jobname='shiok-report-cleanup-v1') visible_job_count,\n  (select count(*) from cron.job_run_details where jobid=1) visible_run_count,\n  (select cleanup_verified_at from shiok_reports.control where singleton) verified_at;",
+  "querySha256": "2dec76faffac987fbbafaf1a435c11473f11ccf9ae67e44dabfcad56d934d7a0",
+  "row": {
+    "current_user": "supabase_read_only_user",
+    "database_now": "2026-09-15 04:28:33.987873+00",
+    "job_rls_active": false,
+    "runs_rls_active": false,
+    "visible_job_count": 1,
+    "visible_run_count": 0,
+    "verified_at": "2026-09-15 02:53:29.975663+00"
+  },
+  "databaseAheadOfLocalEndMs": 9
+}

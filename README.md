@@ -624,6 +624,17 @@ hide a newer report's decision. No moderator is enrolled automatically; owner
 sign-in, the HTTP/queue interface and concurrent operational acceptance remain.
 No credential should be pasted into chat or committed for this setup.
 
+Local cleanup diagnosis: `python -B scripts/collect_report_cleanup_health.py`.
+It uses an explicitly set session-only `SHIOK_SUPABASE_ACCESS_TOKEN`; never put
+the token in command arguments, a tracked file or a public issue. It verifies the
+dedicated project and Free organization, then reads only cleanup/job diagnostics.
+The output contains health labels and observation times, not reports or raw errors.
+Exit0 means healthy monitoring at observation time, not permission to enable intake;
+exit1 also covers an unobserved first scheduled run. The command neither triggers
+cleanup nor changes settings. It is not a deployed alerting service, and an account
+PAT must not be installed in Actions merely to schedule it. Operator alert delivery
+still needs a reviewed narrow credential boundary and end-to-end acceptance.
+
 `/api/reports` requires same-origin JSON and a pre-existing retry secret, with an
 8KiB wire limit and one10s request deadline. No public read/list endpoint exists.
 Only explicit server variables can enable it: `SHIOK_REPORTS_ENABLED=true`,

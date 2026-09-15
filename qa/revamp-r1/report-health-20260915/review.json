@@ -1,0 +1,8 @@
+{
+  "status": {
+    "01a0a32c-00e5-7881-b36d-f0b606247f9d": {
+      "completed": "Patched only the evaluator, collector, and their two test files.\n\n- DB-only clock lead: maximum five seconds.\n- Observation ordering and cleanup/run timestamps remain strict.\n- Freshness uses `max(local_now, database_now)`; DB timestamps remain unchanged.\n- Worker validation applies the same rule.\n\n```text\npython -B -m unittest tests.test_report_cleanup_health tests.test_collect_report_cleanup_health -v\n61 tests passed\n```\n\nIncludes the actual 9.873ms regression, >5-second denial, and 26h+1ms stale rejection under 5-second skew.\n\nNo provider rerun. Failure receipts, SQL, permissions, and unrelated files untouched."
+    }
+  },
+  "timed_out": false
+}

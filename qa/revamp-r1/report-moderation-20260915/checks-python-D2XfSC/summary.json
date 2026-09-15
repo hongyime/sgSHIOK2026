@@ -1,0 +1,31 @@
+{
+  "mode": "python",
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_report_cleanup_health.py",
+    "tests/test_collect_report_cleanup_health.py",
+    "tests/test_readme.py",
+    "tests/test_agent_docs.py",
+    "tests/test_repo_integrity.py",
+    "-q",
+    "-p",
+    "no:cacheprovider"
+  ],
+  "exit": 0,
+  "error": null,
+  "elapsedMs": 42354,
+  "before": {
+    "web/app/api/moderation/auth.ts": "4bd16b8c4d358211253a37d52aaef7a04e4cfaf3bba6ccf93139c1d9bd9db997",
+    "web/lib/__tests__/moderator-auth.test.ts": "33a8a4490a7c43d9395840558a34dcf4bc8454dde62b99036d7872c42b25eac5",
+    "web/lib/report-lifecycle.ts": "0ac7c2003faf1860877aaf145203d4b7eedb1106ec23966dc468b2c53339caee"
+  },
+  "after": {
+    "web/app/api/moderation/auth.ts": "4bd16b8c4d358211253a37d52aaef7a04e4cfaf3bba6ccf93139c1d9bd9db997",
+    "web/lib/__tests__/moderator-auth.test.ts": "33a8a4490a7c43d9395840558a34dcf4bc8454dde62b99036d7872c42b25eac5",
+    "web/lib/report-lifecycle.ts": "0ac7c2003faf1860877aaf145203d4b7eedb1106ec23966dc468b2c53339caee"
+  },
+  "sourceStable": true
+}

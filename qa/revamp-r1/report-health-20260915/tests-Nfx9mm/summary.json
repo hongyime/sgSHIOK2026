@@ -1,0 +1,36 @@
+{
+  "mode": "tests",
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_report_cleanup_health.py",
+    "tests/test_collect_report_cleanup_health.py",
+    "tests/test_readme.py",
+    "tests/test_agent_docs.py",
+    "tests/test_repo_integrity.py",
+    "-q",
+    "-p",
+    "no:cacheprovider"
+  ],
+  "startedAt": "2026-09-15T04:38:21.518Z",
+  "elapsedMs": 10382,
+  "exit": 0,
+  "error": null,
+  "before": {
+    "scripts/report_cleanup_health.py": "ead21154dc2320d045895d089f92883e4a8f13bddf4c51d7777c907fcd7a1ed9",
+    "scripts/collect_report_cleanup_health.py": "dabc8a4d8ea1cadb2cf0e6694b747d83f44b6f716f2decb7e556cd3ecd1da684",
+    "tests/test_report_cleanup_health.py": "2be1f94e8c8b2c61963e40d0df5e5595503ec9479601c29c58525eb6c9705f77",
+    "tests/test_collect_report_cleanup_health.py": "b6eaeb567098bb2ff2dc343dbbf3d68a33bcb942c6d56b6325d9144745b7bc10"
+  },
+  "after": {
+    "scripts/report_cleanup_health.py": "ead21154dc2320d045895d089f92883e4a8f13bddf4c51d7777c907fcd7a1ed9",
+    "scripts/collect_report_cleanup_health.py": "dabc8a4d8ea1cadb2cf0e6694b747d83f44b6f716f2decb7e556cd3ecd1da684",
+    "tests/test_report_cleanup_health.py": "2be1f94e8c8b2c61963e40d0df5e5595503ec9479601c29c58525eb6c9705f77",
+    "tests/test_collect_report_cleanup_health.py": "b6eaeb567098bb2ff2dc343dbbf3d68a33bcb942c6d56b6325d9144745b7bc10"
+  },
+  "accepted": true,
+  "testsPassed": 102,
+  "meaning": "61 evaluator/collector +41 docs/integrity =102 tests. Subtests are not separate test functions."
+}

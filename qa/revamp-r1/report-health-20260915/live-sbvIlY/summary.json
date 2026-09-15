@@ -1,0 +1,46 @@
+{
+  "mode": "live",
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "scripts/collect_report_cleanup_health.py"
+  ],
+  "startedAt": "2026-09-15T04:26:37.700Z",
+  "elapsedMs": 8760,
+  "exit": 1,
+  "error": null,
+  "before": {
+    "scripts/report_cleanup_health.py": "ee857e6f7baf8e57d2d65a3eade1a69cc4818da1e9191cb06eafaf943be897c8",
+    "scripts/collect_report_cleanup_health.py": "4de6d2ba8ea07abe32aeb1707f3dcdce45590a4f2058801d44f0cee66eca8184",
+    "tests/test_report_cleanup_health.py": "3de45bde301d01a7d5cffadcbf58536932fc2f5605816bec6a470bae80dbb9b0",
+    "tests/test_collect_report_cleanup_health.py": "55120cf83a0b8c1f8a9da84808ab7fddc16bc01546f627d954b0e66d3b3d9546"
+  },
+  "after": {
+    "scripts/report_cleanup_health.py": "ee857e6f7baf8e57d2d65a3eade1a69cc4818da1e9191cb06eafaf943be897c8",
+    "scripts/collect_report_cleanup_health.py": "4de6d2ba8ea07abe32aeb1707f3dcdce45590a4f2058801d44f0cee66eca8184",
+    "tests/test_report_cleanup_health.py": "3de45bde301d01a7d5cffadcbf58536932fc2f5605816bec6a470bae80dbb9b0",
+    "tests/test_collect_report_cleanup_health.py": "55120cf83a0b8c1f8a9da84808ab7fddc16bc01546f627d954b0e66d3b3d9546"
+  },
+  "accepted": false,
+  "health": {
+    "schema_version": 1,
+    "status": "invalid",
+    "cleanup": "unknown",
+    "scheduler": "unknown",
+    "intake_enabled": null,
+    "natural_run_observed": null,
+    "cleanup_admission_ready": false,
+    "reason": "future_timestamp",
+    "target": {
+      "projectRef": "ztjilsfgoephcdcsgcks",
+      "projectName": "sgshiok",
+      "projectUrl": "https://ztjilsfgoephcdcsgcks.supabase.co",
+      "organizationId": "ixonsqiqglwriirutigr",
+      "region": "ap-southeast-1",
+      "plan": "free"
+    },
+    "observed_at": "2026-09-15T04:26:46.164553+00:00",
+    "database_now": null
+  },
+  "assertion": "Expected values to be strictly equal:\n\nnull !== false\n"
+}

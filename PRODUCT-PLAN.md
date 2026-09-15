@@ -483,6 +483,13 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 
 ### [ ] T18: Exercise report failure, abuse and retention limits
 - Status: PARTIAL (daily cleanup active; resident/moderator and monitoring acceptance remain). Size: M. Parent: P1.3.
+- 15September monitoring implementation: content-free evaluator and bounded
+  read-only collector verify exact job identity, failure latch,26-hour freshness
+  and correlated scheduled-run evidence. No natural run is unobserved, not healthy.
+  Parent review fixed the Management query201 expectation; live acceptance exposed
+  a9msDB/local clock-offset false alarm. Bounded DB-only skew uses conservative
+  age, never extending the freshness limit. Alert delivery/activation remain;
+  no broad PAT is installed in Actions and no public status endpoint is exposed.
 - Current15September follow-up: migration20260915023644 installs pg_cron1.6.4.
   Three actual scheduled QA runs pass: expired-row deletion, caught deletion
   failure with a persisted latch, and200ms outer timeout with complete rollback.
