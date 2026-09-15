@@ -4895,3 +4895,35 @@ served-data identity and final package assembly remain explicit later checks.
 Never modify or relabel the earlier candidate, ledger or failed-build receipts.
 Evidence: qa/revamp-r1/release-finalize-20260915. No pipeline processing, input
 mutation, report activation or deployment is part of these compiler corrections.
+
+## 2026-09-15: Stream the verified source package without restaging data
+
+Assemble release source from the successful frontend snapshot and the existing
+immutable data stage. Select only pinned manifest entries and validate their
+byte hashes while streaming; do not enumerate private payloads or copy the data
+into another working tree. Reject traversal, links, conflicting members and
+unsupported stage origins, including a future previous-frontend inventory that
+this source-package path cannot preserve. Never silently discard retained assets.
+
+Use one USTAR/gzip stream, split after compression into100MiB parts named
+`.vercel/source.tgz.partN`, with SHA1 upload references and SHA256 evidence.
+This follows the source-archive protocol in Vercel CLI commit
+6331571e2fe14de31a01d00deead9e7a349e53a6:
+https://raw.githubusercontent.com/vercel/vercel/6331571e2fe14de31a01d00deead9e7a349e53a6/packages/client/src/utils/archive.ts
+The supported archive behavior is documented at
+https://vercel.com/changelog/split-tgz-is-now-the-default-cli-archive-deployment-behavior .
+Do not infer account quota availability or backend acceptance from local format
+compatibility. It is source for a remote build, not the local compiled BUILD_ID.
+
+Choose compression level1 for this bounded local packaging path. The same
+133717600-byte prefix took52.407s at level6 and18.297s at level1, with larger
+level1 output; caching and host pressure prevent treating this as a controlled
+speedup measurement. A single prefix cannot separate fixed, file and byte costs.
+Set a1800s full-run cap with an independent1830s process owner instead of treating
+a proportional extrapolation as a promise. Full observed total512.829s passed.
+Verify the whole resulting stream without extraction before claiming completion.
+
+The five-part archive is only release preparation. Existing public data and
+production stay unchanged. Reports retain the approved30-day policy but remain
+disabled until private operational acceptance; publishing and feature activation
+are separate decisions. Evidence: qa/revamp-r1/source-package-20260915.

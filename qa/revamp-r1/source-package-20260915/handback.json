@@ -1,0 +1,35 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "PRAWN-E14",
+  "date": "2026-09-15",
+  "sourceRevision": "69eac6a22ab3794a8648c3211c961340081b7d45",
+  "fullReceipt": "full-6bs50g8b/source-archive.json",
+  "fullReceiptSha256": "9f5c14acb3ca204cd2f5682366b7442710cc3eb22e9e0dc4968889bcb48861be",
+  "artifactDirectory": "C:\\sgSHIOK2026\\tmp\\full-6bs50g8b",
+  "memberArithmetic": "207 frontend/control + 4845 main + 701 lighting = 5753 files",
+  "inputArithmetic": "3337216 frontend/control + 5630916179 main + 3146697 lighting = 5637400092 bytes",
+  "archiveArithmetic": "4 * 104857600 + 10864384 = 430294784 bytes in 5 parts",
+  "timeArithmetic": "451.141 pack + 61.688 verify = 512.829 seconds; parent elapsed 513.813 includes startup/cleanup, not added again",
+  "budget": {"moduleSeconds":1800,"outerSeconds":1830,"maxInputBytes":5637400092,"maxOutputBytes":6000000000},
+  "finalVerification": "verify-83jkykih/execution.json",
+  "finalVerificationElapsedSeconds": 92.188,
+  "finalTests": "tests-bxge6tzi/execution.json",
+  "testResults": {"passed":57,"skipped":1,"skipReason":"Windows symlink creation unavailable; Node bundled-tar cross-reader passed"},
+  "pipelineRuns": 0,
+  "uploads": 0,
+  "deployments": 0,
+  "reportingEnabled": false,
+  "retentionDays": 30,
+  "FINDINGS": [
+    "The full immutable source package now exists and passes whole-stream member/hash verification. No second uncompressed data stage, input repair or pipeline run was needed.",
+    "The byte-preserving source-archive protocol reduces 5753 logical members to five upload objects. Account quota and backend acceptance have not been tested; no upload occurred.",
+    "Review found that a future previous-frontend stage inventory could be silently omitted. The final code now rejects unsupported stage origins, with two new regression cases. Final verification of the existing full package still passes, without repacking it.",
+    "Current-build desktop startup has six accepted checks and an inspected real basemap/route screenshot, but native same-document zoom still fails in the Windows helper. Production remains the August30 deployment.",
+    "The30-day private-report policy is applied. Intake, moderator login acceptance, operational delivery and deployment are not silently enabled by packaging."
+  ],
+  "DISAGREEMENTS": [
+    "Source packaging, local browser startup and successful tests are not equivalent to a shipped release or complete device acceptance.",
+    "A single prefix timing cannot identify fixed versus marginal costs. The selected30-minute budget was a bound with headroom, not a linear prediction or a pipeline budget.",
+    "No disagreement with30-day retention. The goal remains active while release and private-report acceptance remain unfinished."
+  ]
+}

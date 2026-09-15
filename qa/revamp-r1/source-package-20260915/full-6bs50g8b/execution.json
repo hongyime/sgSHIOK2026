@@ -1,0 +1,56 @@
+{
+  "mode": "full",
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "scripts.release_source_archive",
+    "pack",
+    "--frontend-build",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\frontend-brzm8xg4\\build.json",
+    "--frontend-sha256",
+    "d4b98d8d7400a82671e79bcb4802f4cf231170d29d74fd36a36a9b39da842f14",
+    "--data-ledger",
+    "C:\\sgSHIOK2026\\tmp\\core-release-20260915-candidate-2\\release-manifest.json",
+    "--data-sha256",
+    "5ae6803bc224e2f1e408481001c7088ed896fd05f28aa73145b2fa0c9408e471",
+    "--timeout-seconds",
+    "1800",
+    "--max-input-bytes",
+    "5637400092",
+    "--max-output-bytes",
+    "6000000000",
+    "--output",
+    "C:\\sgSHIOK2026\\tmp\\full-6bs50g8b"
+  ],
+  "before": {
+    "scripts/release_source_archive.py": "7318f903f2234c866b27d49cdf13b76293a0823a372eb17621c58fd1462b5eb0",
+    "tests/test_release_source_archive.py": "e3a7d70bac2a7732b00987aea9f29e4a665120a51110fd4ebc90e8148e0e548e"
+  },
+  "after": {
+    "scripts/release_source_archive.py": "7318f903f2234c866b27d49cdf13b76293a0823a372eb17621c58fd1462b5eb0",
+    "tests/test_release_source_archive.py": "e3a7d70bac2a7732b00987aea9f29e4a665120a51110fd4ebc90e8148e0e548e"
+  },
+  "execution": {
+    "ok": true,
+    "returncode": 0,
+    "stdout": "{\"compressedBytes\": 430294784, \"elapsedSeconds\": {\"pack\": 451.14100000000326, \"total\": 512.829000000027}, \"inputBytes\": 5637400092, \"parts\": 5, \"receipt\": \"C:\\\\sgSHIOK2026\\\\tmp\\\\full-6bs50g8b\\\\source-archive.json\", \"receiptSha256\": \"9f5c14acb3ca204cd2f5682366b7442710cc3eb22e9e0dc4968889bcb48861be\", \"scope\": \"source-archive\"}",
+    "stderr": ""
+  },
+  "elapsedSeconds": 513.8129999999655,
+  "pipelineRuns": 0,
+  "deployments": 0,
+  "passed": true,
+  "result": {
+    "compressedBytes": 430294784,
+    "elapsedSeconds": {
+      "pack": 451.14100000000326,
+      "total": 512.829000000027
+    },
+    "inputBytes": 5637400092,
+    "parts": 5,
+    "receipt": "C:\\sgSHIOK2026\\tmp\\full-6bs50g8b\\source-archive.json",
+    "receiptSha256": "9f5c14acb3ca204cd2f5682366b7442710cc3eb22e9e0dc4968889bcb48861be",
+    "scope": "source-archive"
+  }
+}

@@ -28,6 +28,18 @@ Next: reliable native helper or owner-assisted acceptance, final source package,
 returning-client/rollback/security/quota checks and exact release decision. No
 blind native rerun. Shared older previews remain historical, not current acceptance.
 The30-day report policy is unchanged; reporting activation does not gate this build.
+15September package completion: tmp/full-6bs50g8b contains a verified complete
+source archive from the two existing pinned stages, not a prebuilt deployment.
+207frontend/control +4845main +701lighting =5753members;5637400092inputbytes.
+Five compressed parts:4*104857600+10864384=430294784bytes. Pack451.141s plus
+verification61.688s=512.829s, inside1800s cap. Final standalone verification
+passes;57focused Python cases pass and1Windows symlink-privilege case is skipped.
+Node's tar cross-reader passes. A reviewed future-retention omission is now
+rejected rather than silently producing an incomplete package. No actual data
+copy, pipeline processing, upload or deployment. Evidence: source-package-20260915.
+The bounded62974preview has expired; do not treat it as a persistent live link.
+Next remains returning-client/rollback/security/quota acceptance and the exact
+release decision. Packaging success does not establish Vercel backend acceptance.
 15September scope confirmation: the active goal includes ALL remaining build and
 ship tasks, not just Supabase setup. Report HTTP/retry and private cleanup are
 implemented with independent review and daily scheduling, then resident activation, moderator access,

@@ -1,0 +1,24 @@
+{
+  "date": "2026-09-15",
+  "scope": "Read-only connected Vercel project/deployment tools; no external mutation",
+  "project": {
+    "id": "prj_y6GIQUdEyXXmtg3UTWkcJECKHdEE",
+    "name": "sgshiok",
+    "framework": "nextjs",
+    "accountId": "team_ARK7HKobyCMp0PCArQTLxbz6",
+    "createdAt": 1785037769440,
+    "updatedAt": 1788096478091,
+    "nodeVersion": "24.x",
+    "live": false,
+    "latestDeployment": {
+      "id": "dpl_wVnDeskyK666GwYUKWzY2aserkJR",
+      "url": "sgshiok-i0g8r1azg-theprawnvercel.vercel.app",
+      "createdAt": 1788096412959,
+      "readyState": "READY",
+      "target": "production"
+    },
+    "domains": ["sgshiok.hong-yi.me", "sgshiok.vercel.app", "sgshiok-theprawnvercel.vercel.app"]
+  },
+  "deploymentList": {"since":1789372800000,"count":0,"deployments":[]},
+  "qualification": "The project live field is retained verbatim, not interpreted as site availability. Connected tools did not expose detailed root/build settings or remaining quotas."
+}

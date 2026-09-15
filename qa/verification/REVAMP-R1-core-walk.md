@@ -9718,3 +9718,46 @@ FINDINGS
 DISAGREEMENTS
 1. Successful Node image downloads do not prove browser CORS/display acceptance.
 2. No disagreement with30-day retention. Startup checks are not shipping approval.
+
+### Continuation 2026-09-15: verified complete source archive
+
+Evidence: `qa/revamp-r1/source-package-20260915/handback.json`; complete member
+inventory and part identities in `full-6bs50g8b/source-archive.json`. Actual
+compressed parts are in repository-local `tmp/full-6bs50g8b/.vercel/`; no upload.
+
+Raw final standalone verifier stdout:
+
+```json
+{"compressedBytes": 430294784, "inputBytes": 5637400092, "members": 5753, "scope": "source-archive", "tarBytes": 5641840640, "verified": true}
+```
+
+Raw focused-test final line:
+
+```text
+======================= 57 passed, 1 skipped in 32.86s ========================
+```
+
+Member arithmetic:207frontend/control+4845main+701lighting=5753files.
+Byte arithmetic:3337216+5630916179+3146697=5637400092inputbytes.
+Parts:4*104857600+10864384=430294784compressedbytes.
+Full-run time:451.141pack+61.688verify=512.829s; parent513.813s includes its
+startup/cleanup and is not added again. Separate final verification:92.188s.
+Full-run cap:1800s, outer process owner1830s. Pipeline runs:0. Uploads:0.
+
+FINDINGS
+1. The complete source artifact passes full member/hash verification; it does
+   not reuse local compiled binaries or imply backend deployment acceptance.
+2. The final code rejects a future retained-frontend inventory rather than
+   silently dropping it. Two regression cases were added; current full package
+   verification still passes without repacking. No protected artifact changed.
+3.57focused tests pass; one Windows privilege-dependent symlink case is skipped.
+   Node's bundled-tar cross-reader passes. This is not the full Python suite.
+4. Production remains the August30 deployment. No report activation or publish
+   occurred. Thirty-day retention remains applied and the full goal is active.
+
+DISAGREEMENTS
+1. Source-format compatibility does not establish remaining free-tier quota or
+   remote builder acceptance. The pinned protocol and actual service are distinct.
+2. A prefix pilot cannot identify fixed/file/byte costs independently. The30-minute
+   cap is a bounded decision, not a claimed linear runtime forecast.
+3. No disagreement with30-day retention; deployment and private acceptance remain.

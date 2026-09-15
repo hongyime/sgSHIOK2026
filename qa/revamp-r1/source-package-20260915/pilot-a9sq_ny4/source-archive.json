@@ -1,0 +1,2870 @@
+{
+  "artifacts": {
+    "main": "generated_20260805_prefer_scored_routed",
+    "overlay": "lamp_posts_v1"
+  },
+  "buildId": "D2v5v_SSLYgX0SSyDHqvr",
+  "buildOutput": {
+    "bytes": 129450261,
+    "files": 172,
+    "manifestSha256": "b3f6a17a0c8a56fc42185ef4bfe43fe87ef717ed8b32b39246049721e57b067c"
+  },
+  "cliReference": "6331571e2fe14de31a01d00deead9e7a349e53a6",
+  "completeSourceInventory": false,
+  "compressedBytes": 5211022,
+  "deploymentFiles": [],
+  "elapsedSeconds": {
+    "pack": 50.60999999998603,
+    "total": 52.40700000000652
+  },
+  "fullInputBytes": 5637400092,
+  "fullMemberCount": 5753,
+  "inputBytes": 133717600,
+  "inputs": {
+    "dataLedger": {
+      "path": "C:\\sgSHIOK2026\\tmp\\core-release-20260915-candidate-2\\release-manifest.json",
+      "sha256": "5ae6803bc224e2f1e408481001c7088ed896fd05f28aa73145b2fa0c9408e471"
+    },
+    "frontendBuild": {
+      "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\frontend-brzm8xg4\\build.json",
+      "sha256": "d4b98d8d7400a82671e79bcb4802f4cf231170d29d74fd36a36a9b39da842f14"
+    }
+  },
+  "kind": "sgshiok-source-archive",
+  "members": [
+    {
+      "bytes": 88,
+      "mode": 420,
+      "origin": "previous-verified-derived-control",
+      "path": ".vercelignore",
+      "root": "frontend",
+      "sha256": "c294d3ad2388fd2c73f05cadea7685ec83a63bc747d775aec8a0df738c6f98bf"
+    },
+    {
+      "bytes": 14,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/.gitignore",
+      "root": "frontend",
+      "sha256": "6fe16e5e5dad9408c6a9082604c816d8067641ae1b5e59aceb90eb51c1088c63"
+    },
+    {
+      "bytes": 88,
+      "mode": 420,
+      "origin": "previous-verified-derived-control",
+      "path": "web/.vercelignore",
+      "root": "frontend",
+      "sha256": "c294d3ad2388fd2c73f05cadea7685ec83a63bc747d775aec8a0df738c6f98bf"
+    },
+    {
+      "bytes": 5768,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/app/api/moderation/auth.ts",
+      "root": "frontend",
+      "sha256": "e60e52d4b0b6c34dd32ba82f0b1429880f28a4420695ef004e4c62044c0871f6"
+    },
+    {
+      "bytes": 591,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/app/api/moderation/context/route.ts",
+      "root": "frontend",
+      "sha256": "164f422d3ab3e9f0cee45c0132798ec4414c241cd9a7caf3e550b204221c63b0"
+    },
+    {
+      "bytes": 592,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/app/api/moderation/decision/route.ts",
+      "root": "frontend",
+      "sha256": "c3e33ca434658cc0b24a7947b15eb46e14bcacf7b9a265bf09749ba7efb197f7"
+    },
+    {
+      "bytes": 9500,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/app/api/moderation/http.ts",
+      "root": "frontend",
+      "sha256": "4d9a05111717b9fb2d2b284a5a84c7cd0d2013f8fba3712b75941c201aa92603"
+    },
+    {
+      "bytes": 609,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/app/api/moderation/login/route.ts",
+      "root": "frontend",
+      "sha256": "361ff715bc18051457aae7f40232d20684e76e3688d2b9f2c691fd503f329a81"
+    },
+    {
+      "bytes": 611,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/app/api/moderation/logout/route.ts",
+      "root": "frontend",
+      "sha256": "aa08f04d03fc5cc7a3a4824a7c0007a12619c52f39c070bc8f1631fb29b58425"
+    },
+    {
+      "bytes": 589,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/app/api/moderation/queue/route.ts",
+      "root": "frontend",
+      "sha256": "5da0e0d9cbfe905c00f68d46cae7f89dceac091f1df85a2920e1da9358641183"
+    },
+    {
+      "bytes": 14247,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/app/api/moderation/session.ts",
+      "root": "frontend",
+      "sha256": "678c00f9bc436c691b16bafaa1f0598f5cd11abd8515461628ccb230d52d1ad9"
+    },
+    {
+      "bytes": 22293,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/app/api/moderation/store.ts",
+      "root": "frontend",
+      "sha256": "eb870efebb16d2c7e77f3b2f270077610377d401681d83c48abcf4e3ba89feb5"
+    },
+    {
+      "bytes": 1568,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/app/api/onemap-deadline.ts",
+      "root": "frontend",
+      "sha256": "9785981091778da7d2d93d34985ed8961235ae3a629d164ffd3f5e6803fe7b1b"
+    },
+    {
+      "bytes": 5279,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/app/api/onemap-route/route.ts",
+      "root": "frontend",
+      "sha256": "35dfef5e396b8974e61a8cfbddf64a5fe77bc07d6caf06b77948868303d3e2cb"
+    },
+    {
+      "bytes": 3450,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/app/api/onemap-search/route.ts",
+      "root": "frontend",
+      "sha256": "6dbca4ca1ffcdf381ac7451c4c585c6489479d2a173b79253e1308fdca360f3e"
+    },
+    {
+      "bytes": 3536,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/app/api/onemap.ts",
+      "root": "frontend",
+      "sha256": "7e770beff76961fce8659347fe72d5db3b38d99ecef17d9e8f252bc9f54422fb"
+    },
+    {
+      "bytes": 8511,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/app/api/reports/http.ts",
+      "root": "frontend",
+      "sha256": "d42678f5054e77a61d2febc2ba91eb26199762a054cbf4d62b73e1198fdd9d6c"
+    },
+    {
+      "bytes": 546,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/app/api/reports/route.ts",
+      "root": "frontend",
+      "sha256": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b"
+    },
+    {
+      "bytes": 6598,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/app/api/reports/store.ts",
+      "root": "frontend",
+      "sha256": "4beeb54465790e4a85034041540084e3ad14d15b5d4243080ccd81b964689993"
+    },
+    {
+      "bytes": 967,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/app/global-error.tsx",
+      "root": "frontend",
+      "sha256": "e6b738234f7025de84b7245067bc38cd99c33f0379f0a7d07048815346bd15d9"
+    },
+    {
+      "bytes": 132884,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/app/home.tsx",
+      "root": "frontend",
+      "sha256": "e873aa64cdba8c3736c44d47b67345cdd359fa89af46724544a1074604819174"
+    },
+    {
+      "bytes": 747,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/app/icon.svg",
+      "root": "frontend",
+      "sha256": "c0bd7140b0fdf9ef8220017c4a07428301ab84e80c4090acd36da4c0da9d0dd2"
+    },
+    {
+      "bytes": 1271,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/app/layout.tsx",
+      "root": "frontend",
+      "sha256": "629503df867c00de8bac541deac30d6f16f5cd2800f4540422d407c318d21350"
+    },
+    {
+      "bytes": 555,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/app/moderation/page.tsx",
+      "root": "frontend",
+      "sha256": "7a5c8900484d8a8c446e45fce83c4e3f176cb0a3a60a6fca3ee4df1b57d5015b"
+    },
+    {
+      "bytes": 30874,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/app/page.module.css",
+      "root": "frontend",
+      "sha256": "819ed171bdf922352683be7523e72a6b58a4730c829a1db8faae4cd82479bf3b"
+    },
+    {
+      "bytes": 49,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/app/page.tsx",
+      "root": "frontend",
+      "sha256": "b7ac833aecc811327db000b5bdc92ee17cdf5c9197c3b3030950fa071b0fe7e0"
+    },
+    {
+      "bytes": 951,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/app/robots.ts",
+      "root": "frontend",
+      "sha256": "114d20450cca32f28485448c758c031fa7479b699ba8673e21d115875b66e078"
+    },
+    {
+      "bytes": 317,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/app/sitemap.ts",
+      "root": "frontend",
+      "sha256": "e7ccaa26063b9f0dfce8eb2b7e7b7a7ed3a50681644c2baeb40cc6e348da7ea5"
+    },
+    {
+      "bytes": 1754,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/components/comparison-share-dialog.module.css",
+      "root": "frontend",
+      "sha256": "d3cf3adf495462302dce41ed3f33ead9bd7f2d0340b39de97e3f86a2809d7e04"
+    },
+    {
+      "bytes": 5168,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/components/comparison-share-dialog.tsx",
+      "root": "frontend",
+      "sha256": "c13424b420ca97473599301f832a811dc74d3e79b97f3ceecec1832026abf71b"
+    },
+    {
+      "bytes": 1606,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/components/exposure-section-explorer.module.css",
+      "root": "frontend",
+      "sha256": "a3540b60e154b08b30e04035589b4728cd20a938b3684cefa652e80553294a5a"
+    },
+    {
+      "bytes": 4646,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/components/exposure-section-explorer.tsx",
+      "root": "frontend",
+      "sha256": "23ec39be47f8006770293d0eb6255d0b7b7923a56a5c811f6a6f1a6013b0d50f"
+    },
+    {
+      "bytes": 1372,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/components/failure-diagnostics-control.module.css",
+      "root": "frontend",
+      "sha256": "9d7aaa37a75c122df1c99ef38295d1a8219a7413ba3ee3bc9e76d29dac83b802"
+    },
+    {
+      "bytes": 5143,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/components/failure-diagnostics-control.tsx",
+      "root": "frontend",
+      "sha256": "87023b56eb9e9bae6303cfa78c973295f4fbc56c506bc3804e0a58e7945234b0"
+    },
+    {
+      "bytes": 4171,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/components/home-comparison.module.css",
+      "root": "frontend",
+      "sha256": "ef4559e8f1e671a3f95c9d440f39b30178b45c54840e8f1546bee0439d285773"
+    },
+    {
+      "bytes": 14917,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/components/home-comparison.tsx",
+      "root": "frontend",
+      "sha256": "d2160d18c064d8ced14446ef288bb4ff7d3122639106a4ef11224dd32ecb190e"
+    },
+    {
+      "bytes": 4259,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/components/moderation-console.module.css",
+      "root": "frontend",
+      "sha256": "a1020e768da5008c8fe66d45fd9a42431e2d01162ccade4c2d124df5c8e63b60"
+    },
+    {
+      "bytes": 21057,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/components/moderation-console.tsx",
+      "root": "frontend",
+      "sha256": "bdb98c35e762933b03a11ac56802d4713680dc70a59998cb8296605373c7eb79"
+    },
+    {
+      "bytes": 2458,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/components/report-composer.module.css",
+      "root": "frontend",
+      "sha256": "386d548cc8cd06e019274be0266d4797c58536063ec073b8c5b35bc2c541270f"
+    },
+    {
+      "bytes": 15867,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/components/report-composer.tsx",
+      "root": "frontend",
+      "sha256": "0c96311dcc926c1506499f6092ed7412ecdaeeea36663d77110d8fd474fceeb9"
+    },
+    {
+      "bytes": 2904,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/components/report-location-preview.tsx",
+      "root": "frontend",
+      "sha256": "b8bfcbca9b0ace1e45efe15985d0a25475122b7c6d225fd45fb0ca640918cbda"
+    },
+    {
+      "bytes": 5330,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/components/route-evidence-map.module.css",
+      "root": "frontend",
+      "sha256": "f01f94068217dc3e3f057fb6ff6090f7c320a05770c49b5e259dc7d8707ee28f"
+    },
+    {
+      "bytes": 65247,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/components/route-evidence-map.tsx",
+      "root": "frontend",
+      "sha256": "9e7fdd20532c88c2a2cbb10242e615bb4841079af1e43973ade1f940e67868af"
+    },
+    {
+      "bytes": 3158,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/components/route-map-loader.tsx",
+      "root": "frontend",
+      "sha256": "4a9c4dba5e545a6b6f9bf9296a8a22eb7cfe29cee401c27c54d3c38fac32c93b"
+    },
+    {
+      "bytes": 1737,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/components/transit-stop-picker.module.css",
+      "root": "frontend",
+      "sha256": "aac04993ce4fae9e5b222a853bfd0f20e53197ae9bbffff3ca634596bcb7f974"
+    },
+    {
+      "bytes": 3021,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/components/transit-stop-picker.tsx",
+      "root": "frontend",
+      "sha256": "f00079260192f82d6cf81cf07760ec4d3ee5446d52273e336c88ffc353f63f5e"
+    },
+    {
+      "bytes": 1840,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/components/walk-summary.tsx",
+      "root": "frontend",
+      "sha256": "0f8b5d4f1b89c16b3f641ed4ec88ce43a1ccc4a6f8ee7b3e99c03b973e3ff706"
+    },
+    {
+      "bytes": 360,
+      "mode": 420,
+      "origin": "previous-verified-derived-control",
+      "path": "web/data-bundle.json",
+      "root": "frontend",
+      "sha256": "a8b64b0b3163b5ec8dc4eb482bc3a7720afa34a9ca2bdf1626a13bd267d7935b"
+    },
+    {
+      "bytes": 77,
+      "mode": 420,
+      "origin": "previous-verified-derived-control",
+      "path": "web/frontend-retention.json",
+      "root": "frontend",
+      "sha256": "f7ca9c23027c46a15d9533a9d08672851515a2125207cc93514c78a1b9d06dd8"
+    },
+    {
+      "bytes": 80009,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/accessibility-render.test.tsx",
+      "root": "frontend",
+      "sha256": "c5b3a22be104673b56d5de9d85f46113fbc803b098fcf5c85d641ee1df249ffa"
+    },
+    {
+      "bytes": 3003,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/artifact-failure.test.ts",
+      "root": "frontend",
+      "sha256": "e1b80c6786e7f7ede3e3af8009e5a4455286b3289f040695ac577d5e6fb19487"
+    },
+    {
+      "bytes": 34611,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/comparison-controller.test.ts",
+      "root": "frontend",
+      "sha256": "b0c63bef195b319afb43aeb11d275f7d2468f829bb38974f539d2d2138d58e9a"
+    },
+    {
+      "bytes": 8592,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/comparison-link.test.ts",
+      "root": "frontend",
+      "sha256": "08644514ac30961184d36c7fe8203700a2f47196e938a52f40af98b188402790"
+    },
+    {
+      "bytes": 20996,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/comparison-share-dialog.test.tsx",
+      "root": "frontend",
+      "sha256": "a859500d0ec694e467c0c4676854eb4512f611b00627ec419dd918597d198d6c"
+    },
+    {
+      "bytes": 19401,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/comparison-shared-controller.test.ts",
+      "root": "frontend",
+      "sha256": "4b2cbbdfba2b8433a9212727f8ce77c957a35470f2cfa14c353277cab3cfc503"
+    },
+    {
+      "bytes": 22050,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/comparison-state.test.ts",
+      "root": "frontend",
+      "sha256": "c2d8bbaf01ebc70df02b26a55ed61a46fafa9b1d4420312d11d5665aa48afbb8"
+    },
+    {
+      "bytes": 29968,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/comparison.test.ts",
+      "root": "frontend",
+      "sha256": "fb8ab02661fa1210c5c8987f1f655573fec90cfbdffbf293fdf66c1f0416a5f1"
+    },
+    {
+      "bytes": 2831,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/contiguous-route-parts.test.ts",
+      "root": "frontend",
+      "sha256": "6f0571b92093de9459ad66dacd7a451dc508006fe95c38dac4b11ef83f88cbf1"
+    },
+    {
+      "bytes": 8549,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/coverage-gap-register.test.ts",
+      "root": "frontend",
+      "sha256": "182ea7b1a65dcd173e05ec507b6d7c42d3fa5920981208041ccbd4d470920db2"
+    },
+    {
+      "bytes": 2060,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/data-base.test.ts",
+      "root": "frontend",
+      "sha256": "741336b2f620f1567d7715270aa04245e0d0f57ab3436632d77a666e60ab1c02"
+    },
+    {
+      "bytes": 9241,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/data-cache-recovery.test.ts",
+      "root": "frontend",
+      "sha256": "f6f8300f0217f927a720e64f1a3a17eb3d6bbc0ee28868ad428c377ee42b187f"
+    },
+    {
+      "bytes": 21358,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/data-failure-diagnostics.test.ts",
+      "root": "frontend",
+      "sha256": "a10d85b14a60e0ddbc9370181710d20165799812687e2cc97a9e704c33246265"
+    },
+    {
+      "bytes": 5299,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/data-fetch-policy.test.ts",
+      "root": "frontend",
+      "sha256": "b65c4773c49fa2b94d2b86c896ce4141a9f82d113dc090abd4507eb33d812ea1"
+    },
+    {
+      "bytes": 4706,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/data.test.ts",
+      "root": "frontend",
+      "sha256": "6d0b688fffe7ae02debb1fcc61e4c4b9745c1de68e556056e794070c1618e763"
+    },
+    {
+      "bytes": 25509,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/deployment.test.ts",
+      "root": "frontend",
+      "sha256": "b44965a410a6734ace0727ea22bd1d51567cf340ba07e18980ef0fc58409b151"
+    },
+    {
+      "bytes": 2275,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/ensure-data-bundle.test.mjs",
+      "root": "frontend",
+      "sha256": "4e5e8c4373e523ea3edcca0c66d2bf0e67f6b4314bf61430648bd277e58c555c"
+    },
+    {
+      "bytes": 22455,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/exposure-section-explorer.test.tsx",
+      "root": "frontend",
+      "sha256": "39218210fb67cf4780f0829a925af5512019258d8919aa31fdd54647a29e4041"
+    },
+    {
+      "bytes": 23597,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/failure-diagnostics-control.test.tsx",
+      "root": "frontend",
+      "sha256": "33a50d8a232d14b834969d930448e4817913f13e787a6cf2874b1c5c72b84ea4"
+    },
+    {
+      "bytes": 4321,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/failure-diagnostics.test.ts",
+      "root": "frontend",
+      "sha256": "32de671af613525520f5555af6ad7d3dd50e0662e34b6459fe058f60e9f0adb9"
+    },
+    {
+      "bytes": 480,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/fixtures/published-data.ts",
+      "root": "frontend",
+      "sha256": "078361aabbb455955ad70e9cef10a22121fb69476481031cb118b7aee8b990be"
+    },
+    {
+      "bytes": 36007,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/fixtures/published-options.json",
+      "root": "frontend",
+      "sha256": "6c4b0c23329e968489439a4c68329b0acbd4f5719632ae8e2b11e14325fa2ea7"
+    },
+    {
+      "bytes": 3733,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/fixtures/published-options.provenance.json",
+      "root": "frontend",
+      "sha256": "8d0ac40ff2cc3616f2f41eec68b2712982859d301917373aa894ec49f37bf91a"
+    },
+    {
+      "bytes": 9477,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/fixtures/published-walks.json",
+      "root": "frontend",
+      "sha256": "e29cc74ce7ec9f69b360e596a2ecd6b07e4cba453bb46b2cc091c9ff61036c86"
+    },
+    {
+      "bytes": 5312,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/fixtures/published-walks.provenance.json",
+      "root": "frontend",
+      "sha256": "485e9d62fe1488c5cbd8086cdc9a26efc7cb83ec4dc4770b58dddc387c47826d"
+    },
+    {
+      "bytes": 8410,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/frontend-retention.test.ts",
+      "root": "frontend",
+      "sha256": "2520da0d562829c5d53735201949c3047c0dcd0c5aa4622021a812c1cf0a0186"
+    },
+    {
+      "bytes": 9248,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/geom-promoted-shard.test.ts",
+      "root": "frontend",
+      "sha256": "afbbce3371614bd859684f186d0dd98216f7649ad8cd9a5d56fa941f76050c0d"
+    },
+    {
+      "bytes": 1253,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/geometry-recovery.test.ts",
+      "root": "frontend",
+      "sha256": "7609499e054ac0110892542288c38d8d76e4aaedad1bef8f8bfa79d67679e8e4"
+    },
+    {
+      "bytes": 1644,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/global-error.test.tsx",
+      "root": "frontend",
+      "sha256": "be3a87a92862d20d3f4fab18ec1710152cde8f28afa50b7a19f29448d7b95460"
+    },
+    {
+      "bytes": 46331,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/home-comparison.test.tsx",
+      "root": "frontend",
+      "sha256": "9d047dbda7b0ae8de3117022226a0f6def353f11433fa3cf58bb914373e6f1ad"
+    },
+    {
+      "bytes": 1455,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/ignore-build.test.mjs",
+      "root": "frontend",
+      "sha256": "a0f94ed9a81c5bb2da2bcb22d3864e3851e16ecdd450f9d880042d2198a20c55"
+    },
+    {
+      "bytes": 5768,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/lamp-overlay.test.ts",
+      "root": "frontend",
+      "sha256": "4721ae09349fcbe885588385578198415ddbda952d659ec2287517a0a36d5b1e"
+    },
+    {
+      "bytes": 8837,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/live-route-scoring.test.ts",
+      "root": "frontend",
+      "sha256": "70135b45edec85599df3b31652394f427976128c91eef586988ad4f0510c7284"
+    },
+    {
+      "bytes": 2424,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/locked-score-availability.test.ts",
+      "root": "frontend",
+      "sha256": "1ebf79cabb1f31f486cce37d0e8252285f18cccbca8a7d5f467b4f72c6c7967e"
+    },
+    {
+      "bytes": 2882,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/map-first-shell.test.ts",
+      "root": "frontend",
+      "sha256": "e3a962265d635922ddb076dbe2667efc700fd2f32e7c6da77efd56bf0627b42e"
+    },
+    {
+      "bytes": 9132,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/map-recovery-actions.test.tsx",
+      "root": "frontend",
+      "sha256": "9409d73c017cc7ca62105b73c47d34e1748ce871058d262dfbd812c4d0c97bbb"
+    },
+    {
+      "bytes": 8289,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/map-startup-import.test.ts",
+      "root": "frontend",
+      "sha256": "2fcaa4f52893993199402dbf914b72a668e4cc73857cdae5a4adc60f2ed9e165"
+    },
+    {
+      "bytes": 15029,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/map-startup-stage.test.ts",
+      "root": "frontend",
+      "sha256": "e06462a0768d755cb46150af2961c8bf9001978016f6b9cc76f149e593b01ff8"
+    },
+    {
+      "bytes": 3598,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/map-viewport.test.ts",
+      "root": "frontend",
+      "sha256": "28b270a28cad8d9429a6915d4fd1443e198ab817225adfabbce40ec4e06e2b56"
+    },
+    {
+      "bytes": 1175,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/map-worker.test.ts",
+      "root": "frontend",
+      "sha256": "4d40d32ef7d535007f81fc8a95a471e388e50d71532fe4b4349b499a20c0d37c"
+    },
+    {
+      "bytes": 28104,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/moderation-console.test.tsx",
+      "root": "frontend",
+      "sha256": "8524432d3a8ed77bf57d7bed9b00ce6013b41abe8005e52299da096b1fdcddb2"
+    },
+    {
+      "bytes": 8407,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/moderation-route.test.ts",
+      "root": "frontend",
+      "sha256": "45bac365297bfdde852faa9d0d946b3a2abc61b05cb728bb5cab4feaf4475b88"
+    },
+    {
+      "bytes": 7653,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/moderator-auth.test.ts",
+      "root": "frontend",
+      "sha256": "9e7c3519bd6b51ac377cb9d618f6592a22cd6912861384b0c18b9e1f537c5354"
+    },
+    {
+      "bytes": 47425,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/moderator-client.test.ts",
+      "root": "frontend",
+      "sha256": "d82135343cea7aedd4588d30e80658c7fe40704f2298b21e4d33276de24818af"
+    },
+    {
+      "bytes": 21188,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/moderator-http.test.ts",
+      "root": "frontend",
+      "sha256": "9c5e2ec9fa2cea2d578d1c801bb1ec9d01c8475f2a9436d224402c761ce0f3f7"
+    },
+    {
+      "bytes": 42459,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/moderator-session.test.ts",
+      "root": "frontend",
+      "sha256": "e196d450cf0f2a94d666699403c0d7925d77759b317e50b4714b91deac47f31b"
+    },
+    {
+      "bytes": 42514,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/moderator-store.test.ts",
+      "root": "frontend",
+      "sha256": "443ae4252b494599be6aed1d7a0fddf2251eb3b82b5be7102385238e0555e6e6"
+    },
+    {
+      "bytes": 7014,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/onemap-api-security.test.ts",
+      "root": "frontend",
+      "sha256": "be7b8f13516e8813b3886c18d77b6934329a6123c18cf96f1ff94d75c3b8c5d0"
+    },
+    {
+      "bytes": 8802,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/onemap-deadline.test.ts",
+      "root": "frontend",
+      "sha256": "d7760c36d08896acf9b69d5259b9db06a70a52fa85215de96976e21cd243ab59"
+    },
+    {
+      "bytes": 5995,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/onemap-search.test.ts",
+      "root": "frontend",
+      "sha256": "d4b2a218584763407356162680f939648096a4a0f3d470a2d15a4b5aec6be26c"
+    },
+    {
+      "bytes": 471,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/page-entry.test.ts",
+      "root": "frontend",
+      "sha256": "16a2d2b32c0d1ef15a59afbd0bdde5559aa56c965d946c422409f68bea3cebc4"
+    },
+    {
+      "bytes": 846,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/polyline.test.ts",
+      "root": "frontend",
+      "sha256": "8c449899dabe2cdfd9dbab156bb059739976e1d677e96dc0a77debf0bf3741f6"
+    },
+    {
+      "bytes": 16575,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/published-exposure-sections.test.ts",
+      "root": "frontend",
+      "sha256": "cd0d6511922174d22d6415893a39d81d5af8c783c5857d9dd96d4e78cc08a298"
+    },
+    {
+      "bytes": 12436,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/published-options-fixture.test.ts",
+      "root": "frontend",
+      "sha256": "9b33bffe9ba63063bbd64a6dfd716c761aaeff20f2b89dc22a16ee38a564f55a"
+    },
+    {
+      "bytes": 28696,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/published-transit-choices.test.ts",
+      "root": "frontend",
+      "sha256": "6e7890504b25deb486c2eef84556d3639aebd14a00ed24a622272e324fed4095"
+    },
+    {
+      "bytes": 51498,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/published-transit-options.test.ts",
+      "root": "frontend",
+      "sha256": "a701a1b913cfad5b37c7cf833e5c58f786ebfbe80dd2d8a4d292ef99b8b261e2"
+    },
+    {
+      "bytes": 93786,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/published-walk-page.test.tsx",
+      "root": "frontend",
+      "sha256": "6dadafbbea7628173af64ad9bd3ab09d99bc0fe655f3c292cb550e65a34ca702"
+    },
+    {
+      "bytes": 6615,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/published-walk-selection.test.ts",
+      "root": "frontend",
+      "sha256": "9942fe62a109c62190ea0a1084d23309dcb052b2a7a618ec68c7b4f86c25669a"
+    },
+    {
+      "bytes": 8082,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/published-walk-stop-identity.test.ts",
+      "root": "frontend",
+      "sha256": "f213110789f96d4bb0c269b91a7b65f06437dc499a8c7f8780b677aad21a3bdc"
+    },
+    {
+      "bytes": 12777,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/published-walk-view.test.ts",
+      "root": "frontend",
+      "sha256": "cc828c29aa420f75227c1e7a60ab2cf1f29a19784fa076e1099275efb115de48"
+    },
+    {
+      "bytes": 1304,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/rank-payload.test.ts",
+      "root": "frontend",
+      "sha256": "6f825f23c368e34176c979e4be49b2f9a715ffb06f7f2ece42fd731664089a82"
+    },
+    {
+      "bytes": 32103,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/report-composer.test.tsx",
+      "root": "frontend",
+      "sha256": "aa2e71c54477379859a0331b19b96f5cac719f2150626ab54a1355939e1730eb"
+    },
+    {
+      "bytes": 24752,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/report-http.test.ts",
+      "root": "frontend",
+      "sha256": "6f07026e7ba78364e015df5a24ca93fa2423a9c475b2415ad0f2c9afcb2a055a"
+    },
+    {
+      "bytes": 11919,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/report-lifecycle.test.ts",
+      "root": "frontend",
+      "sha256": "01ff39c5a52b014b4e9463f742d3af6bdb872ff626057c6973b7e4f6e44383b1"
+    },
+    {
+      "bytes": 7685,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/report-request-id.test.ts",
+      "root": "frontend",
+      "sha256": "de7538f2af2a48edb7849594155aa840308fb634e1a9ad1190f0378f4278335c"
+    },
+    {
+      "bytes": 15195,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/report-store.test.ts",
+      "root": "frontend",
+      "sha256": "4f5507bc453eb17103b619ebe948b69510ce77434199ccce0ab7c084c5e8ab4f"
+    },
+    {
+      "bytes": 21372,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/report-submission.test.ts",
+      "root": "frontend",
+      "sha256": "44248d371209aa7365ee786264ba8175d65d67691b26097d3a13c893091a50ab"
+    },
+    {
+      "bytes": 22465,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/reports.test.ts",
+      "root": "frontend",
+      "sha256": "ff424da8152b39ca11ae770d026c6847dac28478b6be4db46a254d3ec2967866"
+    },
+    {
+      "bytes": 2405,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/revamp-layout.test.ts",
+      "root": "frontend",
+      "sha256": "e33caf9b00b9e30f87b9ccb0d770218661776ce06312b8f07ebe318b2cae66b1"
+    },
+    {
+      "bytes": 2807,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/route-display.test.ts",
+      "root": "frontend",
+      "sha256": "2c54d6d61a4d7ab9083ab9ac0cd1271300cf2b7eaf2d623627b251329c41d0a4"
+    },
+    {
+      "bytes": 21129,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/route-evidence-map-interaction.test.ts",
+      "root": "frontend",
+      "sha256": "4bf1819e399af22ed631f18b401ea1392ce0ece71631e929f706b6c7a109e692"
+    },
+    {
+      "bytes": 16146,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/route-evidence-map-popup.test.ts",
+      "root": "frontend",
+      "sha256": "d2f3be58de37d1fd3ae7431c6603fcb489ecfd380d83db7f20ccc0feb9b22157"
+    },
+    {
+      "bytes": 2682,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/route-geojson.test.ts",
+      "root": "frontend",
+      "sha256": "c19e3d9963fde623b3024fb3aacf0086f5bb9271ece1f85a9faa14865958314e"
+    },
+    {
+      "bytes": 8376,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/route-map-keyboard.test.ts",
+      "root": "frontend",
+      "sha256": "685fa52e560de34b211357f2042dea60f538d8bae5e8e1e6f784147c1a880fa1"
+    },
+    {
+      "bytes": 15862,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/route-map-loader.test.tsx",
+      "root": "frontend",
+      "sha256": "d31f8ed81683c76f84698081513cdf3c0c1cfeb12d8484b64ac4a7e04241569c"
+    },
+    {
+      "bytes": 42556,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/route-source-lifecycle.test.ts",
+      "root": "frontend",
+      "sha256": "6ac2d8a19da1ad10b16293dbf47ccf552a5d8fcf4bd0e585e3361325a3de8f22"
+    },
+    {
+      "bytes": 79607,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/score-card-copy.test.ts",
+      "root": "frontend",
+      "sha256": "07e0ebc5e7029d6ef6fc535ee713218e17114d1b21ebda2bed4f9e5d33da7caa"
+    },
+    {
+      "bytes": 6285,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/score-prefix-index.test.ts",
+      "root": "frontend",
+      "sha256": "2d4db8c99905b6f8c1fdbf60934b69e05bcaf5123f05681bc4fec9f4e46623eb"
+    },
+    {
+      "bytes": 31308,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/service-worker-behaviour.test.ts",
+      "root": "frontend",
+      "sha256": "53c5c30fdb636519d09a701efce40f78cfe46c5e8ec93489d1b71277e1a7742e"
+    },
+    {
+      "bytes": 3110,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/service-worker-registration.test.ts",
+      "root": "frontend",
+      "sha256": "f4535bf604766d3d3f4860dd3bed3913e9e3ef0bbe884adce527806a319f6627"
+    },
+    {
+      "bytes": 6417,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/source-freshness.test.ts",
+      "root": "frontend",
+      "sha256": "98de88e223f9794029f003daa4c111a0bf5d0e8083c6db84fbdd3d95d2340f4e"
+    },
+    {
+      "bytes": 1898,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/subscore-ranking.test.ts",
+      "root": "frontend",
+      "sha256": "aadb4288f1645ce037708fd94cc15b143e801496ca343cfed30fbbde5e6193a2"
+    },
+    {
+      "bytes": 5029,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/transit-popup.test.ts",
+      "root": "frontend",
+      "sha256": "b77778fd85515dca30ad6cb6935d8c283629db9a65ec3d5aec7b8ea64c513acb"
+    },
+    {
+      "bytes": 3141,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/transit-shards.test.ts",
+      "root": "frontend",
+      "sha256": "50bad6bbe876f3629714d7a52304cd738521341e02f81d4ffe961d95397c4da4"
+    },
+    {
+      "bytes": 28520,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/transit-stop-picker.test.tsx",
+      "root": "frontend",
+      "sha256": "13f2d10db65daa2c6da9dff8f9c7ac0813a748de4c15b4d3885beadc2ca6464a"
+    },
+    {
+      "bytes": 544,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/typescript-contract.test.ts",
+      "root": "frontend",
+      "sha256": "c7ea76a7e35962a4888deb4f49f58b40e87ea2c04a1f1a35494ec0adc31d4849"
+    },
+    {
+      "bytes": 2801,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/walk-default.test.ts",
+      "root": "frontend",
+      "sha256": "3ea8f3d99239286a1fc0bda1564011ab26dbfc1c8ed5f72e574288927c8bdf3d"
+    },
+    {
+      "bytes": 2387,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/walk-preview-request.test.ts",
+      "root": "frontend",
+      "sha256": "1f8571afc7efbed7e0d2e8bf278bfb16bdc45b2f652dafcfd4c6488b39721a1c"
+    },
+    {
+      "bytes": 4528,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/walk-real-records.test.ts",
+      "root": "frontend",
+      "sha256": "eb5b946a340c526f43eb3b5937eed329f23b0cb9b55ab77d7e96808f15678692"
+    },
+    {
+      "bytes": 29630,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/walk-recovery-focus.test.tsx",
+      "root": "frontend",
+      "sha256": "5bf1efeaa3922c65f64a083bd27b3d6376a4c7f42258e22fe1f89e886322db01"
+    },
+    {
+      "bytes": 11554,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/__tests__/walk-summary-options.test.ts",
+      "root": "frontend",
+      "sha256": "0d64607d4299bd7674f63faef65ac9c18f102162041ba9ab2f9b28678c92c063"
+    },
+    {
+      "bytes": 1756,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/artifact-failure.ts",
+      "root": "frontend",
+      "sha256": "3bf84004256bc6adedb15d985806a845296384a4cd6b77f95c0aad6e1663aeaf"
+    },
+    {
+      "bytes": 8102,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/comparison-controller.ts",
+      "root": "frontend",
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "bytes": 2640,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/comparison-link.ts",
+      "root": "frontend",
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "bytes": 6888,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/comparison-state.ts",
+      "root": "frontend",
+      "sha256": "5c80bebc049bf6729e1af4892a6621a8ad2e0cfd515335a63df117c1a5340651"
+    },
+    {
+      "bytes": 9560,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/comparison.ts",
+      "root": "frontend",
+      "sha256": "d09b3676607fdddf56d77fe587980b4f1108d139a40eb15dc8201251eb3c2abb"
+    },
+    {
+      "bytes": 1362,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/contiguous-route-parts.ts",
+      "root": "frontend",
+      "sha256": "d8c07f066257377ebf21a1038c6610a5a0788f6492b19144b17b8997fab1e9c3"
+    },
+    {
+      "bytes": 4468,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/coverage-gap-register.ts",
+      "root": "frontend",
+      "sha256": "434ea06f50e85d265751ad29e4b36ed952e87b1c7265da242dee83c0c5b10878"
+    },
+    {
+      "bytes": 18277,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/data.ts",
+      "root": "frontend",
+      "sha256": "accb659c9dc119fb63ca8424b93ef3364f13fb9bc2392eb2d33fff3f0512dc99"
+    },
+    {
+      "bytes": 3081,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/failure-diagnostics.ts",
+      "root": "frontend",
+      "sha256": "b4be16461d9e832bc41eddfea289dc5b8bffea4b9c01538b865590e7061b68b2"
+    },
+    {
+      "bytes": 5758,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/lamp-overlay.ts",
+      "root": "frontend",
+      "sha256": "717167658fa49110c04db6d82ccbdf1e3bf9efb77008fa5cfc2f425551dfe9df"
+    },
+    {
+      "bytes": 9232,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/live-route-scoring.ts",
+      "root": "frontend",
+      "sha256": "b69619c29758536d69954fbfca9335174819121e16c130ba3746a80e21242521"
+    },
+    {
+      "bytes": 2974,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/local-glyph-protocol.ts",
+      "root": "frontend",
+      "sha256": "b4b9a3220c1c10e2542c992bccc9aa41228d907fc02444ace84ce3e7446c5f71"
+    },
+    {
+      "bytes": 2579,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/locked-score-availability.ts",
+      "root": "frontend",
+      "sha256": "8e9adcd7e2b83d6a6d9fbc8c93442cc9a12e32caf2ac7643feaadf6d4ee7de0c"
+    },
+    {
+      "bytes": 2847,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/map-viewport.ts",
+      "root": "frontend",
+      "sha256": "49950f3193d01a2b2c9243c7d5c2e8341d2fa3ceb56ddf859ba6e9fc54d96d15"
+    },
+    {
+      "bytes": 23134,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/moderator-client.ts",
+      "root": "frontend",
+      "sha256": "06be7cd166b79f544e769b3c628a48478998d8518973f9aedf67047ed8939345"
+    },
+    {
+      "bytes": 7245,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/nearest-transit.ts",
+      "root": "frontend",
+      "sha256": "df12643fdf9423b606680d88204980cbf180f563f2641332b4136a516abfc2ad"
+    },
+    {
+      "bytes": 5632,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/onemap-search.ts",
+      "root": "frontend",
+      "sha256": "6aff99e5fed66948a90c12e711a7fb93d0e8a20697bf847f2c262d2b5c874757"
+    },
+    {
+      "bytes": 1704,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/polyline.ts",
+      "root": "frontend",
+      "sha256": "cbfdf306452df89e526561aeea4819a1de794924dbf5bbed5376caaac6c5aa8e"
+    },
+    {
+      "bytes": 4058,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/published-exposure-sections.ts",
+      "root": "frontend",
+      "sha256": "f81f4d2b17acde090bb8cbcc9799cbccabce9bbfc34976a765015947ef3522cf"
+    },
+    {
+      "bytes": 4074,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/published-transit-choices.ts",
+      "root": "frontend",
+      "sha256": "8ae8db8291ee67fdaf6c828f9b4b63a3cc6eb5e6eb535b7c53a6f03e70abacc0"
+    },
+    {
+      "bytes": 33952,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/published-transit-options.ts",
+      "root": "frontend",
+      "sha256": "a437e35178186c6c9e5c3300c27ce675149a7c2136322ae9f722f14f5f9d7d3d"
+    },
+    {
+      "bytes": 8047,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/published-walk-selection.ts",
+      "root": "frontend",
+      "sha256": "62a3944ca3acf138334064163dc4fdd831b9aa756034a3f7ed14e94e8de23952"
+    },
+    {
+      "bytes": 2058,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/published-walk-view.ts",
+      "root": "frontend",
+      "sha256": "f4969aea23227fefe9154848541ba3349c433a59fecf891d647d99c0312ff618"
+    },
+    {
+      "bytes": 9354,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/report-lifecycle.ts",
+      "root": "frontend",
+      "sha256": "7c3c4abaab6f15f6f5b9428f62b1340d72e6680bd2c0bab778cf14ee7d8fd9ea"
+    },
+    {
+      "bytes": 223,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/report-project.json",
+      "root": "frontend",
+      "sha256": "900adc3b06a795b856386d4c8c392da63327e55a60142dbd3c89a270886bc4f4"
+    },
+    {
+      "bytes": 1557,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/report-request-id.ts",
+      "root": "frontend",
+      "sha256": "d76db8639a90b9edc45bdb2f087c7699354f692c8d391c6353c5c5dac69b12de"
+    },
+    {
+      "bytes": 9808,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/report-submission.ts",
+      "root": "frontend",
+      "sha256": "c0d99a16830456d36cd39d34aca284d7a05fb11496db13f126d98719f6fa8e49"
+    },
+    {
+      "bytes": 11466,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/reports.ts",
+      "root": "frontend",
+      "sha256": "1e6ffff787f664ccd3f2a66ac5dbe08dd4af3bf54143dbcd6593111b7e1d3299"
+    },
+    {
+      "bytes": 1163,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/route-display.ts",
+      "root": "frontend",
+      "sha256": "611d1a5d50deb74776f8c79dd67a0b4f48e0fb8647e4e3f5237d923403b4088d"
+    },
+    {
+      "bytes": 4044,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/route-geojson.ts",
+      "root": "frontend",
+      "sha256": "3485e2692a46f92cdfbc7512a8ce95654656cd9beee7c1858ab230d373f60543"
+    },
+    {
+      "bytes": 810,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/service-worker-cache.ts",
+      "root": "frontend",
+      "sha256": "c2f9d464baf18d4404a68e55bee937cb9ad8bb0a8f90c011322fa6f701ea3a89"
+    },
+    {
+      "bytes": 4477,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/source-freshness.ts",
+      "root": "frontend",
+      "sha256": "4644ab5396eeef9e56046761c16b1bf0ea7d7137507a7a030cfe1644d132ceed"
+    },
+    {
+      "bytes": 1539,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/subscore-ranking.ts",
+      "root": "frontend",
+      "sha256": "d8f3f9e6813ddc230af0cafd9eab414aec3e4fb87634447c4c815c50432e9b6a"
+    },
+    {
+      "bytes": 5594,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/transit-popup.ts",
+      "root": "frontend",
+      "sha256": "8a5932c6c317058b0c0d31bf8a8fe8bd09e56374927e9052467d7bb0199a426e"
+    },
+    {
+      "bytes": 5735,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/types.ts",
+      "root": "frontend",
+      "sha256": "c00af915256f6434dfccaaa60a28bbfbcbfe069629e9a9c0141955871f483a98"
+    },
+    {
+      "bytes": 1557,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/walk-default.ts",
+      "root": "frontend",
+      "sha256": "8b0d1310df9f095ae114facb51c97b337e5fdccd1cec979856fbe9fdf4083a04"
+    },
+    {
+      "bytes": 5295,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/walk-metrics.ts",
+      "root": "frontend",
+      "sha256": "0b38b3662c07394e3a9159e85791c01ea26bd917493625e2d9f908f63971231f"
+    },
+    {
+      "bytes": 868,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/lib/walk-preview-request.ts",
+      "root": "frontend",
+      "sha256": "db7ac3075c7a93d16f1af931200bd2e935586ce1b7d426353d32004de4a2eb12"
+    },
+    {
+      "bytes": 288,
+      "mode": 420,
+      "origin": "previous-verified-derived-control",
+      "path": "web/next-env.d.ts",
+      "root": "frontend",
+      "sha256": "1862ac4bbbc5192d4bf562161df66ea547ed3e67173100656ab606ae9797db2b"
+    },
+    {
+      "bytes": 6958,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/next.config.js",
+      "root": "frontend",
+      "sha256": "ed9745754cda3adbc5e5f8312050bb12567b7022cba5dc7ea56fd98d3b6a1350"
+    },
+    {
+      "bytes": 92098,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/package-lock.json",
+      "root": "frontend",
+      "sha256": "d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590"
+    },
+    {
+      "bytes": 912,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/package.json",
+      "root": "frontend",
+      "sha256": "5b733157903afa386ed3830af127ca9f145b6ef8d4b7194c941c3e5a55287b7b"
+    },
+    {
+      "bytes": 5984,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/public/maplibre/6.1.0/LICENSE.txt",
+      "root": "frontend",
+      "sha256": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2"
+    },
+    {
+      "bytes": 479327,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/public/maplibre/6.1.0/maplibre-gl-shared.mjs",
+      "root": "frontend",
+      "sha256": "ce66c617187b6956d878d3961aceeb7c335eec3f76ee8d80737a917d8e989860"
+    },
+    {
+      "bytes": 19108,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/public/maplibre/6.1.0/maplibre-gl-worker.mjs",
+      "root": "frontend",
+      "sha256": "5a77b4637ea5ae64f0b1f208e4b1f4d9c681e2575d96e592f2074925597224c6"
+    },
+    {
+      "bytes": 5984,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/public/maplibre/6.4.1/LICENSE.txt",
+      "root": "frontend",
+      "sha256": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2"
+    },
+    {
+      "bytes": 482036,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/public/maplibre/6.4.1/maplibre-gl-shared.mjs",
+      "root": "frontend",
+      "sha256": "fcf4d81450df235da0aea74897cc23926774b5228d38ae1de6a7d701c5905785"
+    },
+    {
+      "bytes": 18592,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/public/maplibre/6.4.1/maplibre-gl-worker.mjs",
+      "root": "frontend",
+      "sha256": "ce4957017fe705ac2f9ebef206cca966d08d8621756c39326a78cf09757e7d75"
+    },
+    {
+      "bytes": 403,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/public/site.webmanifest",
+      "root": "frontend",
+      "sha256": "e0ace347324935ce0e1904ff7c4a1f638a36d9d23bac6422659d683edbf46517"
+    },
+    {
+      "bytes": 5496,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/public/sw.js",
+      "root": "frontend",
+      "sha256": "88e523a5d8b4f8dec18b0a741dfae056674552de9e0f5b67d96a82fd554500a4"
+    },
+    {
+      "bytes": 12377,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/scripts/__tests__/installed-dependencies.test.mjs",
+      "root": "frontend",
+      "sha256": "d432953574ffde5eaffd87041ad665f9dff4664e82969d5abc9f84f357d6c581"
+    },
+    {
+      "bytes": 33534,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/scripts/browser-smoke.mjs",
+      "root": "frontend",
+      "sha256": "e7b2e794bddac3636fa68bb23a72b0556b2150cc10079dff974c108432862185"
+    },
+    {
+      "bytes": 1403,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/scripts/build-next-release.mjs",
+      "root": "frontend",
+      "sha256": "f67a604f2c8fcc2980370a3b94c069001a4d157dcd16afc18fcf52cf147f3ca9"
+    },
+    {
+      "bytes": 3341,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/scripts/check-installed-dependencies.mjs",
+      "root": "frontend",
+      "sha256": "958bdd068538abd065602188c61b66db22c374707936fe905034c46af32d08de"
+    },
+    {
+      "bytes": 1573,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/scripts/deny-production-data.cjs",
+      "root": "frontend",
+      "sha256": "0d6a0c3db6f777cc87ecc1d753cbc07205f492acc29d5a8661bc87471794bfe4"
+    },
+    {
+      "bytes": 8528,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/scripts/ensure-data-bundle.mjs",
+      "root": "frontend",
+      "sha256": "637966de4f209fb88bd9323e99e32b62401f8fe7d2c3fc565a75f4390ed43477"
+    },
+    {
+      "bytes": 6206,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/scripts/extract-walk-test-fixtures.py",
+      "root": "frontend",
+      "sha256": "4e56b76670514fca404e987a0cb14b0cc490b87e3193eab1de451d0792750616"
+    },
+    {
+      "bytes": 5798,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/scripts/frontend-retention.mjs",
+      "root": "frontend",
+      "sha256": "9dc2537d456866620760979ceb5998fa3eac97dc1188fab74ede0bc3501fd7c1"
+    },
+    {
+      "bytes": 1510,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/scripts/ignore-build.mjs",
+      "root": "frontend",
+      "sha256": "12c54471d0fa4a6626e06401659ce2aaa9c052ec5d94c900fd12ee1a4c911126"
+    },
+    {
+      "bytes": 5297,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/scripts/measure-lookup-transfer.mjs",
+      "root": "frontend",
+      "sha256": "93aa67d7d8ed90cad5f18a56b4b28bfc5d9bdfe9acf9564da47cdf4e716c46fe"
+    },
+    {
+      "bytes": 30121,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/scripts/revamp-browser.mjs",
+      "root": "frontend",
+      "sha256": "48dfb9172af03d4f7f7fa5e9df4dfb8495cfe8be673d5b81ed7e4c145ee75461"
+    },
+    {
+      "bytes": 1309,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/scripts/test-web.mjs",
+      "root": "frontend",
+      "sha256": "2d222bff18b41ca26db430a0fc352ae30f66a1b7fca00de8844206eb107cbb5e"
+    },
+    {
+      "bytes": 2739,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/scripts/test-without-production-data.mjs",
+      "root": "frontend",
+      "sha256": "8b01e905acd876d79504fcb4b4639d7ba02141c3d5eb2c4b906477ce1a0e4b44"
+    },
+    {
+      "bytes": 4212,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/section10-presentation-proposal.md",
+      "root": "frontend",
+      "sha256": "28eafa24a80eaf70b903295600f9f334e410869e9068d7e908154588cbedf3fc"
+    },
+    {
+      "bytes": 762,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/tsconfig.json",
+      "root": "frontend",
+      "sha256": "e5020c21a4e117f0a789a28fc54838b21ab2e287f8c2fc0efab2c811839b4459"
+    },
+    {
+      "bytes": 537,
+      "mode": 420,
+      "origin": "previous-verified-derived-control",
+      "path": "web/vercel.json",
+      "root": "frontend",
+      "sha256": "f789aacec7e2d03d43c43758dade4dfbe4ffd9455460f4b0ea511c6d99904946"
+    },
+    {
+      "bytes": 505,
+      "mode": 420,
+      "origin": "git",
+      "path": "web/vitest.config.ts",
+      "root": "frontend",
+      "sha256": "fde5ad962c16b12e84a3a33a006ade9da4d9a750b2245e7eac727ddecc4b8752"
+    },
+    {
+      "bytes": 309376,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c121fffff.json",
+      "root": "data",
+      "sha256": "943e2fa2b6b1425d556ba805301bcf37669a1bbaa92c00bb44823d7ade67b87e"
+    },
+    {
+      "bytes": 31702,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c123fffff.json",
+      "root": "data",
+      "sha256": "b99e8a871908c9e940b283fb5d465bb60b5abe64289404665f3f5956ff257dfb"
+    },
+    {
+      "bytes": 430171,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c125fffff.json",
+      "root": "data",
+      "sha256": "62d658c61b3da5da70efc460e40aac3126731284275643a62b18731e1e73f19d"
+    },
+    {
+      "bytes": 206051,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c127fffff.json",
+      "root": "data",
+      "sha256": "01420af95455820947a267a626f131ceda3f8feed877823bdcd07137bc116077"
+    },
+    {
+      "bytes": 90636,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c129fffff.json",
+      "root": "data",
+      "sha256": "064b30db80329d1708fecb13c8934711548a273b14986dac9a57b27433fcf400"
+    },
+    {
+      "bytes": 67084,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c12bfffff.json",
+      "root": "data",
+      "sha256": "5327ef78e87422328633c0c54db5e56a9c5578e2d40df8c9a7d86c78ee5f358d"
+    },
+    {
+      "bytes": 33320,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c12dfffff.json",
+      "root": "data",
+      "sha256": "c9728d11f1ac30049e911c54cf7efd49420a12d2bb3382423d44b00a4cdd4733"
+    },
+    {
+      "bytes": 238968,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c131fffff.json",
+      "root": "data",
+      "sha256": "f898abe7e4630477990cd892422cf79901a53776d78821b9df67f1ee261918a6"
+    },
+    {
+      "bytes": 381314,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c133fffff.json",
+      "root": "data",
+      "sha256": "775ec41d042f62143360223cb8b40bf78043b237e46acb60e7b05d439217e3a8"
+    },
+    {
+      "bytes": 692462,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c135fffff.json",
+      "root": "data",
+      "sha256": "447c48dfe3507a97902e966439b41ffe15f13df287e614fbf0fd6f01c71bb335"
+    },
+    {
+      "bytes": 722502,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c137fffff.json",
+      "root": "data",
+      "sha256": "f9a9af1db5112d9a646461d2dd3c012b6b2752901941b772e5ae6df8bdd5ff2b"
+    },
+    {
+      "bytes": 206552,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c13bfffff.json",
+      "root": "data",
+      "sha256": "6eaf96e9aa97086a71ddc8fc9a030bc605d0c4e04fb0574bb41bc55ef5e316fa"
+    },
+    {
+      "bytes": 130547,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c13dfffff.json",
+      "root": "data",
+      "sha256": "5893f0da1720ddbff93d594d960238e35657a60503b3648afd946a38cd45520f"
+    },
+    {
+      "bytes": 366956,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c181fffff.json",
+      "root": "data",
+      "sha256": "eca67cfe383062f709479492c7a5f0be66441ab9faec4b143b652ff8205de735"
+    },
+    {
+      "bytes": 333566,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c183fffff.json",
+      "root": "data",
+      "sha256": "e56adabd23711285c7a9a15049c61c1341725e536e9dc6a5cba37547b3e33a08"
+    },
+    {
+      "bytes": 314231,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c185fffff.json",
+      "root": "data",
+      "sha256": "5568bbf022b033a7ad9fe39295385a0b6062396084cc2b0562aa57da95c3b2c5"
+    },
+    {
+      "bytes": 728676,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c187fffff.json",
+      "root": "data",
+      "sha256": "fb0a17f80c05925dba37d11843a2705c9455bbf42e8d92b2b3e9389ffdda04f6"
+    },
+    {
+      "bytes": 29376,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c189fffff.json",
+      "root": "data",
+      "sha256": "8f0998a39d09654442826bd8aeecdc982d48fb12e246c3115427aea29db12da7"
+    },
+    {
+      "bytes": 119675,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c18bfffff.json",
+      "root": "data",
+      "sha256": "52442cdb57e2c991d6e1cdf27b5d4f03f7eee0cbdb9bf2275169efc745b739d9"
+    },
+    {
+      "bytes": 127456,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c18dfffff.json",
+      "root": "data",
+      "sha256": "67f925e8cd8c10f8ee45b06d3d062b67735e4b6ea7cb77158017ef714b73c89e"
+    },
+    {
+      "bytes": 802227,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c1a1fffff.json",
+      "root": "data",
+      "sha256": "3071e9dee9d07d109ba575f53c26b3738aebb6e4fa0ddde6f5c85f9d01d695a4"
+    },
+    {
+      "bytes": 803211,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c1a3fffff.json",
+      "root": "data",
+      "sha256": "39ae5c2d94c488a4f9d28e120c2d9c06d8dd312f10aa13c6dfaaeb5a2c02f1e1"
+    },
+    {
+      "bytes": 1523036,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c1a5fffff.json",
+      "root": "data",
+      "sha256": "76327a3519f5a0f75e860af3a4adab4442dde20332f92f6fe1f5e24ecd639279"
+    },
+    {
+      "bytes": 1236654,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c1a7fffff.json",
+      "root": "data",
+      "sha256": "514fd460d8c21c283b87a5d0a00afb3700a163c735ad0627e628696c3257afb1"
+    },
+    {
+      "bytes": 16543,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c1a9fffff.json",
+      "root": "data",
+      "sha256": "c17322df01c7d420828f3d8df37085efe39c1d7ac228d6696f057519568ef36b"
+    },
+    {
+      "bytes": 845649,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c1abfffff.json",
+      "root": "data",
+      "sha256": "300999e4ff18559b96f433a515a5ab9093006efc8c1293f842fad54fb965454e"
+    },
+    {
+      "bytes": 407263,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c1adfffff.json",
+      "root": "data",
+      "sha256": "a690aab6e08fde6202243f87bd790338622be8e077f3bf3c5e196ce8b7bace5e"
+    },
+    {
+      "bytes": 8680,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c1bdfffff.json",
+      "root": "data",
+      "sha256": "0e9e56d6b7397a9246a413faa688ef2685ab9d5f06e174fc6ea24c5738958c91"
+    },
+    {
+      "bytes": 212331,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c1c3fffff.json",
+      "root": "data",
+      "sha256": "e140a6af322fd05c23ee9543931e1e694f62f349f7b68e9e589c6e6c460ccd75"
+    },
+    {
+      "bytes": 4341,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c1c7fffff.json",
+      "root": "data",
+      "sha256": "46a09a1506f9b55627cf838379f3cf41cf1393a7f7449849c0cbf5aa2697fc4f"
+    },
+    {
+      "bytes": 13605,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c1d1fffff.json",
+      "root": "data",
+      "sha256": "ff4b3a7e7be0158311013f5ed72430285dc35a1fbe37291a05237d4715a84f76"
+    },
+    {
+      "bytes": 57095,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c1d5fffff.json",
+      "root": "data",
+      "sha256": "f28e0c279b610b449d35f8ddf91f4f12ff00facd855b9db989353bf63ee2f206"
+    },
+    {
+      "bytes": 14121,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c1d7fffff.json",
+      "root": "data",
+      "sha256": "5065b19e90ebdfead467a995b515e301798494dd6cc0c8f1f6c1c1e395e97bd3"
+    },
+    {
+      "bytes": 17427,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c1e3fffff.json",
+      "root": "data",
+      "sha256": "9b7b655a5eb90b733b34b492e9ac03d3c22b48a1ec6843566d19b34b07410242"
+    },
+    {
+      "bytes": 377182,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c1e5fffff.json",
+      "root": "data",
+      "sha256": "d0d913c39a06fd11b8df355da725cae85a685c13289e4f786fca3553233285be"
+    },
+    {
+      "bytes": 20700,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c1e7fffff.json",
+      "root": "data",
+      "sha256": "00111bf6b596ebcb2b9a99d17c118be6cb46e246c5ac99013844b1cb37e50478"
+    },
+    {
+      "bytes": 12893,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c1ebfffff.json",
+      "root": "data",
+      "sha256": "ec2fbba9623fffbd940c4543db354c264ebe0d02225da30681e1c566f86b891f"
+    },
+    {
+      "bytes": 87934,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c827fffff.json",
+      "root": "data",
+      "sha256": "f944928eef02daac24eadc6ef42109aab9a43ea93430f3d102840f2290de0ce3"
+    },
+    {
+      "bytes": 89920,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c841fffff.json",
+      "root": "data",
+      "sha256": "06bb6d0cc18f30ec65a9ffc358750c3526e2d7ecf2e5a9cef843c173c1eed1c5"
+    },
+    {
+      "bytes": 4341,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c843fffff.json",
+      "root": "data",
+      "sha256": "bf675ef39a5547dd6ab8a3781575fb158df1162ba1938a53295ea2b858b4009c"
+    },
+    {
+      "bytes": 4341,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c849fffff.json",
+      "root": "data",
+      "sha256": "5460838046000cc48e16c5cc9d2408324014ef3d5a7ac1c6b50922fe84753924"
+    },
+    {
+      "bytes": 59580,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c84dfffff.json",
+      "root": "data",
+      "sha256": "d59e5b88d31712ad6ddedf28354a0b96d8879a1e38ffcb7c1a27c32697bd0772"
+    },
+    {
+      "bytes": 93601,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c851fffff.json",
+      "root": "data",
+      "sha256": "b81dfade6b2d549fa5d3871981956a2ff806583dd14433801c4c7e2898a2fa21"
+    },
+    {
+      "bytes": 28892,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c853fffff.json",
+      "root": "data",
+      "sha256": "f6ad7fa9c23982eb1a9a49271bc730a0c65eaaa156c180ea49c6a36875e878c7"
+    },
+    {
+      "bytes": 14697,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c857fffff.json",
+      "root": "data",
+      "sha256": "e3ac3af06b431cd749f68d1022a0bec47cced3e654244bccfc255edc61f64757"
+    },
+    {
+      "bytes": 5443,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c85bfffff.json",
+      "root": "data",
+      "sha256": "6524e233ba48372ef5a2ab1fe3d7138e12e1ba6579f3346b32926f4fa5211bcd"
+    },
+    {
+      "bytes": 15861,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c85dfffff.json",
+      "root": "data",
+      "sha256": "238344250da9562bbcfcc86dda7017363804869483a592bc13aba2a1dcab8f5a"
+    },
+    {
+      "bytes": 25032,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c901fffff.json",
+      "root": "data",
+      "sha256": "93ea7a178bf52f0f66ea2c1b2fd8bbd15bc161330f1b710d8dc56e65443a723c"
+    },
+    {
+      "bytes": 8672,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c903fffff.json",
+      "root": "data",
+      "sha256": "5f41d5e5a278d443a45e4e3e260d153cace7eb79570ef0b71427d61e340762d7"
+    },
+    {
+      "bytes": 151897,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c909fffff.json",
+      "root": "data",
+      "sha256": "d80f8ca2ff9122a1d65a25fe13dfba2623bede49b70ffec122be349c344bd935"
+    },
+    {
+      "bytes": 21649,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c90bfffff.json",
+      "root": "data",
+      "sha256": "099ee38f9e65a90bd2121a73fc0dda16b0627db926d696f88449a9899229cc32"
+    },
+    {
+      "bytes": 22863,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c90dfffff.json",
+      "root": "data",
+      "sha256": "d9ba524c975ea9937b961f339fd3bcb89dcc5851fd34bf853d55f04e4b9591ac"
+    },
+    {
+      "bytes": 37107,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c913fffff.json",
+      "root": "data",
+      "sha256": "cc91182e24a4d48ce123358128e395bf60070285a834de2246cd99613453f234"
+    },
+    {
+      "bytes": 8680,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c917fffff.json",
+      "root": "data",
+      "sha256": "2cd14467496dfb06ee849bf36f65e00b138ff708d9e2d2ff4de4e158f7e3b0e6"
+    },
+    {
+      "bytes": 27183,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c91bfffff.json",
+      "root": "data",
+      "sha256": "2101ee6933cfc279d95ee8bda570e61dc539ec5a6ac98c34d945a89c578a9aba"
+    },
+    {
+      "bytes": 13003,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c91dfffff.json",
+      "root": "data",
+      "sha256": "e1e22eeeeea45a16bb733b6891342e26584ba538aa494b454cfa4692f38f994f"
+    },
+    {
+      "bytes": 679335,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c941fffff.json",
+      "root": "data",
+      "sha256": "0996ba071078c658521eb88bde90365fbcdcb935adb644e8d0921d8d726a580d"
+    },
+    {
+      "bytes": 170211,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c943fffff.json",
+      "root": "data",
+      "sha256": "be93a1651191e6a38bf4fb98e9c7518bb9f1b88d8aedfa17d1a9b3a054918286"
+    },
+    {
+      "bytes": 610379,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c945fffff.json",
+      "root": "data",
+      "sha256": "6149efa1de717bec78b165600e308d8063aa502d4a28e07bdcab25a60cd5a509"
+    },
+    {
+      "bytes": 1017972,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c947fffff.json",
+      "root": "data",
+      "sha256": "6fd757ce4f79ad59ba7e672c4fd3ebc45d0ccb5f98d738e821ac5752f57a2360"
+    },
+    {
+      "bytes": 827353,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c949fffff.json",
+      "root": "data",
+      "sha256": "5db2aeec71e1c29d6d23fe5fc157f3ca6cc8286e8a1443e86705ca9f7f0d19dc"
+    },
+    {
+      "bytes": 462416,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c94bfffff.json",
+      "root": "data",
+      "sha256": "23f27348b3c18efde2163608b77c7788cab0abfbd90654f51475528c486f76fd"
+    },
+    {
+      "bytes": 113303,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c94dfffff.json",
+      "root": "data",
+      "sha256": "2cf51714c17ad6ac0083f629467ebcd91a5964da372a06b8d77a62aa00770f57"
+    },
+    {
+      "bytes": 208514,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c96dfffff.json",
+      "root": "data",
+      "sha256": "4ac1d4261197408deacce9dd4cd63738a13748c1866409d48eb02fb7e089cb6f"
+    },
+    {
+      "bytes": 16429,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520c9cdfffff.json",
+      "root": "data",
+      "sha256": "44c1b4d5573e4bcbc17344a365b88d7df378286e84e26f1c3f505ebe47fb3f31"
+    },
+    {
+      "bytes": 2005505,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca01fffff.json",
+      "root": "data",
+      "sha256": "3755f4f0bb6aaabf8a220a97553165ce7c423807ac8ddcbaa8e7349d8e931599"
+    },
+    {
+      "bytes": 4128576,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca05fffff.json",
+      "root": "data",
+      "sha256": "89c0aec933cbc2924738579d4a0664a73e37b864a8970d5cb6f654d0f9a834b6"
+    },
+    {
+      "bytes": 2234611,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca07fffff.json",
+      "root": "data",
+      "sha256": "e4b2dd9018f5e35fbe4cdcf95caa12879e7f4907ccac15d3a97ab1df0ab51dd4"
+    },
+    {
+      "bytes": 126850,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca09fffff.json",
+      "root": "data",
+      "sha256": "2f3af9398d5eaf03a4d1f6ee87daf693d1f023efb3177d1d92bebaeb77d86a30"
+    },
+    {
+      "bytes": 3173255,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca0bfffff.json",
+      "root": "data",
+      "sha256": "1605dbf03c00d1c138067984403e770d758ab663811aab175b3703eabe0a1412"
+    },
+    {
+      "bytes": 2689967,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca0dfffff.json",
+      "root": "data",
+      "sha256": "6a75c4487993e24a592b072846345e56a07927623f3a4447a076921e36139f35"
+    },
+    {
+      "bytes": 2450535,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca11fffff.json",
+      "root": "data",
+      "sha256": "104d2437764d2c7ec0ad1809441e46e99cab0c9ceed41f6d459432ff9cbe20b9"
+    },
+    {
+      "bytes": 3154572,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca15fffff.json",
+      "root": "data",
+      "sha256": "006490772b6bf5bf54d46b7d6c7ac82a6bf55a2857f2e1d53950ba2fb7e4bea3"
+    },
+    {
+      "bytes": 308631,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca19fffff.json",
+      "root": "data",
+      "sha256": "f304633f82688c8aae7e17c81a52ba3cb364cc366a1d16e9a70af758b62a90e2"
+    },
+    {
+      "bytes": 577144,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca1bfffff.json",
+      "root": "data",
+      "sha256": "a03ad7506e64ae5a4986433c913c4e7d95483bcc64b904947c6e93a2453c49e4"
+    },
+    {
+      "bytes": 1478978,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca1dfffff.json",
+      "root": "data",
+      "sha256": "813c422b6ea15be3a200d05f8d124f1437cf9fb2f69aba5242a5a8be47d67384"
+    },
+    {
+      "bytes": 314924,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca23fffff.json",
+      "root": "data",
+      "sha256": "dd35d6c30106d91f0235a9731929e6137d0fe6eeffc536a9a8724f078e604739"
+    },
+    {
+      "bytes": 437616,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca25fffff.json",
+      "root": "data",
+      "sha256": "8b1f4071f3844df7232caee53a26feb2ce3a1559bd96046fd68ba6f6b4c43fe0"
+    },
+    {
+      "bytes": 3221823,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca29fffff.json",
+      "root": "data",
+      "sha256": "41b0248ba4c4c9cbef2c5eb9f61d354cfdab4664578388e3ba130966a96eb2b3"
+    },
+    {
+      "bytes": 3670967,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca2bfffff.json",
+      "root": "data",
+      "sha256": "5338b5453b1cd05b8edad58e15c8dcb3e669727f30585a3dc16c08bb585c2ed1"
+    },
+    {
+      "bytes": 607829,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca31fffff.json",
+      "root": "data",
+      "sha256": "60373580a10b9bf428cab71184969dd6ff8bd35f704cd418fbf1d7995bf1b0c3"
+    },
+    {
+      "bytes": 3472418,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca39fffff.json",
+      "root": "data",
+      "sha256": "6f0fdcfc42eca41903327f0e3f6020f9f324e1a5890e3feb98bed823a64a6d61"
+    },
+    {
+      "bytes": 3319182,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca3dfffff.json",
+      "root": "data",
+      "sha256": "4302e607973f802831b8b93fd33f911e1a39befaea84472816a8ee6a9df60ce4"
+    },
+    {
+      "bytes": 1940063,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca41fffff.json",
+      "root": "data",
+      "sha256": "dfa4496f19612be24c6d560289c2a3b0c3c4ad4f0f55b35fb1ade8a6c33f6b2d"
+    },
+    {
+      "bytes": 741111,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca43fffff.json",
+      "root": "data",
+      "sha256": "cce263ef31f4a400ca05e0c78f0689e7132d3bd1e43871bb2f15283432a0cad2"
+    },
+    {
+      "bytes": 778939,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca45fffff.json",
+      "root": "data",
+      "sha256": "2d42446dea7f4667dba4318f7b584b2d1011297e630b738b5382981768e1e60c"
+    },
+    {
+      "bytes": 543907,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca47fffff.json",
+      "root": "data",
+      "sha256": "71df2dcb9c33cc5dc46c884bb50cabd200ba1a01936236ef7156241fd13727c4"
+    },
+    {
+      "bytes": 323767,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca49fffff.json",
+      "root": "data",
+      "sha256": "5c5785b60dd01a7ad2dfa4f9d3fc5825dafd1ae95961013d8f6b1f4f36cc8dc1"
+    },
+    {
+      "bytes": 119737,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca4bfffff.json",
+      "root": "data",
+      "sha256": "55701e34b9b2fbade720906606b9e88828394d9fbe11c6b17df95e680e83e121"
+    },
+    {
+      "bytes": 2651248,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca4dfffff.json",
+      "root": "data",
+      "sha256": "3468e72f504bd62e548fb915998e2f2eefb79348200e13f7306098db2c0c36bf"
+    },
+    {
+      "bytes": 431612,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca51fffff.json",
+      "root": "data",
+      "sha256": "d4eeb17d580aed2a6bcc0d89651ea6b12ee1252ce904a61fcc35c1652e53f2c0"
+    },
+    {
+      "bytes": 195611,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca53fffff.json",
+      "root": "data",
+      "sha256": "418adc2f9e828ffaf9b6b1ccec2a7d84089094d2cef9bd2bac0d41318beade98"
+    },
+    {
+      "bytes": 279618,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca55fffff.json",
+      "root": "data",
+      "sha256": "bfae2b759f2be61da7d97c5bf11134e84a004d8cb693e19e8747d961c50191f4"
+    },
+    {
+      "bytes": 178235,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca57fffff.json",
+      "root": "data",
+      "sha256": "84f6ddf42618b5eb9cd91e7c9e4fa070812c90e7d116ec89287590348055e1ef"
+    },
+    {
+      "bytes": 211500,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca59fffff.json",
+      "root": "data",
+      "sha256": "5eb4b31999abe714dff8f04950dc01b1b70546fc23264c397c63371c71383633"
+    },
+    {
+      "bytes": 18218,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca5bfffff.json",
+      "root": "data",
+      "sha256": "c760c726ac5988798724901019b2eeeb1b425f60fa164d6355227ed0e0afdb4a"
+    },
+    {
+      "bytes": 182654,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca5dfffff.json",
+      "root": "data",
+      "sha256": "68eab0391b42c7f2812724deb0c10c0d9b5d0bbe180c5557ba8eaf76998b7fe4"
+    },
+    {
+      "bytes": 3966405,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca61fffff.json",
+      "root": "data",
+      "sha256": "4bc0eb328da753796e788efc0fea379c63752b53844e421bb28a1741a21fb1e7"
+    },
+    {
+      "bytes": 631798,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca69fffff.json",
+      "root": "data",
+      "sha256": "eedcadea9322d2cfc076ed12df84b4cdeb1020aa27d5804128644e9f9fdc0221"
+    },
+    {
+      "bytes": 3408998,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca6bfffff.json",
+      "root": "data",
+      "sha256": "4e386999063b0db2be6eb4ed2e6c3a45eef689721bb5a7fa5a9b717d98db4f6b"
+    },
+    {
+      "bytes": 2125280,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca91fffff.json",
+      "root": "data",
+      "sha256": "717e0fa2f49d63d921705b3ddfaeaea3dd7c24a587e63b066ba66e050e2aa213"
+    },
+    {
+      "bytes": 750757,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca93fffff.json",
+      "root": "data",
+      "sha256": "18676437bdd87f0c549dcb8e0d06272bd3846e4dd77bf52711e0b60733d1a801"
+    },
+    {
+      "bytes": 268131,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca97fffff.json",
+      "root": "data",
+      "sha256": "e58896c28f01eb898b7ae630266af20a6ceb2f18633fa1db0f4d3b37e4b27dec"
+    },
+    {
+      "bytes": 2779552,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca99fffff.json",
+      "root": "data",
+      "sha256": "dbe088a9987b757ac7d8a8580a669fcd8814f5c8b46d3ac417ae4685f82b4378"
+    },
+    {
+      "bytes": 1758589,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca9bfffff.json",
+      "root": "data",
+      "sha256": "690bf9ec2afd8778d4cf5479a5151e37f026d53f2472f56ae9f5e6491dfa9fb7"
+    },
+    {
+      "bytes": 366990,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520ca9dfffff.json",
+      "root": "data",
+      "sha256": "5b79ea52069a98ef9cbc15632000d6a368b9636a1246d50df57904d3c59edba3"
+    },
+    {
+      "bytes": 1393591,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cac1fffff.json",
+      "root": "data",
+      "sha256": "723cbd64a63746b50190ffa30efeca1978e2700bb2be881338bf436c7e2e7854"
+    },
+    {
+      "bytes": 3066091,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cac3fffff.json",
+      "root": "data",
+      "sha256": "c6f0df19da24eac48b6f96cbd73cd64f5041ac717d3df4c50118fdac2cd108ef"
+    },
+    {
+      "bytes": 435170,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cac5fffff.json",
+      "root": "data",
+      "sha256": "9f006409955bfda7edf7be45fad4f498c27bec52b0e76d72e1c92e7bf742221f"
+    },
+    {
+      "bytes": 374680,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cac7fffff.json",
+      "root": "data",
+      "sha256": "eb04721496cf0fb1c198b0916edf3074d83c3da3f5f0d0247c3e789294e4c764"
+    },
+    {
+      "bytes": 318631,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cac9fffff.json",
+      "root": "data",
+      "sha256": "3e0842f152e42ba90c7c068deef8e62be488f1eeed0498919975754d37364f60"
+    },
+    {
+      "bytes": 645915,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cacbfffff.json",
+      "root": "data",
+      "sha256": "b49929857588bde065b63b7ca78f45a52c3cdd370a082145ac71b5b84cd09e45"
+    },
+    {
+      "bytes": 1527618,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cacdfffff.json",
+      "root": "data",
+      "sha256": "b89e0fd2bbeb4e75925eeae27c3aa4b2e253613ccab29e5a2f72efb6fbc2d078"
+    },
+    {
+      "bytes": 1861126,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cad1fffff.json",
+      "root": "data",
+      "sha256": "1bdb4eacbdb1d36be1e32516c7ae03039ebf438611fd40b7d35ccc382bd177b9"
+    },
+    {
+      "bytes": 2347091,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cad3fffff.json",
+      "root": "data",
+      "sha256": "a7e85a3fe0efcaf6245e8f4c2a06babe3fef951c17fc86bfb95a16cf2c2340f6"
+    },
+    {
+      "bytes": 411690,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cad5fffff.json",
+      "root": "data",
+      "sha256": "5a52dcaed87fa3f5fe5608af0e2a53e0f9419aaeee74611cc52246f5b2ceaa6e"
+    },
+    {
+      "bytes": 1821718,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cad7fffff.json",
+      "root": "data",
+      "sha256": "0eb9a116d09fc04e458cec10f43c9e0feefa1c4a3629554ef3dadc5ae9860120"
+    },
+    {
+      "bytes": 2104118,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cad9fffff.json",
+      "root": "data",
+      "sha256": "53744ccb8582f297aebd55841bc4965b7cc946f8d456ee97e9a3099d71dc60b7"
+    },
+    {
+      "bytes": 1161699,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cadbfffff.json",
+      "root": "data",
+      "sha256": "fb41116b8bb2add04099609240c0301da427f1f8c7d43cd461d374ca24d039ef"
+    },
+    {
+      "bytes": 1528045,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520caddfffff.json",
+      "root": "data",
+      "sha256": "4dbe033232a9dea6128a5ff9b7fa8ff6eee744e16a2b975cf6a64693cdc589c9"
+    },
+    {
+      "bytes": 2366671,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cae1fffff.json",
+      "root": "data",
+      "sha256": "f2a5477cd7fee6e4bcbd00517f1087aed06dcf7c7c497e9c302674c3d56633e7"
+    },
+    {
+      "bytes": 333480,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cae3fffff.json",
+      "root": "data",
+      "sha256": "43fec1c20b203f18cf2da08b5de820499f19d53ef8f312a5a97e7831db5dfdac"
+    },
+    {
+      "bytes": 254650,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cae5fffff.json",
+      "root": "data",
+      "sha256": "35d992aa1b23582b82413ab98b7201064e5aff70c9330874f35a69237c773f10"
+    },
+    {
+      "bytes": 350891,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cae7fffff.json",
+      "root": "data",
+      "sha256": "8cf1f2889878d563b784bc39ea80ff71362fb01772706258b3c924b05fd2e755"
+    },
+    {
+      "bytes": 580597,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520caebfffff.json",
+      "root": "data",
+      "sha256": "67db92d98dbfd3a8cc8c799c026afca44a9ca074b49631e50bf073536a986034"
+    },
+    {
+      "bytes": 4562233,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cb01fffff.json",
+      "root": "data",
+      "sha256": "a9fe55f76257bab28e73606d171273d896dbb4981916a6df11b6fe831823cebf"
+    },
+    {
+      "bytes": 33327,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cb07fffff.json",
+      "root": "data",
+      "sha256": "426e883c5c04d1df7e9e3328dad9cad8f4be086a63b96d9012444f265c5e2d47"
+    },
+    {
+      "bytes": 33365,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cb13fffff.json",
+      "root": "data",
+      "sha256": "a341d6c5ca967575585a24cc7646024a87084fd0ff33bc6454fa76d0cae7dda2"
+    },
+    {
+      "bytes": 75720,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cb17fffff.json",
+      "root": "data",
+      "sha256": "f7ecd717f395ade228cec40cdfe1f1d297288affbe33478a055bfd6ebb1010b0"
+    },
+    {
+      "bytes": 2582465,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cb1bfffff.json",
+      "root": "data",
+      "sha256": "f2e34b33c095e9eeed49fa24ddcc6c3864ced5e5f7352961554a68a50aa53c58"
+    },
+    {
+      "bytes": 17670,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cb21fffff.json",
+      "root": "data",
+      "sha256": "8b7d3c0fec71a1b22ab8b0cac12cf451f1d99a624645a84ecd721ad57daec0c5"
+    },
+    {
+      "bytes": 618969,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cb23fffff.json",
+      "root": "data",
+      "sha256": "16459dc34392dfb0ef642aeb47a8012121cd690c7518b933f8264508e18a64a2"
+    },
+    {
+      "bytes": 33702,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cb2dfffff.json",
+      "root": "data",
+      "sha256": "948497ebfd2863761f03e1336633acbfc995f09c0cab732d9c546437bd4d4a00"
+    },
+    {
+      "bytes": 514556,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cb35fffff.json",
+      "root": "data",
+      "sha256": "713f6f30f98dad07e9b6e56b3df35697a38a4dcb7e15a43518113dae2fbe831a"
+    },
+    {
+      "bytes": 2274199,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cb3dfffff.json",
+      "root": "data",
+      "sha256": "40978ec5c348c474a442e45283f644c73157ce26a6f6a260539ab15cd97382a6"
+    },
+    {
+      "bytes": 957501,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cb41fffff.json",
+      "root": "data",
+      "sha256": "a49d6f47c0e3c5f2f70caac49079c9e097e67bc13b7ef092265aa87de8b222c6"
+    },
+    {
+      "bytes": 3252835,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cb47fffff.json",
+      "root": "data",
+      "sha256": "7e2edb4fdc79f770e87b5079bc1a20632c65ee146d6062610a5c9d911238b7f6"
+    },
+    {
+      "bytes": 1845201,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cb4bfffff.json",
+      "root": "data",
+      "sha256": "e0d5683b61d067e6a803eb59a4548d8dab81b92e5445a7b20fbeece2859900c4"
+    },
+    {
+      "bytes": 4007202,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cb51fffff.json",
+      "root": "data",
+      "sha256": "1db22b10996df4afcd868e33d91c845d2fe73f0437cd5fd881dc418486a332f0"
+    },
+    {
+      "bytes": 4618475,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cb53fffff.json",
+      "root": "data",
+      "sha256": "4c6f45372603bedbb12bb6b3ac1ba0ebe29eeac5be97586456bfa1272a8a150c"
+    },
+    {
+      "bytes": 3221417,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cb5dfffff.json",
+      "root": "data",
+      "sha256": "139ca2fce678d77fa9427fef096ce748f6ee47fa43823ba8c25180079f67a321"
+    },
+    {
+      "bytes": 23577,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cb65fffff.json",
+      "root": "data",
+      "sha256": "944fb82c0997665bb78ba93a7d160e216b0b7d46b2dd95c70284d3a47366ca6f"
+    },
+    {
+      "bytes": 33867,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cf4dfffff.json",
+      "root": "data",
+      "sha256": "df57c5247c383eedc9f93ddc73fe32d50aad8c18eeb5be0cec29a24c969e5606"
+    },
+    {
+      "bytes": 4341,
+      "mode": 420,
+      "origin": "main",
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520cf6dfffff.json",
+      "root": "data",
+      "sha256": "d7e3e9be4300c85f4617e8825869358156dc19c06c7ef4f1f1fab2af1d968c4b"
+    }
+  ],
+  "partBytes": 104857600,
+  "parts": [
+    {
+      "file": ".vercel/source.tgz.part1",
+      "mode": 438,
+      "sha": "a7feff24b586be5260d19e7dc91704b96153e82c",
+      "sha256": "3e8c838ff8c0632484b5858a93d69e4c48ea9eda69a974ff939ba3bdf94fb92c",
+      "size": 5211022
+    }
+  ],
+  "pilotMaxBytes": 134217728,
+  "repoRoot": "C:\\sgSHIOK2026",
+  "roots": {
+    "data": "C:\\sgSHIOK2026\\tmp\\core-release-20260915-candidate-2",
+    "frontend": "C:\\sgSHIOK2026\\tmp\\frontend-release-20260915-0c6bzc1x"
+  },
+  "schemaVersion": 1,
+  "scope": "pilot-not-deployable",
+  "sourceRevision": "69eac6a22ab3794a8648c3211c961340081b7d45",
+  "status": "verified-not-deployed",
+  "verification": {
+    "compressedBytes": 5211022,
+    "inputBytes": 133717600,
+    "members": 351,
+    "tarBytes": 134000640
+  }
+}

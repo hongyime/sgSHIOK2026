@@ -1,0 +1,46 @@
+{
+  "mode": "verify",
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "scripts.release_source_archive",
+    "verify",
+    "--receipt",
+    "C:\\sgSHIOK2026\\tmp\\full-6bs50g8b\\source-archive.json",
+    "--receipt-sha256",
+    "9f5c14acb3ca204cd2f5682366b7442710cc3eb22e9e0dc4968889bcb48861be",
+    "--max-input-bytes",
+    "5637400092",
+    "--max-output-bytes",
+    "6000000000",
+    "--timeout-seconds",
+    "240"
+  ],
+  "before": {
+    "scripts/release_source_archive.py": "b2038f0c10bf3779d2d9c4031636cc8ec087d8bc5ad5ea90258b28b4330b2432",
+    "tests/test_release_source_archive.py": "1abf131ac2c933c5869225d518fab26de87be7f80a896a603f5efcbcfa1c2bb6"
+  },
+  "after": {
+    "scripts/release_source_archive.py": "b2038f0c10bf3779d2d9c4031636cc8ec087d8bc5ad5ea90258b28b4330b2432",
+    "tests/test_release_source_archive.py": "1abf131ac2c933c5869225d518fab26de87be7f80a896a603f5efcbcfa1c2bb6"
+  },
+  "execution": {
+    "ok": true,
+    "returncode": 0,
+    "stdout": "{\"compressedBytes\": 430294784, \"inputBytes\": 5637400092, \"members\": 5753, \"scope\": \"source-archive\", \"tarBytes\": 5641840640, \"verified\": true}",
+    "stderr": ""
+  },
+  "elapsedSeconds": 92.18800000002375,
+  "pipelineRuns": 0,
+  "deployments": 0,
+  "passed": true,
+  "result": {
+    "compressedBytes": 430294784,
+    "inputBytes": 5637400092,
+    "members": 5753,
+    "scope": "source-archive",
+    "tarBytes": 5641840640,
+    "verified": true
+  }
+}

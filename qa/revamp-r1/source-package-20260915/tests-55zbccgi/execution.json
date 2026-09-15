@@ -1,0 +1,36 @@
+{
+  "mode": "tests",
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_release_source_archive.py",
+    "--noconftest",
+    "-p",
+    "no:cacheprovider",
+    "-o",
+    "addopts=",
+    "-vv",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\source-package-20260915\\tests-55zbccgi\\fixtures"
+  ],
+  "before": {
+    "scripts/release_source_archive.py": "ba524f510f99c45e2bf84ed48345ed58c59bccac3506db1d7ad7d85369fcd5ca",
+    "tests/test_release_source_archive.py": "d2773f5020b7c28c42dc7f66a0868e59bc771ea630f50b02f747aa116996c2e6"
+  },
+  "after": {
+    "scripts/release_source_archive.py": "ba524f510f99c45e2bf84ed48345ed58c59bccac3506db1d7ad7d85369fcd5ca",
+    "tests/test_release_source_archive.py": "d2773f5020b7c28c42dc7f66a0868e59bc771ea630f50b02f747aa116996c2e6"
+  },
+  "execution": {
+    "ok": true,
+    "returncode": 0,
+    "stdout": "============================= test session starts =============================\nplatform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0 -- C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe\nrootdir: C:\\sgSHIOK2026\nconfigfile: pyproject.toml\ncollecting ... collected 56 items\n\ntests/test_release_source_archive.py::test_real_default_part_size PASSED [  1%]\ntests/test_release_source_archive.py::test_two_roots_multipart_roundtrip_and_no_source_reads_outside_selection PASSED [  3%]\ntests/test_release_source_archive.py::test_plan_does_not_read_payload PASSED [  5%]\ntests/test_release_source_archive.py::test_reject_unsafe_or_excluded_inventory[../escape] PASSED [  7%]\ntests/test_release_source_archive.py::test_reject_unsafe_or_excluded_inventory[/absolute] PASSED [  8%]\ntests/test_release_source_archive.py::test_reject_unsafe_or_excluded_inventory[web/../escape] PASSED [ 10%]\ntests/test_release_source_archive.py::test_reject_unsafe_or_excluded_inventory[web\\\\file] PASSED [ 12%]\ntests/test_release_source_archive.py::test_reject_unsafe_or_excluded_inventory[web/.env] PASSED [ 14%]\ntests/test_release_source_archive.py::test_reject_unsafe_or_excluded_inventory[web/.env.production] PASSED [ 16%]\ntests/test_release_source_archive.py::test_reject_unsafe_or_excluded_inventory[web/.envrc] PASSED [ 17%]\ntests/test_release_source_archive.py::test_reject_unsafe_or_excluded_inventory[web/.vercel/project.json] PASSED [ 19%]\ntests/test_release_source_archive.py::test_reject_unsafe_or_excluded_inventory[web/private.pem] PASSED [ 21%]\ntests/test_release_source_archive.py::test_reject_unsafe_or_excluded_inventory[web/node_modules/file] PASSED [ 23%]\ntests/test_release_source_archive.py::test_reject_unsafe_or_excluded_inventory[web/.next/BUILD_ID] PASSED [ 25%]\ntests/test_release_source_archive.py::test_reject_unsafe_or_excluded_inventory[web/.git/config] PASSED [ 26%]\ntests/test_release_source_archive.py::test_duplicate_casefold_member PASSED [ 28%]\ntests/test_release_source_archive.py::test_file_directory_member_conflict PASSED [ 30%]\ntests/test_release_source_archive.py::test_receipt_pin_mismatch[frontend_sha256] PASSED [ 32%]\ntests/test_release_source_archive.py::test_receipt_pin_mismatch[data_sha256] PASSED [ 33%]\ntests/test_release_source_archive.py::test_duplicate_json_keys PASSED    [ 35%]\ntests/test_release_source_archive.py::test_failed_build_reporting_or_root_binding[<lambda>0] PASSED [ 37%]\ntests/test_release_source_archive.py::test_failed_build_reporting_or_root_binding[<lambda>1] PASSED [ 39%]\ntests/test_release_source_archive.py::test_failed_build_reporting_or_root_binding[<lambda>2] PASSED [ 41%]\ntests/test_release_source_archive.py::test_failed_build_reporting_or_root_binding[<lambda>3] PASSED [ 42%]\ntests/test_release_source_archive.py::test_failed_build_reporting_or_root_binding[<lambda>4] PASSED [ 44%]\ntests/test_release_source_archive.py::test_failed_build_reporting_or_root_binding[<lambda>5] PASSED [ 46%]\ntests/test_release_source_archive.py::test_data_namespace_mismatch PASSED [ 48%]\ntests/test_release_source_archive.py::test_input_hash_mismatch_has_no_success_receipt PASSED [ 50%]\ntests/test_release_source_archive.py::test_input_changes_during_stream_fail_closed PASSED [ 51%]\ntests/test_release_source_archive.py::test_hardlinked_source_rejected PASSED [ 53%]\ntests/test_release_source_archive.py::test_symlink_ancestor_rejected SKIPPED [ 55%]\ntests/test_release_source_archive.py::test_output_cannot_overlap_or_write_protected_paths[web/archive] PASSED [ 57%]\ntests/test_release_source_archive.py::test_output_cannot_overlap_or_write_protected_paths[tmp/frontend/new] PASSED [ 58%]\ntests/test_release_source_archive.py::test_output_cannot_overlap_or_write_protected_paths[tmp/data/new] PASSED [ 60%]\ntests/test_release_source_archive.py::test_output_cannot_overlap_or_write_protected_paths[tmp] PASSED [ 62%]\ntests/test_release_source_archive.py::test_existing_output_is_never_replaced PASSED [ 64%]\ntests/test_release_source_archive.py::test_byte_budgets[limits0-INPUT_BYTE_BUDGET] PASSED [ 66%]\ntests/test_release_source_archive.py::test_byte_budgets[limits1-OUTPUT_BYTE_BUDGET] PASSED [ 67%]\ntests/test_release_source_archive.py::test_byte_budgets[limits2-INVALID_BYTE_BUDGET] PASSED [ 69%]\ntests/test_release_source_archive.py::test_deadline PASSED               [ 71%]\ntests/test_release_source_archive.py::test_pilot_is_incomplete_and_has_no_deployment_references PASSED [ 73%]\ntests/test_release_source_archive.py::test_verifier_rejects_corruption[missing] PASSED [ 75%]\ntests/test_release_source_archive.py::test_verifier_rejects_corruption[bytes] PASSED [ 76%]\ntests/test_release_source_archive.py::test_verifier_rejects_corruption[order] PASSED [ 78%]\ntests/test_release_source_archive.py::test_verifier_rejects_corruption[size] PASSED [ 80%]\ntests/test_release_source_archive.py::test_verifier_rejects_corruption[extra] PASSED [ 82%]\ntests/test_release_source_archive.py::test_verifier_rejects_corruption[receipt-member] PASSED [ 83%]\ntests/test_release_source_archive.py::test_single_gzip_stream_not_concatenated_archives PASSED [ 85%]\ntests/test_release_source_archive.py::test_verifier_checks_tar_not_only_part_digests[name] PASSED [ 87%]\ntests/test_release_source_archive.py::test_verifier_checks_tar_not_only_part_digests[link] PASSED [ 89%]\ntests/test_release_source_archive.py::test_verifier_checks_tar_not_only_part_digests[content] PASSED [ 91%]\ntests/test_release_source_archive.py::test_verifier_checks_tar_not_only_part_digests[truncated] PASSED [ 92%]\ntests/test_release_source_archive.py::test_exact_split_boundary_has_no_empty_part PASSED [ 94%]\ntests/test_release_source_archive.py::test_node_bundled_tar_cross_reader PASSED [ 96%]\ntests/test_release_source_archive.py::test_cli_plan_is_offline_and_writes_nothing PASSED [ 98%]\ntests/test_release_source_archive.py::test_cli_pack_and_verify PASSED    [100%]\n\n======================= 55 passed, 1 skipped in 12.54s ========================",
+    "stderr": ""
+  },
+  "elapsedSeconds": 13.90600000001723,
+  "pipelineRuns": 0,
+  "deployments": 0,
+  "passed": true
+}
