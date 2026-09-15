@@ -1,0 +1,9 @@
+{
+  "command": "node web/scripts/test-without-production-data.mjs",
+  "scope": "Terminal output chunk and exit status; initial 42 dependency-guard details are not repeated in this receipt.",
+  "chunk_id": "c78604",
+  "wall_time_seconds": 0.0000085,
+  "exit_code": 0,
+  "original_token_count": 146,
+  "output": "\n Test Files  86 passed (86)\n      Tests  3343 passed (3343)\n   Start at  22:12:50\n   Duration  96.53s (transform 8.84s, setup 0ms, import 18.38s, tests 29.76s, environment 32ms)\n\n{\n  \"snapshot\": \"C:\\\\sgSHIOK2026\\\\tmp\\\\test-without-data-N3mlYp\",\n  \"copiedFiles\": 288,\n  \"productionDataDirectoryAbsent\": true,\n  \"guardProbePassed\": true,\n  \"forbiddenPaths\": [\n    \"C:\\\\sgSHIOK2026\\\\web\\\\public\\\\data\",\n    \"C:\\\\sgSHIOK2026\\\\tmp\\\\test-without-data-N3mlYp\\\\web\\\\public\\\\data\"\n  ],\n  \"dependencies\": \"Existing node_modules linked; no installation\",\n  \"testArgs\": [],\n  \"exitCode\": 0\n}\n"
+}

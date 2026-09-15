@@ -1,0 +1,6 @@
+{
+  "command": "node web/node_modules/typescript/bin/tsc --project web/tsconfig.json --noEmit --incremental false",
+  "exitCode": 0,
+  "stdout": "",
+  "stderr": ""
+}

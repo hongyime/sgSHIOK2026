@@ -11,7 +11,11 @@ export async function requestWalkPreview(url: string, timeoutMs = WALK_PREVIEW_T
   });
   try {
     return await Promise.race([deadline, fetch(url, { signal: controller.signal }).then(async response => {
-      if (!response.ok) throw Object.assign(new Error('Walking preview unavailable'), { status: response.status });
+      if (!response.ok) {
+        // Release unused error content without delaying or replacing the HTTP failure.
+        void response.body?.cancel().catch(() => {});
+        throw Object.assign(new Error('Walking preview unavailable'), { status: response.status });
+      }
       return response.json();
     })]);
   } finally { clearTimeout(timer); }

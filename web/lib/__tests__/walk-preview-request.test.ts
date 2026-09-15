@@ -31,4 +31,36 @@ describe('bounded explicit walk previews',()=>{
     await expect(requestWalkPreview('/api/onemap-route',100)).rejects.toThrow('offline');
     await vi.advanceTimersByTimeAsync(1000);expect(fetcher).toHaveBeenCalledTimes(1);expect(vi.getTimerCount()).toBe(0);
   });
+  it.each([401,503])('cancels the unused HTTP %i response body',async status=>{
+    const cancel=vi.fn();
+    const response=new Response(new ReadableStream({cancel}),{status});
+    vi.stubGlobal('fetch',vi.fn().mockResolvedValue(response));
+    await expect(requestWalkPreview('/api/onemap-route')).rejects.toMatchObject({status});
+    expect(cancel).toHaveBeenCalledTimes(1);
+    expect(response.bodyUsed).toBe(true);
+  });
+  it('keeps the original HTTP failure when body cancellation rejects',async()=>{
+    const cancel=vi.fn().mockRejectedValue(new Error('stream already closed'));
+    vi.stubGlobal('fetch',vi.fn().mockResolvedValue({ok:false,status:503,body:{cancel}}));
+    await expect(requestWalkPreview('/api/onemap-route')).rejects.toMatchObject({status:503,message:'Walking preview unavailable'});
+    expect(cancel).toHaveBeenCalledTimes(1);
+    await Promise.resolve();
+  });
+  it('does not delay a failed preview for a stuck cancellation promise',async()=>{
+    vi.useFakeTimers();const cancel=vi.fn().mockImplementation(()=>new Promise(()=>{}));
+    const fetcher=vi.fn().mockResolvedValue({ok:false,status:401,body:{cancel}});vi.stubGlobal('fetch',fetcher);
+    await expect(requestWalkPreview('/api/onemap-route',100)).rejects.toMatchObject({status:401});
+    expect(cancel).toHaveBeenCalledTimes(1);expect(vi.getTimerCount()).toBe(0);expect(fetcher).toHaveBeenCalledTimes(1);
+  });
+  it('does not cancel a successful response before consuming its route',async()=>{
+    const data={ok:true,route_geometry:'unchanged',total_distance_m:81,total_time_s:63};
+    const response=Response.json(data);const cancel=vi.spyOn(response.body!,'cancel');
+    vi.stubGlobal('fetch',vi.fn().mockResolvedValue(response));
+    await expect(requestWalkPreview('/api/onemap-route')).resolves.toEqual(data);
+    expect(cancel).not.toHaveBeenCalled();
+  });
+  it('preserves the HTTP status when an error response has no body',async()=>{
+    vi.stubGlobal('fetch',vi.fn().mockResolvedValue(new Response(null,{status:404})));
+    await expect(requestWalkPreview('/api/onemap-route')).rejects.toMatchObject({status:404});
+  });
 });
