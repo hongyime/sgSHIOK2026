@@ -4507,3 +4507,68 @@ The inherited gateway503 uncertainty and cumulative denied-retry uncertainty are
 confirmed defects covered by tests. Preserve the failed expected-contrast receipt,
 initial harness failure and separate successful owned-process/listener cleanup
 verification. This header-only probe is not reporting end-to-end acceptance.
+
+### Thirty-day cleanup and bounded retry identity, 2026-09-15
+
+The owner's 30-day policy remains the release contract. Implemented it without
+permanent request tombstones: new request IDs use RFC9562 UUIDv7 timestamps plus
+74 random bits; separate proof remains 32 random bytes and saved receipt IDs
+remain UUIDv4. New admission permits the preceding24hours and five minutes of
+future skew. The database samples receipt time after its singleton lock. Matching
+saved receipts survive the initial window and paused intake until expiry.
+
+Why the table requires exactly720hours, not merely at most30days: an authorized
+short-expiry insert could be purged while its request ID still passed initial
+admission. The new validated constraint and request-time constraint reject that
+counterexample without rewriting existing data. Expired-row cleanup atomically
+advances a global, monotone time floor, so normal30day purge cannot recreate an
+old request even after clock regression. Early moderator/privacy deletion before
+the initial24hour window closes still needs a bounded tombstone mechanism; do
+not pretend this implements it or store permanent resident-derived identities.
+
+V2 binds each HMAC abuse bucket to the UTC date sampled by HTTP and checks the
+same day after acquiring the database lock. A queued midnight request is refused
+without splitting the network quota; saved-receipt recovery does not debit again.
+Old V1 execution is revoked even for service_role. No silent compatibility path.
+
+Private cleanup deletes only expired reports and quota buckets older than UTC
+yesterday. Owner/scheduler executes it; the application cannot purge content or
+rewrite health/floor/failure fields. Ordinary delete errors roll back both phases
+and persist a content-free failure latch. Actual cancellation/session loss is a
+separate case: outer scheduler timeout and health monitoring still need acceptance.
+Set statement_timeout before invoking cleanup, not only inside the function.
+The26hour stale-success gate remains; no cron extension/job is installed here.
+Daily scheduling permits one job interval beyond expiry, while outages and
+recovery copies can extend physical retention. No exact30day erasure guarantee.
+
+Both native migrations are applied on the dedicated empty/disabled Free project:
+20260915010921_shiok_report_cleanup and20260915013223_restrict_rls_event_trigger.
+The latter fixes global advisor WARNs: platform public.rls_auto_enable was
+executable by resident roles. Its HTTP400 event_trigger response was not evidence
+that exposure was harmless. Revoke only PUBLIC/anon/authenticated execution,
+preserving body, owner/service grants and automatic RLS trigger. Independent
+review approved this exact change;6actual rollback groups and post-apply readback
+confirm it. Advisors now report no WARN/ERROR and3intentional private-table INFOs.
+No broad advisor waiver, privilege escalation, auth configuration or paid service.
+
+Validation:23cleanup SQL groups,6ACL groups,476focused tests across6files,2387
+isolated web tests across77files plus42dependency guards, and installed TypeScript.
+Focused tests overlap the full suite. 2219 +168 =2387; no map/browser speed claim.
+SQL rollback acceptance is not actual concurrent-session/scheduler acceptance.
+Keep intake disabled until those tests, resident form and moderation are complete.
+The full build-and-ship goal remains active; this is not deployment completion.
+Evidence: qa/revamp-r1/report-cleanup-20260915 and the appended REVAMP-R1 log.
+
+FINDINGS
+1. Exact30day expiry plus bounded request validity closes replay-after-purge and
+   short-expiry/direct-insert holes. UTC date binding closes queued-midnight quota
+   splitting; these are explicit corrections, not claims based on passing mocks.
+2. Global advisor inspection found unnecessary platform helper execution grants.
+   The narrow restriction removes both WARNs while automatic RLS remains working.
+3. Cleanup is applied and tested but not scheduled; resident submission remains off.
+
+DISAGREEMENTS
+1. No disagreement with30days. Expiry is not a physical-erasure deadline, and
+   a daily job plus outages cannot promise deletion at the exact expiry instant.
+2. Function-local timeout and rollback fixtures do not prove actual cancellation,
+   distributed abuse limits or concurrent safety. Those release gates stay open.

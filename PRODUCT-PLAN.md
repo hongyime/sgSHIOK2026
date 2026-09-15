@@ -2,15 +2,16 @@
 Current scope: 2026-09-13 owner revision, replacing the 12 September UI scope.
 Completion resume: IN PROGRESS after14September owner answers, not complete.
 15September scope confirmation: the active goal includes ALL remaining build and
-ship tasks, not just Supabase setup. Report HTTP integration is in progress with
-independent security and release reviews, then resident UI, moderator access,
+ship tasks, not just Supabase setup. Report HTTP/retry and private cleanup are
+implemented with independent review, then scheduling, resident UI, moderator access,
 retention/failure acceptance and the exact release/deployment path. Do not close
 the goal at an implementation checkpoint. Protected-data processing and actual
 physical-device participation still need their specific gates.
 Owner policy15September: use30-day report retention, not90days; private reports
 without resident accounts/contact/photos, weekly owner review and fail-closed
 intake on unhealthy cleanup or limits. The 30-day expiry migration is applied and
-database-tested; physical deletion and operational acceptance remain unfinished.
+database-tested; cleanup is applied/tested but unscheduled. Concurrency and
+operational acceptance remain unfinished; intake is disabled.
 Cloudflare rejected. Weekly metadata-only GitHub checks and one issue approved;
 real scheduler active with verified issue delivery and cross-run journal recovery.
 Repository owner operates issue34. Owner uses desktop Chrome with a resized
@@ -374,6 +375,11 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 
 ### [ ] T15: Persist reports and issue truthful receipts
 - Status: PARTIAL (dedicated storage and disabled-by-default HTTP endpoint implemented). Size: M. Parent: P1.3.
+- Cleanup integration15September: V2 uses UUIDv7 request validity, exact720-hour
+  expiry and post-lock UTC quota-date binding. Old V1 execution is revoked.
+  476focused/6files,2387isolated/77files+42guards and TypeScript pass with source
+  identity bound to the isolated snapshot. SQL acceptance is23cleanup groups;
+  these are rollback scenarios, not concurrent sessions or resident activation.
 - HTTP boundary15September: exact HTTPS origin/JSON, bounded8KiB wire parsing,
   one10s upload+storage deadline, no public reads or logs, server-only exact-project
   config and daily HMAC network buckets from trusted Vercel ingress. Per-instance
@@ -417,6 +423,9 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 
 ### [ ] T16: Ship the report composition and receipt flow
 - Status: PARTIAL (retry transport implemented; resident form/integration not delivered). Size: M. Parent: P1.3.
+- Current request preparation uses a cryptographically random RFC9562 UUIDv7
+  plus the independent retry proof. Saved-receipt IDs remain UUIDv4. Existing
+  retry uncertainty is preserved; no automatic retry or replacement identity.
 - Current15September: immutable in-memory request/32byteproof before firstPOST;
   duplicate clicks share one attempt, explicit retries preserve identity/content,
   receipt confirmation is bounded and no private state is automatically persisted.
@@ -441,7 +450,20 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: Approved owner access. No anonymous administrative endpoint or data edits.
 
 ### [ ] T18: Exercise report failure, abuse and retention limits
-- Status: WAIT_DEPS. Size: M. Parent: P1.3.
+- Status: PARTIAL (private cleanup applied and rollback-tested, not scheduled). Size: M. Parent: P1.3.
+- Migration20260915010921 implements atomic expired-row/quota cleanup, monotone
+  request watermark and a content-free ordinary-failure latch.23actual SQL groups
+  pass before/after apply; zero reports/usage remain and intake stays disabled.
+  Exact720-hour constraint closes a short-expiry/recreated-request counterexample;
+  service-role direct inserts also enforce request validity. Normal30day expiry
+  needs no permanent identity tombstones, but early deletion needs bounded ones.
+  Next: actual distinct-session contention, scheduler role/statement timeout and
+  cancellation checks, daily scheduling, moderator access and resident acceptance.
+  No pg_cron job exists. Connection loss/cancellation is not an immediate persisted
+  failure latch; retain the26hour stale-success gate and add scheduler monitoring.
+  Global advisor WARNs on a platform SECURITY DEFINER helper were fixed by a
+  separate execute-grant migration, not waived. Six actual permission/RLS groups
+  pass after application; body/trigger/owner/service permissions remain intact.
 - Owner30-day retention now enforced by migration20260915000630: ten actual
   PostgreSQL groups pass before and after apply; report/usage rows remain zero,
   intake disabled. Validated constraint rejects longer expiry without rewriting

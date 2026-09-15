@@ -1,0 +1,205 @@
+{
+  "mode": "test",
+  "target": {
+    "projectRef": "ztjilsfgoephcdcsgcks",
+    "projectName": "sgshiok",
+    "projectUrl": "https://ztjilsfgoephcdcsgcks.supabase.co",
+    "organizationId": "ixonsqiqglwriirutigr",
+    "region": "ap-southeast-1",
+    "plan": "free"
+  },
+  "requests": [
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "organizations/ixonsqiqglwriirutigr",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/migrations",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/migrations",
+      "method": "GET",
+      "status": 200
+    }
+  ],
+  "passed": true,
+  "migration": {
+    "file": "20260915004725_shiok_report_cleanup.sql",
+    "sha256": "1b5d7487d95b42f76c1bf60a3de99f2b7036a38bc0e7b1ffaf375ca79e97ad7c",
+    "testsSha256": "f9369fe15dd44b00150b6ceb86071de920db57a25d8f89c9b0d16dca38e32bc5"
+  },
+  "state": {
+    "reports": 0,
+    "usage": 0,
+    "control": [
+      {
+        "enabled": false,
+        "singleton": true,
+        "allowed_bundles": [],
+        "policy_approved_at": null,
+        "cleanup_verified_at": null
+      }
+    ],
+    "rpc_sha256": "8f8520e8f91aee00283102d4bce005180047b85fcee2d315ee81a326225dde68",
+    "server_version": "17.6",
+    "cron_extension": null,
+    "available_cron": [
+      {
+        "name": "pg_cron",
+        "default_version": "1.6.4",
+        "installed_version": null
+      }
+    ]
+  },
+  "history": [
+    {
+      "version": "20260914161526",
+      "name": "shiok_private_reports_v1"
+    },
+    {
+      "version": "20260915000630",
+      "name": "shiok_report_retention_30_days"
+    }
+  ],
+  "checks": [
+    {
+      "name": "actual_service_role_new_admission_succeeds",
+      "passed": true
+    },
+    {
+      "name": "actual_submitter_can_lock_but_cannot_purge_reset_health_or_call_v1",
+      "passed": true
+    },
+    {
+      "name": "all_synthetic_cleanup_admission_groups_passed_and_rolled_back",
+      "passed": true
+    },
+    {
+      "name": "allowed_clock_skew_does_not_change_receipt_time",
+      "passed": true
+    },
+    {
+      "name": "cleanup_failure_latch_pauses_new_admission_not_receipt_recovery",
+      "passed": true
+    },
+    {
+      "name": "cleanup_operates_while_intake_disabled_without_enabling_it",
+      "passed": true
+    },
+    {
+      "name": "clock_regression_does_not_lower_health_or_admission_floor",
+      "passed": true
+    },
+    {
+      "name": "direct_service_insert_cannot_bypass_request_window",
+      "passed": true
+    },
+    {
+      "name": "existing_receipt_replays_after_admission_window_without_debit",
+      "passed": true
+    },
+    {
+      "name": "expired_content_deleted_unexpired_pending_content_preserved",
+      "passed": true
+    },
+    {
+      "name": "expired_existing_receipt_preserves_proof_conflict_precedence",
+      "passed": true
+    },
+    {
+      "name": "failed_delete_rolls_back_content_and_health_together",
+      "passed": true
+    },
+    {
+      "name": "future_stale_and_legacy_new_ids_fail_closed",
+      "passed": true
+    },
+    {
+      "name": "monotone_floor_and_exact_cutoff_rejection",
+      "passed": true
+    },
+    {
+      "name": "new_admission_uses_server_receipt_and_30_day_expiry",
+      "passed": true
+    },
+    {
+      "name": "paused_stale_or_day_changed_admission_still_recovers_saved_receipt",
+      "passed": true
+    },
+    {
+      "name": "private_invoker_grants",
+      "passed": true
+    },
+    {
+      "name": "purged_request_never_recreates_content_or_debits_quota",
+      "passed": true
+    },
+    {
+      "name": "rfc_uuidv7_vector_and_invalid_versions",
+      "passed": true
+    },
+    {
+      "name": "second_delete_phase_failure_restores_first_delete_phase",
+      "passed": true
+    },
+    {
+      "name": "short_expiry_replay_counterexample_rejected_by_table",
+      "passed": true
+    },
+    {
+      "name": "utc_quota_history_bounded_to_today_and_yesterday",
+      "passed": true
+    },
+    {
+      "name": "wrong_utc_bucket_day_cannot_split_new_admission_quota",
+      "passed": true
+    }
+  ],
+  "after": {
+    "reports": 0,
+    "usage": 0,
+    "control": [
+      {
+        "enabled": false,
+        "singleton": true,
+        "allowed_bundles": [],
+        "policy_approved_at": null,
+        "cleanup_verified_at": null
+      }
+    ],
+    "rpc_sha256": "8f8520e8f91aee00283102d4bce005180047b85fcee2d315ee81a326225dde68",
+    "server_version": "17.6",
+    "cron_extension": null,
+    "available_cron": [
+      {
+        "name": "pg_cron",
+        "default_version": "1.6.4",
+        "installed_version": null
+      }
+    ]
+  },
+  "finishedAt": "2026-09-15T01:08:26.592Z"
+}

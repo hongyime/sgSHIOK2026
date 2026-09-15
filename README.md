@@ -572,10 +572,12 @@ not paid scaling or a false receipt. Moderation acceptance never edits map truth
 Owner policy chosen15September: expire private report content30days after receipt,
 with daily cleanup and weekly owner moderation. No resident accounts, contact
 details or photos. Keep intake paused while cleanup is unhealthy or limits are
-reached. Migration20260915000630 now enforces exact30day expiry for RPC writes
-and a30day maximum for direct service inserts. Ten actual PostgreSQL groups pass
-before and after application; intake remains disabled with no reports or usage
-rows retained. This is not a cleanup worker or proof of physical deletion.
+reached. Migration20260915010921 now enforces an exact720-hour expiry and valid
+UUIDv7 request time for RPC and direct service inserts. Its private cleanup
+function deletes expired content without allowing an old retry to recreate it;
+23 actual PostgreSQL groups pass before and after application. Intake remains
+disabled with no reports or usage rows retained. Scheduling, concurrency and
+actual cancellation acceptance are unfinished; no daily deletion job runs yet.
 Cleanup outages and recovery copies can
 extend physical retention. Keep deletion evidence independent of restored snapshots;
 apply expiry/deletion before reopening access. Credential/MFA setup
@@ -598,7 +600,7 @@ Do not use sgbuslaobu for SHIOK. The agent selected it in error; its separate,
 disabled report schema is not a SHIOK deployment and has not been deleted.
 The old project scripts are retired and the server adapter rejects that target.
 The public POST route is implemented but disabled by default; no resident form is wired yet.
-Moderator authentication, retention cleanup and real concurrent/HTTP acceptance
+Moderator authentication, scheduled cleanup and real concurrent/HTTP acceptance
 remain before activation. Owner UI feedback is desktop Chrome
 with a resized viewport, not physical-phone acceptance.
 
@@ -621,6 +623,12 @@ the reporting application, but hosting infrastructure may retain access logs.
 A gateway503 after submission has an unknown commit outcome; only the exact
 bounded RPC admission rejection proves unavailability. Retry with the same
 request ID, content and proof, never by silently generating a replacement report.
+New request IDs use UUIDv7 and must be no older than24hours or more than five
+minutes ahead of server time. Already-saved receipts can be recovered until expiry;
+receipt recovery is not a new quota debit. The server binds the daily HMAC bucket
+to its UTC date; a midnight rejection requires an explicit same-identity retry.
+No client clock timestamp decides the retention deadline. Daily cleanup permits
+up to one job interval beyond expiry; outages must be handled before reopening.
 
 ### Preserve And Recover Local Payloads
 

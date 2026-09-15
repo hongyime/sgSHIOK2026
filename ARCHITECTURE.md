@@ -131,7 +131,8 @@ and Free organization are verified; web/lib/report-project.json pins the only
 allowed origin for both setup and the server adapter. Storage is installed with
 intake disabled. The earlier use of sgbuslaobu was an agent targeting error, not
 owner approval. That project remains prohibited; its three remote QA scripts
-stay retired. No resident endpoint or runtime secret is configured.
+stay retired. The default-disabled resident endpoint is implemented; no runtime
+secret or resident form is configured.
 
 Use a same-origin report API with the existing bounded report parser. The browser
 must not have database read/moderation privileges. Store report content in a
@@ -155,9 +156,9 @@ on synthetic reports. Local validation tests are not proof of database privacy.
 Implement resident composition and the private queue after that boundary works.
 No report acceptance changes published shelter evidence or the locked scores.
 
-Existing caps/retention are proposed defaults pending the remaining policy
-decision: 100/day, 5 per short-lived IP bucket/day, 500 pending, 5,000 retained;
-earlier of 90 days from receipt or 30 days after resolution, with daily cleanup.
+Admission caps are implemented but not activated: 100/day, 5 per short-lived IP
+bucket/day, 500 pending, 5,000 retained. The owner selected 30 days from receipt,
+with daily cleanup and weekly moderation. Resolution never extends expiry.
 Free Supabase has no included automatic backups/PITR; do not carry over D1's
 seven-day recovery claim. Any private backup requires a destination, key owner,
 retention and independently retained deletion rules. Do not invent a backup.
@@ -201,8 +202,8 @@ Retries with matching proof/content return the original receipt without another
 debit; altered proof/content conflicts, expired identity cannot become a new report.
 Activation additionally requires policy approval, an allowed bundle and verified
 cleanup within26hours. Those controls are deliberately unset. The proposed caps
-are implemented but not activated. Moderation, cleanup/deletion, idempotency
-tombstones across cleanup and genuine concurrent RPC races remain unfinished.
+are implemented but not activated. Moderation, scheduled cleanup, early-deletion
+replay protection and genuine concurrent RPC races remain unfinished.
 No complete F04-F12 or durable browser receipt claim follows from rollback tests.
 
 The HTTP boundary accepts only an exact configured HTTPS Origin and request URL,
@@ -226,8 +227,61 @@ original applied migration. A validating constraint rejects pre-existing longer
 expiries; the atomic migration must fail rather than rewrite resident data.
 RPC source is byte-equal to the prior body except90days becomes30days. Ten actual
 database check groups passed in rollback before apply and again after apply,
-with disabled/empty state restored. Physical deletion, post-deletion idempotency,
-moderator authorization and concurrency/clock-boundary acceptance remain open.
+with disabled/empty state restored. The next migration below implements normal
+expiry cleanup without altering this historical migration.
+
+### Cleanup and request validity, 15 September 2026
+
+Migration20260915010921 is applied on the dedicated disabled project. Request IDs
+now use RFC9562 UUIDv7 (48-bit Unix milliseconds, 74 random bits); receipt IDs
+remain UUIDv4 and retry proof remains a separate 32-byte random secret. The server
+admits a new request only within the preceding 24 hours, allowing at most five
+minutes of future client clock skew. Receipt time comes from the database clock,
+not the ID. A matching saved receipt remains recoverable until its 30-day expiry,
+even after the initial admission window closes or new intake is paused.
+
+The V2 RPC samples UTC day after taking the shared singleton lock. HTTP binds
+its HMAC bucket and UTC date to the same post-upload sample, and the RPC rejects
+a different day for new admission. A queued midnight request cannot split a
+network's daily quota. Wrong-day receipt recovery still works without a debit.
+V1 execution is revoked, including from service_role; no silent fallback exists.
+
+The table now requires expires_at - received_at =720hours, not merely <=30days.
+A shorter direct-insert expiry could otherwise delete a still-valid request and
+allow it to be recreated. The table also enforces the UUIDv7 admission bounds.
+This is an exact elapsed duration, independent of timezone/DST calendar arithmetic.
+
+Private cleanup_expired_v1 takes the same lock, deletes only expired reports and
+quota buckets older than UTC yesterday, then advances a monotone request-time
+floor and cleanup health in the same transaction. An expired, purged request can
+never become new again, including after a clock regression. This normal-expiry
+scheme needs no permanent per-resident tombstone. Early deletion before the
+24-hour admission window ends needs separate bounded tombstones before shipping.
+An absent expired ID while intake is disabled can return503 before410; neither
+recreates content. Do not promise a universal410 response.
+
+The submitter cannot execute cleanup, delete report rows or edit health/floor/
+failure fields. It has only UPDATE(singleton) for SELECT FOR UPDATE. Ordinary SQL
+delete failures roll back both delete phases, retain a content-free failure latch
+and pause new admission, while saved receipts remain recoverable. Cancellation,
+connection loss and lock timeout are not covered by that inner failure handler;
+they require scheduler monitoring and the 26-hour stale-success gate. The future
+scheduler must set statement_timeout before calling the function. A function-local
+setting does not prove a whole-statement timeout.
+
+Twenty-three actual PostgreSQL rollback groups pass before and after application.
+No pg_cron extension/job is installed yet, no cleanup health is activated, and no
+reports/usage remain. Daily scheduling, actual cancellation/concurrent sessions,
+moderator authorization and resident form acceptance are still release gates.
+Expiry at30days is not an exact physical-erasure instant: a daily job introduces
+up to one job interval, and outages/recovery copies need explicit handling.
+
+Migration20260915013223 revokes public/anon/authenticated execution of the platform
+rls_auto_enable event-trigger helper without changing its body or trigger. Six
+rollback groups plus post-apply metadata confirm automatic RLS, unchanged owner/
+service-role permissions and no report-state mutation. Global security advisors
+now have zero WARN/ERROR; three INFO no-policy notices reflect intentionally denied
+private tables. The earlier reachable HTTP400 RPC was not proof of harmlessness.
 
 Browser preparation creates a frozen request/secret envelope before any POST.
 Concurrent callers share one promise; confirmed receipts are reused. Unknown

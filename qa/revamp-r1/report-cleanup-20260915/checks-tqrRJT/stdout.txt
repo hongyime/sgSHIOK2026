@@ -1,0 +1,25 @@
+F........................................                                [100%]
+================================== FAILURES ===================================
+_______ test_supabase_choice_is_recorded_without_claiming_live_reports ________
+
+    def test_supabase_choice_is_recorded_without_claiming_live_reports() -> None:
+        root = README.parent
+        readme = compact(README.read_text(encoding="utf-8"))
+        state = (root / ".agents/STATE.md").read_text(encoding="utf-8")
+        plan = (root / "postplan.html").read_text(encoding="utf-8")
+        assert "Supabase Free was approved on 14 September for private resident reports" in readme
+        assert "Dedicated SHIOK storage is installed; reporting remains disabled" in readme
+        assert "ztjilsfgoephcdcsgcks" in readme
+        assert "Do not use sgbuslaobu for SHIOK" in readme
+        assert "sgbuslaobu is NOT a SHIOK project" in state
+        assert "owner-designated sgbuslaobu" not in plan
+        assert "not physical-phone acceptance" in readme
+        assert "Supabase Free APPROVED" in state
+        assert "not approved/provisioned" not in state
+>       assert "Provider choice is complete: Supabase Free" in plan
+E       assert 'Provider choice is complete: Supabase Free' in '<!doctype html>\n<html lang="en">\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-...ence. No private sample postal, invented completion, pipeline or deployment authorization implied.</footer>\n</html>\n'
+
+tests\test_readme.py:25: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_readme.py::test_supabase_choice_is_recorded_without_claiming_live_reports
+1 failed, 40 passed in 14.79s

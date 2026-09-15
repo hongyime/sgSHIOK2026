@@ -1,0 +1,68 @@
+{
+  "mode": "inspect",
+  "target": {
+    "projectRef": "ztjilsfgoephcdcsgcks",
+    "projectName": "sgshiok",
+    "projectUrl": "https://ztjilsfgoephcdcsgcks.supabase.co",
+    "organizationId": "ixonsqiqglwriirutigr",
+    "region": "ap-southeast-1",
+    "plan": "free"
+  },
+  "requests": [
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "organizations/ixonsqiqglwriirutigr",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/migrations",
+      "method": "GET",
+      "status": 200
+    }
+  ],
+  "passed": true,
+  "state": {
+    "reports": 0,
+    "usage": 0,
+    "control": [
+      {
+        "enabled": false,
+        "singleton": true,
+        "allowed_bundles": [],
+        "policy_approved_at": null,
+        "cleanup_verified_at": null
+      }
+    ],
+    "rpc_sha256": "8f8520e8f91aee00283102d4bce005180047b85fcee2d315ee81a326225dde68",
+    "server_version": "17.6",
+    "cron_extension": null,
+    "available_cron": [
+      {
+        "name": "pg_cron",
+        "default_version": "1.6.4",
+        "installed_version": null
+      }
+    ]
+  },
+  "history": [
+    {
+      "version": "20260914161526",
+      "name": "shiok_private_reports_v1"
+    },
+    {
+      "version": "20260915000630",
+      "name": "shiok_report_retention_30_days"
+    }
+  ],
+  "finishedAt": "2026-09-15T00:47:22.500Z"
+}

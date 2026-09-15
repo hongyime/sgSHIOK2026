@@ -1,0 +1,157 @@
+{
+  "mode": "acl-apply",
+  "target": {
+    "projectRef": "ztjilsfgoephcdcsgcks",
+    "projectName": "sgshiok",
+    "projectUrl": "https://ztjilsfgoephcdcsgcks.supabase.co",
+    "organizationId": "ixonsqiqglwriirutigr",
+    "region": "ap-southeast-1",
+    "plan": "free"
+  },
+  "requests": [
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "organizations/ixonsqiqglwriirutigr",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/migrations",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/migrations",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/migrations",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "method": "POST",
+      "status": 201
+    }
+  ],
+  "passed": true,
+  "migration": {
+    "file": "20260915011828_restrict_rls_event_trigger.sql",
+    "sha256": "a60549603ae1d160412bed17a8f8289740a1cf063e9a04c55158acdcf261b1f3",
+    "testsSha256": "aea6d0edaf6284eed470977d08f7049d4bd2d010d8da528c4c82a686c9d5ce20"
+  },
+  "state": {
+    "reports": 0,
+    "usage": 0,
+    "control": [
+      {
+        "enabled": false,
+        "singleton": true,
+        "allowed_bundles": [],
+        "request_floor_ms": 0,
+        "cleanup_failed_at": null,
+        "policy_approved_at": null,
+        "cleanup_verified_at": null
+      }
+    ],
+    "rpc_sha256": "8f8520e8f91aee00283102d4bce005180047b85fcee2d315ee81a326225dde68",
+    "server_version": "17.6",
+    "qa_table_present": false,
+    "cron_extension": null,
+    "available_cron": [
+      {
+        "name": "pg_cron",
+        "default_version": "1.6.4",
+        "installed_version": null
+      }
+    ]
+  },
+  "history": [
+    {
+      "version": "20260914161526",
+      "name": "shiok_private_reports_v1"
+    },
+    {
+      "version": "20260915000630",
+      "name": "shiok_report_retention_30_days"
+    },
+    {
+      "version": "20260915010921",
+      "name": "shiok_report_cleanup"
+    }
+  ],
+  "applyAttempted": true,
+  "after": {
+    "reports": 0,
+    "usage": 0,
+    "control": [
+      {
+        "enabled": false,
+        "singleton": true,
+        "allowed_bundles": [],
+        "request_floor_ms": 0,
+        "cleanup_failed_at": null,
+        "policy_approved_at": null,
+        "cleanup_verified_at": null
+      }
+    ],
+    "rpc_sha256": "8f8520e8f91aee00283102d4bce005180047b85fcee2d315ee81a326225dde68",
+    "server_version": "17.6",
+    "qa_table_present": false,
+    "cron_extension": null,
+    "available_cron": [
+      {
+        "name": "pg_cron",
+        "default_version": "1.6.4",
+        "installed_version": null
+      }
+    ]
+  },
+  "historyAfter": [
+    {
+      "version": "20260914161526",
+      "name": "shiok_private_reports_v1"
+    },
+    {
+      "version": "20260915000630",
+      "name": "shiok_report_retention_30_days"
+    },
+    {
+      "version": "20260915010921",
+      "name": "shiok_report_cleanup"
+    },
+    {
+      "version": "20260915013223",
+      "name": "restrict_rls_event_trigger"
+    }
+  ],
+  "remoteVersion": "20260915013223",
+  "helperReadback": [
+    {
+      "returns": "event_trigger",
+      "source_sha256": "2782e98b348aca7d6f6f73c420fd78d2e094957dd7a52b0483d4c34f29d2a7a1",
+      "proconfig": [
+        "search_path=pg_catalog"
+      ],
+      "anon_execute": false,
+      "authenticated_execute": false
+    }
+  ],
+  "finishedAt": "2026-09-15T01:32:22.802Z"
+}

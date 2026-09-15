@@ -1,0 +1,17 @@
+{
+  "url": "https://ztjilsfgoephcdcsgcks.supabase.co/rest/v1/rpc/rls_auto_enable",
+  "method": "POST",
+  "body": "{}",
+  "authenticated": false,
+  "passed": false,
+  "status": 400,
+  "response": {
+    "code": "0A000",
+    "details": null,
+    "hint": null,
+    "message": "cannot display a value of type event_trigger"
+  },
+  "rpcAbsent": false,
+  "error": "Do not classify other responses as inaccessible RPC\n\nfalse !== true\n",
+  "finishedAt": "2026-09-15T01:16:08.999Z"
+}

@@ -1,0 +1,353 @@
+{
+  "mode": "verify",
+  "target": {
+    "projectRef": "ztjilsfgoephcdcsgcks",
+    "projectName": "sgshiok",
+    "projectUrl": "https://ztjilsfgoephcdcsgcks.supabase.co",
+    "organizationId": "ixonsqiqglwriirutigr",
+    "region": "ap-southeast-1",
+    "plan": "free"
+  },
+  "requests": [
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "organizations/ixonsqiqglwriirutigr",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/migrations",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/migrations",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/advisors/security",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "method": "POST",
+      "status": 201
+    }
+  ],
+  "passed": true,
+  "migration": {
+    "file": "20260915010921_shiok_report_cleanup.sql",
+    "sha256": "1b5d7487d95b42f76c1bf60a3de99f2b7036a38bc0e7b1ffaf375ca79e97ad7c",
+    "testsSha256": "f9369fe15dd44b00150b6ceb86071de920db57a25d8f89c9b0d16dca38e32bc5"
+  },
+  "state": {
+    "reports": 0,
+    "usage": 0,
+    "control": [
+      {
+        "enabled": false,
+        "singleton": true,
+        "allowed_bundles": [],
+        "request_floor_ms": 0,
+        "cleanup_failed_at": null,
+        "policy_approved_at": null,
+        "cleanup_verified_at": null
+      }
+    ],
+    "rpc_sha256": "8f8520e8f91aee00283102d4bce005180047b85fcee2d315ee81a326225dde68",
+    "server_version": "17.6",
+    "qa_table_present": false,
+    "cron_extension": null,
+    "available_cron": [
+      {
+        "name": "pg_cron",
+        "default_version": "1.6.4",
+        "installed_version": null
+      }
+    ]
+  },
+  "history": [
+    {
+      "version": "20260914161526",
+      "name": "shiok_private_reports_v1"
+    },
+    {
+      "version": "20260915000630",
+      "name": "shiok_report_retention_30_days"
+    },
+    {
+      "version": "20260915010921",
+      "name": "shiok_report_cleanup"
+    },
+    {
+      "version": "20260915013223",
+      "name": "restrict_rls_event_trigger"
+    }
+  ],
+  "checks": [
+    {
+      "name": "actual_service_role_new_admission_succeeds",
+      "passed": true
+    },
+    {
+      "name": "actual_submitter_can_lock_but_cannot_purge_reset_health_or_call_v1",
+      "passed": true
+    },
+    {
+      "name": "all_synthetic_cleanup_admission_groups_passed_and_rolled_back",
+      "passed": true
+    },
+    {
+      "name": "allowed_clock_skew_does_not_change_receipt_time",
+      "passed": true
+    },
+    {
+      "name": "cleanup_failure_latch_pauses_new_admission_not_receipt_recovery",
+      "passed": true
+    },
+    {
+      "name": "cleanup_operates_while_intake_disabled_without_enabling_it",
+      "passed": true
+    },
+    {
+      "name": "clock_regression_does_not_lower_health_or_admission_floor",
+      "passed": true
+    },
+    {
+      "name": "direct_service_insert_cannot_bypass_request_window",
+      "passed": true
+    },
+    {
+      "name": "existing_receipt_replays_after_admission_window_without_debit",
+      "passed": true
+    },
+    {
+      "name": "expired_content_deleted_unexpired_pending_content_preserved",
+      "passed": true
+    },
+    {
+      "name": "expired_existing_receipt_preserves_proof_conflict_precedence",
+      "passed": true
+    },
+    {
+      "name": "failed_delete_rolls_back_content_and_health_together",
+      "passed": true
+    },
+    {
+      "name": "future_stale_and_legacy_new_ids_fail_closed",
+      "passed": true
+    },
+    {
+      "name": "monotone_floor_and_exact_cutoff_rejection",
+      "passed": true
+    },
+    {
+      "name": "new_admission_uses_server_receipt_and_30_day_expiry",
+      "passed": true
+    },
+    {
+      "name": "paused_stale_or_day_changed_admission_still_recovers_saved_receipt",
+      "passed": true
+    },
+    {
+      "name": "private_invoker_grants",
+      "passed": true
+    },
+    {
+      "name": "purged_request_never_recreates_content_or_debits_quota",
+      "passed": true
+    },
+    {
+      "name": "rfc_uuidv7_vector_and_invalid_versions",
+      "passed": true
+    },
+    {
+      "name": "second_delete_phase_failure_restores_first_delete_phase",
+      "passed": true
+    },
+    {
+      "name": "short_expiry_replay_counterexample_rejected_by_table",
+      "passed": true
+    },
+    {
+      "name": "utc_quota_history_bounded_to_today_and_yesterday",
+      "passed": true
+    },
+    {
+      "name": "wrong_utc_bucket_day_cannot_split_new_admission_quota",
+      "passed": true
+    }
+  ],
+  "after": {
+    "reports": 0,
+    "usage": 0,
+    "control": [
+      {
+        "enabled": false,
+        "singleton": true,
+        "allowed_bundles": [],
+        "request_floor_ms": 0,
+        "cleanup_failed_at": null,
+        "policy_approved_at": null,
+        "cleanup_verified_at": null
+      }
+    ],
+    "rpc_sha256": "8f8520e8f91aee00283102d4bce005180047b85fcee2d315ee81a326225dde68",
+    "server_version": "17.6",
+    "qa_table_present": false,
+    "cron_extension": null,
+    "available_cron": [
+      {
+        "name": "pg_cron",
+        "default_version": "1.6.4",
+        "installed_version": null
+      }
+    ]
+  },
+  "advisors": {
+    "lints": [
+      {
+        "name": "rls_enabled_no_policy",
+        "title": "RLS Enabled No Policy",
+        "level": "INFO",
+        "facing": "EXTERNAL",
+        "categories": [
+          "SECURITY"
+        ],
+        "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+        "detail": "Table \\`shiok_reports.control\\` has RLS enabled, but no policies exist",
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+        "metadata": {
+          "schema": "shiok_reports",
+          "name": "control",
+          "type": "table"
+        },
+        "cache_key": "rls_enabled_no_policy_shiok_reports_control",
+        "observed_at": "2026-09-15T01:34:14.127Z"
+      },
+      {
+        "name": "rls_enabled_no_policy",
+        "title": "RLS Enabled No Policy",
+        "level": "INFO",
+        "facing": "EXTERNAL",
+        "categories": [
+          "SECURITY"
+        ],
+        "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+        "detail": "Table \\`shiok_reports.daily_usage\\` has RLS enabled, but no policies exist",
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+        "metadata": {
+          "schema": "shiok_reports",
+          "name": "daily_usage",
+          "type": "table"
+        },
+        "cache_key": "rls_enabled_no_policy_shiok_reports_daily_usage",
+        "observed_at": "2026-09-15T01:34:14.127Z"
+      },
+      {
+        "name": "rls_enabled_no_policy",
+        "title": "RLS Enabled No Policy",
+        "level": "INFO",
+        "facing": "EXTERNAL",
+        "categories": [
+          "SECURITY"
+        ],
+        "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+        "detail": "Table \\`shiok_reports.reports\\` has RLS enabled, but no policies exist",
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+        "metadata": {
+          "schema": "shiok_reports",
+          "name": "reports",
+          "type": "table"
+        },
+        "cache_key": "rls_enabled_no_policy_shiok_reports_reports",
+        "observed_at": "2026-09-15T01:34:14.127Z"
+      }
+    ]
+  },
+  "readback": {
+    "functions": [
+      {
+        "name": "public.shiok_report_submit_v2",
+        "sha256": "da94e14e6060c03d873152ac8a2f6151c5cc42b6d3fae0bc43422383f4290d83",
+        "prosecdef": false,
+        "proconfig": [
+          "search_path=\"\"",
+          "lock_timeout=2s"
+        ],
+        "service_execute": true,
+        "anon_execute": false,
+        "authenticated_execute": false
+      },
+      {
+        "name": "shiok_reports.cleanup_expired_v1",
+        "sha256": "479bd801c44140d1d51f2d03dd7418d372eedd2892501654c6144a7488c27418",
+        "prosecdef": false,
+        "proconfig": [
+          "search_path=\"\"",
+          "lock_timeout=2s"
+        ],
+        "service_execute": false,
+        "anon_execute": false,
+        "authenticated_execute": false
+      },
+      {
+        "name": "shiok_reports.request_time_ms",
+        "sha256": "46d4dbd88e6971697866ad66f8edf47296b161bbbd2e3e70f26cb2e57e8d3250",
+        "prosecdef": false,
+        "proconfig": [
+          "search_path=\"\""
+        ],
+        "service_execute": true,
+        "anon_execute": false,
+        "authenticated_execute": false
+      }
+    ],
+    "permissions": {
+      "old_rpc": false,
+      "report_delete": false,
+      "floor_update": false,
+      "health_update": false,
+      "failure_update": false,
+      "constraints": [
+        {
+          "name": "shiok_reports_expiry_30_days",
+          "validated": true,
+          "definition": "CHECK (((expires_at - received_at) = '720:00:00'::interval))"
+        },
+        {
+          "name": "shiok_reports_request_validity",
+          "validated": true,
+          "definition": "CHECK (((shiok_reports.request_time_ms(request_id) IS NOT NULL) AND (shiok_reports.request_time_ms(request_id) > ((floor((EXTRACT(epoch FROM received_at) * (1000)::numeric)))::bigint - 86400000)) AND (shiok_reports.request_time_ms(request_id) <= ((floor((EXTRACT(epoch FROM received_at) * (1000)::numeric)))::bigint + 300000))))"
+        }
+      ]
+    }
+  },
+  "finishedAt": "2026-09-15T01:34:13.019Z"
+}

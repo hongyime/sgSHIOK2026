@@ -1,0 +1,47 @@
+{
+  "mode": "docs",
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_readme.py",
+    "tests/test_agent_docs.py",
+    "tests/test_repo_integrity.py",
+    "-q",
+    "-p",
+    "no:cacheprovider"
+  ],
+  "exit": 1,
+  "error": null,
+  "elapsedMs": 19872,
+  "before": {
+    "web/app/api/reports/http.ts": "d42678f5054e77a61d2febc2ba91eb26199762a054cbf4d62b73e1198fdd9d6c",
+    "web/app/api/reports/store.ts": "4beeb54465790e4a85034041540084e3ad14d15b5d4243080ccd81b964689993",
+    "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+    "web/lib/reports.ts": "1e6ffff787f664ccd3f2a66ac5dbe08dd4af3bf54143dbcd6593111b7e1d3299",
+    "web/lib/report-submission.ts": "c0d99a16830456d36cd39d34aca284d7a05fb11496db13f126d98719f6fa8e49",
+    "web/lib/report-request-id.ts": "d76db8639a90b9edc45bdb2f087c7699354f692c8d391c6353c5c5dac69b12de",
+    "web/lib/__tests__/report-http.test.ts": "6f07026e7ba78364e015df5a24ca93fa2423a9c475b2415ad0f2c9afcb2a055a",
+    "web/lib/__tests__/report-store.test.ts": "4f5507bc453eb17103b619ebe948b69510ce77434199ccce0ab7c084c5e8ab4f",
+    "web/lib/__tests__/reports.test.ts": "ff424da8152b39ca11ae770d026c6847dac28478b6be4db46a254d3ec2967866",
+    "web/lib/__tests__/report-lifecycle.test.ts": "5919c7dace43b93019cec1aa932429cf6517575f5462c473381a4f59b0846cc5",
+    "web/lib/__tests__/report-submission.test.ts": "44248d371209aa7365ee786264ba8175d65d67691b26097d3a13c893091a50ab",
+    "web/lib/__tests__/report-request-id.test.ts": "de7538f2af2a48edb7849594155aa840308fb634e1a9ad1190f0378f4278335c"
+  },
+  "after": {
+    "web/app/api/reports/http.ts": "d42678f5054e77a61d2febc2ba91eb26199762a054cbf4d62b73e1198fdd9d6c",
+    "web/app/api/reports/store.ts": "4beeb54465790e4a85034041540084e3ad14d15b5d4243080ccd81b964689993",
+    "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+    "web/lib/reports.ts": "1e6ffff787f664ccd3f2a66ac5dbe08dd4af3bf54143dbcd6593111b7e1d3299",
+    "web/lib/report-submission.ts": "c0d99a16830456d36cd39d34aca284d7a05fb11496db13f126d98719f6fa8e49",
+    "web/lib/report-request-id.ts": "d76db8639a90b9edc45bdb2f087c7699354f692c8d391c6353c5c5dac69b12de",
+    "web/lib/__tests__/report-http.test.ts": "6f07026e7ba78364e015df5a24ca93fa2423a9c475b2415ad0f2c9afcb2a055a",
+    "web/lib/__tests__/report-store.test.ts": "4f5507bc453eb17103b619ebe948b69510ce77434199ccce0ab7c084c5e8ab4f",
+    "web/lib/__tests__/reports.test.ts": "ff424da8152b39ca11ae770d026c6847dac28478b6be4db46a254d3ec2967866",
+    "web/lib/__tests__/report-lifecycle.test.ts": "5919c7dace43b93019cec1aa932429cf6517575f5462c473381a4f59b0846cc5",
+    "web/lib/__tests__/report-submission.test.ts": "44248d371209aa7365ee786264ba8175d65d67691b26097d3a13c893091a50ab",
+    "web/lib/__tests__/report-request-id.test.ts": "de7538f2af2a48edb7849594155aa840308fb634e1a9ad1190f0378f4278335c"
+  },
+  "sourceStable": true
+}

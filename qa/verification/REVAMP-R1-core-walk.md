@@ -7068,3 +7068,335 @@ DISAGREEMENTS
 1. Expiry is not deletion: passing the new expiry checks cannot establish 30-day physical retention before cleanup is implemented and verified.
 2. Build-and-ship authorization is not evidence of passed release checks. The full goal remains active; this checkpoint is not a production release.
 ```
+
+## Report cleanup and request validity - 2026-09-15
+
+```text
+$ node C:\sgSHIOK2026\qa\revamp-r1\report-cleanup-20260915\evidence.mjs
+C:\sgSHIOK2026 | PRAWN-E14
+$ git rev-parse HEAD
+3a936854823df2fc3e7e9893af10e24507e3fe62
+exit=0
+$ git check-ignore -v qa/verification/REVAMP-R1-core-walk.md
+exit=1
+$ git ls-files --error-unmatch qa/verification/REVAMP-R1-core-walk.md
+qa/verification/REVAMP-R1-core-walk.md
+exit=0
+$ C:\sgSHIOK2026\.venv\Scripts\python.exe -B scripts/check_repo_integrity.py
+repo_integrity=ok
+exit=0
+{"receipt":"checks-IONe84","command":["C:\\Program Files\\nodejs\\node.exe","web/scripts/test-without-production-data.mjs","--reporter=dot","--testTimeout=15000"],"exit":0,"elapsedMs":188338,"sourceStable":true,"tests":null}
+{"receipt":"checks-MNJptw","command":["C:\\Program Files\\nodejs\\node.exe","web/node_modules/vitest/vitest.mjs","run","--root","C:\\sgSHIOK2026\\web","--globals","--maxWorkers","1","--no-file-parallelism","--reporter=json","lib/__tests__/report-http.test.ts","lib/__tests__/report-store.test.ts","lib/__tests__/reports.test.ts","lib/__tests__/report-lifecycle.test.ts","lib/__tests__/report-submission.test.ts","lib/__tests__/report-request-id.test.ts"],"exit":0,"elapsedMs":14439,"sourceStable":true,"tests":{"passed":476,"failed":0,"files":6}}
+{"receipt":"checks-M360Kn","command":["C:\\Program Files\\nodejs\\node.exe","web/node_modules/typescript/bin/tsc","--project","web/tsconfig.json","--noEmit","--incremental","false"],"exit":0,"elapsedMs":7684,"sourceStable":true,"tests":null}
+{"receipt":"checks-AaDTZc","command":["C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe","-B","-m","pytest","tests/test_readme.py","tests/test_agent_docs.py","tests/test_repo_integrity.py","-q","-p","no:cacheprovider"],"exit":0,"elapsedMs":32971,"sourceStable":true,"tests":null}
+{"receipt":"checks-tqrRJT","command":["C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe","-B","-m","pytest","tests/test_readme.py","tests/test_agent_docs.py","tests/test_repo_integrity.py","-q","-p","no:cacheprovider"],"exit":1,"elapsedMs":19872,"sourceStable":true,"tests":null}
+full_web=2219 + 168 = 2387; files=76 + 1 = 77; dependency_guards=42
+focused=476 across6files; overlaps_full_suite=true; snapshot=bEAEHy; source_hashes_equal=12
+{
+  "receipt": "remote-J5s5fs",
+  "mode": "verify",
+  "passed": true,
+  "migration": {
+    "file": "20260915010921_shiok_report_cleanup.sql",
+    "sha256": "1b5d7487d95b42f76c1bf60a3de99f2b7036a38bc0e7b1ffaf375ca79e97ad7c",
+    "testsSha256": "f9369fe15dd44b00150b6ceb86071de920db57a25d8f89c9b0d16dca38e32bc5"
+  },
+  "checks": [
+    {
+      "name": "actual_service_role_new_admission_succeeds",
+      "passed": true
+    },
+    {
+      "name": "actual_submitter_can_lock_but_cannot_purge_reset_health_or_call_v1",
+      "passed": true
+    },
+    {
+      "name": "all_synthetic_cleanup_admission_groups_passed_and_rolled_back",
+      "passed": true
+    },
+    {
+      "name": "allowed_clock_skew_does_not_change_receipt_time",
+      "passed": true
+    },
+    {
+      "name": "cleanup_failure_latch_pauses_new_admission_not_receipt_recovery",
+      "passed": true
+    },
+    {
+      "name": "cleanup_operates_while_intake_disabled_without_enabling_it",
+      "passed": true
+    },
+    {
+      "name": "clock_regression_does_not_lower_health_or_admission_floor",
+      "passed": true
+    },
+    {
+      "name": "direct_service_insert_cannot_bypass_request_window",
+      "passed": true
+    },
+    {
+      "name": "existing_receipt_replays_after_admission_window_without_debit",
+      "passed": true
+    },
+    {
+      "name": "expired_content_deleted_unexpired_pending_content_preserved",
+      "passed": true
+    },
+    {
+      "name": "expired_existing_receipt_preserves_proof_conflict_precedence",
+      "passed": true
+    },
+    {
+      "name": "failed_delete_rolls_back_content_and_health_together",
+      "passed": true
+    },
+    {
+      "name": "future_stale_and_legacy_new_ids_fail_closed",
+      "passed": true
+    },
+    {
+      "name": "monotone_floor_and_exact_cutoff_rejection",
+      "passed": true
+    },
+    {
+      "name": "new_admission_uses_server_receipt_and_30_day_expiry",
+      "passed": true
+    },
+    {
+      "name": "paused_stale_or_day_changed_admission_still_recovers_saved_receipt",
+      "passed": true
+    },
+    {
+      "name": "private_invoker_grants",
+      "passed": true
+    },
+    {
+      "name": "purged_request_never_recreates_content_or_debits_quota",
+      "passed": true
+    },
+    {
+      "name": "rfc_uuidv7_vector_and_invalid_versions",
+      "passed": true
+    },
+    {
+      "name": "second_delete_phase_failure_restores_first_delete_phase",
+      "passed": true
+    },
+    {
+      "name": "short_expiry_replay_counterexample_rejected_by_table",
+      "passed": true
+    },
+    {
+      "name": "utc_quota_history_bounded_to_today_and_yesterday",
+      "passed": true
+    },
+    {
+      "name": "wrong_utc_bucket_day_cannot_split_new_admission_quota",
+      "passed": true
+    }
+  ],
+  "after": {
+    "reports": 0,
+    "usage": 0,
+    "control": [
+      {
+        "enabled": false,
+        "singleton": true,
+        "allowed_bundles": [],
+        "request_floor_ms": 0,
+        "cleanup_failed_at": null,
+        "policy_approved_at": null,
+        "cleanup_verified_at": null
+      }
+    ],
+    "rpc_sha256": "8f8520e8f91aee00283102d4bce005180047b85fcee2d315ee81a326225dde68",
+    "server_version": "17.6",
+    "qa_table_present": false,
+    "cron_extension": null,
+    "available_cron": [
+      {
+        "name": "pg_cron",
+        "default_version": "1.6.4",
+        "installed_version": null
+      }
+    ]
+  },
+  "readback": {
+    "functions": [
+      {
+        "name": "public.shiok_report_submit_v2",
+        "sha256": "da94e14e6060c03d873152ac8a2f6151c5cc42b6d3fae0bc43422383f4290d83",
+        "prosecdef": false,
+        "proconfig": [
+          "search_path=\"\"",
+          "lock_timeout=2s"
+        ],
+        "service_execute": true,
+        "anon_execute": false,
+        "authenticated_execute": false
+      },
+      {
+        "name": "shiok_reports.cleanup_expired_v1",
+        "sha256": "479bd801c44140d1d51f2d03dd7418d372eedd2892501654c6144a7488c27418",
+        "prosecdef": false,
+        "proconfig": [
+          "search_path=\"\"",
+          "lock_timeout=2s"
+        ],
+        "service_execute": false,
+        "anon_execute": false,
+        "authenticated_execute": false
+      },
+      {
+        "name": "shiok_reports.request_time_ms",
+        "sha256": "46d4dbd88e6971697866ad66f8edf47296b161bbbd2e3e70f26cb2e57e8d3250",
+        "prosecdef": false,
+        "proconfig": [
+          "search_path=\"\""
+        ],
+        "service_execute": true,
+        "anon_execute": false,
+        "authenticated_execute": false
+      }
+    ],
+    "permissions": {
+      "old_rpc": false,
+      "report_delete": false,
+      "floor_update": false,
+      "health_update": false,
+      "failure_update": false,
+      "constraints": [
+        {
+          "name": "shiok_reports_expiry_30_days",
+          "validated": true,
+          "definition": "CHECK (((expires_at - received_at) = '720:00:00'::interval))"
+        },
+        {
+          "name": "shiok_reports_request_validity",
+          "validated": true,
+          "definition": "CHECK (((shiok_reports.request_time_ms(request_id) IS NOT NULL) AND (shiok_reports.request_time_ms(request_id) > ((floor((EXTRACT(epoch FROM received_at) * (1000)::numeric)))::bigint - 86400000)) AND (shiok_reports.request_time_ms(request_id) <= ((floor((EXTRACT(epoch FROM received_at) * (1000)::numeric)))::bigint + 300000))))"
+        }
+      ]
+    }
+  }
+}
+{
+  "receipt": "remote-nPm25K",
+  "mode": "acl-verify",
+  "passed": true,
+  "migration": {
+    "file": "20260915013223_restrict_rls_event_trigger.sql",
+    "sha256": "a60549603ae1d160412bed17a8f8289740a1cf063e9a04c55158acdcf261b1f3",
+    "testsSha256": "aea6d0edaf6284eed470977d08f7049d4bd2d010d8da528c4c82a686c9d5ce20"
+  },
+  "checks": [
+    {
+      "name": "actual_anonymous_execution_denied",
+      "passed": true
+    },
+    {
+      "name": "actual_authenticated_execution_denied",
+      "passed": true
+    },
+    {
+      "name": "function_body_and_event_trigger_unchanged",
+      "passed": true
+    },
+    {
+      "name": "new_public_table_still_gets_automatic_rls",
+      "passed": true
+    },
+    {
+      "name": "private_reporting_unchanged",
+      "passed": true
+    },
+    {
+      "name": "resident_execution_revoked_owner_preserved",
+      "passed": true
+    }
+  ],
+  "after": {
+    "reports": 0,
+    "usage": 0,
+    "control": [
+      {
+        "enabled": false,
+        "singleton": true,
+        "allowed_bundles": [],
+        "request_floor_ms": 0,
+        "cleanup_failed_at": null,
+        "policy_approved_at": null,
+        "cleanup_verified_at": null
+      }
+    ],
+    "rpc_sha256": "8f8520e8f91aee00283102d4bce005180047b85fcee2d315ee81a326225dde68",
+    "server_version": "17.6",
+    "qa_table_present": false,
+    "cron_extension": null,
+    "available_cron": [
+      {
+        "name": "pg_cron",
+        "default_version": "1.6.4",
+        "installed_version": null
+      }
+    ]
+  },
+  "readback": [
+    {
+      "returns": "event_trigger",
+      "source_sha256": "2782e98b348aca7d6f6f73c420fd78d2e094957dd7a52b0483d4c34f29d2a7a1",
+      "proconfig": [
+        "search_path=pg_catalog"
+      ],
+      "prosecdef": true,
+      "owner": "postgres",
+      "owner_execute": true,
+      "service_execute": true,
+      "anon_execute": false,
+      "authenticated_execute": false,
+      "event_triggers": [
+        {
+          "name": "ensure_rls",
+          "tags": [
+            "CREATE TABLE",
+            "CREATE TABLE AS",
+            "SELECT INTO"
+          ],
+          "event": "ddl_command_end",
+          "enabled": "O"
+        }
+      ]
+    }
+  ]
+}
+advisor_warn_error=0; advisor_info=3
+{"receipt":"remote-361d8R","mode":"apply","passed":true,"requests":9,"sqlGroups":0,"error":null}
+{"receipt":"remote-J5s5fs","mode":"verify","passed":true,"requests":10,"sqlGroups":23,"error":null}
+{"receipt":"remote-MSrhbF","mode":"verify","passed":false,"requests":8,"sqlGroups":23,"error":"The expression evaluated to a falsy value:\n\n  assert.ok(!(result.advisors.lints??[]).some(item=>['WARN','ERROR'].includes(item.level)))\n"}
+{"receipt":"remote-NBWZs9","mode":"acl-apply","passed":true,"requests":8,"sqlGroups":0,"error":null}
+{"receipt":"remote-T3u33d","mode":"test","passed":true,"requests":7,"sqlGroups":22,"error":null}
+{"receipt":"remote-dMAMRB","mode":"probe-advisor","passed":false,"requests":6,"sqlGroups":0,"error":"Management HTTP400; no retry"}
+{"receipt":"remote-hGtQu7","mode":"inspect","passed":true,"requests":4,"sqlGroups":0,"error":null}
+{"receipt":"remote-l5Aq95","mode":"test","passed":true,"requests":7,"sqlGroups":23,"error":null}
+{"receipt":"remote-lE6eqC","mode":"inspect-advisor","passed":true,"requests":5,"sqlGroups":0,"error":null}
+{"receipt":"remote-nPm25K","mode":"acl-verify","passed":true,"requests":9,"sqlGroups":6,"error":null}
+{"receipt":"remote-tUX7b5","mode":"test","passed":false,"requests":5,"sqlGroups":0,"error":"Management HTTP400; no retry"}
+{"receipt":"remote-vuxLOu","mode":"probe-advisor","passed":false,"requests":6,"sqlGroups":0,"error":"Expected values to be strictly equal:\n+ actual - expected\n\n+ undefined\n- true\n"}
+{"receipt":"remote-xVpW0N","mode":"acl-test","passed":true,"requests":8,"sqlGroups":6,"error":null}
+management_requests=9 + 10 + 8 + 8 + 7 + 6 + 4 + 7 + 5 + 9 + 5 + 6 + 8 = 92; public_rpc_probes=1
+sql_group_executions=0 + 23 + 23 + 0 + 22 + 0 + 0 + 23 + 0 + 6 + 0 + 0 + 6 = 103; unique_groups=23 + 6 = 29
+weights_sha256=5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec; published_anchors_matched=11
+evidence_original_prefix_bytes=467259; sha256=a1cfa5979dae6eebf13f4c83a615a147608b512e91eb6a4328c1ce631a6ae857
+FINDINGS
+1. Exact720hour expiry, bounded UUIDv7 validity and monotone floor prevent normal post-purge recreation; early deletion remains separately gated.
+2. Post-lock UTC day binding prevents a queued request using a different daily HMAC bucket; saved receipts remain recoverable without debit.
+3. Unnecessary platform event-helper EXECUTE grants were removed; global advisor WARNs cleared without body/trigger/owner/service changes.
+4. Cleanup is applied/tested but unscheduled. Reports remain disabled; no resident form, moderation auth or release completion claim.
+5. Global advisor WARNs were not waived: the public RPC returned400/0A000, not expected404. Earlier SQL probes were inconclusive; later ACL tests prove actual role denial and retained automatic RLS.
+6. Initial SQL fixture ambiguity and documentation wording failure were corrected; original failure receipts remain. No checks were weakened.
+DISAGREEMENTS
+1. No policy disagreement: daily cleanup cannot establish exact physical erasure at30days during scheduling intervals/outages.
+2. Rollback fixtures and function-local timeout are not concurrent-session or cancellation acceptance; full goal stays active.
+pipeline_runs=0; frontend_deployments=0; runtime_secrets_saved=0; intake_enabled=false; cron_installed=false
+NEXT: actual concurrency and scheduler cancellation, daily cleanup, early-deletion replay protection, resident form, authenticated moderator queue, exact release and device acceptance. Full build-and-ship goal remains active.
+```
