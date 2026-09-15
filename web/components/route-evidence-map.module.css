@@ -15,29 +15,29 @@
   box-shadow: inset 0 0 0 3px #fff;
 }
 
-:global(.maplibregl-map) {
+.mapCanvas:global(.maplibregl-map) {
   position: relative;
   overflow: hidden;
   font: 12px/20px Helvetica Neue, Arial, Helvetica, sans-serif;
   -webkit-tap-highlight-color: transparent;
 }
 
-:global(.maplibregl-canvas) {
+.mapCanvas :global(.maplibregl-canvas) {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-:global(.maplibregl-canvas-container.maplibregl-interactive) {
+.mapCanvas :global(.maplibregl-canvas-container.maplibregl-interactive) {
   cursor: grab;
   user-select: none;
 }
 
-:global(.maplibregl-canvas-container.maplibregl-interactive:active) {
+.mapCanvas :global(.maplibregl-canvas-container.maplibregl-interactive:active) {
   cursor: grabbing;
 }
 
-:global(.maplibregl-ctrl-top-right) {
+.mapCanvas :global(.maplibregl-ctrl-top-right) {
   position: absolute;
   top: 0;
   right: 0;
@@ -45,22 +45,22 @@
   pointer-events: none;
 }
 
-:global(.maplibregl-ctrl) {
+.mapCanvas :global(.maplibregl-ctrl) {
   pointer-events: auto;
 }
 
-:global(.maplibregl-ctrl-top-right .maplibregl-ctrl) {
+.mapCanvas :global(.maplibregl-ctrl-top-right .maplibregl-ctrl) {
   margin: 10px 10px 0 0;
 }
 
-:global(.maplibregl-ctrl-group) {
+.mapCanvas :global(.maplibregl-ctrl-group) {
   overflow: hidden;
   border-radius: 4px;
   background: #fff;
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
-:global(.maplibregl-ctrl-group button) {
+.mapCanvas :global(.maplibregl-ctrl-group button) {
   display: block;
   width: 29px;
   height: 29px;
@@ -71,16 +71,16 @@
   cursor: pointer;
 }
 
-:global(.maplibregl-ctrl-group button + button) {
+.mapCanvas :global(.maplibregl-ctrl-group button + button) {
   border-top: 1px solid #ddd;
 }
 
-:global(.maplibregl-ctrl-group button:focus-visible) {
+.mapCanvas :global(.maplibregl-ctrl-group button:focus-visible) {
   box-shadow: inset 0 0 0 2px #0096ff;
   outline: none;
 }
 
-:global(.maplibregl-ctrl button .maplibregl-ctrl-icon) {
+.mapCanvas :global(.maplibregl-ctrl button .maplibregl-ctrl-icon) {
   display: grid;
   width: 100%;
   height: 100%;
@@ -90,15 +90,15 @@
   line-height: 1;
 }
 
-:global(.maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon::before) {
+.mapCanvas :global(.maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon::before) {
   content: "+";
 }
 
-:global(.maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon::before) {
+.mapCanvas :global(.maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon::before) {
   content: "-";
 }
 
-:global(.maplibregl-popup) {
+.mapCanvas :global(.maplibregl-popup) {
   position: absolute;
   top: 0;
   left: 0;
@@ -107,57 +107,57 @@
   will-change: transform;
 }
 
-:global(.maplibregl-popup-anchor-top),
-:global(.maplibregl-popup-anchor-top-left),
-:global(.maplibregl-popup-anchor-top-right) {
+.mapCanvas :global(.maplibregl-popup-anchor-top),
+.mapCanvas :global(.maplibregl-popup-anchor-top-left),
+.mapCanvas :global(.maplibregl-popup-anchor-top-right) {
   flex-direction: column;
 }
 
-:global(.maplibregl-popup-anchor-bottom),
-:global(.maplibregl-popup-anchor-bottom-left),
-:global(.maplibregl-popup-anchor-bottom-right) {
+.mapCanvas :global(.maplibregl-popup-anchor-bottom),
+.mapCanvas :global(.maplibregl-popup-anchor-bottom-left),
+.mapCanvas :global(.maplibregl-popup-anchor-bottom-right) {
   flex-direction: column-reverse;
 }
 
-:global(.maplibregl-popup-anchor-left) {
+.mapCanvas :global(.maplibregl-popup-anchor-left) {
   flex-direction: row;
 }
 
-:global(.maplibregl-popup-anchor-right) {
+.mapCanvas :global(.maplibregl-popup-anchor-right) {
   flex-direction: row-reverse;
 }
 
-:global(.maplibregl-popup-tip) {
+.mapCanvas :global(.maplibregl-popup-tip) {
   width: 0;
   height: 0;
   border: 10px solid transparent;
 }
 
-:global(.maplibregl-popup-anchor-top .maplibregl-popup-tip) {
+.mapCanvas :global(.maplibregl-popup-anchor-top .maplibregl-popup-tip) {
   align-self: center;
   border-top: none;
   border-bottom-color: #fff;
 }
 
-:global(.maplibregl-popup-anchor-bottom .maplibregl-popup-tip) {
+.mapCanvas :global(.maplibregl-popup-anchor-bottom .maplibregl-popup-tip) {
   align-self: center;
   border-bottom: none;
   border-top-color: #fff;
 }
 
-:global(.maplibregl-popup-anchor-left .maplibregl-popup-tip) {
+.mapCanvas :global(.maplibregl-popup-anchor-left .maplibregl-popup-tip) {
   align-self: center;
   border-left: none;
   border-right-color: #fff;
 }
 
-:global(.maplibregl-popup-anchor-right .maplibregl-popup-tip) {
+.mapCanvas :global(.maplibregl-popup-anchor-right .maplibregl-popup-tip) {
   align-self: center;
   border-right: none;
   border-left-color: #fff;
 }
 
-:global(.maplibregl-popup-content) {
+.mapCanvas :global(.maplibregl-popup-content) {
   position: relative;
   min-width: 160px;
   max-width: 240px;

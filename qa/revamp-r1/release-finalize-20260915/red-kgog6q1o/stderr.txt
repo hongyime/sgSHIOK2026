@@ -1,0 +1,21 @@
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - ESM syntax in a file loaded as CommonJS (vitest.config.ts:1:1). Use a `.mjs` extension or set `"type": "module"` in the closest package.json
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  lib/__tests__/deployment.test.ts > deployment packaging > compiles the MapLibre module with Next's pure-selector plugin
+CssSyntaxError: postcss-modules-local-by-default: C:\sgSHIOK2026\web\components\route-evidence-map.module.css:18:1: Selector ":global(.maplibregl-map)" is not pure (pure selectors must contain at least one local class or id)
+ ❯ components/route-evidence-map.module.css:18:1
+ ❯ Input.error node_modules/postcss/lib/input.js:135:16
+ ❯ Rule.error node_modules/postcss/lib/node.js:166:32
+ ❯ node_modules/next/dist/compiled/postcss-modules-local-by-default/index.js:2:9773
+ ❯ node_modules/postcss/lib/container.js:432:18
+ ❯ Root.walk node_modules/postcss/lib/container.js:352:18
+ ❯ Root.walkRules node_modules/postcss/lib/container.js:430:19
+ ❯ Object.Once node_modules/next/dist/compiled/postcss-modules-local-by-default/index.js:2:9494
+ ❯ LazyResult.runOnRoot node_modules/postcss/lib/lazy-result.js:365:23
+ ❯ LazyResult.runAsync node_modules/postcss/lib/lazy-result.js:296:26
+ ❯ LazyResult.async node_modules/postcss/lib/lazy-result.js:198:30
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯

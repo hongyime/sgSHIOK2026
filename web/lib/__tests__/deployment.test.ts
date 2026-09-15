@@ -1,5 +1,5 @@
 import dataBundle from "../../data-bundle.json";
-import { readFileSync } from "fs";
+import { readFileSync, readdirSync } from "fs";
 import { join } from "path";
 import { createRequire } from "node:module";
 
@@ -63,6 +63,41 @@ describe("deployment packaging", () => {
     expect(routeMapStyles).toContain(":global(.maplibregl-canvas)");
     expect(routeMapStyles).toContain(":global(.maplibregl-ctrl-top-right)");
     expect(routeMapStyles).toContain(":global(.maplibregl-popup-content)");
+  });
+
+  it("compiles the MapLibre module with Next's pure-selector plugin", async () => {
+    const require = createRequire(import.meta.url);
+    const postcss = require("postcss");
+    const localByDefault = require("next/dist/compiled/postcss-modules-local-by-default");
+    const path = join(__dirname, "../../components/route-evidence-map.module.css");
+    const compiled = await postcss([localByDefault({ mode: "pure" })]).process(readFileSync(path, "utf8"), { from: path });
+    expect(compiled.css).toContain(":local(.mapCanvas).maplibregl-map");
+    expect(compiled.css).toContain(":local(.mapCanvas) .maplibregl-canvas");
+    expect(compiled.css).toContain(":local(.mapCanvas) .maplibregl-popup-content");
+  });
+
+  it("rejects the inherited global-only MapLibre module selector", async () => {
+    const require = createRequire(import.meta.url);
+    const postcss = require("postcss");
+    const localByDefault = require("next/dist/compiled/postcss-modules-local-by-default");
+    await expect(postcss([localByDefault({ mode: "pure" })]).process(
+      ":global(.maplibregl-map) { position: relative; }", { from: "map.module.css" },
+    )).rejects.toThrow("is not pure");
+  });
+
+  it("compiles every app and component CSS module in pure mode", async () => {
+    const require = createRequire(import.meta.url);
+    const postcss = require("postcss");
+    const localByDefault = require("next/dist/compiled/postcss-modules-local-by-default");
+    const paths = ["../../app", "../../components"].flatMap(relative => {
+      const directory = join(__dirname, relative);
+      return readdirSync(directory, { recursive: true }).filter(name => name.endsWith(".module.css"))
+        .map(name => join(directory, name));
+    });
+    expect(paths.length).toBeGreaterThan(0);
+    for (const path of paths) {
+      await postcss([localByDefault({ mode: "pure" })]).process(readFileSync(path, "utf8"), { from: path });
+    }
   });
 
   it("registers the optional service worker directly after app intent", () => {

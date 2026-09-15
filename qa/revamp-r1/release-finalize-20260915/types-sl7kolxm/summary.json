@@ -1,0 +1,29 @@
+{
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\types-sl7kolxm",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "web/node_modules/typescript/bin/tsc",
+    "--project",
+    "web/tsconfig.json",
+    "--noEmit",
+    "--incremental",
+    "false"
+  ],
+  "before": {
+    "web/components/route-evidence-map.module.css": "f01f94068217dc3e3f057fb6ff6090f7c320a05770c49b5e259dc7d8707ee28f",
+    "web/lib/__tests__/deployment.test.ts": "925cbba13bbeb477ee7c971ecd49d4b5527098a388039ed97bc4fbcefd0ca3cd"
+  },
+  "after": {
+    "web/components/route-evidence-map.module.css": "f01f94068217dc3e3f057fb6ff6090f7c320a05770c49b5e259dc7d8707ee28f",
+    "web/lib/__tests__/deployment.test.ts": "925cbba13bbeb477ee7c971ecd49d4b5527098a388039ed97bc4fbcefd0ca3cd"
+  },
+  "elapsedSeconds": 4.531,
+  "execution": {
+    "ok": true,
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "pipelineRuns": 0,
+  "passed": true
+}

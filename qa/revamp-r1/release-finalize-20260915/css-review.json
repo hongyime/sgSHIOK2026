@@ -1,0 +1,21 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "PRAWN-E14",
+  "beforeSha256": "94af68e7f503da3d67ee7d5cec17b1e7f1931f19cfacc3b8bc048efcbb34b377",
+  "afterSha256": "f01f94068217dc3e3f057fb6ff6090f7c320a05770c49b5e259dc7d8707ee28f",
+  "scopedSelectors": 29,
+  "allOtherTextEqual": true,
+  "pureModules": [
+    "web\\app\\page.module.css",
+    "web\\components\\comparison-share-dialog.module.css",
+    "web\\components\\exposure-section-explorer.module.css",
+    "web\\components\\failure-diagnostics-control.module.css",
+    "web\\components\\home-comparison.module.css",
+    "web\\components\\moderation-console.module.css",
+    "web\\components\\report-composer.module.css",
+    "web\\components\\route-evidence-map.module.css",
+    "web\\components\\transit-stop-picker.module.css"
+  ],
+  "qualification": "Compiler-plugin and source proof, not new browser layout acceptance. Container self selector is compound; vendor descendants are scoped to the existing mapCanvas.",
+  "passed": true
+}

@@ -1,0 +1,27 @@
+{
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\focused-8ovyxlhl",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "web/scripts/test-web.mjs",
+    "lib/__tests__/deployment.test.ts",
+    "lib/__tests__/route-evidence-map-popup.test.ts",
+    "lib/__tests__/route-evidence-map-interaction.test.ts"
+  ],
+  "before": {
+    "web/components/route-evidence-map.module.css": "f01f94068217dc3e3f057fb6ff6090f7c320a05770c49b5e259dc7d8707ee28f",
+    "web/lib/__tests__/deployment.test.ts": "a423cfe8e410b34e1b197b4e9efac20d812117697d73854b03f91abfa048e4be"
+  },
+  "after": {
+    "web/components/route-evidence-map.module.css": "f01f94068217dc3e3f057fb6ff6090f7c320a05770c49b5e259dc7d8707ee28f",
+    "web/lib/__tests__/deployment.test.ts": "a423cfe8e410b34e1b197b4e9efac20d812117697d73854b03f91abfa048e4be"
+  },
+  "elapsedSeconds": 14.734,
+  "execution": {
+    "ok": true,
+    "returncode": 0,
+    "stdout": "installed_dependencies=ok\n\u2714 test entry refuses the real MapLibre 6.4.1 lock versus 6.1.0 install shape before Vitest (311.8978ms)\n\u2714 matching versions may launch the test entry (964.6455ms)\n\u2714 a failing native guard contract suite prevents Vitest from starting (612.4256ms)\n\u2714 build entry refuses stale dependencies before even the preparation double (330.3451ms)\n\u2714 matching build reaches only the refusing preparation double, never Next (522.9353ms)\n\u2714 release CLI checks dependencies before retention/build with installed 6.1.0 (243.2927ms)\n\u2714 release CLI checks dependencies before retention/build with installed 6.4.1 (285.5609ms)\n\u2714 reports exact resolved versions for runtime and development dependencies (32.6354ms)\n\u2714 development dependency drift also fails (36.343ms)\n\u2714 a manifest edit without matching lock-root metadata is not accepted (54.9403ms)\n\u2714 refuses invalid JSON in package.json (46.6657ms)\n\u2714 refuses null in package.json (35.3411ms)\n\u2714 refuses [] in package.json (35.7535ms)\n\u2714 refuses invalid JSON in package-lock.json (35.5686ms)\n\u2714 refuses null in package-lock.json (38.1011ms)\n\u2714 refuses [] in package-lock.json (37.4096ms)\n\u2714 refuses invalid JSON in node_modules/maplibre-gl/package.json (42.999ms)\n\u2714 refuses null in node_modules/maplibre-gl/package.json (53.1329ms)\n\u2714 refuses [] in node_modules/maplibre-gl/package.json (51.794ms)\n\u2714 refuses malformed dependencies (45.6278ms)\n\u2714 refuses malformed devDependencies (70.7907ms)\n\u2714 unsupported lock format 1 fails closed (61.4882ms)\n\u2714 unsupported lock format 4 fails closed (61.4926ms)\n\u2714 unsupported lock format \"3\" fails closed (42.2106ms)\n\u2714 unsupported lock format null fails closed (40.7433ms)\n\u2714 lock v2 resolved-package metadata is supported (61.0767ms)\n\u2714 refuses unresolved lock entry null (65.0748ms)\n\u2714 refuses unresolved lock entry {} (44.3759ms)\n\u2714 refuses unresolved lock entry {\"link\":true,\"version\":\"6.4.1\"} (46.8276ms)\n\u2714 refuses unresolved lock entry {\"version\":\"\"} (49.0641ms)\n\u2714 missing installed package is reported without loading or executing it (49.8391ms)\n\u2714 refuses unsafe dependency name ../escape (64.4913ms)\n\u2714 refuses unsafe dependency name @scope/../../escape (63.5477ms)\n\u2714 refuses unsafe dependency name C:\\escape (47.6586ms)\n\u2714 refuses unsafe dependency name /escape (65.8641ms)\n\u2714 refuses unsafe dependency name @scope\\escape (75.8008ms)\n\u2714 refuses unsafe dependency name .hidden (59.8763ms)\n\u2714 scoped packages and a dependency listed in both sections are checked once (76.6947ms)\n\u2714 empty dependency metadata cannot authorize a vacuous success (85.5971ms)\n\u2714 matching null dependencies sections are invalid, not absent (77.4228ms)\n\u2714 matching null devDependencies sections are invalid, not absent (83.6265ms)\n\u2714 package executable exports are never imported by the version check (74.7771ms)\n\u2139 tests 42\n\u2139 suites 0\n\u2139 pass 42\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 5691.6293\n\n RUN  v4.1.11 C:/sgSHIOK2026/web\n\n\n Test Files  3 passed (3)\n      Tests  66 passed (66)\n   Start at  16:22:19\n   Duration  5.66s (transform 1.34s, setup 0ms, import 755ms, tests 2.11s, environment 2ms)",
+    "stderr": "(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:\n  - ESM syntax in a file loaded as CommonJS (vitest.config.ts:1:1). Use a `.mjs` extension or set `\"type\": \"module\"` in the closest package.json\nSet `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning."
+  },
+  "pipelineRuns": 0,
+  "passed": true
+}

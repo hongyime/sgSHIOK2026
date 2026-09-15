@@ -1,0 +1,59 @@
+installed_dependencies=ok
+✔ test entry refuses the real MapLibre 6.4.1 lock versus 6.1.0 install shape before Vitest (311.8978ms)
+✔ matching versions may launch the test entry (964.6455ms)
+✔ a failing native guard contract suite prevents Vitest from starting (612.4256ms)
+✔ build entry refuses stale dependencies before even the preparation double (330.3451ms)
+✔ matching build reaches only the refusing preparation double, never Next (522.9353ms)
+✔ release CLI checks dependencies before retention/build with installed 6.1.0 (243.2927ms)
+✔ release CLI checks dependencies before retention/build with installed 6.4.1 (285.5609ms)
+✔ reports exact resolved versions for runtime and development dependencies (32.6354ms)
+✔ development dependency drift also fails (36.343ms)
+✔ a manifest edit without matching lock-root metadata is not accepted (54.9403ms)
+✔ refuses invalid JSON in package.json (46.6657ms)
+✔ refuses null in package.json (35.3411ms)
+✔ refuses [] in package.json (35.7535ms)
+✔ refuses invalid JSON in package-lock.json (35.5686ms)
+✔ refuses null in package-lock.json (38.1011ms)
+✔ refuses [] in package-lock.json (37.4096ms)
+✔ refuses invalid JSON in node_modules/maplibre-gl/package.json (42.999ms)
+✔ refuses null in node_modules/maplibre-gl/package.json (53.1329ms)
+✔ refuses [] in node_modules/maplibre-gl/package.json (51.794ms)
+✔ refuses malformed dependencies (45.6278ms)
+✔ refuses malformed devDependencies (70.7907ms)
+✔ unsupported lock format 1 fails closed (61.4882ms)
+✔ unsupported lock format 4 fails closed (61.4926ms)
+✔ unsupported lock format "3" fails closed (42.2106ms)
+✔ unsupported lock format null fails closed (40.7433ms)
+✔ lock v2 resolved-package metadata is supported (61.0767ms)
+✔ refuses unresolved lock entry null (65.0748ms)
+✔ refuses unresolved lock entry {} (44.3759ms)
+✔ refuses unresolved lock entry {"link":true,"version":"6.4.1"} (46.8276ms)
+✔ refuses unresolved lock entry {"version":""} (49.0641ms)
+✔ missing installed package is reported without loading or executing it (49.8391ms)
+✔ refuses unsafe dependency name ../escape (64.4913ms)
+✔ refuses unsafe dependency name @scope/../../escape (63.5477ms)
+✔ refuses unsafe dependency name C:\escape (47.6586ms)
+✔ refuses unsafe dependency name /escape (65.8641ms)
+✔ refuses unsafe dependency name @scope\escape (75.8008ms)
+✔ refuses unsafe dependency name .hidden (59.8763ms)
+✔ scoped packages and a dependency listed in both sections are checked once (76.6947ms)
+✔ empty dependency metadata cannot authorize a vacuous success (85.5971ms)
+✔ matching null dependencies sections are invalid, not absent (77.4228ms)
+✔ matching null devDependencies sections are invalid, not absent (83.6265ms)
+✔ package executable exports are never imported by the version check (74.7771ms)
+ℹ tests 42
+ℹ suites 0
+ℹ pass 42
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5691.6293
+
+ RUN  v4.1.11 C:/sgSHIOK2026/web
+
+
+ Test Files  3 passed (3)
+      Tests  66 passed (66)
+   Start at  16:22:19
+   Duration  5.66s (transform 1.34s, setup 0ms, import 755ms, tests 2.11s, environment 2ms)
