@@ -13,13 +13,13 @@ type Phase = 'edit' | 'confirm' | 'sending' | 'uncertain' | 'conflict' | 'saved'
 interface Screen {
   signedIn: boolean; loggingIn: boolean; loading: boolean; message: string;
   email: string; password: string; filter: Filter; rows: readonly ModeratorQueueReport[];
-  cursors: Cursor[]; selected: ModeratorQueueReport | null; phase: Phase;
+  cursors: Cursor[]; nextCursor: Cursor; selected: ModeratorQueueReport | null; phase: Phase;
   action: ModerationCommand['action']; reason: string; duplicate: string;
   command: ModerationCommand | null; saved: ModeratorContextSource | null;
 }
 interface Recovery { receipt_id: string; expected_revision: number }
 const empty = (): Screen => ({ signedIn: false, loggingIn: false, loading: false, message: '', email: '', password: '',
-  filter: 'pending', rows: [], cursors: [undefined], selected: null, phase: 'edit', action: 'accepted', reason: '', duplicate: '', command: null, saved: null });
+  filter: 'pending', rows: [], cursors: [undefined], nextCursor: undefined, selected: null, phase: 'edit', action: 'accepted', reason: '', duplicate: '', command: null, saved: null });
 const typeLabel = (type: string) => type === 'mapping_error' ? 'Mapping error' : 'Shelter request';
 const stateLabel = (state: string) => ({ pending: 'Pending', accepted: 'Accepted', rejected: 'Rejected', duplicate: 'Duplicate' }[state] ?? 'Unavailable');
 function timeLabel(value: string) { return new Date(value).toLocaleString('en-SG', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Asia/Singapore' }); }
@@ -91,7 +91,7 @@ export function ModerationConsole({ enabled = false, client: provided }: { enabl
   async function load(filter: Filter, cursors: Cursor[] = [undefined]) {
     if (!active.current || !current.current.signedIn) return;
     const epoch = ++generation.current;
-    update({ ...current.current, filter, cursors, loading: true, rows: [], selected: null, saved: null, command: null,
+    update({ ...current.current, filter, cursors, nextCursor: undefined, loading: true, rows: [], selected: null, saved: null, command: null,
       reason: '', duplicate: '', phase: 'edit', message: '' });
     const result = await client.queue({ state: filter, ...(cursors.at(-1) ? { after: cursors.at(-1)! } : {}) });
     if (!active.current || generation.current !== epoch) return;
@@ -99,7 +99,11 @@ export function ModerationConsole({ enabled = false, client: provided }: { enabl
       if (!client.expiresAt()) { clear(errorMessage(result.error), true); return; }
       update({ ...current.current, loading: false, message: errorMessage(result.error) }); return;
     }
-    update({ ...current.current, loading: false, rows: result.queue.reports });
+    const last = result.queue.reports.at(-1);
+    // Local decisions/expiry remove visible rows, not the fetched page's keyset boundary.
+    const nextCursor = result.queue.reports.length === result.queue.page_limit && last
+      ? { received_at: last.received_at, receipt_id: last.receipt_id } : undefined;
+    update({ ...current.current, loading: false, rows: result.queue.reports, nextCursor });
   }
   async function signIn(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -205,8 +209,8 @@ export function ModerationConsole({ enabled = false, client: provided }: { enabl
           </button>)}
           <nav className={styles.paging} aria-label="Queue pages"><button type="button" disabled={busy || locked || view.cursors.length === 1}
             onClick={() => { if (allowLeave()) void load(view.filter, view.cursors.slice(0, -1)); }}>Previous</button>
-            <span>Page {view.cursors.length}</span><button type="button" disabled={busy || locked || view.rows.length !== 25}
-              onClick={() => { if (!allowLeave()) return; const row = view.rows.at(-1)!; void load(view.filter, [...view.cursors, { received_at: row.received_at, receipt_id: row.receipt_id }]); }}>Next</button></nav>
+            <span>Page {view.cursors.length}</span><button type="button" disabled={busy || locked || !view.nextCursor}
+              onClick={() => { if (busy || locked || !view.nextCursor || !allowLeave()) return; void load(view.filter, [...view.cursors, view.nextCursor]); }}>Next</button></nav>
         </section>
         <section className={styles.detail} aria-label="Report review">
           {(selected || view.saved || recovery.current) && <button type="button" onClick={back} disabled={busy}>Back to reports</button>}

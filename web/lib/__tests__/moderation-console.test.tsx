@@ -398,4 +398,61 @@ describe('Private owner console handlers and lifecycle', () => {
     click('Previous'); await settle(); expect(text(tree)).toContain('Page 100');
     expect(client.queue.mock.calls[101][0].after?.receipt_id).toBe(uuid(2475));
   }, 15000);
+  it.each(['accept-first', 'accept-last', 'reconcile-last', 'expire-page'] as const)('keeps the fetched continuation after %s removes visible rows', async change => {
+    const reports = Array.from({ length: 26 }, (_, i) => row(i + 1,
+      change === 'expire-page' && i < 25 ? NOW + 100 : undefined));
+    client.queue.mockImplementation(async request => {
+      const start = request.after ? reports.findIndex(report => report.receipt_id === request.after!.receipt_id) + 1 : 0;
+      return queue(reports.slice(start, start + 25));
+    });
+    await signIn();
+    if (change === 'expire-page') {
+      await vi.advanceTimersByTimeAsync(101); render();
+      expect(text(tree)).toContain('No reports on this page.');
+      expect(client.decide).not.toHaveBeenCalled();
+    } else {
+      const reportButtons = elements(tree).filter(node => node.type === 'button' && node.props['aria-pressed'] !== undefined);
+      reportButtons[change.endsWith('last') ? 24 : 0].props.onClick!({ preventDefault: vi.fn() }); render();
+      if (change === 'reconcile-last') client.decide.mockResolvedValueOnce({ ok: false, error: 'outcome_unknown' });
+      field('reason', REASON); submit(); click('Save decision'); await settle();
+      if (change === 'reconcile-last') {
+        expect(button('Next').props.disabled).toBe(true);
+        client.context.mockResolvedValueOnce(context(reports[24]));
+        click('Check saved decision'); await settle();
+        expect(text(tree)).toContain('Saved decision found.');
+      } else expect(text(tree)).toContain('Report accepted.');
+      expect(elements(tree).filter(node => node.props['aria-pressed'] !== undefined)).toHaveLength(24);
+    }
+    expect(button('Next').props.disabled).not.toBe(true);
+    click('Next'); await settle();
+    expect(client.queue).toHaveBeenLastCalledWith({ state: 'pending', after: {
+      received_at: reports[24].received_at, receipt_id: reports[24].receipt_id,
+    } });
+    const remaining = elements(tree).filter(node => node.props['aria-pressed'] !== undefined);
+    expect(remaining).toHaveLength(1);
+    remaining[0].props.onClick!({ preventDefault: vi.fn() }); render();
+    expect(text(tree)).toContain(uuid(26));
+    expect(button('Next').props.disabled).toBe(true);
+  });
+  it('does not keep a stale continuation after a page request fails', async () => {
+    client.queue.mockResolvedValueOnce(queue(Array.from({ length: 25 }, (_, i) => row(i + 1))));
+    await signIn();
+    client.queue.mockResolvedValueOnce({ ok: false, error: 'unavailable' });
+    click('Next'); await settle();
+    expect(button('Next').props.disabled).toBe(true);
+    expect(button('Previous').props.disabled).not.toBe(true);
+    click('Previous'); await settle();
+    expect(client.queue).toHaveBeenLastCalledWith({ state: 'pending' });
+  });
+  it('cannot restore a page continuation from a response arriving after sign-out', async () => {
+    const page = Array.from({ length: 25 }, (_, i) => row(i + 1));
+    client.queue.mockResolvedValueOnce(queue(page));
+    await signIn();
+    const pending = deferred<ModeratorQueueResult>(); client.queue.mockReturnValueOnce(pending.promise);
+    click('Next'); click('Sign out'); await settle();
+    pending.resolve(queue(page)); await settle();
+    expect(text(tree)).toContain('Signed out.');
+    expect(privateState()).not.toContain(uuid(25));
+    expect(elements(tree).some(node => node.type === 'button' && text(node) === 'Next')).toBe(false);
+  });
 });

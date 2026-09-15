@@ -1,0 +1,17 @@
+{
+  "matches": [
+    {
+      "path": "web/components/moderation-console.tsx",
+      "current": "2d88e79b99535cc0c9e66f6ebd58f37fcdc31185f7a0f775f6f6f43c20a36768",
+      "tested": "2d88e79b99535cc0c9e66f6ebd58f37fcdc31185f7a0f775f6f6f43c20a36768"
+    },
+    {
+      "path": "web/lib/__tests__/moderation-console.test.tsx",
+      "current": "fd70fe0c6936fadf0b9b5b541aced3377cd1687f8e3616ae502077e4acba96bb",
+      "tested": "fd70fe0c6936fadf0b9b5b541aced3377cd1687f8e3616ae502077e4acba96bb"
+    }
+  ],
+  "suite": "3337 passed across86files;42guards passed",
+  "typescript": "exit0;stdout empty",
+  "integrity": "repo_integrity=ok;exit0"
+}
