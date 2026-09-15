@@ -1,0 +1,34 @@
+{
+  "mode": "types",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "web/node_modules/typescript/bin/tsc",
+    "--project",
+    "web/tsconfig.json",
+    "--noEmit",
+    "--incremental",
+    "false"
+  ],
+  "exit": 0,
+  "elapsedMs": 41440,
+  "error": null,
+  "sources": {
+    "web/app/api/reports/http.ts": "59445603d01ae61fbd9cafbb055e7efb8b7641f7d8d179cd513a835427273010",
+    "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+    "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+    "web/lib/__tests__/report-http.test.ts": "e588902984957ad9ae8b3c8a8fe5d5cf3bae76620b790f215f6804d05df28c7e",
+    "web/lib/__tests__/report-store.test.ts": "7f75b3ad2e46bb456568b46545c21126abd8049cc03ef98a77a3d1a2c3472b15",
+    "web/lib/report-submission.ts": "6cf8f7db681fcc6e736fde17bd9aa28a2c63048b6ae1802eb7fb88316a8caf92",
+    "web/lib/__tests__/report-submission.test.ts": "e25ea182a7f8cd500ad322a608f80869a80bef10e9eddcfd963d86c8720eb170"
+  },
+  "sourceHashesAtStart": {
+    "web/app/api/reports/http.ts": "59445603d01ae61fbd9cafbb055e7efb8b7641f7d8d179cd513a835427273010",
+    "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+    "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+    "web/lib/__tests__/report-http.test.ts": "e588902984957ad9ae8b3c8a8fe5d5cf3bae76620b790f215f6804d05df28c7e",
+    "web/lib/__tests__/report-store.test.ts": "7f75b3ad2e46bb456568b46545c21126abd8049cc03ef98a77a3d1a2c3472b15",
+    "web/lib/report-submission.ts": "6cf8f7db681fcc6e736fde17bd9aa28a2c63048b6ae1802eb7fb88316a8caf92",
+    "web/lib/__tests__/report-submission.test.ts": "e25ea182a7f8cd500ad322a608f80869a80bef10e9eddcfd963d86c8720eb170"
+  },
+  "sourceStable": true
+}

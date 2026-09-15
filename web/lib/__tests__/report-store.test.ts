@@ -65,9 +65,47 @@ describe('Server-only report RPC transport, not a public endpoint', () => {
     expect(await submitPrivateReport(config, fixture, proof, key, new AbortController().signal, transport)).toEqual({ ok: false, error: 'invalid_request' });
     expect(transport).not.toHaveBeenCalled();
   });
-  it.each([[400, 'invalid_request'], [401, 'unavailable'], [403, 'unavailable'], [409, 'conflict'], [410, 'expired'], [429, 'limited'], [503, 'unavailable'], [500, 'outcome_unknown'], [202, 'outcome_unknown']])('handles HTTP %s without leaking provider error body', async (status, error) => {
+  it.each([[400, 'invalid_request'], [401, 'unavailable'], [403, 'unavailable'], [409, 'conflict'], [410, 'expired'], [429, 'limited'], [503, 'outcome_unknown'], [500, 'outcome_unknown'], [202, 'outcome_unknown']])('handles HTTP %s without leaking provider error body', async (status, error) => {
     const transport = vi.fn().mockResolvedValue(new Response('private provider detail', { status: Number(status) }));
     expect(await send(transport)).toEqual({ ok: false, error });
+    expect(transport).toHaveBeenCalledTimes(1);
+  });
+  it('only treats the bounded exact RPC admission rejection as definitely unavailable', async () => {
+    const transport = vi.fn().mockResolvedValue(Response.json({ code: 'PT503', message: 'reporting_unavailable', details: null, hint: null }, { status: 503 }));
+    expect(await send(transport)).toEqual({ ok: false, error: 'unavailable' });
+  });
+  it.each([
+    { code: 'PT503', message: 'gateway unavailable', details: null, hint: null },
+    { code: 'PT503', message: 'reporting_unavailable', details: 'private', hint: null },
+    { code: 'PT503', message: 'reporting_unavailable' },
+  ])('preserves uncertainty for unverified 503 envelope %#', async body => {
+    expect(await send(vi.fn().mockResolvedValue(Response.json(body, { status: 503 })))).toEqual({ ok: false, error: 'outcome_unknown' });
+  });
+  it('recovers a commit followed by gateway503 using the same identity and proof exactly once', async () => {
+    const requests: string[] = [];
+    const transport = vi.fn(async (_url, init) => {
+      requests.push(init.body);
+      return requests.length === 1 ? new Response('gateway failure after commit', { status: 503 })
+        : Response.json({ ...receipt, replayed: true });
+    });
+    expect(await send(transport)).toEqual({ ok: false, error: 'outcome_unknown' });
+    expect(transport).toHaveBeenCalledTimes(1);
+    expect(await send(transport)).toMatchObject({ ok: true, replayed: true });
+    expect(requests[0]).toBe(requests[1]);
+  });
+  it.each(['x'.repeat(1025), new Uint8Array([0xff])])('bounds and rejects invalid503 response bytes %#', async body => {
+    const transport = vi.fn().mockResolvedValue(new Response(body, { status: 503 }));
+    expect(await send(transport)).toEqual({ ok: false, error: 'outcome_unknown' });
+    expect(transport).toHaveBeenCalledTimes(1);
+  });
+  it('bounds a stalled503 response body inside the original store deadline', async () => {
+    vi.useFakeTimers();
+    const cancel = vi.fn();
+    const transport = vi.fn().mockResolvedValue(new Response(new ReadableStream({ cancel }), { status: 503 }));
+    const result = send(transport);
+    await vi.advanceTimersByTimeAsync(REPORT_STORE_TIMEOUT_MS);
+    expect(await result).toEqual({ ok: false, error: 'outcome_unknown' });
+    expect(cancel).toHaveBeenCalled();
     expect(transport).toHaveBeenCalledTimes(1);
   });
   it.each([{}, [], null, { ...receipt, note: 'private' }, { ...receipt, received_at: 'yesterday' }, { ...receipt, receipt_id: 'invalid' }, { ...receipt, replayed: 'true' }])('rejects malformed success %# without inventing a receipt', async body => {

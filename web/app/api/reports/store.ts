@@ -78,10 +78,20 @@ export async function submitPrivateReport(
         controller.signal.throwIfAborted();
       }
       if (response.status !== 200) {
+        if (response.status === 503) {
+          const body = await receiptBody(response, controller.signal);
+          controller.signal.throwIfAborted();
+          const failure = body as Record<string, unknown> | null;
+          const rejected = failure && typeof failure === 'object' && !Array.isArray(failure)
+            && Object.keys(failure).sort().join(',') === 'code,details,hint,message'
+            && failure.code === 'PT503' && failure.message === 'reporting_unavailable'
+            && failure.details === null && failure.hint === null;
+          return { ok: false, error: rejected ? 'unavailable' : 'outcome_unknown' };
+        }
         void response.body?.cancel().catch(() => {});
         const error = response.status === 409 ? 'conflict' : response.status === 410 ? 'expired'
           : response.status === 429 ? 'limited' : response.status === 400 ? 'invalid_request'
-          : response.status === 401 || response.status === 403 || response.status === 503 ? 'unavailable' : 'outcome_unknown';
+          : response.status === 401 || response.status === 403 ? 'unavailable' : 'outcome_unknown';
         return { ok: false, error };
       }
       const body = await receiptBody(response, controller.signal);

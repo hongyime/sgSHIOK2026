@@ -1,0 +1,33 @@
+{
+  "mode": "focused",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "web/node_modules/vitest/vitest.mjs",
+    "run",
+    "--root",
+    "C:\\sgSHIOK2026\\web",
+    "--globals",
+    "--maxWorkers",
+    "1",
+    "--no-file-parallelism",
+    "--reporter=json",
+    "lib/__tests__/report-http.test.ts",
+    "lib/__tests__/report-store.test.ts",
+    "lib/__tests__/reports.test.ts",
+    "lib/__tests__/report-lifecycle.test.ts"
+  ],
+  "exit": 0,
+  "elapsedMs": 58910,
+  "error": null,
+  "tests": 227,
+  "passed": 227,
+  "failed": 0,
+  "files": 4,
+  "sources": {
+    "web/app/api/reports/http.ts": "be9c8848a153b97042764ca14b69ffd93065a91d2f77da051b1e4526854d269a",
+    "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+    "web/app/api/reports/store.ts": "bddd1691fc2132cc5a4955500e972aa249b1f50a3468710526a1b40e888cab76",
+    "web/lib/__tests__/report-http.test.ts": "6b1b90ea00b92399c7f2dcc1056dd1737ca4d9a11b6c98324e8e518d7d0e665a",
+    "web/lib/__tests__/report-store.test.ts": "b7003033edf879737cd65f86a9da65a0ab5657ce3ed19b88a1b969ec548083c1"
+  }
+}

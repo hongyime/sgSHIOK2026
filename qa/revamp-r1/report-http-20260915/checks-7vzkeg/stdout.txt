@@ -1,0 +1,4 @@
+web/app/api/reports/store.ts(86,21): error TS2339: Property 'code' does not exist on type 'object'.
+web/app/api/reports/store.ts(86,46): error TS2339: Property 'message' does not exist on type 'object'.
+web/app/api/reports/store.ts(87,21): error TS2339: Property 'details' does not exist on type 'object'.
+web/app/api/reports/store.ts(87,46): error TS2339: Property 'hint' does not exist on type 'object'.

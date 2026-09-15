@@ -1,0 +1,25 @@
+{
+  "mode": "docs",
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_readme.py",
+    "tests/test_agent_docs.py",
+    "tests/test_repo_integrity.py",
+    "-q",
+    "-p",
+    "no:cacheprovider"
+  ],
+  "exit": 0,
+  "elapsedMs": 26344,
+  "error": null,
+  "sources": {
+    "web/app/api/reports/http.ts": "a4830ec53e87dd354e48a22cd6770be89566d0c093e31a6184222f318e97f4b3",
+    "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+    "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+    "web/lib/__tests__/report-http.test.ts": "573ee8ccb8c7cf83ebbe6ec883faf6cbae360387f529d8d8bab07fbd943c3013",
+    "web/lib/__tests__/report-store.test.ts": "b7003033edf879737cd65f86a9da65a0ab5657ce3ed19b88a1b969ec548083c1"
+  }
+}
