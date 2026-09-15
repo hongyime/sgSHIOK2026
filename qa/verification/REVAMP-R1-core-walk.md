@@ -9888,3 +9888,36 @@ pytest tests/test_agent_docs.py tests/test_repo_integrity.py --noconftest
 -p no:cacheprovider -q:32passed in3.21s. These are not the earlier41-case set.
 python scripts/check_repo_integrity.py:repo_integrity=ok; exit0.
 No application-suite or browser replay was performed by these final checks.
+
+## 2026-09-15 Reviewed source-archive submission path, not deployed
+
+Base:b7e1082. Consumer:scripts/release_source_deploy.py.
+Receipt:qa/revamp-r1/source-package-20260915/deployment-consumer.json.
+Actual preview request SHA256:
+1ec8d656b14316fdb9ca00d3e9f289271654135811ed89c6a09b1eee2fde984c.
+Prepare-only execution reads the pinned receipt, not parts or provider APIs.
+Archive receiptSHA:
+9f5c14acb3ca204cd2f5682366b7442710cc3eb22e9e0dc4968889bcb48861be.
+Final focused pytest output:27passed in4.66s; exit0.
+No actual submission or credential discovery. No rebuild or repack.
+
+FINDINGS
+1. The consumer supports the existing binary parts without another data stage.
+   It pins request/receipt/parts, stops on errors, and never retries a create.
+2. Corrected draft scratch containment and top-level API error handling. Both
+   have executed regressions; final independent read-only review accepted them.
+3. Exact deployment approval, account admission, an owned deadline, READY and
+   browser smoke remain required. Production and private-report activation stay
+   unchanged; the30-day retention policy remains applied.
+
+DISAGREEMENTS
+1. A subagent wrote initial drafts outside its read-only instruction. Parent
+   reviewed and fixed them; this was not approval for further uncontrolled edits.
+2. Local metadata validation and synthetic transport success are not Vercel
+   backend acceptance. Created/BUILDING is not READY or production acceptance.
+3. The browser's two-refresh HTML recovery is not full map acceptance. Do not
+   ship a PASS label over the recorded required-script transport failure.
+
+Final combined invocation after documentation updates:27consumer+32docs/integrity
+=59passed in5.91s; exit0. Separate integrity:repo_integrity=ok; exit0.
+This is a focused set, not the entire Python suite or a repeated web invocation.

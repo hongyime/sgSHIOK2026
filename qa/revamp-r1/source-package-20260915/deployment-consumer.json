@@ -1,0 +1,51 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "base": "b7e1082",
+  "sourceRevision": "69eac6a22ab3794a8648c3211c961340081b7d45",
+  "consumer": "scripts/release_source_deploy.py",
+  "testFile": "tests/test_release_source_deploy.py",
+  "status": "reviewed-and-fixture-tested-not-submitted",
+  "archiveReceiptSha256": "9f5c14acb3ca204cd2f5682366b7442710cc3eb22e9e0dc4968889bcb48861be",
+  "previewRequestPlan": "preview-request-plan.json",
+  "previewRequestSha256": "1ec8d656b14316fdb9ca00d3e9f289271654135811ed89c6a09b1eee2fde984c",
+  "transport": {
+    "destination": "api.vercel.com",
+    "files": "five binary POST /v2/files?teamId=team_ARK7HKobyCMp0PCArQTLxbz6",
+    "create": "one JSON POST /v13/deployments?teamId=team_ARK7HKobyCMp0PCArQTLxbz6",
+    "credentials": "explicit runtime argument only, never included in receipts",
+    "retry": "none; uncertain create outcome requires remote inspection before any later action",
+    "approval": "caller must obtain exact release approval and own a process deadline",
+    "resultMeaning": "created means the create request was accepted, not READY, production-alias change or smoke-test acceptance",
+    "output": "new direct child of C:\\sgSHIOK2026\\tmp only; cannot nest in a staged release or archive"
+  },
+  "validation": {
+    "consumerCommand": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe -m pytest C:\\sgSHIOK2026\\tests\\test_release_source_deploy.py --noconftest -p no:cacheprovider --basetemp <fresh repository tmp directory> -q",
+    "consumerStdout": "...........................                                              [100%]\n27 passed in 4.66s\n",
+    "consumerExit": 0,
+    "scope": "synthetic binary parts and HTTP transport; no provider requests, uploads, source rebuild or archive repack",
+    "peer": "Independent read-only review accepted final containment and top-level API error fixes; reviewer did not run tests.",
+    "docTests": "32 passed in 3.21s; test_agent_docs.py and test_repo_integrity.py only",
+    "integrity": "repo_integrity=ok; exit 0",
+    "finalCombinedInvocation": "test_release_source_deploy.py + test_agent_docs.py + test_repo_integrity.py: 59 passed in 5.91s; exit 0. Arithmetic:27+32=59. Not the full Python or application suite."
+  },
+  "externalRequestsExecuted": 0,
+  "FINDINGS": [
+    "The verified existing archive now has a bounded binary submission path; existing staging/build commands would repeat data work.",
+    "The draft allowed output inside a staged directory; parent restricted output to fresh direct children of repository tmp and covered both frontend and data stages.",
+    "Independent review found that a create response with a truthy error plus valid identity could be reported successful; parent fixed it and added an executed regression.",
+    "Prepare-only metadata validation succeeded for the actual archive and saved the exact preview request plan. This does not prove Vercel acceptance or account quota headroom.",
+    "Intake and moderation remain disabled. Thirty-day retention is unchanged. No deployment or production mutation occurred."
+  ],
+  "DISAGREEMENTS": [
+    "A subagent created the initial consumer files despite a read-only instruction. Parent retained the drafts, reviewed and corrected them; that instruction breach is not treated as approval for further subagent writes.",
+    "A successful create response is not release acceptance. Verify exact project, team, deployment identity, READY, served source/data and browser behavior separately.",
+    "No disagreement with the owner's retention choice; report activation and deployment are separate gates."
+  ],
+  "remaining": [
+    "Preview-only authorization question remains unanswered; no submission until resolved.",
+    "Current account quota/build admission and usable runtime authentication remain unverified by this consumer.",
+    "Returning-user first-refresh incompatibility and full route recovery acceptance remain open; a local proxy timeout is not an app regression.",
+    "Production alias changes and private reporting activation are not authorized by a preview decision."
+  ]
+}

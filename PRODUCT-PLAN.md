@@ -56,6 +56,14 @@ requiredJS request hit the local bridge's10second timeout before hydration.
 Full route recovery remains UNVERIFIED; no forced navigation/cache clearing.
 Details: returning-worker-20260915/continuation.json. Preview-only release approval
 is requested separately; a transport recovery is not M17 or deployment approval.
+Source-archive submission helper is independently reviewed and27fixture tests pass
+in4.66s. It validates the existing compressed parts, uploads binary bytes without
+restaging/repacking, then creates exactly one deployment with reports disabled.
+Fresh scratch containment and API error-response regressions are covered. Actual
+preview request is recorded in source-package-20260915/preview-request-plan.json;
+it was prepared without network calls. Approval, account admission, credentials,
+an owned deadline, remote READY and browser acceptance remain unexecuted gates.
+This is deploy tooling, not a deployed product or completed T27/T28.
 15September scope confirmation: the active goal includes ALL remaining build and
 ship tasks, not just Supabase setup. Report HTTP/retry and private cleanup are
 implemented with independent review and daily scheduling, then resident activation, moderator access,

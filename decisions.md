@@ -4927,3 +4927,35 @@ The five-part archive is only release preparation. Existing public data and
 production stay unchanged. Reports retain the approved30-day policy but remain
 disabled until private operational acceptance; publishing and feature activation
 are separate decisions. Evidence: qa/revamp-r1/source-package-20260915.
+
+## 2026-09-15: Consume the verified source archive without another data stage
+
+Use the existing five compressed parts directly with binary POST /v2/files,
+then one POST /v13/deployments referencing their SHA1 values. The installed
+CLI's api --input path decodes UTF8 and is not a binary upload transport;
+the repository's prior publisher restages/builds instead of consuming these
+parts. A small Python HTTPS consumer preserves bytes and validates the pinned
+receipt, part hashes and reviewed request hash before external writes.
+
+The consumer has no default execution, credential discovery, automatic retry,
+redirect following or alias operation. Scratch must be a fresh direct child of
+repository tmp, outside existing stages and archives. Sanitize error receipts;
+never include credentials or untrusted provider response text. A timeout or
+invalid create response is an unknown outcome, not permission to retry: inspect
+the remote before further writes. Truthy API error fields fail closed even when
+the response also contains otherwise valid deployment identity fields.
+
+Caller approval and an owned process deadline are mandatory. Creating a preview
+still performs external writes and starts a remote build. A created deployment
+is not proof of READY, exact served source, quota availability, or browser
+acceptance. Do not add undocumented response fields as substitute ownership
+checks; inspect the actual deployment after creation. Reports remain disabled.
+Preview approval, production publication and report activation are distinct.
+
+Protocol references:
+https://vercel.com/docs/rest-api/deployments/upload-deployment-files
+https://vercel.com/docs/rest-api/deployments/create-a-new-deployment
+Evidence:qa/revamp-r1/source-package-20260915/deployment-consumer.json.
+27synthetic tests pass; independent final review has no blocking findings.
+No upload, build, deployment, pipeline run, protected-data write or repack was
+performed to validate this consumer. Backend acceptance remains unproven.
