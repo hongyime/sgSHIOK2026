@@ -9761,3 +9761,29 @@ DISAGREEMENTS
 2. A prefix pilot cannot identify fixed/file/byte costs independently. The30-minute
    cap is a bounded decision, not a claimed linear runtime forecast.
 3. No disagreement with30-day retention; deployment and private acceptance remain.
+
+## 2026-09-15 Windows archive link rejection, zero skips
+
+Base:d33cbad4ffb789319daaed224a5dd0f38c5d3802.
+Command/environment and exact final output:qa/revamp-r1/source-package-20260915/junction-review.json.
+The independently implemented Windows error1314 fallback creates an actual
+directory junction, asserts its reparse tag and identity, exercises both path
+and packager rejection, removes only the link and verifies the target survives.
+
+```text
+..........................................................               [100%]
+58 passed in 14.86s
+```
+
+Peer run:58passed in22.25s. Both runs include Node's tar cross-reader; zero skips.
+These are two invocations of the same58cases, not116distinct tests.
+Generator changed:0. Archive repacks:0. Pipeline runs:0. Uploads/deployments:0.
+
+FINDINGS
+1. The prior Windows link-test gap is closed using a real filesystem object,
+   not a mocked rejection or relaxed assertion. Earlier skip receipts remain.
+2. The successful full archive remains unchanged; this patch is test-only.
+
+DISAGREEMENTS
+1. None with30-day retention. Reporting and moderation stay disabled pending
+   their actual operational acceptance; a test count does not activate them.

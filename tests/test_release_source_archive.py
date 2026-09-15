@@ -7,6 +7,7 @@ import json
 import os
 from pathlib import Path
 import shutil
+import stat
 import subprocess
 import sys
 import tarfile
@@ -237,15 +238,49 @@ def test_hardlinked_source_rejected(stages):
 
 
 def test_symlink_ancestor_rejected(stages):
-    source = stages["repo_root"] / "tmp/frontend/web/app"
+    root = stages["repo_root"].resolve(strict=True)
+    repo_tmp = Path(__file__).absolute().parents[1] / "tmp"
+    assert root.is_relative_to(repo_tmp.resolve(strict=True))
+    source = root / "tmp/frontend/web/app"
     moved = source.with_name("real-app")
+    assert source.resolve(strict=True).is_relative_to(root)
+    assert moved.resolve().is_relative_to(root) and not moved.exists()
+    expected = (source / "page.tsx").read_bytes()
     source.rename(moved)
+    junction = False
     try:
         source.symlink_to(moved, target_is_directory=True)
-    except OSError:
-        pytest.skip("symlink creation is unavailable")
-    with pytest.raises(archive.ArchiveError, match="LINKED_PATH"):
-        pack(stages)
+    except OSError as error:
+        if os.name != "nt" or getattr(error, "winerror", None) != 1314:
+            raise
+        import _winapi
+
+        _winapi.CreateJunction(str(moved), str(source))
+        junction = True
+    try:
+        info = source.lstat()
+        if junction:
+            assert info.st_file_attributes & stat.FILE_ATTRIBUTE_REPARSE_POINT
+            assert info.st_reparse_tag == stat.IO_REPARSE_TAG_MOUNT_POINT
+            assert not stat.S_ISLNK(info.st_mode)
+        else:
+            assert stat.S_ISLNK(info.st_mode)
+        assert source.resolve(strict=True) == moved
+        assert (source / "page.tsx").samefile(moved / "page.tsx")
+        with pytest.raises(archive.ArchiveError, match="LINKED_PATH") as plain_error:
+            archive.staging._plain(source / "page.tsx")
+        assert plain_error.value.path == str(source)
+        with pytest.raises(archive.ArchiveError, match="LINKED_PATH") as pack_error:
+            pack(stages)
+        assert pack_error.value.path == str(source)
+        assert not (root / "tmp/archive" / archive.RECEIPT_NAME).exists()
+    finally:
+        # Remove only the link, never recursively traverse its fixture target.
+        if junction:
+            os.rmdir(source)
+        else:
+            source.unlink()
+    assert (moved / "page.tsx").read_bytes() == expected
 
 
 @pytest.mark.parametrize("location", ["web/archive", "tmp/frontend/new", "tmp/data/new", "tmp"])

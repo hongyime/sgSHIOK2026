@@ -1,0 +1,29 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "base": "d33cbad4ffb789319daaed224a5dd0f38c5d3802",
+  "changedTest": "tests/test_release_source_archive.py::test_symlink_ancestor_rejected",
+  "mechanism": "On Windows error1314 only, create native directory junction. Assert reparse flag/tag, actual target identity and LINKED_PATH rejection by both plain-path guard and packager. Remove only link, then verify fixture target unchanged.",
+  "generatorChanged": false,
+  "archiveRepacked": false,
+  "command": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe -B -m pytest C:\\sgSHIOK2026\\tests\\test_release_source_archive.py --noconftest -p no:cacheprovider -o addopts= --basetemp C:\\sgSHIOK2026\\tmp\\archive-review-20260915-c2 -q -rs",
+  "environment": {
+    "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTEST_ADDOPTS": "",
+    "PYTEST_PLUGINS": "",
+    "TEMP": "C:\\sgSHIOK2026\\tmp",
+    "TMP": "C:\\sgSHIOK2026\\tmp"
+  },
+  "stdout": "..........................................................               [100%]\n58 passed in 14.86s\n",
+  "exitCode": 0,
+  "peer": {
+    "tests": 58,
+    "skipped": 0,
+    "seconds": 22.25,
+    "freshBase": "C:\\sgSHIOK2026\\tmp\\source-archive-junction-d17642287979409896b54adeab1bd986"
+  },
+  "limits": "Focused archive fixtures and Node cross-reader only, not a new full application suite or production acceptance. Existing basetemp directories must not be reused for another run.",
+  "FINDINGS": ["The Windows linked-ancestor safety test now executes instead of skipping.", "No generator, package, application, protected data or deployment changed."],
+  "DISAGREEMENTS": ["None with the 30-day retention decision; it remains applied and reporting remains disabled pending operational acceptance."]
+}

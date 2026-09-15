@@ -33,7 +33,9 @@ source archive from the two existing pinned stages, not a prebuilt deployment.
 207frontend/control +4845main +701lighting =5753members;5637400092inputbytes.
 Five compressed parts:4*104857600+10864384=430294784bytes. Pack451.141s plus
 verification61.688s=512.829s, inside1800s cap. Final standalone verification
-passes;57focused Python cases pass and1Windows symlink-privilege case is skipped.
+passes. Follow-up replaces the Windows privilege skip with a real directory
+junction:58focused Python cases pass, zero skipped (peer22.25s, parent14.86s).
+The generator and verified archive are unchanged; this is not another package run.
 Node's tar cross-reader passes. A reviewed future-retention omission is now
 rejected rather than silently producing an incomplete package. No actual data
 copy, pipeline processing, upload or deployment. Evidence: source-package-20260915.
