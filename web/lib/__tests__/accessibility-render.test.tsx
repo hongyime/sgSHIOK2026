@@ -23,7 +23,7 @@ import Home, {
   searchResultsAnnouncement,
   type FeedbackSegmentLabel,
   type LoadedSelection,
-} from "../../app/page";
+} from "../../app/home";
 import { RouteEvidenceMap } from "../../components/route-evidence-map";
 import type { ScoreRecord, TransitPoiCollection } from "../types";
 import * as freshnessHelpers from "../source-freshness";

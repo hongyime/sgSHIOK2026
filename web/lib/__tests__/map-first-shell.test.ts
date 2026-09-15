@@ -7,7 +7,7 @@ vi.mock('next/dynamic', () => ({ default: () => () => React.createElement('div',
 vi.mock('../../components/route-map-loader', () => ({
   RouteMapLoader: () => React.createElement('div', { 'data-map-mounted': true }), preloadRouteMap: vi.fn(),
 }));
-import Home, { DataDetails } from '../../app/page';
+import Home, { DataDetails } from '../../app/home';
 
 describe('map-first home shell', () => {
   it('mounts a basemap without a selected postal or geometry', () => {

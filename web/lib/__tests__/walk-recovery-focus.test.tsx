@@ -88,7 +88,7 @@ vi.mock('../data', async () => ({
   PINNED_DATA_MANIFEST: (await import('./fixtures/published-options.json')).default['manifest.json'],
 }));
 
-import Home from '../../app/page';
+import Home from '../../app/home';
 import { WalkSummary } from '../../components/walk-summary';
 
 type Element = ReactElement<Record<string, unknown> & { children?: ReactNode }>;

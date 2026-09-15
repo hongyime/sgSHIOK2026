@@ -102,7 +102,7 @@ describe("deployment packaging", () => {
 
   it("registers the optional service worker directly after app intent", () => {
     const layout = readFileSync(join(__dirname, "../../app/layout.tsx"), "utf-8");
-    const page = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const page = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
     const helper = readFileSync(join(__dirname, "../service-worker-cache.ts"), "utf-8");
 
     expect(layout).not.toContain('import { ServiceWorkerRegistration }');

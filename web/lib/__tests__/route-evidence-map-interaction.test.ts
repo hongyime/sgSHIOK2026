@@ -164,7 +164,7 @@ describe("shelter map interactions", () => {
   });
 
   it("clears a focused exposed gap when the selected route context changes", () => {
-    const pageSource = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const pageSource = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
     const routeModeHandler =
       pageSource.match(/const handleRouteModeChange = useCallback\(\(mode: RouteDisplayMode\) => \{[\s\S]+?\}, \[[^\]]*\]\);/)?.[0] ?? "";
     const transitModeHandler =
@@ -182,7 +182,7 @@ describe("shelter map interactions", () => {
   });
 
   it("keeps arbitrary clicked OneMap routes preview-only and resettable", () => {
-    const pageSource = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const pageSource = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
     const liveScoringSource = readFileSync(
       join(__dirname, "../../lib/live-route-scoring.ts"),
       "utf-8"
@@ -285,7 +285,7 @@ describe("shelter map interactions", () => {
   });
 
   it("guards the normalized published selection path ahead of the optional preview adapter", () => {
-    const pageSource = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const pageSource = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
 
     expect(pageSource).toContain("const option = publishedOptionForStop(pool, chosenStopId, mapTransitPois, originLatLng)");
     expect(pageSource).toContain("if (option) return publishedSelectionView(baseSelection, option)");

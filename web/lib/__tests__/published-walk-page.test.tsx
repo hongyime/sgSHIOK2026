@@ -113,7 +113,7 @@ vi.mock('../data', async () => {
   };
 });
 
-import Home, { DataDetails, ScoreCard } from '../../app/page';
+import Home, { DataDetails, ScoreCard } from '../../app/home';
 import { WalkSummary, walkMetrics } from '../../components/walk-summary';
 import { TransitStopPicker } from '../../components/transit-stop-picker';
 import { ExposureSectionExplorer } from '../../components/exposure-section-explorer';

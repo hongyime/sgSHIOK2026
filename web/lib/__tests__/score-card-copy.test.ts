@@ -17,7 +17,7 @@ function cssRuleBody(cssSource: string, selector: string): string {
 
 describe("score card copy", () => {
   it("distinguishes far connected shelter-map walks from disconnected walks", () => {
-    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const source = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
 
     expect(source).toContain("Connected walk beyond 1.2 km");
     expect(source).toContain("No connected shelter-map walk");
@@ -122,7 +122,7 @@ describe("score card copy", () => {
   });
 
   it("keeps shortest walk context visible when it matches the sheltered walk", () => {
-    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const source = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
 
     expect(source).toContain("Shortest same as sheltered walk.");
     expect(source).not.toContain("Shortest same as sheltered route.");
@@ -138,7 +138,7 @@ describe("score card copy", () => {
     expect(smokeSource).not.toContain('summary.cardText.includes("No full locked score in this bundle")');
     expect(smokeSource).not.toContain('summary.cardText.includes("No full score in this bundle")');
     expect(smokeSource).not.toContain("needs usable location evidence");
-    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const source = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
     expect(source).toContain(
       "This postal is in the June 2020 address list, but the published shelter-map data does not include a full locked score for it."
     );
@@ -161,7 +161,7 @@ describe("score card copy", () => {
   });
 
   it("names selected MRT/LRT exits and bus stops explicitly in the custom-stop badge", () => {
-    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const source = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
 
     expect(source).toContain("Viewing selected MRT/LRT exit or bus stop");
     expect(source).toContain("Custom MRT/LRT exit or bus stop selected.");
@@ -217,7 +217,7 @@ describe("score card copy", () => {
   });
 
   it("names shelter correction in copied report while keeping route-mode compatibility", () => {
-    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const source = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
 
     expect(source).toContain("Copy correction report");
     expect(source).toContain("walk_mode: routeMode");
@@ -231,7 +231,7 @@ describe("score card copy", () => {
   });
 
   it("puts data freshness and heat proxy copy in the title card", () => {
-    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const source = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
     const layoutSource = readFileSync(join(__dirname, "../../app/layout.tsx"), "utf-8");
 
     expect(source).toContain("S.H.I.O.K. Shelter Map");
@@ -546,7 +546,7 @@ describe("score card copy", () => {
   });
 
   it("keeps the footer as a disclosure rather than another tagline", () => {
-    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const source = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
 
     expect(source).not.toContain(
       "Walk evidence: covered-walkway ratio and exposed gaps on the route.",
@@ -571,7 +571,7 @@ describe("score card copy", () => {
     // `Shortest sheltered X%` at the same time, which duplicated one of
     // the two values with the primary row for the current route mode.
     // See 2026-08-05 refactor: decisions.md.
-    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const source = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
     const smokeSource = readFileSync(join(__dirname, "../../scripts/browser-smoke.mjs"), "utf-8");
 
     expect(source).toContain("Sheltered walk\n      </button>");
@@ -609,7 +609,7 @@ describe("score card copy", () => {
   });
 
   it("adds an inline comparison note when the alternate route's shelter % differs meaningfully", () => {
-    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const source = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
 
     expect(source).toContain("buildRouteCompareNote");
     expect(source).toContain("function shelterEvidenceAnnouncementFromValues");
@@ -631,7 +631,7 @@ describe("score card copy", () => {
 
   it("keeps nearby greenery and access link in a subtle walk-details strip, not a duplicate metric row", () => {
     const cssSource = readFileSync(join(__dirname, "../../app/page.module.css"), "utf-8");
-    const tsxSource = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const tsxSource = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
 
     expect(cssSource).toContain(".compareNote");
     expect(cssSource).toContain(".routeDetails");
@@ -685,7 +685,7 @@ describe("score card copy", () => {
   });
 
   it("removes presentation reweighting and displays the authoritative bundle total", () => {
-    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const source = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
 
     expect(source).not.toContain("COMFORT_MODES");
     expect(source).not.toContain("normalizeComfortMode");
@@ -704,7 +704,7 @@ describe("score card copy", () => {
   });
 
   it("shows four display rows without changing the locked weights", () => {
-    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const source = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
     const proposalSource = readFileSync(join(__dirname, "../../section10-presentation-proposal.md"), "utf-8");
     const weightsYaml = readFileSync(join(__dirname, "../../../pipeline/config/weights.yaml"), "utf-8");
 
@@ -1048,7 +1048,7 @@ describe("score card copy", () => {
   });
 
   it("keeps missing gap evidence distinct from recorded empty gaps", () => {
-    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const source = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
 
     expect(source).toContain('aria-label="Exposed gap evidence"');
     expect(source).toContain('<div className={styles.gapList} aria-label="Exposed gap evidence">');
@@ -1063,7 +1063,7 @@ describe("score card copy", () => {
   });
 
   it("keeps exposed-gap button labels aligned with active map selection state", () => {
-    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const source = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
     const cssSource = readFileSync(join(__dirname, "../../app/page.module.css"), "utf-8");
 
     expect(source).toContain("function exposureGapMapActionLabel");
@@ -1082,7 +1082,7 @@ describe("score card copy", () => {
   });
 
   it("announces preview route locked score state as preview-only", () => {
-    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const source = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
 
     expect(source).toContain('const scoreText = previewRoute');
     expect(source).toContain('"preview only; published locked score unchanged"');
@@ -1091,7 +1091,7 @@ describe("score card copy", () => {
   });
 
   it("announces direct-bus fallback evidence without implying a verified shelter-map walk", () => {
-    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const source = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
 
     expect(source).toContain('evidenceLabel = "Shelter-map walk evidence"');
     expect(source).toContain('directBusFallback ? "Straight-line bus estimate evidence" : undefined');
@@ -1101,7 +1101,7 @@ describe("score card copy", () => {
   });
 
   it("announces direct-bus fallback selection without implying a published shelter-map walk", () => {
-    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const source = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
 
     expect(source).toContain("selectedStateText?: string;");
     expect(source).toContain("selectedStateText ??");
@@ -1110,7 +1110,7 @@ describe("score card copy", () => {
   });
 
   it("labels direct-bus fallback evidence regions without implying shelter-map evidence", () => {
-    const source = readFileSync(join(__dirname, "../../app/page.tsx"), "utf-8");
+    const source = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
 
     expect(source).toContain('directBusFallback ? "Straight-line bus estimate source evidence" : "Shelter source evidence"');
     expect(source).toContain('directBusFallback ? "Straight-line bus estimate evidence reasons" : "Shelter-map evidence reasons"');

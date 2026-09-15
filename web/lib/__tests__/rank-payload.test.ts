@@ -5,7 +5,7 @@ vi.mock("next/navigation", () => ({
   useRouter: () => ({ replace: vi.fn() }),
 }));
 
-import { shouldFetchRankRecords } from "../../app/page";
+import { shouldFetchRankRecords } from "../../app/home";
 import { rankScoreRecords, type RankableScoreRecord } from "../subscore-ranking";
 
 describe("rank view payload contract", () => {

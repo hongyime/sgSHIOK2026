@@ -1,0 +1,56 @@
+{
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\route-focused-tqh8znx4",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "web/scripts/test-web.mjs",
+    "lib/__tests__/page-entry.test.ts",
+    "lib/__tests__/accessibility-render.test.tsx",
+    "lib/__tests__/published-walk-page.test.tsx",
+    "lib/__tests__/map-first-shell.test.ts",
+    "lib/__tests__/map-recovery-actions.test.tsx",
+    "lib/__tests__/walk-recovery-focus.test.tsx",
+    "lib/__tests__/walk-real-records.test.ts",
+    "lib/__tests__/rank-payload.test.ts"
+  ],
+  "before": {
+    "web/components/route-evidence-map.module.css": "f01f94068217dc3e3f057fb6ff6090f7c320a05770c49b5e259dc7d8707ee28f",
+    "web/lib/__tests__/deployment.test.ts": "b44965a410a6734ace0727ea22bd1d51567cf340ba07e18980ef0fc58409b151",
+    "web/app/page.tsx": "b7ac833aecc811327db000b5bdc92ee17cdf5c9197c3b3030950fa071b0fe7e0",
+    "web/app/home.tsx": "e873aa64cdba8c3736c44d47b67345cdd359fa89af46724544a1074604819174",
+    "web/lib/__tests__/page-entry.test.ts": "16a2d2b32c0d1ef15a59afbd0bdde5559aa56c965d946c422409f68bea3cebc4",
+    "web/lib/__tests__/accessibility-render.test.tsx": "c5b3a22be104673b56d5de9d85f46113fbc803b098fcf5c85d641ee1df249ffa",
+    "web/lib/__tests__/map-first-shell.test.ts": "e3a962265d635922ddb076dbe2667efc700fd2f32e7c6da77efd56bf0627b42e",
+    "web/lib/__tests__/map-recovery-actions.test.tsx": "9409d73c017cc7ca62105b73c47d34e1748ce871058d262dfbd812c4d0c97bbb",
+    "web/lib/__tests__/published-walk-page.test.tsx": "6dadafbbea7628173af64ad9bd3ab09d99bc0fe655f3c292cb550e65a34ca702",
+    "web/lib/__tests__/rank-payload.test.ts": "6f825f23c368e34176c979e4be49b2f9a715ffb06f7f2ece42fd731664089a82",
+    "web/lib/__tests__/route-evidence-map-interaction.test.ts": "4bf1819e399af22ed631f18b401ea1392ce0ece71631e929f706b6c7a109e692",
+    "web/lib/__tests__/score-card-copy.test.ts": "07e0ebc5e7029d6ef6fc535ee713218e17114d1b21ebda2bed4f9e5d33da7caa",
+    "web/lib/__tests__/walk-real-records.test.ts": "eb5b946a340c526f43eb3b5937eed329f23b0cb9b55ab77d7e96808f15678692",
+    "web/lib/__tests__/walk-recovery-focus.test.tsx": "5bf1efeaa3922c65f64a083bd27b3d6376a4c7f42258e22fe1f89e886322db01"
+  },
+  "after": {
+    "web/components/route-evidence-map.module.css": "f01f94068217dc3e3f057fb6ff6090f7c320a05770c49b5e259dc7d8707ee28f",
+    "web/lib/__tests__/deployment.test.ts": "b44965a410a6734ace0727ea22bd1d51567cf340ba07e18980ef0fc58409b151",
+    "web/app/page.tsx": "b7ac833aecc811327db000b5bdc92ee17cdf5c9197c3b3030950fa071b0fe7e0",
+    "web/app/home.tsx": "e873aa64cdba8c3736c44d47b67345cdd359fa89af46724544a1074604819174",
+    "web/lib/__tests__/page-entry.test.ts": "16a2d2b32c0d1ef15a59afbd0bdde5559aa56c965d946c422409f68bea3cebc4",
+    "web/lib/__tests__/accessibility-render.test.tsx": "c5b3a22be104673b56d5de9d85f46113fbc803b098fcf5c85d641ee1df249ffa",
+    "web/lib/__tests__/map-first-shell.test.ts": "e3a962265d635922ddb076dbe2667efc700fd2f32e7c6da77efd56bf0627b42e",
+    "web/lib/__tests__/map-recovery-actions.test.tsx": "9409d73c017cc7ca62105b73c47d34e1748ce871058d262dfbd812c4d0c97bbb",
+    "web/lib/__tests__/published-walk-page.test.tsx": "6dadafbbea7628173af64ad9bd3ab09d99bc0fe655f3c292cb550e65a34ca702",
+    "web/lib/__tests__/rank-payload.test.ts": "6f825f23c368e34176c979e4be49b2f9a715ffb06f7f2ece42fd731664089a82",
+    "web/lib/__tests__/route-evidence-map-interaction.test.ts": "4bf1819e399af22ed631f18b401ea1392ce0ece71631e929f706b6c7a109e692",
+    "web/lib/__tests__/score-card-copy.test.ts": "07e0ebc5e7029d6ef6fc535ee713218e17114d1b21ebda2bed4f9e5d33da7caa",
+    "web/lib/__tests__/walk-real-records.test.ts": "eb5b946a340c526f43eb3b5937eed329f23b0cb9b55ab77d7e96808f15678692",
+    "web/lib/__tests__/walk-recovery-focus.test.tsx": "5bf1efeaa3922c65f64a083bd27b3d6376a4c7f42258e22fe1f89e886322db01"
+  },
+  "elapsedSeconds": 64.375,
+  "execution": {
+    "ok": true,
+    "returncode": 0,
+    "stdout": "installed_dependencies=ok\n\u2714 test entry refuses the real MapLibre 6.4.1 lock versus 6.1.0 install shape before Vitest (748.8092ms)\n\u2714 matching versions may launch the test entry (3872.2523ms)\n\u2714 a failing native guard contract suite prevents Vitest from starting (3593.8067ms)\n\u2714 build entry refuses stale dependencies before even the preparation double (2691.1625ms)\n\u2714 matching build reaches only the refusing preparation double, never Next (2611.309ms)\n\u2714 release CLI checks dependencies before retention/build with installed 6.1.0 (1334.2729ms)\n\u2714 release CLI checks dependencies before retention/build with installed 6.4.1 (1262.4134ms)\n\u2714 reports exact resolved versions for runtime and development dependencies (113.5676ms)\n\u2714 development dependency drift also fails (169.8463ms)\n\u2714 a manifest edit without matching lock-root metadata is not accepted (159.2524ms)\n\u2714 refuses invalid JSON in package.json (181.8521ms)\n\u2714 refuses null in package.json (134.5243ms)\n\u2714 refuses [] in package.json (128.5728ms)\n\u2714 refuses invalid JSON in package-lock.json (162.5605ms)\n\u2714 refuses null in package-lock.json (141.3261ms)\n\u2714 refuses [] in package-lock.json (117.7771ms)\n\u2714 refuses invalid JSON in node_modules/maplibre-gl/package.json (158.0618ms)\n\u2714 refuses null in node_modules/maplibre-gl/package.json (167.8165ms)\n\u2714 refuses [] in node_modules/maplibre-gl/package.json (165.104ms)\n\u2714 refuses malformed dependencies (194.499ms)\n\u2714 refuses malformed devDependencies (153.8719ms)\n\u2714 unsupported lock format 1 fails closed (166.665ms)\n\u2714 unsupported lock format 4 fails closed (323.9275ms)\n\u2714 unsupported lock format \"3\" fails closed (215.0995ms)\n\u2714 unsupported lock format null fails closed (293.1787ms)\n\u2714 lock v2 resolved-package metadata is supported (189.6234ms)\n\u2714 refuses unresolved lock entry null (139.6438ms)\n\u2714 refuses unresolved lock entry {} (142.9057ms)\n\u2714 refuses unresolved lock entry {\"link\":true,\"version\":\"6.4.1\"} (184.0657ms)\n\u2714 refuses unresolved lock entry {\"version\":\"\"} (115.8665ms)\n\u2714 missing installed package is reported without loading or executing it (156.2624ms)\n\u2714 refuses unsafe dependency name ../escape (149.1125ms)\n\u2714 refuses unsafe dependency name @scope/../../escape (164.9842ms)\n\u2714 refuses unsafe dependency name C:\\escape (147.0529ms)\n\u2714 refuses unsafe dependency name /escape (206.3952ms)\n\u2714 refuses unsafe dependency name @scope\\escape (174.237ms)\n\u2714 refuses unsafe dependency name .hidden (319.4112ms)\n\u2714 scoped packages and a dependency listed in both sections are checked once (537.2941ms)\n\u2714 empty dependency metadata cannot authorize a vacuous success (177.6668ms)\n\u2714 matching null dependencies sections are invalid, not absent (164.6462ms)\n\u2714 matching null devDependencies sections are invalid, not absent (180.7557ms)\n\u2714 package executable exports are never imported by the version check (169.9209ms)\n\u2139 tests 42\n\u2139 suites 0\n\u2139 pass 42\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 23743.6785\n\n RUN  v4.1.11 C:/sgSHIOK2026/web\n\n\n Test Files  8 passed (8)\n      Tests  211 passed (211)\n   Start at  16:42:58\n   Duration  29.69s (transform 6.04s, setup 0ms, import 6.01s, tests 13.99s, environment 5ms)",
+    "stderr": "(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:\n  - ESM syntax in a file loaded as CommonJS (vitest.config.ts:1:1). Use a `.mjs` extension or set `\"type\": \"module\"` in the closest package.json\nSet `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning."
+  },
+  "pipelineRuns": 0,
+  "passed": true
+}

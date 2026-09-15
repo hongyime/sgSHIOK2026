@@ -17,6 +17,10 @@ mode = sys.argv[1]
 out = Path(tempfile.mkdtemp(prefix=mode + "-", dir=BASE))
 node = r"C:\Program Files\nodejs\node.exe"
 commands = {
+    "route-red": [node, "web/scripts/test-web.mjs", "lib/__tests__/page-entry.test.ts"],
+    "route-focused": [node, "web/scripts/test-web.mjs", "lib/__tests__/page-entry.test.ts", "lib/__tests__/accessibility-render.test.tsx",
+        "lib/__tests__/published-walk-page.test.tsx", "lib/__tests__/map-first-shell.test.ts", "lib/__tests__/map-recovery-actions.test.tsx",
+        "lib/__tests__/walk-recovery-focus.test.tsx", "lib/__tests__/walk-real-records.test.ts", "lib/__tests__/rank-payload.test.ts"],
     "red": [node, "web/scripts/test-web.mjs", "lib/__tests__/deployment.test.ts", "-t", "MapLibre module"],
     "focused": [node, "web/scripts/test-web.mjs", "lib/__tests__/deployment.test.ts", "lib/__tests__/route-evidence-map-popup.test.ts",
                 "lib/__tests__/route-evidence-map-interaction.test.ts"],
@@ -25,7 +29,11 @@ commands = {
     "docs": [str(ROOT / ".venv/Scripts/python.exe"), "-B", "-m", "pytest", "tests/test_readme.py",
              "tests/test_agent_docs.py", "tests/test_repo_integrity.py", "-q", "-p", "no:cacheprovider"],
 }
-paths = ["web/components/route-evidence-map.module.css", "web/lib/__tests__/deployment.test.ts"]
+paths = ["web/components/route-evidence-map.module.css", "web/lib/__tests__/deployment.test.ts",
+         "web/app/page.tsx", "web/app/home.tsx", "web/lib/__tests__/page-entry.test.ts"]
+paths += ["web/lib/__tests__/" + name for name in ["accessibility-render.test.tsx", "map-first-shell.test.ts",
+    "map-recovery-actions.test.tsx", "published-walk-page.test.tsx", "rank-payload.test.ts", "route-evidence-map-interaction.test.ts",
+    "score-card-copy.test.ts", "walk-real-records.test.ts", "walk-recovery-focus.test.tsx"]]
 def identities():
     return {p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in paths}
 before = identities()

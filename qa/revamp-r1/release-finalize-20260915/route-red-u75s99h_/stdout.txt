@@ -1,0 +1,61 @@
+installed_dependencies=ok
+✔ test entry refuses the real MapLibre 6.4.1 lock versus 6.1.0 install shape before Vitest (517.3993ms)
+✔ matching versions may launch the test entry (2062.3579ms)
+✔ a failing native guard contract suite prevents Vitest from starting (801.9262ms)
+✔ build entry refuses stale dependencies before even the preparation double (358.841ms)
+✔ matching build reaches only the refusing preparation double, never Next (530.2647ms)
+✔ release CLI checks dependencies before retention/build with installed 6.1.0 (319.706ms)
+✔ release CLI checks dependencies before retention/build with installed 6.4.1 (355.4417ms)
+✔ reports exact resolved versions for runtime and development dependencies (49.2835ms)
+✔ development dependency drift also fails (74.6564ms)
+✔ a manifest edit without matching lock-root metadata is not accepted (80.912ms)
+✔ refuses invalid JSON in package.json (72.6365ms)
+✔ refuses null in package.json (52.079ms)
+✔ refuses [] in package.json (45.3437ms)
+✔ refuses invalid JSON in package-lock.json (77.1645ms)
+✔ refuses null in package-lock.json (52.1181ms)
+✔ refuses [] in package-lock.json (48.654ms)
+✔ refuses invalid JSON in node_modules/maplibre-gl/package.json (55.7556ms)
+✔ refuses null in node_modules/maplibre-gl/package.json (55.6103ms)
+✔ refuses [] in node_modules/maplibre-gl/package.json (62.0613ms)
+✔ refuses malformed dependencies (58.7054ms)
+✔ refuses malformed devDependencies (90.7521ms)
+✔ unsupported lock format 1 fails closed (84.8582ms)
+✔ unsupported lock format 4 fails closed (86.5665ms)
+✔ unsupported lock format "3" fails closed (81.1873ms)
+✔ unsupported lock format null fails closed (58.5786ms)
+✔ lock v2 resolved-package metadata is supported (54.9144ms)
+✔ refuses unresolved lock entry null (79.7081ms)
+✔ refuses unresolved lock entry {} (78.3959ms)
+✔ refuses unresolved lock entry {"link":true,"version":"6.4.1"} (74.4233ms)
+✔ refuses unresolved lock entry {"version":""} (73.2411ms)
+✔ missing installed package is reported without loading or executing it (82.4099ms)
+✔ refuses unsafe dependency name ../escape (46.4095ms)
+✔ refuses unsafe dependency name @scope/../../escape (69.8395ms)
+✔ refuses unsafe dependency name C:\escape (77.7371ms)
+✔ refuses unsafe dependency name /escape (83.3525ms)
+✔ refuses unsafe dependency name @scope\escape (54.9886ms)
+✔ refuses unsafe dependency name .hidden (56.7001ms)
+✔ scoped packages and a dependency listed in both sections are checked once (89.7005ms)
+✔ empty dependency metadata cannot authorize a vacuous success (70.5094ms)
+✔ matching null dependencies sections are invalid, not absent (86.7926ms)
+✔ matching null devDependencies sections are invalid, not absent (81.2147ms)
+✔ package executable exports are never imported by the version check (56.524ms)
+ℹ tests 42
+ℹ suites 0
+ℹ pass 42
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8055.2158
+
+ RUN  v4.1.11 C:/sgSHIOK2026/web
+
+ ❯ lib/__tests__/page-entry.test.ts (1 test | 1 failed) 1539ms
+     × exports only the Home route component 1535ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  16:38:49
+   Duration  2.31s (transform 1.21s, setup 0ms, import 80ms, tests 1.54s, environment 0ms)

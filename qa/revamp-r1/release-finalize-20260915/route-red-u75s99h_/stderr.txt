@@ -1,0 +1,39 @@
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - ESM syntax in a file loaded as CommonJS (vitest.config.ts:1:1). Use a `.mjs` extension or set `"type": "module"` in the closest package.json
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  lib/__tests__/page-entry.test.ts > Home route entry > exports only the Home route component
+AssertionError: expected [ 'searchResultsAnnouncement', …(14) ] to deeply equal [ 'default' ]
+
+- Expected
++ Received
+
+  [
++   "searchResultsAnnouncement",
++   "routeDisplayAnnouncement",
++   "scoreCardAnnouncement",
++   "rankAnnouncement",
++   "rankEmptyMessage",
++   "rankPanelDescription",
++   "shouldFetchRankRecords",
++   "SearchFeedback",
++   "formatDataDate",
++   "formatGeneratedDate",
++   "formatFeedbackTraceCount",
++   "selectionForChosenStop",
++   "ScoreCard",
++   "DataDetails",
+    "default",
+  ]
+
+ ❯ lib/__tests__/page-entry.test.ts:4:31
+      2|   it("exports only the Home route component", async () => {
+      3|     const page = await import("../../app/page");
+      4|     expect(Object.keys(page)).toEqual(["default"]);
+       |                               ^
+      5|     expect(typeof page.default).toBe("function");
+      6|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯

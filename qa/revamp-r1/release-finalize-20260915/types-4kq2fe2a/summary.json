@@ -1,0 +1,53 @@
+{
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\types-4kq2fe2a",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "web/node_modules/typescript/bin/tsc",
+    "--project",
+    "web/tsconfig.json",
+    "--noEmit",
+    "--incremental",
+    "false"
+  ],
+  "before": {
+    "web/components/route-evidence-map.module.css": "f01f94068217dc3e3f057fb6ff6090f7c320a05770c49b5e259dc7d8707ee28f",
+    "web/lib/__tests__/deployment.test.ts": "b44965a410a6734ace0727ea22bd1d51567cf340ba07e18980ef0fc58409b151",
+    "web/app/page.tsx": "b7ac833aecc811327db000b5bdc92ee17cdf5c9197c3b3030950fa071b0fe7e0",
+    "web/app/home.tsx": "e873aa64cdba8c3736c44d47b67345cdd359fa89af46724544a1074604819174",
+    "web/lib/__tests__/page-entry.test.ts": "16a2d2b32c0d1ef15a59afbd0bdde5559aa56c965d946c422409f68bea3cebc4",
+    "web/lib/__tests__/accessibility-render.test.tsx": "c5b3a22be104673b56d5de9d85f46113fbc803b098fcf5c85d641ee1df249ffa",
+    "web/lib/__tests__/map-first-shell.test.ts": "e3a962265d635922ddb076dbe2667efc700fd2f32e7c6da77efd56bf0627b42e",
+    "web/lib/__tests__/map-recovery-actions.test.tsx": "9409d73c017cc7ca62105b73c47d34e1748ce871058d262dfbd812c4d0c97bbb",
+    "web/lib/__tests__/published-walk-page.test.tsx": "6dadafbbea7628173af64ad9bd3ab09d99bc0fe655f3c292cb550e65a34ca702",
+    "web/lib/__tests__/rank-payload.test.ts": "6f825f23c368e34176c979e4be49b2f9a715ffb06f7f2ece42fd731664089a82",
+    "web/lib/__tests__/route-evidence-map-interaction.test.ts": "4bf1819e399af22ed631f18b401ea1392ce0ece71631e929f706b6c7a109e692",
+    "web/lib/__tests__/score-card-copy.test.ts": "07e0ebc5e7029d6ef6fc535ee713218e17114d1b21ebda2bed4f9e5d33da7caa",
+    "web/lib/__tests__/walk-real-records.test.ts": "eb5b946a340c526f43eb3b5937eed329f23b0cb9b55ab77d7e96808f15678692",
+    "web/lib/__tests__/walk-recovery-focus.test.tsx": "5bf1efeaa3922c65f64a083bd27b3d6376a4c7f42258e22fe1f89e886322db01"
+  },
+  "after": {
+    "web/components/route-evidence-map.module.css": "f01f94068217dc3e3f057fb6ff6090f7c320a05770c49b5e259dc7d8707ee28f",
+    "web/lib/__tests__/deployment.test.ts": "b44965a410a6734ace0727ea22bd1d51567cf340ba07e18980ef0fc58409b151",
+    "web/app/page.tsx": "b7ac833aecc811327db000b5bdc92ee17cdf5c9197c3b3030950fa071b0fe7e0",
+    "web/app/home.tsx": "e873aa64cdba8c3736c44d47b67345cdd359fa89af46724544a1074604819174",
+    "web/lib/__tests__/page-entry.test.ts": "16a2d2b32c0d1ef15a59afbd0bdde5559aa56c965d946c422409f68bea3cebc4",
+    "web/lib/__tests__/accessibility-render.test.tsx": "c5b3a22be104673b56d5de9d85f46113fbc803b098fcf5c85d641ee1df249ffa",
+    "web/lib/__tests__/map-first-shell.test.ts": "e3a962265d635922ddb076dbe2667efc700fd2f32e7c6da77efd56bf0627b42e",
+    "web/lib/__tests__/map-recovery-actions.test.tsx": "9409d73c017cc7ca62105b73c47d34e1748ce871058d262dfbd812c4d0c97bbb",
+    "web/lib/__tests__/published-walk-page.test.tsx": "6dadafbbea7628173af64ad9bd3ab09d99bc0fe655f3c292cb550e65a34ca702",
+    "web/lib/__tests__/rank-payload.test.ts": "6f825f23c368e34176c979e4be49b2f9a715ffb06f7f2ece42fd731664089a82",
+    "web/lib/__tests__/route-evidence-map-interaction.test.ts": "4bf1819e399af22ed631f18b401ea1392ce0ece71631e929f706b6c7a109e692",
+    "web/lib/__tests__/score-card-copy.test.ts": "07e0ebc5e7029d6ef6fc535ee713218e17114d1b21ebda2bed4f9e5d33da7caa",
+    "web/lib/__tests__/walk-real-records.test.ts": "eb5b946a340c526f43eb3b5937eed329f23b0cb9b55ab77d7e96808f15678692",
+    "web/lib/__tests__/walk-recovery-focus.test.tsx": "5bf1efeaa3922c65f64a083bd27b3d6376a4c7f42258e22fe1f89e886322db01"
+  },
+  "elapsedSeconds": 5.14,
+  "execution": {
+    "ok": true,
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "pipelineRuns": 0,
+  "passed": true
+}

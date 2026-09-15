@@ -53,7 +53,7 @@ vi.mock("next/dynamic", () => ({ default: () => children.MapChild }));
 vi.mock("../../components/route-map-loader", () => ({ RouteMapLoader: children.MapChild, preloadRouteMap: vi.fn() }));
 vi.mock("next/navigation", () => ({ usePathname: () => "/" }));
 
-import Home from "../../app/page";
+import Home from "../../app/home";
 
 type Element = ReactElement<{ children?: ReactNode; onClick?: () => void }>;
 type MapProps = ComponentProps<typeof RouteEvidenceMap>;

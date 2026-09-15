@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { selectionForChosenStop } from '../../app/page';
+import { selectionForChosenStop } from '../../app/home';
 import { walkMetrics } from '../../components/walk-summary';
 import { postalGeomToRouteGeoJson } from '../route-geojson';
 import type { ScoreRecord, PostalGeom } from '../types';
