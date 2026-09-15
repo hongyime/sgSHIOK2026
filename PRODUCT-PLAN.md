@@ -14,6 +14,10 @@ Package/upload are complete. Next: release-specific recovery/returning-client ch
 and primary-domain publication. No measured speedup claimed. Reporting stays
 disabled with30day retention. First natural daily cleanup now verified healthy.
 Its moderator identity and real activation remain.
+Reporting implementation follow-up: the entry and Send now share one default-off
+public build-time setting; changing server configuration alone no longer leaves
+the frontend permanently hardcoded off.306focused checks pass; real activation
+and resident/browser acceptance remain separate from these fixture tests.
 Older checkpoint paragraphs below are historical, not the current release state.
 Latest interaction/fix checkpoint:5dc9124 fixes unread HTTP error bodies in the
 walk-preview client.4red regressions reproduced;15focused/3343full isolated tests

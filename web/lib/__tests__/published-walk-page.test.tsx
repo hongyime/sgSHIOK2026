@@ -244,8 +244,8 @@ function render(commitEffects = true) {
   for (let attempt = 0; attempt < 40; attempt++) {
     host.begin();
     const entry = Home();
-    // Exercise the internal deployment-capability view; the public route keeps
-    // its actual default and accepts no test/environment/query-string switch.
+    // Exercise the internal view when requested; otherwise use the real
+    // build-time public release flag, never a URL or storage override.
     const props = residentReportingAvailable === undefined ? entry.props
       : { ...entry.props, residentReportingAvailable };
     tree = (entry.type as (props: { residentReportingAvailable: boolean }) => ReactNode)(props);
@@ -551,6 +551,7 @@ beforeEach(() => {
   confirmReport = vi.fn(() => false);
   reloadPage = vi.fn();
   residentReportingAvailable = undefined;
+  vi.stubEnv('NEXT_PUBLIC_SHIOK_REPORTS_ENABLED', undefined);
   vi.stubGlobal('HTMLInputElement', PostalInputDouble);
   vi.stubGlobal('fetch', fetchSpy);
   vi.stubGlobal('document', reportDocument);
@@ -583,6 +584,7 @@ afterEach(() => {
   } finally {
     host.reset();
     vi.unstubAllGlobals();
+    vi.unstubAllEnvs();
   }
 });
 
@@ -593,6 +595,39 @@ describe('T16 Home report integration with the real composer contract', () => {
   async function start() { await loadA(); await clickPageButton('Report a map issue'); }
   function point(value = reportPoint) { map().onFeedbackPoint!(value); render(); }
   async function compose() { await start(); point(); await clickPageButton('Continue report'); }
+  it.each([undefined, 'false', 'TRUE', '1', ' true ', 'true\n'])(
+    'report release availability stays off for %j', async value => {
+      residentReportingAvailable = undefined;
+      vi.stubEnv('NEXT_PUBLIC_SHIOK_REPORTS_ENABLED', value);
+      expect(Home().props.residentReportingAvailable).toBe(false);
+      await loadA();
+      expect(nodeText(tree)).not.toContain('Report a map issue');
+      expect(elements(tree).some(e => e.type === ReportComposer)).toBe(false);
+      expect(fetchSpy).not.toHaveBeenCalled();
+    });
+
+  it('report release availability enables the entry and the prepared composer together', async () => {
+    residentReportingAvailable = undefined;
+    vi.stubEnv('NEXT_PUBLIC_SHIOK_REPORTS_ENABLED', 'true');
+    expect(Home().props.residentReportingAvailable).toBe(true);
+    await compose();
+    expect(report().props.enabled).toBe(true);
+    expect(report().props.geometry).toEqual({ type: 'Point', coordinates: [103.85, 1.35] });
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
+  it('report release availability closes sending without discarding an existing composition', async () => {
+    await compose();
+    const prepared = report();
+    expect(prepared.props.enabled).toBe(true);
+    prepared.props.onUnsavedChange(true);
+    residentReportingAvailable = false; render();
+    expect(report().key).toBe(prepared.key);
+    expect(report().props.geometry).toEqual(prepared.props.geometry);
+    expect(report().props.enabled).toBe(false);
+    expect(nodeText(tree)).not.toContain('Report a map issue');
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
   function unknownSave() {
     // The isolated real composer tests execute POST/retry. Here inject only its
     // documented status callbacks, without activating Home or accessing a provider.
@@ -680,7 +715,7 @@ describe('T16 Home report integration with the real composer contract', () => {
       expect(summary().headingRef).toBe(headingRef);
     });
 
-  it('starts empty, preserves the saved map, and passes the validated point/context with sending off', async () => {
+  it('starts empty, preserves the saved map, and passes the validated point/context with release availability', async () => {
     await loadA(); const routes = clone(map().routes);
     await clickPageButton('Report a map issue');
     expect(map().feedbackEnabled).toBe(true); expect(map().feedbackPoints).toEqual([]);
@@ -688,7 +723,7 @@ describe('T16 Home report integration with the real composer contract', () => {
     point(); await clickPageButton('Continue report');
     expect(report().props).toMatchObject({ geometry: { type: 'Point', coordinates: [103.85, 1.35] },
       context: { postal_code: A, transit_category: 'bus' },
-      bundleVersion: 'generated_20260805_prefer_scored_routed', enabled: false });
+      bundleVersion: 'generated_20260805_prefer_scored_routed', enabled: true });
     expect(report().props.context?.destination_id).toBe(summary().option?.aliases[0]);
     expect(map().feedbackEnabled).toBe(false); expect(map().feedbackPoints).toEqual([reportPoint]);
     expect(map().routes).toEqual(routes);

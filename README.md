@@ -659,6 +659,10 @@ These must never have a `NEXT_PUBLIC_` prefix. The route additionally requires
 Vercel's production Node runtime and production/preview deployment identity;
 ordinary local servers cannot trust request-supplied proxy headers and fail closed.
 The database's separate intake, policy, bundle and cleanup gates still apply.
+The resident entry and Send controls share `NEXT_PUBLIC_SHIOK_REPORTS_ENABLED`:
+only the exact value `true` enables this non-secret, build-time UI setting. It
+defaults off and requires a new frontend build to change. It grants no server or
+database access; emergency intake shutdown still uses those independent gates.
 Runtime credentials and production intake have not been configured by this work.
 Six attempts/network/minute and60attempts/minute limit each warm instance before
 provider IO, including retries/conflicts. This is not a global attack budget.

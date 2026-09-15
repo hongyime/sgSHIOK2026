@@ -10297,3 +10297,37 @@ DISAGREEMENTS
    Vercel's normal remote build ran its configured npm ci command.
 
 Receipts: qa/revamp-r1/ship-continuation-20260915/tile-production-{pack,plan,submit,ready}.json
+
+## 2026-09-16 Connect Resident Reporting Availability
+
+defect=Home entry and ReportComposer Send were independently hardcoded false
+fix=one exact-true NEXT_PUBLIC_SHIOK_REPORTS_ENABLED build-time UI setting
+default=false
+serverAuthorizationChanged=false
+databaseAdmissionChanged=false
+productionReportingEnabled=false
+newTests=6default/malformed flag cases+1enabled path+1draft-preserving disable=8
+red=3failed+188passed=191tests,2files
+focusedGreen=306passed,3files,42dependency guards
+TypeScript=exit0,33.766seconds
+docsIntegrity=41passed,18.23seconds inside25.125second driver
+fullIsolated=3350passed+1timeout=3351tests,86files,42dependency guards
+fullElapsedSeconds=486.703
+timeout=moderation-console.test.tsx: preserves exact pagination cursors and makes page 101 reachable
+timeoutLimitMs=15000,unchanged
+review=independent read-only review of actual Home/tests/README diff,no findings
+
+FINDINGS
+1. Backend activation alone could never enable the resident journey. The entry
+   and composer now receive the same explicit default-off release availability.
+2. Existing composer tests exercise real local handlers and mocked HTTP receipts,
+   stale Send rejection, same-envelope retry and late receipt preservation.
+   Home tests prove location/context/availability wiring, not browser integration.
+3. The isolated full suite is NOT green at this checkpoint. Its existing101-page
+   moderation case hit the unchanged15-second test limit; formatting work is next.
+DISAGREEMENTS
+1. Build-time UI availability is not live runtime authorization or a remote kill
+   switch. Server and database intake controls remain independently authoritative.
+
+Receipts: qa/revamp-r1/report-availability-20260916/{red,green}.json
+Full/type/docs: qa/revamp-r1/release-finalize-20260915/{full-_rohwfy8,types-qjyyksma,docs-fggzgtgz}/summary.json

@@ -2001,12 +2001,9 @@ export function DataDetails({ manifest, onToggle, children }: { manifest: Manife
   );
 }
 
-// UI availability is separate from server admission. Keep closed until the
-// operational and integrated navigation/browser acceptance gates are satisfied.
-const RESIDENT_REPORT_UI_AVAILABLE = false;
-
 export default function Home() {
-  return <HomeView residentReportingAvailable={RESIDENT_REPORT_UI_AVAILABLE} />;
+  // Public build-time availability is not authorization; server/DB gates stay independent.
+  return <HomeView residentReportingAvailable={process.env.NEXT_PUBLIC_SHIOK_REPORTS_ENABLED === "true"} />;
 }
 
 function HomeView({ residentReportingAvailable }: { residentReportingAvailable: boolean }) {
@@ -3001,7 +2998,7 @@ function HomeView({ residentReportingAvailable }: { residentReportingAvailable: 
               }}>Cancel report</button>
             </div>
           </> : <ReportComposer key={residentReport.id} geometry={residentReportGeometry(residentReport.points, residentReport.mode)}
-            context={residentReport.context} bundleVersion={residentReport.bundleVersion} enabled={false}
+            context={residentReport.context} bundleVersion={residentReport.bundleVersion} enabled={residentReportingAvailable}
             onClose={closeResidentReport}
             onUnsavedChange={value => { if (reportRef.current?.id === residentReport.id) reportUnsaved.current = value; }}
             onPhaseChange={phase => { if (reportRef.current?.id === residentReport.id) reportPhase.current = phase; }} />}
