@@ -4642,3 +4642,47 @@ FINDINGS
 DISAGREEMENTS
 1. No disagreement with30days. Report implementation and mocked receipts are
    not a launched service; release and authenticated moderation still remain.
+
+## 2026-09-15: Private moderation database and authentication boundary
+
+Install service-role-only queue/context/decision gateways into the dedicated
+SHIOK project, with the owner allowlist initially empty and resident intake off.
+Before a gateway call, the Node server must verify the exact token with the
+pinned Auth `/user` endpoint. Only verified actor/session/expiry are forwarded;
+user-editable metadata never authorizes access. Every database operation then
+checks the independent allowlist, live session, account ban/deletion and expiry.
+Shared authorization row locks make revocation serialize with a decision.
+This is not protection against a compromised service secret, which remains trusted.
+
+Require READ COMMITTED explicitly. A singleton row lock cannot refresh an old
+REPEATABLE READ snapshot, so a caller using that isolation could otherwise
+approve conflicting duplicate edges from different snapshots. All duplicate
+targets and endpoint revisions are compared in order while holding the same
+control lock as submission and cleanup. Decision and private audit commit together.
+The audit expires with its source report, without extending the30-day retention.
+Read a source independently of its old duplicate chain; a purged target must not
+make a still-retained source impossible to inspect. Limit target traversal to32.
+
+Migration20260915041505 is installed; its bytes match the reviewed CLI-created
+candidate20260915034739.39SQLgroups and six unsupported-isolation entry rejections
+pass before and after installation. These are rollback synthetic identities,
+not successful real Auth logins or overlapping moderation race acceptance.
+No real owner, Auth user/session or report exists; intake remains disabled.
+The isolated web suite is2482+49=2531tests in78+1=79files, plus42dependency guards.
+The94focused tests overlap that suite and must not be added to it.
+
+FINDINGS
+1. Implemented atomic private moderation and bounded queue/context reads, with
+   audit retention and server Auth verification. No public browser DB grants.
+2. Independent review found two defects before apply: stale-snapshot isolation
+   and source inspection depending on an expired/overlong target chain. Both
+   were fixed and covered by executed SQL tests; the first23-test checkpoint
+   did not cover them and is not a complete acceptance claim.
+3. Owner sign-in/enrollment, HTTP/queue UI, actual Auth-to-RPC flow, overlapping
+   moderation/revocation races and release acceptance remain. This is not T17 done.
+
+DISAGREEMENTS
+1. A lock plus sequential green tests is not proof of concurrency safety across
+   arbitrary transaction isolation. Unsupported modes now fail explicitly.
+2. Authentication alone is not authorization; this helper does not enroll a
+   moderator, enable reports or establish a launched private service.

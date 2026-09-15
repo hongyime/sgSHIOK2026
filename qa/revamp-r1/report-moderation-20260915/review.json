@@ -1,0 +1,8 @@
+{
+  "status": {
+    "01a0a32c-1839-77c2-8e25-acc2cd507b7c": {
+      "completed": "No blocking findings for applying this migration with intake disabled and the allowlist empty.\n\nBoth findings are resolved: [READ COMMITTED-only gate](C:/sgSHIOK2026/supabase/migrations/20260915034739_shiok_report_moderation.sql:37) and [non-traversing source context](C:/sgSHIOK2026/supabase/migrations/20260915034739_shiok_report_moderation.sql:142). The [auth helper](C:/sgSHIOK2026/web/app/api/moderation/auth.ts:77) remains authentication-only, with independent database authorization required.\n\nConfirmed current migration/tests match the [rollback evidence](C:/sgSHIOK2026/qa/revamp-r1/report-moderation-20260915/test-rbt4BC/summary.json): **39/39 groups**, six isolation rejections, unchanged zero report/Auth counts, intake disabled.\n\nBefore activation, retain gates for post-apply ACL/advisor checks, real Auth-to-RPC integration, and overlapping revocation/moderation races. This review does not establish T17 completion.\n\nNo writes or provider calls during this final review."
+    }
+  },
+  "timed_out": false
+}

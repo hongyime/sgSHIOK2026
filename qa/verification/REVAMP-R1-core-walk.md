@@ -8306,3 +8306,116 @@ NEXT: actual concurrency and scheduler cancellation, daily cleanup, early-deleti
   "next": "Keep full goal active: private moderator authorization/queue, health monitoring, cross-route navigation guard and integrated acceptance; exact core-map release can proceed separately from report activation."
 }
 ```
+
+
+## 2026-09-15: Private moderation backend and authentication checkpoint
+
+```json
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "PRAWN-E14",
+  "previousGoalTurn": "No progress: final verification/status only. Concrete implementation resumed this turn.",
+  "migration": {
+    "path": "supabase/migrations/20260915041505_shiok_report_moderation.sql",
+    "sha256": "9fa29b627313fb1b955fe717b553f7c600078b6f9d869f8cfdc5a88016c89965",
+    "nativeVersion": "20260915041505",
+    "originalCliFile": "20260915034739_shiok_report_moderation.sql",
+    "exactByteRename": true
+  },
+  "database": {
+    "receipts": [
+      "inspect-HMa6UN",
+      "test-JPaUxA",
+      "test-rbt4BC",
+      "apply-9WK51f",
+      "test-applied-u3wu1n"
+    ],
+    "initialGroups": 23,
+    "currentGroups": 39,
+    "isolationEntryRejections": 6,
+    "reports": 0,
+    "authUsers": 0,
+    "authSessions": 0,
+    "intakeEnabled": false,
+    "enrollment": "none",
+    "advisorLevels": [
+      "INFO",
+      "INFO",
+      "INFO",
+      "INFO",
+      "INFO"
+    ],
+    "requestArithmetic": "4 + 5 + 7 + 8 + 8 = 32"
+  },
+  "validation": {
+    "receipts": {
+      "full": "checks-full-QhMTdS",
+      "focused": "checks-focused-8YQokH",
+      "types": "checks-types-YWGBx9",
+      "docs": "checks-docs-OK2EcG"
+    },
+    "web": {
+      "passed": 2531,
+      "files": 79,
+      "dependencyGuards": 42
+    },
+    "focused": {
+      "passed": 94,
+      "failed": 0,
+      "files": 2
+    },
+    "typeScriptExit": 0,
+    "docsPassed": 41,
+    "arithmetic": "2482 + 49 = 2531; 78 + 1 = 79. Focused 94 overlaps the full suite; guards are separate.",
+    "isolation": {
+      "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-40YSJB",
+      "copiedFiles": 263,
+      "productionDataDirectoryAbsent": true,
+      "guardProbePassed": true,
+      "forbiddenPaths": [
+        "C:\\sgSHIOK2026\\web\\public\\data",
+        "C:\\sgSHIOK2026\\tmp\\test-without-data-40YSJB\\web\\public\\data"
+      ],
+      "dependencies": "Existing node_modules linked; no installation",
+      "testArgs": [
+        "--reporter=dot",
+        "--testTimeout=15000"
+      ],
+      "exitCode": 0
+    },
+    "sourceBindings": {
+      "web/app/api/moderation/auth.ts": "4bd16b8c4d358211253a37d52aaef7a04e4cfaf3bba6ccf93139c1d9bd9db997",
+      "web/lib/__tests__/moderator-auth.test.ts": "33a8a4490a7c43d9395840558a34dcf4bc8454dde62b99036d7872c42b25eac5",
+      "web/lib/report-lifecycle.ts": "0ac7c2003faf1860877aaf145203d4b7eedb1106ec23966dc468b2c53339caee"
+    },
+    "integrity": "repo_integrity=ok\r\n"
+  },
+  "review": {
+    "status": {
+      "01a0a32c-1839-77c2-8e25-acc2cd507b7c": {
+        "completed": "No blocking findings for applying this migration with intake disabled and the allowlist empty.\n\nBoth findings are resolved: [READ COMMITTED-only gate](C:/sgSHIOK2026/supabase/migrations/20260915034739_shiok_report_moderation.sql:37) and [non-traversing source context](C:/sgSHIOK2026/supabase/migrations/20260915034739_shiok_report_moderation.sql:142). The [auth helper](C:/sgSHIOK2026/web/app/api/moderation/auth.ts:77) remains authentication-only, with independent database authorization required.\n\nConfirmed current migration/tests match the [rollback evidence](C:/sgSHIOK2026/qa/revamp-r1/report-moderation-20260915/test-rbt4BC/summary.json): **39/39 groups**, six isolation rejections, unchanged zero report/Auth counts, intake disabled.\n\nBefore activation, retain gates for post-apply ACL/advisor checks, real Auth-to-RPC integration, and overlapping revocation/moderation races. This review does not establish T17 completion.\n\nNo writes or provider calls during this final review."
+      }
+    },
+    "timed_out": false
+  },
+  "protectedAnchorsVerified": 11,
+  "weights": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+  "references": [
+    "https://supabase.com/changelog.md",
+    "https://supabase.com/docs/guides/auth/sessions",
+    "https://supabase.com/docs/guides/database/postgres/row-level-security"
+  ],
+  "findings": [
+    "Private bounded queue/context and atomic moderation installed with empty allowlist; Auth verification is implemented but not connected to a public route.",
+    "Review found stale REPEATABLE READ snapshots could defeat lock-only serialization. Unsupported isolation now explicitly fails; all entry gates tested.",
+    "Review found source lookup unnecessarily traversed expired/overlong targets. Retained source inspection is now independent and tested through real SQL.",
+    "Initial23groups missed both review findings; corrected39groups plus6isolation rejections pass before and after apply. No overlapping moderation race or real owner Auth claim.",
+    "No pipeline run, frozen artifact mutation, Cloudflare, paid upgrade, runtime secret write or frontend deployment. Resident reporting remains disabled."
+  ],
+  "disagreements": [
+    "Sequential green tests and a row lock do not prove safety under arbitrary transaction isolation.",
+    "Authentication-only verification is not authorization, enrollment, a working owner queue UI or T17 completion."
+  ],
+  "next": "Finish owner sign-in/enrollment, HTTP adapter/queue UI, actual Auth-to-RPC and overlapping revocation/moderation acceptance; continue health delivery, integrated resident/navigation and exact frontend release. Full goal active."
+}
+```

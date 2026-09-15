@@ -1,0 +1,175 @@
+{
+  "mode": "test",
+  "target": {
+    "projectRef": "ztjilsfgoephcdcsgcks",
+    "projectName": "sgshiok",
+    "projectUrl": "https://ztjilsfgoephcdcsgcks.supabase.co",
+    "organizationId": "ixonsqiqglwriirutigr",
+    "region": "ap-southeast-1",
+    "plan": "free"
+  },
+  "startedAt": "2026-09-15T03:55:30.638Z",
+  "passed": true,
+  "requests": [
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks",
+      "status": 200
+    },
+    {
+      "path": "organizations/ixonsqiqglwriirutigr",
+      "status": 200
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "4bb1cb2c86cda156bf611caacd8e6ac4803543c62b1e827a5872a13b13463bf7"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "fa58108e2638de37eccbc57060c5a34ef2170699e836efe25c7354eb5b03d7b1"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "4bb1cb2c86cda156bf611caacd8e6ac4803543c62b1e827a5872a13b13463bf7"
+    }
+  ],
+  "before": [
+    {
+      "reports": 0,
+      "usage": 0,
+      "control": {
+        "enabled": false,
+        "singleton": true,
+        "allowed_bundles": [],
+        "request_floor_ms": 1789354409975,
+        "cleanup_failed_at": null,
+        "policy_approved_at": null,
+        "cleanup_verified_at": "2026-09-15T02:53:29.975663+00:00"
+      },
+      "moderators_table": null,
+      "auth_users": 0,
+      "auth_sessions": 0
+    }
+  ],
+  "migration": {
+    "file": "20260915034739_shiok_report_moderation.sql",
+    "sha256": "b9aa725e25b0e551ad6632bf0426a1ddc5c1767816a601f6325f352bb998689c"
+  },
+  "testsSha256": "c06c30ebc9edf06be02fe45282c77aeb96e711f2509f1ba1625230109e0c10c6",
+  "checks": [
+    {
+      "name": "actual_anon_and_authenticated_cannot_read_or_call_queue",
+      "passed": true
+    },
+    {
+      "name": "allowlist_defaults_disabled",
+      "passed": true
+    },
+    {
+      "name": "allowlist_revocation_stops_decision",
+      "passed": true
+    },
+    {
+      "name": "anonymous_banned_and_soft_deleted_users_denied",
+      "passed": true
+    },
+    {
+      "name": "complete_ordered_chain_read_set_required",
+      "passed": true
+    },
+    {
+      "name": "converging_links_cannot_form_cycle",
+      "passed": true
+    },
+    {
+      "name": "cross_type_duplicate_rejected",
+      "passed": true
+    },
+    {
+      "name": "decision_and_private_audit_commit_atomically",
+      "passed": true
+    },
+    {
+      "name": "decision_never_extends_expiry_or_changes_content",
+      "passed": true
+    },
+    {
+      "name": "deleted_session_revokes_queue",
+      "passed": true
+    },
+    {
+      "name": "expired_session_token_and_unbounded_expiry_denied",
+      "passed": true
+    },
+    {
+      "name": "failed_audit_rolls_back_entire_decision",
+      "passed": true
+    },
+    {
+      "name": "queue_filter_and_cursor_fail_closed",
+      "passed": true
+    },
+    {
+      "name": "queue_keyset_paging_25_then_8",
+      "passed": true
+    },
+    {
+      "name": "revision_and_unicode_reason_bounds",
+      "passed": true
+    },
+    {
+      "name": "same_type_duplicate_to_terminal_target",
+      "passed": true
+    },
+    {
+      "name": "scheduled_cleanup_cascades_private_audit_retention",
+      "passed": true
+    },
+    {
+      "name": "self_and_expired_targets_rejected",
+      "passed": true
+    },
+    {
+      "name": "server_queue_excludes_expired_and_retry_identifiers",
+      "passed": true
+    },
+    {
+      "name": "service_role_cannot_enroll_or_directly_decide",
+      "passed": true
+    },
+    {
+      "name": "target_revision_changed_since_read_rejected",
+      "passed": true
+    },
+    {
+      "name": "terminal_and_expired_sources_rejected",
+      "passed": true
+    },
+    {
+      "name": "user_metadata_cannot_enroll_moderator",
+      "passed": true
+    }
+  ],
+  "after": [
+    {
+      "reports": 0,
+      "usage": 0,
+      "control": {
+        "enabled": false,
+        "singleton": true,
+        "allowed_bundles": [],
+        "request_floor_ms": 1789354409975,
+        "cleanup_failed_at": null,
+        "policy_approved_at": null,
+        "cleanup_verified_at": "2026-09-15T02:53:29.975663+00:00"
+      },
+      "moderators_table": null,
+      "auth_users": 0,
+      "auth_sessions": 0
+    }
+  ],
+  "productionUnchanged": true,
+  "finishedAt": "2026-09-15T03:55:32.476Z"
+}

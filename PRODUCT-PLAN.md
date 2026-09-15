@@ -466,7 +466,15 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: T13 approval. End-to-end acceptance requires actual durable receipt, not only mocked success.
 
 ### [ ] T17: Build the private owner moderation queue
-- Status: WAIT_DEPS. Size: M. Parent: P1.3.
+- Status: PARTIAL (private SQL and server authentication boundary; no owner queue UI or activation). Size: M. Parent: P1.3.
+- 15September implementation: bounded private queue/context/decision RPCs, live
+  allowlisted session checks, full duplicate-chain revision guards and source-scoped
+  expiring audit. Authentication verifies the token with the pinned Auth endpoint;
+  decoded claims alone do not grant access. The public browser has no DB grants.
+  Review found and corrected stale-snapshot isolation and retained-source lookup
+  defects before application. READ COMMITTED is explicitly required. Owner login,
+  HTTP adapter, moderation UI, actual concurrent moderation/session-revocation
+  acceptance and deployment remain. No account is silently enrolled.
 - Depends on: T15.
 - Scope: approved private moderation route/UI and storage rules; lifecycle/access tests.
 - Do: authenticate only the moderator; list/filter pending reports, inspect context, accept/reject/mark duplicate with reasons and audit time. Keep queue/navigation separate from the resident map experience.

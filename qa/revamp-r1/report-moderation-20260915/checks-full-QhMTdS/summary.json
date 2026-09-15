@@ -1,0 +1,44 @@
+{
+  "mode": "full",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "web/scripts/test-without-production-data.mjs",
+    "--reporter=dot",
+    "--testTimeout=15000"
+  ],
+  "exit": 0,
+  "error": null,
+  "elapsedMs": 272718,
+  "before": {
+    "web/app/api/moderation/auth.ts": "4bd16b8c4d358211253a37d52aaef7a04e4cfaf3bba6ccf93139c1d9bd9db997",
+    "web/lib/__tests__/moderator-auth.test.ts": "33a8a4490a7c43d9395840558a34dcf4bc8454dde62b99036d7872c42b25eac5",
+    "web/lib/report-lifecycle.ts": "0ac7c2003faf1860877aaf145203d4b7eedb1106ec23966dc468b2c53339caee"
+  },
+  "after": {
+    "web/app/api/moderation/auth.ts": "4bd16b8c4d358211253a37d52aaef7a04e4cfaf3bba6ccf93139c1d9bd9db997",
+    "web/lib/__tests__/moderator-auth.test.ts": "33a8a4490a7c43d9395840558a34dcf4bc8454dde62b99036d7872c42b25eac5",
+    "web/lib/report-lifecycle.ts": "0ac7c2003faf1860877aaf145203d4b7eedb1106ec23966dc468b2c53339caee"
+  },
+  "sourceStable": true,
+  "isolation": {
+    "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-40YSJB",
+    "copiedFiles": 263,
+    "productionDataDirectoryAbsent": true,
+    "guardProbePassed": true,
+    "forbiddenPaths": [
+      "C:\\sgSHIOK2026\\web\\public\\data",
+      "C:\\sgSHIOK2026\\tmp\\test-without-data-40YSJB\\web\\public\\data"
+    ],
+    "dependencies": "Existing node_modules linked; no installation",
+    "testArgs": [
+      "--reporter=dot",
+      "--testTimeout=15000"
+    ],
+    "exitCode": 0
+  },
+  "snapshotSources": {
+    "web/app/api/moderation/auth.ts": "4bd16b8c4d358211253a37d52aaef7a04e4cfaf3bba6ccf93139c1d9bd9db997",
+    "web/lib/__tests__/moderator-auth.test.ts": "33a8a4490a7c43d9395840558a34dcf4bc8454dde62b99036d7872c42b25eac5",
+    "web/lib/report-lifecycle.ts": "0ac7c2003faf1860877aaf145203d4b7eedb1106ec23966dc468b2c53339caee"
+  }
+}

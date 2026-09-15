@@ -1,0 +1,362 @@
+{
+  "mode": "test-applied",
+  "target": {
+    "projectRef": "ztjilsfgoephcdcsgcks",
+    "projectName": "sgshiok",
+    "projectUrl": "https://ztjilsfgoephcdcsgcks.supabase.co",
+    "organizationId": "ixonsqiqglwriirutigr",
+    "region": "ap-southeast-1",
+    "plan": "free"
+  },
+  "startedAt": "2026-09-15T04:15:46.425Z",
+  "passed": true,
+  "requests": [
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks",
+      "status": 200
+    },
+    {
+      "path": "organizations/ixonsqiqglwriirutigr",
+      "status": 200
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "4bb1cb2c86cda156bf611caacd8e6ac4803543c62b1e827a5872a13b13463bf7"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "2bb612a0fd555d00bacb9309da1ee782901be0e5fe8aba6a2e05110a3c2b8783"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "f75791ff75cdbaaebd5f8d5196c79cb674789d64ccfbc043ea401eafa10d2d1d"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "96d0f1f48207ba9f80acd0da76ba142ece0d4d5b338538fde39507b34e190afa"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "4bb1cb2c86cda156bf611caacd8e6ac4803543c62b1e827a5872a13b13463bf7"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/advisors/security",
+      "status": 200
+    }
+  ],
+  "before": [
+    {
+      "reports": 0,
+      "usage": 0,
+      "control": {
+        "enabled": false,
+        "singleton": true,
+        "allowed_bundles": [],
+        "request_floor_ms": 1789354409975,
+        "cleanup_failed_at": null,
+        "policy_approved_at": null,
+        "cleanup_verified_at": "2026-09-15T02:53:29.975663+00:00"
+      },
+      "moderators_table": "shiok_reports.moderators",
+      "auth_users": 0,
+      "auth_sessions": 0
+    }
+  ],
+  "migration": {
+    "file": "20260915041505_shiok_report_moderation.sql",
+    "sha256": "9fa29b627313fb1b955fe717b553f7c600078b6f9d869f8cfdc5a88016c89965"
+  },
+  "testsSha256": "5aef1ad56d2ddf95d438f469dcdbec06cc6de97d645e4b1e015cf539739a1099",
+  "checks": [
+    {
+      "name": "actual_anon_and_authenticated_cannot_read_or_call_queue",
+      "passed": true
+    },
+    {
+      "name": "allowlist_defaults_disabled",
+      "passed": true
+    },
+    {
+      "name": "allowlist_revocation_stops_decision",
+      "passed": true
+    },
+    {
+      "name": "anonymous_banned_and_soft_deleted_users_denied",
+      "passed": true
+    },
+    {
+      "name": "complete_ordered_chain_read_set_required",
+      "passed": true
+    },
+    {
+      "name": "converging_links_cannot_form_cycle",
+      "passed": true
+    },
+    {
+      "name": "cross_type_duplicate_rejected",
+      "passed": true
+    },
+    {
+      "name": "decision_and_private_audit_commit_atomically",
+      "passed": true
+    },
+    {
+      "name": "decision_never_extends_expiry_or_changes_content",
+      "passed": true
+    },
+    {
+      "name": "deleted_session_revokes_queue",
+      "passed": true
+    },
+    {
+      "name": "edges_32_targets_plus_source_guards_commit_with_immediate_link",
+      "passed": true
+    },
+    {
+      "name": "edges_33_target_traversal_rejected_without_state_or_audit_change",
+      "passed": true
+    },
+    {
+      "name": "edges_acl_public_shiok_moderator_context_v1",
+      "passed": true
+    },
+    {
+      "name": "edges_acl_public_shiok_moderator_decide_v1",
+      "passed": true
+    },
+    {
+      "name": "edges_acl_public_shiok_moderator_queue_v1",
+      "passed": true
+    },
+    {
+      "name": "edges_acl_shiok_reports_moderator_chain_v1",
+      "passed": true
+    },
+    {
+      "name": "edges_acl_shiok_reports_moderator_context_v1",
+      "passed": true
+    },
+    {
+      "name": "edges_acl_shiok_reports_moderator_decide_v1",
+      "passed": true
+    },
+    {
+      "name": "edges_acl_shiok_reports_moderator_queue_v1",
+      "passed": true
+    },
+    {
+      "name": "edges_acl_shiok_reports_require_moderator_v1",
+      "passed": true
+    },
+    {
+      "name": "edges_context_pending_source_and_target_without_private_identifiers",
+      "passed": true
+    },
+    {
+      "name": "edges_context_preserves_exact_32_target_order_and_endpoint",
+      "passed": true
+    },
+    {
+      "name": "edges_context_rejects_null_missing_and_expired_sources_or_targets",
+      "passed": true
+    },
+    {
+      "name": "edges_expired_target_does_not_hide_retained_source_before_cleanup",
+      "passed": true
+    },
+    {
+      "name": "edges_target_cleanup_preserves_newer_source_audit_and_inspection",
+      "passed": true
+    },
+    {
+      "name": "edges_valid_33_row_stored_chain_does_not_hide_source_context",
+      "passed": true
+    },
+    {
+      "name": "expired_session_token_and_unbounded_expiry_denied",
+      "passed": true
+    },
+    {
+      "name": "failed_audit_rolls_back_entire_decision",
+      "passed": true
+    },
+    {
+      "name": "queue_filter_and_cursor_fail_closed",
+      "passed": true
+    },
+    {
+      "name": "queue_keyset_paging_25_then_8",
+      "passed": true
+    },
+    {
+      "name": "revision_and_unicode_reason_bounds",
+      "passed": true
+    },
+    {
+      "name": "same_type_duplicate_to_terminal_target",
+      "passed": true
+    },
+    {
+      "name": "scheduled_cleanup_cascades_private_audit_retention",
+      "passed": true
+    },
+    {
+      "name": "self_and_expired_targets_rejected",
+      "passed": true
+    },
+    {
+      "name": "server_queue_excludes_expired_and_retry_identifiers",
+      "passed": true
+    },
+    {
+      "name": "service_role_cannot_enroll_or_directly_decide",
+      "passed": true
+    },
+    {
+      "name": "target_revision_changed_since_read_rejected",
+      "passed": true
+    },
+    {
+      "name": "terminal_and_expired_sources_rejected",
+      "passed": true
+    },
+    {
+      "name": "user_metadata_cannot_enroll_moderator",
+      "passed": true
+    }
+  ],
+  "isolationChecks": [
+    {
+      "isolation": "repeatable read",
+      "rejected_entry_points": 3
+    },
+    {
+      "isolation": "serializable",
+      "rejected_entry_points": 3
+    }
+  ],
+  "after": [
+    {
+      "reports": 0,
+      "usage": 0,
+      "control": {
+        "enabled": false,
+        "singleton": true,
+        "allowed_bundles": [],
+        "request_floor_ms": 1789354409975,
+        "cleanup_failed_at": null,
+        "policy_approved_at": null,
+        "cleanup_verified_at": "2026-09-15T02:53:29.975663+00:00"
+      },
+      "moderators_table": "shiok_reports.moderators",
+      "auth_users": 0,
+      "auth_sessions": 0
+    }
+  ],
+  "productionUnchanged": true,
+  "advisors": {
+    "lints": [
+      {
+        "name": "rls_enabled_no_policy",
+        "title": "RLS Enabled No Policy",
+        "level": "INFO",
+        "facing": "EXTERNAL",
+        "categories": [
+          "SECURITY"
+        ],
+        "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+        "detail": "Table \\`shiok_reports.control\\` has RLS enabled, but no policies exist",
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+        "metadata": {
+          "schema": "shiok_reports",
+          "name": "control",
+          "type": "table"
+        },
+        "cache_key": "rls_enabled_no_policy_shiok_reports_control",
+        "observed_at": "2026-09-15T04:15:50.005Z"
+      },
+      {
+        "name": "rls_enabled_no_policy",
+        "title": "RLS Enabled No Policy",
+        "level": "INFO",
+        "facing": "EXTERNAL",
+        "categories": [
+          "SECURITY"
+        ],
+        "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+        "detail": "Table \\`shiok_reports.daily_usage\\` has RLS enabled, but no policies exist",
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+        "metadata": {
+          "schema": "shiok_reports",
+          "name": "daily_usage",
+          "type": "table"
+        },
+        "cache_key": "rls_enabled_no_policy_shiok_reports_daily_usage",
+        "observed_at": "2026-09-15T04:15:50.005Z"
+      },
+      {
+        "name": "rls_enabled_no_policy",
+        "title": "RLS Enabled No Policy",
+        "level": "INFO",
+        "facing": "EXTERNAL",
+        "categories": [
+          "SECURITY"
+        ],
+        "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+        "detail": "Table \\`shiok_reports.moderation\\` has RLS enabled, but no policies exist",
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+        "metadata": {
+          "schema": "shiok_reports",
+          "name": "moderation",
+          "type": "table"
+        },
+        "cache_key": "rls_enabled_no_policy_shiok_reports_moderation",
+        "observed_at": "2026-09-15T04:15:50.005Z"
+      },
+      {
+        "name": "rls_enabled_no_policy",
+        "title": "RLS Enabled No Policy",
+        "level": "INFO",
+        "facing": "EXTERNAL",
+        "categories": [
+          "SECURITY"
+        ],
+        "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+        "detail": "Table \\`shiok_reports.moderators\\` has RLS enabled, but no policies exist",
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+        "metadata": {
+          "schema": "shiok_reports",
+          "name": "moderators",
+          "type": "table"
+        },
+        "cache_key": "rls_enabled_no_policy_shiok_reports_moderators",
+        "observed_at": "2026-09-15T04:15:50.005Z"
+      },
+      {
+        "name": "rls_enabled_no_policy",
+        "title": "RLS Enabled No Policy",
+        "level": "INFO",
+        "facing": "EXTERNAL",
+        "categories": [
+          "SECURITY"
+        ],
+        "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+        "detail": "Table \\`shiok_reports.reports\\` has RLS enabled, but no policies exist",
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+        "metadata": {
+          "schema": "shiok_reports",
+          "name": "reports",
+          "type": "table"
+        },
+        "cache_key": "rls_enabled_no_policy_shiok_reports_reports",
+        "observed_at": "2026-09-15T04:15:50.005Z"
+      }
+    ]
+  },
+  "finishedAt": "2026-09-15T04:15:50.201Z"
+}

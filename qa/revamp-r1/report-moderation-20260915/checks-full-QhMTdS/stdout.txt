@@ -1,0 +1,77 @@
+installed_dependencies=ok
+✔ test entry refuses the real MapLibre 6.4.1 lock versus 6.1.0 install shape before Vitest (448.7844ms)
+✔ matching versions may launch the test entry (1673.9196ms)
+✔ a failing native guard contract suite prevents Vitest from starting (1113.0658ms)
+✔ build entry refuses stale dependencies before even the preparation double (557.5094ms)
+✔ matching build reaches only the refusing preparation double, never Next (890.3761ms)
+✔ release CLI checks dependencies before retention/build with installed 6.1.0 (561.0975ms)
+✔ release CLI checks dependencies before retention/build with installed 6.4.1 (635.3583ms)
+✔ reports exact resolved versions for runtime and development dependencies (56.3046ms)
+✔ development dependency drift also fails (62.1892ms)
+✔ a manifest edit without matching lock-root metadata is not accepted (59.7887ms)
+✔ refuses invalid JSON in package.json (74.2727ms)
+✔ refuses null in package.json (60.9056ms)
+✔ refuses [] in package.json (57.6949ms)
+✔ refuses invalid JSON in package-lock.json (64.9016ms)
+✔ refuses null in package-lock.json (56.4428ms)
+✔ refuses [] in package-lock.json (57.4583ms)
+✔ refuses invalid JSON in node_modules/maplibre-gl/package.json (60.5837ms)
+✔ refuses null in node_modules/maplibre-gl/package.json (60.5377ms)
+✔ refuses [] in node_modules/maplibre-gl/package.json (82.9023ms)
+✔ refuses malformed dependencies (70.9239ms)
+✔ refuses malformed devDependencies (85.1715ms)
+✔ unsupported lock format 1 fails closed (88.9225ms)
+✔ unsupported lock format 4 fails closed (95.3777ms)
+✔ unsupported lock format "3" fails closed (73.261ms)
+✔ unsupported lock format null fails closed (75.1098ms)
+✔ lock v2 resolved-package metadata is supported (107.6051ms)
+✔ refuses unresolved lock entry null (65.652ms)
+✔ refuses unresolved lock entry {} (76.2032ms)
+✔ refuses unresolved lock entry {"link":true,"version":"6.4.1"} (144.7226ms)
+✔ refuses unresolved lock entry {"version":""} (61.7687ms)
+✔ missing installed package is reported without loading or executing it (106.349ms)
+✔ refuses unsafe dependency name ../escape (81.1049ms)
+✔ refuses unsafe dependency name @scope/../../escape (99.9961ms)
+✔ refuses unsafe dependency name C:\escape (72.3755ms)
+✔ refuses unsafe dependency name /escape (93.9781ms)
+✔ refuses unsafe dependency name @scope\escape (59.6816ms)
+✔ refuses unsafe dependency name .hidden (99.758ms)
+✔ scoped packages and a dependency listed in both sections are checked once (92.9943ms)
+✔ empty dependency metadata cannot authorize a vacuous success (60.2379ms)
+✔ matching null dependencies sections are invalid, not absent (101.846ms)
+✔ matching null devDependencies sections are invalid, not absent (130.5962ms)
+✔ package executable exports are never imported by the version check (70.4072ms)
+ℹ tests 42
+ℹ suites 0
+ℹ pass 42
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9273.7729
+
+ RUN  v4.1.11 C:/sgSHIOK2026/tmp/test-without-data-40YSJB/web
+
+···································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································
+
+ Test Files  79 passed (79)
+      Tests  2531 passed (2531)
+   Start at  12:04:35
+   Duration  255.32s (transform 20.68s, setup 0ms, import 45.23s, tests 88.98s, environment 71ms)
+
+{
+  "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-40YSJB",
+  "copiedFiles": 263,
+  "productionDataDirectoryAbsent": true,
+  "guardProbePassed": true,
+  "forbiddenPaths": [
+    "C:\\sgSHIOK2026\\web\\public\\data",
+    "C:\\sgSHIOK2026\\tmp\\test-without-data-40YSJB\\web\\public\\data"
+  ],
+  "dependencies": "Existing node_modules linked; no installation",
+  "testArgs": [
+    "--reporter=dot",
+    "--testTimeout=15000"
+  ],
+  "exitCode": 0
+}

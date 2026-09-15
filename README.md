@@ -614,6 +614,16 @@ Moderator authentication, cleanup-health monitoring and resident HTTP acceptance
 remain before activation. Owner UI feedback is desktop Chrome
 with a resized viewport, not physical-phone acceptance.
 
+The moderation backend provides a bounded private queue and atomic decisions,
+not a public report lookup. Auth must verify the exact moderator token; the
+database separately checks an explicitly enrolled owner and a live session.
+No user metadata grants access. Reports can be accepted, rejected or marked as
+duplicates, with stale revisions and incomplete/cyclic target chains rejected.
+Private review reasons expire with the source report. A purged target does not
+hide a newer report's decision. No moderator is enrolled automatically; owner
+sign-in, the HTTP/queue interface and concurrent operational acceptance remain.
+No credential should be pasted into chat or committed for this setup.
+
 `/api/reports` requires same-origin JSON and a pre-existing retry secret, with an
 8KiB wire limit and one10s request deadline. No public read/list endpoint exists.
 Only explicit server variables can enable it: `SHIOK_REPORTS_ENABLED=true`,

@@ -289,6 +289,27 @@ cron.alter_job API in a checked serializable transaction, not new cron table gra
 Expiry at30days is not an exact physical-erasure instant: a daily job introduces
 up to one job interval, and outages/recovery copies need explicit handling.
 
+Private moderation uses service-role-only queue, context and decision RPCs; the
+browser receives no database grants. Before calling them, the server verifies
+the exact access token with the pinned project's Auth `/user` endpoint. Decoded
+JWT fields alone are not authentication. Only actor UUID, session UUID and token
+expiry reach the RPC. Each database operation independently checks a private
+moderator allowlist, live Auth session, account status and expiry under locks.
+No moderator is enrolled by a migration. User-editable metadata grants nothing.
+Service credentials remain a trusted boundary, not something RLS can constrain.
+
+The same control-row lock serializes submission, cleanup and moderation. These
+moderation RPCs explicitly require READ COMMITTED: a lock does not refresh a
+pre-existing REPEATABLE READ snapshot. The complete ordered duplicate-chain read
+set is checked before the state and audit insert commit together. A source can
+be reviewed once, from pending to accepted/rejected/duplicate. At most32targets
+are traversed; expired/missing/cyclic or cross-type targets fail closed. Reading
+a retained source does not traverse its old target, which may already be purged.
+Audit reasons and actor identifiers cascade away with their source report at
+cleanup; moderation never extends its30-day expiry or changes published data.
+Queue pages contain at most25unexpired reports and use received-time/receipt-ID
+keyset pagination. Retry proofs, request IDs and quota buckets are never returned.
+
 The ReportComposer keeps one validated original selection and one prepared
 request envelope in memory. Review precedes explicit Send; uncertainty preserves
 the exact body, ID and retry proof. Closing uncertain work does not cancel or
