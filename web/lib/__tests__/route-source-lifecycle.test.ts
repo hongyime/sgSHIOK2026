@@ -144,7 +144,7 @@ describe('renderer startup is independent of basemap transport', () => {
     expect(map.getSource('onemap')).toBeUndefined();
     expect(routeWrites()).toHaveLength(0);
     map.emit('load'); render();
-    expect(map.getSource('onemap')).toMatchObject({type:'raster',tileSize:128,
+    expect(map.getSource('onemap')).toMatchObject({type:'raster',tileSize:256,
       tiles:['https://www.onemap.gov.sg/maps/tiles/Grey_HD/{z}/{x}/{y}.png']});
     expect(map.layerInsertions.filter(item=>item.id==='onemap')).toEqual([{id:'onemap',before:'lamp-post-dots'}]);
     expect(routeWrites().map(write=>write.id)).toEqual(routeIds);

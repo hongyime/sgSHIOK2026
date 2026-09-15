@@ -81,7 +81,8 @@ const ONE_MAP_STYLE: StyleSpecification = {
     onemap: {
       type: "raster",
       tiles: ["https://www.onemap.gov.sg/maps/tiles/Grey_HD/{z}/{x}/{y}.png"],
-      tileSize: 128,
+      // Avoid requesting a finer XYZ level for every view; route geometry is independent.
+      tileSize: 256,
       bounds: ONE_MAP_TILE_BOUNDS,
       minzoom: 8,
       maxzoom: 20,

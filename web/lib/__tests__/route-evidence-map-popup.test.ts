@@ -172,6 +172,8 @@ describe("bounded transit map popups", () => {
     // Basemap attachment follows renderer startup; it does not load a remote style.
     const basemap = map.getSource('onemap').spec;
     expect(basemap.type).toBe('raster');
+    // Use one image pixel per CSS pixel at DPR 1, not a finer XYZ level for every view.
+    expect(basemap.tileSize).toBe(256);
     expect(basemap).not.toHaveProperty('url');
     expect(basemap.tiles).toEqual(['https://www.onemap.gov.sg/maps/tiles/Grey_HD/{z}/{x}/{y}.png']);
     expect(basemap.attribution).toBe('<img src="https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png" style="height:20px;width:20px;"/>&nbsp;<a href="https://www.onemap.gov.sg/" target="_blank" rel="noopener noreferrer">OneMap</a>&nbsp;&copy;&nbsp;contributors&nbsp;&#124;&nbsp;<a href="https://www.sla.gov.sg/" target="_blank" rel="noopener noreferrer">Singapore Land Authority</a>');
