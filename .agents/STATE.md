@@ -3,7 +3,8 @@ Date: 2026-09-16
 Working root: C:\sgSHIOK2026; machine: PRAWN-E14.
 Startup: assert cwd equals C:\sgSHIOK2026; abort otherwise. Absolute C: writes only. X: is a cold mirror, never a session root.
 Before git, set TEMP and TMP to C:\sgSHIOK2026\tmp. Conventional commits go directly to main and must be pushed; no amend, force-push or history rewrite.
-Goal: ALL remaining build-and-ship work in PRODUCT-PLAN.md and postplan.html; ACTIVE, not complete.
+Goal: ALL remaining build-and-ship work in PRODUCT-PLAN.md and postplan.html; BLOCKED, not complete. Three consecutive no-progress gate checks; goal loop stopped16September2026.
+Resume: owner pauses competing workloads, then remeasure before deployed browser/returning-client acceptance and promotion.03:41SGT CPU100%,2196MiBavailable,pagesinput4946.60/s. Moderator email/sign-in still needed separately; do not repeat unchanged tests or invent an identity.
 Never modify locked weights or frozen raw/processed/public data/checksums/protected QA. Verification files are append-only. No pipeline runs, input repair, installs, Cloudflare or paid upgrade.
 30-day private-report retention is applied and database-tested: expiry after exactly720hours; deletion on the next successful daily cleanup. Intake and moderation remain DISABLED.
 Supabase Free APPROVED: sgshiok / ztjilsfgoephcdcsgcks / Singapore. sgbuslaobu is NOT a SHIOK project; never use it. No new project or PAT needed. Do not print/store chat credentials.
