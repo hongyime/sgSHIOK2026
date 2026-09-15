@@ -1,0 +1,31 @@
+{
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "C:\\sgSHIOK2026\\tests\\test_release_staging.py",
+    "--noconftest",
+    "-p",
+    "no:cacheprovider",
+    "-o",
+    "addopts=",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\tmp\\release-staging-a-optional-gzip-green"
+  ],
+  "before": {
+    "scripts/release_staging.py": "447e5e12cccdd73b4b63b50362f7ce632d22794d1c8572dc88a6713aed3168ee",
+    "tests/test_release_staging.py": "ec357be64e8e27159d56b97cceeeeb484239632f7917bb61e73a8c850ac8416e"
+  },
+  "after": {
+    "scripts/release_staging.py": "447e5e12cccdd73b4b63b50362f7ce632d22794d1c8572dc88a6713aed3168ee",
+    "tests/test_release_staging.py": "ec357be64e8e27159d56b97cceeeeb484239632f7917bb61e73a8c850ac8416e"
+  },
+  "stable": true,
+  "exitCode": 124,
+  "timedOut": true,
+  "stdout": "....................................................................",
+  "stderr": "",
+  "elapsedMs": 240047.0000000205
+}

@@ -4833,3 +4833,23 @@ DISAGREEMENTS
 2. Synthetic page-transition dispatch tests synchronous DOM behavior, not a real
    BFCache hit. Real Auth/overlapping database acceptance, alert delivery and the
    independent core-map release still require completion under the active goal.
+
+## 2026-09-15: preserve supported artifact representations in release staging
+
+The first real immutable stage exposed an overly strict gzip prerequisite.
+The existing frontend accepts plain JSON after an optional gzip404, except for
+transit H3 tiles, which are compressed-only. Preserve existing plain bytes when
+that optional companion is absent. Omit plain bytes only after validating an
+existing matching companion. Corruption, differing content and missing logical
+references still stop preparation; overlay tiles still require plain JSON.
+No data regeneration or mutation is authorized by this packaging correction.
+
+Use the public `next build --webpack` option in the committed release wrapper.
+Installed Next16.3.3 Turbopack requires a shared root for linked dependencies;
+the earlier QA-only root override is not an exact release build. Do not use
+private environment overrides. Sanitize the build environment and test the
+actual resulting output before any deployment; compiler choice is not acceptance.
+Reference: https://nextjs.org/docs/app/api-reference/cli/next and
+https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory.
+Evidence: qa/revamp-r1/core-release-20260915/checkpoint.json. The30-day report
+policy is unchanged and private reporting does not block core-map preparation.

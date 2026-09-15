@@ -262,12 +262,14 @@ def _files(root: Path) -> list[str]:
     return sorted(result)
 
 
+def _gzip_preferred(path: str) -> bool:
+    # Match the runtime loader, not the exporter's optional compression output.
+    return path in {"geom/index.json", "geom/postal-index.json", "transit/pois.json"} or bool(
+        re.fullmatch(r"(?:scores|geom/h3|geom/postal-prefix|transit/h3)/[^/]+\.json", path))
+
+
 def _compressed_only(path: str) -> bool:
-    # Kept fixture-checked against publish's policy without importing the exporter.
-    parts = PurePosixPath(path).parts
-    return len(parts) >= 2 and path.endswith(".json") and (
-        parts[0] == "scores" or parts[:2] in {("geom", "h3"), ("geom", "postal-prefix"), ("transit", "h3")}
-        or parts in {("geom", "index.json"), ("geom", "postal-index.json"), ("transit", "pois.json")})
+    return bool(re.fullmatch(r"transit/h3/[^/]+\.json", path))
 
 
 def _decoded(root: Path, name: str, limit: int) -> tuple[str, int]:
@@ -327,7 +329,7 @@ def _required_main(root: Path, entries: dict[str, dict], manifest: dict) -> None
 
     def require(name: str) -> None:
         _relative(name)
-        physical = name + ".gz" if _compressed_only(name) else name
+        physical = name + ".gz" if _compressed_only(name) or (_gzip_preferred(name) and name + ".gz" in entries) else name
         if physical not in entries:
             raise ReleaseStagingError("MISSING_REQUIRED_FILE", root / physical)
 
@@ -628,9 +630,10 @@ def prepare_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, o
             files.append({"path": destination, "origin": "previous-frontend", **copied})
     for artifact in artifacts:
         origin = root / "web/public/data" / artifact["directory"]
+        available = {entry["path"] for entry in artifact["inputs"]}
         for entry in artifact["inputs"]:
             relative = entry["path"]
-            omitted = artifact["role"] == "main" and _compressed_only(relative)
+            omitted = artifact["role"] == "main" and _gzip_preferred(relative) and relative + ".gz" in available
             entry["stagedPath"] = None if omitted else f"web/public/data/{origin.name}/{relative}"
             if not omitted:
                 copied = _hash_file(origin / relative, stage / entry["stagedPath"])

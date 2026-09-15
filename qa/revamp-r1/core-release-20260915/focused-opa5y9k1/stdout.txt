@@ -1,0 +1,52 @@
+installed_dependencies=ok
+✔ test entry refuses the real MapLibre 6.4.1 lock versus 6.1.0 install shape before Vitest (243.6641ms)
+✔ matching versions may launch the test entry (826.7678ms)
+✔ a failing native guard contract suite prevents Vitest from starting (577.9197ms)
+✔ build entry refuses stale dependencies before even the preparation double (295.0351ms)
+✔ matching build reaches only the refusing preparation double, never Next (470.118ms)
+✔ release CLI checks dependencies before retention/build with installed 6.1.0 (242.9794ms)
+✔ release CLI checks dependencies before retention/build with installed 6.4.1 (224.0728ms)
+✔ reports exact resolved versions for runtime and development dependencies (32.4367ms)
+✔ development dependency drift also fails (32.4356ms)
+✔ a manifest edit without matching lock-root metadata is not accepted (63.5857ms)
+✔ refuses invalid JSON in package.json (54.6026ms)
+✔ refuses null in package.json (34.1119ms)
+✔ refuses [] in package.json (39.0939ms)
+✔ refuses invalid JSON in package-lock.json (41.9787ms)
+✔ refuses null in package-lock.json (39.9588ms)
+✔ refuses [] in package-lock.json (41.0555ms)
+✔ refuses invalid JSON in node_modules/maplibre-gl/package.json (35.7614ms)
+✔ refuses null in node_modules/maplibre-gl/package.json (40.8648ms)
+✔ refuses [] in node_modules/maplibre-gl/package.json (38.7786ms)
+✔ refuses malformed dependencies (52.899ms)
+✔ refuses malformed devDependencies (51.495ms)
+✔ unsupported lock format 1 fails closed (47.2141ms)
+✔ unsupported lock format 4 fails closed (57.1549ms)
+✔ unsupported lock format "3" fails closed (54.3544ms)
+✔ unsupported lock format null fails closed (46.0964ms)
+✔ lock v2 resolved-package metadata is supported (113.6299ms)
+✔ refuses unresolved lock entry null (47.9136ms)
+✔ refuses unresolved lock entry {} (45.8908ms)
+✔ refuses unresolved lock entry {"link":true,"version":"6.4.1"} (46.1227ms)
+✔ refuses unresolved lock entry {"version":""} (35.7412ms)
+✔ missing installed package is reported without loading or executing it (56.2635ms)
+✔ refuses unsafe dependency name ../escape (47.6261ms)
+✔ refuses unsafe dependency name @scope/../../escape (58.639ms)
+✔ refuses unsafe dependency name C:\escape (52.4248ms)
+✔ refuses unsafe dependency name /escape (46.0453ms)
+✔ refuses unsafe dependency name @scope\escape (51.6425ms)
+✔ refuses unsafe dependency name .hidden (49.5427ms)
+✔ scoped packages and a dependency listed in both sections are checked once (58.0842ms)
+✔ empty dependency metadata cannot authorize a vacuous success (46.97ms)
+✔ matching null dependencies sections are invalid, not absent (54.9935ms)
+✔ matching null devDependencies sections are invalid, not absent (60.2247ms)
+✔ package executable exports are never imported by the version check (57.4381ms)
+ℹ tests 42
+ℹ suites 0
+ℹ pass 42
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4925.0226
+JSON report written to C:/sgSHIOK2026/qa/revamp-r1/core-release-20260915/focused-opa5y9k1/vitest.json

@@ -1,0 +1,37 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0 -- C:\sgSHIOK2026\.venv\Scripts\python.exe
+rootdir: C:\sgSHIOK2026
+configfile: pyproject.toml
+collecting ... collected 74 items / 51 deselected / 23 selected
+
+tests/test_release_staging.py::test_plain_fallback_is_preserved_when_optional_gzip_is_absent[scores/index.json] PASSED [  4%]
+tests/test_release_staging.py::test_plain_fallback_is_preserved_when_optional_gzip_is_absent[scores/prefix-index.json] PASSED [  8%]
+tests/test_release_staging.py::test_plain_fallback_is_preserved_when_optional_gzip_is_absent[scores/AREA.json] PASSED [ 13%]
+tests/test_release_staging.py::test_plain_fallback_is_preserved_when_optional_gzip_is_absent[geom/index.json] PASSED [ 17%]
+tests/test_release_staging.py::test_plain_fallback_is_preserved_when_optional_gzip_is_absent[geom/postal-index.json] PASSED [ 21%]
+tests/test_release_staging.py::test_plain_fallback_is_preserved_when_optional_gzip_is_absent[geom/h3/cell-a.json] PASSED [ 26%]
+tests/test_release_staging.py::test_plain_fallback_is_preserved_when_optional_gzip_is_absent[transit/pois.json] PASSED [ 30%]
+tests/test_release_staging.py::test_plain_fallback_is_preserved_when_optional_gzip_is_absent[geom/postal-prefix/018.json] PASSED [ 34%]
+tests/test_release_staging.py::test_missing_both_representations_is_not_a_plain_fallback[scores/AREA.json] PASSED [ 39%]
+tests/test_release_staging.py::test_missing_both_representations_is_not_a_plain_fallback[geom/h3/cell-a.json] PASSED [ 43%]
+tests/test_release_staging.py::test_missing_both_representations_is_not_a_plain_fallback[geom/index.json] PASSED [ 47%]
+tests/test_release_staging.py::test_missing_both_representations_is_not_a_plain_fallback[geom/postal-prefix/018.json] PASSED [ 52%]
+tests/test_release_staging.py::test_transit_tiles_still_require_gzip_even_when_plain_exists PASSED [ 56%]
+tests/test_release_staging.py::test_gzip_only_geometry_remains_supported PASSED [ 60%]
+tests/test_release_staging.py::test_overlay_plain_tile_cannot_be_replaced_with_gzip PASSED [ 65%]
+tests/test_release_staging.py::test_nested_plain_paths_are_not_omitted_by_the_runtime_policy[scores/archive/example.json] PASSED [ 69%]
+tests/test_release_staging.py::test_nested_plain_paths_are_not_omitted_by_the_runtime_policy[geom/h3/nested/example.json] PASSED [ 73%]
+tests/test_release_staging.py::test_nested_plain_paths_are_not_omitted_by_the_runtime_policy[geom/postal-prefix/nested/example.json] PASSED [ 78%]
+tests/test_release_staging.py::test_nested_plain_paths_are_not_omitted_by_the_runtime_policy[transit/h3/nested/example.json] PASSED [ 82%]
+tests/test_release_staging.py::test_raw_gzip_mismatch_or_corruption_fails_before_success[different] PASSED [ 86%]
+tests/test_release_staging.py::test_raw_gzip_mismatch_or_corruption_fails_before_success[invalid-header] PASSED [ 91%]
+tests/test_release_staging.py::test_raw_gzip_mismatch_or_corruption_fails_before_success[oversized-decode] PASSED [ 95%]
+tests/test_release_staging.py::test_raw_gzip_mismatch_or_corruption_fails_before_success[invalid-deflate] PASSED [100%]
+
+============================= slowest 5 durations =============================
+15.41s call     tests/test_release_staging.py::test_plain_fallback_is_preserved_when_optional_gzip_is_absent[scores/index.json]
+12.73s call     tests/test_release_staging.py::test_plain_fallback_is_preserved_when_optional_gzip_is_absent[scores/prefix-index.json]
+9.77s call     tests/test_release_staging.py::test_plain_fallback_is_preserved_when_optional_gzip_is_absent[scores/AREA.json]
+9.05s call     tests/test_release_staging.py::test_nested_plain_paths_are_not_omitted_by_the_runtime_policy[transit/h3/nested/example.json]
+8.24s call     tests/test_release_staging.py::test_plain_fallback_is_preserved_when_optional_gzip_is_absent[geom/postal-index.json]
+================ 23 passed, 51 deselected in 143.79s (0:02:23) ================

@@ -1,6 +1,11 @@
 # SHIOK Revamp Execution Plan
 Current scope: 2026-09-13 owner revision, replacing the 12 September UI scope.
 Completion resume: IN PROGRESS after14September owner answers, not complete.
+15September exact-release attempt: candidate1 stopped before build because the
+stager required an optional geometry gzip companion. Preserve supported plain
+JSON byte-for-byte; never regenerate it. Staging correction and explicit Webpack
+release-command acceptance are underway at qa/revamp-r1/core-release-20260915.
+This is release preparation, not deployment or a change to the30-day policy.
 15September scope confirmation: the active goal includes ALL remaining build and
 ship tasks, not just Supabase setup. Report HTTP/retry and private cleanup are
 implemented with independent review and daily scheduling, then resident activation, moderator access,

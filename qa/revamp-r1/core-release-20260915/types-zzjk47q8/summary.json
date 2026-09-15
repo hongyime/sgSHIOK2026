@@ -1,0 +1,36 @@
+{
+  "mode": "types",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "web/node_modules/typescript/bin/tsc",
+    "--project",
+    "web/tsconfig.json",
+    "--noEmit",
+    "--incremental",
+    "false"
+  ],
+  "before": {
+    "scripts/release_staging.py": "447e5e12cccdd73b4b63b50362f7ce632d22794d1c8572dc88a6713aed3168ee",
+    "tests/test_release_staging.py": "ec357be64e8e27159d56b97cceeeeb484239632f7917bb61e73a8c850ac8416e",
+    "web/scripts/build-next-release.mjs": "f67a604f2c8fcc2980370a3b94c069001a4d157dcd16afc18fcf52cf147f3ca9",
+    "web/lib/__tests__/frontend-retention.test.ts": "2520da0d562829c5d53735201949c3047c0dcd0c5aa4622021a812c1cf0a0186",
+    "web/lib/data.ts": "accb659c9dc119fb63ca8424b93ef3364f13fb9bc2392eb2d33fff3f0512dc99"
+  },
+  "after": {
+    "scripts/release_staging.py": "447e5e12cccdd73b4b63b50362f7ce632d22794d1c8572dc88a6713aed3168ee",
+    "tests/test_release_staging.py": "ec357be64e8e27159d56b97cceeeeb484239632f7917bb61e73a8c850ac8416e",
+    "web/scripts/build-next-release.mjs": "f67a604f2c8fcc2980370a3b94c069001a4d157dcd16afc18fcf52cf147f3ca9",
+    "web/lib/__tests__/frontend-retention.test.ts": "2520da0d562829c5d53735201949c3047c0dcd0c5aa4622021a812c1cf0a0186",
+    "web/lib/data.ts": "accb659c9dc119fb63ca8424b93ef3364f13fb9bc2392eb2d33fff3f0512dc99"
+  },
+  "elapsedSeconds": 4.39,
+  "execution": {
+    "ok": true,
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "pipelineRuns": 0,
+  "deployments": 0,
+  "passed": true
+}

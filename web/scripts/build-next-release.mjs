@@ -6,7 +6,7 @@ import { reportInstalledDependencies } from './check-installed-dependencies.mjs'
 
 /** @param {string} webRoot @param {() => {status: number | null, error?: Error}} [runBuild] */
 export function buildFrontendRelease(webRoot, runBuild = () => spawnSync(process.execPath,
-  [resolve(webRoot, 'node_modules/next/dist/bin/next'), 'build'],
+  [resolve(webRoot, 'node_modules/next/dist/bin/next'), 'build', '--webpack'],
   { cwd: webRoot, stdio: 'inherit', windowsHide: true })) {
   const before = verifyFrontendRetention(webRoot);
   const result = runBuild();

@@ -1,9 +1,12 @@
 import { createHash } from 'node:crypto';
+import { spawnSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 import { mkdirSync, mkdtempSync, readFileSync, symlinkSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { verifyFrontendRetention } from '../../scripts/frontend-retention.mjs';
 import { buildFrontendRelease } from '../../scripts/build-next-release.mjs';
+
+vi.mock('node:child_process', () => ({ spawnSync: vi.fn() }));
 
 const hash = (bytes: string) => createHash('sha256').update(bytes).digest('hex');
 const nextConfig = createRequire(import.meta.url)('../../next.config.js');
@@ -25,6 +28,18 @@ function build(root: string) {
 }
 
 describe('retained frontend release contract', () => {
+  it('uses the explicit supported Webpack release command without a private root override', () => {
+    const {root} = fixture();
+    vi.mocked(spawnSync).mockImplementationOnce(() => {
+      build(root);
+      return {status:0,pid:1,signal:null,output:[],stdout:Buffer.alloc(0),stderr:Buffer.alloc(0)};
+    });
+    expect(buildFrontendRelease(root).built).toBe(true);
+    expect(spawnSync).toHaveBeenCalledWith(process.execPath,
+      [resolve(root,'node_modules/next/dist/bin/next'),'build','--webpack'],
+      {cwd:root,stdio:'inherit',windowsHide:true});
+  });
+
   it('retains actual ESM runtime filenames and the accompanying license', () => {
     const {root,policy} = fixture();
     for (const path of ['_next/static/media/maplibre-gl.hash.mjs','maplibre/6.1.0/maplibre-gl-worker.mjs','maplibre/6.1.0/LICENSE.txt']) {

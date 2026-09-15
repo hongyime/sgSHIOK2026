@@ -204,14 +204,90 @@ def test_tracked_suspicious_files_are_rejected(staging, repository, name):
         prepare(staging, repository)
 
 
-@pytest.mark.parametrize("name", ["scores/index.json.gz", "scores/prefix-index.json.gz", "geom/postal-index.json.gz",
-                                 "geom/postal-prefix/018.json.gz", "transit/h3/cell-a.json.gz"])
+@pytest.mark.parametrize("name", ["geom/postal-prefix/018.json.gz", "transit/h3/cell-a.json.gz"])
 def test_missing_existing_gzip_or_derived_lookup_fails_without_regeneration(staging, repository, name):
     _, data, _ = repository
     (data / name).unlink()
     before = snapshot(data)
     with pytest.raises(staging.ReleaseStagingError, match="MISSING"):
         prepare(staging, repository)
+    assert snapshot(data) == before
+
+
+@pytest.mark.parametrize("name", ["scores/index.json", "scores/prefix-index.json", "scores/AREA.json",
+                                 "geom/index.json", "geom/postal-index.json", "geom/h3/cell-a.json",
+                                 "transit/pois.json", "geom/postal-prefix/018.json"])
+def test_plain_fallback_is_preserved_when_optional_gzip_is_absent(staging, repository, name):
+    root, data, _ = repository
+    if name == "geom/postal-prefix/018.json":
+        put(data, name, gzip.decompress((data / (name + ".gz")).read_bytes()))
+    (data / (name + ".gz")).unlink()
+    before = snapshot(data)
+    result = prepare(staging, repository)
+    target = Path(result["webRoot"]) / "public/data/generated_fixture" / name
+    assert target.read_bytes() == (data / name).read_bytes()
+    assert not target.with_name(target.name + ".gz").exists()
+    entry = next(item for artifact in result["artifacts"] for item in artifact["inputs"] if item["path"] == name)
+    assert entry["stagedPath"] is not None
+    assert snapshot(data) == before
+    staging.verify_release_stage(root, Path(result["stageRoot"]), expected_manifest_sha256=result["releaseManifestSha256"])
+
+
+@pytest.mark.parametrize("name", ["scores/AREA.json", "geom/h3/cell-a.json", "geom/index.json",
+                                 "geom/postal-prefix/018.json"])
+def test_missing_both_representations_is_not_a_plain_fallback(staging, repository, name):
+    _, data, _ = repository
+    for candidate in (data / name, data / (name + ".gz")):
+        if candidate.exists():
+            candidate.unlink()
+    before = snapshot(data)
+    with pytest.raises(staging.ReleaseStagingError, match="MISSING"):
+        prepare(staging, repository)
+    assert snapshot(data) == before
+
+
+def test_transit_tiles_still_require_gzip_even_when_plain_exists(staging, repository):
+    _, data, _ = repository
+    name = "transit/h3/cell-a.json"
+    put(data, name, gzip.decompress((data / (name + ".gz")).read_bytes()))
+    (data / (name + ".gz")).unlink()
+    before = snapshot(data)
+    with pytest.raises(staging.ReleaseStagingError, match="MISSING"):
+        prepare(staging, repository)
+    assert snapshot(data) == before
+
+
+def test_gzip_only_geometry_remains_supported(staging, repository):
+    _, data, _ = repository
+    (data / "geom/h3/cell-a.json").unlink()
+    before = snapshot(data)
+    result = prepare(staging, repository)
+    staged = Path(result["webRoot"]) / "public/data/generated_fixture/geom/h3/cell-a.json.gz"
+    assert staged.read_bytes() == (data / "geom/h3/cell-a.json.gz").read_bytes()
+    assert snapshot(data) == before
+
+
+def test_overlay_plain_tile_cannot_be_replaced_with_gzip(staging, repository):
+    _, _, overlay = repository
+    path = overlay / "tiles/cell-a.json"
+    put(overlay, "tiles/cell-a.json.gz", gzip.compress(path.read_bytes()))
+    path.unlink()
+    before = snapshot(overlay)
+    with pytest.raises(staging.ReleaseStagingError, match="MISSING_OVERLAY_TILE"):
+        prepare(staging, repository)
+    assert snapshot(overlay) == before
+
+
+@pytest.mark.parametrize("name", ["scores/archive/example.json", "geom/h3/nested/example.json",
+                                 "geom/postal-prefix/nested/example.json", "transit/h3/nested/example.json"])
+def test_nested_plain_paths_are_not_omitted_by_the_runtime_policy(staging, repository, name):
+    _, data, _ = repository
+    put_json(data, name, {"preserve": True})
+    before = snapshot(data)
+    assert not staging._gzip_preferred(name)
+    result = prepare(staging, repository)
+    staged = Path(result["webRoot"]) / "public/data/generated_fixture" / name
+    assert staged.read_bytes() == (data / name).read_bytes()
     assert snapshot(data) == before
 
 
