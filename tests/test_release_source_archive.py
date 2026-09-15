@@ -5,6 +5,7 @@ import hashlib
 import io
 import json
 import os
+from contextlib import contextmanager
 from pathlib import Path
 import shutil
 import stat
@@ -471,3 +472,361 @@ def test_cli_pack_and_verify(stages):
     verified = run(base + ["verify", "--receipt", result["receipt"],
                            "--receipt-sha256", result["receiptSha256"]] + limits)
     assert verified["verified"] is True
+
+
+@pytest.fixture
+def replacement(stages, monkeypatch):
+    monkeypatch.setattr(archive, "PART_BYTES", 4096)
+    old = pack(stages)
+    front = json.loads(stages["frontend_build"].read_bytes())
+    root = stages["repo_root"] / "tmp/new-frontend"
+    front.update(stage=str(root), webRoot=str(root / "web"), sourceRevision="d" * 40,
+                 buildId="replacement-build",
+                 buildOutput={"manifestSha256": "e" * 64, "files": 2, "bytes": 24},
+                 files=[entry(root, "web/package.json", b'{"name":"fixture"}', "git"),
+                        entry(root, "web/app/page.tsx", b"changed frontend page", "git"),
+                        entry(root, "web/public/added.txt", b"new frontend asset", "git")])
+    new = dict(stages, frontend_build=stages["repo_root"] / "qa/new-build.json")
+    new["frontend_sha256"] = save(new["frontend_build"], front)
+    return new, old
+
+
+def repack(replacement, **kwargs):
+    stages, old = replacement
+    options = {"receipt_path": Path(old["receipt"]), "receipt_sha256": old["receiptSha256"],
+               "output_dir": stages["repo_root"] / "tmp/repacked", "max_input_bytes": 500000,
+               "max_output_bytes": 500000, "timeout_seconds": 30}
+    options.update(kwargs)
+    return archive.repack_source_archive(**stages, **options)
+
+
+def no_repack_receipt(replacement):
+    assert not (replacement[0]["repo_root"] / "tmp/repacked" / archive.RECEIPT_NAME).exists()
+
+
+def source_tar(result):
+    path = Path(result["receipt"])
+    receipt = json.loads(path.read_bytes())
+    return gzip.decompress(b"".join((path.parent / p["file"]).read_bytes() for p in receipt["parts"]))
+
+
+def replace_old_stream(replacement, payload):
+    stages, old = replacement
+    receipt = json.loads(Path(old["receipt"]).read_bytes())
+    output = stages["repo_root"] / "tmp/corrupt-source"
+    (output / ".vercel").mkdir(parents=True)
+    writer = archive._SplitWriter(output, 500000, archive._Budget(30))
+    writer.write(payload)
+    writer.finish_part()
+    receipt.update(parts=writer.parts, compressedBytes=writer.total,
+                   deploymentFiles=[{k: p[k] for k in ("file", "sha", "size", "mode")} for p in writer.parts])
+    receipt["verification"]["compressedBytes"] = writer.total
+    old.update(receipt=str(output / archive.RECEIPT_NAME),
+               receiptSha256=save(output / archive.RECEIPT_NAME, receipt))
+
+
+def test_repack_changed_added_removed_frontend_multipart_roundtrip(replacement):
+    stages, old = replacement
+    before = snapshot(stages["repo_root"])
+    result = repack(replacement)
+    receipt = json.loads(Path(result["receipt"]).read_bytes())
+    assert len(receipt["parts"]) > 2
+    assert receipt["sourceRevision"] == "d" * 40
+    assert receipt["buildId"] == "replacement-build"
+    assert receipt["buildOutput"] == json.loads(stages["frontend_build"].read_bytes())["buildOutput"]
+    assert receipt["inputs"]["frontendBuild"] == {
+        "path": str(stages["frontend_build"]), "sha256": stages["frontend_sha256"]}
+    assert receipt["repackedFrom"] == {"path": old["receipt"], "sha256": old["receiptSha256"]}
+    assert receipt["completeSourceInventory"] is True
+    assert verify(stages, result)["verified"] is True
+    with tarfile.open(fileobj=io.BytesIO(source_tar(result)), mode="r:") as reader:
+        files = {m.name: reader.extractfile(m).read() for m in reader.getmembers()}
+    assert files["web/app/page.tsx"] == b"changed frontend page"
+    assert files["web/public/added.txt"] == b"new frontend asset"
+    assert ".vercelignore" not in files
+    assert set(files) == {m["path"] for m in receipt["members"]}
+    for member in receipt["members"]:
+        assert hashlib.sha256(files[member["path"]]).hexdigest() == member["sha256"]
+    assert all((stages["repo_root"] / name).read_bytes() == content for name, content in before.items())
+    regular = pack(stages, output_dir=stages["repo_root"] / "tmp/regular-new")
+    assert source_tar(result) == source_tar(regular)
+
+
+def test_repack_only_opens_receipts_new_frontend_and_parts_with_bounded_reads(replacement, monkeypatch):
+    stages, old = replacement
+    plan = archive.plan_source_archive(**stages)
+    receipt = json.loads(Path(old["receipt"]).read_bytes())
+    output_receipt = stages["repo_root"] / "tmp/repacked" / archive.RECEIPT_NAME
+    allowed = {Path(old["receipt"]), *(Path(p["path"]) for p in receipt["inputs"].values()),
+               stages["frontend_build"], stages["data_ledger"], output_receipt}
+    allowed.update(Path(old["receipt"]).parent / p["file"] for p in receipt["parts"])
+    allowed.update(Path(plan["roots"]["frontend"]) / m["path"] for m in plan["members"] if m["root"] == "frontend")
+    original, opened = archive._open_plain, []
+
+    class Bounded:
+        def __init__(self, source):
+            self.source = source
+
+        def fileno(self):
+            return self.source.fileno()
+
+        def read(self, size):
+            assert 0 <= size <= archive.CHUNK_BYTES
+            return self.source.read(size)
+
+    @contextmanager
+    def guarded(path, budget):
+        assert path in allowed or path.is_relative_to(stages["repo_root"] / "tmp/repacked/.vercel")
+        opened.append(path)
+        with original(path, budget) as source:
+            yield Bounded(source)
+
+    def forbidden(*args, **kwargs):
+        raise AssertionError("No extraction, traversal of loose data or restaging")
+
+    original_hash = archive.staging._hash_file
+
+    def receipt_hash(path, destination=None):
+        assert path == output_receipt and destination is None
+        return original_hash(path)
+
+    monkeypatch.setattr(archive, "_open_plain", guarded)
+    monkeypatch.setattr(archive.tarfile, "open", forbidden)
+    monkeypatch.setattr(archive.staging, "_hash_file", receipt_hash)
+    result = repack(replacement)
+    assert verify(stages, result)["verified"] is True
+    for part in receipt["parts"]:
+        assert opened.count(Path(old["receipt"]).parent / part["file"]) == 1
+
+
+@pytest.mark.parametrize("which", ["archive", "old-build", "new-build", "data"])
+def test_repack_receipt_pins_fail_closed(replacement, which):
+    stages, old = replacement
+    if which == "archive":
+        old["receiptSha256"] = "0" * 64
+    else:
+        receipt = json.loads(Path(old["receipt"]).read_bytes())
+        path = {"old-build": Path(receipt["inputs"]["frontendBuild"]["path"]),
+                "new-build": stages["frontend_build"], "data": stages["data_ledger"]}[which]
+        put(path, path.read_bytes() + b" ")
+    with pytest.raises(archive.ArchiveError, match="RECEIPT_HASH_MISMATCH"):
+        repack(replacement)
+    no_repack_receipt(replacement)
+
+
+@pytest.mark.parametrize("field", ["passed", "beforeVerified", "afterVerified"])
+def test_repack_requires_real_verified_build_flags(replacement, field):
+    update(replacement[0], "front", lambda f: f.update({field: False}))
+    with pytest.raises(archive.ArchiveError, match="FRONTEND_BUILD_NOT_VERIFIED"):
+        repack(replacement)
+    no_repack_receipt(replacement)
+
+
+@pytest.mark.parametrize("change", ["binding", "pin", "inventory"])
+def test_repack_rejects_new_data_binding_or_inventory(replacement, change):
+    stages, _ = replacement
+    if change == "binding":
+        update(stages, "front", lambda f: f.update(dataStageManifestSha256="0" * 64))
+    else:
+        data = json.loads(stages["data_ledger"].read_bytes())
+        root = stages["repo_root"] / "tmp/other-data"
+        root.mkdir()
+        data.update(stageRoot=str(root), webRoot=str(root / "web"))
+        if change == "inventory":
+            data["files"][1]["sha256"] = "f" * 64
+        stages["data_ledger"] = root / "release-manifest.json"
+        stages["data_sha256"] = save(stages["data_ledger"], data)
+        update(stages, "front", lambda f: f.update(dataStage=str(root), dataStageManifestSha256=stages["data_sha256"]))
+    with pytest.raises(archive.ArchiveError, match="INPUT_BINDING_MISMATCH|REPACK_DATA_MISMATCH"):
+        repack(replacement)
+    no_repack_receipt(replacement)
+
+
+@pytest.mark.parametrize("change", ["inventory", "last-part-hash", "part-order", "part-size", "verification", "references"])
+def test_repack_rejects_old_receipt_corruption_even_with_updated_pin(replacement, change):
+    _, old = replacement
+    path = Path(old["receipt"])
+    receipt = json.loads(path.read_bytes())
+    if change == "inventory":
+        receipt["members"][-1]["sha256"] = "f" * 64
+    elif change == "last-part-hash":
+        receipt["parts"][-1]["sha256"] = "f" * 64
+    elif change == "part-order":
+        receipt["parts"].reverse()
+    elif change == "part-size":
+        receipt["parts"][0]["size"] -= 1
+    elif change == "verification":
+        receipt["verification"]["members"] -= 1
+    else:
+        receipt["deploymentFiles"] = []
+    old["receiptSha256"] = save(path, receipt)
+    with pytest.raises(archive.ArchiveError):
+        repack(replacement)
+    no_repack_receipt(replacement)
+
+
+@pytest.mark.parametrize("change", ["part-bytes", "missing", "extra"])
+def test_repack_rejects_old_part_corruption(replacement, change):
+    _, old = replacement
+    path = Path(old["receipt"])
+    receipt = json.loads(path.read_bytes())
+    part = path.parent / receipt["parts"][-1]["file"]
+    if change == "part-bytes":
+        content = bytearray(part.read_bytes())
+        content[-1] ^= 1
+        put(part, content)
+    elif change == "missing":
+        part.unlink()
+    else:
+        put(path.parent / ".vercel/unlisted", b"extra")
+    with pytest.raises((archive.ArchiveError, OSError)):
+        repack(replacement)
+    no_repack_receipt(replacement)
+
+
+@pytest.mark.parametrize("change", ["old-frontend", "data", "name", "link", "pax", "duplicate", "padding",
+                                   "unexpected", "missing-member", "truncated-tar", "truncated-gzip", "extra-gzip"])
+def test_repack_validates_all_old_tar_bytes_despite_new_part_pins(replacement, change):
+    _, old = replacement
+    receipt = json.loads(Path(old["receipt"]).read_bytes())
+    tar = bytearray(source_tar(old))
+    offsets, consumed = [], 0
+    for member in receipt["members"]:
+        offsets.append(consumed)
+        consumed += 512 + ((member["bytes"] + 511) // 512) * 512
+    data_index = next(i for i, m in enumerate(receipt["members"]) if m["root"] == "data" and m["bytes"])
+    offset = offsets[data_index]
+    if change == "old-frontend":
+        tar[512] ^= 1
+    elif change == "data":
+        tar[offset + 512] ^= 1
+    elif change in {"name", "link", "pax", "duplicate"}:
+        info = tarfile.TarInfo.frombuf(tar[offset:offset + 512], "utf-8", "strict")
+        if change == "name":
+            info.name = "../escape"
+        elif change == "link":
+            info.type, info.linkname = tarfile.SYMTYPE, "../../outside"
+        elif change == "pax":
+            info.type = tarfile.XHDTYPE
+        else:
+            info.name = receipt["members"][data_index - 1]["path"]
+        tar[offset:offset + 512] = info.tobuf(tarfile.USTAR_FORMAT)
+    elif change == "padding":
+        tar[512 + receipt["members"][0]["bytes"]] = 1
+    elif change == "unexpected":
+        tar[consumed:consumed + 512] = tarfile.TarInfo("web/unexpected").tobuf(tarfile.USTAR_FORMAT)
+    elif change == "missing-member":
+        tar[offset:offset + 512] = b"\0" * 512
+    elif change == "truncated-tar":
+        tar = tar[:offset + 513]
+    payload = gzip.compress(tar, compresslevel=archive.COMPRESSION_LEVEL, mtime=0)
+    if change == "truncated-gzip":
+        payload = payload[:-4]
+    elif change == "extra-gzip":
+        payload += gzip.compress(b"")
+    replace_old_stream(replacement, payload)
+    with pytest.raises(archive.ArchiveError):
+        repack(replacement)
+    no_repack_receipt(replacement)
+
+
+def test_repack_refuses_pilot_source(stages):
+    plan = archive.plan_source_archive(**stages)
+    old = pack(stages, pilot_bytes=sum(m["bytes"] for m in plan["members"][:-1]))
+    with pytest.raises(archive.ArchiveError, match="FULL_SOURCE_ARCHIVE_REQUIRED"):
+        repack((stages, old))
+    no_repack_receipt((stages, old))
+
+
+@pytest.mark.parametrize("location", ["web/repacked", "tmp/archive/new", "tmp/frontend/new",
+                                     "tmp/data/new", "tmp/new-frontend/new", "tmp"])
+def test_repack_output_cannot_overlap_inputs_or_protected_paths(replacement, location):
+    with pytest.raises(archive.ArchiveError):
+        repack(replacement, output_dir=replacement[0]["repo_root"] / location)
+    no_repack_receipt(replacement)
+
+
+def test_repack_never_replaces_existing_output(replacement):
+    path = replacement[0]["repo_root"] / "tmp/repacked/keep"
+    put(path, b"untouched")
+    with pytest.raises(archive.ArchiveError, match="DESTINATION_EXISTS"):
+        repack(replacement)
+    assert path.read_bytes() == b"untouched"
+    no_repack_receipt(replacement)
+
+
+@pytest.mark.parametrize("limits", [{"max_input_bytes": 10}, {"max_input_bytes": True},
+                                   {"max_output_bytes": 10}, {"max_output_bytes": False},
+                                   {"timeout_seconds": 0}])
+def test_repack_budget_guards(replacement, limits):
+    with pytest.raises(archive.ArchiveError):
+        repack(replacement, **limits)
+    no_repack_receipt(replacement)
+
+
+@pytest.mark.parametrize("limit", ["input", "output"])
+def test_repack_bounds_new_bytes_separately_from_old_archive(replacement, limit):
+    stages, old = replacement
+    front = json.loads(stages["frontend_build"].read_bytes())
+    front["files"].append(entry(Path(front["stage"]), "web/large.bin", os.urandom(70000), "git"))
+    stages["frontend_sha256"] = save(stages["frontend_build"], front)
+    receipt = json.loads(Path(old["receipt"]).read_bytes())
+    limits = {"max_input_bytes": receipt["inputBytes"]} if limit == "input" else {
+        "max_output_bytes": receipt["compressedBytes"]}
+    with pytest.raises(archive.ArchiveError, match="BYTE_BUDGET_EXCEEDED"):
+        repack(replacement, **limits)
+    no_repack_receipt(replacement)
+
+
+def test_repack_deadline_during_old_stream_leaves_no_receipt(replacement, monkeypatch):
+    original = archive._part_chunks
+
+    def timed_out(*args):
+        for chunk in original(*args):
+            yield chunk
+            raise archive.ArchiveError("TIME_BUDGET_EXCEEDED", 30)
+
+    monkeypatch.setattr(archive, "_part_chunks", timed_out)
+    with pytest.raises(archive.ArchiveError, match="TIME_BUDGET_EXCEEDED"):
+        repack(replacement)
+    no_repack_receipt(replacement)
+
+
+def test_repack_independently_verifies_new_parts_before_receipt(replacement, monkeypatch):
+    original = archive._verify_parts
+    calls = []
+
+    def corrupt(output, receipt, budget, maximum, **kwargs):
+        calls.append(output)
+        if not kwargs.get("data_sink"):
+            path = output / receipt["parts"][-1]["file"]
+            payload = bytearray(path.read_bytes())
+            payload[-1] ^= 1
+            put(path, payload)
+        return original(output, receipt, budget, maximum, **kwargs)
+
+    monkeypatch.setattr(archive, "_verify_parts", corrupt)
+    with pytest.raises(archive.ArchiveError):
+        repack(replacement)
+    assert len(calls) == 2
+    no_repack_receipt(replacement)
+
+
+@pytest.mark.parametrize("which", ["archive", "old-build", "new-build", "data"])
+def test_repack_rechecks_receipt_pins_before_publication(replacement, monkeypatch, which):
+    stages, old = replacement
+    receipt = json.loads(Path(old["receipt"]).read_bytes())
+    path = {"archive": Path(old["receipt"]), "old-build": Path(receipt["inputs"]["frontendBuild"]["path"]),
+            "new-build": stages["frontend_build"], "data": stages["data_ledger"]}[which]
+    original = archive._verify_parts
+
+    def mutate(output, receipt, budget, maximum, **kwargs):
+        result = original(output, receipt, budget, maximum, **kwargs)
+        if not kwargs.get("data_sink"):
+            put(path, path.read_bytes() + b" ")
+        return result
+
+    monkeypatch.setattr(archive, "_verify_parts", mutate)
+    with pytest.raises(archive.ArchiveError, match="RECEIPT_HASH_MISMATCH"):
+        repack(replacement)
+    no_repack_receipt(replacement)

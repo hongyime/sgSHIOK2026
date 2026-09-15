@@ -20,7 +20,7 @@ import re
 import stat
 import tarfile
 import time
-from typing import BinaryIO, Iterator
+from typing import BinaryIO, Callable, Iterator
 import zlib
 
 from scripts import release_staging as staging
@@ -383,7 +383,9 @@ class _ChunkReader(io.RawIOBase):
         super().close()
 
 
-def _verify_parts(output: Path, receipt: dict, budget: _Budget, maximum: int) -> dict:
+def _verify_parts(output: Path, receipt: dict, budget: _Budget, maximum: int, *,
+                  data_sink: Callable[[bytes], object] | None = None) -> dict:
+    """Optionally copy data tar records; sink bytes are provisional until verification returns."""
     parts, members = receipt["parts"], receipt["members"]
     if (receipt.get("partBytes") != PART_BYTES or not isinstance(parts, list) or not parts
             or len(parts) > (maximum + PART_BYTES - 1) // PART_BYTES):
@@ -416,6 +418,9 @@ def _verify_parts(output: Path, receipt: dict, budget: _Budget, maximum: int) ->
                         or info.mode != 0o644 or info.uid != 0 or info.gid != 0 or info.mtime != 0
                         or info.linkname or info.uname or info.gname):
                     raise ArchiveError("TAR_MEMBER_MISMATCH", member["path"])
+                copy_data = data_sink is not None and member["root"] == "data"
+                if copy_data:
+                    data_sink(header)
                 digest, remaining = hashlib.sha256(), info.size
                 while remaining:
                     chunk = stream.read(min(CHUNK_BYTES, remaining))
@@ -424,11 +429,15 @@ def _verify_parts(output: Path, receipt: dict, budget: _Budget, maximum: int) ->
                     budget.check()
                     digest.update(chunk)
                     remaining -= len(chunk)
+                    if copy_data:
+                        data_sink(chunk)
                 if digest.hexdigest() != member["sha256"]:
                     raise ArchiveError("TAR_MEMBER_HASH_MISMATCH", info.name)
                 padding = (-info.size) % 512
                 if stream.read(padding) != b"\0" * padding:
                     raise ArchiveError("INVALID_TAR_PADDING", info.name)
+                if copy_data and padding:
+                    data_sink(b"\0" * padding)
                 consumed += 512 + info.size + padding
             remaining = tar_size - consumed
             while remaining:
@@ -507,16 +516,9 @@ def create_source_archive(repo_root: Path, frontend_build: Path, frontend_sha256
             "compressedBytes": writer.total, "elapsedSeconds": receipt["elapsedSeconds"]}
 
 
-def verify_source_archive(repo_root: Path, receipt_path: Path, receipt_sha256: str, *,
-                          max_input_bytes: int, max_output_bytes: int,
-                          timeout_seconds: float) -> dict:
-    """Verify pinned parts and exact receipt-derived members; do not extract files."""
-    budget = _Budget(timeout_seconds)
-    _positive(max_input_bytes, "max_input_bytes")
-    _positive(max_output_bytes, "max_output_bytes")
-    root = _directory(repo_root)
-    staging._inside(staging._absolute(receipt_path), root / "tmp")
-    receipt = _load_json(root, receipt_path, receipt_sha256, budget)
+def _archive_plan(root: Path, receipt_path: Path, receipt: dict, *,
+                  max_input_bytes: int, timeout_seconds: float) -> dict:
+    """Reconstruct archive metadata from its pinned build and data receipts, without payload reads."""
     try:
         front, data = receipt["inputs"]["frontendBuild"], receipt["inputs"]["dataLedger"]
         plan = plan_source_archive(root, Path(front["path"]), front["sha256"], Path(data["path"]), data["sha256"],
@@ -529,6 +531,118 @@ def verify_source_archive(repo_root: Path, receipt_path: Path, receipt_sha256: s
         if (receipt["scope"] != expected_scope or receipt["status"] != "verified-not-deployed"
                 or receipt["cliReference"] != CLI_REFERENCE):
             raise ArchiveError("INVALID_ARCHIVE_RECEIPT", receipt_path)
+    except (KeyError, TypeError, AttributeError) as error:
+        raise ArchiveError("INVALID_ARCHIVE_RECEIPT", receipt_path) from error
+    return plan
+
+
+def repack_source_archive(repo_root: Path, receipt_path: Path, receipt_sha256: str,
+                          frontend_build: Path, frontend_sha256: str,
+                          data_ledger: Path, data_sha256: str, *, output_dir: Path,
+                          max_input_bytes: int, max_output_bytes: int,
+                          timeout_seconds: float) -> dict:
+    """Replace frontend source in fresh scratch, streaming data from pinned parts only."""
+    budget = _Budget(timeout_seconds)
+    _positive(max_input_bytes, "max_input_bytes")
+    _positive(max_output_bytes, "max_output_bytes")
+    root = _directory(repo_root)
+    receipt_path = staging._absolute(receipt_path)
+    staging._inside(receipt_path, root / "tmp")
+    old = _load_json(root, receipt_path, receipt_sha256, budget)
+    old_plan = _archive_plan(root, receipt_path, old, max_input_bytes=max_input_bytes,
+                             timeout_seconds=timeout_seconds)
+    if not old_plan["completeSourceInventory"]:
+        raise ArchiveError("FULL_SOURCE_ARCHIVE_REQUIRED", receipt_path)
+    plan = plan_source_archive(root, frontend_build, frontend_sha256, data_ledger, data_sha256,
+                               timeout_seconds=timeout_seconds)
+    if plan["inputBytes"] > max_input_bytes:
+        raise ArchiveError("INPUT_BYTE_BUDGET_EXCEEDED", plan["inputBytes"])
+    if (plan["inputs"]["dataLedger"] != old_plan["inputs"]["dataLedger"]
+            or plan["artifacts"] != old_plan["artifacts"]
+            or [m for m in plan["members"] if m["root"] == "data"]
+            != [m for m in old_plan["members"] if m["root"] == "data"]):
+        raise ArchiveError("REPACK_DATA_MISMATCH", data_ledger)
+    output = staging._absolute(output_dir)
+    staging._inside(output, root / "tmp")
+    inputs = [*old_plan["inputs"].values(), *plan["inputs"].values(),
+              {"path": str(receipt_path), "sha256": receipt_sha256}]
+    protected = [receipt_path.parent, *map(Path, old_plan["roots"].values()),
+                 *map(Path, plan["roots"].values()), *(Path(item["path"]) for item in inputs)]
+    for path in protected:
+        if output.is_relative_to(path) or path.is_relative_to(output):
+            raise ArchiveError("OUTPUT_OVERLAPS_INPUT", output)
+    if staging._plain(output, missing=True) is not None:
+        raise ArchiveError("DESTINATION_EXISTS", output)
+    budget.check()
+    staging._mkdir(output.parent)
+    output.mkdir()
+    (output / ".vercel").mkdir()
+    writer = _SplitWriter(output, max_output_bytes, budget)
+    try:
+        with gzip.GzipFile(filename="", mode="wb", fileobj=writer, mtime=0, compresslevel=COMPRESSION_LEVEL) as compressed:
+            # Write no frontend-only footer: the validated old data records follow directly.
+            for member in plan["members"]:
+                if member["root"] != "frontend":
+                    continue
+                path = Path(plan["roots"]["frontend"]) / member["path"]
+                with _open_plain(path, budget) as source:
+                    if os.fstat(source.fileno()).st_size != member["bytes"]:
+                        raise ArchiveError("MEMBER_SIZE_MISMATCH", member["path"])
+                    info = tarfile.TarInfo(member["path"])
+                    info.size, info.mode = member["bytes"], member["mode"]
+                    compressed.write(info.tobuf(tarfile.USTAR_FORMAT, encoding="utf-8", errors="strict"))
+                    reader, remaining = _HashingReader(source, budget), member["bytes"]
+                    while remaining:
+                        chunk = reader.read(min(CHUNK_BYTES, remaining))
+                        if not chunk:
+                            raise ArchiveError("MEMBER_SIZE_MISMATCH", member["path"])
+                        compressed.write(chunk)
+                        remaining -= len(chunk)
+                    if (reader.size != member["bytes"] or source.read(1)
+                            or reader.digest.hexdigest() != member["sha256"]):
+                        raise ArchiveError("MEMBER_HASH_MISMATCH", member["path"])
+                    compressed.write(b"\0" * ((-member["bytes"]) % 512))
+            checked = _verify_parts(receipt_path.parent, old, budget, max_output_bytes,
+                                    data_sink=compressed.write)
+            references = [{k: p[k] for k in ("file", "sha", "size", "mode")} for p in old["parts"]]
+            if checked != old.get("verification") or references != old.get("deploymentFiles"):
+                raise ArchiveError("INVALID_ARCHIVE_RECEIPT", receipt_path)
+            content_bytes = sum(512 + ((m["bytes"] + 511) // 512) * 512 for m in plan["members"])
+            compressed.write(b"\0" * (_tar_bytes(plan["members"]) - content_bytes))
+    finally:
+        writer.finish_part()
+    budget.check()
+    receipt = {**plan, "scope": "source-archive", "status": "verified-not-deployed",
+               "cliReference": CLI_REFERENCE, "partBytes": PART_BYTES, "compressionLevel": COMPRESSION_LEVEL,
+               "compressedBytes": writer.total, "parts": writer.parts,
+               "repackedFrom": {"path": str(receipt_path), "sha256": receipt_sha256}}
+    pack_seconds = time.monotonic() - budget.start
+    receipt["verification"] = _verify_parts(output, receipt, budget, max_output_bytes)
+    for item in inputs:
+        _load_json(root, Path(item["path"]), item["sha256"], budget)
+    receipt["elapsedSeconds"] = {"pack": pack_seconds, "total": time.monotonic() - budget.start}
+    receipt["deploymentFiles"] = [{k: p[k] for k in ("file", "sha", "size", "mode")} for p in writer.parts]
+    budget.check()
+    identity = staging._write_new(output / RECEIPT_NAME, _json_bytes(receipt))
+    return {"receipt": str(output / RECEIPT_NAME), "receiptSha256": identity["sha256"],
+            "scope": receipt["scope"], "parts": len(writer.parts), "inputBytes": plan["inputBytes"],
+            "compressedBytes": writer.total, "elapsedSeconds": receipt["elapsedSeconds"]}
+
+
+def verify_source_archive(repo_root: Path, receipt_path: Path, receipt_sha256: str, *,
+                          max_input_bytes: int, max_output_bytes: int,
+                          timeout_seconds: float) -> dict:
+    """Verify pinned parts and exact receipt-derived members; do not extract files."""
+    budget = _Budget(timeout_seconds)
+    _positive(max_input_bytes, "max_input_bytes")
+    _positive(max_output_bytes, "max_output_bytes")
+    root = _directory(repo_root)
+    staging._inside(staging._absolute(receipt_path), root / "tmp")
+    receipt = _load_json(root, receipt_path, receipt_sha256, budget)
+    try:
+        plan = _archive_plan(root, receipt_path, receipt, max_input_bytes=max_input_bytes,
+                             timeout_seconds=timeout_seconds)
+        expected_scope = "source-archive" if plan["completeSourceInventory"] else "pilot-not-deployable"
         result = _verify_parts(Path(receipt_path).parent, receipt, budget, max_output_bytes)
         references = ([{k: p[k] for k in ("file", "sha", "size", "mode")} for p in receipt["parts"]]
                       if plan["completeSourceInventory"] else [])
