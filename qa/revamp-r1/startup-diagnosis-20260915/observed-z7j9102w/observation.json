@@ -1,0 +1,150 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "startedAt": "2026-09-15T12:00:42.498Z",
+  "scope": "One instrumented local startup of the pinned Next build. No browser, app rebuild, data read, deployment or controlled performance comparison.",
+  "attempts": [
+    {
+      "atMs": 268,
+      "error": "ECONNREFUSED",
+      "elapsedMs": 44
+    },
+    {
+      "atMs": 1313,
+      "error": "ECONNREFUSED",
+      "elapsedMs": 5
+    },
+    {
+      "atMs": 2319,
+      "error": "ECONNREFUSED",
+      "elapsedMs": 7
+    },
+    {
+      "atMs": 3326,
+      "error": "ECONNREFUSED",
+      "elapsedMs": 4
+    },
+    {
+      "atMs": 4334,
+      "error": "ECONNREFUSED",
+      "elapsedMs": 5
+    },
+    {
+      "atMs": 5342,
+      "error": "ECONNREFUSED",
+      "elapsedMs": 5
+    },
+    {
+      "atMs": 6349,
+      "error": "ECONNREFUSED",
+      "elapsedMs": 4
+    },
+    {
+      "atMs": 7354,
+      "error": "ECONNREFUSED",
+      "elapsedMs": 8
+    },
+    {
+      "atMs": 8364,
+      "error": "ECONNREFUSED",
+      "elapsedMs": 4
+    },
+    {
+      "atMs": 9371,
+      "error": "ECONNREFUSED",
+      "elapsedMs": 4
+    },
+    {
+      "atMs": 10376,
+      "error": "ECONNREFUSED",
+      "elapsedMs": 4
+    },
+    {
+      "atMs": 11381,
+      "error": "ECONNREFUSED",
+      "elapsedMs": 5
+    },
+    {
+      "atMs": 12388,
+      "error": "ECONNREFUSED",
+      "elapsedMs": 4
+    },
+    {
+      "atMs": 13395,
+      "error": "ABORT_ERR",
+      "cause": 23,
+      "elapsedMs": 2503
+    },
+    {
+      "atMs": 16902,
+      "error": "ABORT_ERR",
+      "cause": 23,
+      "elapsedMs": 2500
+    },
+    {
+      "atMs": 20403,
+      "status": 200,
+      "bytes": 8880,
+      "sha256": "a62c19b0ef9ef5e37a15f4b385326ffa5dd765c069646e24ba07c3825cc0cfd6",
+      "completed": true,
+      "elapsedMs": 1585
+    }
+  ],
+  "events": [
+    {
+      "kind": "spawn",
+      "atMs": 289
+    },
+    {
+      "kind": "stdout",
+      "atMs": 12978,
+      "bytes": 19
+    },
+    {
+      "kind": "stdout",
+      "atMs": 12978,
+      "bytes": 80
+    },
+    {
+      "kind": "stdout",
+      "atMs": 12979,
+      "bytes": 18
+    },
+    {
+      "kind": "stdout",
+      "atMs": 13124,
+      "bytes": 38
+    },
+    {
+      "kind": "exit",
+      "atMs": 22028,
+      "code": null,
+      "signal": "SIGTERM"
+    }
+  ],
+  "availableMiB": 2349.40234375,
+  "passed": true,
+  "buildId": "D2v5v_SSLYgX0SSyDHqvr",
+  "expectedHtml": {
+    "path": ".next/server/app/index.html",
+    "bytes": 8880,
+    "sha256": "a62c19b0ef9ef5e37a15f4b385326ffa5dd765c069646e24ba07c3825cc0cfd6"
+  },
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "--require",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\startup-diagnosis-20260915\\preload.cjs",
+    "C:\\sgSHIOK2026\\tmp\\frontend-release-20260915-0c6bzc1x\\web\\node_modules\\next\\dist\\bin\\next",
+    "start",
+    "C:\\sgSHIOK2026\\tmp\\frontend-release-20260915-0c6bzc1x\\web",
+    "-H",
+    "127.0.0.1",
+    "-p",
+    "21694"
+  ],
+  "port": 21694,
+  "preloadSha256": "fa70aefff301c4d6eb45326d2f5f1a9c86f4b6f0cf8a4d76c69b19a2f3b68a4a",
+  "childPid": 52280,
+  "readyAtMs": 21988,
+  "elapsedMs": 22028
+}

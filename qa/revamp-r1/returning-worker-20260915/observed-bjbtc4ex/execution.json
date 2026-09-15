@@ -1,0 +1,15 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\returning-worker-20260915\\transition.mjs",
+    "--go",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\returning-worker-20260915\\observed-bjbtc4ex"
+  ],
+  "timeoutSeconds": 280,
+  "execution": {
+    "ok": false,
+    "returncode": 1,
+    "stdout": "{\n  \"out\": \"C:\\\\sgSHIOK2026\\\\qa\\\\revamp-r1\\\\returning-worker-20260915\\\\observed-bjbtc4ex\",\n  \"passed\": false,\n  \"checks\": [\n    {\n      \"name\": \"at least 1GiB available before bounded browser\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"preview pins candidate build\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"old navigation accepted\",\n      \"passed\": true,\n      \"detail\": {\n        \"frameId\": \"38EF19EDF4A8FC57CCDDC10D8B03B75D\",\n        \"loaderId\": \"BCA9ABC5122D52D1E62501B0DD76A719\",\n        \"isDownload\": false\n      }\n    },\n    {\n      \"name\": \"no captured browser events dropped\",\n      \"passed\": true,\n      \"detail\": 0\n    },\n    {\n      \"name\": \"final drained boundary has no limit or active requests\",\n      \"passed\": true,\n      \"detail\": {\n        \"release\": \"old\",\n        \"totalBytes\": 762311,\n        \"inFlightBytes\": 0,\n        \"upstreamBytes\": 0,\n        \"capturedBytes\": 762311,\n        \"chargedBytes\": 762311,\n        \"activeUpstreams\": 0,\n        \"activeSockets\": 0,\n        \"closed\": true,\n        \"releaseSwitches\": 0,\n        \"limitHit\": null\n      }\n    },\n    {\n      \"name\": \"after drain staged data hashes unchanged during served reads\",\n      \"passed\": true,\n      \"detail\": []\n    }\n  ],\n  \"failure\": \"Error: old page and worker control timeout\\n    at until (file:///C:/sgSHIOK2026/qa/revamp-r1/returning-worker-20260915/transition.mjs:38:9)\\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/returning-worker-20260915/transition.mjs:139:3\",\n  \"elapsedMs\": 37987\n}",
+    "stderr": ""
+  }
+}

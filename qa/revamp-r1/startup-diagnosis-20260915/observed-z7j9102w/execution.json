@@ -1,0 +1,15 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\startup-diagnosis-20260915\\probe.mjs",
+    "--go",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\startup-diagnosis-20260915\\observed-z7j9102w"
+  ],
+  "timeoutSeconds": 105,
+  "execution": {
+    "ok": true,
+    "returncode": 0,
+    "stdout": "{\n  \"out\": \"C:\\\\sgSHIOK2026\\\\qa\\\\revamp-r1\\\\startup-diagnosis-20260915\\\\observed-z7j9102w\",\n  \"passed\": true,\n  \"readyAtMs\": 21988,\n  \"elapsedMs\": 22028\n}",
+    "stderr": ""
+  }
+}

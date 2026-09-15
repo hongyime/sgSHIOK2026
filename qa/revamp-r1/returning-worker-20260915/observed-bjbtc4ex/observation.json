@@ -1,0 +1,1795 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "startedAt": "2026-09-15T12:03:18.633Z",
+  "scope": "Captured production page/worker -> verified candidate by one ordinary reload, same profile/origin with caches enabled. No cache clear, unregister, bypass, forced worker update or worker override. External requests including basemap tiles denied; route rendering only, not new basemap/phone/performance/rollback acceptance.",
+  "checks": [
+    {
+      "name": "at least 1GiB available before bounded browser",
+      "passed": true
+    },
+    {
+      "name": "preview pins candidate build",
+      "passed": true
+    },
+    {
+      "name": "old navigation accepted",
+      "passed": true,
+      "detail": {
+        "frameId": "38EF19EDF4A8FC57CCDDC10D8B03B75D",
+        "loaderId": "BCA9ABC5122D52D1E62501B0DD76A719",
+        "isDownload": false
+      }
+    },
+    {
+      "name": "no captured browser events dropped",
+      "passed": true,
+      "detail": 0
+    },
+    {
+      "name": "final drained boundary has no limit or active requests",
+      "passed": true,
+      "detail": {
+        "release": "old",
+        "totalBytes": 762311,
+        "inFlightBytes": 0,
+        "upstreamBytes": 0,
+        "capturedBytes": 762311,
+        "chargedBytes": 762311,
+        "activeUpstreams": 0,
+        "activeSockets": 0,
+        "closed": true,
+        "releaseSwitches": 0,
+        "limitHit": null
+      }
+    },
+    {
+      "name": "after drain staged data hashes unchanged during served reads",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "events": [
+    {
+      "method": "Runtime.executionContextCreated",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "context": {
+          "id": 1,
+          "origin": "://",
+          "name": "",
+          "uniqueId": "1119100172093778122.2099177416060580432",
+          "auxData": {
+            "isDefault": true,
+            "type": "default",
+            "frameId": "38EF19EDF4A8FC57CCDDC10D8B03B75D"
+          }
+        }
+      },
+      "phase": "old",
+      "atMs": 7806
+    },
+    {
+      "method": "ServiceWorker.workerVersionUpdated",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "versions": [
+          {
+            "versionId": "0",
+            "registrationId": "0",
+            "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+            "runningStatus": "starting",
+            "status": "new",
+            "scriptLastModified": 0,
+            "scriptResponseTime": 0,
+            "controlledClients": [],
+            "targetId": "A1E3BF0239AE7C5ECEED38235F104DFD"
+          }
+        ]
+      },
+      "phase": "old",
+      "atMs": 7857
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "requestId": "BCA9ABC5122D52D1E62501B0DD76A719",
+        "loaderId": "BCA9ABC5122D52D1E62501B0DD76A719",
+        "documentURL": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+        "request": {
+          "url": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+          "method": "GET",
+          "headers": {
+            "Upgrade-Insecure-Requests": "1",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Windows\""
+          },
+          "mixedContentType": "none",
+          "initialPriority": "VeryHigh",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 326637.488619,
+        "wallTime": 1789473806.503483,
+        "initiator": {
+          "type": "other"
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Document",
+        "frameId": "38EF19EDF4A8FC57CCDDC10D8B03B75D",
+        "hasUserGesture": false
+      },
+      "phase": "old",
+      "atMs": 7885
+    },
+    {
+      "method": "Network.responseReceived",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "requestId": "BCA9ABC5122D52D1E62501B0DD76A719",
+        "loaderId": "BCA9ABC5122D52D1E62501B0DD76A719",
+        "timestamp": 326637.503423,
+        "type": "Document",
+        "response": {
+          "url": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "Connection": "keep-alive",
+            "Content-Length": "12827",
+            "Keep-Alive": "timeout=5",
+            "cache-control": "public, max-age=604800, stale-while-revalidate=2592000",
+            "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+            "content-type": "text/html; charset=utf-8",
+            "date": "Sun, 13 Sep 2026 10:18:05 GMT",
+            "etag": "\"189afe976b5a1adec295e01c3d8eae37\"",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "x-content-type-options": "nosniff"
+          },
+          "mimeType": "text/html",
+          "charset": "utf-8",
+          "connectionReused": true,
+          "connectionId": 62,
+          "remoteIPAddress": "127.0.0.1",
+          "remotePort": 21790,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "fromPrefetchCache": false,
+          "encodedDataLength": 733,
+          "timing": {
+            "requestTime": 326637.490958,
+            "proxyStart": -1,
+            "proxyEnd": -1,
+            "dnsStart": -1,
+            "dnsEnd": -1,
+            "connectStart": -1,
+            "connectEnd": -1,
+            "sslStart": -1,
+            "sslEnd": -1,
+            "workerStart": -1,
+            "workerReady": -1,
+            "workerFetchStart": -1,
+            "workerRespondWithSettled": -1,
+            "sendStart": 2.063,
+            "sendEnd": 2.414,
+            "pushStart": 0,
+            "pushEnd": 0,
+            "receiveHeadersStart": 8.637,
+            "receiveHeadersEnd": 9.292
+          },
+          "responseTime": 1789473806514.431,
+          "protocol": "http/1.1",
+          "alternateProtocolUsage": "unspecifiedReason",
+          "securityState": "secure"
+        },
+        "hasExtraInfo": true,
+        "frameId": "38EF19EDF4A8FC57CCDDC10D8B03B75D"
+      },
+      "phase": "old",
+      "atMs": 7889
+    },
+    {
+      "method": "Page.frameNavigated",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "frame": {
+          "id": "38EF19EDF4A8FC57CCDDC10D8B03B75D",
+          "loaderId": "BCA9ABC5122D52D1E62501B0DD76A719",
+          "url": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+          "domainAndRegistry": "",
+          "securityOrigin": "http://127.0.0.1:21790",
+          "securityOriginDetails": {
+            "isLocalhost": true
+          },
+          "mimeType": "text/html",
+          "adFrameStatus": {
+            "adFrameType": "none"
+          },
+          "secureContextType": "SecureLocalhost",
+          "crossOriginIsolatedContextType": "NotIsolated",
+          "gatedAPIFeatures": []
+        },
+        "type": "Navigation"
+      },
+      "phase": "old",
+      "atMs": 7906
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "requestId": "54000.2",
+        "loaderId": "BCA9ABC5122D52D1E62501B0DD76A719",
+        "documentURL": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+        "request": {
+          "url": "http://127.0.0.1:21790/_next/static/immutable/chunks/2n_vh2n3ve95_.css",
+          "method": "GET",
+          "headers": {
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "VeryHigh",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 326637.519026,
+        "wallTime": 1789473806.534042,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+          "lineNumber": 0,
+          "columnNumber": 301
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Stylesheet",
+        "frameId": "38EF19EDF4A8FC57CCDDC10D8B03B75D",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "Blocking"
+      },
+      "phase": "old",
+      "atMs": 7934
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "requestId": "54000.3",
+        "loaderId": "BCA9ABC5122D52D1E62501B0DD76A719",
+        "documentURL": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+        "request": {
+          "url": "http://127.0.0.1:21790/_next/static/immutable/chunks/3oze-rblz-767.js",
+          "method": "GET",
+          "headers": {
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "Low",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isLinkPreload": true,
+          "isSameSite": true
+        },
+        "timestamp": 326637.52031,
+        "wallTime": 1789473806.535206,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+          "lineNumber": 0,
+          "columnNumber": 409
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Script",
+        "frameId": "38EF19EDF4A8FC57CCDDC10D8B03B75D",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "NonBlocking"
+      },
+      "phase": "old",
+      "atMs": 7945
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "requestId": "54000.4",
+        "loaderId": "BCA9ABC5122D52D1E62501B0DD76A719",
+        "documentURL": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+        "request": {
+          "url": "http://127.0.0.1:21790/_next/static/immutable/chunks/3ew8m45a2i815.js",
+          "method": "GET",
+          "headers": {
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "Low",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 326637.520583,
+        "wallTime": 1789473806.535485,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+          "lineNumber": 0,
+          "columnNumber": 480
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Script",
+        "frameId": "38EF19EDF4A8FC57CCDDC10D8B03B75D",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "PotentiallyBlocking"
+      },
+      "phase": "old",
+      "atMs": 7967
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "requestId": "54000.5",
+        "loaderId": "BCA9ABC5122D52D1E62501B0DD76A719",
+        "documentURL": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+        "request": {
+          "url": "http://127.0.0.1:21790/_next/static/immutable/chunks/3k4hvnpfmr4n4.js",
+          "method": "GET",
+          "headers": {
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "Low",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 326637.520828,
+        "wallTime": 1789473806.535698,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+          "lineNumber": 0,
+          "columnNumber": 560
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Script",
+        "frameId": "38EF19EDF4A8FC57CCDDC10D8B03B75D",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "PotentiallyBlocking"
+      },
+      "phase": "old",
+      "atMs": 7968
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "requestId": "54000.6",
+        "loaderId": "BCA9ABC5122D52D1E62501B0DD76A719",
+        "documentURL": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+        "request": {
+          "url": "http://127.0.0.1:21790/_next/static/immutable/chunks/3hmvfb18su8ip.js",
+          "method": "GET",
+          "headers": {
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "Low",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 326637.520998,
+        "wallTime": 1789473806.535867,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+          "lineNumber": 0,
+          "columnNumber": 640
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Script",
+        "frameId": "38EF19EDF4A8FC57CCDDC10D8B03B75D",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "PotentiallyBlocking"
+      },
+      "phase": "old",
+      "atMs": 7968
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "requestId": "54000.7",
+        "loaderId": "BCA9ABC5122D52D1E62501B0DD76A719",
+        "documentURL": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+        "request": {
+          "url": "http://127.0.0.1:21790/_next/static/immutable/chunks/turbopack-0ow_qx54-jpcy.js",
+          "method": "GET",
+          "headers": {
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "Low",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 326637.521208,
+        "wallTime": 1789473806.536107,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+          "lineNumber": 0,
+          "columnNumber": 730
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Script",
+        "frameId": "38EF19EDF4A8FC57CCDDC10D8B03B75D",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "PotentiallyBlocking"
+      },
+      "phase": "old",
+      "atMs": 7971
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "requestId": "54000.8",
+        "loaderId": "BCA9ABC5122D52D1E62501B0DD76A719",
+        "documentURL": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+        "request": {
+          "url": "http://127.0.0.1:21790/_next/static/immutable/chunks/455sb5e0fgpzb.js",
+          "method": "GET",
+          "headers": {
+            "Origin": "http://127.0.0.1:21790",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "Low",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 326637.521386,
+        "wallTime": 1789473806.536259,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+          "lineNumber": 0,
+          "columnNumber": 825
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Script",
+        "frameId": "38EF19EDF4A8FC57CCDDC10D8B03B75D",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "PotentiallyBlocking"
+      },
+      "phase": "old",
+      "atMs": 7975
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "requestId": "54000.9",
+        "loaderId": "BCA9ABC5122D52D1E62501B0DD76A719",
+        "documentURL": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+        "request": {
+          "url": "http://127.0.0.1:21790/_next/static/immutable/chunks/2trqctpxw1eo0.js",
+          "method": "GET",
+          "headers": {
+            "Origin": "http://127.0.0.1:21790",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "Low",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 326637.521556,
+        "wallTime": 1789473806.536421,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+          "lineNumber": 0,
+          "columnNumber": 920
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Script",
+        "frameId": "38EF19EDF4A8FC57CCDDC10D8B03B75D",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "PotentiallyBlocking"
+      },
+      "phase": "old",
+      "atMs": 7976
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "requestId": "54000.10",
+        "loaderId": "BCA9ABC5122D52D1E62501B0DD76A719",
+        "documentURL": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+        "request": {
+          "url": "http://127.0.0.1:21790/_next/static/immutable/chunks/2wzpamyc1af39.js",
+          "method": "GET",
+          "headers": {
+            "Origin": "http://127.0.0.1:21790",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "Low",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 326637.521717,
+        "wallTime": 1789473806.536584,
+        "initiator": {
+          "type": "parser",
+          "url": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+          "lineNumber": 0,
+          "columnNumber": 1015
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Script",
+        "frameId": "38EF19EDF4A8FC57CCDDC10D8B03B75D",
+        "hasUserGesture": false,
+        "renderBlockingBehavior": "PotentiallyBlocking"
+      },
+      "phase": "old",
+      "atMs": 7977
+    },
+    {
+      "method": "Runtime.executionContextCreated",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "context": {
+          "id": 2,
+          "origin": "http://127.0.0.1:21790",
+          "name": "",
+          "uniqueId": "-105123160565772714.-2989914428573763641",
+          "auxData": {
+            "isDefault": true,
+            "type": "default",
+            "frameId": "38EF19EDF4A8FC57CCDDC10D8B03B75D"
+          }
+        }
+      },
+      "phase": "old",
+      "atMs": 7979
+    },
+    {
+      "method": "Network.responseReceived",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "requestId": "54000.2",
+        "loaderId": "BCA9ABC5122D52D1E62501B0DD76A719",
+        "timestamp": 326637.557077,
+        "type": "Stylesheet",
+        "response": {
+          "url": "http://127.0.0.1:21790/_next/static/immutable/chunks/2n_vh2n3ve95_.css",
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+            "cache-control": "public,max-age=31536000,immutable",
+            "etag": "\"_next/static/immutable/chunks/2n_vh2n3ve95_.css\"",
+            "Connection": "keep-alive",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "Content-Length": "23194",
+            "Keep-Alive": "timeout=5",
+            "date": "Sun, 13 Sep 2026 10:22:13 GMT",
+            "content-type": "text/css; charset=utf-8"
+          },
+          "mimeType": "text/css",
+          "charset": "utf-8",
+          "connectionReused": true,
+          "connectionId": 62,
+          "remoteIPAddress": "127.0.0.1",
+          "remotePort": 21790,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "fromPrefetchCache": false,
+          "encodedDataLength": 726,
+          "timing": {
+            "requestTime": 326637.534707,
+            "proxyStart": -1,
+            "proxyEnd": -1,
+            "dnsStart": -1,
+            "dnsEnd": -1,
+            "connectStart": -1,
+            "connectEnd": -1,
+            "sslStart": -1,
+            "sslEnd": -1,
+            "workerStart": -1,
+            "workerReady": -1,
+            "workerFetchStart": -1,
+            "workerRespondWithSettled": -1,
+            "sendStart": 2.305,
+            "sendEnd": 2.564,
+            "pushStart": 0,
+            "pushEnd": 0,
+            "receiveHeadersStart": 7.354,
+            "receiveHeadersEnd": 15.066
+          },
+          "responseTime": 1789473806556.897,
+          "protocol": "http/1.1",
+          "alternateProtocolUsage": "unspecifiedReason",
+          "securityState": "secure"
+        },
+        "hasExtraInfo": true,
+        "frameId": "38EF19EDF4A8FC57CCDDC10D8B03B75D"
+      },
+      "phase": "old",
+      "atMs": 8009
+    },
+    {
+      "method": "Network.responseReceived",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "requestId": "54000.3",
+        "loaderId": "BCA9ABC5122D52D1E62501B0DD76A719",
+        "timestamp": 326637.702821,
+        "type": "Script",
+        "response": {
+          "url": "http://127.0.0.1:21790/_next/static/immutable/chunks/3oze-rblz-767.js",
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+            "cache-control": "public,max-age=31536000,immutable",
+            "etag": "\"_next/static/immutable/chunks/3oze-rblz-767.js\"",
+            "Connection": "keep-alive",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "Content-Length": "5364",
+            "Keep-Alive": "timeout=5",
+            "date": "Sun, 13 Sep 2026 10:22:15 GMT",
+            "content-type": "application/javascript; charset=utf-8"
+          },
+          "mimeType": "application/javascript",
+          "charset": "utf-8",
+          "connectionReused": true,
+          "connectionId": 71,
+          "remoteIPAddress": "127.0.0.1",
+          "remotePort": 21790,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "fromPrefetchCache": false,
+          "encodedDataLength": 738,
+          "timing": {
+            "requestTime": 326637.53551,
+            "proxyStart": -1,
+            "proxyEnd": -1,
+            "dnsStart": -1,
+            "dnsEnd": -1,
+            "connectStart": -1,
+            "connectEnd": -1,
+            "sslStart": -1,
+            "sslEnd": -1,
+            "workerStart": -1,
+            "workerReady": -1,
+            "workerFetchStart": -1,
+            "workerRespondWithSettled": -1,
+            "sendStart": 3.956,
+            "sendEnd": 4.334,
+            "pushStart": 0,
+            "pushEnd": 0,
+            "receiveHeadersStart": 6.88,
+            "receiveHeadersEnd": 15.594
+          },
+          "responseTime": 1789473806557.226,
+          "protocol": "http/1.1",
+          "alternateProtocolUsage": "unspecifiedReason",
+          "securityState": "secure"
+        },
+        "hasExtraInfo": true,
+        "frameId": "38EF19EDF4A8FC57CCDDC10D8B03B75D"
+      },
+      "phase": "old",
+      "atMs": 8110
+    },
+    {
+      "method": "Network.responseReceived",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "requestId": "54000.4",
+        "loaderId": "BCA9ABC5122D52D1E62501B0DD76A719",
+        "timestamp": 326637.70352,
+        "type": "Script",
+        "response": {
+          "url": "http://127.0.0.1:21790/_next/static/immutable/chunks/3ew8m45a2i815.js",
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+            "cache-control": "public,max-age=31536000,immutable",
+            "etag": "\"_next/static/immutable/chunks/3ew8m45a2i815.js\"",
+            "Connection": "keep-alive",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "Content-Length": "32454",
+            "Keep-Alive": "timeout=5",
+            "date": "Sun, 13 Sep 2026 10:22:14 GMT",
+            "content-type": "application/javascript; charset=utf-8"
+          },
+          "mimeType": "application/javascript",
+          "charset": "utf-8",
+          "connectionReused": false,
+          "connectionId": 86,
+          "remoteIPAddress": "127.0.0.1",
+          "remotePort": 21790,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "fromPrefetchCache": false,
+          "encodedDataLength": 739,
+          "timing": {
+            "requestTime": 326637.535983,
+            "proxyStart": -1,
+            "proxyEnd": -1,
+            "dnsStart": 1.536,
+            "dnsEnd": 1.567,
+            "connectStart": 1.567,
+            "connectEnd": 6.315,
+            "sslStart": -1,
+            "sslEnd": -1,
+            "workerStart": -1,
+            "workerReady": -1,
+            "workerFetchStart": -1,
+            "workerRespondWithSettled": -1,
+            "sendStart": 6.686,
+            "sendEnd": 6.993,
+            "pushStart": 0,
+            "pushEnd": 0,
+            "receiveHeadersStart": 9.165,
+            "receiveHeadersEnd": 17.419
+          },
+          "responseTime": 1789473806559.984,
+          "protocol": "http/1.1",
+          "alternateProtocolUsage": "unspecifiedReason",
+          "securityState": "secure"
+        },
+        "hasExtraInfo": true,
+        "frameId": "38EF19EDF4A8FC57CCDDC10D8B03B75D"
+      },
+      "phase": "old",
+      "atMs": 8125
+    },
+    {
+      "method": "Network.responseReceived",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "requestId": "54000.7",
+        "loaderId": "BCA9ABC5122D52D1E62501B0DD76A719",
+        "timestamp": 326637.704423,
+        "type": "Script",
+        "response": {
+          "url": "http://127.0.0.1:21790/_next/static/immutable/chunks/turbopack-0ow_qx54-jpcy.js",
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+            "cache-control": "public,max-age=31536000,immutable",
+            "etag": "\"_next/static/immutable/chunks/turbopack-0ow_qx54-jpcy.js\"",
+            "Connection": "keep-alive",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "Content-Length": "9692",
+            "Keep-Alive": "timeout=5",
+            "date": "Sun, 13 Sep 2026 10:22:16 GMT",
+            "content-type": "application/javascript; charset=utf-8"
+          },
+          "mimeType": "application/javascript",
+          "charset": "utf-8",
+          "connectionReused": false,
+          "connectionId": 104,
+          "remoteIPAddress": "127.0.0.1",
+          "remotePort": 21790,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "fromPrefetchCache": false,
+          "encodedDataLength": 748,
+          "timing": {
+            "requestTime": 326637.544426,
+            "proxyStart": -1,
+            "proxyEnd": -1,
+            "dnsStart": 3.059,
+            "dnsEnd": 3.113,
+            "connectStart": 3.113,
+            "connectEnd": 7.876,
+            "sslStart": -1,
+            "sslEnd": -1,
+            "workerStart": -1,
+            "workerReady": -1,
+            "workerFetchStart": -1,
+            "workerRespondWithSettled": -1,
+            "sendStart": 8.581,
+            "sendEnd": 8.845,
+            "pushStart": 0,
+            "pushEnd": 0,
+            "receiveHeadersStart": 16.67,
+            "receiveHeadersEnd": 26.029
+          },
+          "responseTime": 1789473806575.932,
+          "protocol": "http/1.1",
+          "alternateProtocolUsage": "unspecifiedReason",
+          "securityState": "secure"
+        },
+        "hasExtraInfo": true,
+        "frameId": "38EF19EDF4A8FC57CCDDC10D8B03B75D"
+      },
+      "phase": "old",
+      "atMs": 8129
+    },
+    {
+      "method": "Network.responseReceived",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "requestId": "54000.8",
+        "loaderId": "BCA9ABC5122D52D1E62501B0DD76A719",
+        "timestamp": 326637.70487,
+        "type": "Script",
+        "response": {
+          "url": "http://127.0.0.1:21790/_next/static/immutable/chunks/455sb5e0fgpzb.js",
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+            "cache-control": "public,max-age=31536000,immutable",
+            "etag": "\"_next/static/immutable/chunks/455sb5e0fgpzb.js\"",
+            "Connection": "keep-alive",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "Content-Length": "14384",
+            "Keep-Alive": "timeout=5",
+            "date": "Sun, 13 Sep 2026 10:22:16 GMT",
+            "content-type": "application/javascript; charset=utf-8"
+          },
+          "mimeType": "application/javascript",
+          "charset": "utf-8",
+          "connectionReused": true,
+          "connectionId": 86,
+          "remoteIPAddress": "127.0.0.1",
+          "remotePort": 21790,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "fromPrefetchCache": false,
+          "encodedDataLength": 739,
+          "timing": {
+            "requestTime": 326637.558497,
+            "proxyStart": -1,
+            "proxyEnd": -1,
+            "dnsStart": -1,
+            "dnsEnd": -1,
+            "connectStart": -1,
+            "connectEnd": -1,
+            "sslStart": -1,
+            "sslEnd": -1,
+            "workerStart": -1,
+            "workerReady": -1,
+            "workerFetchStart": -1,
+            "workerRespondWithSettled": -1,
+            "sendStart": 7.426,
+            "sendEnd": 7.687,
+            "pushStart": 0,
+            "pushEnd": 0,
+            "receiveHeadersStart": 9.711,
+            "receiveHeadersEnd": 13.198
+          },
+          "responseTime": 1789473806583.044,
+          "protocol": "http/1.1",
+          "alternateProtocolUsage": "unspecifiedReason",
+          "securityState": "secure"
+        },
+        "hasExtraInfo": true,
+        "frameId": "38EF19EDF4A8FC57CCDDC10D8B03B75D"
+      },
+      "phase": "old",
+      "atMs": 8131
+    },
+    {
+      "method": "Network.responseReceived",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "requestId": "54000.9",
+        "loaderId": "BCA9ABC5122D52D1E62501B0DD76A719",
+        "timestamp": 326637.705323,
+        "type": "Script",
+        "response": {
+          "url": "http://127.0.0.1:21790/_next/static/immutable/chunks/2trqctpxw1eo0.js",
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+            "cache-control": "public,max-age=31536000,immutable",
+            "etag": "\"_next/static/immutable/chunks/2trqctpxw1eo0.js\"",
+            "Connection": "keep-alive",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "Content-Length": "1248",
+            "Keep-Alive": "timeout=5",
+            "date": "Sun, 13 Sep 2026 10:22:14 GMT",
+            "content-type": "application/javascript; charset=utf-8"
+          },
+          "mimeType": "application/javascript",
+          "charset": "utf-8",
+          "connectionReused": true,
+          "connectionId": 71,
+          "remoteIPAddress": "127.0.0.1",
+          "remotePort": 21790,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "fromPrefetchCache": false,
+          "encodedDataLength": 738,
+          "timing": {
+            "requestTime": 326637.558749,
+            "proxyStart": -1,
+            "proxyEnd": -1,
+            "dnsStart": -1,
+            "dnsEnd": -1,
+            "connectStart": -1,
+            "connectEnd": -1,
+            "sslStart": -1,
+            "sslEnd": -1,
+            "workerStart": -1,
+            "workerReady": -1,
+            "workerFetchStart": -1,
+            "workerRespondWithSettled": -1,
+            "sendStart": 7.802,
+            "sendEnd": 7.98,
+            "pushStart": 0,
+            "pushEnd": 0,
+            "receiveHeadersStart": 12.407,
+            "receiveHeadersEnd": 15.138
+          },
+          "responseTime": 1789473806585.991,
+          "protocol": "http/1.1",
+          "alternateProtocolUsage": "unspecifiedReason",
+          "securityState": "secure"
+        },
+        "hasExtraInfo": true,
+        "frameId": "38EF19EDF4A8FC57CCDDC10D8B03B75D"
+      },
+      "phase": "old",
+      "atMs": 8133
+    },
+    {
+      "method": "Network.responseReceived",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "requestId": "54000.6",
+        "loaderId": "BCA9ABC5122D52D1E62501B0DD76A719",
+        "timestamp": 326637.705867,
+        "type": "Script",
+        "response": {
+          "url": "http://127.0.0.1:21790/_next/static/immutable/chunks/3hmvfb18su8ip.js",
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+            "cache-control": "public,max-age=31536000,immutable",
+            "etag": "\"_next/static/immutable/chunks/3hmvfb18su8ip.js\"",
+            "Connection": "keep-alive",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "Content-Length": "160787",
+            "Keep-Alive": "timeout=5",
+            "date": "Sun, 13 Sep 2026 10:22:15 GMT",
+            "content-type": "application/javascript; charset=utf-8"
+          },
+          "mimeType": "application/javascript",
+          "charset": "utf-8",
+          "connectionReused": false,
+          "connectionId": 100,
+          "remoteIPAddress": "127.0.0.1",
+          "remotePort": 21790,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "fromPrefetchCache": false,
+          "encodedDataLength": 740,
+          "timing": {
+            "requestTime": 326637.543738,
+            "proxyStart": -1,
+            "proxyEnd": -1,
+            "dnsStart": 1.762,
+            "dnsEnd": 1.788,
+            "connectStart": 1.788,
+            "connectEnd": 8.324,
+            "sslStart": -1,
+            "sslEnd": -1,
+            "workerStart": -1,
+            "workerReady": -1,
+            "workerFetchStart": -1,
+            "workerRespondWithSettled": -1,
+            "sendStart": 8.742,
+            "sendEnd": 9.097,
+            "pushStart": 0,
+            "pushEnd": 0,
+            "receiveHeadersStart": 12.939,
+            "receiveHeadersEnd": 25.603
+          },
+          "responseTime": 1789473806571.513,
+          "protocol": "http/1.1",
+          "alternateProtocolUsage": "unspecifiedReason",
+          "securityState": "secure"
+        },
+        "hasExtraInfo": true,
+        "frameId": "38EF19EDF4A8FC57CCDDC10D8B03B75D"
+      },
+      "phase": "old",
+      "atMs": 8140
+    },
+    {
+      "method": "Network.responseReceived",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "requestId": "54000.5",
+        "loaderId": "BCA9ABC5122D52D1E62501B0DD76A719",
+        "timestamp": 326637.706692,
+        "type": "Script",
+        "response": {
+          "url": "http://127.0.0.1:21790/_next/static/immutable/chunks/3k4hvnpfmr4n4.js",
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+            "cache-control": "public,max-age=31536000,immutable",
+            "etag": "\"_next/static/immutable/chunks/3k4hvnpfmr4n4.js\"",
+            "Connection": "keep-alive",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "Content-Length": "229074",
+            "Keep-Alive": "timeout=5",
+            "date": "Sun, 13 Sep 2026 10:22:15 GMT",
+            "content-type": "application/javascript; charset=utf-8"
+          },
+          "mimeType": "application/javascript",
+          "charset": "utf-8",
+          "connectionReused": false,
+          "connectionId": 91,
+          "remoteIPAddress": "127.0.0.1",
+          "remotePort": 21790,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "fromPrefetchCache": false,
+          "encodedDataLength": 740,
+          "timing": {
+            "requestTime": 326637.536476,
+            "proxyStart": -1,
+            "proxyEnd": -1,
+            "dnsStart": 3.561,
+            "dnsEnd": 3.599,
+            "connectStart": 3.599,
+            "connectEnd": 6.053,
+            "sslStart": -1,
+            "sslEnd": -1,
+            "workerStart": -1,
+            "workerReady": -1,
+            "workerFetchStart": -1,
+            "workerRespondWithSettled": -1,
+            "sendStart": 6.62,
+            "sendEnd": 6.851,
+            "pushStart": 0,
+            "pushEnd": 0,
+            "receiveHeadersStart": 15.645,
+            "receiveHeadersEnd": 20.814
+          },
+          "responseTime": 1789473806566.956,
+          "protocol": "http/1.1",
+          "alternateProtocolUsage": "unspecifiedReason",
+          "securityState": "secure"
+        },
+        "hasExtraInfo": true,
+        "frameId": "38EF19EDF4A8FC57CCDDC10D8B03B75D"
+      },
+      "phase": "old",
+      "atMs": 8141
+    },
+    {
+      "method": "Network.responseReceived",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "requestId": "54000.10",
+        "loaderId": "BCA9ABC5122D52D1E62501B0DD76A719",
+        "timestamp": 326637.707368,
+        "type": "Script",
+        "response": {
+          "url": "http://127.0.0.1:21790/_next/static/immutable/chunks/2wzpamyc1af39.js",
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+            "cache-control": "public,max-age=31536000,immutable",
+            "etag": "\"_next/static/immutable/chunks/2wzpamyc1af39.js\"",
+            "Connection": "keep-alive",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "Content-Length": "272540",
+            "Keep-Alive": "timeout=5",
+            "date": "Sun, 13 Sep 2026 10:22:14 GMT",
+            "content-type": "application/javascript; charset=utf-8"
+          },
+          "mimeType": "application/javascript",
+          "charset": "utf-8",
+          "connectionReused": true,
+          "connectionId": 62,
+          "remoteIPAddress": "127.0.0.1",
+          "remotePort": 21790,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "fromPrefetchCache": false,
+          "encodedDataLength": 740,
+          "timing": {
+            "requestTime": 326637.558883,
+            "proxyStart": -1,
+            "proxyEnd": -1,
+            "dnsStart": -1,
+            "dnsEnd": -1,
+            "connectStart": -1,
+            "connectEnd": -1,
+            "sslStart": -1,
+            "sslEnd": -1,
+            "workerStart": -1,
+            "workerReady": -1,
+            "workerFetchStart": -1,
+            "workerRespondWithSettled": -1,
+            "sendStart": 10.196,
+            "sendEnd": 10.386,
+            "pushStart": 0,
+            "pushEnd": 0,
+            "receiveHeadersStart": 23.926,
+            "receiveHeadersEnd": 24.48
+          },
+          "responseTime": 1789473806597.645,
+          "protocol": "http/1.1",
+          "alternateProtocolUsage": "unspecifiedReason",
+          "securityState": "secure"
+        },
+        "hasExtraInfo": true,
+        "frameId": "38EF19EDF4A8FC57CCDDC10D8B03B75D"
+      },
+      "phase": "old",
+      "atMs": 8144
+    },
+    {
+      "method": "ServiceWorker.workerVersionUpdated",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "versions": [
+          {
+            "versionId": "0",
+            "registrationId": "0",
+            "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+            "runningStatus": "starting",
+            "status": "installing",
+            "scriptLastModified": 0,
+            "scriptResponseTime": 0,
+            "controlledClients": [],
+            "targetId": "A1E3BF0239AE7C5ECEED38235F104DFD"
+          }
+        ]
+      },
+      "phase": "old",
+      "atMs": 8211
+    },
+    {
+      "method": "ServiceWorker.workerVersionUpdated",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "versions": [
+          {
+            "versionId": "0",
+            "registrationId": "0",
+            "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+            "runningStatus": "running",
+            "status": "installing",
+            "scriptLastModified": 0,
+            "scriptResponseTime": 0,
+            "controlledClients": [],
+            "targetId": "A1E3BF0239AE7C5ECEED38235F104DFD"
+          }
+        ]
+      },
+      "phase": "old",
+      "atMs": 8212
+    },
+    {
+      "method": "Network.requestWillBeSent",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "requestId": "54000.22",
+        "loaderId": "BCA9ABC5122D52D1E62501B0DD76A719",
+        "documentURL": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+        "request": {
+          "url": "http://127.0.0.1:21790/icon.svg",
+          "method": "GET",
+          "headers": {
+            "sec-ch-ua-platform": "\"Windows\"",
+            "Referer": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"",
+            "sec-ch-ua-mobile": "?0"
+          },
+          "mixedContentType": "none",
+          "initialPriority": "High",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "isSameSite": true
+        },
+        "timestamp": 326637.995803,
+        "wallTime": 1789473807.010725,
+        "initiator": {
+          "type": "other"
+        },
+        "redirectHasExtraInfo": false,
+        "type": "Other",
+        "frameId": "38EF19EDF4A8FC57CCDDC10D8B03B75D",
+        "hasUserGesture": false
+      },
+      "phase": "old",
+      "atMs": 8384
+    },
+    {
+      "method": "Network.responseReceived",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "requestId": "54000.22",
+        "loaderId": "BCA9ABC5122D52D1E62501B0DD76A719",
+        "timestamp": 326638.091454,
+        "type": "Other",
+        "response": {
+          "url": "http://127.0.0.1:21790/icon.svg",
+          "status": 200,
+          "statusText": "OK",
+          "headers": {
+            "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.onemap.gov.sg https://*.onemap.gov.sg; font-src 'self' data:; connect-src 'self' https://www.onemap.gov.sg https://*.onemap.gov.sg; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+            "cache-control": "public, max-age=31536000, immutable",
+            "etag": "\"8e63342255b55afadfd84e8e6847203e\"",
+            "Connection": "keep-alive",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "Content-Length": "747",
+            "Keep-Alive": "timeout=5",
+            "date": "Sun, 13 Sep 2026 10:22:16 GMT",
+            "content-type": "image/svg+xml"
+          },
+          "mimeType": "image/svg+xml",
+          "charset": "",
+          "connectionReused": true,
+          "connectionId": 62,
+          "remoteIPAddress": "127.0.0.1",
+          "remotePort": 21790,
+          "fromDiskCache": false,
+          "fromServiceWorker": false,
+          "fromPrefetchCache": false,
+          "encodedDataLength": 701,
+          "timing": {
+            "requestTime": 326637.997577,
+            "proxyStart": -1,
+            "proxyEnd": -1,
+            "dnsStart": -1,
+            "dnsEnd": -1,
+            "connectStart": -1,
+            "connectEnd": -1,
+            "sslStart": -1,
+            "sslEnd": -1,
+            "workerStart": -1,
+            "workerReady": -1,
+            "workerFetchStart": -1,
+            "workerRespondWithSettled": -1,
+            "sendStart": 4.824,
+            "sendEnd": 5.054,
+            "pushStart": 0,
+            "pushEnd": 0,
+            "receiveHeadersStart": 6.629,
+            "receiveHeadersEnd": 12.817
+          },
+          "responseTime": 1789473807019.041,
+          "protocol": "http/1.1",
+          "alternateProtocolUsage": "unspecifiedReason",
+          "securityState": "secure"
+        },
+        "hasExtraInfo": true,
+        "frameId": "38EF19EDF4A8FC57CCDDC10D8B03B75D"
+      },
+      "phase": "old",
+      "atMs": 8495
+    },
+    {
+      "method": "ServiceWorker.workerVersionUpdated",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "versions": [
+          {
+            "versionId": "0",
+            "registrationId": "0",
+            "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+            "runningStatus": "running",
+            "status": "installed",
+            "scriptLastModified": 0,
+            "scriptResponseTime": 0,
+            "controlledClients": [],
+            "targetId": "A1E3BF0239AE7C5ECEED38235F104DFD"
+          }
+        ]
+      },
+      "phase": "old",
+      "atMs": 9279
+    },
+    {
+      "method": "ServiceWorker.workerVersionUpdated",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "versions": [
+          {
+            "versionId": "0",
+            "registrationId": "0",
+            "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+            "runningStatus": "running",
+            "status": "activating",
+            "scriptLastModified": 0,
+            "scriptResponseTime": 0,
+            "controlledClients": [],
+            "targetId": "A1E3BF0239AE7C5ECEED38235F104DFD"
+          }
+        ]
+      },
+      "phase": "old",
+      "atMs": 9280
+    },
+    {
+      "method": "ServiceWorker.workerVersionUpdated",
+      "sessionId": "0DB23E3889FF926373644DD4C9F68D08",
+      "params": {
+        "versions": [
+          {
+            "versionId": "0",
+            "registrationId": "0",
+            "scriptURL": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+            "runningStatus": "running",
+            "status": "activated",
+            "scriptLastModified": 0,
+            "scriptResponseTime": 0,
+            "controlledClients": [],
+            "targetId": "A1E3BF0239AE7C5ECEED38235F104DFD"
+          }
+        ]
+      },
+      "phase": "old",
+      "atMs": 9280
+    }
+  ],
+  "blocked": [
+    {
+      "method": "CONNECT",
+      "url": "www.google.com:443"
+    },
+    {
+      "method": "CONNECT",
+      "url": "www.gstatic.com:443"
+    },
+    {
+      "method": "GET",
+      "url": "http://clients2.google.com/time/1/current?cup2key=10:hcmUjkCHiF-SBpqjGHghkrIwDTBlVJgihy0Yn7au0U8&cup2hreq=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "CONNECT",
+      "url": "accounts.google.com:443"
+    },
+    {
+      "method": "CONNECT",
+      "url": "www.google.com:443"
+    },
+    {
+      "method": "CONNECT",
+      "url": "www.google.com:443"
+    },
+    {
+      "method": "CONNECT",
+      "url": "www.google.com:443"
+    },
+    {
+      "method": "CONNECT",
+      "url": "www.google.com:443"
+    },
+    {
+      "method": "CONNECT",
+      "url": "www.google.com:443"
+    },
+    {
+      "method": "CONNECT",
+      "url": "content-autofill.googleapis.com:443"
+    },
+    {
+      "method": "CONNECT",
+      "url": "content-autofill.googleapis.com:443"
+    },
+    {
+      "method": "CONNECT",
+      "url": "accounts.google.com:443"
+    },
+    {
+      "method": "CONNECT",
+      "url": "www.google.com:443"
+    },
+    {
+      "method": "CONNECT",
+      "url": "content-autofill.googleapis.com:443"
+    },
+    {
+      "method": "CONNECT",
+      "url": "content-autofill.googleapis.com:443"
+    },
+    {
+      "method": "CONNECT",
+      "url": "accounts.google.com:443"
+    },
+    {
+      "method": "CONNECT",
+      "url": "content-autofill.googleapis.com:443"
+    },
+    {
+      "method": "CONNECT",
+      "url": "content-autofill.googleapis.com:443"
+    },
+    {
+      "method": "CONNECT",
+      "url": "android.clients.google.com:443"
+    },
+    {
+      "method": "CONNECT",
+      "url": "optimizationguide-pa.googleapis.com:443"
+    },
+    {
+      "method": "CONNECT",
+      "url": "accounts.google.com:443"
+    },
+    {
+      "method": "CONNECT",
+      "url": "i.scdn.co:443"
+    },
+    {
+      "method": "CONNECT",
+      "url": "content-autofill.googleapis.com:443"
+    }
+  ],
+  "droppedEvents": 0,
+  "notRun": [
+    {
+      "check": "current navigation runtime exceptions and transition acceptance",
+      "reason": "release_not_switched"
+    }
+  ],
+  "passed": false,
+  "identities": {
+    "oldBuildId": "UzVn3WiWA2GW7dtvN27rN",
+    "oldHtmlSha256": "047fd04d4176fd3afa15c224d94312f048dda52561ab3e21e1386321be10f636",
+    "oldWorkerSha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+    "currentBuildId": "D2v5v_SSLYgX0SSyDHqvr",
+    "currentWorkerSha256": "88e523a5d8b4f8dec18b0a741dfae056674552de9e0f5b67d96a82fd554500a4",
+    "sourceRevision": "69eac6a22ab3794a8648c3211c961340081b7d45"
+  },
+  "previewPid": 57516,
+  "last": {
+    "name": "old page and worker control",
+    "value": {
+      "ready": "complete",
+      "controlled": false,
+      "url": "http://127.0.0.1:21790/?postal=018956&debugMap=1"
+    }
+  },
+  "preview": {
+    "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\preview-RCz2J5",
+    "pid": 57516,
+    "nextPid": 45588,
+    "nextPort": 21782,
+    "buildId": "D2v5v_SSLYgX0SSyDHqvr",
+    "webRoot": "C:\\sgSHIOK2026\\tmp\\frontend-release-20260915-0c6bzc1x\\web",
+    "receiptPath": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\frontend-brzm8xg4\\build.json",
+    "receiptSha256": "d4b98d8d7400a82671e79bcb4802f4cf231170d29d74fd36a36a9b39da842f14",
+    "buildOutputManifest": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\frontend-brzm8xg4\\build-files.json",
+    "buildOutputManifestSha256": "b3f6a17a0c8a56fc42185ef4bfe43fe87ef717ed8b32b39246049721e57b067c",
+    "dataStage": "C:\\sgSHIOK2026\\tmp\\core-release-20260915-candidate-2",
+    "dataStageManifestSha256": "5ae6803bc224e2f1e408481001c7088ed896fd05f28aa73145b2fa0c9408e471",
+    "scope": "frontend-only-not-deployable",
+    "command": [
+      "C:\\sgSHIOK2026\\tmp\\frontend-release-20260915-0c6bzc1x\\web\\node_modules\\next\\dist\\bin\\next",
+      "start",
+      "C:\\sgSHIOK2026\\tmp\\frontend-release-20260915-0c6bzc1x\\web",
+      "-H",
+      "127.0.0.1",
+      "-p",
+      "21782"
+    ],
+    "reporting": false,
+    "moderation": false,
+    "credentialsConfigured": false,
+    "dataMismatches": [],
+    "startup": {
+      "spawnedAtMs": 2,
+      "firstStdoutAtMs": null,
+      "firstStderrAtMs": null,
+      "stdoutBytes": 0,
+      "stderrBytes": 0,
+      "upstreamErrors": [],
+      "droppedUpstreamErrors": 0
+    },
+    "url": "http://127.0.0.1:21783/"
+  },
+  "readinessAttempts": [
+    {
+      "atMs": 2787,
+      "status": 502
+    },
+    {
+      "atMs": 3061,
+      "status": 502
+    },
+    {
+      "atMs": 3271,
+      "status": 502
+    },
+    {
+      "atMs": 3483,
+      "status": 502
+    },
+    {
+      "atMs": 3696,
+      "status": 200
+    }
+  ],
+  "previewReady": true,
+  "selectedUrl": "http://127.0.0.1:21790/?postal=018956&debugMap=1",
+  "chromePid": 51996,
+  "browserStarted": true,
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/152.0.7977.84",
+    "revision": "@4334922f44c77b1208072c4deac29db3af39bbea",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+    "jsVersion": "15.2.124.21"
+  },
+  "failure": "Error: old page and worker control timeout\n    at until (file:///C:/sgSHIOK2026/qa/revamp-r1/returning-worker-20260915/transition.mjs:38:9)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/returning-worker-20260915/transition.mjs:139:3",
+  "boundary": {
+    "requests": [
+      {
+        "at": "2026-09-15T12:03:26.509Z",
+        "method": "GET",
+        "url": "/?postal=018956&debugMap=1",
+        "release": "old",
+        "destination": "document",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 12827,
+        "sha256": "047fd04d4176fd3afa15c224d94312f048dda52561ab3e21e1386321be10f636",
+        "finishedAt": "2026-09-15T12:03:26.511Z"
+      },
+      {
+        "at": "2026-09-15T12:03:26.552Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/2n_vh2n3ve95_.css",
+        "release": "old",
+        "destination": "style",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 23194,
+        "sha256": "63bb706f9a33afa91fcf458151dfa4ec6b6a318e9e30d9c7851dbfd87c738f9c",
+        "finishedAt": "2026-09-15T12:03:26.553Z"
+      },
+      {
+        "at": "2026-09-15T12:03:26.555Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/3oze-rblz-767.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 5364,
+        "sha256": "0a7913e3df7c2113dc543fd8f1e6c33d88c72cd7d4d0f7abaa54bca1651c227a",
+        "finishedAt": "2026-09-15T12:03:26.555Z"
+      },
+      {
+        "at": "2026-09-15T12:03:26.558Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/3ew8m45a2i815.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 32454,
+        "sha256": "2a2ef2612e0ccd1f4a189845d8abd7037569c58b56b822b63ff5dcef49280158",
+        "finishedAt": "2026-09-15T12:03:26.558Z"
+      },
+      {
+        "at": "2026-09-15T12:03:26.560Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/3k4hvnpfmr4n4.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 229074,
+        "sha256": "29c6189bc7cedd32cc70c196d205db447d326a212c02c3f4366101034bd91a31",
+        "finishedAt": "2026-09-15T12:03:26.562Z"
+      },
+      {
+        "at": "2026-09-15T12:03:26.567Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/3hmvfb18su8ip.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 160787,
+        "sha256": "f37cb9cbb323ff0ae95cf1b2a317ae09a09e8158ada0e0dbed1262286ee38c3c",
+        "finishedAt": "2026-09-15T12:03:26.569Z"
+      },
+      {
+        "at": "2026-09-15T12:03:26.573Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/turbopack-0ow_qx54-jpcy.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 9692,
+        "sha256": "98af51a1fd365ce5fdbb00a77194e90e89692f93c1860347b711378a3ef058e7",
+        "finishedAt": "2026-09-15T12:03:26.574Z"
+      },
+      {
+        "at": "2026-09-15T12:03:26.581Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/455sb5e0fgpzb.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 14384,
+        "sha256": "cc6ac865fa3143dd89d17c957e01109d01553b9b7b1717294b33c9a2dbabb397",
+        "finishedAt": "2026-09-15T12:03:26.581Z"
+      },
+      {
+        "at": "2026-09-15T12:03:26.583Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/2trqctpxw1eo0.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 1248,
+        "sha256": "45448ab118ab4c800901e3361de1a93d5b89c9908ba3a9c34a2c5d3009736a6e",
+        "finishedAt": "2026-09-15T12:03:26.583Z"
+      },
+      {
+        "at": "2026-09-15T12:03:26.591Z",
+        "method": "GET",
+        "url": "/_next/static/immutable/chunks/2wzpamyc1af39.js",
+        "release": "old",
+        "destination": "script",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 272540,
+        "sha256": "87ee50d08e014fa3fc557d22369f100d93216d0cdaac6a34b032344110ae3324",
+        "finishedAt": "2026-09-15T12:03:26.596Z"
+      },
+      {
+        "at": "2026-09-15T12:03:27.017Z",
+        "method": "GET",
+        "url": "/icon.svg",
+        "release": "old",
+        "destination": "image",
+        "status": 200,
+        "source": "captured-old",
+        "bytes": 747,
+        "sha256": "c0bd7140b0fdf9ef8220017c4a07428301ab84e80c4090acd36da4c0da9d0dd2",
+        "finishedAt": "2026-09-15T12:03:27.018Z"
+      }
+    ],
+    "stats": {
+      "release": "old",
+      "totalBytes": 762311,
+      "inFlightBytes": 0,
+      "upstreamBytes": 0,
+      "capturedBytes": 762311,
+      "chargedBytes": 762311,
+      "activeUpstreams": 0,
+      "activeSockets": 0,
+      "closed": true,
+      "releaseSwitches": 0,
+      "limitHit": null
+    }
+  },
+  "finalPreview": {
+    "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\preview-RCz2J5",
+    "pid": 57516,
+    "nextPid": 45588,
+    "nextPort": 21782,
+    "buildId": "D2v5v_SSLYgX0SSyDHqvr",
+    "webRoot": "C:\\sgSHIOK2026\\tmp\\frontend-release-20260915-0c6bzc1x\\web",
+    "receiptPath": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\frontend-brzm8xg4\\build.json",
+    "receiptSha256": "d4b98d8d7400a82671e79bcb4802f4cf231170d29d74fd36a36a9b39da842f14",
+    "buildOutputManifest": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\frontend-brzm8xg4\\build-files.json",
+    "buildOutputManifestSha256": "b3f6a17a0c8a56fc42185ef4bfe43fe87ef717ed8b32b39246049721e57b067c",
+    "dataStage": "C:\\sgSHIOK2026\\tmp\\core-release-20260915-candidate-2",
+    "dataStageManifestSha256": "5ae6803bc224e2f1e408481001c7088ed896fd05f28aa73145b2fa0c9408e471",
+    "scope": "frontend-only-not-deployable",
+    "command": [
+      "C:\\sgSHIOK2026\\tmp\\frontend-release-20260915-0c6bzc1x\\web\\node_modules\\next\\dist\\bin\\next",
+      "start",
+      "C:\\sgSHIOK2026\\tmp\\frontend-release-20260915-0c6bzc1x\\web",
+      "-H",
+      "127.0.0.1",
+      "-p",
+      "21782"
+    ],
+    "reporting": false,
+    "moderation": false,
+    "credentialsConfigured": false,
+    "dataMismatches": [],
+    "startup": {
+      "spawnedAtMs": 2,
+      "firstStdoutAtMs": 901,
+      "firstStderrAtMs": null,
+      "stdoutBytes": 155,
+      "stderrBytes": 0,
+      "upstreamErrors": [
+        {
+          "atMs": 97,
+          "code": "ECONNREFUSED",
+          "path": "/"
+        },
+        {
+          "atMs": 327,
+          "code": "ECONNREFUSED",
+          "path": "/"
+        },
+        {
+          "atMs": 538,
+          "code": "ECONNREFUSED",
+          "path": "/"
+        },
+        {
+          "atMs": 750,
+          "code": "ECONNREFUSED",
+          "path": "/"
+        }
+      ],
+      "droppedUpstreamErrors": 0
+    },
+    "url": "http://127.0.0.1:21783/"
+  },
+  "elapsedMs": 37987
+}

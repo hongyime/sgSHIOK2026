@@ -9835,3 +9835,56 @@ DISAGREEMENTS
    corresponding latest-code correction is diagnostic-only, not a recovered run.
 3. None with30-day retention; its applied policy stands. Full goal remains active,
    not complete. No unchanged browser retry is justified by this startup failure.
+
+## 2026-09-15 Startup trace and actual returning-client cache boundary
+
+Base:05e6fb312df46345bfaeef6769bc52091ccf50f1.
+New evidence:qa/revamp-r1/startup-diagnosis-20260915 and
+qa/revamp-r1/returning-worker-20260915/continuation.json with three raw receipts.
+
+Startup observed-z7j9102w: exact8880-byte builtHTML served at21988ms; driver22028ms.
+First13connection attempts:ECONNREFUSED; later two request deadlines:ABORT_ERR;
+final request200 withSHAa62c19b0ef9ef5e37a15f4b385326ffa5dd765c069646e24ba07c3825cc0cfd6.
+Module trace794events, no cap, recorded entries matched exits.3fixture tests pass.
+CLI4.59s; next-start7.65s includes router-server6.33s; later next-server5.06s.
+Nested module durations are not summed. Instrumentation is not a performance benchmark.
+
+Browser results, all overall non-PASS and all original receipts preserved:
+- bjbtc4ex:37987ms; setup waited forSW before Search. Captured submit handlerA4
+  calls registration helperAp; initial query alone does not search. Corrected.
+- t014buxg:42129ms; first reload returns oldHTML fromhttp-cache at7071ms.
+  Newworker controls the tab at11171ms but does not replace the loaded Document.
+- r3fus3h9:117179ms; second explicit reload receives exact current8880-byteHTML;
+  correlated frame/loader/request and bridge response agree. Local/session values
+  and three cache entries agree. RequiredJS3ee94874-565725a67e9aa4d4.js then hits
+  local bridge502 after10011ms. Route/hydration acceptance remains unverified.
+
+Arithmetic:37987+42129+117179=197295browser-driver-ms.
+22028+197295=219323diagnostic-and-browser-driver-ms. Pipeline runs:0.
+No rebuild/repack, X access, input repair, automatic reload, cache clearing,
+forced worker update, upload or deployment. Final ownedPIDs52216/32800/55796 absent.
+
+FINDINGS
+1. Current build can start and serve exact HTML. Historical startup failure is
+   not reproduced or causally explained; the preview now records useful errors.
+2. First-reload compatibility fails against the real old cache. Newworker
+   activation and second-explicit-reload Document/storage recovery are proven.
+3. Full route recovery is not proven after the local bridge aborted a required
+   script. No screenshot was collected; no visual or production-speed PASS.
+4.30-day retention remains applied; intake/moderation disabled. Preview-only
+   authorization was requested separately; full goal remains active.
+
+DISAGREEMENTS
+1. Two reloads reaching newHTML is not a single-reload or complete map PASS.
+2. Do not force navigation of old tabs to conceal the cache issue: that can lose
+   in-memory drafts. Tested storage preservation is not proof of draft survival.
+3. The local10second transport cutoff and optional gzip404s do not establish
+   missing pipeline inputs or production latency. No regeneration is warranted.
+
+Final focused checks for this checkpoint:
+node --test preload.test.cjs release-server-v2.test.mjs navigation-proof.test.mjs
+tests18; pass18; fail0; skipped0; duration_ms1089.4956.
+pytest tests/test_agent_docs.py tests/test_repo_integrity.py --noconftest
+-p no:cacheprovider -q:32passed in3.21s. These are not the earlier41-case set.
+python scripts/check_repo_integrity.py:repo_integrity=ok; exit0.
+No application-suite or browser replay was performed by these final checks.

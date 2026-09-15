@@ -1,0 +1,38 @@
+{
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\preview-RCz2J5",
+  "pid": 57516,
+  "nextPid": 45588,
+  "nextPort": 21782,
+  "buildId": "D2v5v_SSLYgX0SSyDHqvr",
+  "webRoot": "C:\\sgSHIOK2026\\tmp\\frontend-release-20260915-0c6bzc1x\\web",
+  "receiptPath": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\frontend-brzm8xg4\\build.json",
+  "receiptSha256": "d4b98d8d7400a82671e79bcb4802f4cf231170d29d74fd36a36a9b39da842f14",
+  "buildOutputManifest": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\frontend-brzm8xg4\\build-files.json",
+  "buildOutputManifestSha256": "b3f6a17a0c8a56fc42185ef4bfe43fe87ef717ed8b32b39246049721e57b067c",
+  "dataStage": "C:\\sgSHIOK2026\\tmp\\core-release-20260915-candidate-2",
+  "dataStageManifestSha256": "5ae6803bc224e2f1e408481001c7088ed896fd05f28aa73145b2fa0c9408e471",
+  "scope": "frontend-only-not-deployable",
+  "command": [
+    "C:\\sgSHIOK2026\\tmp\\frontend-release-20260915-0c6bzc1x\\web\\node_modules\\next\\dist\\bin\\next",
+    "start",
+    "C:\\sgSHIOK2026\\tmp\\frontend-release-20260915-0c6bzc1x\\web",
+    "-H",
+    "127.0.0.1",
+    "-p",
+    "21782"
+  ],
+  "reporting": false,
+  "moderation": false,
+  "credentialsConfigured": false,
+  "dataMismatches": [],
+  "startup": {
+    "spawnedAtMs": 2,
+    "firstStdoutAtMs": null,
+    "firstStderrAtMs": null,
+    "stdoutBytes": 0,
+    "stderrBytes": 0,
+    "upstreamErrors": [],
+    "droppedUpstreamErrors": 0
+  },
+  "url": "http://127.0.0.1:21783/"
+}

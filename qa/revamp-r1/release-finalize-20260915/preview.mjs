@@ -44,6 +44,11 @@ const identity={out,pid:process.pid,nextPid:child.pid,nextPort,buildId:build.bui
   buildOutputManifestSha256:build.buildOutput.manifestSha256,dataStage:build.dataStage,
   dataStageManifestSha256:build.dataStageManifestSha256,scope:build.scope,
   command,reporting:false,moderation:false,credentialsConfigured:false,dataMismatches:[]};
+const started=Date.now();
+identity.startup={spawnedAtMs:null,firstStdoutAtMs:null,firstStderrAtMs:null,stdoutBytes:0,stderrBytes:0,upstreamErrors:[],droppedUpstreamErrors:0};
+child.on('spawn',()=>{identity.startup.spawnedAtMs=Date.now()-started;});
+child.stdout.on('data',bytes=>{identity.startup.firstStdoutAtMs??=Date.now()-started;identity.startup.stdoutBytes+=bytes.length;});
+child.stderr.on('data',bytes=>{identity.startup.firstStderrAtMs??=Date.now()-started;identity.startup.stderrBytes+=bytes.length;});
 let closing=false;
 const proxy=createServer((req,res)=>{
   const url=new URL(req.url,'http://127.0.0.1');
@@ -69,13 +74,17 @@ const proxy=createServer((req,res)=>{
   }
   const upstream=request({hostname:'127.0.0.1',port:nextPort,path:req.url,method:req.method,
     headers:{...req.headers,host:`127.0.0.1:${nextPort}`},timeout:30000},r=>{res.writeHead(r.statusCode,r.headers);r.pipe(res);});
-  upstream.on('error',()=>{if(!res.headersSent)res.writeHead(502);res.end();});
+  upstream.on('error',error=>{
+    if(identity.startup.upstreamErrors.length<32)identity.startup.upstreamErrors.push({atMs:Date.now()-started,code:error.code??error.name,path:url.pathname});
+    else identity.startup.droppedUpstreamErrors++;
+    if(!res.headersSent)res.writeHead(502);res.end();
+  });
   upstream.on('timeout',()=>upstream.destroy());res.on('close',()=>upstream.destroy());req.pipe(upstream);
 });
 function close(){if(closing)return;closing=true;proxy.closeAllConnections();proxy.close();if(child.exitCode===null)child.kill();}
 process.on('SIGINT',close);process.on('SIGTERM',close);
 child.on('error',error=>{write('failure.json',{error:error.message});close();process.exitCode=1;});
-child.on('exit',(code,signal)=>{write('child-exit.json',{code,signal});close();process.exitCode=code??1;});
+child.on('exit',(code,signal)=>{identity.startup.exit={code,signal,atMs:Date.now()-started};write('child-exit.json',{code,signal});close();process.exitCode=code??1;});
 try{
   await new Promise((ok,no)=>{proxy.once('error',no);proxy.listen(0,'127.0.0.1',ok);});
   identity.url=`http://127.0.0.1:${proxy.address().port}/`;

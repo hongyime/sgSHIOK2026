@@ -1,0 +1,76 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "base": "05e6fb312df46345bfaeef6769bc52091ccf50f1",
+  "startup": {
+    "receipt": "../startup-diagnosis-20260915/observed-z7j9102w/observation.json",
+    "passed": true,
+    "readyAtMs": 21988,
+    "driverElapsedMs": 22028,
+    "scope": "Instrumented exact HTML readiness; historical30second failure not reproduced or explained.",
+    "traceEvents": 794,
+    "traceCapReached": false,
+    "recordedModuleEntriesMatchedExits": true,
+    "timings": "CLI branch4.59s; next-start branch7.65s includes router-server6.33s; later next-server5.06s. Nested durations are not added.",
+    "tests": "3preload fixtures pass; observer preserves require behavior, recording caps do not stop execution, inherited worker preload does not collide."
+  },
+  "attempts": [
+    {
+      "directory": "observed-bjbtc4ex",
+      "driverElapsedMs": 37987,
+      "outcome": "HARNESS_SETUP_FAILURE",
+      "releaseSwitches": 0,
+      "executedSourceSha256": "73185f60fd61f6c65d5680adb429aee1f9d046ad1d55d9583dbe88269f70aac3",
+      "cause": "Waited for old worker before Search. Captured submit handler A4 calls Ap registration; initial query alone does not Search. Document complete, controller absent, no sw.js/data requests. Fixed with native form input and submit, not direct registration."
+    },
+    {
+      "directory": "observed-t014buxg",
+      "driverElapsedMs": 42129,
+      "outcome": "FIRST_RELOAD_INCOMPATIBLE",
+      "releaseSwitches": 1,
+      "executedSourceSha256": "e5138ad7dbcf864b056e6d170f69d1cf291d95f9b227a8928d868c099bea0d31",
+      "oldDocumentAtMs": 7071,
+      "newWorkerControlsAtMs": 11171,
+      "documentSource": "http-cache through captured old service worker",
+      "oldBuildId": "UzVn3WiWA2GW7dtvN27rN",
+      "currentWorkerActivated": true,
+      "singleReloadCompatible": false
+    },
+    {
+      "directory": "observed-r3fus3h9",
+      "driverElapsedMs": 117179,
+      "outcome": "SECOND_RELOAD_DOCUMENT_AND_STORAGE_RECOVERY_ONLY",
+      "releaseSwitches": 1,
+      "postSwitchOrdinaryReloads": 2,
+      "executedSourceSha256": "01c6823908b7cb1e0e253fcd6f591e6125c1e56997cb953ce7a23de9ecf99b06",
+      "firstDocument": {"bytes": 12827, "sha256": "047fd04d4176fd3afa15c224d94312f048dda52561ab3e21e1386321be10f636", "source": "http-cache"},
+      "secondDocument": {"bytes": 8880, "sha256": "a62c19b0ef9ef5e37a15f4b385326ffa5dd765c069646e24ba07c3825cc0cfd6", "source": "network", "buildId": "D2v5v_SSLYgX0SSyDHqvr"},
+      "postalQueryPreserved": true,
+      "localSessionAndThreeCacheEntriesPreserved": true,
+      "ordinaryReloadRecoveryFullyAccepted": false,
+      "singleReloadCompatible": false,
+      "routeAcceptance": "UNVERIFIED",
+      "routeFailure": "Required current JS /_next/static/chunks/3ee94874-565725a67e9aa4d4.js aborted at local bridge10011ms with502. Final page had no map/route state, no runtime exceptions and no dropped events. No screenshot was collected. This does not establish an application regression or production performance.",
+      "boundary": {"closed": true, "activeUpstreams": 0, "activeSockets": 0, "limitHit": null, "chargedBytes": 7944569},
+      "stagedDataHashMismatches": [],
+      "ownedPidsAbsentAfterwards": [52216, 32800, 55796]
+    }
+  ],
+  "arithmetic": {
+    "browserDriverMilliseconds": "37987+42129+117179=197295",
+    "diagnosticPlusBrowserMilliseconds": "22028+197295=219323",
+    "note": "Startup and readiness intervals are contained in each driver elapsed time, not additional pipeline cost. Outer caps are105seconds for diagnostic,280seconds for each browser attempt."
+  },
+  "FINDINGS": [
+    "Current pinned server startup can succeed; richer lifecycle/upstream diagnostics are now retained. Do not label the historical failure repaired or hardware-only.",
+    "One ordinary refresh can retain actual old cached HTML even while the new worker activates. The second explicit refresh receives exact new HTML and preserves tested storage/cache entries.",
+    "Complete route recovery remains unverified after the local bridge aborted a required script. No cache clearing, forced worker update, automatic navigation, artifact rebuild or package repack occurred.",
+    "Thirty-day retention remains applied, reporting disabled, production unchanged and the full goal active. Preview-only deployment approval has been requested separately."
+  ],
+  "DISAGREEMENTS": [
+    "Two-reload document recovery must not be reported as single-reload compatibility or full map acceptance.",
+    "Automatically navigating old tabs would risk in-memory drafts; this task did not weaken that constraint.",
+    "Local test-bridge timeout is not a production latency measurement or proof that input data is missing. Optional compressed-form404 responses are retained in raw evidence."
+  ],
+  "next": "Stop local browser loops. Review the required-script transport deadline with its exact receipt; prepare the reviewed source-archive consumer and resolve preview-only authorization. No production alias change without its release decision."
+}

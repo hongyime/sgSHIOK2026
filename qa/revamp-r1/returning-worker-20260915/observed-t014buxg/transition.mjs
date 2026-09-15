@@ -14,8 +14,6 @@ assert.equal(process.cwd(), ROOT);
 assert.equal(process.argv[2], '--go');
 const BASE = resolve(ROOT, 'qa/revamp-r1/returning-worker-20260915');
 const out = process.argv[3];
-const manualRecovery=process.argv[4]==='--manual-recovery';
-assert.ok(process.argv.length===4||manualRecovery&&process.argv.length===5);
 assert.equal(dirname(out), BASE);
 assert.match(out.slice(BASE.length + 1), /^observed-[a-z0-9_]+$/);
 const profile = resolve(out, 'profile');
@@ -26,7 +24,6 @@ const started = Date.now(), workEnd = started + 240000;
 const report = { root: ROOT, hostname: process.env.COMPUTERNAME, startedAt: new Date(started).toISOString(),
   scope: 'Captured production page/worker -> verified candidate by one ordinary reload, same profile/origin with caches enabled. No cache clear, unregister, bypass, forced worker update or worker override. External requests including basemap tiles denied; route rendering only, not new basemap/phone/performance/rollback acceptance.',
   checks: [], events: [], blocked: [], droppedEvents: 0, notRun: [], passed: false };
-if(manualRecovery)report.scope='Explicit two-reload recovery only: first ordinary reload retains captured old HTML; naturally updated worker then permits a second ordinary reload. No cache clear, forced update or automatic navigation. This does NOT pass single-reload compatibility or approve deployment. External tiles blocked; no new basemap/phone/performance claim.';
 let sequence = 0, ws, session, chrome, preview, server, previewIdentity, phase = 'old';
 const pending = new Map(), sockets = new Set();
 const delay = ms => new Promise(done => setTimeout(done, ms));
@@ -132,7 +129,7 @@ try {
   ws.onmessage = event => {
     const message = JSON.parse(event.data);
     if (message.id) { pending.get(message.id)?.(message.result, message.error); return; }
-    if (['Log.entryAdded', 'Runtime.exceptionThrown', 'Network.loadingFailed', 'Network.loadingFinished', 'Page.frameNavigated', 'Runtime.executionContextCreated',
+    if (['Log.entryAdded', 'Runtime.exceptionThrown', 'Network.loadingFailed', 'Page.frameNavigated', 'Runtime.executionContextCreated',
       'Network.responseReceived', 'Network.requestWillBeSent', 'ServiceWorker.workerVersionUpdated'].includes(message.method)) {
       if (report.events.length >= 2500) { report.droppedEvents++; return; }
       report.events.push({ method: message.method, sessionId: message.sessionId, params: message.params, phase, atMs: Date.now() - started });
@@ -165,23 +162,10 @@ try {
   const snapshot = `(async()=>{const entries=[];for(const [name,paths]of[['sgshiok-static-v1',${JSON.stringify(report.preservationPaths)}],['qa-unrelated-cache',['/__qa/preserve']]]){const cache=await caches.open(name);for(const path of paths){const response=await cache.match(path);if(!response)throw Error('missing preserved '+path);const bytes=await response.arrayBuffer();entries.push({name,path,bytes:bytes.byteLength,sha:Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))).map(v=>v.toString(16).padStart(2,'0')).join('')})}}return {local:localStorage.getItem('__qa:reload-preserve'),session:sessionStorage.getItem('__qa:reload-preserve'),entries}})()`;
   report.before = await evaluate(snapshot);
   const documentBefore = await evaluate('({timeOrigin:performance.timeOrigin,url:location.href})');
-  const appWorkerUrl=server.origin+'/sw.js';
-  const oldVersions = new Set(report.events.flatMap(event => event.method === 'ServiceWorker.workerVersionUpdated' ? event.params.versions.filter(version=>version.scriptURL===appWorkerUrl).map(version => version.versionId) : []));
+  const oldVersions = new Set(report.events.flatMap(event => event.method === 'ServiceWorker.workerVersionUpdated' ? event.params.versions.map(version => version.versionId) : []));
   assert.ok(oldVersions.size > 0, 'Old worker version observed before switch');
-  server.flip(); phase = manualRecovery?'first-reload':'reload';
+  server.flip(); phase = 'reload';
   await send('Page.reload');
-  if(manualRecovery){
-    const firstDocument=await until('first post-switch Document',()=>report.events.find(event=>event.phase==='first-reload'&&event.method==='Network.responseReceived'&&event.params.type==='Document'&&event.params.response.url===selected),Boolean);
-    await until('first post-switch Document body complete',()=>report.events.some(event=>event.method==='Network.loadingFinished'&&event.params.requestId===firstDocument.params.requestId),Boolean);
-    const firstBody=await send('Network.getResponseBody',{requestId:firstDocument.params.requestId});
-    const bytes=Buffer.from(firstBody.body,firstBody.base64Encoded?'base64':'utf8');
-    check('first reload reproduces the old cached HTML',sha(bytes)===sha(html),{sha256:sha(bytes),bytes:bytes.length,response:firstDocument.params.response});
-    report.singleReloadCompatible=false;
-    const updated=await until('natural candidate worker controls before second reload',()=>report.events.flatMap(event=>event.method==='ServiceWorker.workerVersionUpdated'?event.params.versions:[]),
-      versions=>versions.some(version=>version.scriptURL===appWorkerUrl&&!oldVersions.has(version.versionId)&&version.status==='activated'&&version.controlledClients?.includes(target.targetId)),25000);
-    report.recoveryWorkerVersions=updated.filter(version=>version.scriptURL===appWorkerUrl&&!oldVersions.has(version.versionId)&&version.status==='activated');
-    phase='reload';await send('Page.reload');
-  }
   await until('candidate document', () => evaluate('({timeOrigin:performance.timeOrigin,url:location.href,text:document.documentElement.innerHTML})'),
     value => value.timeOrigin !== documentBefore.timeOrigin && value.text.includes(build.buildId), 35000);
   const document = reloadedDocument(report.events, { sessionId: session, frameId: first.frameId, url: selected });
@@ -192,7 +176,7 @@ try {
   check('browser Document matches a completed candidate HTML response', server.requests.some(entry => entry.release === 'current' && entry.source === 'current-preview' &&
     entry.status === 200 && entry.finishedAt && entry.bytes === body.length && entry.sha256 === sha(body)), { sha256: sha(body), bytes: body.length });
   await until('current worker activates naturally', () => report.events.flatMap(event => event.method === 'ServiceWorker.workerVersionUpdated' ? event.params.versions : []),
-    versions => versions.some(version => version.scriptURL===appWorkerUrl && !oldVersions.has(version.versionId) && version.status === 'activated' && version.controlledClients?.includes(target.targetId) &&
+    versions => versions.some(version => !oldVersions.has(version.versionId) && version.status === 'activated' && version.controlledClients?.includes(target.targetId) &&
       report.events.some(event => event.phase === 'reload' && event.method === 'ServiceWorker.workerVersionUpdated' && event.params.versions.some(item => item.versionId === version.versionId && item.status === 'activated'))), 25000);
   check('candidate worker was served after switch', server.requests.some(entry => entry.release === 'current' && entry.url === '/sw.js' && entry.sha256 === sha(currentWorker)));
   report.after = await evaluate(snapshot);
@@ -206,8 +190,6 @@ try {
   const pixels = Buffer.from(shot.data, 'base64');
   writeFileSync(resolve(out, 'current-route.png'), pixels, { flag: 'wx' });
   report.capture = { file: 'current-route.png', bytes: pixels.length, sha256: sha(pixels), route };
-  const afterCapture=await evaluate('('+facts.toString()+')()');report.capture.after=afterCapture;
-  check('current route remains selected across capture',afterCapture.count>0&&afterCapture.routeKey===route.routeKey&&afterCapture.postal===route.postal,afterCapture);
   report.passed = true;
 } catch (error) { report.failure = error.stack; }
 finally {

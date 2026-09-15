@@ -48,6 +48,14 @@ never ready in30seconds, last502, no stdout/stderr; driver38.652seconds. No rele
 switch or browser acceptance.15reused boundary/navigation tests pass separately.
 Source, raw failure and peer correction are preserved in returning-worker-20260915;
 startup cause is unknown. No blind replay, package rebuild or pipeline action.
+Later instrumented startup served exact HTML in21.988seconds; it did not explain
+the earlier failure. Actual captured-production testing now proves a first-reload
+cache problem: oldHTML remains while the new worker activates. A second explicit
+reload retrieves exact currentHTML with tested storage/cache preserved, but a
+requiredJS request hit the local bridge's10second timeout before hydration.
+Full route recovery remains UNVERIFIED; no forced navigation/cache clearing.
+Details: returning-worker-20260915/continuation.json. Preview-only release approval
+is requested separately; a transport recovery is not M17 or deployment approval.
 15September scope confirmation: the active goal includes ALL remaining build and
 ship tasks, not just Supabase setup. Report HTTP/retry and private cleanup are
 implemented with independent review and daily scheduling, then resident activation, moderator access,
