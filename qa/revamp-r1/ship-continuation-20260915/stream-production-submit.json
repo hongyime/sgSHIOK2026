@@ -1,0 +1,24 @@
+{
+  "deployment": {
+    "id": "dpl_E1m2T7nNNQmdkqQE9M9YrYuoMjS4",
+    "readyState": "INITIALIZING",
+    "target": "production",
+    "url": "sgshiok-qw2m5t3yo-theprawnvercel.vercel.app"
+  },
+  "elapsedSeconds": 81.765,
+  "httpStatus": 200,
+  "ok": true,
+  "productionSmokeVerified": false,
+  "projectId": "prj_y6GIQUdEyXXmtg3UTWkcJECKHdEE",
+  "receiptSha256": "e6b459b8be9d591f80501a99d21a6e5c1af3663c67d7ef530fa17f82c8261013",
+  "requestSha256": "1a07f4b6d11e3bf4915232b28d5baf5398bd2fc93e2e8902a305ef7cbea274a8",
+  "state": "created",
+  "teamId": "team_ARK7HKobyCMp0PCArQTLxbz6",
+  "uploaded": [
+    "a2ea62362e45c8cfb66f9574483ffcb1885cf39f",
+    "d00ad9dd514708767c545dd7eadd51d36a6047db",
+    "c4e2dfc37ed7ba68627203dbb5114d4c13ca8710",
+    "6051b3b648b075dddbb33e681ebbc7058041d863",
+    "d96b71598ccc1213fbf87347a225efff06f1a4dc"
+  ]
+}

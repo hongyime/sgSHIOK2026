@@ -1,0 +1,41 @@
+{
+  "deployment": {
+    "id": "dpl_E1m2T7nNNQmdkqQE9M9YrYuoMjS4",
+    "url": "sgshiok-qw2m5t3yo-theprawnvercel.vercel.app",
+    "readyState": "READY",
+    "target": "production",
+    "meta": {
+      "sourceArchiveSha256": "e6b459b8be9d591f80501a99d21a6e5c1af3663c67d7ef530fa17f82c8261013",
+      "sourceRevision": "9516894c8e66295b41f18b5b2ccef53eaaa6628a",
+      "lambdaRuntimeStats": "{\"nodejs\":4}"
+    },
+    "buildingAt": 1789488270854,
+    "ready": 1789488518225
+  },
+  "observedAfterReady": [
+    {
+      "alias": "sgshiok.vercel.app",
+      "id": "dpl_wVnDeskyK666GwYUKWzY2aserkJR",
+      "readyState": "READY"
+    },
+    {
+      "alias": "sgshiok.hong-yi.me",
+      "id": "dpl_wVnDeskyK666GwYUKWzY2aserkJR",
+      "readyState": "READY"
+    },
+    {
+      "alias": "sgshiok-theprawnvercel.vercel.app",
+      "id": "dpl_E1m2T7nNNQmdkqQE9M9YrYuoMjS4",
+      "readyState": "READY"
+    }
+  ],
+  "before": {
+    "id": "dpl_wVnDeskyK666GwYUKWzY2aserkJR",
+    "alias": [
+      "sgshiok.hong-yi.me",
+      "sgshiok.vercel.app",
+      "sgshiok-theprawnvercel.vercel.app"
+    ]
+  },
+  "finding": "autoAssignCustomDomains=false preserved both primary domains but did not prevent the team-generated alias from moving. No promotion call was made."
+}

@@ -1,0 +1,9 @@
+{
+  "ok": false,
+  "returncode": 1,
+  "stdout": "{\"out\":\"C:\\\\sgSHIOK2026\\\\qa\\\\revamp-r1\\\\ship-continuation-20260915\\\\production-recovery-01\",\"passed\":false,\"failure\":\"real retry tiles deadline\",\"captures\":[\"mrt-1440x950\",\"desktop-1440x950\",\"mobile-390x844\",\"mobile-390x667\",\"mobile-320x667\",\"online-unavailable-1440x950\"],\"elapsedMs\":144251}",
+  "stderr": "",
+  "error": "command_timeout",
+  "cleanup_complete": true,
+  "driverSha256": "48e9a134e15d306e644ab9be3e676f9ec5466d2d0d4d9940cfbaf9ef019402a5"
+}

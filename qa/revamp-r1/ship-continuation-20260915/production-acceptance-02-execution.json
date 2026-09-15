@@ -1,0 +1,7 @@
+{
+  "ok": false,
+  "returncode": 1,
+  "stdout": "{\"out\":\"C:\\\\sgSHIOK2026\\\\qa\\\\revamp-r1\\\\ship-continuation-20260915\\\\production-acceptance-02\",\"passed\":false,\"failure\":\"Runtime.evaluate deadline\",\"captures\":[],\"elapsedMs\":116088}",
+  "stderr": "",
+  "driverSha256": "7546bd059643f70760201cdb40837b7b69d021bbca52b6503ec67250dca76bba"
+}

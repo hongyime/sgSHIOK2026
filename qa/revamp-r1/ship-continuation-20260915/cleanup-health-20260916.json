@@ -1,0 +1,23 @@
+{
+  "exitCode": 1,
+  "result": {
+    "schema_version": 1,
+    "status": "unobserved",
+    "cleanup": "fresh",
+    "scheduler": "unobserved",
+    "intake_enabled": false,
+    "natural_run_observed": false,
+    "cleanup_admission_ready": false,
+    "reason": null,
+    "target": {
+      "projectRef": "ztjilsfgoephcdcsgcks",
+      "projectName": "sgshiok",
+      "projectUrl": "https://ztjilsfgoephcdcsgcks.supabase.co",
+      "organizationId": "ixonsqiqglwriirutigr",
+      "region": "ap-southeast-1",
+      "plan": "free"
+    },
+    "observed_at": "2026-09-16T01:06:25.082633+08:00",
+    "database_now": "2026-09-16T01:06:25.649854+08:00"
+  }
+}

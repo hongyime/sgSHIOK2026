@@ -1,0 +1,21 @@
+{
+  "archive": {
+    "compressedBytes": 430296929,
+    "elapsedSeconds": {
+      "pack": 502.7029999999795,
+      "total": 737.9220000000205
+    },
+    "inputBytes": 5637406385,
+    "parts": 5,
+    "receipt": "C:\\sgSHIOK2026\\tmp\\tile-source-stream-20260916-01\\source-archive.json",
+    "receiptSha256": "3d91e2b331ff73e43e1025bd41042cd024538e9fae3b581214ecb1dc489587d3",
+    "scope": "source-archive"
+  },
+  "autoAssignCustomDomains": false,
+  "elapsedSeconds": 738.985,
+  "ok": true,
+  "phase": "packed-not-deployed",
+  "requestSha256": "24518e364975a41a572b673b20b463a95bf7091b4471841219b014cd41ad9ebd",
+  "sourceRevision": "06372d2af51f17289f13a0b3a04c7fb1a4cb4063",
+  "target": "production"
+}

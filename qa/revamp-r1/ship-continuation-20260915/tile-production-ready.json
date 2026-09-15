@@ -1,0 +1,35 @@
+{
+  "observedAt": "2026-09-15T18:31:30Z",
+  "source": "Vercel get_deployment readbacks during continuation",
+  "deployment": {
+    "id": "dpl_AnXUMz7PWUmFDgbkTgsd3oQrRXMf",
+    "url": "https://sgshiok-jc4avtxj1-theprawnvercel.vercel.app/",
+    "state": "READY",
+    "target": "production",
+    "sourceRevision": "06372d2af51f17289f13a0b3a04c7fb1a4cb4063",
+    "sourceArchiveSha256": "3d91e2b331ff73e43e1025bd41042cd024538e9fae3b581214ecb1dc489587d3",
+    "createdAt": 1789495993509,
+    "ready": 1789496239269
+  },
+  "aliases": {
+    "sgshiok.vercel.app": "dpl_wVnDeskyK666GwYUKWzY2aserkJR",
+    "sgshiok.hong-yi.me": "dpl_wVnDeskyK666GwYUKWzY2aserkJR",
+    "sgshiok-theprawnvercel.vercel.app": "dpl_AnXUMz7PWUmFDgbkTgsd3oQrRXMf"
+  },
+  "uploadCreateSeconds": 59.969,
+  "createdToReadyArithmetic": "(1789496239269 - 1789495993509) / 1000 = 245.760 seconds",
+  "mainDomainPromotionPerformed": false,
+  "reportsEnabled": false,
+  "currentReleaseBrowserAcceptance": "UNVERIFIED",
+  "browserGate": {
+    "observedAt": "2026-09-15T18:27:12.2364964Z",
+    "availableMiB": 2273.04,
+    "cpuPercent": 100,
+    "pagesInputPerSecond": 1215,
+    "attemptStarted": false,
+    "reason": "Continued saturation/paging; previous native-click timeout. No unchanged browser repetition."
+  },
+  "pipelineRuns": 0,
+  "localInstallations": 0,
+  "remoteBuild": "Vercel performs its configured npm ci; zero local installations does not mean no remote dependency installation."
+}

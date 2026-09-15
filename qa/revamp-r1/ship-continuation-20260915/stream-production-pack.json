@@ -1,0 +1,21 @@
+{
+  "archive": {
+    "compressedBytes": 430296763,
+    "elapsedSeconds": {
+      "pack": 585.5469999999623,
+      "total": 805.655999999959
+    },
+    "inputBytes": 5637406165,
+    "parts": 5,
+    "receipt": "C:\\sgSHIOK2026\\tmp\\production-source-stream-20260915-01\\source-archive.json",
+    "receiptSha256": "e6b459b8be9d591f80501a99d21a6e5c1af3663c67d7ef530fa17f82c8261013",
+    "scope": "source-archive"
+  },
+  "autoAssignCustomDomains": false,
+  "elapsedSeconds": 806.172,
+  "ok": true,
+  "phase": "packed-not-deployed",
+  "requestSha256": "1a07f4b6d11e3bf4915232b28d5baf5398bd2fc93e2e8902a305ef7cbea274a8",
+  "sourceRevision": "9516894c8e66295b41f18b5b2ccef53eaaa6628a",
+  "target": "production"
+}

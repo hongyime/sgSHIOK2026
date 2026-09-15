@@ -1,0 +1,7 @@
+{
+  "ok": false,
+  "returncode": 1,
+  "stdout": "{\"out\":\"C:\\\\sgSHIOK2026\\\\qa\\\\revamp-r1\\\\ship-continuation-20260915\\\\production-acceptance-01\",\"passed\":false,\"failure\":\"search button visible and postal valid\",\"captures\":[],\"elapsedMs\":61422}",
+  "stderr": "",
+  "driverSha256": "5f935f215e967931e18b1c61c32c162728b03e0a7b6f088cd1e1db6ad84d7de0"
+}

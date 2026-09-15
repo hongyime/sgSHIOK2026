@@ -1,12 +1,20 @@
 # SHIOK Revamp Execution Plan
 Current scope: 2026-09-13 owner revision, replacing the 12 September UI scope.
 Completion resume: IN PROGRESS after14September owner answers, not complete.
-Latest release:9516894 pushed with34staged-deployment tests passing. Fresh frontend
-build frontend-nsp394uq passed in517.438s outer; no data copied. Loose-file source
-packaging stopped after900.094s with no verified archive and no upload. Preserve
-that attempt. Next is verified streaming reuse of the existing compressed data,
-then production-environment Retry/Back acceptance and publication. Production is
-still the old release. Reports remain disabled and retain the approved30days.
+Current checkpoint16September: source06372d2 is a READY production-configured
+candidate (dpl_AnXUMz7PWUmFDgbkTgsd3oQrRXMf). Streaming package verification and
+upload succeeded. Both primary domains remain old; Vercel moved only the team
+generated alias despite skip-domain configuration. Do not claim fully shipped.
+The previous9516894 candidate's actual Retry200 renders the correct stop; injected-failure Back restores exact
+saved URL/geometry. The overall browser run still fails at basemap settlement.
+Source06372d2 now uses256logical-pixel tiles:79focused and3343isolated tests pass,
+TypeScript/integrity pass, fresh build passes. Desktop renders the saved route;
+local visual run fails at native MRT click timeout before its viewport captures.
+Package/upload are complete. Next: release-specific recovery/returning-client checks
+and primary-domain publication. No measured speedup claimed. Reporting stays
+disabled with30day retention. First natural daily cleanup now verified healthy.
+Its moderator identity and real activation remain.
+Older checkpoint paragraphs below are historical, not the current release state.
 Latest interaction/fix checkpoint:5dc9124 fixes unread HTTP error bodies in the
 walk-preview client.4red regressions reproduced;15focused/3343full isolated tests
 across86files+42dependencyguards and TypeScript pass. Preview69eac6a predates it.

@@ -1,0 +1,1162 @@
+{
+  "origin": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app",
+  "deployment": "dpl_E1m2T7nNNQmdkqQE9M9YrYuoMjS4",
+  "requireRouteSuccess": true,
+  "startedAt": "2026-09-15T16:14:06.293Z",
+  "checks": [
+    {
+      "name": "at least1GiB free before Chrome",
+      "passed": true
+    },
+    {
+      "name": "search button visible and postal valid",
+      "passed": false,
+      "detail": {
+        "x": 290,
+        "y": 74,
+        "value": "",
+        "valid": false,
+        "enabled": true,
+        "visible": true
+      }
+    }
+  ],
+  "responses": [
+    {
+      "requestId": "946766BC25E937AA9081B0947A3D2377",
+      "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/",
+      "status": 200,
+      "mime": "text/html",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "requestId": "38104.2",
+      "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/css/e5ab9e3abb21f165.css",
+      "status": 200,
+      "mime": "text/css",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "requestId": "38104.3",
+      "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/webpack-0384e436780a7ac3.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "requestId": "38104.9",
+      "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/app/global-error-c9af8e66345ea0ae.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "requestId": "38104.6",
+      "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/main-app-f98bb10c3b690b1c.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "requestId": "38104.5",
+      "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/794-4288afb5836f76b2.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "requestId": "38104.4",
+      "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/4bd1b696-58970b7b91aecaf4.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "requestId": "38104.8",
+      "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/app/page-bc0ac7185655bf5a.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "requestId": "38104.7",
+      "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/8ffc485e-a0d15a629ee61a68.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "requestId": "38104.20",
+      "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/icon.svg",
+      "status": 200,
+      "mime": "image/svg+xml",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "requestId": "38104.21",
+      "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/347.180d779b709307ce.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "requestId": "38104.22",
+      "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/258.c2f225aa475385fa.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "requestId": "38104.27",
+      "url": "https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png",
+      "status": 200,
+      "mime": "image/png",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "requestId": "38104.26",
+      "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/e919c1aa.4c7c5830653c9e19.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "fromDiskCache": false,
+      "fromServiceWorker": true
+    }
+  ],
+  "errors": [],
+  "captures": [],
+  "blockedMutations": [],
+  "routeAttempts": [],
+  "droppedResponses": 0,
+  "passed": false,
+  "submitControl": "native button click",
+  "scope": "Fresh authenticated preview in owned Chrome, responsive viewport sizes only. No old-client migration, phone, native zoom or representative performance claim. Page-session network metadata only, not complete worker transfer accounting.",
+  "chromePid": 51080,
+  "last": {
+    "name": "authenticated preview",
+    "value": {
+      "origin": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app",
+      "ready": "complete",
+      "input": true
+    }
+  },
+  "failure": "search button visible and postal valid",
+  "failureScreenshot": "failure.png",
+  "ownedChromeKillRequested": true,
+  "cleanupConfirmed": false,
+  "pendingRequestControls": 0,
+  "entries": [
+    {
+      "timeMs": 15225,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "946766BC25E937AA9081B0947A3D2377",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 15327,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Fetch.requestPaused",
+      "params": {
+        "requestId": "interception-job-1.0",
+        "networkId": "946766BC25E937AA9081B0947A3D2377",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 15327,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "send",
+      "id": 10,
+      "method": "Fetch.continueRequest",
+      "params": {
+        "requestId": "interception-job-1.0"
+      }
+    },
+    {
+      "timeMs": 15448,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "reply",
+      "id": 10,
+      "fetchCommand": true
+    },
+    {
+      "timeMs": 16207,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "946766BC25E937AA9081B0947A3D2377",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/",
+          "method": "GET"
+        },
+        "redirectResponse": {
+          "status": 307
+        }
+      }
+    },
+    {
+      "timeMs": 16392,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Fetch.requestPaused",
+      "params": {
+        "requestId": "interception-job-1.1",
+        "networkId": "946766BC25E937AA9081B0947A3D2377",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/",
+          "method": "GET"
+        },
+        "redirectedRequestId": "interception-job-1.0"
+      }
+    },
+    {
+      "timeMs": 16392,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "send",
+      "id": 11,
+      "method": "Fetch.continueRequest",
+      "params": {
+        "requestId": "interception-job-1.1"
+      }
+    },
+    {
+      "timeMs": 16492,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "reply",
+      "id": 11,
+      "fetchCommand": true
+    },
+    {
+      "timeMs": 18302,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "946766BC25E937AA9081B0947A3D2377",
+        "response": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/",
+          "status": 200
+        }
+      }
+    },
+    {
+      "timeMs": 18366,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "38104.2",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/css/e5ab9e3abb21f165.css",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 18368,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "38104.3",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/webpack-0384e436780a7ac3.js",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 18369,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "38104.4",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/4bd1b696-58970b7b91aecaf4.js",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 18370,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "38104.5",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/794-4288afb5836f76b2.js",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 18394,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "38104.6",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/main-app-f98bb10c3b690b1c.js",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 18394,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "38104.7",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/8ffc485e-a0d15a629ee61a68.js",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 18395,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "38104.8",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/app/page-bc0ac7185655bf5a.js",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 18395,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "38104.9",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/app/global-error-c9af8e66345ea0ae.js",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 18396,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.loadingFinished",
+      "params": {
+        "requestId": "946766BC25E937AA9081B0947A3D2377"
+      }
+    },
+    {
+      "timeMs": 18396,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Fetch.requestPaused",
+      "params": {
+        "requestId": "interception-job-2.0",
+        "networkId": "38104.2",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/css/e5ab9e3abb21f165.css",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 18396,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "send",
+      "id": 13,
+      "method": "Fetch.continueRequest",
+      "params": {
+        "requestId": "interception-job-2.0"
+      }
+    },
+    {
+      "timeMs": 18508,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Fetch.requestPaused",
+      "params": {
+        "requestId": "interception-job-3.0",
+        "networkId": "38104.3",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/webpack-0384e436780a7ac3.js",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 18508,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "send",
+      "id": 14,
+      "method": "Fetch.continueRequest",
+      "params": {
+        "requestId": "interception-job-3.0"
+      }
+    },
+    {
+      "timeMs": 18545,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Fetch.requestPaused",
+      "params": {
+        "requestId": "interception-job-4.0",
+        "networkId": "38104.4",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/4bd1b696-58970b7b91aecaf4.js",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 18545,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "send",
+      "id": 15,
+      "method": "Fetch.continueRequest",
+      "params": {
+        "requestId": "interception-job-4.0"
+      }
+    },
+    {
+      "timeMs": 18548,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Fetch.requestPaused",
+      "params": {
+        "requestId": "interception-job-5.0",
+        "networkId": "38104.5",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/794-4288afb5836f76b2.js",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 18548,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "send",
+      "id": 16,
+      "method": "Fetch.continueRequest",
+      "params": {
+        "requestId": "interception-job-5.0"
+      }
+    },
+    {
+      "timeMs": 18576,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Fetch.requestPaused",
+      "params": {
+        "requestId": "interception-job-6.0",
+        "networkId": "38104.6",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/main-app-f98bb10c3b690b1c.js",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 18576,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "send",
+      "id": 17,
+      "method": "Fetch.continueRequest",
+      "params": {
+        "requestId": "interception-job-6.0"
+      }
+    },
+    {
+      "timeMs": 18580,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Fetch.requestPaused",
+      "params": {
+        "requestId": "interception-job-7.0",
+        "networkId": "38104.7",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/8ffc485e-a0d15a629ee61a68.js",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 18580,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "send",
+      "id": 18,
+      "method": "Fetch.continueRequest",
+      "params": {
+        "requestId": "interception-job-7.0"
+      }
+    },
+    {
+      "timeMs": 18582,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Fetch.requestPaused",
+      "params": {
+        "requestId": "interception-job-8.0",
+        "networkId": "38104.8",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/app/page-bc0ac7185655bf5a.js",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 18582,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "send",
+      "id": 19,
+      "method": "Fetch.continueRequest",
+      "params": {
+        "requestId": "interception-job-8.0"
+      }
+    },
+    {
+      "timeMs": 18589,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Fetch.requestPaused",
+      "params": {
+        "requestId": "interception-job-9.0",
+        "networkId": "38104.9",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/app/global-error-c9af8e66345ea0ae.js",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 18589,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "send",
+      "id": 20,
+      "method": "Fetch.continueRequest",
+      "params": {
+        "requestId": "interception-job-9.0"
+      }
+    },
+    {
+      "timeMs": 18621,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "reply",
+      "id": 13,
+      "fetchCommand": true
+    },
+    {
+      "timeMs": 18720,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "reply",
+      "id": 14,
+      "fetchCommand": true
+    },
+    {
+      "timeMs": 18737,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "reply",
+      "id": 15,
+      "fetchCommand": true
+    },
+    {
+      "timeMs": 18738,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "reply",
+      "id": 16,
+      "fetchCommand": true
+    },
+    {
+      "timeMs": 18739,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "reply",
+      "id": 17,
+      "fetchCommand": true
+    },
+    {
+      "timeMs": 18739,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "reply",
+      "id": 18,
+      "fetchCommand": true
+    },
+    {
+      "timeMs": 18739,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "reply",
+      "id": 19,
+      "fetchCommand": true
+    },
+    {
+      "timeMs": 18740,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "reply",
+      "id": 20,
+      "fetchCommand": true
+    },
+    {
+      "timeMs": 20055,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "38104.2",
+        "response": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/css/e5ab9e3abb21f165.css",
+          "status": 200
+        }
+      }
+    },
+    {
+      "timeMs": 20115,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.loadingFinished",
+      "params": {
+        "requestId": "38104.2"
+      }
+    },
+    {
+      "timeMs": 20177,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "38104.3",
+        "response": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/webpack-0384e436780a7ac3.js",
+          "status": 200
+        }
+      }
+    },
+    {
+      "timeMs": 20188,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.loadingFinished",
+      "params": {
+        "requestId": "38104.3"
+      }
+    },
+    {
+      "timeMs": 20189,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "38104.9",
+        "response": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/app/global-error-c9af8e66345ea0ae.js",
+          "status": 200
+        }
+      }
+    },
+    {
+      "timeMs": 20336,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.loadingFinished",
+      "params": {
+        "requestId": "38104.9"
+      }
+    },
+    {
+      "timeMs": 20474,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "38104.6",
+        "response": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/main-app-f98bb10c3b690b1c.js",
+          "status": 200
+        }
+      }
+    },
+    {
+      "timeMs": 20558,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.loadingFinished",
+      "params": {
+        "requestId": "38104.6"
+      }
+    },
+    {
+      "timeMs": 20619,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "38104.5",
+        "response": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/794-4288afb5836f76b2.js",
+          "status": 200
+        }
+      }
+    },
+    {
+      "timeMs": 20826,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.loadingFinished",
+      "params": {
+        "requestId": "38104.5"
+      }
+    },
+    {
+      "timeMs": 20868,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "38104.4",
+        "response": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/4bd1b696-58970b7b91aecaf4.js",
+          "status": 200
+        }
+      }
+    },
+    {
+      "timeMs": 22234,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.loadingFinished",
+      "params": {
+        "requestId": "38104.4"
+      }
+    },
+    {
+      "timeMs": 23029,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "38104.8",
+        "response": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/app/page-bc0ac7185655bf5a.js",
+          "status": 200
+        }
+      }
+    },
+    {
+      "timeMs": 23792,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.loadingFinished",
+      "params": {
+        "requestId": "38104.8"
+      }
+    },
+    {
+      "timeMs": 23939,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "38104.7",
+        "response": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/8ffc485e-a0d15a629ee61a68.js",
+          "status": 200
+        }
+      }
+    },
+    {
+      "timeMs": 24590,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.loadingFinished",
+      "params": {
+        "requestId": "38104.7"
+      }
+    },
+    {
+      "timeMs": 24962,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "38104.20",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/icon.svg",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 24963,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Fetch.requestPaused",
+      "params": {
+        "requestId": "interception-job-10.0",
+        "networkId": "38104.20",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/icon.svg",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 24963,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "send",
+      "id": 24,
+      "method": "Fetch.continueRequest",
+      "params": {
+        "requestId": "interception-job-10.0"
+      }
+    },
+    {
+      "timeMs": 25253,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Fetch.requestPaused",
+      "params": {
+        "requestId": "interception-job-11.0",
+        "networkId": "38104.21",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/347.180d779b709307ce.js",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 25300,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "send",
+      "id": 25,
+      "method": "Fetch.continueRequest",
+      "params": {
+        "requestId": "interception-job-11.0"
+      }
+    },
+    {
+      "timeMs": 25357,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Fetch.requestPaused",
+      "params": {
+        "requestId": "interception-job-12.0",
+        "networkId": "38104.22",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/258.c2f225aa475385fa.js",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 25357,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "send",
+      "id": 26,
+      "method": "Fetch.continueRequest",
+      "params": {
+        "requestId": "interception-job-12.0"
+      }
+    },
+    {
+      "timeMs": 25465,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "38104.21",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/347.180d779b709307ce.js",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 25470,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "38104.22",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/258.c2f225aa475385fa.js",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 25560,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Fetch.requestPaused",
+      "params": {
+        "requestId": "interception-job-13.0",
+        "networkId": "38104.23",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/css/9e82ff4a22ea7ae3.css",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 25560,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "send",
+      "id": 27,
+      "method": "Fetch.continueRequest",
+      "params": {
+        "requestId": "interception-job-13.0"
+      }
+    },
+    {
+      "timeMs": 25561,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "38104.23",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/css/9e82ff4a22ea7ae3.css",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 25745,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "reply",
+      "id": 24,
+      "fetchCommand": true
+    },
+    {
+      "timeMs": 25856,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "reply",
+      "id": 25,
+      "fetchCommand": true
+    },
+    {
+      "timeMs": 25956,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "reply",
+      "id": 26,
+      "fetchCommand": true
+    },
+    {
+      "timeMs": 26038,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "reply",
+      "id": 27,
+      "fetchCommand": true
+    },
+    {
+      "timeMs": 31468,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "38104.20",
+        "response": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/icon.svg",
+          "status": 200
+        }
+      }
+    },
+    {
+      "timeMs": 31470,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.loadingFinished",
+      "params": {
+        "requestId": "38104.20"
+      }
+    },
+    {
+      "timeMs": 31476,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "38104.25",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/ca4dcb09.43e522b8d8544d0e.js",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 31476,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "38104.26",
+        "request": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/e919c1aa.4c7c5830653c9e19.js",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 31493,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "38104.21",
+        "response": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/347.180d779b709307ce.js",
+          "status": 200
+        }
+      }
+    },
+    {
+      "timeMs": 31496,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.loadingFinished",
+      "params": {
+        "requestId": "38104.21"
+      }
+    },
+    {
+      "timeMs": 31498,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "38104.22",
+        "response": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/258.c2f225aa475385fa.js",
+          "status": 200
+        }
+      }
+    },
+    {
+      "timeMs": 31500,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.loadingFinished",
+      "params": {
+        "requestId": "38104.22"
+      }
+    },
+    {
+      "timeMs": 31565,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "38104.27",
+        "request": {
+          "url": "https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 31605,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Fetch.requestPaused",
+      "params": {
+        "requestId": "interception-job-14.0",
+        "networkId": "38104.27",
+        "request": {
+          "url": "https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 31605,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "send",
+      "id": 32,
+      "method": "Fetch.continueRequest",
+      "params": {
+        "requestId": "interception-job-14.0"
+      }
+    },
+    {
+      "timeMs": 31613,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "reply",
+      "id": 32,
+      "fetchCommand": true
+    },
+    {
+      "timeMs": 31670,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "38104.27",
+        "response": {
+          "url": "https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png",
+          "status": 200
+        }
+      }
+    },
+    {
+      "timeMs": 31671,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.loadingFinished",
+      "params": {
+        "requestId": "38104.27"
+      }
+    },
+    {
+      "timeMs": 32092,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "38104.26",
+        "response": {
+          "url": "https://sgshiok-qw2m5t3yo-theprawnvercel.vercel.app/_next/static/chunks/e919c1aa.4c7c5830653c9e19.js",
+          "status": 200
+        }
+      }
+    },
+    {
+      "timeMs": 32097,
+      "sessionId": "F0C12D93CF0CB1C03898553A677E7AFE",
+      "kind": "event",
+      "method": "Network.loadingFinished",
+      "params": {
+        "requestId": "38104.26"
+      }
+    }
+  ],
+  "routeRequests": 0,
+  "elapsedMs": 61422
+}

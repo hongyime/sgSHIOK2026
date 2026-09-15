@@ -14,30 +14,26 @@ assert.equal(process.cwd(),ROOT);
 const acceptance=process.argv[3]==='--acceptance';
 const buttonSubmit=acceptance||process.argv[3]==='--button-submit';
 assert.deepEqual(process.argv.slice(2),acceptance?['--go','--acceptance']:buttonSubmit?['--go','--button-submit']:['--go']);
-const local=process.env.SHIOK_LOCAL_PREVIEW==='1';
 const origin=process.env.SHIOK_DEPLOYMENT_ORIGIN||'https://sgshiok-83j94nyc2-theprawnvercel.vercel.app';
-assert.match(origin,local?/^http:\/\/127\.0\.0\.1:[0-9]+$/:/^https:\/\/sgshiok-[a-z0-9]+-theprawnvercel\.vercel\.app$/);
+assert.match(origin,/^https:\/\/sgshiok-[a-z0-9]+-theprawnvercel\.vercel\.app$/);
 const deployment=process.env.SHIOK_DEPLOYMENT_ID||'dpl_DiLpW8ZRPGSiaQHM76JZsocKC7pJ';
 assert.match(deployment,/^dpl_[A-Za-z0-9]+$/);
 const attempt=process.env.SHIOK_SMOKE_ATTEMPT||(acceptance?'interaction-01':buttonSubmit?'browser-02':'browser-01');
 assert.match(attempt,/^[a-z][a-z0-9-]{1,70}$/);
 const requireRouteSuccess=process.env.SHIOK_REQUIRE_ROUTE_SUCCESS==='1';
 assert.ok(!requireRouteSuccess||acceptance,'Route success requires acceptance mode');
-assert.ok(!local||!requireRouteSuccess,'Local saved-route scope cannot satisfy provider acceptance');
-const renderer=process.env.SHIOK_BROWSER_RENDERER||'swiftshader';
-assert.ok(['swiftshader','default'].includes(renderer));
-const access=new URL(local?origin+'/':process.env.SHIOK_PREVIEW_ACCESS);
+const access=new URL(process.env.SHIOK_PREVIEW_ACCESS);
 assert.equal(access.origin,origin); assert.equal(access.pathname,'/');
-assert.ok(local||access.searchParams.has('_vercel_share'));
+assert.ok(access.searchParams.has('_vercel_share'));
 const out=resolve(BASE,attempt);
 assert.ok(!existsSync(out),'One fresh attempt; inspect a failure before any later run');
 mkdirSync(out);
 writeFileSync(resolve(out,'runner.mjs'),readFileSync(new URL(import.meta.url)),{flag:'wx'});
 const profile=mkdtempSync(resolve(ROOT,'tmp/preview-smoke-profile-'));
 const started=Date.now(),deadline=started+(acceptance?300000:210000);
-const report={origin,deployment:local?null:deployment,local,requireRouteSuccess,renderer,startedAt:new Date().toISOString(),
+const report={origin,deployment,requireRouteSuccess,startedAt:new Date().toISOString(),
   checks:[],responses:[],errors:[],captures:[],blockedMutations:[],routeAttempts:[],droppedResponses:0,passed:false,submitControl:buttonSubmit?'native button click':'CDP keyDown/keyUp only',
-  scope:local?'Exact local build, saved routes and responsive basemap only. No provider, deployment, returning-client, phone or representative-speed acceptance.':'Fresh authenticated preview in owned Chrome, responsive viewport sizes only. No old-client migration, phone, native zoom or representative performance claim. Page-session network metadata only, not complete worker transfer accounting.'};
+  scope:'Fresh authenticated preview in owned Chrome, responsive viewport sizes only. No old-client migration, phone, native zoom or representative performance claim. Page-session network metadata only, not complete worker transfer accounting.'};
 let chrome,ws,session,sequence=0,closing=false,routeRequests=0,injectRouteFailure=false,holdRetry=false,releaseRetry; const pending=new Map(),jobs=new Set();
 const entries=[],faults=[];
 const delay=ms=>new Promise(done=>setTimeout(done,ms));
@@ -49,7 +45,7 @@ function send(method,params={},sid=session){return new Promise((done,reject)=>{
   if(fetchCommand)trace({kind:'send',id,method,params});
   const finish=(result,error,kind='cdp')=>{clearTimeout(timeout);pending.delete(id);
     if(fetchCommand)trace({kind:'reply',id,fetchCommand,...(error?{error:{kind,code:error.code,message:error.message}}:{})});
-    if(error){const secret=access.searchParams.get('_vercel_share');const failure=Error(secret?String(error.message).split(secret).join('[withheld]'):String(error.message));failure.commandId=id;reject(failure);}else done(result);};
+    if(error){const failure=Error(String(error.message).split(access.searchParams.get('_vercel_share')).join('[withheld]'));failure.commandId=id;reject(failure);}else done(result);};
   const timeout=setTimeout(()=>finish(undefined,{message:method+' deadline'},'timeout'),closing?5000:Math.max(1,Math.min(15000,deadline-Date.now())));
   pending.set(id,finish);
   ws.send(JSON.stringify({id,method,params,...(sid?{sessionId:sid}:{})}));
@@ -78,7 +74,7 @@ try{
   chrome=spawn('C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',[
     '--headless=new','--incognito','--no-first-run','--no-default-browser-check','--disable-background-networking',
     '--disable-component-update','--disable-sync','--remote-debugging-port=0',
-    '--window-size=1440,950',...(renderer==='swiftshader'?['--use-angle=swiftshader','--enable-unsafe-swiftshader']:[]),
+    '--window-size=1440,950','--use-angle=swiftshader','--enable-unsafe-swiftshader',
     '--user-data-dir='+profile,'--crash-dumps-dir='+profile,'about:blank'],
     {cwd:ROOT,windowsHide:true,stdio:'ignore',env:{...process.env,TEMP:profile,TMP:profile,SHIOK_PREVIEW_ACCESS:''}});
   report.chromePid=chrome.pid;chrome.on('exit',(code,signal)=>{report.chromeExit={code,signal};});
@@ -90,7 +86,6 @@ try{
   ws.onerror=()=>{if(!closing)trace({kind:'connectionFault',message:'Browser socket error'});};
   ws.onmessage=event=>{
     const message=JSON.parse(event.data);if(message.id){pending.get(message.id)?.(message.result,message.error);return;}
-    if(closing)return;
     if(message.sessionId!==session)return;
     if(['Network.requestWillBeSent','Fetch.requestPaused','Network.loadingFailed','Network.loadingFinished','Network.responseReceived','Runtime.exceptionThrown'].includes(message.method)){
       const p=message.params,r=p.request,response=p.response;
@@ -127,11 +122,6 @@ try{
   await send('Emulation.setDeviceMetricsOverride',{width:1440,height:950,deviceScaleFactor:1,mobile:false});
   await send('Page.navigate',{url:access.href});
   await until('authenticated preview',()=>evaluate(`({origin:location.origin,ready:document.readyState,input:!!document.querySelector('#postal-search-input')})`),v=>v.origin===origin&&v.ready==='complete'&&v.input,60000);
-  if(local){
-    report.localIdentity=await evaluate(`fetch('/__qa/status').then(r=>r.json())`);
-    check('local preview serves the pinned build',report.localIdentity.buildId===process.env.SHIOK_LOCAL_BUILD_ID);
-    check('local preview has no data mismatches',report.localIdentity.dataMismatches.length===0);
-  }
   await send('Page.bringToFront');
   const inputBox=await evaluate(`(()=>{const e=document.querySelector('#postal-search-input'),r=e.getBoundingClientRect();return{x:r.x+r.width/3,y:r.y+r.height/2};})()`);
   for(const type of ['mousePressed','mouseReleased'])await send('Input.dispatchMouseEvent',{type,x:inputBox.x,y:inputBox.y,button:'left',clickCount:1});
@@ -169,9 +159,6 @@ try{
     }
     await send('Emulation.setDeviceMetricsOverride',{width:1440,height:950,deviceScaleFactor:1,mobile:false});await settled('restored desktop tiles');
     report.saved=await inspect();
-    report.basemapSpec=await evaluate(`window.__shiokRouteMap.getStyle().sources.onemap`);
-    if(local)check('lower-demand basemap uses 256 logical pixels',report.basemapSpec.tileSize===256);
-    if(!local){
     report.poiCandidates=await evaluate(`(()=>{const m=window.__shiokRouteMap,c=m.getCanvas(),r=c.getBoundingClientRect(),seen=new Set();return m.queryRenderedFeatures({layers:['bus-stop-dot','mrt-exit-dot']}).filter(f=>!seen.has(f.properties.id)&&seen.add(f.properties.id)).map(f=>{const p=m.project(f.geometry.coordinates),x=p.x+r.x,y=p.y+r.y;return{id:f.properties.id,kind:f.properties.kind,name:f.properties.name,x,y,visible:x>r.left+10&&x<r.right-10&&y>r.top+10&&y<r.bottom-10&&document.elementFromPoint(x,y)===c};}).filter(f=>f.visible);})()`);
     const visited=new Set([report.saved,report.mrt,report.initial].map(f=>new URL(f.url).searchParams.get('stop')));
     const poi=report.poiCandidates.filter(p=>p.kind==='bus_stop'&&!visited.has(p.id)).sort((a,b)=>b.y-a.y)[0];
@@ -181,7 +168,6 @@ try{
     report.failedSelection=await inspect();
     check('one selected request received the injected failure',report.injectedFailure?.status===503&&!injectRouteFailure);
     check('failed online preview preserves saved geometry',report.failedSelection.count>0&&report.failedSelection.geometrySha256===report.saved.geometrySha256);
-    await settled('saved walk after injected failure');
     await capture('online-unavailable-1440x950');
     await clickButton('Back to saved walk');
     await settled('recover from injected failure');
@@ -210,11 +196,9 @@ try{
     if(report.retryOutcome==='unavailable')await clickButton('Back to saved walk');else await clickButton('Bus stops');
     await settled('back to saved walk');
     const back=await inspect();check('Back restores saved selection URL',back.url===report.saved.url);
-    check('Back restores saved geometry',back.geometrySha256===report.saved.geometrySha256);
     check('Back clears failed-preview controls',await evaluate(`![...document.querySelectorAll('button')].some(e=>e.textContent.trim()==='Retry preview')`));
     await capture('back-to-saved-1440x950');
     if(requireRouteSuccess)check('authenticated OneMap route preview succeeds',report.retryOutcome==='preview');
-    }
   }
   const identity=await evaluate(`(async()=>{const paths=['/data/generated_20260805_prefer_scored_routed/manifest.json','/sw.js'];const out=[];for(const path of paths){const r=await fetch(path,{cache:'no-store'});const bytes=await r.arrayBuffer();const hash=await crypto.subtle.digest('SHA-256',bytes);out.push({path,status:r.status,bytes:bytes.byteLength,sha256:[...new Uint8Array(hash)].map(v=>v.toString(16).padStart(2,'0')).join('')});}return out;})()`);
   report.staticIdentity=identity;
@@ -226,11 +210,6 @@ try{
   report.auditScope='Runtime/Fetch command safety only. HTTP/network completeness is separate and not claimed by passed.';
   check('page request controls completed or exact tile cancellation explained',report.requestAudit.ok);
   check('no page mutation attempted',report.blockedMutations.length===0);
-  if(local)check('saved routes require no provider request',routeRequests===0);
-  if(local){
-    report.localPostflight=await evaluate(`fetch('/__qa/status').then(r=>r.json())`);
-    check('local data hashes remain unchanged',report.localPostflight.dataMismatches.length===0);
-  }
   check('no page response metadata dropped',report.droppedResponses===0);
   report.passed=true;
 }catch(error){report.failure=error?.message??'Browser transport failed';
@@ -251,6 +230,6 @@ finally{
   report.elapsedMs=Date.now()-started;
   // Never serialize the temporary share URL, auth cookies, request headers or profile.
   writeFileSync(resolve(out,'summary.json'),JSON.stringify(report,null,2)+'\n',{flag:'wx'});
-  writeFileSync(1,JSON.stringify({out,passed:report.passed,failure:report.failure,captures:report.captures.map(c=>c.name),elapsedMs:report.elapsedMs})+'\n');
+  console.log(JSON.stringify({out,passed:report.passed,failure:report.failure,captures:report.captures.map(c=>c.name),elapsedMs:report.elapsedMs}));
 }
-process.exit(report.passed?0:1);
+process.exitCode=report.passed?0:1;

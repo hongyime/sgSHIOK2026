@@ -10214,3 +10214,86 @@ FINDINGS
 DISAGREEMENTS
 1. A successful build is not a shipped product. Shipping remains incomplete.
 2. Do not claim a specific pack failure code that its wrapper failed to retain.
+
+## 2026-09-16 Real Route Recovery and Lower-Demand Basemap
+
+Correction to the preceding "does not assign domains" claim:
+autoAssignCustomDomains=false preserved sgshiok.vercel.app and sgshiok.hong-yi.me,
+but Vercel assigned sgshiok-theprawnvercel.vercel.app to the new candidate.
+No promotion API was called. Raw readbacks: ship-continuation-20260915/staged-production-ready.json.
+Candidate dpl_E1m2T7nNNQmdkqQE9M9YrYuoMjS4 is source9516894, not the later tile change.
+Its verified streaming archive is e6b459b8be9d591f80501a99d21a6e5c1af3663c67d7ef530fa17f82c8261013.
+
+Production-recovery-01: actual Retry HTTP200 + loadingFinished + selected-stop preview.
+Two preceding503s were deliberately injected. The first Back restores saved URL
+and exact geometry. Saved-route captures pass at all four viewport sizes.
+Overall FAIL: real retry tiles deadline; browser144251ms, outer330s job timed out
+and reported cleanup_complete=true. Final Back/static-identity stages not reached.
+
+Main06372d2: basemap tileSize128->256, provider/bounds/attribution/routes unchanged.
+This is a performance tradeoff, not correction of OneMap's official128 example:
+https://www.onemap.gov.sg/maps/json/raster/mbstyle/Grey.json
+MapLibre source zoom changes by one level; ideal fixed-view tile demand scales
+with area: (256/128)^2=4. Actual edges/cache/labels differ; no measured speedup claim.
+Focused red:2failed+77passed=79; after change79passed. Test count does not increase.
+First isolated full run:3342passed+1page-entry import timeout=3343 across86files.
+Existing release runner --testTimeout=15000:3343passed/86files,42guards,479.359s.
+TypeScript exit0; repo_integrity=ok. Protected anchors match before/after.
+Raw checks: frontend-retention-20260910/basemap-budget-20260916/checks.json and
+release-finalize-20260915/full-xfsev7gn/summary.json. Application deadlines unchanged.
+
+Fresh build frontend-814qruai: passed=true, beforeVerified=true, afterVerified=true.
+BUILD_ID YSvJI0gUx9x0WVbMSCLtC.595.157s worker within642.719s outer; do not add them.
+tile256-local-01: exact build identity;4current saved features, settled basemap,
+unchanged geometry before attempted MRT click. OverallFAIL110194ms:
+Input.dispatchMouseEvent deadline. Desktop failurePNG inspected, no four-viewport
+acceptance or representative timing claim. Chrome55928 absent after owned wrapper.
+
+FINDINGS
+1. A real authenticated route preview now succeeds on the staged production build.
+2. Lower-request basemap code is built/tested/pushed, not published to primary domains.
+3. First natural daily report cleanup is verified healthy at2026-09-15T17:19Z;
+   earlier17:06Z inspection was correctly unobserved. Intake remainsfalse.
+4. Browser control and returning-client acceptance remain incomplete. No pipeline
+   run, input repair, frozen-data modification, installation or Cloudflare use.
+DISAGREEMENTS
+1. Neither a green unit suite nor a partial browser screenshot proves release acceptance.
+2. tileSize128 matched provider guidance;256 is a deliberate detail/request tradeoff,
+   not an established root-cause repair for the browser timeouts.
+
+## 2026-09-16 Latest Candidate READY; Main Domains Unchanged
+
+sourceRevision=06372d2af51f17289f13a0b3a04c7fb1a4cb4063
+deployment=dpl_AnXUMz7PWUmFDgbkTgsd3oQrRXMf
+url=https://sgshiok-jc4avtxj1-theprawnvercel.vercel.app/
+readyState=READY
+sourceArchiveSha256=3d91e2b331ff73e43e1025bd41042cd024538e9fae3b581214ecb1dc489587d3
+uploadCreateSeconds=59.969
+createdToReadySeconds=(1789496239269-1789495993509)/1000=245.760
+sgshiok.vercel.app=dpl_wVnDeskyK666GwYUKWzY2aserkJR
+sgshiok.hong-yi.me=dpl_wVnDeskyK666GwYUKWzY2aserkJR
+sgshiok-theprawnvercel.vercel.app=dpl_AnXUMz7PWUmFDgbkTgsd3oQrRXMf
+mainDomainPromotionPerformed=false
+reportsEnabled=false
+currentReleaseBrowserAcceptance=UNVERIFIED
+hostObservedAt=2026-09-15T18:27:12.2364964Z
+availableMiB=2273.04
+cpuPercent=100
+pagesInputPerSecond=1215
+newBrowserAttemptStarted=false
+inAppBrowserConnection=kernel assets unavailable,os error3
+
+FINDINGS
+1. The lower-request build is uploaded and READY. Packaging is no longer a blocker;
+   no rebuild or repack is needed. The two main domains still serve the old release.
+2. Independent read-only review found no demonstrated defect in current navigation
+   revalidation; the prior required-JavaScript abort belongs to the local test bridge.
+   Returning-client acceptance remains unverified, not failed current application code.
+3. No new browser attempt was started under unchanged CPU saturation and paging.
+   This does not prove hardware-only causation of earlier failures.
+DISAGREEMENTS
+1. Another speculative cache patch or unchanged browser repetition is not justified.
+2. Correction to prior "no installation" wording: no LOCAL installation occurred.
+   Vercel's normal remote build ran its configured npm ci command.
+
+Receipts: qa/revamp-r1/ship-continuation-20260915/tile-production-{pack,plan,submit,ready}.json

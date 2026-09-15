@@ -1,0 +1,128 @@
+{
+  "archive": {
+    "compressedBytes": 430296763,
+    "elapsedSeconds": {
+      "pack": 585.5469999999623,
+      "total": 805.655999999959
+    },
+    "inputBytes": 5637406165,
+    "parts": 5,
+    "receipt": "C:\\sgSHIOK2026\\tmp\\production-source-stream-20260915-01\\source-archive.json",
+    "receiptSha256": "e6b459b8be9d591f80501a99d21a6e5c1af3663c67d7ef530fa17f82c8261013",
+    "scope": "source-archive"
+  },
+  "plan": {
+    "artifactDirectory": "C:\\sgSHIOK2026\\tmp\\production-source-stream-20260915-01",
+    "compressedBytes": 430296763,
+    "parts": [
+      {
+        "file": ".vercel/source.tgz.part1",
+        "mode": 438,
+        "sha": "a2ea62362e45c8cfb66f9574483ffcb1885cf39f",
+        "sha256": "3a7f20d1ef6ad80121f498e01457c5b306a38fa6e11c10cd3461fbac4bbbd82c",
+        "size": 104857600
+      },
+      {
+        "file": ".vercel/source.tgz.part2",
+        "mode": 438,
+        "sha": "d00ad9dd514708767c545dd7eadd51d36a6047db",
+        "sha256": "4ed7043902e5b5f55e47de0921c0b7e086439036da831a832e09ac240ceecd85",
+        "size": 104857600
+      },
+      {
+        "file": ".vercel/source.tgz.part3",
+        "mode": 438,
+        "sha": "c4e2dfc37ed7ba68627203dbb5114d4c13ca8710",
+        "sha256": "6d8a338b45bc009da6196b14bbd6548b5298be2bb680f4216529cbb03f88d649",
+        "size": 104857600
+      },
+      {
+        "file": ".vercel/source.tgz.part4",
+        "mode": 438,
+        "sha": "6051b3b648b075dddbb33e681ebbc7058041d863",
+        "sha256": "3cca2886f9cf9b435255a07bb00a132ddb2fd095d3642238ba780cf617e31c21",
+        "size": 104857600
+      },
+      {
+        "file": ".vercel/source.tgz.part5",
+        "mode": 438,
+        "sha": "d96b71598ccc1213fbf87347a225efff06f1a4dc",
+        "sha256": "a7742c7a10ce5fb0942ec98d617a77ad9d929ced0662aa7df10d0e7a35d8ac9d",
+        "size": 10866363
+      }
+    ],
+    "receipt": "C:\\sgSHIOK2026\\tmp\\production-source-stream-20260915-01\\source-archive.json",
+    "receiptSha256": "e6b459b8be9d591f80501a99d21a6e5c1af3663c67d7ef530fa17f82c8261013",
+    "request": {
+      "autoAssignCustomDomains": false,
+      "build": {
+        "env": {
+          "NEXT_PUBLIC_DATA_BASE": "/data/generated_20260805_prefer_scored_routed/",
+          "NEXT_PUBLIC_LAMP_OVERLAY_BASE": "/data/lamp_posts_v1/",
+          "NODE_OPTIONS": "",
+          "SHIOK_DATA_BUNDLE": "generated_20260805_prefer_scored_routed",
+          "SHIOK_MODERATION_ENABLED": "false",
+          "SHIOK_REPORTS_ENABLED": "false"
+        }
+      },
+      "env": {
+        "NEXT_PUBLIC_DATA_BASE": "/data/generated_20260805_prefer_scored_routed/",
+        "NEXT_PUBLIC_LAMP_OVERLAY_BASE": "/data/lamp_posts_v1/",
+        "NODE_OPTIONS": "",
+        "SHIOK_DATA_BUNDLE": "generated_20260805_prefer_scored_routed",
+        "SHIOK_MODERATION_ENABLED": "false",
+        "SHIOK_REPORTS_ENABLED": "false"
+      },
+      "files": [
+        {
+          "file": ".vercel/source.tgz.part1",
+          "mode": 438,
+          "sha": "a2ea62362e45c8cfb66f9574483ffcb1885cf39f",
+          "size": 104857600
+        },
+        {
+          "file": ".vercel/source.tgz.part2",
+          "mode": 438,
+          "sha": "d00ad9dd514708767c545dd7eadd51d36a6047db",
+          "size": 104857600
+        },
+        {
+          "file": ".vercel/source.tgz.part3",
+          "mode": 438,
+          "sha": "c4e2dfc37ed7ba68627203dbb5114d4c13ca8710",
+          "size": 104857600
+        },
+        {
+          "file": ".vercel/source.tgz.part4",
+          "mode": 438,
+          "sha": "6051b3b648b075dddbb33e681ebbc7058041d863",
+          "size": 104857600
+        },
+        {
+          "file": ".vercel/source.tgz.part5",
+          "mode": 438,
+          "sha": "d96b71598ccc1213fbf87347a225efff06f1a4dc",
+          "size": 10866363
+        }
+      ],
+      "meta": {
+        "sourceArchiveSha256": "e6b459b8be9d591f80501a99d21a6e5c1af3663c67d7ef530fa17f82c8261013",
+        "sourceRevision": "9516894c8e66295b41f18b5b2ccef53eaaa6628a"
+      },
+      "name": "sgshiok",
+      "project": "prj_y6GIQUdEyXXmtg3UTWkcJECKHdEE",
+      "projectSettings": {
+        "buildCommand": "node scripts/build-next-release.mjs build",
+        "framework": "nextjs",
+        "installCommand": "npm ci --ignore-scripts --no-audit --no-fund",
+        "nodeVersion": "24.x",
+        "outputDirectory": null,
+        "rootDirectory": "web"
+      },
+      "target": "production"
+    },
+    "requestSha256": "1a07f4b6d11e3bf4915232b28d5baf5398bd2fc93e2e8902a305ef7cbea274a8",
+    "target": "production",
+    "teamId": "team_ARK7HKobyCMp0PCArQTLxbz6"
+  }
+}
