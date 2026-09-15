@@ -199,6 +199,20 @@ afterEach(() => {
 });
 
 describe('Private owner console handlers and lifecycle', () => {
+  it.each(['2026-09-15T09:00:00.123456+00:00', '2026-09-15T16:30:00Z', 'malformed'])(
+    'reuses date formatting without changing the Singapore label for %s', async received_at => {
+    client.queue.mockResolvedValueOnce(queue([{ ...row(), received_at }]));
+    const expected = new Date(received_at).toLocaleString('en-SG', {
+      dateStyle: 'medium', timeStyle: 'short', timeZone: 'Asia/Singapore',
+    });
+    const perDate = vi.spyOn(Date.prototype, 'toLocaleString');
+    const construct = vi.spyOn(Intl, 'DateTimeFormat');
+    await signIn(); render(); render();
+    expect(text(tree)).toContain(expected);
+    expect(perDate).not.toHaveBeenCalled();
+    expect(construct).not.toHaveBeenCalled();
+  });
+
   it('defaults to unavailable without login controls or provider operations', () => {
     delete props.enabled; render();
     expect(text(tree)).toContain('Private review is not available.');

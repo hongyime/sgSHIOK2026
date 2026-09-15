@@ -22,7 +22,11 @@ const empty = (): Screen => ({ signedIn: false, loggingIn: false, loading: false
   filter: 'pending', rows: [], cursors: [undefined], nextCursor: undefined, selected: null, phase: 'edit', action: 'accepted', reason: '', duplicate: '', command: null, saved: null });
 const typeLabel = (type: string) => type === 'mapping_error' ? 'Mapping error' : 'Shelter request';
 const stateLabel = (state: string) => ({ pending: 'Pending', accepted: 'Accepted', rejected: 'Rejected', duplicate: 'Duplicate' }[state] ?? 'Unavailable');
-function timeLabel(value: string) { return new Date(value).toLocaleString('en-SG', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Asia/Singapore' }); }
+const timeFormatter = new Intl.DateTimeFormat('en-SG', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Asia/Singapore' });
+function timeLabel(value: string) {
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? 'Invalid Date' : timeFormatter.format(date);
+}
 function dirty(view: Screen) { return !!view.reason || !!view.duplicate || ['confirm', 'sending', 'uncertain', 'conflict'].includes(view.phase); }
 function errorMessage(error: string): string {
   if (error === 'limited') return 'Too many requests. Try again later.';

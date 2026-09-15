@@ -18,6 +18,9 @@ Reporting implementation follow-up: the entry and Send now share one default-off
 public build-time setting; changing server configuration alone no longer leaves
 the frontend permanently hardcoded off.306focused checks pass; real activation
 and resident/browser acceptance remain separate from these fixture tests.
+Final16September code checks:3354isolated tests/86files plus42dependencyguards,
+TypeScript and41docs/integrity tests pass. Added8report availability cases and
+3formatter reuse/equivalence cases;3343+8+3=3354. Reports remain disabled.
 Older checkpoint paragraphs below are historical, not the current release state.
 Latest interaction/fix checkpoint:5dc9124 fixes unread HTTP error bodies in the
 walk-preview client.4red regressions reproduced;15focused/3343full isolated tests

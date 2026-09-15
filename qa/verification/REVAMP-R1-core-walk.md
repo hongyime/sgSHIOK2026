@@ -10331,3 +10331,35 @@ DISAGREEMENTS
 
 Receipts: qa/revamp-r1/report-availability-20260916/{red,green}.json
 Full/type/docs: qa/revamp-r1/release-finalize-20260915/{full-_rohwfy8,types-qjyyksma,docs-fggzgtgz}/summary.json
+
+## 2026-09-16 Reuse Private-Queue Date Formatting
+
+code=one reusable Intl.DateTimeFormat,locale=en-SG,zone=Asia/Singapore
+labelsChanged=false
+invalidDateBehavior=Invalid Date,unchanged
+reportDataCached=false
+expiryAndCursorLogicChanged=false
+pagination101TestTimeoutMs=15000,unchanged
+microbenchmark1000Labels=829.6897ms previous,17.011600000000044ms reused,labelsEqual=true
+reuseRegressionRed=1failed+39passed=40;per-date locale work called3times
+focusedGreen=39existing+3formatting cases=42passed
+finalIsolated=3343prior+8availability+3formatting=3354passed,86files,42dependencyguards
+finalIsolatedElapsedSeconds=298.515
+TypeScript=exit0,8.5seconds
+repo_integrity=ok
+independentReview=actual component/test diff,no findings
+
+FINDINGS
+1. Private queue rendering repeated avoidable formatting setup for each row. The
+   shared formatter retains configuration only and preserves Singapore labels,
+   midnight rollover, fractional timestamps and malformed-date fallback.
+2. Final isolated web tests are green without changing the101-page timeout.
+   The prior failed full run remains committed in6c96b00.
+3. This is product implementation, not report activation. No production domain,
+   credentials, database intake, frozen payload or pipeline input was changed.
+DISAGREEMENTS
+1. The microbenchmark is not a map or whole-console speed measurement. The101-page
+   case also passed alone before this change; sole timeout causation is unproven.
+
+Receipts: qa/revamp-r1/report-availability-20260916/formatting-check.json
+Final full/type: qa/revamp-r1/release-finalize-20260915/{full-9ys4pdir,types-dqn6gugv}/summary.json

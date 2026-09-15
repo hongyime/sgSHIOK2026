@@ -1,0 +1,36 @@
+{
+  "scope": "Date-formatting work only; not browser, map, or whole-console latency",
+  "samples": [
+    "2026-09-15T09:00:00.123456+00:00",
+    "2026-10-15T09:00:00.123456+00:00",
+    "2026-09-15T23:59:00Z",
+    "2026-01-01T00:00:00+08:00"
+  ],
+  "count": 1000,
+  "locale": "en-SG",
+  "options": { "dateStyle": "medium", "timeStyle": "short", "timeZone": "Asia/Singapore" },
+  "beforeMs": 829.6897,
+  "afterMs": 17.011600000000044,
+  "labelsEqual": true,
+  "red": {
+    "command": "node web/scripts/test-web.mjs lib/__tests__/moderation-console.test.tsx --reporter=dot",
+    "tests": 40,
+    "passed": 39,
+    "failed": 1,
+    "failure": "New reuse regression observed Date.prototype.toLocaleString called three times across three queue renders.",
+    "existingPagination101Passed": true
+  },
+  "green": {
+    "command": "node web/scripts/test-web.mjs lib/__tests__/moderation-console.test.tsx --reporter=dot",
+    "tests": 42,
+    "passed": 42,
+    "failed": 0,
+    "files": 1,
+    "guardTestsPassed": 42,
+    "vitestDurationSeconds": 6.09,
+    "casesAdded": "microsecond timestamp, Singapore midnight rollover, malformed date; identical labels and no formatter construction during rerenders",
+    "existingPagination101TimeoutMs": 15000
+  },
+  "review": "Independent read-only review of actual component/test diff found no issues. Formatter retains configuration only, not report data.",
+  "causalLimit": "The pagination case passed in isolation even before this change. Formatting overhead is demonstrated; it is not proven to be the sole cause of the earlier full-suite timeout."
+}
