@@ -103,12 +103,12 @@ def run_owned_command(command: list[str], cwd: Path, *, timeout: float, env: dic
                 return {"ok": False, "returncode": None, "stdout": "", "stderr": "",
                         "error": "command_timeout", "cleanup_complete": False}
             try:
-                process.communicate(timeout=5)
+                stdout, stderr = process.communicate(timeout=5)
             except subprocess.TimeoutExpired:
                 return {"ok": False, "returncode": None, "stdout": "", "stderr": "",
                         "error": "command_timeout", "cleanup_complete": False}
             drain_failed = False
-            return {"ok": False, "returncode": process.returncode, "stdout": "", "stderr": "",
+            return {"ok": False, "returncode": process.returncode, "stdout": stdout.strip(), "stderr": stderr.strip(),
                     "error": "command_timeout", "cleanup_complete": True}
     finally:
         if job is not None:

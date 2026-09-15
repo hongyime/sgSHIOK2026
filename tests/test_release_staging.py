@@ -587,3 +587,223 @@ def test_head_change_during_preparation_keeps_partial_stage_without_success_rece
         prepare(staging, repository)
     assert (root / "tmp/stage/web/app/page.tsx").exists()
     assert not (root / "tmp/stage/release-manifest.json").exists()
+
+
+def unfinished_stage(staging, repository):
+    result = prepare(staging, repository)
+    stage = Path(result["stageRoot"])
+    (stage / "release-manifest.json").unlink()
+    return stage
+
+
+def test_finalize_verifies_existing_bytes_without_copy_or_overwrite(staging, repository, monkeypatch):
+    root, data, overlay = repository
+    stage = unfinished_stage(staging, repository)
+    before = snapshot(stage)
+    inputs = snapshot(root / "web")
+    writes = []
+    original = staging._write_new
+    original_hash = staging._hash_file
+    def write(path, content):
+        writes.append(path)
+        assert path == stage / "release-manifest.json"
+        return original(path, content)
+    def read_only_hash(path, destination=None):
+        assert destination is None, "Finalization must not copy payloads"
+        return original_hash(path)
+    monkeypatch.setattr(staging, "_write_new", write)
+    monkeypatch.setattr(staging, "_hash_file", read_only_hash)
+    result = staging.finalize_release_stage(root, data, stage_dir=stage, overlay_dir=overlay, revision="HEAD")
+    assert result["preparationMode"] == "verified-existing"
+    assert writes == [stage / "release-manifest.json"]
+    assert {name: digest for name, digest in snapshot(stage).items() if name != "release-manifest.json"} == before
+    assert snapshot(root / "web") == inputs
+    assert staging.verify_release_stage(root, stage, expected_manifest_sha256=result["releaseManifestSha256"])["status"] == "verified_not_deployed"
+
+
+@pytest.mark.parametrize("name", ["web/app/page.tsx", "web/vercel.json", "web/public/data/generated_fixture/geom/h3/cell-a.json.gz"])
+@pytest.mark.parametrize("change", ["missing", "changed", "same_size"])
+def test_finalize_does_not_repair_missing_or_changed_stage_files(staging, repository, name, change):
+    root, data, overlay = repository
+    stage = unfinished_stage(staging, repository)
+    path = stage / name
+    if change == "missing":
+        path.unlink()
+    elif change == "same_size":
+        path.write_bytes(b"x" * path.stat().st_size)
+    else:
+        path.write_bytes(b"changed")
+    before = snapshot(stage)
+    with pytest.raises(staging.ReleaseStagingError, match="MISSING|INPUT_CHANGED"):
+        staging.finalize_release_stage(root, data, stage_dir=stage, overlay_dir=overlay, revision="HEAD")
+    assert snapshot(stage) == before
+
+
+@pytest.mark.parametrize("name", ["web/.env", "web/extra.js", "web/.next", "web/node_modules", "web/tsconfig.tsbuildinfo", "web/empty-extra"])
+def test_finalize_rejects_extras_and_prior_build_trees_without_a_ledger(staging, repository, name):
+    root, data, overlay = repository
+    stage = unfinished_stage(staging, repository)
+    if name in {"web/.next", "web/node_modules", "web/empty-extra"}:
+        (stage / name).mkdir()
+    else:
+        put(stage, name, b"extra")
+    before = snapshot(stage)
+    with pytest.raises(staging.ReleaseStagingError, match="UNEXPECTED_STAGE"):
+        staging.finalize_release_stage(root, data, stage_dir=stage, overlay_dir=overlay, revision="HEAD")
+    assert snapshot(stage) == before
+
+
+def test_finalize_never_replaces_a_success_ledger(staging, repository):
+    root, data, overlay = repository
+    result = prepare(staging, repository)
+    stage = Path(result["stageRoot"])
+    before = snapshot(stage)
+    with pytest.raises(staging.ReleaseStagingError, match="DESTINATION_EXISTS"):
+        staging.finalize_release_stage(root, data, stage_dir=stage, overlay_dir=overlay, revision="HEAD")
+    assert snapshot(stage) == before
+
+
+def test_finalize_rejects_hardlink_alias_of_original(staging, repository):
+    root, data, overlay = repository
+    stage = unfinished_stage(staging, repository)
+    target = stage / "web/public/data/generated_fixture/scores/AREA.json.gz"
+    target.unlink()
+    os.link(data / "scores/AREA.json.gz", target)
+    before = snapshot(stage)
+    with pytest.raises(staging.ReleaseStagingError, match="HARDLINKED_STAGE_FILE"):
+        staging.finalize_release_stage(root, data, stage_dir=stage, overlay_dir=overlay, revision="HEAD")
+    assert snapshot(stage) == before
+
+
+def test_finalize_rechecks_head_after_staged_hashes(staging, repository, monkeypatch):
+    root, data, overlay = repository
+    stage = unfinished_stage(staging, repository)
+    before = snapshot(stage)
+    original = staging._verify_stage_files
+    def change_head(*args, **kwargs):
+        original(*args, **kwargs)
+        git(root, "commit", "--allow-empty", "-qm", "test: late head change")
+    monkeypatch.setattr(staging, "_verify_stage_files", change_head)
+    with pytest.raises(staging.ReleaseStagingError, match="HEAD_CHANGED"):
+        staging.finalize_release_stage(root, data, stage_dir=stage, overlay_dir=overlay, revision="HEAD")
+    assert snapshot(stage) == before
+
+
+def test_finalize_never_clobbers_a_concurrently_created_ledger(staging, repository, monkeypatch):
+    root, data, overlay = repository
+    stage = unfinished_stage(staging, repository)
+    original = staging._verify_stage_files
+    def create_ledger(*args, **kwargs):
+        original(*args, **kwargs)
+        put(stage, "release-manifest.json", b"another writer")
+    monkeypatch.setattr(staging, "_verify_stage_files", create_ledger)
+    with pytest.raises(staging.ReleaseStagingError, match="STAGE_WRITE_FAILED"):
+        staging.finalize_release_stage(root, data, stage_dir=stage, overlay_dir=overlay, revision="HEAD")
+    assert (stage / "release-manifest.json").read_bytes() == b"another writer"
+
+
+def test_finalize_preserves_interrupted_ledger_and_refuses_second_attempt(staging, repository, monkeypatch):
+    root, data, overlay = repository
+    stage = unfinished_stage(staging, repository)
+    def partial_ledger(path, content):
+        assert path == stage / "release-manifest.json"
+        path.write_bytes(content[:5])
+        raise OSError("interrupted ledger fixture")
+    monkeypatch.setattr(staging, "_write_new", partial_ledger)
+    with pytest.raises(OSError, match="interrupted ledger"):
+        staging.finalize_release_stage(root, data, stage_dir=stage, overlay_dir=overlay, revision="HEAD")
+    before = snapshot(stage)
+    with pytest.raises(staging.ReleaseStagingError, match="DESTINATION_EXISTS"):
+        staging.finalize_release_stage(root, data, stage_dir=stage, overlay_dir=overlay, revision="HEAD")
+    assert snapshot(stage) == before
+
+
+def test_finalize_detects_omitted_original_changed_after_validation(staging, repository, monkeypatch):
+    root, data, overlay = repository
+    stage = unfinished_stage(staging, repository)
+    before = snapshot(stage)
+    original = staging._verify_inputs
+    def change_original(*args, **kwargs):
+        (data / "scores/AREA.json").write_bytes(b"changed omitted original")
+        return original(*args, **kwargs)
+    monkeypatch.setattr(staging, "_verify_inputs", change_original)
+    with pytest.raises(staging.ReleaseStagingError, match="INPUT_CHANGED"):
+        staging.finalize_release_stage(root, data, stage_dir=stage, overlay_dir=overlay, revision="HEAD")
+    assert snapshot(stage) == before
+
+
+def test_finalize_rechecks_pinned_retained_archive(staging, repository):
+    root, data, overlay = repository
+    archive = root / "qa/frontend-assets/fixture"
+    content = b"retained fixture"
+    put(archive, "assets/_next/static/chunks/old.js", content)
+    put_json(archive, "frontend-assets.json", {"schemaVersion": 1, "buildId": "old-build", "files": [
+        {"path": "_next/static/chunks/old.js", "bytes": len(content), "sha256": hashlib.sha256(content).hexdigest()}]}, compressed=False)
+    pin = hashlib.sha256((archive / "frontend-assets.json").read_bytes()).hexdigest()
+    result = prepare(staging, repository, previous_frontends=[(archive, pin)])
+    stage = Path(result["stageRoot"])
+    (stage / "release-manifest.json").unlink()
+    before = snapshot(stage)
+    put(archive, "assets/_next/static/chunks/old.js", b"changed fixture!")
+    with pytest.raises(staging.ReleaseStagingError, match="INPUT_CHANGED"):
+        staging.finalize_release_stage(root, data, stage_dir=stage, overlay_dir=overlay, revision="HEAD", previous_frontends=[(archive, pin)])
+    assert snapshot(stage) == before
+
+
+def test_verify_rechecks_head_after_staged_hashes(staging, repository, monkeypatch):
+    root, _, _ = repository
+    result = prepare(staging, repository)
+    stage = Path(result["stageRoot"])
+    original = staging._verify_stage_files
+    def change_head(*args, **kwargs):
+        original(*args, **kwargs)
+        git(root, "commit", "--allow-empty", "-qm", "test: late verifier head change")
+    monkeypatch.setattr(staging, "_verify_stage_files", change_head)
+    with pytest.raises(staging.ReleaseStagingError, match="HEAD_CHANGED"):
+        staging.verify_release_stage(root, stage, expected_manifest_sha256=result["releaseManifestSha256"])
+
+
+def test_finalize_explicit_older_revision_with_newer_stable_head(staging, repository):
+    root, data, overlay = repository
+    revision = git(root, "rev-parse", "HEAD").decode().strip()
+    stage = unfinished_stage(staging, repository)
+    put(root, "web/app/page.tsx", b"new source must not replace the pinned candidate")
+    git(root, "add", "web/app/page.tsx")
+    git(root, "commit", "-qm", "test: newer source")
+    result = staging.finalize_release_stage(root, data, stage_dir=stage, overlay_dir=overlay, revision=revision)
+    assert result["sourceRevision"] == revision
+    assert result["headAtStart"] != revision
+    assert (stage / "web/app/page.tsx").read_bytes() == git(root, "show", revision + ":web/app/page.tsx")
+    staging.verify_release_stage(root, stage, expected_manifest_sha256=result["releaseManifestSha256"])
+
+
+@pytest.mark.parametrize("change", ["staged_after_success", "archive_during_validation"])
+def test_finalize_retained_assets_at_late_boundaries(staging, repository, monkeypatch, change):
+    root, data, overlay = repository
+    archive = root / "qa/frontend-assets/fixture"
+    content = b"retained fixture"
+    path = "_next/static/chunks/old.js"
+    put(archive, "assets/" + path, content)
+    put_json(archive, "frontend-assets.json", {"schemaVersion": 1, "buildId": "old-build", "files": [
+        {"path": path, "bytes": len(content), "sha256": hashlib.sha256(content).hexdigest()}]}, compressed=False)
+    pin = hashlib.sha256((archive / "frontend-assets.json").read_bytes()).hexdigest()
+    result = prepare(staging, repository, previous_frontends=[(archive, pin)])
+    stage = Path(result["stageRoot"])
+    (stage / "release-manifest.json").unlink()
+    if change == "archive_during_validation":
+        original = staging._verify_inputs
+        def mutate(*args, **kwargs):
+            put(archive, "assets/" + path, b"changed fixture!")
+            return original(*args, **kwargs)
+        monkeypatch.setattr(staging, "_verify_inputs", mutate)
+        with pytest.raises(staging.ReleaseStagingError, match="INPUT_CHANGED"):
+            staging.finalize_release_stage(root, data, stage_dir=stage, overlay_dir=overlay,
+                revision="HEAD", previous_frontends=[(archive, pin)])
+        assert not (stage / "release-manifest.json").exists()
+    else:
+        result = staging.finalize_release_stage(root, data, stage_dir=stage, overlay_dir=overlay,
+            revision="HEAD", previous_frontends=[(archive, pin)])
+        staging.verify_release_stage(root, stage, expected_manifest_sha256=result["releaseManifestSha256"])
+        put(stage, "web/public/_retained/" + path, b"changed fixture!")
+        with pytest.raises(staging.ReleaseStagingError, match="INPUT_CHANGED"):
+            staging.verify_release_stage(root, stage, expected_manifest_sha256=result["releaseManifestSha256"])

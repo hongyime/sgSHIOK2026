@@ -1,0 +1,43 @@
+{
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\checks-h3qklp9y",
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_release_staging.py",
+    "tests/test_release_process.py",
+    "--noconftest",
+    "-p",
+    "no:cacheprovider",
+    "-o",
+    "addopts=",
+    "-vv",
+    "--durations=8",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\checks-h3qklp9y\\fixtures",
+    "-k",
+    "rechecks_head or explicit_older or retained_assets_at_late"
+  ],
+  "before": {
+    "scripts/release_staging.py": "69c286f21a8f6cf422a0263edf159fa81f08e9a9e40f46366f58a5abf4b842e6",
+    "scripts/release_process.py": "c03298f9d5e253166bff058c960fbeb7a3f8363a1fdf5dab6042f1d75d11304a",
+    "tests/test_release_staging.py": "bfd33b23eba3a7b9817a2d8462dbd7e2a49bd1cdd10bad168971f1de812c3f6e",
+    "tests/test_release_process.py": "8dbf4789759cca9750eff0690ef524cf734974ae3ed175dc07c4435d0e98096c"
+  },
+  "after": {
+    "scripts/release_staging.py": "69c286f21a8f6cf422a0263edf159fa81f08e9a9e40f46366f58a5abf4b842e6",
+    "scripts/release_process.py": "c03298f9d5e253166bff058c960fbeb7a3f8363a1fdf5dab6042f1d75d11304a",
+    "tests/test_release_staging.py": "bfd33b23eba3a7b9817a2d8462dbd7e2a49bd1cdd10bad168971f1de812c3f6e",
+    "tests/test_release_process.py": "8dbf4789759cca9750eff0690ef524cf734974ae3ed175dc07c4435d0e98096c"
+  },
+  "elapsedSeconds": 52.75,
+  "execution": {
+    "ok": false,
+    "returncode": 1,
+    "stdout": "============================= test session starts =============================\nplatform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0 -- C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe\nrootdir: C:\\sgSHIOK2026\nconfigfile: pyproject.toml\ncollecting ... collected 106 items / 101 deselected / 5 selected\n\ntests/test_release_staging.py::test_finalize_rechecks_head_after_staged_hashes PASSED [ 20%]\ntests/test_release_staging.py::test_verify_rechecks_head_after_staged_hashes PASSED [ 40%]\ntests/test_release_staging.py::test_finalize_explicit_older_revision_with_newer_stable_head PASSED [ 60%]\ntests/test_release_staging.py::test_finalize_retained_assets_at_late_boundaries[staged_after_success] FAILED [ 80%]\ntests/test_release_staging.py::test_finalize_retained_assets_at_late_boundaries[archive_during_validation] PASSED [100%]\n\n================================== FAILURES ===================================\n___ test_finalize_retained_assets_at_late_boundaries[staged_after_success] ____\n\nstaging = <module 'scripts.release_staging' from 'C:\\\\sgSHIOK2026\\\\scripts\\\\release_staging.py'>\nrepository = (WindowsPath('C:/sgSHIOK2026/qa/revamp-r1/release-finalize-20260915/checks-h3qklp9y/fixtures/test_finalize_retained_as...elease-finalize-20260915/checks-h3qklp9y/fixtures/test_finalize_retained_assets_0/repo/web/public/data/lamp_posts_v1'))\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000135AF03FC50>\nchange = 'staged_after_success'\n\n    @pytest.mark.parametrize(\"change\", [\"staged_after_success\", \"archive_during_validation\"])\n    def test_finalize_retained_assets_at_late_boundaries(staging, repository, monkeypatch, change):\n        root, data, overlay = repository\n        archive = root / \"qa/frontend-assets/fixture\"\n        content = b\"retained fixture\"\n        path = \"_next/static/chunks/old.js\"\n        put(archive, \"assets/\" + path, content)\n        put_json(archive, \"frontend-assets.json\", {\"schemaVersion\": 1, \"buildId\": \"old-build\", \"files\": [\n            {\"path\": path, \"bytes\": len(content), \"sha256\": hashlib.sha256(content).hexdigest()}]}, compressed=False)\n        pin = hashlib.sha256((archive / \"frontend-assets.json\").read_bytes()).hexdigest()\n        result = prepare(staging, repository, previous_frontends=[(archive, pin)])\n        stage = Path(result[\"stageRoot\"])\n        (stage / \"release-manifest.json\").unlink()\n        if change == \"archive_during_validation\":\n            original = staging._verify_inputs\n            def mutate(*args, **kwargs):\n                put(archive, \"assets/\" + path, b\"changed fixture!\")\n                return original(*args, **kwargs)\n            monkeypatch.setattr(staging, \"_verify_inputs\", mutate)\n            with pytest.raises(staging.ReleaseStagingError, match=\"INPUT_CHANGED\"):\n                staging.finalize_release_stage(root, data, stage_dir=stage, overlay_dir=overlay,\n                    revision=\"HEAD\", previous_frontends=[(archive, pin)])\n            assert not (stage / \"release-manifest.json\").exists()\n        else:\n            result = staging.finalize_release_stage(root, data, stage_dir=stage, overlay_dir=overlay,\n                revision=\"HEAD\", previous_frontends=[(archive, pin)])\n            staging.verify_release_stage(root, stage, expected_manifest_sha256=result[\"releaseManifestSha256\"])\n            put(stage, \"web/public/\" + path, b\"changed fixture!\")\n>           with pytest.raises(staging.ReleaseStagingError, match=\"INPUT_CHANGED\"):\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE           AssertionError: Regex pattern did not match.\nE             Expected regex: 'INPUT_CHANGED'\nE             Actual message: 'UNEXPECTED_STAGE_FILE: C:\\\\sgSHIOK2026\\\\qa\\\\revamp-r1\\\\release-finalize-20260915\\\\checks-h3qklp9y\\\\fixtures\\\\test_finalize_retained_assets_0\\\\repo\\\\tmp\\\\stage\\\\web\\\\public\\\\_next\\\\static\\\\chunks\\\\old.js'\n\ntests\\test_release_staging.py:808: AssertionError\n============================= slowest 8 durations =============================\n13.69s call     tests/test_release_staging.py::test_finalize_rechecks_head_after_staged_hashes\n10.63s call     tests/test_release_staging.py::test_finalize_explicit_older_revision_with_newer_stable_head\n9.45s call     tests/test_release_staging.py::test_finalize_retained_assets_at_late_boundaries[staged_after_success]\n7.13s call     tests/test_release_staging.py::test_verify_rechecks_head_after_staged_hashes\n4.15s call     tests/test_release_staging.py::test_finalize_retained_assets_at_late_boundaries[archive_during_validation]\n2.13s setup    tests/test_release_staging.py::test_finalize_rechecks_head_after_staged_hashes\n0.56s setup    tests/test_release_staging.py::test_verify_rechecks_head_after_staged_hashes\n0.38s setup    tests/test_release_staging.py::test_finalize_explicit_older_revision_with_newer_stable_head\n=========================== short test summary info ===========================\nFAILED tests/test_release_staging.py::test_finalize_retained_assets_at_late_boundaries[staged_after_success] - AssertionError: Regex pattern did not match.\n  Expected regex: 'INPUT_CHANGED'\n  Actual message: 'UNEXPECTED_STAGE_FILE: C:\\\\sgSHIOK2026\\\\qa\\\\revamp-r1\\\\release-finalize-20260915\\\\checks-h3qklp9y\\\\fixtures\\\\test_finalize_retained_assets_0\\\\repo\\\\tmp\\\\stage\\\\web\\\\public\\\\_next\\\\static\\\\chunks\\\\old.js'\n================ 1 failed, 4 passed, 101 deselected in 49.70s =================",
+    "stderr": ""
+  },
+  "pipelineRuns": 0,
+  "passed": false
+}

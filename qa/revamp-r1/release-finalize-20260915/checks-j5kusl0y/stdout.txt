@@ -1,0 +1,22 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0 -- C:\sgSHIOK2026\.venv\Scripts\python.exe
+rootdir: C:\sgSHIOK2026
+configfile: pyproject.toml
+collecting ... collected 106 items / 101 deselected / 5 selected
+
+tests/test_release_staging.py::test_finalize_rechecks_head_after_staged_hashes PASSED [ 20%]
+tests/test_release_staging.py::test_verify_rechecks_head_after_staged_hashes PASSED [ 40%]
+tests/test_release_staging.py::test_finalize_explicit_older_revision_with_newer_stable_head PASSED [ 60%]
+tests/test_release_staging.py::test_finalize_retained_assets_at_late_boundaries[staged_after_success] PASSED [ 80%]
+tests/test_release_staging.py::test_finalize_retained_assets_at_late_boundaries[archive_during_validation] PASSED [100%]
+
+============================= slowest 8 durations =============================
+40.09s call     tests/test_release_staging.py::test_finalize_explicit_older_revision_with_newer_stable_head
+24.69s call     tests/test_release_staging.py::test_finalize_retained_assets_at_late_boundaries[staged_after_success]
+7.80s call     tests/test_release_staging.py::test_verify_rechecks_head_after_staged_hashes
+6.27s call     tests/test_release_staging.py::test_finalize_retained_assets_at_late_boundaries[archive_during_validation]
+5.53s call     tests/test_release_staging.py::test_finalize_rechecks_head_after_staged_hashes
+1.47s setup    tests/test_release_staging.py::test_finalize_retained_assets_at_late_boundaries[staged_after_success]
+1.21s setup    tests/test_release_staging.py::test_finalize_rechecks_head_after_staged_hashes
+0.34s setup    tests/test_release_staging.py::test_finalize_explicit_older_revision_with_newer_stable_head
+================ 5 passed, 101 deselected in 88.59s (0:01:28) =================

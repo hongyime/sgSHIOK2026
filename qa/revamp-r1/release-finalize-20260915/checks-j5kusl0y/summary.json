@@ -1,0 +1,43 @@
+{
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\checks-j5kusl0y",
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_release_staging.py",
+    "tests/test_release_process.py",
+    "--noconftest",
+    "-p",
+    "no:cacheprovider",
+    "-o",
+    "addopts=",
+    "-vv",
+    "--durations=8",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\checks-j5kusl0y\\fixtures",
+    "-k",
+    "rechecks_head or explicit_older or retained_assets_at_late"
+  ],
+  "before": {
+    "scripts/release_staging.py": "69c286f21a8f6cf422a0263edf159fa81f08e9a9e40f46366f58a5abf4b842e6",
+    "scripts/release_process.py": "c03298f9d5e253166bff058c960fbeb7a3f8363a1fdf5dab6042f1d75d11304a",
+    "tests/test_release_staging.py": "3ecb53679f0bd0e9269a3fdb258e0d472a606710debbc66332761984a3ca1571",
+    "tests/test_release_process.py": "8dbf4789759cca9750eff0690ef524cf734974ae3ed175dc07c4435d0e98096c"
+  },
+  "after": {
+    "scripts/release_staging.py": "69c286f21a8f6cf422a0263edf159fa81f08e9a9e40f46366f58a5abf4b842e6",
+    "scripts/release_process.py": "c03298f9d5e253166bff058c960fbeb7a3f8363a1fdf5dab6042f1d75d11304a",
+    "tests/test_release_staging.py": "3ecb53679f0bd0e9269a3fdb258e0d472a606710debbc66332761984a3ca1571",
+    "tests/test_release_process.py": "8dbf4789759cca9750eff0690ef524cf734974ae3ed175dc07c4435d0e98096c"
+  },
+  "elapsedSeconds": 90.015,
+  "execution": {
+    "ok": true,
+    "returncode": 0,
+    "stdout": "============================= test session starts =============================\nplatform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0 -- C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe\nrootdir: C:\\sgSHIOK2026\nconfigfile: pyproject.toml\ncollecting ... collected 106 items / 101 deselected / 5 selected\n\ntests/test_release_staging.py::test_finalize_rechecks_head_after_staged_hashes PASSED [ 20%]\ntests/test_release_staging.py::test_verify_rechecks_head_after_staged_hashes PASSED [ 40%]\ntests/test_release_staging.py::test_finalize_explicit_older_revision_with_newer_stable_head PASSED [ 60%]\ntests/test_release_staging.py::test_finalize_retained_assets_at_late_boundaries[staged_after_success] PASSED [ 80%]\ntests/test_release_staging.py::test_finalize_retained_assets_at_late_boundaries[archive_during_validation] PASSED [100%]\n\n============================= slowest 8 durations =============================\n40.09s call     tests/test_release_staging.py::test_finalize_explicit_older_revision_with_newer_stable_head\n24.69s call     tests/test_release_staging.py::test_finalize_retained_assets_at_late_boundaries[staged_after_success]\n7.80s call     tests/test_release_staging.py::test_verify_rechecks_head_after_staged_hashes\n6.27s call     tests/test_release_staging.py::test_finalize_retained_assets_at_late_boundaries[archive_during_validation]\n5.53s call     tests/test_release_staging.py::test_finalize_rechecks_head_after_staged_hashes\n1.47s setup    tests/test_release_staging.py::test_finalize_retained_assets_at_late_boundaries[staged_after_success]\n1.21s setup    tests/test_release_staging.py::test_finalize_rechecks_head_after_staged_hashes\n0.34s setup    tests/test_release_staging.py::test_finalize_explicit_older_revision_with_newer_stable_head\n================ 5 passed, 101 deselected in 88.59s (0:01:28) =================",
+    "stderr": ""
+  },
+  "pipelineRuns": 0,
+  "passed": true
+}

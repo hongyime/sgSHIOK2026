@@ -583,9 +583,42 @@ def capture_frontend_archive(repo_root: Path, build_web_root: Path, output_dir: 
 
 def prepare_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, overlay_dir: Path,
                           revision: str = "HEAD", previous_frontends: list[tuple[Path, str]] | None = None) -> dict:
+    return _prepare_release_stage(repo_root, data_dir, stage_dir=stage_dir, overlay_dir=overlay_dir,
+                                  revision=revision, previous_frontends=previous_frontends, verify_existing=False)
+
+
+def finalize_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, overlay_dir: Path,
+                           revision: str, previous_frontends: list[tuple[Path, str]] | None = None) -> dict:
+    """Verify a quiescent, ledgerless scratch copy; add only a new success ledger.
+
+    This establishes current equality, not the history of an interrupted copy.
+    A stranded ledger is never replaced. Acceptance requires successful return
+    and its externally recorded hash, not merely the presence of that file.
+    """
+    return _prepare_release_stage(repo_root, data_dir, stage_dir=stage_dir, overlay_dir=overlay_dir,
+                                  revision=revision, previous_frontends=previous_frontends, verify_existing=True)
+
+
+def _prepare_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, overlay_dir: Path,
+                           revision: str, previous_frontends: list[tuple[Path, str]] | None,
+                           verify_existing: bool) -> dict:
     root, stage = _paths(repo_root, stage_dir, data_dir, overlay_dir)
-    if _plain(stage, missing=True) is not None:
+    if verify_existing:
+        if not stat.S_ISDIR(_plain(stage).st_mode):
+            raise ReleaseStagingError("UNSAFE_PATH", stage)
+        if _plain(stage / "release-manifest.json", missing=True) is not None:
+            raise ReleaseStagingError("DESTINATION_EXISTS", stage / "release-manifest.json")
+        for name in ("web/.next", "web/node_modules"):
+            if _plain(stage / name, missing=True) is not None:
+                raise ReleaseStagingError("UNEXPECTED_STAGE_DIRECTORY", stage / name)
+    elif _plain(stage, missing=True) is not None:
         raise ReleaseStagingError("DESTINATION_EXISTS", stage)
+
+    def candidate_file(path: Path, content: bytes) -> dict:
+        if verify_existing:
+            return {"bytes": len(content), "sha256": hashlib.sha256(content).hexdigest()}
+        return _write_new(path, content)
+
     head = _revision(root, "HEAD")
     pinned = head if revision == "HEAD" else _revision(root, revision)
     sources = _source_inventory(root, pinned)
@@ -599,8 +632,9 @@ def prepare_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, o
                      "web/scripts/build-next-release.mjs", "web/scripts/frontend-retention.mjs"):
         if required not in source_names:
             raise ReleaseStagingError("MISSING_REQUIRED_SOURCE", required)
-    _mkdir(stage.parent)
-    stage.mkdir()
+    if not verify_existing:
+        _mkdir(stage.parent)
+        stage.mkdir()
     artifacts = [_artifact(data_dir, "main"), _artifact(overlay_dir, "overlay")]
     files, controls = [], {}
     overrides = {"web/vercel.json", "web/data-bundle.json", "web/.vercelignore", "web/next-env.d.ts"}
@@ -611,7 +645,7 @@ def prepare_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, o
         if entry["path"] in overrides:
             controls[entry["path"]] = content
         else:
-            identity = _write_new(stage / entry["path"], content)
+            identity = candidate_file(stage / entry["path"], content)
             files.append({"path": entry["path"], "origin": "git", **identity})
     retained = {}
     for frontend in frontends:
@@ -624,7 +658,8 @@ def prepare_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, o
             if relative in retained:
                 continue
             destination = f"web/public/_retained/{relative}"
-            copied = _hash_file(Path(frontend["archiveRoot"]) / "assets" / relative, stage / destination)
+            copied = ({key: entry[key] for key in ("bytes", "sha256")} if verify_existing else
+                      _hash_file(Path(frontend["archiveRoot"]) / "assets" / relative, stage / destination))
             _same(destination, entry, copied)
             retained[relative] = entry
             files.append({"path": destination, "origin": "previous-frontend", **copied})
@@ -636,9 +671,11 @@ def prepare_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, o
             omitted = artifact["role"] == "main" and _gzip_preferred(relative) and relative + ".gz" in available
             entry["stagedPath"] = None if omitted else f"web/public/data/{origin.name}/{relative}"
             if not omitted:
-                copied = _hash_file(origin / relative, stage / entry["stagedPath"])
+                copied = ({key: entry[key] for key in ("bytes", "sha256")} if verify_existing else
+                          _hash_file(origin / relative, stage / entry["stagedPath"]))
                 _same(origin / relative, entry, copied)
-                _same(stage / entry["stagedPath"], entry, _hash_file(stage / entry["stagedPath"]))
+                if not verify_existing:
+                    _same(stage / entry["stagedPath"], entry, _hash_file(stage / entry["stagedPath"]))
                 files.append({"path": entry["stagedPath"], "origin": artifact["role"], **copied})
     config = _json_bytes(controls.get("web/vercel.json", b"{}"), "web/vercel.json")
     if not isinstance(config, dict):
@@ -673,9 +710,10 @@ def prepare_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, o
     for path, content, reason in derived:
         files.append({"path": path, "origin": "derived", "reason": reason,
                       "sourceSha256": hashlib.sha256(controls[path]).hexdigest() if path in controls else None,
-                      **_write_new(stage / path, content)})
+                      **candidate_file(stage / path, content)})
     report = {"schemaVersion": 1, "status": "prepared_not_built", "repoRoot": str(root), "stageRoot": str(stage),
               "webRoot": str(stage / "web"), "sourceRevision": pinned, "headAtStart": head,
+              "preparationMode": "verified-existing" if verify_existing else "copied-new",
               "sourceFiles": sources, "files": sorted(files, key=lambda entry: entry["path"]), "artifacts": artifacts,
               "previousFrontends": frontends,
               "buildPolicy": {"command": BUILD_COMMAND, "installCommand": INSTALL_COMMAND, "executed": False,
@@ -683,8 +721,9 @@ def prepare_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, o
                               "generatedFiles": sorted(GENERATED_FILES), "generatedFilesUntrackedOnly": True,
                               "generatedTrees": sorted(GENERATED_TREES)}}
     _verify_inputs(root, report)
-    for entry in files:
-        _same(stage / entry["path"], entry, _hash_file(stage / entry["path"]))
+    _verify_stage_files(root, stage, {entry["path"]: entry for entry in files}, allow_generated=False)
+    if _revision(root, "HEAD") != head:
+        raise ReleaseStagingError("HEAD_CHANGED", root)
     receipt = stage / "release-manifest.json"
     identity = _write_new(receipt, _json_content(report))
     return {**report, "releaseManifestPath": str(receipt), "releaseManifestSha256": identity["sha256"]}
@@ -751,34 +790,49 @@ def verify_release_stage(repo_root: Path, stage_root: Path, *,
         raise ReleaseStagingError("INVALID_STAGE_LEDGER", receipt)
     _verify_inputs(root, report)
     expected = {entry["path"]: entry for entry in report["files"]}
+    _verify_stage_files(root, stage, expected, allow_generated=True)
+    if _revision(root, "HEAD") != report["headAtStart"]:
+        raise ReleaseStagingError("HEAD_CHANGED", root)
+    return {"status": "verified_not_deployed", "stageRoot": str(stage), "sourceRevision": report["sourceRevision"],
+            "filesVerified": len(expected), "releaseManifestSha256": manifest_sha256,
+            "generatedFilePolicy": sorted(GENERATED_FILES), "generatedTreePolicy": sorted(GENERATED_TREES)}
+
+
+def _verify_stage_files(root: Path, stage: Path, expected: dict[str, dict], *, allow_generated: bool) -> None:
+    directories = {parent.as_posix() for name in expected for parent in PurePosixPath(name).parents}
     pending, seen = [stage], set()
     while pending:
         for path in pending.pop().iterdir():
             name = _relative(path.relative_to(stage).as_posix()).as_posix()
             if name == "web/node_modules":
+                if not allow_generated:
+                    raise ReleaseStagingError("UNEXPECTED_STAGE_DIRECTORY", path)
                 _plain(root / "web/node_modules")
                 if path.resolve() != (root / "web/node_modules").resolve() or not (root / "web/node_modules").is_dir():
                     raise ReleaseStagingError("UNAPPROVED_DEPENDENCIES", path)
                 continue
-            _plain(path)
+            info = _plain(path)
             if name == "web/.next":
+                if not allow_generated:
+                    raise ReleaseStagingError("UNEXPECTED_STAGE_DIRECTORY", path)
                 if not path.is_dir():
                     raise ReleaseStagingError("INVALID_BUILD_OUTPUT", path)
                 continue
             if path.is_dir():
+                if not allow_generated and name not in directories:
+                    raise ReleaseStagingError("UNEXPECTED_STAGE_DIRECTORY", path)
                 pending.append(path)
-            elif name == "release-manifest.json":
+            elif stat.S_ISREG(info.st_mode) and info.st_nlink != 1:
+                raise ReleaseStagingError("HARDLINKED_STAGE_FILE", path)
+            elif name == "release-manifest.json" and allow_generated:
                 seen.add(name)
             elif name in expected:
                 _same(path, expected[name], _hash_file(path))
                 seen.add(name)
-            elif name in GENERATED_FILES:
+            elif name in GENERATED_FILES and allow_generated:
                 seen.add(name)
             else:
                 raise ReleaseStagingError("UNEXPECTED_STAGE_FILE", path)
     missing = set(expected) - seen
     if missing:
         raise ReleaseStagingError("MISSING_STAGE_FILE", sorted(missing)[0])
-    return {"status": "verified_not_deployed", "stageRoot": str(stage), "sourceRevision": report["sourceRevision"],
-            "filesVerified": len(expected), "releaseManifestSha256": manifest_sha256,
-            "generatedFilePolicy": sorted(GENERATED_FILES), "generatedTreePolicy": sorted(GENERATED_TREES)}

@@ -1,0 +1,33 @@
+{
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "C:\\sgSHIOK2026\\tests\\test_release_staging.py",
+    "--noconftest",
+    "-p",
+    "no:cacheprovider",
+    "-o",
+    "addopts=",
+    "--basetemp",
+    "C:\\sgSHIOK2026\\tmp\\release-staging-a-finalize-red",
+    "-k",
+    "finalize_never_replaces"
+  ],
+  "before": {
+    "scripts/release_staging.py": "315b5dac989a2d9f3cea1b0faf94bb97a148e36807227b8e33c3ed802cd7143c",
+    "tests/test_release_staging.py": "5793c0e49abaa5c737c06591618a4638a8f482aed5c2e366641b58daf906c35b"
+  },
+  "after": {
+    "scripts/release_staging.py": "315b5dac989a2d9f3cea1b0faf94bb97a148e36807227b8e33c3ed802cd7143c",
+    "tests/test_release_staging.py": "5793c0e49abaa5c737c06591618a4638a8f482aed5c2e366641b58daf906c35b"
+  },
+  "stable": true,
+  "exitCode": 1,
+  "timedOut": false,
+  "stdout": "F                                                                        [100%]\n================================== FAILURES ===================================\n________________ test_finalize_never_replaces_a_success_ledger ________________\n\nstaging = <module 'scripts.release_staging' from 'C:\\\\sgSHIOK2026\\\\scripts\\\\release_staging.py'>\nrepository = (WindowsPath('C:/sgSHIOK2026/tmp/release-staging-a-finalize-red/test_finalize_never_replaces_a0/repo'), WindowsPath('C...C:/sgSHIOK2026/tmp/release-staging-a-finalize-red/test_finalize_never_replaces_a0/repo/web/public/data/lamp_posts_v1'))\n\n    def test_finalize_never_replaces_a_success_ledger(staging, repository):\n        root, data, overlay = repository\n        result = prepare(staging, repository)\n        stage = Path(result[\"stageRoot\"])\n        before = snapshot(stage)\n        with pytest.raises(staging.ReleaseStagingError, match=\"DESTINATION_EXISTS\"):\n>           staging.finalize_release_stage(root, data, stage_dir=stage, overlay_dir=overlay)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE           AttributeError: module 'scripts.release_staging' has no attribute 'finalize_release_stage'. Did you mean: 'prepare_release_stage'?\n\ntests\\test_release_staging.py:660: AttributeError\n=========================== short test summary info ===========================\nFAILED tests/test_release_staging.py::test_finalize_never_replaces_a_success_ledger\n1 failed, 86 deselected in 19.18s\n",
+  "stderr": "",
+  "elapsedMs": 24686.99999997625
+}

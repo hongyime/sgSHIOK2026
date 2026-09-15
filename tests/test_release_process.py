@@ -51,6 +51,7 @@ def timeout_tree(tmp_path, monkeypatch):
     code = (
         "import json, os, pathlib, subprocess, sys, time; "
         f"child = subprocess.Popen([sys.executable, '-B', '-c', {child_code!r}]); "
+        "print('before timeout stdout', flush=True); print('before timeout stderr', file=sys.stderr, flush=True); "
         f"pathlib.Path({str(marker)!r}).write_text(json.dumps([os.getpid(), child.pid])); "
         "time.sleep(60)"
     )
@@ -94,6 +95,8 @@ def test_timeout_stops_owned_parent_and_child_with_inherited_pipes(tmp_path, mon
     result, pids = timeout_tree(tmp_path, monkeypatch)
     assert result["error"] == "command_timeout" and result["cleanup_complete"] is True
     assert all(exited(pid) for pid in pids)
+    assert result["stdout"] == "before timeout stdout"
+    assert result["stderr"] == "before timeout stderr"
 
 
 @pytest.mark.skipif(os.name != "nt", reason="Windows job-object lifecycle fixture")
