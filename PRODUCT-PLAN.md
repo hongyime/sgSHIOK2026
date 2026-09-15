@@ -969,12 +969,12 @@ No scoring, exports, data copying, Cloudflare or paid scaling is involved.
 - Gate: FREE preparation. A push is not deployment authorization; inspect whether current Git integration auto-deploys before future runtime pushes and stop if it conflicts with this gate.
 
 ### [ ] T28: Publish an approved frontend and verify it
-- Status: OWNER. Size: M. Parent: P3.2.
+- Status: WAIT_DEPS; build-and-ship authorization received. Size: M. Parent: P3.2.
 - Depends on: T27.
 - Scope: only the exact approved deployment target/commit and unchanged artifact, existing safe deploy workflow.
-- Do: obtain release approval including T26 results or an explicit limited-release exception. Deploy once, verify fresh/returning users, selected route, URLs, enabled features and request behaviour; record deployment identity. On failure stop at the named stage and follow only the approved rollback.
+- Do: use the existing build-and-ship authorization after T27 and applicable T26 acceptance. Do not ask for blanket deployment permission again. If a required acceptance check cannot be completed, request a named limited-release exception describing that unmet check and risk, not a fabricated PASS. Deploy once, verify fresh/returning users, selected route, URLs, enabled features and request behaviour; record deployment identity. On failure stop at the named stage and follow only the approved rollback.
 - Tests/done: O06-O08, M16-M17, applicable S/C/F smoke tests. Remote app actually matches the approved commit/artifact, not merely a successful push. Errors are visible and the prior release remains recoverable. Set the next maintenance review from T24.
-- Gate: OWNER deployment approval. No export/rescore, existing payload overwrite or new provider implicit.
+- Gate: engineering release acceptance; any exception to an unmet check is an owner decision. No export/rescore, existing payload overwrite or new provider implicit. A READY preview alone does not satisfy this gate.
 
 ### [ ] T29: Resolve the MapLibre security advisory before deployment
 - Live-runtime finding2026-09-13:captured production HTML build

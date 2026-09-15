@@ -4978,3 +4978,14 @@ the old report body; preserve this cursor through save/reconciliation/expiry.
 Clear it when requesting a new page, on failure and when the session clears.
 SQL keyset filtering does not require the boundary report to remain present.
 Evidence:qa/revamp-r1/ship-continuation-20260915.
+
+## 2026-09-15: Shipping authorization and acceptance exceptions
+
+The existing build-and-ship mandate supplies deployment authorization; T28 must
+not ask for that blanket permission again. T27 engineering checks and applicable
+T26 user/device acceptance still apply. If a required check cannot be completed,
+describe the specific unmet check and risk for an owner limited-release decision.
+That exception accepts a named limitation; it does not turn unperformed tests
+into passing evidence. Private-report activation and pipeline budgets remain
+separate. Review caught contradictory wording between the task board and T28;
+the execution ticket now agrees with this distinction.

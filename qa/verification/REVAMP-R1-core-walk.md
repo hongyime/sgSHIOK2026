@@ -10056,3 +10056,26 @@ Final production-alias readback:sgshiok.vercel.app resolves to
 dpl_wVnDeskyK666GwYUKWzY2aserkJR;READY;target=production.
 This differs from the new preview ID and is unchanged from the preflight baseline.
 Safe provider response:ship-continuation-20260915/production-postflight.json.
+
+## 2026-09-15 Post-commit release-policy wording correction
+
+Independent final review found the task board's shipping-authorization wording
+conflicted with T28's older blanket-approval request. T28 now uses the owner's
+existing mandate while retaining T27/applicable T26 acceptance; only a named
+exception to an unmet check requires an owner risk decision. No deployment or
+test result changes. This is a new commit, not amended evidence/history.
+The reviewer's stale-index finding was resolved before4ff2076: its22files include
+production-postflight.json and the production-readback evidence append.
+
+FINDINGS
+1. READY preview evidence, successful visual slices and failed diagnostic outcomes
+   are committed in4ff2076; moderation pagination is fixed in9cbb7af.
+2. Release-policy documents now separate existing shipping authorization from
+   acceptance of a specific untested release risk. Production remains unchanged.
+
+DISAGREEMENTS
+1. An unmet required acceptance check cannot be waived by silently interpreting
+   general shipping authorization as approval of an unidentified risk.
+
+Policy follow-up validation:32docs/integrity tests passed in5.92s;exit0.
+Separate integrity command:repo_integrity=ok;exit0. No browser rerun or pipeline.
