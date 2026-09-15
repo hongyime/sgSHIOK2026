@@ -1,0 +1,8 @@
+{
+  "ok": false,
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "",
+  "error": "command_timeout",
+  "cleanup_complete": true
+}

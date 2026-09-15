@@ -1,0 +1,39 @@
+{
+  "mode": "docs",
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_readme.py",
+    "tests/test_agent_docs.py",
+    "tests/test_repo_integrity.py",
+    "-q",
+    "-p",
+    "no:cacheprovider"
+  ],
+  "before": {
+    "scripts/release_staging.py": "315b5dac989a2d9f3cea1b0faf94bb97a148e36807227b8e33c3ed802cd7143c",
+    "tests/test_release_staging.py": "4cca251552ae46a19afacfbadbcbb5b5c248b3910e167339124ef5cc6b4268f3",
+    "web/scripts/build-next-release.mjs": "f67a604f2c8fcc2980370a3b94c069001a4d157dcd16afc18fcf52cf147f3ca9",
+    "web/lib/__tests__/frontend-retention.test.ts": "2520da0d562829c5d53735201949c3047c0dcd0c5aa4622021a812c1cf0a0186",
+    "web/lib/data.ts": "accb659c9dc119fb63ca8424b93ef3364f13fb9bc2392eb2d33fff3f0512dc99"
+  },
+  "after": {
+    "scripts/release_staging.py": "315b5dac989a2d9f3cea1b0faf94bb97a148e36807227b8e33c3ed802cd7143c",
+    "tests/test_release_staging.py": "4cca251552ae46a19afacfbadbcbb5b5c248b3910e167339124ef5cc6b4268f3",
+    "web/scripts/build-next-release.mjs": "f67a604f2c8fcc2980370a3b94c069001a4d157dcd16afc18fcf52cf147f3ca9",
+    "web/lib/__tests__/frontend-retention.test.ts": "2520da0d562829c5d53735201949c3047c0dcd0c5aa4622021a812c1cf0a0186",
+    "web/lib/data.ts": "accb659c9dc119fb63ca8424b93ef3364f13fb9bc2392eb2d33fff3f0512dc99"
+  },
+  "elapsedSeconds": 17.469,
+  "execution": {
+    "ok": true,
+    "returncode": 0,
+    "stdout": ".........................................                                [100%]\n41 passed in 12.09s",
+    "stderr": ""
+  },
+  "pipelineRuns": 0,
+  "deployments": 0,
+  "passed": true
+}

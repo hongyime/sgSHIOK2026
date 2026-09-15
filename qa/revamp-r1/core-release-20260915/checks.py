@@ -17,6 +17,7 @@ mode = sys.argv[1]
 out = Path(tempfile.mkdtemp(prefix=mode + "-", dir=BASE))
 node = r"C:\Program Files\nodejs\node.exe"
 commands = {
+    "full": [node, "web/scripts/test-without-production-data.mjs", "--reporter=dot", "--testTimeout=15000"],
     "staging": [str(ROOT / ".venv/Scripts/python.exe"), "-B", "-m", "pytest", "tests/test_release_staging.py",
                 "--noconftest", "-p", "no:cacheprovider", "-o", "addopts=", "-vv", "--durations=5",
                 "--basetemp", str(out / "fixtures")],
@@ -40,7 +41,7 @@ env = dict(os.environ, TEMP=str(ROOT / "tmp"), TMP=str(ROOT / "tmp"), PYTHONDONT
 if mode == "staging":
     env.update(PYTEST_DISABLE_PLUGIN_AUTOLOAD="1", PYTEST_ADDOPTS="")
 started = time.monotonic()
-result = run_owned_command(command, ROOT, timeout=360 if mode == "staging" else 240, env=env)
+result = run_owned_command(command, ROOT, timeout=900 if mode == "full" else 360 if mode == "staging" else 240, env=env)
 for stream in ("stdout", "stderr"):
     (out / (stream + ".txt")).write_text(result[stream], encoding="utf8", newline="\n")
 receipt = {"mode": mode, "command": command, "before": before, "after": identities(),

@@ -1,0 +1,14 @@
+{
+  "sourceRevision": "4f0234b126c6af228339ea8df0c5c18e4cc06a49",
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\core-release-20260915\\stage-current.py",
+    "worker",
+    "4f0234b126c6af228339ea8df0c5c18e4cc06a49"
+  ],
+  "timeoutSeconds": 1200,
+  "pipelineRuns": 0,
+  "deployments": 0,
+  "installs": 0
+}

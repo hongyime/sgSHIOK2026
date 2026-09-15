@@ -9371,3 +9371,109 @@ Command: qa/revamp-r1/core-release-20260915/checkpoint.ps1
   "next": "Commit and push the coherent packaging fix, then one fresh supervised stage-current.py attempt. Stop on any actual input hash mismatch. Build only after staging succeeds. Goal remains active."
 }
 ```
+
+## 2026-09-15: supervised staging gate and full web suite
+
+Command: qa/revamp-r1/core-release-20260915/final-state.ps1
+
+```json
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "PRAWN-E14",
+  "sourceRevision": "4f0234b126c6af228339ea8df0c5c18e4cc06a49",
+  "retentionDays": 30,
+  "attempt": {
+    "sourceRevision": "4f0234b126c6af228339ea8df0c5c18e4cc06a49",
+    "command": [
+      "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+      "-B",
+      "C:\\sgSHIOK2026\\qa\\revamp-r1\\core-release-20260915\\stage-current.py",
+      "worker",
+      "4f0234b126c6af228339ea8df0c5c18e4cc06a49"
+    ],
+    "timeoutSeconds": 1200,
+    "pipelineRuns": 0,
+    "deployments": 0,
+    "installs": 0
+  },
+  "execution": {
+    "ok": false,
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "",
+    "error": "command_timeout",
+    "cleanup_complete": true
+  },
+  "successLedgerExists": false,
+  "formerWorkerPid41700Present": false,
+  "fullWeb": {
+    "tests": 3326,
+    "files": 85,
+    "dependencyGuards": 42,
+    "elapsedSeconds": 320.375,
+    "countArithmetic": "3325 + 1 compiler invocation contract = 3326",
+    "sourceMatches": [
+      {
+        "path": "web/scripts/build-next-release.mjs",
+        "sha256": "f67a604f2c8fcc2980370a3b94c069001a4d157dcd16afc18fcf52cf147f3ca9",
+        "snapshotMatches": true
+      },
+      {
+        "path": "web/lib/__tests__/frontend-retention.test.ts",
+        "sha256": "2520da0d562829c5d53735201949c3047c0dcd0c5aa4622021a812c1cf0a0186",
+        "snapshotMatches": true
+      },
+      {
+        "path": "web/lib/data.ts",
+        "sha256": "accb659c9dc119fb63ca8424b93ef3364f13fb9bc2392eb2d33fff3f0512dc99",
+        "snapshotMatches": true
+      }
+    ],
+    "receipt": "qa/revamp-r1/core-release-20260915/full-5mudtbs0/summary.json",
+    "isolation": {
+      "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-0V4elz",
+      "copiedFiles": 284,
+      "productionDataDirectoryAbsent": true,
+      "guardProbePassed": true,
+      "forbiddenPaths": [
+        "C:\\sgSHIOK2026\\web\\public\\data",
+        "C:\\sgSHIOK2026\\tmp\\test-without-data-0V4elz\\web\\public\\data"
+      ],
+      "dependencies": "Existing node_modules linked; no installation",
+      "testArgs": [
+        "--reporter=dot",
+        "--testTimeout=15000"
+      ],
+      "exitCode": 0
+    }
+  },
+  "protectedAnchorsVerified": 11,
+  "weights": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+  "evidenceBefore": {
+    "bytes": 547768,
+    "sha256": "7d2c511a54ba99bc40990ae3ea5c36c620ca855cbd6d2109059dcae491e49618"
+  },
+  "builds": 0,
+  "browserRuns": 0,
+  "deployments": 0,
+  "installs": 0,
+  "pipelineRuns": 0,
+  "FINDINGS": [
+    "Packaging correction4f0234b is pushed. Real stage2 no longer reports the optional-gzip prerequisite error; it progressed into copying and input verification but timed out at1200seconds. There is no success ledger and no completed candidate.",
+    "The owned process supervisor reports cleanup_complete=true. The partial scratch copy is preserved. No blind stage3, compiler run, browser replay or deployment followed.",
+    "Current isolated web suite3326/85files+42guards passes. Build-wrapper and loader sources match the isolated snapshot. This adds one compiler invocation contract to the prior3325tests, not a user-facing feature.",
+    "Native same-document zoom preparation has61offline contracts plus syntax/Win32 ABI checks at qa/revamp-r1/same-document-zoom-20260915/offline-GKmkV0/offline.json. No browser was launched; both reviewers are closed.",
+    "30-day private retention remains unchanged. All11protected anchors and locked weights still match. No Supabase calls or new reporting activation occurred."
+  ],
+  "DISAGREEMENTS": [
+    "A staged directory without a verified success ledger is not a release candidate. Test passes do not override the preparation timeout or prove a deployment.",
+    "Do not infer that uncompressed staging bytes alone require a paid plan: Vercel documents split archives behind --archive=tgz. The actual upload package, quota, rollback and exact deployment still need verification; no archive or upload is claimed."
+  ],
+  "documentation": [
+    "https://vercel.com/docs/cli/deploy",
+    "https://vercel.com/changelog/split-tgz-is-now-the-default-cli-archive-deployment-behavior",
+    "https://vercel.com/docs/limits"
+  ],
+  "next": "Goal active. Diagnose expensive staging IO without rerunning a full copy. Preserve both partial candidates and all frozen inputs. Obtain an authenticated complete stage, then execute the sanitized bounded compiler and same-document browser acceptance. Owner moderator email remains pending; core-map release stays independent of reporting."
+}
+```
