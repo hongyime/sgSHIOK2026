@@ -338,6 +338,30 @@ after an old duplicate target expires. Missing/expired data cannot prove a past
 write failed. Real owner Auth, queue recovery/navigation and overlapping decision/
 revocation/cleanup acceptance remain; these HTTP fixtures are not a live service.
 
+The default-off /moderation page is separate from the resident map. Login and
+logout are additional same-origin POST routes. Existing-owner email/password
+login is restricted to a server-only configured email before provider traffic,
+then verifies the exact token and independent live database authorization.
+No public signup, automatic enrollment, refresh token, cookie session or browser
+storage is introduced. The access token is retained only in a client closure.
+Explicit sign-out clears local state first; remote revocation is confirmed only
+on Auth204. Login permits six attempts and logout six per token hash/thirty total
+per warm minute, not a global ingress budget. Activation still requires operational
+limits and an enrolled owner; these limits alone cannot enforce a free-tier cap.
+
+Private geometry is drawn locally without external basemap requests. Confirmation
+freezes each decision before one dispatch. An unknown save is reconciled by receipt;
+pending/missing results remain uncertain, and a terminal result shows the current
+saved state without attributing it to the attempted write. Session expiry clears
+visible content while retaining only opaque receipt/revision recovery in memory.
+Explicit departure clears that too, after an unfinished-review warning where the
+browser permits it. Pagehide and restored pages synchronously clear React DOM
+before unhiding; crashes cannot guarantee a warning. Selected reports and recovered
+audit reasons expire alongside queue rows, after720hours from server receipt.
+The page has private/no-store headers and same-origin-only connections, and is
+excluded from the existing service-worker navigation cache. Production header
+delivery and actual browser restoration remain integrated release checks.
+
 Operational health is a separate, content-free check. A fresh cleanup success
 timestamp must agree with the latest successful scheduled run; a failure latch,
 inactive/mismatched job, stale success or stale/invalid observation blocks health.

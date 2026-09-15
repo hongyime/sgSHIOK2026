@@ -1,0 +1,45 @@
+web/lib/moderator-client.ts(119,113): error TS2322: Type 'ModeratorClientFailure' is not assignable to type 'ModeratorQueueResult'.
+  Type 'ModeratorClientFailure' is not assignable to type 'Failure'.
+    Types of property 'error' are incompatible.
+      Type 'ModeratorClientError' is not assignable to type 'ErrorCode'.
+        Type '"limited"' is not assignable to type 'ErrorCode'.
+web/lib/moderator-client.ts(125,61): error TS2322: Type 'ModeratorClientFailure' is not assignable to type 'ModeratorQueueResult'.
+  Type 'ModeratorClientFailure' is not assignable to type 'Failure'.
+    Types of property 'error' are incompatible.
+      Type 'ModeratorClientError' is not assignable to type 'ErrorCode'.
+        Type '"limited"' is not assignable to type 'ErrorCode'.
+web/lib/moderator-client.ts(129,119): error TS2322: Type 'ModeratorClientFailure' is not assignable to type 'ModeratorQueueResult'.
+  Type 'ModeratorClientFailure' is not assignable to type 'Failure'.
+    Types of property 'error' are incompatible.
+      Type 'ModeratorClientError' is not assignable to type 'ErrorCode'.
+        Type '"limited"' is not assignable to type 'ErrorCode'.
+web/lib/moderator-client.ts(131,50): error TS2322: Type 'ModeratorClientFailure' is not assignable to type 'ModeratorQueueResult'.
+  Type 'ModeratorClientFailure' is not assignable to type 'Failure'.
+    Types of property 'error' are incompatible.
+      Type 'ModeratorClientError' is not assignable to type 'ErrorCode'.
+        Type '"limited"' is not assignable to type 'ErrorCode'.
+web/lib/moderator-client.ts(135,68): error TS2322: Type 'ModeratorClientFailure' is not assignable to type 'ModeratorQueueResult'.
+  Type 'ModeratorClientFailure' is not assignable to type 'Failure'.
+    Types of property 'error' are incompatible.
+      Type 'ModeratorClientError' is not assignable to type 'ErrorCode'.
+        Type '"limited"' is not assignable to type 'ErrorCode'.
+web/lib/moderator-client.ts(146,116): error TS2322: Type 'ModeratorClientFailure' is not assignable to type 'ModeratorContextResult'.
+  Type 'ModeratorClientFailure' is not assignable to type 'Failure'.
+    Types of property 'error' are incompatible.
+      Type 'ModeratorClientError' is not assignable to type 'ErrorCode'.
+        Type '"limited"' is not assignable to type 'ErrorCode'.
+web/lib/moderator-client.ts(150,101): error TS2322: Type 'ModeratorClientFailure' is not assignable to type 'ModeratorContextResult'.
+  Type 'ModeratorClientFailure' is not assignable to type 'Failure'.
+    Types of property 'error' are incompatible.
+      Type 'ModeratorClientError' is not assignable to type 'ErrorCode'.
+        Type '"limited"' is not assignable to type 'ErrorCode'.
+web/lib/moderator-client.ts(154,144): error TS2322: Type 'ModeratorClientFailure' is not assignable to type 'ModeratorDecisionResult'.
+  Type 'ModeratorClientFailure' is not assignable to type 'Failure'.
+    Types of property 'error' are incompatible.
+      Type 'ModeratorClientError' is not assignable to type 'ErrorCode'.
+        Type '"limited"' is not assignable to type 'ErrorCode'.
+web/lib/moderator-client.ts(157,61): error TS2322: Type 'ModeratorClientFailure' is not assignable to type 'ModeratorDecisionResult'.
+  Type 'ModeratorClientFailure' is not assignable to type 'Failure'.
+    Types of property 'error' are incompatible.
+      Type 'ModeratorClientError' is not assignable to type 'ErrorCode'.
+        Type '"limited"' is not assignable to type 'ErrorCode'.

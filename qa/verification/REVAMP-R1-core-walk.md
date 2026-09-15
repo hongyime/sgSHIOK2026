@@ -8690,3 +8690,544 @@ NEXT: actual concurrency and scheduler cancellation, daily cleanup, early-deleti
   ]
 }
 ```
+
+
+## 2026-09-15: Private owner console and 30-day visibility
+
+```json
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "PRAWN-E14",
+  "base": "86e6274ab4fa1bee2196a3ec72b32de37630d272",
+  "sourceBindings": {
+    "web/app/api/moderation/session.ts": "678c00f9bc436c691b16bafaa1f0598f5cd11abd8515461628ccb230d52d1ad9",
+    "web/app/api/moderation/login/route.ts": "361ff715bc18051457aae7f40232d20684e76e3688d2b9f2c691fd503f329a81",
+    "web/app/api/moderation/logout/route.ts": "aa08f04d03fc5cc7a3a4824a7c0007a12619c52f39c070bc8f1631fb29b58425",
+    "web/app/api/moderation/auth.ts": "e60e52d4b0b6c34dd32ba82f0b1429880f28a4420695ef004e4c62044c0871f6",
+    "web/app/api/moderation/http.ts": "4d9a05111717b9fb2d2b284a5a84c7cd0d2013f8fba3712b75941c201aa92603",
+    "web/app/api/moderation/store.ts": "eb870efebb16d2c7e77f3b2f270077610377d401681d83c48abcf4e3ba89feb5",
+    "web/components/moderation-console.tsx": "bdb98c35e762933b03a11ac56802d4713680dc70a59998cb8296605373c7eb79",
+    "web/components/moderation-console.module.css": "a1020e768da5008c8fe66d45fd9a42431e2d01162ccade4c2d124df5c8e63b60",
+    "web/components/report-location-preview.tsx": "b8bfcbca9b0ace1e45efe15985d0a25475122b7c6d225fd45fb0ca640918cbda",
+    "web/app/moderation/page.tsx": "7a5c8900484d8a8c446e45fce83c4e3f176cb0a3a60a6fca3ee4df1b57d5015b",
+    "web/next.config.js": "ed9745754cda3adbc5e5f8312050bb12567b7022cba5dc7ea56fd98d3b6a1350",
+    "web/lib/moderator-client.ts": "06be7cd166b79f544e769b3c628a48478998d8518973f9aedf67047ed8939345",
+    "web/lib/reports.ts": "1e6ffff787f664ccd3f2a66ac5dbe08dd4af3bf54143dbcd6593111b7e1d3299",
+    "web/lib/__tests__/moderator-session.test.ts": "e196d450cf0f2a94d666699403c0d7925d77759b317e50b4714b91deac47f31b",
+    "web/lib/__tests__/moderator-client.test.ts": "d82135343cea7aedd4588d30e80658c7fe40704f2298b21e4d33276de24818af",
+    "web/lib/__tests__/moderation-console.test.tsx": "8524432d3a8ed77bf57d7bed9b00ce6013b41abe8005e52299da096b1fdcddb2",
+    "web/lib/__tests__/moderation-route.test.ts": "45bac365297bfdde852faa9d0d946b3a2abc61b05cb728bb5cab4feaf4475b88"
+  },
+  "receipts": {
+    "focused": "focused-qlx1x0",
+    "full": "full-LDzXmI",
+    "types": "types-QHJus1",
+    "docs": "docs-G9tt6t",
+    "browser": "browser-xNQFDt"
+  },
+  "focused": {
+    "passed": 469,
+    "failed": 0,
+    "pending": 0,
+    "files": 4,
+    "perFile": [
+      {
+        "path": "web/lib/__tests__/moderation-console.test.tsx",
+        "passed": 33,
+        "failed": 0
+      },
+      {
+        "path": "web/lib/__tests__/moderation-route.test.ts",
+        "passed": 21,
+        "failed": 0
+      },
+      {
+        "path": "web/lib/__tests__/moderator-client.test.ts",
+        "passed": 233,
+        "failed": 0
+      },
+      {
+        "path": "web/lib/__tests__/moderator-session.test.ts",
+        "passed": 182,
+        "failed": 0
+      }
+    ]
+  },
+  "full": {
+    "tests": 3325,
+    "files": 85,
+    "guards": 42,
+    "isolation": {
+      "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-U7SAhr",
+      "copiedFiles": 284,
+      "productionDataDirectoryAbsent": true,
+      "guardProbePassed": true,
+      "forbiddenPaths": [
+        "C:\\sgSHIOK2026\\web\\public\\data",
+        "C:\\sgSHIOK2026\\tmp\\test-without-data-U7SAhr\\web\\public\\data"
+      ],
+      "dependencies": "Existing node_modules linked; no installation",
+      "testArgs": [
+        "--reporter=dot",
+        "--testTimeout=15000"
+      ],
+      "exitCode": 0
+    },
+    "arithmetic": "182 session + 233 client + 33 console + 21 route/cache = 469; 2856 + 469 = 3325; 81 + 4 = 85. Focused overlaps full; guards are separate."
+  },
+  "browser": {
+    "checks": [
+      {
+        "name": "brand asset rendered",
+        "passed": true
+      },
+      {
+        "name": "login-320 no horizontal overflow",
+        "passed": true
+      },
+      {
+        "name": "login-320 targets",
+        "passed": true
+      },
+      {
+        "name": "queue-390 no horizontal overflow",
+        "passed": true
+      },
+      {
+        "name": "queue-390 targets",
+        "passed": true
+      },
+      {
+        "name": "selection focuses review heading",
+        "passed": true
+      },
+      {
+        "name": "detail-1440 no horizontal overflow",
+        "passed": true
+      },
+      {
+        "name": "detail-1440 targets",
+        "passed": true
+      },
+      {
+        "name": "detail-390 no horizontal overflow",
+        "passed": true
+      },
+      {
+        "name": "detail-390 targets",
+        "passed": true
+      },
+      {
+        "name": "detail-320 no horizontal overflow",
+        "passed": true
+      },
+      {
+        "name": "detail-320 targets",
+        "passed": true
+      },
+      {
+        "name": "local geometry visible",
+        "passed": true
+      },
+      {
+        "name": "resident markup remains text",
+        "passed": true
+      },
+      {
+        "name": "confirmation focuses decision heading",
+        "passed": true
+      },
+      {
+        "name": "no decision request before confirmation",
+        "passed": true
+      },
+      {
+        "name": "uncertainty focuses recovery heading",
+        "passed": true
+      },
+      {
+        "name": "uncertain-320 no horizontal overflow",
+        "passed": true
+      },
+      {
+        "name": "uncertain-320 targets",
+        "passed": true
+      },
+      {
+        "name": "pending read does not enable another save",
+        "passed": true
+      },
+      {
+        "name": "reconciled-390 no horizontal overflow",
+        "passed": true
+      },
+      {
+        "name": "reconciled-390 targets",
+        "passed": true
+      },
+      {
+        "name": "reconciliation identifies state, not writer attribution",
+        "passed": true
+      },
+      {
+        "name": "pagehide synchronously removes private DOM",
+        "passed": true
+      },
+      {
+        "name": "pageshow signed out before unhide",
+        "passed": true
+      },
+      {
+        "name": "failed remote logout still clears report DOM",
+        "passed": true
+      },
+      {
+        "name": "signed-out-320 no horizontal overflow",
+        "passed": true
+      },
+      {
+        "name": "signed-out-320 targets",
+        "passed": true
+      },
+      {
+        "name": "no persistent browser session",
+        "passed": true
+      },
+      {
+        "name": "no browser exceptions",
+        "passed": true
+      }
+    ],
+    "captures": [
+      {
+        "file": "login-320x667.png",
+        "sha256": "94a4442ec682203914ec19b856a79f1e05b850cf7cb1bc2b6f8459abee32c07e",
+        "bytes": 4914,
+        "fit": {
+          "width": 320,
+          "scroll": 320,
+          "buttons": [
+            {
+              "label": "Sign in",
+              "w": 288,
+              "h": 44
+            }
+          ]
+        }
+      },
+      {
+        "file": "queue-390x844.png",
+        "sha256": "1aefd501595398ce797fe89d0418034cec4dfc076cffe7bdf0a9499c21661bec",
+        "bytes": 8138,
+        "fit": {
+          "width": 390,
+          "scroll": 390,
+          "buttons": [
+            {
+              "label": "Sign out",
+              "w": 87,
+              "h": 44
+            },
+            {
+              "label": "Refresh",
+              "w": 84,
+              "h": 44
+            },
+            {
+              "label": "Mapping errorPostal 12345615 Sept 2026, 2:03 pm00000001",
+              "w": 358,
+              "h": 99
+            },
+            {
+              "label": "Previous",
+              "w": 79,
+              "h": 44
+            },
+            {
+              "label": "Next",
+              "w": 57,
+              "h": 44
+            }
+          ]
+        }
+      },
+      {
+        "file": "detail-1440x950.png",
+        "sha256": "ceeebc1c07109240004be9940b562032be326c68f387a89237683ef4ae9b8795",
+        "bytes": 32644,
+        "fit": {
+          "width": 1440,
+          "scroll": 1425,
+          "buttons": [
+            {
+              "label": "Sign out",
+              "w": 87,
+              "h": 44
+            },
+            {
+              "label": "Refresh",
+              "w": 84,
+              "h": 44
+            },
+            {
+              "label": "Mapping errorPostal 12345615 Sept 2026, 2:03 pm00000001",
+              "w": 340,
+              "h": 99
+            },
+            {
+              "label": "Previous",
+              "w": 79,
+              "h": 44
+            },
+            {
+              "label": "Next",
+              "w": 57,
+              "h": 44
+            },
+            {
+              "label": "Back to reports",
+              "w": 136,
+              "h": 44
+            },
+            {
+              "label": "Review decision",
+              "w": 144,
+              "h": 44
+            }
+          ]
+        }
+      },
+      {
+        "file": "detail-390x844.png",
+        "sha256": "9a0146e3b5e62e1ccfb37febbfb10583509005d2626c6e0b035ba5da4c815311",
+        "bytes": 15676,
+        "fit": {
+          "width": 390,
+          "scroll": 375,
+          "buttons": [
+            {
+              "label": "Sign out",
+              "w": 87,
+              "h": 44
+            },
+            {
+              "label": "Refresh",
+              "w": 84,
+              "h": 44
+            },
+            {
+              "label": "Back to reports",
+              "w": 136,
+              "h": 44
+            },
+            {
+              "label": "Review decision",
+              "w": 144,
+              "h": 44
+            }
+          ]
+        }
+      },
+      {
+        "file": "detail-320x667.png",
+        "sha256": "0e8dd5d19b19dfe70733a4d6c36a5604b6aa463f965a742b82927d28270aaa04",
+        "bytes": 12126,
+        "fit": {
+          "width": 320,
+          "scroll": 305,
+          "buttons": [
+            {
+              "label": "Sign out",
+              "w": 87,
+              "h": 44
+            },
+            {
+              "label": "Refresh",
+              "w": 84,
+              "h": 44
+            },
+            {
+              "label": "Back to reports",
+              "w": 136,
+              "h": 44
+            },
+            {
+              "label": "Review decision",
+              "w": 144,
+              "h": 44
+            }
+          ]
+        }
+      },
+      {
+        "file": "uncertain-320x667.png",
+        "sha256": "1055fa6f6697926c694e8590fe68b9f42bc9b61beeddba1c0e058a2954b3fe0b",
+        "bytes": 11049,
+        "fit": {
+          "width": 320,
+          "scroll": 305,
+          "buttons": [
+            {
+              "label": "Sign out",
+              "w": 87,
+              "h": 44
+            },
+            {
+              "label": "Refresh",
+              "w": 84,
+              "h": 44
+            },
+            {
+              "label": "Back to reports",
+              "w": 136,
+              "h": 44
+            },
+            {
+              "label": "Check saved decision",
+              "w": 184,
+              "h": 44
+            }
+          ]
+        }
+      },
+      {
+        "file": "reconciled-390x844.png",
+        "sha256": "80bb1fc1b6d648700375380b62a49d0b32d2c57e4e23a47382bee20aa9ac0586",
+        "bytes": 14274,
+        "fit": {
+          "width": 390,
+          "scroll": 375,
+          "buttons": [
+            {
+              "label": "Sign out",
+              "w": 87,
+              "h": 44
+            },
+            {
+              "label": "Refresh",
+              "w": 84,
+              "h": 44
+            },
+            {
+              "label": "Back to reports",
+              "w": 136,
+              "h": 44
+            }
+          ]
+        }
+      },
+      {
+        "file": "signed-out-320x667.png",
+        "sha256": "9939570a65a213f80b24fd8fec05fd5300deed006b22b7e6aa268ba54c140440",
+        "bytes": 5866,
+        "fit": {
+          "width": 320,
+          "scroll": 320,
+          "buttons": [
+            {
+              "label": "Sign in",
+              "w": 288,
+              "h": 44
+            }
+          ]
+        }
+      }
+    ],
+    "visuallyInspected": [
+      "login-320x667.png",
+      "queue-390x844.png",
+      "detail-1440x950.png",
+      "detail-390x844.png",
+      "detail-320x667.png",
+      "uncertain-320x667.png",
+      "reconciled-390x844.png",
+      "signed-out-320x667.png"
+    ],
+    "canvasPixels": {
+      "route": 3186,
+      "marker": 165
+    },
+    "freeKiB": 1823044,
+    "closed": true,
+    "chromeExit": {
+      "code": 0,
+      "signal": null
+    },
+    "limitation": "Real React/client in local Chrome with synthetic reports/transport. Dispatched page-transition events, not proven BFCache hit. Not real Auth/DB, Next production, integrated Home or physical-phone acceptance."
+  },
+  "history": {
+    "initialBrowserImport": "State not reached: !!document.querySelector('input[type=password]')",
+    "earlierBrowserChecks": "browser-zKivv9 (26) and browser-VfDYtV (29) passed their executed checks but omitted brand asset acceptance; their broken fixture icon does not qualify as full visual acceptance.",
+    "explicitIconGate": "State not reached: document.querySelector('main img')?.naturalWidth>0",
+    "priorClientBrowser": "browser-rKWfUs:30 checks passed on the earlier client snapshot; final browser-xNQFDt binds corrected client.",
+    "typeFailure": {
+      "receipt": "types-iq27SM",
+      "exit": 1,
+      "cause": "Nine TS2322 projection return-type errors; literal-preserving generic failure factory fixed without casts."
+    }
+  },
+  "review": {
+    "agents": 3,
+    "closed": 3,
+    "corrected": [
+      "restored private DOM visible before React clear committed",
+      "selected/recovered audit outliving row expiry timer",
+      "logout provider dispatch lacked pressure limiter",
+      "pagination stopped at100pages despite5000retained capacity",
+      "focus jumped to root on decision phases",
+      "client/server login input bounds differed"
+    ],
+    "remaining": "Actual owner Auth/SQL concurrency, account enrollment, monitoring delivery and integrated release acceptance"
+  },
+  "integrity": {
+    "command": [
+      "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+      "-B",
+      "C:\\sgSHIOK2026\\scripts\\check_repo_integrity.py"
+    ],
+    "exit": 0,
+    "stdout": "repo_integrity=ok\r\n",
+    "stderr": ""
+  },
+  "ignore": {
+    "command": [
+      "git",
+      "check-ignore",
+      "-v",
+      "qa/verification/REVAMP-R1-core-walk.md"
+    ],
+    "exit": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  "protectedAnchorsVerified": 11,
+  "weights": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+  "preview": {
+    "pid": 54336,
+    "url": "http://127.0.0.1:37545/console.html",
+    "scope": "Synthetic owner-console preview only; no actual account or reporting service. Use moderator@example.test / synthetic password, never real credentials.",
+    "startedAt": "2026-09-15T06:11:06.697Z"
+  },
+  "operation": {
+    "supabaseCalls": 0,
+    "enrollments": 0,
+    "runtimeSecretsConfigured": 0,
+    "intakeEnabled": false,
+    "productionBuilds": 0,
+    "deployments": 0,
+    "pipelineRuns": 0,
+    "pipelineCost": 0
+  },
+  "FINDINGS": [
+    "30-day/720-hour retention remains enforced; the new console expires selected content and recovered audit reasons as well as queue rows.",
+    "Default-off private owner sign-in, local geometry, queue and confirmed decisions implemented. No browser persistence or external private geometry requests.",
+    "Unknown saves reconcile read-only; pending/missing replies never prove failure and terminal state is not attributed to the previous attempt.",
+    "Review fixes are covered by469focused tests and3325isolated tests,85files,42guards. TypeScript and41docs tests pass.30browser checks/eight inspected captures pass.",
+    "Fixtures do not enable a reporting service. Owner email/enrollment, real Auth/overlapping database acceptance, monitoring delivery and independent core-map release remain under the active full-scope goal."
+  ],
+  "DISAGREEMENTS": [
+    "None with the30-day choice. Physical deletion is the next successful daily cleanup, not the exact expiry instant.",
+    "Warm-instance pressure limits are not a global free-tier budget; fixture and dispatched page-transition success are not actual Auth, BFCache-hit or launch acceptance."
+  ]
+}
+```

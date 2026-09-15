@@ -466,7 +466,7 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: T13 approval. End-to-end acceptance requires actual durable receipt, not only mocked success.
 
 ### [ ] T17: Build the private owner moderation queue
-- Status: PARTIAL (private SQL, Auth verification and default-off HTTP adapter; no owner queue UI or activation). Size: M. Parent: P1.3.
+- Status: PARTIAL (private SQL, HTTP, owner sign-in and review screen implemented; live owner/session acceptance and activation remain). Size: M. Parent: P1.3.
 - 15September implementation: bounded private queue/context/decision RPCs, live
   allowlisted session checks, full duplicate-chain revision guards and source-scoped
   expiring audit. Authentication verifies the token with the pinned Auth endpoint;
@@ -489,6 +489,22 @@ No ticket is DONE merely because a document, mock, passing count or button exist
   activation or release is implied; T17 remains open.
 - Depends on: T15.
 - Scope: approved private moderation route/UI and storage rules; lifecycle/access tests.
+- Owner-console continuation: default-off /moderation, existing-owner email/password
+  sign-in, in-memory sessions only, private queue and local-only geometry preview.
+  Decisions require explicit confirmation; unknown writes get a read-only status
+  check, never an automatic repeat. Missing or still-pending reports do not prove
+  failure. Sign-out, expiry and page restoration clear private content. Report
+  and recovered-audit visibility use exact30-day expiry; queue pagination no
+  longer stops at2,500 of the5,000 retained-report allowance. Owner enrollment,
+  actual Auth/SQL contention, integrated resident acceptance and monitoring
+  delivery remain open. Fixture acceptance is not permission to enable intake.
+- Current source-bound acceptance: 182 session + 233 client + 33 console + 21
+  route/cache tests = 469 focused. 2,856 + 469 = 3,325 isolated web tests in
+  81 + 4 = 85 files, plus42 dependency guards; TypeScript and41 docs tests pass.
+  Chrome synthetic component:30 checks, eight inspected desktop/narrow captures,
+  native focus and synchronous DOM clearing, visible canvas geometry and clean
+  owned-process exit. Dispatched page-transition events are not proof of a real
+  BFCache hit. This is not a Next production build, real Auth or phone acceptance.
 - Do: authenticate only the moderator; list/filter pending reports, inspect context, accept/reject/mark duplicate with reasons and audit time. Keep queue/navigation separate from the resident map experience.
 - Tests/done: F07-F10. Unauthenticated/unauthorized requests cannot read notes or mutate state; duplicate links resolve safely; decisions are traceable. Accepting either type never alters frozen artifacts or current map truth.
 - Gate: Approved owner access. No anonymous administrative endpoint or data edits.

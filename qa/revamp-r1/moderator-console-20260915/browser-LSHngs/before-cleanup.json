@@ -1,0 +1,21 @@
+{
+  "startedAt": "2026-09-15T05:56:36.175Z",
+  "scope": "Synthetic real component and real browser client; NOT real Auth, DB, Next production or resident data",
+  "checks": [],
+  "captures": [],
+  "errors": [],
+  "passed": false,
+  "sources": {
+    "web/components/moderation-console.tsx": "bdb98c35e762933b03a11ac56802d4713680dc70a59998cb8296605373c7eb79",
+    "web/components/moderation-console.module.css": "a1020e768da5008c8fe66d45fd9a42431e2d01162ccade4c2d124df5c8e63b60",
+    "web/components/report-location-preview.tsx": "b8bfcbca9b0ace1e45efe15985d0a25475122b7c6d225fd45fb0ca640918cbda",
+    "web/lib/moderator-client.ts": "580ccfe8e99eb5e6cb7006090adb0ba0538e1b91d1b90980ee29b7988706e631",
+    "web/lib/reports.ts": "1e6ffff787f664ccd3f2a66ac5dbe08dd4af3bf54143dbcd6593111b7e1d3299",
+    "qa/revamp-r1/moderator-console-20260915/console-entry.tsx": "630dd00e9616e9d349f2d0a0dd1abfbe12517f278ec48e8806ace8c7d58c851c",
+    "qa/revamp-r1/moderator-console-20260915/console.html": "99fa357db58e6fbf98c2bd6d0d8bd283acc4a3cc697765488db3ad548d6316e4"
+  },
+  "freeKiB": 2259628,
+  "origin": "http://127.0.0.1:28997",
+  "chromePid": 51552,
+  "error": "State not reached: document.querySelector('main img')?.naturalWidth>0"
+}

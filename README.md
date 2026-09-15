@@ -703,6 +703,20 @@ paths, errors and elapsed time. For future private reports, use the separately
 approved encrypted backup and deletion-ledger rules; never put reports into this
 public QA tree. No data copy, migration, backup or restore was performed in T24.
 
+## Private Owner Review
+
+Private owner review lives at `/moderation` only when explicitly enabled. It uses
+an enrolled owner account, not a resident account or public signup. The server-only
+`SHIOK_MODERATOR_EMAIL` narrows login traffic; database allowlisting and live Auth
+sessions remain authoritative. No password, access token or secret belongs in
+GitHub, issue text or browser storage. Login does not retain refresh tokens.
+Sign-out clears this browser immediately and reports remote revocation separately.
+Reports and review reasons expire 30 days after server receipt; the next successful
+daily cleanup physically deletes them. Opening, reviewing or accepting a report
+never extends its lifetime or updates published map data. An unconfirmed decision
+must be checked, not blindly submitted again. Owner enrollment, live authorization
+acceptance and operational monitoring are still activation gates.
+
 ## License And Attribution
 
 Apache-2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE). Source data and map

@@ -4785,3 +4785,51 @@ DISAGREEMENTS
    successful daily cleanup; it is not a claim of physical deletion at expiry.
 2. More passing fixtures do not make the product shipped. Core-map release remains
    independent of reporting activation, with its own acceptance still required.
+
+## 2026-09-15: Private owner sign-in and review console
+
+Keep the owner console separate at /moderation, off by default. Use the existing
+owner's email/password Auth flow with a server-only email traffic filter, exact
+token verification and independent database allowlisting/live-session checks.
+The email setting is not authorization. Do not introduce resident accounts,
+public signup, auto-enrollment, refresh tokens, cookie authority or persistent
+browser credentials. Owner email/enrollment and real Auth acceptance remain open.
+
+Keep private geometry local: a north-up coordinate preview sends no report
+coordinates to a basemap provider. Queue25 reports at a time with exact cursors;
+do not silently cap access at2,500 when retained capacity is5,000. Accept/reject/
+duplicate each requires an explicit confirmed command. Unknown writes permit
+receipt-specific status reads, not automatic retries. Pending or missing results
+cannot prove an earlier write failed. A terminal result is current saved state,
+not proof of which attempt or moderator caused it.
+
+Clear content and credentials on sign-out, page departure and session expiry.
+Expiry alone may retain an opaque receipt/revision in memory for reconciliation
+after login; explicit departure discards that after a warning where possible.
+Synchronously clear restored React DOM before unhiding it. Include selected
+content and recovered audit reasons in the exact720hour visibility deadline.
+Physical deletion remains the next successful daily cleanup, not instant expiry.
+Login6/minute; logout6/tokenhash and30total/minute per warm instance are pressure
+limits, not global quotas. Failed remote logout still clears this browser without
+claiming server revocation. A lost login acknowledgement may leave an Auth session;
+no automatic retry or unverified cleanup guarantee is made.
+
+FINDINGS
+1. Implemented the private console and existing-owner login/logout.182session +
+   233client +33console +21route/cache tests =469;2856+469=3325 isolated tests in
+   81+4=85files, plus42dependency guards. TypeScript and41docs tests pass.
+2. Review corrected page-restoration privacy, recovered-audit expiry, unbounded
+   logout dispatch, hidden later queue pages and focus jumping to the page top.
+   Client login bounds now match server254-character email/1024-byte password.
+3. Chrome synthetic acceptance:30checks/eight inspected captures, visible local
+   canvas and correct focus/recovery/private DOM clearing; owned browser exits0.
+   Earlier fixture import/icon errors and the TypeScript failure are preserved.
+4. No report project calls, enrollment, runtime secrets, intake activation, new
+   production build/deployment, pipeline runs or protected-data changes this step.
+
+DISAGREEMENTS
+1. No disagreement with30-day retention. Exact expiry and physical cleanup remain
+   distinct; a successfully rendered fixture is not a launched private service.
+2. Synthetic page-transition dispatch tests synchronous DOM behavior, not a real
+   BFCache hit. Real Auth/overlapping database acceptance, alert delivery and the
+   independent core-map release still require completion under the active goal.

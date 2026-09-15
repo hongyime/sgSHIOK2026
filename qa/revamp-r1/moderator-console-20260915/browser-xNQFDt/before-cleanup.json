@@ -1,0 +1,379 @@
+{
+  "startedAt": "2026-09-15T06:03:54.241Z",
+  "scope": "Synthetic real component and real browser client; NOT real Auth, DB, Next production or resident data",
+  "checks": [
+    {
+      "name": "brand asset rendered",
+      "passed": true
+    },
+    {
+      "name": "login-320 no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "login-320 targets",
+      "passed": true
+    },
+    {
+      "name": "queue-390 no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "queue-390 targets",
+      "passed": true
+    },
+    {
+      "name": "selection focuses review heading",
+      "passed": true
+    },
+    {
+      "name": "detail-1440 no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "detail-1440 targets",
+      "passed": true
+    },
+    {
+      "name": "detail-390 no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "detail-390 targets",
+      "passed": true
+    },
+    {
+      "name": "detail-320 no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "detail-320 targets",
+      "passed": true
+    },
+    {
+      "name": "local geometry visible",
+      "passed": true
+    },
+    {
+      "name": "resident markup remains text",
+      "passed": true
+    },
+    {
+      "name": "confirmation focuses decision heading",
+      "passed": true
+    },
+    {
+      "name": "no decision request before confirmation",
+      "passed": true
+    },
+    {
+      "name": "uncertainty focuses recovery heading",
+      "passed": true
+    },
+    {
+      "name": "uncertain-320 no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "uncertain-320 targets",
+      "passed": true
+    },
+    {
+      "name": "pending read does not enable another save",
+      "passed": true
+    },
+    {
+      "name": "reconciled-390 no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "reconciled-390 targets",
+      "passed": true
+    },
+    {
+      "name": "reconciliation identifies state, not writer attribution",
+      "passed": true
+    },
+    {
+      "name": "pagehide synchronously removes private DOM",
+      "passed": true
+    },
+    {
+      "name": "pageshow signed out before unhide",
+      "passed": true
+    },
+    {
+      "name": "failed remote logout still clears report DOM",
+      "passed": true
+    },
+    {
+      "name": "signed-out-320 no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "signed-out-320 targets",
+      "passed": true
+    },
+    {
+      "name": "no persistent browser session",
+      "passed": true
+    },
+    {
+      "name": "no browser exceptions",
+      "passed": true
+    }
+  ],
+  "captures": [
+    {
+      "file": "login-320x667.png",
+      "sha256": "94a4442ec682203914ec19b856a79f1e05b850cf7cb1bc2b6f8459abee32c07e",
+      "bytes": 4914,
+      "fit": {
+        "width": 320,
+        "scroll": 320,
+        "buttons": [
+          {
+            "label": "Sign in",
+            "w": 288,
+            "h": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "queue-390x844.png",
+      "sha256": "1aefd501595398ce797fe89d0418034cec4dfc076cffe7bdf0a9499c21661bec",
+      "bytes": 8138,
+      "fit": {
+        "width": 390,
+        "scroll": 390,
+        "buttons": [
+          {
+            "label": "Sign out",
+            "w": 87,
+            "h": 44
+          },
+          {
+            "label": "Refresh",
+            "w": 84,
+            "h": 44
+          },
+          {
+            "label": "Mapping errorPostal 12345615 Sept 2026, 2:03 pm00000001",
+            "w": 358,
+            "h": 99
+          },
+          {
+            "label": "Previous",
+            "w": 79,
+            "h": 44
+          },
+          {
+            "label": "Next",
+            "w": 57,
+            "h": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "detail-1440x950.png",
+      "sha256": "ceeebc1c07109240004be9940b562032be326c68f387a89237683ef4ae9b8795",
+      "bytes": 32644,
+      "fit": {
+        "width": 1440,
+        "scroll": 1425,
+        "buttons": [
+          {
+            "label": "Sign out",
+            "w": 87,
+            "h": 44
+          },
+          {
+            "label": "Refresh",
+            "w": 84,
+            "h": 44
+          },
+          {
+            "label": "Mapping errorPostal 12345615 Sept 2026, 2:03 pm00000001",
+            "w": 340,
+            "h": 99
+          },
+          {
+            "label": "Previous",
+            "w": 79,
+            "h": 44
+          },
+          {
+            "label": "Next",
+            "w": 57,
+            "h": 44
+          },
+          {
+            "label": "Back to reports",
+            "w": 136,
+            "h": 44
+          },
+          {
+            "label": "Review decision",
+            "w": 144,
+            "h": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "detail-390x844.png",
+      "sha256": "9a0146e3b5e62e1ccfb37febbfb10583509005d2626c6e0b035ba5da4c815311",
+      "bytes": 15676,
+      "fit": {
+        "width": 390,
+        "scroll": 375,
+        "buttons": [
+          {
+            "label": "Sign out",
+            "w": 87,
+            "h": 44
+          },
+          {
+            "label": "Refresh",
+            "w": 84,
+            "h": 44
+          },
+          {
+            "label": "Back to reports",
+            "w": 136,
+            "h": 44
+          },
+          {
+            "label": "Review decision",
+            "w": 144,
+            "h": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "detail-320x667.png",
+      "sha256": "0e8dd5d19b19dfe70733a4d6c36a5604b6aa463f965a742b82927d28270aaa04",
+      "bytes": 12126,
+      "fit": {
+        "width": 320,
+        "scroll": 305,
+        "buttons": [
+          {
+            "label": "Sign out",
+            "w": 87,
+            "h": 44
+          },
+          {
+            "label": "Refresh",
+            "w": 84,
+            "h": 44
+          },
+          {
+            "label": "Back to reports",
+            "w": 136,
+            "h": 44
+          },
+          {
+            "label": "Review decision",
+            "w": 144,
+            "h": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "uncertain-320x667.png",
+      "sha256": "1055fa6f6697926c694e8590fe68b9f42bc9b61beeddba1c0e058a2954b3fe0b",
+      "bytes": 11049,
+      "fit": {
+        "width": 320,
+        "scroll": 305,
+        "buttons": [
+          {
+            "label": "Sign out",
+            "w": 87,
+            "h": 44
+          },
+          {
+            "label": "Refresh",
+            "w": 84,
+            "h": 44
+          },
+          {
+            "label": "Back to reports",
+            "w": 136,
+            "h": 44
+          },
+          {
+            "label": "Check saved decision",
+            "w": 184,
+            "h": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "reconciled-390x844.png",
+      "sha256": "80bb1fc1b6d648700375380b62a49d0b32d2c57e4e23a47382bee20aa9ac0586",
+      "bytes": 14274,
+      "fit": {
+        "width": 390,
+        "scroll": 375,
+        "buttons": [
+          {
+            "label": "Sign out",
+            "w": 87,
+            "h": 44
+          },
+          {
+            "label": "Refresh",
+            "w": 84,
+            "h": 44
+          },
+          {
+            "label": "Back to reports",
+            "w": 136,
+            "h": 44
+          }
+        ]
+      }
+    },
+    {
+      "file": "signed-out-320x667.png",
+      "sha256": "9939570a65a213f80b24fd8fec05fd5300deed006b22b7e6aa268ba54c140440",
+      "bytes": 5866,
+      "fit": {
+        "width": 320,
+        "scroll": 320,
+        "buttons": [
+          {
+            "label": "Sign in",
+            "w": 288,
+            "h": 44
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "passed": true,
+  "sources": {
+    "web/components/moderation-console.tsx": "bdb98c35e762933b03a11ac56802d4713680dc70a59998cb8296605373c7eb79",
+    "web/components/moderation-console.module.css": "a1020e768da5008c8fe66d45fd9a42431e2d01162ccade4c2d124df5c8e63b60",
+    "web/components/report-location-preview.tsx": "b8bfcbca9b0ace1e45efe15985d0a25475122b7c6d225fd45fb0ca640918cbda",
+    "web/lib/moderator-client.ts": "06be7cd166b79f544e769b3c628a48478998d8518973f9aedf67047ed8939345",
+    "web/lib/reports.ts": "1e6ffff787f664ccd3f2a66ac5dbe08dd4af3bf54143dbcd6593111b7e1d3299",
+    "qa/revamp-r1/moderator-console-20260915/console-entry.tsx": "630dd00e9616e9d349f2d0a0dd1abfbe12517f278ec48e8806ace8c7d58c851c",
+    "qa/revamp-r1/moderator-console-20260915/console.html": "99fa357db58e6fbf98c2bd6d0d8bd283acc4a3cc697765488db3ad548d6316e4"
+  },
+  "freeKiB": 1823044,
+  "origin": "http://127.0.0.1:32016",
+  "chromePid": 33788,
+  "canvas": {
+    "route": 3186,
+    "marker": 165
+  }
+}
