@@ -1,0 +1,32 @@
+{
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_readme.py",
+    "tests/test_agent_docs.py",
+    "tests/test_repo_integrity.py",
+    "-q",
+    "-p",
+    "no:cacheprovider"
+  ],
+  "cwd": "C:\\sgSHIOK2026",
+  "chunks": [
+    {
+      "chunk_id": "53fbd7",
+      "wall_time_seconds": 10.0008769,
+      "session_id": 15258,
+      "original_token_count": 10,
+      "output": "......................................"
+    },
+    {
+      "chunk_id": "1a8bce",
+      "wall_time_seconds": 0.0000068,
+      "exit_code": 0,
+      "original_token_count": 16,
+      "output": "...                                [100%]\r\n41 passed in 7.62s\r\n"
+    }
+  ],
+  "scope": "Postplan API-next-step and STATE code-commit wording included. A subsequent PRODUCT-PLAN introductory line was corrected to distinguish applied expiry from pending physical deletion; no application or test code changed."
+}

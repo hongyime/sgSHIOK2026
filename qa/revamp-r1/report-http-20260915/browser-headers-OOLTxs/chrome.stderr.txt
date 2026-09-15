@@ -1,0 +1,2 @@
+
+DevTools remote debugging requires a non-default data directory. Specify this using --user-data-dir.

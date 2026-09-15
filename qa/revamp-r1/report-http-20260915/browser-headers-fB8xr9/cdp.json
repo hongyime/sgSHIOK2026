@@ -1,0 +1,190 @@
+[
+  {
+    "direction": "send",
+    "id": 1,
+    "method": "Browser.getVersion",
+    "params": {}
+  },
+  {
+    "direction": "reply",
+    "id": 1,
+    "result": {
+      "protocolVersion": "1.3",
+      "product": "Chrome/152.0.7977.84",
+      "revision": "@4334922f44c77b1208072c4deac29db3af39bbea",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+      "jsVersion": "15.2.124.21"
+    }
+  },
+  {
+    "direction": "send",
+    "id": 2,
+    "method": "Target.getTargets",
+    "params": {}
+  },
+  {
+    "direction": "reply",
+    "id": 2,
+    "result": {
+      "targetInfos": [
+        {
+          "targetId": "25F729B860E79B6EEFF3E26D35E2AB30",
+          "type": "service_worker",
+          "title": "Service Worker chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "url": "chrome-extension://fignfifoniblkonapihmkfakmlgkbkcf/service_worker.js",
+          "attached": false,
+          "canAccessOpener": false,
+          "browserContextId": "EBF5D722C5FA89B349E19851B4E4DEA6"
+        },
+        {
+          "targetId": "0B9A97FC4217F9BE51F3B314E1749E19",
+          "type": "page",
+          "title": "",
+          "url": "about:blank",
+          "attached": false,
+          "canAccessOpener": false,
+          "browserContextId": "EBF5D722C5FA89B349E19851B4E4DEA6"
+        },
+        {
+          "targetId": "510BCD13FCE657489555B244D489BD4F",
+          "type": "browser_ui",
+          "title": "Omnibox Popup",
+          "url": "chrome://omnibox-popup.top-chrome/omnibox_popup_aim.html",
+          "attached": false,
+          "canAccessOpener": false,
+          "browserContextId": "EBF5D722C5FA89B349E19851B4E4DEA6"
+        },
+        {
+          "targetId": "0118F942A915A2D6F77F2EECFFE862EF",
+          "type": "browser_ui",
+          "title": "Omnibox Popup",
+          "url": "chrome://omnibox-popup.top-chrome/",
+          "attached": false,
+          "canAccessOpener": false,
+          "browserContextId": "EBF5D722C5FA89B349E19851B4E4DEA6"
+        },
+        {
+          "targetId": "D3541B1B553BC677F32BB226386826D9",
+          "type": "background_page",
+          "title": "Google Hangouts",
+          "url": "chrome-extension://nkeimhogjdpnpccoofpliimaahmaaome/background.html",
+          "attached": false,
+          "canAccessOpener": false,
+          "browserContextId": "EBF5D722C5FA89B349E19851B4E4DEA6"
+        }
+      ]
+    }
+  },
+  {
+    "direction": "send",
+    "id": 3,
+    "method": "Target.attachToTarget",
+    "params": {
+      "targetId": "0B9A97FC4217F9BE51F3B314E1749E19",
+      "flatten": true
+    }
+  },
+  {
+    "direction": "reply",
+    "id": 3,
+    "result": {
+      "sessionId": "FFAB88B3BFB4C545EB142D2E4023C012"
+    }
+  },
+  {
+    "direction": "send",
+    "id": 4,
+    "method": "Page.enable",
+    "params": {},
+    "sessionId": "FFAB88B3BFB4C545EB142D2E4023C012"
+  },
+  {
+    "direction": "reply",
+    "id": 4,
+    "result": {},
+    "sessionId": "FFAB88B3BFB4C545EB142D2E4023C012"
+  },
+  {
+    "direction": "send",
+    "id": 5,
+    "method": "Runtime.enable",
+    "params": {},
+    "sessionId": "FFAB88B3BFB4C545EB142D2E4023C012"
+  },
+  {
+    "direction": "reply",
+    "id": 5,
+    "result": {},
+    "sessionId": "FFAB88B3BFB4C545EB142D2E4023C012"
+  },
+  {
+    "direction": "send",
+    "id": 6,
+    "method": "Page.navigate",
+    "params": {
+      "url": "http://127.0.0.1:41438/probe?synthetic=header-privacy"
+    },
+    "sessionId": "FFAB88B3BFB4C545EB142D2E4023C012"
+  },
+  {
+    "direction": "reply",
+    "id": 6,
+    "result": {
+      "frameId": "0B9A97FC4217F9BE51F3B314E1749E19",
+      "loaderId": "F5618584F45D5613DF69C207F033D8CB",
+      "isDownload": false
+    },
+    "sessionId": "FFAB88B3BFB4C545EB142D2E4023C012"
+  },
+  {
+    "direction": "send",
+    "id": 7,
+    "method": "Runtime.evaluate",
+    "params": {
+      "expression": "(async () => {\n    const results = [];\n    for (const [path, options] of [[\"/old\",{\"method\":\"POST\",\"mode\":\"same-origin\",\"credentials\":\"omit\",\"redirect\":\"error\",\"cache\":\"no-store\",\"referrerPolicy\":\"no-referrer\",\"headers\":{\"Content-Type\":\"application/json\",\"x-shiok-retry-secret\":\"synthetic-header-probe\"},\"body\":\"{\\\"probe\\\":\\\"synthetic-header-only\\\"}\"}],[\"/corrected\",{\"method\":\"POST\",\"mode\":\"same-origin\",\"credentials\":\"omit\",\"redirect\":\"error\",\"cache\":\"no-store\",\"referrer\":\"\",\"referrerPolicy\":\"same-origin\",\"headers\":{\"Content-Type\":\"application/json\",\"x-shiok-retry-secret\":\"synthetic-header-probe\"},\"body\":\"{\\\"probe\\\":\\\"synthetic-header-only\\\"}\"}]]) {\n      const response = await fetch(path, { ...options, signal: AbortSignal.timeout(4000) });\n      results.push({ path, status: response.status, body: await response.json() });\n    }\n    return { origin: location.origin, results };\n  })()",
+      "returnByValue": true,
+      "awaitPromise": true
+    },
+    "sessionId": "FFAB88B3BFB4C545EB142D2E4023C012"
+  },
+  {
+    "direction": "reply",
+    "id": 7,
+    "result": {
+      "result": {
+        "type": "object",
+        "value": {
+          "origin": "http://127.0.0.1:41438",
+          "results": [
+            {
+              "path": "/old",
+              "status": 200,
+              "body": {
+                "synthetic": true
+              }
+            },
+            {
+              "path": "/corrected",
+              "status": 200,
+              "body": {
+                "synthetic": true
+              }
+            }
+          ]
+        }
+      }
+    },
+    "sessionId": "FFAB88B3BFB4C545EB142D2E4023C012"
+  },
+  {
+    "direction": "send",
+    "id": 8,
+    "method": "Browser.close",
+    "params": {}
+  },
+  {
+    "direction": "reply",
+    "id": 8,
+    "result": {}
+  }
+]

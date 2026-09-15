@@ -1,6 +1,16 @@
 # SHIOK Revamp Execution Plan
 Current scope: 2026-09-13 owner revision, replacing the 12 September UI scope.
 Completion resume: IN PROGRESS after14September owner answers, not complete.
+15September scope confirmation: the active goal includes ALL remaining build and
+ship tasks, not just Supabase setup. Report HTTP integration is in progress with
+independent security and release reviews, then resident UI, moderator access,
+retention/failure acceptance and the exact release/deployment path. Do not close
+the goal at an implementation checkpoint. Protected-data processing and actual
+physical-device participation still need their specific gates.
+Owner policy15September: use30-day report retention, not90days; private reports
+without resident accounts/contact/photos, weekly owner review and fail-closed
+intake on unhealthy cleanup or limits. The 30-day expiry migration is applied and
+database-tested; physical deletion and operational acceptance remain unfinished.
 Cloudflare rejected. Weekly metadata-only GitHub checks and one issue approved;
 real scheduler active with verified issue delivery and cross-run journal recovery.
 Repository owner operates issue34. Owner uses desktop Chrome with a resized
@@ -320,8 +330,10 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Current15September: dedicated sgshiok project ztjilsfgoephcdcsgcks supplied by
   owner and verified active in Singapore on Free. Project setup is complete;
   web/lib/report-project.json pins its identity and the only permitted origin.
-  Do not ask for another project/PAT. Remaining retention/moderation/operations
-  agreement is distinct from the now-complete account/project gate.
+  Do not ask for another project/PAT. Owner then chose30-day retention,
+  private/no-account/contact/photo reports and weekly review, with unhealthy
+  cleanup/limits pausing intake. Moderator access and operational acceptance
+  remain; do not reopen the answered provider or retention questions.
 - Correction2026-09-14: the agent wrongly treated the mentioned sgbuslaobu project
   as designated for SHIOK. Owner stopped its use and will create a dedicated
   project. No more remote access to the unrelated project; adapter denies it and
@@ -361,7 +373,17 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: Approved infrastructure contract; zero pipeline.
 
 ### [ ] T15: Persist reports and issue truthful receipts
-- Status: PARTIAL (dedicated private storage installed; no resident endpoint). Size: M. Parent: P1.3.
+- Status: PARTIAL (dedicated storage and disabled-by-default HTTP endpoint implemented). Size: M. Parent: P1.3.
+- HTTP boundary15September: exact HTTPS origin/JSON, bounded8KiB wire parsing,
+  one10s upload+storage deadline, no public reads or logs, server-only exact-project
+  config and daily HMAC network buckets from trusted Vercel ingress. Per-instance
+  attempt throttling also covers replay/conflict traffic; it is not a global
+  request-cost guarantee. Generic provider503 now preserves commit uncertainty;
+  only a bounded exact PT503 admission rejection proves no admission.
+  Current308focused/5files and2219isolated/76files+42guards pass; source hashes
+  match the isolated snapshot, TypeScript and41docs/integrity tests pass.
+  No resident activation or frontend deployment is implied. Authentication, cleanup and
+  distributed/concurrent acceptance remain required, not silently waived.
 - Current15September: native migration20260914161526 applied on sgshiok; same SQL
   bytes, canonical filename aligned with the new project's history.14rollback
   groups pass. Actual HTTP publishableRPC401/privateSchema406/serviceDisabled503;
@@ -394,7 +416,16 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: T13 approval, local/test backend first. No production deployment implicit.
 
 ### [ ] T16: Ship the report composition and receipt flow
-- Status: WAIT_DEPS. Size: M. Parent: P1.3.
+- Status: PARTIAL (retry transport implemented; resident form/integration not delivered). Size: M. Parent: P1.3.
+- Current15September: immutable in-memory request/32byteproof before firstPOST;
+  duplicate clicks share one attempt, explicit retries preserve identity/content,
+  receipt confirmation is bounded and no private state is automatically persisted.
+  Independent review caught cumulative uncertainty lost after a rejected retry.
+  Its predicted Origin:null browser failure was NOT reproduced: actual Chrome
+  loopback sent correct Origin without Referer under both policies. The explicit
+  empty-referrer/same-origin setting remains for spec consistency, not as proof
+  of a reproduced Chrome defect.72client tests pass.
+  Form, draft/navigation handling and real browser receipt acceptance remain.
 - Depends on: T15.
 - Scope: proposed report form component, existing feedback controls/map point tools, `web/app/page.tsx`, browser tests.
 - Do: contextually choose mapping error or shelter request, mark a point/bounded stretch, enter an optional note, review and submit. Make draft vs sent unmistakable; preserve draft on recoverable error, show real receipt and clear sensitive state deliberately. No copied JSON masquerading as submission.
@@ -411,6 +442,11 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 
 ### [ ] T18: Exercise report failure, abuse and retention limits
 - Status: WAIT_DEPS. Size: M. Parent: P1.3.
+- Owner30-day retention now enforced by migration20260915000630: ten actual
+  PostgreSQL groups pass before and after apply; report/usage rows remain zero,
+  intake disabled. Validated constraint rejects longer expiry without rewriting
+  existing rows. This is expiry enforcement, NOT physical deletion, cleanup
+  health, tombstone survival or concurrent/distributed acceptance.
 - Depends on: T16, T17.
 - Scope: report integration/operational tests, approved retention worker if required, privacy/runbook entries.
 - Do: test cap exhaustion, spam/idempotency races, unavailable storage, expired sessions and retention/deletion on synthetic records. Verify report lookup/receipt cannot enumerate another person's report. Document owner moderation and incident actions.

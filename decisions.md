@@ -4406,3 +4406,104 @@ DISAGREEMENTS
 1. None with the dedicated project choice. A publishable key is intentionally
    public, but cannot authorize private report writes; management PATs and server
    secrets must remain outside browser code and public records.
+
+## 2026-09-15: Finish build and ship; anonymous report HTTP boundary
+
+The owner explicitly resumed the complete build-and-ship goal. Project setup is
+not completion; resident composition, private moderator access, deletion/retention,
+failure acceptance and the exact frontend release/deployment remain in scope.
+This does not authorize modifying frozen inputs or running a scoring/export job.
+Physical-phone participation cannot be substituted by desktop viewport resizing.
+Core-map shipping is independent of reporting activation: absent report readiness
+must leave intake disabled without preventing the map from operating.
+
+POST /api/reports is now a default-disabled Node handler. It validates the exact
+configured HTTPS origin, custom proof header and strict bounded JSON wire body,
+rejects public reads and preflight CORS, and makes one storage attempt inside a
+single10s upload/storage deadline. All outcomes are no-store. Server configuration
+uses only the pinned dedicated project and a modern server secret, never an
+account management PAT, NEXT_PUBLIC value or client-selected provider.
+
+Trust x-vercel-forwarded-for only in explicitly configured Vercel production or
+preview production-Node deployments; fail closed on standalone/local servers and
+missing, list, scoped or malformed IP values. No arbitrary forwarded-header or
+loopback fallback. Canonical IPv4/mapped IPv6 and IPv6 /64 are network buckets,
+not resident identities. Daily server-HMAC buckets avoid sending raw IPs to the
+report database. Refresh that day after body upload, before storage dispatch.
+Database/server clock and midnight-boundary alignment still require distributed
+acceptance; the per-bucket limit is not a per-person guarantee.
+
+Add a bounded warm-instance request shield before storage, including attempts
+that replay, conflict or fail body/proof validation: six/network/minute and
+sixty total/minute, with no unbounded key collection. This is not distributed
+request-cost enforcement. Atomic database admission limits remain separate;
+global abuse, cleanup and moderator controls still gate production intake.
+
+Independent security review found that generic upstream503 was previously treated
+as definite unavailability. Corrected: gateway failure after commit is unknown,
+and only an exact bounded PT503/reporting_unavailable PostgREST envelope confirms
+pre-admission rejection. No automatic retry or replacement report identity. The
+browser must create and retain request identity, canonical payload and retry proof
+before the first attempt, and reuse all three when recovering an uncertain save.
+No private content/proof/IP/credential/provider exception is logged or returned.
+Hosting-platform access logs are not covered by the application no-log property.
+
+Sources checked15September:
+- https://vercel.com/docs/headers/request-headers (ingress-owned forwarding header).
+- https://vercel.com/docs/environment-variables/system-environment-variables
+  (deployment identity; headers alone are not a trusted-runtime assertion).
+
+FINDINGS
+1. The endpoint is implemented without enabling intake or needing another project.
+2. Generic503 handling was an inherited uncertain-commit defect; it is explicitly
+   corrected with a simulated commit/gateway-failure/manual-replay regression.
+3. A warm-instance rate shield does not close distributed abuse or retention gaps.
+
+DISAGREEMENTS
+1. No disagreement with finishing and shipping. A successful helper or focused
+   suite alone does not establish resident or release acceptance.
+
+### Owner policy update, 2026-09-15
+
+The owner answered "Use 30-day retention instead" to the proposed private-report
+operating policy. Replace the90-day retention proposal with30days after receipt.
+The remaining stated boundary is private reports without resident accounts,
+contact details or photos; the owner reviews the queue weekly, and intake pauses
+when cleanup is unhealthy or limits are reached. This is a policy decision, not
+proof of physical deletion. Implement a new migration rather than editing the
+already-applied90-day migration. Do not rewrite or delete any existing report to
+make that migration pass: conflicting existing expiry rows require an explicit
+safe handling decision. Keep intake disabled until deletion, replay-after-expiry,
+moderation and distributed failure acceptance are complete. Do not ask the same
+retention/provider question again. No paid backup or artificial keepalive is
+authorized; recoverable copies require separate retention/deletion safeguards.
+
+Implementation: CLI generated20260914235445; native application assigned
+20260915000630. The migration was renamed byte-identically to match that history,
+SHAe6ae291c54796909aaf79f19613e8a1ee78f1ed2b8788f4e87d0a1435934f4c6.
+Ten PostgreSQL check groups passed before and after apply. Old migration bytes,
+private grants, invoker/search-path/timeout boundary and disabled/empty state
+remain intact; three expected default-deny advisor INFOs, no WARN/ERROR.
+The existing management session credential was explicitly passed to the pinned
+project helper; it was not assumed to be the same PAT previously pasted in chat.
+No token was saved, no other project accessed and no runtime intake configured.
+
+Independent client review additionally caught two new implementation defects
+before publication: no-referrer policy on a same-origin POST nulls Origin, and
+a later denied retry could erase a preceding uncertain save. Use referrer:''
+with same-origin policy, and retain cumulative uncertainty per envelope until
+receipt confirmation. The six added denial-after-unknown tests pass. These fixes
+are explicit findings, not silently hidden behind the earlier green mocked tests.
+Browser semantics reference: https://fetch.spec.whatwg.org/#append-a-request-origin-header.
+Database execution reference: https://supabase.com/docs/reference/api/v1-run-a-query.
+Supabase changelog index was checked; no relevant query/migration breaking change
+was identified among the current entries. No extensions, auth or realtime changed.
+
+Correction within this checkpoint: the real Chrome152 loopback capture did NOT
+reproduce the predicted Origin:null contrast. Both old and new options sent the
+exact local Origin without Referer. The preceding claim of a confirmed browser
+defect is withdrawn; the explicit policy remains a spec-consistency choice.
+The inherited gateway503 uncertainty and cumulative denied-retry uncertainty are
+confirmed defects covered by tests. Preserve the failed expected-contrast receipt,
+initial harness failure and separate successful owned-process/listener cleanup
+verification. This header-only probe is not reporting end-to-end acceptance.

@@ -1,0 +1,197 @@
+{
+  "mode": "verify",
+  "target": {
+    "projectRef": "ztjilsfgoephcdcsgcks",
+    "projectName": "sgshiok",
+    "projectUrl": "https://ztjilsfgoephcdcsgcks.supabase.co",
+    "organizationId": "ixonsqiqglwriirutigr",
+    "region": "ap-southeast-1",
+    "plan": "free"
+  },
+  "requests": [
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "organizations/ixonsqiqglwriirutigr",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/migrations",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/advisors/security",
+      "method": "GET",
+      "status": 200
+    }
+  ],
+  "migration": {
+    "path": "supabase/migrations/20260915000630_shiok_report_retention_30_days.sql",
+    "sha256": "e6ae291c54796909aaf79f19613e8a1ee78f1ed2b8788f4e87d0a1435934f4c6",
+    "testsSha256": "d96b42554723a3729bf00d1d1e06a802ceafdb54fdf1f1b50d164e33cdedaaf6",
+    "originalSha256": "9de35faa5275c5c10706167195df81f1832a246b2d336adab192fd1b6a046604"
+  },
+  "passed": true,
+  "before": {
+    "reports": 0,
+    "usage": 0,
+    "control": [
+      {
+        "enabled": false,
+        "singleton": true,
+        "allowed_bundles": [],
+        "policy_approved_at": null,
+        "cleanup_verified_at": null
+      }
+    ],
+    "rpc_sha256": "8f8520e8f91aee00283102d4bce005180047b85fcee2d315ee81a326225dde68",
+    "retention_constraints": 1
+  },
+  "historyBefore": [
+    {
+      "version": "20260914161526",
+      "name": "shiok_private_reports_v1"
+    },
+    {
+      "version": "20260915000630",
+      "name": "shiok_report_retention_30_days"
+    }
+  ],
+  "tests": [
+    {
+      "name": "day_30_receipt_expired_without_recreation",
+      "passed": true
+    },
+    {
+      "name": "disabled_empty_baseline",
+      "passed": true
+    },
+    {
+      "name": "expired_receipt_keeps_conflict_precedence",
+      "passed": true
+    },
+    {
+      "name": "intake_disabled_after_test_rollback",
+      "passed": true
+    },
+    {
+      "name": "new_report_expires_exactly_30_days",
+      "passed": true
+    },
+    {
+      "name": "replay_preserves_identity_expiry_and_usage",
+      "passed": true
+    },
+    {
+      "name": "service_insert_exactly_30_days_allowed",
+      "passed": true
+    },
+    {
+      "name": "service_insert_over_30_days_rejected",
+      "passed": true
+    },
+    {
+      "name": "subtransaction_restores_reports_usage_and_control",
+      "passed": true
+    },
+    {
+      "name": "validated_constraint_and_unchanged_rpc_boundary",
+      "passed": true
+    }
+  ],
+  "after": {
+    "reports": 0,
+    "usage": 0,
+    "control": [
+      {
+        "enabled": false,
+        "singleton": true,
+        "allowed_bundles": [],
+        "policy_approved_at": null,
+        "cleanup_verified_at": null
+      }
+    ],
+    "rpc_sha256": "8f8520e8f91aee00283102d4bce005180047b85fcee2d315ee81a326225dde68",
+    "retention_constraints": 1
+  },
+  "reportAdvisories": [
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table \\`shiok_reports.control\\` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "schema": "shiok_reports",
+        "name": "control",
+        "type": "table"
+      },
+      "cache_key": "rls_enabled_no_policy_shiok_reports_control",
+      "observed_at": "2026-09-15T00:08:31.262Z"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table \\`shiok_reports.daily_usage\\` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "schema": "shiok_reports",
+        "name": "daily_usage",
+        "type": "table"
+      },
+      "cache_key": "rls_enabled_no_policy_shiok_reports_daily_usage",
+      "observed_at": "2026-09-15T00:08:31.262Z"
+    },
+    {
+      "name": "rls_enabled_no_policy",
+      "title": "RLS Enabled No Policy",
+      "level": "INFO",
+      "facing": "EXTERNAL",
+      "categories": [
+        "SECURITY"
+      ],
+      "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+      "detail": "Table \\`shiok_reports.reports\\` has RLS enabled, but no policies exist",
+      "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+      "metadata": {
+        "schema": "shiok_reports",
+        "name": "reports",
+        "type": "table"
+      },
+      "cache_key": "rls_enabled_no_policy_shiok_reports_reports",
+      "observed_at": "2026-09-15T00:08:31.262Z"
+    }
+  ],
+  "finishedAt": "2026-09-15T00:08:30.221Z"
+}

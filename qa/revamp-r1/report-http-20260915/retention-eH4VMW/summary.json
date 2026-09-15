@@ -1,0 +1,104 @@
+{
+  "mode": "apply",
+  "target": {
+    "projectRef": "ztjilsfgoephcdcsgcks",
+    "projectName": "sgshiok",
+    "projectUrl": "https://ztjilsfgoephcdcsgcks.supabase.co",
+    "organizationId": "ixonsqiqglwriirutigr",
+    "region": "ap-southeast-1",
+    "plan": "free"
+  },
+  "requests": [
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "organizations/ixonsqiqglwriirutigr",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/migrations",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/migrations",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/migrations",
+      "method": "GET",
+      "status": 200
+    }
+  ],
+  "migration": {
+    "path": "supabase/migrations/20260914235445_shiok_report_retention_30_days.sql",
+    "sha256": "e6ae291c54796909aaf79f19613e8a1ee78f1ed2b8788f4e87d0a1435934f4c6",
+    "testsSha256": "d96b42554723a3729bf00d1d1e06a802ceafdb54fdf1f1b50d164e33cdedaaf6",
+    "originalSha256": "9de35faa5275c5c10706167195df81f1832a246b2d336adab192fd1b6a046604"
+  },
+  "passed": true,
+  "before": {
+    "reports": 0,
+    "usage": 0,
+    "control": [
+      {
+        "enabled": false,
+        "singleton": true,
+        "allowed_bundles": [],
+        "policy_approved_at": null,
+        "cleanup_verified_at": null
+      }
+    ],
+    "rpc_sha256": "0c3321bbcd4f9ec067775a9455571e8658d247cc03f683b03ba63b0a6a1e325d",
+    "retention_constraints": 0
+  },
+  "historyBefore": [
+    {
+      "version": "20260914161526",
+      "name": "shiok_private_reports_v1"
+    }
+  ],
+  "applyAttempted": true,
+  "after": {
+    "reports": 0,
+    "usage": 0,
+    "control": [
+      {
+        "enabled": false,
+        "singleton": true,
+        "allowed_bundles": [],
+        "policy_approved_at": null,
+        "cleanup_verified_at": null
+      }
+    ],
+    "rpc_sha256": "8f8520e8f91aee00283102d4bce005180047b85fcee2d315ee81a326225dde68",
+    "retention_constraints": 1
+  },
+  "historyAfter": [
+    {
+      "version": "20260914161526",
+      "name": "shiok_private_reports_v1"
+    },
+    {
+      "version": "20260915000630",
+      "name": "shiok_report_retention_30_days"
+    }
+  ],
+  "remoteVersion": "20260915000630",
+  "finishedAt": "2026-09-15T00:06:29.379Z"
+}

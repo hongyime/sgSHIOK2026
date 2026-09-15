@@ -1,0 +1,69 @@
+[
+  {
+    "file": "C:\\Program Files\\nodejs\\node.exe",
+    "args": [
+      "C:\\sgSHIOK2026\\qa\\revamp-r1\\report-http-20260915\\browser-headers.mjs"
+    ],
+    "cwd": "C:\\sgSHIOK2026"
+  },
+  {
+    "file": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+    "args": [
+      "--headless=new",
+      "--no-first-run",
+      "--no-default-browser-check",
+      "--disable-extensions",
+      "--disable-default-apps",
+      "--disable-background-networking",
+      "--disable-component-update",
+      "--disable-sync",
+      "--disable-breakpad",
+      "--disable-crash-reporter",
+      "--disable-domain-reliability",
+      "--disable-quic",
+      "--disable-gpu",
+      "--disable-features=MediaRouter,OptimizationHints,AutofillServerCommunication",
+      "--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE 127.0.0.1",
+      "--proxy-server=http://127.0.0.1:41439",
+      "--proxy-bypass-list=127.0.0.1;localhost",
+      "--remote-debugging-port=0",
+      "--remote-debugging-address=127.0.0.1",
+      "--user-data-dir=C:\\sgSHIOK2026\\qa\\revamp-r1\\report-http-20260915\\browser-headers-fB8xr9\\profile",
+      "--crash-dumps-dir=C:\\sgSHIOK2026\\qa\\revamp-r1\\report-http-20260915\\browser-headers-fB8xr9\\profile",
+      "--log-file=C:\\sgSHIOK2026\\qa\\revamp-r1\\report-http-20260915\\browser-headers-fB8xr9\\profile\\chrome.log",
+      "about:blank"
+    ],
+    "cwd": "C:\\sgSHIOK2026",
+    "windowsHide": true,
+    "environment": "Allowlisted Windows OS paths; owned TEMP/TMP; no inherited provider credentials",
+    "environmentNames": [
+      "SystemRoot",
+      "WINDIR",
+      "SystemDrive",
+      "USERPROFILE",
+      "APPDATA",
+      "LOCALAPPDATA",
+      "ProgramData",
+      "ProgramFiles",
+      "ProgramFiles(x86)",
+      "ProgramW6432",
+      "PATH",
+      "ComSpec",
+      "PSModulePath",
+      "TEMP",
+      "TMP"
+    ]
+  },
+  {
+    "file": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "args": [
+      "-NoProfile",
+      "-NonInteractive",
+      "-Command",
+      "$ErrorActionPreference='Stop'\nif ((Get-Location).ProviderPath -ne 'C:\\sgSHIOK2026') { throw 'Wrong cleanup root' }\n$profile='C:\\sgSHIOK2026\\qa\\revamp-r1\\report-http-20260915\\browser-headers-fB8xr9\\profile'\n$exe='C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'\n$pattern='(?:^|\\s)--user-data-dir=\"?' + [regex]::Escape($profile) + '(?:\"|\\s|$)'\n$owned=@(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | Where-Object { $_.ExecutablePath -ieq $exe -and $_.CommandLine -match $pattern })\n$before=@($owned | Where-Object { Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue } | ForEach-Object { [int]$_.ProcessId })\nforeach ($item in $owned) {\n  $current=Get-CimInstance Win32_Process -Filter ('ProcessId=' + $item.ProcessId)\n  if ($current -and (Get-Process -Id $current.ProcessId -ErrorAction SilentlyContinue) -and $current.CreationDate -eq $item.CreationDate -and $current.CommandLine -match $pattern) {\n    & \"$env:SystemRoot\\System32\\taskkill.exe\" /PID $item.ProcessId /T /F | Out-Null\n  }\n}\n$after=@(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | Where-Object { $_.ExecutablePath -ieq $exe -and $_.CommandLine -match $pattern } | Where-Object { Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue } | ForEach-Object { [int]$_.ProcessId })\n@{matchedBefore=$before;remaining=$after} | ConvertTo-Json -Compress"
+    ],
+    "cwd": "C:\\sgSHIOK2026",
+    "windowsHide": true,
+    "timeout": 8000
+  }
+]

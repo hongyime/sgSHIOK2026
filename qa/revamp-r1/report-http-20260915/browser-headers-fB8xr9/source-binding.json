@@ -1,0 +1,23 @@
+{
+  "path": "C:\\sgSHIOK2026\\web\\lib\\report-submission.ts",
+  "sha256": "6cf8f7db681fcc6e736fde17bd9aa28a2c63048b6ae1802eb7fb88316a8caf92",
+  "bytes": 9740,
+  "importedOrExecuted": false,
+  "method": "Exact single static transport block and literal option extraction",
+  "firstLine": 155,
+  "options": {
+    "method": "POST",
+    "mode": "same-origin",
+    "credentials": "omit",
+    "redirect": "error",
+    "cache": "no-store",
+    "referrer": "",
+    "referrerPolicy": "same-origin"
+  },
+  "syntheticSubstitutions": [
+    "Endpoint paths",
+    "Report body",
+    "Retry-secret header value",
+    "Abort controller"
+  ]
+}

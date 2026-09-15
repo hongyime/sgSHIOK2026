@@ -6869,3 +6869,202 @@ FINDINGS
 DISAGREEMENTS
 1. None with the project selection. Publishable keys cannot authorize private
    writes; management PATs and server keys do not belong in browser/public records.
+
+## 2026-09-15: Private report HTTP boundary and approved 30-day expiry
+
+Command: `node C:\sgSHIOK2026\qa\revamp-r1\report-http-20260915\report.mjs`
+
+```text
+REPORT_HTTP_AND_30_DAY_EXPIRY_CHECKPOINT
+{
+  "root": "C:\\sgSHIOK2026",
+  "codeCommit": "4aab3bd",
+  "appliedMigration": {
+    "path": "supabase/migrations/20260915000630_shiok_report_retention_30_days.sql",
+    "sha256": "e6ae291c54796909aaf79f19613e8a1ee78f1ed2b8788f4e87d0a1435934f4c6",
+    "testsSha256": "d96b42554723a3729bf00d1d1e06a802ceafdb54fdf1f1b50d164e33cdedaaf6",
+    "originalSha256": "9de35faa5275c5c10706167195df81f1832a246b2d336adab192fd1b6a046604",
+    "bytes": 5194
+  },
+  "target": {
+    "projectRef": "ztjilsfgoephcdcsgcks",
+    "projectName": "sgshiok",
+    "projectUrl": "https://ztjilsfgoephcdcsgcks.supabase.co",
+    "organizationId": "ixonsqiqglwriirutigr",
+    "region": "ap-southeast-1",
+    "plan": "free"
+  },
+  "retention": [
+    {
+      "name": "retention-5uSINW",
+      "mode": "test",
+      "requests": 7,
+      "groups": 10
+    },
+    {
+      "name": "retention-eH4VMW",
+      "mode": "apply",
+      "requests": 7,
+      "groups": 0
+    },
+    {
+      "name": "retention-YWBTdv",
+      "mode": "verify",
+      "requests": 7,
+      "groups": 10
+    }
+  ],
+  "sqlGroups": [
+    {
+      "name": "day_30_receipt_expired_without_recreation",
+      "passed": true
+    },
+    {
+      "name": "disabled_empty_baseline",
+      "passed": true
+    },
+    {
+      "name": "expired_receipt_keeps_conflict_precedence",
+      "passed": true
+    },
+    {
+      "name": "intake_disabled_after_test_rollback",
+      "passed": true
+    },
+    {
+      "name": "new_report_expires_exactly_30_days",
+      "passed": true
+    },
+    {
+      "name": "replay_preserves_identity_expiry_and_usage",
+      "passed": true
+    },
+    {
+      "name": "service_insert_exactly_30_days_allowed",
+      "passed": true
+    },
+    {
+      "name": "service_insert_over_30_days_rejected",
+      "passed": true
+    },
+    {
+      "name": "subtransaction_restores_reports_usage_and_control",
+      "passed": true
+    },
+    {
+      "name": "validated_constraint_and_unchanged_rpc_boundary",
+      "passed": true
+    }
+  ],
+  "retainedDatabaseState": {
+    "reports": 0,
+    "usage": 0,
+    "control": [
+      {
+        "enabled": false,
+        "singleton": true,
+        "allowed_bundles": [],
+        "policy_approved_at": null,
+        "cleanup_verified_at": null
+      }
+    ],
+    "rpc_sha256": "8f8520e8f91aee00283102d4bce005180047b85fcee2d315ee81a326225dde68",
+    "retention_constraints": 1
+  },
+  "focused": {
+    "receipt": "checks-iNGYjR",
+    "tests": 308,
+    "files": 5,
+    "sourceStable": true
+  },
+  "full": {
+    "receipt": "checks-3c72vb",
+    "tests": 2219,
+    "files": 76,
+    "sourceStable": true
+  },
+  "dependencyGuardReceipt": "checks-3c72vb/stdout.txt",
+  "typecheck": {
+    "receipt": "checks-dCTJrQ",
+    "exit": 0
+  },
+  "docs": {
+    "receipt": "checks-ELc0O5",
+    "exit": 0,
+    "finalLine": "41 passed in 7.97s"
+  },
+  "browser": {
+    "at": "2026-09-15T00:11:10.062Z",
+    "kind": "Readback of retained real Chrome capture; no browser relaunch",
+    "browser": "Chrome/152.0.7977.84",
+    "captureDurationMs": 23248.6589,
+    "requestCount": 3,
+    "postCount": 2,
+    "old": {
+      "origin": "http://127.0.0.1:41438",
+      "expectedNull": false,
+      "refererAbsent": true
+    },
+    "corrected": {
+      "origin": "http://127.0.0.1:41438",
+      "matchesLocalOrigin": true,
+      "refererAbsent": true
+    },
+    "both": {
+      "sameOriginFetchMetadata": true,
+      "noCookieOrAuthorization": true,
+      "syntheticProofOnly": true,
+      "identicalSyntheticBodies": true
+    },
+    "expectedContrastReproduced": false,
+    "earlierClaimThatOldPolicyNecessarilyFailsWithdrawn": true,
+    "sourceBindingSha256": "6cf8f7db681fcc6e736fde17bd9aa28a2c63048b6ae1802eb7fb88316a8caf92",
+    "sourceCurrentSha256": "6cf8f7db681fcc6e736fde17bd9aa28a2c63048b6ae1802eb7fb88316a8caf92",
+    "sourceOptions": {
+      "method": "POST",
+      "mode": "same-origin",
+      "credentials": "omit",
+      "redirect": "error",
+      "cache": "no-store",
+      "referrer": "",
+      "referrerPolicy": "same-origin"
+    },
+    "sourceUnchanged": true,
+    "rawHeadersSha256": "c41cacfd25d01ff711be49d3e6fc08f893c29eb6dc09bd626c091e6433b39a5f",
+    "originalSummarySha256": "aa041293c11c05d27b5c2f128213f6d7c309d55b82f0d4d0bb7594c42525c45a",
+    "runnerSha256": "5980d5567f1777311e9bedb236349dfc01b58dcefabdf1544dd5cbe9ab6e923e",
+    "currentRunnerSha256": "5980d5567f1777311e9bedb236349dfc01b58dcefabdf1544dd5cbe9ab6e923e",
+    "proxyRejected": 7,
+    "cleanupVerified": true,
+    "scope": "Synthetic loopback headers only. No app route, provider, credentials, map data or HTTP end-to-end reporting acceptance."
+  },
+  "retainedFailures": [
+    "report-first-failure.json: new summary parser incorrectly expected text from a JSON-reporter run; corrected to use JSON.parse, no tests rerun",
+    "checks-7vzkeg: initial TypeScript property-narrowing errors, fixed before final source-bound checks",
+    "checks-hfV6wk and checks-Vz2azk: documentation wording regressions, protective wording restored without weakening tests",
+    "browser-headers-OOLTxs: startup timeout; both runs retain original automatic-cleanup failures plus successful scoped recovery receipts"
+  ],
+  "supersededFull": "checks-woS150 used older snapshot63D8RA; its post-run source list does not bind that execution. Final checks-3c72vb binds snapshot azsQCy to seven unchanged current sources.",
+  "limits": [
+    "No resident form integration or authenticated moderation yet.",
+    "Expiry does not physically delete content; cleanup and retry tombstones remain before intake.",
+    "Warm-instance throttle does not establish a distributed request budget.",
+    "Concurrency, UTC boundary and global abuse acceptance remain open.",
+    "Synthetic Chrome header capture is not deployed report endpoint or map/browser acceptance.",
+    "Current map preview is a QA override, not an exact release candidate; old-client recovery, accessibility and real-device acceptance remain.",
+    "No runtime secret saved, no report intake enabled, no frontend deployment, no pipeline execution."
+  ]
+}
+management_requests=7 + 7 + 7 = 21
+sql_group_executions=10 + 10 = 20; unique_groups=10
+full_web_test_movement=1990 + 1 NUL contract + 52 store + 104 HTTP + 72 browser transport = 2219
+focused_tests_overlap_full_suite; do_not_sum_as_unique_tests
+FINDINGS
+1. Owner-approved 30-day expiry is applied only to dedicated sgshiok; the original migration remains byte-identical. Database remains empty and intake disabled.
+2. Submission endpoint and explicit retry transport are implemented and tested. Inherited generic503 uncertainty loss and cumulative uncertainty loss on a denied retry were corrected.
+3. The predicted old Chrome Origin:null failure was NOT reproduced and that claim is withdrawn. Both real loopback POSTs sent the correct Origin and no Referer.
+4. Cleanup, moderation, resident form and report activation are unfinished. Core-map release can proceed independently after its own release gates.
+DISAGREEMENTS
+1. Expiry is not deletion: passing the new expiry checks cannot establish 30-day physical retention before cleanup is implemented and verified.
+2. Build-and-ship authorization is not evidence of passed release checks. The full goal remains active; this checkpoint is not a production release.
+```

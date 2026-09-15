@@ -1,0 +1,36 @@
+{
+  "at": "2026-09-15T00:11:10.050Z",
+  "profiles": [
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\report-http-20260915\\browser-headers-OOLTxs\\profile",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\report-http-20260915\\browser-headers-fB8xr9\\profile"
+  ],
+  "remainingOwnedProcesses": [],
+  "portChecks": {
+    "origin": {
+      "port": 41438,
+      "closed": true
+    },
+    "proxy": {
+      "port": 41439,
+      "closed": true
+    },
+    "cdp": {
+      "port": 41441,
+      "closed": true
+    }
+  },
+  "originalAutomaticCleanupPassed": false,
+  "manualTerminationNeededOnSecondRun": false,
+  "command": {
+    "executable": "powershell.exe",
+    "args": [
+      "-NoProfile",
+      "-NonInteractive",
+      "-Command",
+      "$ErrorActionPreference='Stop'\nif ((Get-Location).ProviderPath -ne 'C:\\sgSHIOK2026') { throw 'Wrong cleanup root' }\n$profiles=@('C:\\sgSHIOK2026\\qa\\revamp-r1\\report-http-20260915\\browser-headers-OOLTxs\\profile','C:\\sgSHIOK2026\\qa\\revamp-r1\\report-http-20260915\\browser-headers-fB8xr9\\profile')\n$matched=@(Get-CimInstance Win32_Process -Filter \"Name='chrome.exe' OR Name='chrome_crashpad_handler.exe' OR Name='crashpad_handler.exe'\" | Where-Object { $line=$_.CommandLine; $line -and @($profiles | Where-Object { $line.Contains($_) }).Count -gt 0 } | Where-Object { Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue } | ForEach-Object { [int]$_.ProcessId })\n@{remainingOwnedProcesses=$matched} | ConvertTo-Json -Compress"
+    ],
+    "cwd": "C:\\sgSHIOK2026"
+  },
+  "verified": true,
+  "originalFailedReceiptPreserved": true
+}

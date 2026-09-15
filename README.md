@@ -378,7 +378,7 @@ an agent can execute approved checks but cannot become the permanent operator.
 | Routine | Proposed cadence | Agent action | Owner action and fallback |
 | --- | --- | --- | --- |
 | Source metadata | Monday 01:17 UTC / 09:17 SGT | Approved metadata-only Actions routine; retain immutable checkpoints and notices in issue34. | Review the issue and terminal run that day. Missing receipt is unknown, not success. Investigate stopped/expired history without deleting or reinitializing it. |
-| Resident reports, only after T13-T18 | Tuesday and Friday 18:00 SGT; privacy/abuse incidents promptly when noticed | After approval, inspect the private queue, retention and quotas using least privilege. | Name moderator and absence cover before enabling intake. Close intake if nobody can maintain review/cleanup; no public issue containing resident notes. |
+| Resident reports, only after T13-T18 | Weekly owner review; privacy/abuse incidents promptly when noticed | After activation, inspect the private queue, retention and quotas using least privilege. | Name moderator and absence cover before enabling intake. Close intake if nobody can maintain review/cleanup; no public issue containing resident notes. |
 | Release | Each candidate, then first-day error/quota review after an approved publish | Assemble exact identities, tests, unresolved gates and rollback target. | Approve the exact candidate and target. A failed stage stops further action; inspect actual remote state before retry or rollback. |
 | Capacity and recoverability | First Saturday monthly, and before input changes or releases | Inspect bounded metadata/receipts; propose backup scope and record gaps. | Check free-plan usage, own private backup destination/keys, and separately approve a restore drill. No existing backup is assumed. |
 
@@ -561,16 +561,22 @@ including Hobby's non-commercial restriction, instead of relying on old quota fi
 
 Reports are still drafts, not a live moderation service. Supabase Free was
 approved on 14 September for private resident reports. Cloudflare was explicitly rejected.
-T13 still needs the intended project connection and the remaining owner access,
+Project connection is complete. T13 still needs the remaining owner access,
 privacy, caps and absence-cover decisions before service activation. The reviewed proposal
 is `qa/revamp-r1/report-service-proposal-20260908.json`; its application caps are
 100 new reports/day, five per short-lived IP bucket/day, 500 pending and 5,000
-retained, all proposed rather than implemented. Provider quotas are shared and
+retained, implemented in the disabled admission RPC, not activated. Provider quotas are shared and
 must be rechecked at activation. Quota exhaustion means honest unavailability,
 not paid scaling or a false receipt. Moderation acceptance never edits map truth.
 
-The proposal expires content at the earlier of 90 days from receipt or 30 days
-after resolution, with daily cleanup. Cleanup outages and recovery copies can
+Owner policy chosen15September: expire private report content30days after receipt,
+with daily cleanup and weekly owner moderation. No resident accounts, contact
+details or photos. Keep intake paused while cleanup is unhealthy or limits are
+reached. Migration20260915000630 now enforces exact30day expiry for RPC writes
+and a30day maximum for direct service inserts. Ten actual PostgreSQL groups pass
+before and after application; intake remains disabled with no reports or usage
+rows retained. This is not a cleanup worker or proof of physical deletion.
+Cleanup outages and recovery copies can
 extend physical retention. Keep deletion evidence independent of restored snapshots;
 apply expiry/deletion before reopening access. Credential/MFA setup
 and moderator/backup-key custody require the owner; never request secrets in chat.
@@ -591,10 +597,30 @@ pins the sole allowed destination. No other account project is a fallback.
 Do not use sgbuslaobu for SHIOK. The agent selected it in error; its separate,
 disabled report schema is not a SHIOK deployment and has not been deleted.
 The old project scripts are retired and the server adapter rejects that target.
-The server adapter has no public route or resident form yet;
-moderator authentication, retention cleanup and real concurrent/HTTP acceptance
+The public POST route is implemented but disabled by default; no resident form is wired yet.
+Moderator authentication, retention cleanup and real concurrent/HTTP acceptance
 remain before activation. Owner UI feedback is desktop Chrome
 with a resized viewport, not physical-phone acceptance.
+
+`/api/reports` requires same-origin JSON and a pre-existing retry secret, with an
+8KiB wire limit and one10s request deadline. No public read/list endpoint exists.
+Only explicit server variables can enable it: `SHIOK_REPORTS_ENABLED=true`,
+`SHIOK_REPORTS_ORIGIN` (one exact HTTPS site origin), `SHIOK_REPORTS_PROJECT_URL`
+(the pinned dedicated project), `SHIOK_REPORTS_SECRET_KEY` (server secret, not PAT),
+and `SHIOK_REPORTS_BUCKET_KEY` (32random bytes encoded as64lowercase hex).
+These must never have a `NEXT_PUBLIC_` prefix. The route additionally requires
+Vercel's production Node runtime and production/preview deployment identity;
+ordinary local servers cannot trust request-supplied proxy headers and fail closed.
+The database's separate intake, policy, bundle and cleanup gates still apply.
+Runtime credentials and production intake have not been configured by this work.
+Six attempts/network/minute and60attempts/minute limit each warm instance before
+provider IO, including retries/conflicts. This is not a global attack budget.
+Persistent admission caps remain separate. IPv6 addresses share a /64 network
+bucket; shared networks can reach a limit together. Raw IPs are not stored by
+the reporting application, but hosting infrastructure may retain access logs.
+A gateway503 after submission has an unknown commit outcome; only the exact
+bounded RPC admission rejection proves unavailability. Retry with the same
+request ID, content and proof, never by silently generating a replacement report.
 
 ### Preserve And Recover Local Payloads
 

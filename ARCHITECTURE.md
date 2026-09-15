@@ -186,11 +186,13 @@ deny access to the private schema (406/PGRST106), and reject server-key admissio
 while disabled (503/PT503), with zero reports/quota rows before and after. These
 are not moderator authentication or successful resident-submission acceptance.
 
-Server adapter: web/app/api/reports/store.ts, not route.ts. It accepts only a
-Supabase project origin and a server secret key, never a management PAT. It reuses
+Server adapter: web/app/api/reports/store.ts, behind the default-disabled route.ts.
+It accepts only the pinned dedicated Supabase origin and a server secret key,
+never a management PAT. It reuses
 the wire validator, hashes retry proof and bounds provider/body IO to eight seconds.
 No redirects, logs, public reads or automatic retries. A timed-out write has
-unknown outcome, not proof it failed to commit. No public API or UI imports it yet.
+unknown outcome, not proof it failed to commit. The HTTP handler now imports it;
+resident UI and runtime activation remain separate work.
 NUL in a note is now explicitly invalid_note because PostgreSQL cannot represent
 it; literal backslash-u0000 text is preserved. No text is stripped or normalized.
 
@@ -202,6 +204,39 @@ cleanup within26hours. Those controls are deliberately unset. The proposed caps
 are implemented but not activated. Moderation, cleanup/deletion, idempotency
 tombstones across cleanup and genuine concurrent RPC races remain unfinished.
 No complete F04-F12 or durable browser receipt claim follows from rollback tests.
+
+The HTTP boundary accepts only an exact configured HTTPS Origin and request URL,
+JSON with a custom retry-secret header, and the strict8KiB wire contract. One10s
+deadline covers upload and persistence; no-store applies to success and every
+error/method response. It is anonymous submission, not browser authentication.
+Only Vercel production/preview Node deployments may trust x-vercel-forwarded-for;
+missing/list/invalid headers fail closed with no fallback to x-real-ip or arbitrary
+x-forwarded-for. Daily HMAC buckets canonicalize IPv4/mapped IPv6 and IPv6 /64.
+Per-instance6network/60global attempts per minute bound provider dispatches and
+memory, including retries and conflicts, but do not establish a distributed
+request budget. Database admission caps are atomic and separate. Activation
+still requires abuse/concurrency, cleanup and moderator acceptance.
+Generic upstream503 is outcome_unknown. Only the exact bounded PostgREST
+PT503/reporting_unavailable envelope establishes the RPC's pre-admission denial.
+No provider text, report content, raw IP, retry secret or credential is logged
+or echoed; hosting access logs are a distinct platform-retention consideration.
+
+Owner30-day policy is enforced by migration20260915000630, not an edit to the
+original applied migration. A validating constraint rejects pre-existing longer
+expiries; the atomic migration must fail rather than rewrite resident data.
+RPC source is byte-equal to the prior body except90days becomes30days. Ten actual
+database check groups passed in rollback before apply and again after apply,
+with disabled/empty state restored. Physical deletion, post-deletion idempotency,
+moderator authorization and concurrency/clock-boundary acceptance remain open.
+
+Browser preparation creates a frozen request/secret envelope before any POST.
+Concurrent callers share one promise; confirmed receipts are reused. Unknown
+commit outcome persists across later denied attempts until receipt confirmation.
+No automatic retry, local persistence, cloned-envelope recovery or resident form
+integration is provided by this module. Use explicit empty referrer with the
+same-origin referrer policy for consistency with Fetch's specified Origin rules.
+The actual Chrome loopback probe sent correct Origin and no Referer under both
+old and new policies; the predicted old-policy Chrome failure was not reproduced.
 
 ## Freshness and operations
 Check source metadata on a documented schedule, within source/API constraints.

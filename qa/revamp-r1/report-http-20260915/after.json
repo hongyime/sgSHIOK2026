@@ -1,0 +1,1098 @@
+{
+  "mode": "after",
+  "root": "C:\\sgSHIOK2026",
+  "weights": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+  "anchors": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "bytes": 13626,
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "bytes": 1751005,
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "bytes": 5240179,
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "bytes": 5236013,
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "bytes": 39674,
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "bytes": 3538342,
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "bytes": 184,
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "bytes": 269,
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "bytes": 1189,
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "bytes": 145327,
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "bytes": 515583,
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "evidencePrefix": {
+    "bytes": 467259,
+    "sha256": "a1cfa5979dae6eebf13f4c83a615a147608b512e91eb6a4328c1ce631a6ae857"
+  },
+  "evidenceOriginalPrefix": {
+    "bytes": 459810,
+    "sha256": "fd1e106d1f670e348d6d9f02f7a6ef2c6729bd7512d22631304d1fbe913451f3"
+  },
+  "checks": [
+    {
+      "name": "checks-3c72vb",
+      "mode": "full",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "web/scripts/test-without-production-data.mjs",
+        "--reporter=dot",
+        "--testTimeout=15000"
+      ],
+      "exit": 0,
+      "elapsedMs": 473538,
+      "error": null,
+      "sources": {
+        "web/app/api/reports/http.ts": "59445603d01ae61fbd9cafbb055e7efb8b7641f7d8d179cd513a835427273010",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+        "web/lib/__tests__/report-http.test.ts": "e588902984957ad9ae8b3c8a8fe5d5cf3bae76620b790f215f6804d05df28c7e",
+        "web/lib/__tests__/report-store.test.ts": "7f75b3ad2e46bb456568b46545c21126abd8049cc03ef98a77a3d1a2c3472b15",
+        "web/lib/report-submission.ts": "6cf8f7db681fcc6e736fde17bd9aa28a2c63048b6ae1802eb7fb88316a8caf92",
+        "web/lib/__tests__/report-submission.test.ts": "e25ea182a7f8cd500ad322a608f80869a80bef10e9eddcfd963d86c8720eb170"
+      },
+      "sourceHashesAtStart": {
+        "web/app/api/reports/http.ts": "59445603d01ae61fbd9cafbb055e7efb8b7641f7d8d179cd513a835427273010",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+        "web/lib/__tests__/report-http.test.ts": "e588902984957ad9ae8b3c8a8fe5d5cf3bae76620b790f215f6804d05df28c7e",
+        "web/lib/__tests__/report-store.test.ts": "7f75b3ad2e46bb456568b46545c21126abd8049cc03ef98a77a3d1a2c3472b15",
+        "web/lib/report-submission.ts": "6cf8f7db681fcc6e736fde17bd9aa28a2c63048b6ae1802eb7fb88316a8caf92",
+        "web/lib/__tests__/report-submission.test.ts": "e25ea182a7f8cd500ad322a608f80869a80bef10e9eddcfd963d86c8720eb170"
+      },
+      "sourceStable": true,
+      "isolation": {
+        "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-azsQCy",
+        "copiedFiles": 256,
+        "productionDataDirectoryAbsent": true,
+        "guardProbePassed": true,
+        "forbiddenPaths": [
+          "C:\\sgSHIOK2026\\web\\public\\data",
+          "C:\\sgSHIOK2026\\tmp\\test-without-data-azsQCy\\web\\public\\data"
+        ],
+        "dependencies": "Existing node_modules linked; no installation",
+        "testArgs": [
+          "--reporter=dot",
+          "--testTimeout=15000"
+        ],
+        "exitCode": 0
+      },
+      "snapshotSources": {
+        "web/app/api/reports/http.ts": "59445603d01ae61fbd9cafbb055e7efb8b7641f7d8d179cd513a835427273010",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+        "web/lib/__tests__/report-http.test.ts": "e588902984957ad9ae8b3c8a8fe5d5cf3bae76620b790f215f6804d05df28c7e",
+        "web/lib/__tests__/report-store.test.ts": "7f75b3ad2e46bb456568b46545c21126abd8049cc03ef98a77a3d1a2c3472b15",
+        "web/lib/report-submission.ts": "6cf8f7db681fcc6e736fde17bd9aa28a2c63048b6ae1802eb7fb88316a8caf92",
+        "web/lib/__tests__/report-submission.test.ts": "e25ea182a7f8cd500ad322a608f80869a80bef10e9eddcfd963d86c8720eb170"
+      }
+    },
+    {
+      "name": "checks-7vzkeg",
+      "mode": "types",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "web/node_modules/typescript/bin/tsc",
+        "--project",
+        "web/tsconfig.json",
+        "--noEmit",
+        "--incremental",
+        "false"
+      ],
+      "exit": 1,
+      "elapsedMs": 29715,
+      "error": null,
+      "sources": {
+        "web/app/api/reports/http.ts": "a4830ec53e87dd354e48a22cd6770be89566d0c093e31a6184222f318e97f4b3",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "bddd1691fc2132cc5a4955500e972aa249b1f50a3468710526a1b40e888cab76",
+        "web/lib/__tests__/report-http.test.ts": "573ee8ccb8c7cf83ebbe6ec883faf6cbae360387f529d8d8bab07fbd943c3013",
+        "web/lib/__tests__/report-store.test.ts": "b7003033edf879737cd65f86a9da65a0ab5657ce3ed19b88a1b969ec548083c1"
+      }
+    },
+    {
+      "name": "checks-D4sc25",
+      "mode": "docs",
+      "command": [
+        "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "tests/test_readme.py",
+        "tests/test_agent_docs.py",
+        "tests/test_repo_integrity.py",
+        "-q",
+        "-p",
+        "no:cacheprovider"
+      ],
+      "exit": 0,
+      "elapsedMs": 26344,
+      "error": null,
+      "sources": {
+        "web/app/api/reports/http.ts": "a4830ec53e87dd354e48a22cd6770be89566d0c093e31a6184222f318e97f4b3",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+        "web/lib/__tests__/report-http.test.ts": "573ee8ccb8c7cf83ebbe6ec883faf6cbae360387f529d8d8bab07fbd943c3013",
+        "web/lib/__tests__/report-store.test.ts": "b7003033edf879737cd65f86a9da65a0ab5657ce3ed19b88a1b969ec548083c1"
+      }
+    },
+    {
+      "name": "checks-dCTJrQ",
+      "mode": "types",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "web/node_modules/typescript/bin/tsc",
+        "--project",
+        "web/tsconfig.json",
+        "--noEmit",
+        "--incremental",
+        "false"
+      ],
+      "exit": 0,
+      "elapsedMs": 41440,
+      "error": null,
+      "sources": {
+        "web/app/api/reports/http.ts": "59445603d01ae61fbd9cafbb055e7efb8b7641f7d8d179cd513a835427273010",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+        "web/lib/__tests__/report-http.test.ts": "e588902984957ad9ae8b3c8a8fe5d5cf3bae76620b790f215f6804d05df28c7e",
+        "web/lib/__tests__/report-store.test.ts": "7f75b3ad2e46bb456568b46545c21126abd8049cc03ef98a77a3d1a2c3472b15",
+        "web/lib/report-submission.ts": "6cf8f7db681fcc6e736fde17bd9aa28a2c63048b6ae1802eb7fb88316a8caf92",
+        "web/lib/__tests__/report-submission.test.ts": "e25ea182a7f8cd500ad322a608f80869a80bef10e9eddcfd963d86c8720eb170"
+      },
+      "sourceHashesAtStart": {
+        "web/app/api/reports/http.ts": "59445603d01ae61fbd9cafbb055e7efb8b7641f7d8d179cd513a835427273010",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+        "web/lib/__tests__/report-http.test.ts": "e588902984957ad9ae8b3c8a8fe5d5cf3bae76620b790f215f6804d05df28c7e",
+        "web/lib/__tests__/report-store.test.ts": "7f75b3ad2e46bb456568b46545c21126abd8049cc03ef98a77a3d1a2c3472b15",
+        "web/lib/report-submission.ts": "6cf8f7db681fcc6e736fde17bd9aa28a2c63048b6ae1802eb7fb88316a8caf92",
+        "web/lib/__tests__/report-submission.test.ts": "e25ea182a7f8cd500ad322a608f80869a80bef10e9eddcfd963d86c8720eb170"
+      },
+      "sourceStable": true
+    },
+    {
+      "name": "checks-dOZ2hL",
+      "mode": "focused",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "web/node_modules/vitest/vitest.mjs",
+        "run",
+        "--root",
+        "C:\\sgSHIOK2026\\web",
+        "--globals",
+        "--maxWorkers",
+        "1",
+        "--no-file-parallelism",
+        "--reporter=json",
+        "lib/__tests__/report-http.test.ts",
+        "lib/__tests__/report-store.test.ts",
+        "lib/__tests__/reports.test.ts",
+        "lib/__tests__/report-lifecycle.test.ts"
+      ],
+      "exit": 0,
+      "elapsedMs": 35101,
+      "error": null,
+      "tests": 231,
+      "passed": 231,
+      "failed": 0,
+      "files": 4,
+      "sources": {
+        "web/app/api/reports/http.ts": "a4830ec53e87dd354e48a22cd6770be89566d0c093e31a6184222f318e97f4b3",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "bddd1691fc2132cc5a4955500e972aa249b1f50a3468710526a1b40e888cab76",
+        "web/lib/__tests__/report-http.test.ts": "573ee8ccb8c7cf83ebbe6ec883faf6cbae360387f529d8d8bab07fbd943c3013",
+        "web/lib/__tests__/report-store.test.ts": "b7003033edf879737cd65f86a9da65a0ab5657ce3ed19b88a1b969ec548083c1"
+      }
+    },
+    {
+      "name": "checks-ELc0O5",
+      "mode": "docs",
+      "command": [
+        "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "tests/test_readme.py",
+        "tests/test_agent_docs.py",
+        "tests/test_repo_integrity.py",
+        "-q",
+        "-p",
+        "no:cacheprovider"
+      ],
+      "exit": 0,
+      "elapsedMs": 11516,
+      "error": null,
+      "sources": {
+        "web/app/api/reports/http.ts": "59445603d01ae61fbd9cafbb055e7efb8b7641f7d8d179cd513a835427273010",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+        "web/lib/__tests__/report-http.test.ts": "e588902984957ad9ae8b3c8a8fe5d5cf3bae76620b790f215f6804d05df28c7e",
+        "web/lib/__tests__/report-store.test.ts": "7f75b3ad2e46bb456568b46545c21126abd8049cc03ef98a77a3d1a2c3472b15",
+        "web/lib/report-submission.ts": "6cf8f7db681fcc6e736fde17bd9aa28a2c63048b6ae1802eb7fb88316a8caf92",
+        "web/lib/__tests__/report-submission.test.ts": "e25ea182a7f8cd500ad322a608f80869a80bef10e9eddcfd963d86c8720eb170"
+      },
+      "sourceHashesAtStart": {
+        "web/app/api/reports/http.ts": "59445603d01ae61fbd9cafbb055e7efb8b7641f7d8d179cd513a835427273010",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+        "web/lib/__tests__/report-http.test.ts": "e588902984957ad9ae8b3c8a8fe5d5cf3bae76620b790f215f6804d05df28c7e",
+        "web/lib/__tests__/report-store.test.ts": "7f75b3ad2e46bb456568b46545c21126abd8049cc03ef98a77a3d1a2c3472b15",
+        "web/lib/report-submission.ts": "6cf8f7db681fcc6e736fde17bd9aa28a2c63048b6ae1802eb7fb88316a8caf92",
+        "web/lib/__tests__/report-submission.test.ts": "e25ea182a7f8cd500ad322a608f80869a80bef10e9eddcfd963d86c8720eb170"
+      },
+      "sourceStable": true
+    },
+    {
+      "name": "checks-hfV6wk",
+      "mode": "docs",
+      "command": [
+        "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "tests/test_readme.py",
+        "tests/test_agent_docs.py",
+        "tests/test_repo_integrity.py",
+        "-q",
+        "-p",
+        "no:cacheprovider"
+      ],
+      "exit": 1,
+      "elapsedMs": 10996,
+      "error": null,
+      "sources": {
+        "web/app/api/reports/http.ts": "59445603d01ae61fbd9cafbb055e7efb8b7641f7d8d179cd513a835427273010",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+        "web/lib/__tests__/report-http.test.ts": "e588902984957ad9ae8b3c8a8fe5d5cf3bae76620b790f215f6804d05df28c7e",
+        "web/lib/__tests__/report-store.test.ts": "7f75b3ad2e46bb456568b46545c21126abd8049cc03ef98a77a3d1a2c3472b15",
+        "web/lib/report-submission.ts": "6cf8f7db681fcc6e736fde17bd9aa28a2c63048b6ae1802eb7fb88316a8caf92",
+        "web/lib/__tests__/report-submission.test.ts": "e25ea182a7f8cd500ad322a608f80869a80bef10e9eddcfd963d86c8720eb170"
+      },
+      "sourceHashesAtStart": {
+        "web/app/api/reports/http.ts": "59445603d01ae61fbd9cafbb055e7efb8b7641f7d8d179cd513a835427273010",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+        "web/lib/__tests__/report-http.test.ts": "e588902984957ad9ae8b3c8a8fe5d5cf3bae76620b790f215f6804d05df28c7e",
+        "web/lib/__tests__/report-store.test.ts": "7f75b3ad2e46bb456568b46545c21126abd8049cc03ef98a77a3d1a2c3472b15",
+        "web/lib/report-submission.ts": "6cf8f7db681fcc6e736fde17bd9aa28a2c63048b6ae1802eb7fb88316a8caf92",
+        "web/lib/__tests__/report-submission.test.ts": "e25ea182a7f8cd500ad322a608f80869a80bef10e9eddcfd963d86c8720eb170"
+      },
+      "sourceStable": true
+    },
+    {
+      "name": "checks-iNGYjR",
+      "mode": "focused",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "web/node_modules/vitest/vitest.mjs",
+        "run",
+        "--root",
+        "C:\\sgSHIOK2026\\web",
+        "--globals",
+        "--maxWorkers",
+        "1",
+        "--no-file-parallelism",
+        "--reporter=json",
+        "lib/__tests__/report-http.test.ts",
+        "lib/__tests__/report-store.test.ts",
+        "lib/__tests__/reports.test.ts",
+        "lib/__tests__/report-lifecycle.test.ts",
+        "lib/__tests__/report-submission.test.ts"
+      ],
+      "exit": 0,
+      "elapsedMs": 23825,
+      "error": null,
+      "tests": 308,
+      "passed": 308,
+      "failed": 0,
+      "files": 5,
+      "sources": {
+        "web/app/api/reports/http.ts": "59445603d01ae61fbd9cafbb055e7efb8b7641f7d8d179cd513a835427273010",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+        "web/lib/__tests__/report-http.test.ts": "e588902984957ad9ae8b3c8a8fe5d5cf3bae76620b790f215f6804d05df28c7e",
+        "web/lib/__tests__/report-store.test.ts": "7f75b3ad2e46bb456568b46545c21126abd8049cc03ef98a77a3d1a2c3472b15",
+        "web/lib/report-submission.ts": "6cf8f7db681fcc6e736fde17bd9aa28a2c63048b6ae1802eb7fb88316a8caf92",
+        "web/lib/__tests__/report-submission.test.ts": "e25ea182a7f8cd500ad322a608f80869a80bef10e9eddcfd963d86c8720eb170"
+      },
+      "sourceHashesAtStart": {
+        "web/app/api/reports/http.ts": "59445603d01ae61fbd9cafbb055e7efb8b7641f7d8d179cd513a835427273010",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+        "web/lib/__tests__/report-http.test.ts": "e588902984957ad9ae8b3c8a8fe5d5cf3bae76620b790f215f6804d05df28c7e",
+        "web/lib/__tests__/report-store.test.ts": "7f75b3ad2e46bb456568b46545c21126abd8049cc03ef98a77a3d1a2c3472b15",
+        "web/lib/report-submission.ts": "6cf8f7db681fcc6e736fde17bd9aa28a2c63048b6ae1802eb7fb88316a8caf92",
+        "web/lib/__tests__/report-submission.test.ts": "e25ea182a7f8cd500ad322a608f80869a80bef10e9eddcfd963d86c8720eb170"
+      },
+      "sourceStable": true
+    },
+    {
+      "name": "checks-KYU70U",
+      "mode": "integrity",
+      "command": [
+        "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+        "-B",
+        "scripts/check_repo_integrity.py"
+      ],
+      "exit": 0,
+      "elapsedMs": 5682,
+      "error": null,
+      "sources": {
+        "web/app/api/reports/http.ts": "59445603d01ae61fbd9cafbb055e7efb8b7641f7d8d179cd513a835427273010",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+        "web/lib/__tests__/report-http.test.ts": "cc1718aa429d965b3dc10a3c8576c2cb3a5b88d07ee8d8e4edc28517ce19fdb3",
+        "web/lib/__tests__/report-store.test.ts": "b7003033edf879737cd65f86a9da65a0ab5657ce3ed19b88a1b969ec548083c1"
+      },
+      "sourceHashesAtStart": {
+        "web/app/api/reports/http.ts": "59445603d01ae61fbd9cafbb055e7efb8b7641f7d8d179cd513a835427273010",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+        "web/lib/__tests__/report-http.test.ts": "cc1718aa429d965b3dc10a3c8576c2cb3a5b88d07ee8d8e4edc28517ce19fdb3",
+        "web/lib/__tests__/report-store.test.ts": "b7003033edf879737cd65f86a9da65a0ab5657ce3ed19b88a1b969ec548083c1"
+      },
+      "sourceStable": true
+    },
+    {
+      "name": "checks-pdTWU2",
+      "mode": "focused",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "web/node_modules/vitest/vitest.mjs",
+        "run",
+        "--root",
+        "C:\\sgSHIOK2026\\web",
+        "--globals",
+        "--maxWorkers",
+        "1",
+        "--no-file-parallelism",
+        "--reporter=json",
+        "lib/__tests__/report-http.test.ts",
+        "lib/__tests__/report-store.test.ts",
+        "lib/__tests__/reports.test.ts",
+        "lib/__tests__/report-lifecycle.test.ts"
+      ],
+      "exit": 0,
+      "elapsedMs": 80434,
+      "error": null,
+      "tests": 232,
+      "passed": 232,
+      "failed": 0,
+      "files": 4,
+      "sources": {
+        "web/app/api/reports/http.ts": "59445603d01ae61fbd9cafbb055e7efb8b7641f7d8d179cd513a835427273010",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+        "web/lib/__tests__/report-http.test.ts": "cc1718aa429d965b3dc10a3c8576c2cb3a5b88d07ee8d8e4edc28517ce19fdb3",
+        "web/lib/__tests__/report-store.test.ts": "b7003033edf879737cd65f86a9da65a0ab5657ce3ed19b88a1b969ec548083c1"
+      }
+    },
+    {
+      "name": "checks-PfxZaH",
+      "mode": "focused",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "web/node_modules/vitest/vitest.mjs",
+        "run",
+        "--root",
+        "C:\\sgSHIOK2026\\web",
+        "--globals",
+        "--maxWorkers",
+        "1",
+        "--no-file-parallelism",
+        "--reporter=json",
+        "lib/__tests__/report-http.test.ts",
+        "lib/__tests__/report-store.test.ts",
+        "lib/__tests__/reports.test.ts",
+        "lib/__tests__/report-lifecycle.test.ts"
+      ],
+      "exit": 0,
+      "elapsedMs": 58910,
+      "error": null,
+      "tests": 227,
+      "passed": 227,
+      "failed": 0,
+      "files": 4,
+      "sources": {
+        "web/app/api/reports/http.ts": "be9c8848a153b97042764ca14b69ffd93065a91d2f77da051b1e4526854d269a",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "bddd1691fc2132cc5a4955500e972aa249b1f50a3468710526a1b40e888cab76",
+        "web/lib/__tests__/report-http.test.ts": "6b1b90ea00b92399c7f2dcc1056dd1737ca4d9a11b6c98324e8e518d7d0e665a",
+        "web/lib/__tests__/report-store.test.ts": "b7003033edf879737cd65f86a9da65a0ab5657ce3ed19b88a1b969ec548083c1"
+      }
+    },
+    {
+      "name": "checks-pxeAwj",
+      "mode": "docs",
+      "command": [
+        "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "tests/test_readme.py",
+        "tests/test_agent_docs.py",
+        "tests/test_repo_integrity.py",
+        "-q",
+        "-p",
+        "no:cacheprovider"
+      ],
+      "exit": 0,
+      "elapsedMs": 19162,
+      "error": null,
+      "sources": {
+        "web/app/api/reports/http.ts": "59445603d01ae61fbd9cafbb055e7efb8b7641f7d8d179cd513a835427273010",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+        "web/lib/__tests__/report-http.test.ts": "e588902984957ad9ae8b3c8a8fe5d5cf3bae76620b790f215f6804d05df28c7e",
+        "web/lib/__tests__/report-store.test.ts": "7f75b3ad2e46bb456568b46545c21126abd8049cc03ef98a77a3d1a2c3472b15",
+        "web/lib/report-submission.ts": "6cf8f7db681fcc6e736fde17bd9aa28a2c63048b6ae1802eb7fb88316a8caf92",
+        "web/lib/__tests__/report-submission.test.ts": "e25ea182a7f8cd500ad322a608f80869a80bef10e9eddcfd963d86c8720eb170"
+      },
+      "sourceHashesAtStart": {
+        "web/app/api/reports/http.ts": "59445603d01ae61fbd9cafbb055e7efb8b7641f7d8d179cd513a835427273010",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+        "web/lib/__tests__/report-http.test.ts": "e588902984957ad9ae8b3c8a8fe5d5cf3bae76620b790f215f6804d05df28c7e",
+        "web/lib/__tests__/report-store.test.ts": "7f75b3ad2e46bb456568b46545c21126abd8049cc03ef98a77a3d1a2c3472b15",
+        "web/lib/report-submission.ts": "6cf8f7db681fcc6e736fde17bd9aa28a2c63048b6ae1802eb7fb88316a8caf92",
+        "web/lib/__tests__/report-submission.test.ts": "e25ea182a7f8cd500ad322a608f80869a80bef10e9eddcfd963d86c8720eb170"
+      },
+      "sourceStable": true
+    },
+    {
+      "name": "checks-qdeVh6",
+      "mode": "types",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "web/node_modules/typescript/bin/tsc",
+        "--project",
+        "web/tsconfig.json",
+        "--noEmit",
+        "--incremental",
+        "false"
+      ],
+      "exit": 0,
+      "elapsedMs": 35991,
+      "error": null,
+      "sources": {
+        "web/app/api/reports/http.ts": "a4830ec53e87dd354e48a22cd6770be89566d0c093e31a6184222f318e97f4b3",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+        "web/lib/__tests__/report-http.test.ts": "573ee8ccb8c7cf83ebbe6ec883faf6cbae360387f529d8d8bab07fbd943c3013",
+        "web/lib/__tests__/report-store.test.ts": "b7003033edf879737cd65f86a9da65a0ab5657ce3ed19b88a1b969ec548083c1"
+      }
+    },
+    {
+      "name": "checks-TgIgbw",
+      "mode": "focused",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "web/node_modules/vitest/vitest.mjs",
+        "run",
+        "--root",
+        "C:\\sgSHIOK2026\\web",
+        "--globals",
+        "--maxWorkers",
+        "1",
+        "--no-file-parallelism",
+        "--reporter=json",
+        "lib/__tests__/report-http.test.ts",
+        "lib/__tests__/report-store.test.ts",
+        "lib/__tests__/reports.test.ts",
+        "lib/__tests__/report-lifecycle.test.ts",
+        "lib/__tests__/report-submission.test.ts"
+      ],
+      "exit": 0,
+      "elapsedMs": 37990,
+      "error": null,
+      "tests": 302,
+      "passed": 302,
+      "failed": 0,
+      "files": 5,
+      "sources": {
+        "web/app/api/reports/http.ts": "59445603d01ae61fbd9cafbb055e7efb8b7641f7d8d179cd513a835427273010",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+        "web/lib/__tests__/report-http.test.ts": "e588902984957ad9ae8b3c8a8fe5d5cf3bae76620b790f215f6804d05df28c7e",
+        "web/lib/__tests__/report-store.test.ts": "7f75b3ad2e46bb456568b46545c21126abd8049cc03ef98a77a3d1a2c3472b15",
+        "web/lib/report-submission.ts": "7a80827bb6dbacf8b2215887fecdc036a5330bd1b35ce073c8d039516d27dbd0",
+        "web/lib/__tests__/report-submission.test.ts": "58c17dd792806a4394d35a20c2c43562904e9f076764006d94fdac2a3619cd82"
+      },
+      "sourceHashesAtStart": {
+        "web/app/api/reports/http.ts": "59445603d01ae61fbd9cafbb055e7efb8b7641f7d8d179cd513a835427273010",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+        "web/lib/__tests__/report-http.test.ts": "e588902984957ad9ae8b3c8a8fe5d5cf3bae76620b790f215f6804d05df28c7e",
+        "web/lib/__tests__/report-store.test.ts": "7f75b3ad2e46bb456568b46545c21126abd8049cc03ef98a77a3d1a2c3472b15",
+        "web/lib/report-submission.ts": "7a80827bb6dbacf8b2215887fecdc036a5330bd1b35ce073c8d039516d27dbd0",
+        "web/lib/__tests__/report-submission.test.ts": "58c17dd792806a4394d35a20c2c43562904e9f076764006d94fdac2a3619cd82"
+      },
+      "sourceStable": true
+    },
+    {
+      "name": "checks-Vz2azk",
+      "mode": "docs",
+      "command": [
+        "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "tests/test_readme.py",
+        "tests/test_agent_docs.py",
+        "tests/test_repo_integrity.py",
+        "-q",
+        "-p",
+        "no:cacheprovider"
+      ],
+      "exit": 1,
+      "elapsedMs": 11141,
+      "error": null,
+      "sources": {
+        "web/app/api/reports/http.ts": "59445603d01ae61fbd9cafbb055e7efb8b7641f7d8d179cd513a835427273010",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+        "web/lib/__tests__/report-http.test.ts": "e588902984957ad9ae8b3c8a8fe5d5cf3bae76620b790f215f6804d05df28c7e",
+        "web/lib/__tests__/report-store.test.ts": "7f75b3ad2e46bb456568b46545c21126abd8049cc03ef98a77a3d1a2c3472b15",
+        "web/lib/report-submission.ts": "6cf8f7db681fcc6e736fde17bd9aa28a2c63048b6ae1802eb7fb88316a8caf92",
+        "web/lib/__tests__/report-submission.test.ts": "e25ea182a7f8cd500ad322a608f80869a80bef10e9eddcfd963d86c8720eb170"
+      },
+      "sourceHashesAtStart": {
+        "web/app/api/reports/http.ts": "59445603d01ae61fbd9cafbb055e7efb8b7641f7d8d179cd513a835427273010",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+        "web/lib/__tests__/report-http.test.ts": "e588902984957ad9ae8b3c8a8fe5d5cf3bae76620b790f215f6804d05df28c7e",
+        "web/lib/__tests__/report-store.test.ts": "7f75b3ad2e46bb456568b46545c21126abd8049cc03ef98a77a3d1a2c3472b15",
+        "web/lib/report-submission.ts": "6cf8f7db681fcc6e736fde17bd9aa28a2c63048b6ae1802eb7fb88316a8caf92",
+        "web/lib/__tests__/report-submission.test.ts": "e25ea182a7f8cd500ad322a608f80869a80bef10e9eddcfd963d86c8720eb170"
+      },
+      "sourceStable": true
+    },
+    {
+      "name": "checks-woS150",
+      "mode": "full",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "web/scripts/test-without-production-data.mjs",
+        "--reporter=dot",
+        "--testTimeout=15000"
+      ],
+      "exit": 0,
+      "elapsedMs": 613298,
+      "error": null,
+      "sources": {
+        "web/app/api/reports/http.ts": "59445603d01ae61fbd9cafbb055e7efb8b7641f7d8d179cd513a835427273010",
+        "web/app/api/reports/route.ts": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b",
+        "web/app/api/reports/store.ts": "443dc98cd9f51d42536c2d48e62708b9268b436ed0c538b5c464d3a576af3b94",
+        "web/lib/__tests__/report-http.test.ts": "cc1718aa429d965b3dc10a3c8576c2cb3a5b88d07ee8d8e4edc28517ce19fdb3",
+        "web/lib/__tests__/report-store.test.ts": "b7003033edf879737cd65f86a9da65a0ab5657ce3ed19b88a1b969ec548083c1"
+      }
+    }
+  ],
+  "pipelineRuns": 0,
+  "deployments": 0,
+  "remoteReportRequests": 0,
+  "retention": [
+    {
+      "name": "retention-5uSINW",
+      "mode": "test",
+      "target": {
+        "projectRef": "ztjilsfgoephcdcsgcks",
+        "projectName": "sgshiok",
+        "projectUrl": "https://ztjilsfgoephcdcsgcks.supabase.co",
+        "organizationId": "ixonsqiqglwriirutigr",
+        "region": "ap-southeast-1",
+        "plan": "free"
+      },
+      "requests": [
+        {
+          "path": "projects/ztjilsfgoephcdcsgcks",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "organizations/ixonsqiqglwriirutigr",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+          "method": "POST",
+          "status": 201
+        },
+        {
+          "path": "projects/ztjilsfgoephcdcsgcks/database/migrations",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+          "method": "POST",
+          "status": 201
+        },
+        {
+          "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+          "method": "POST",
+          "status": 201
+        },
+        {
+          "path": "projects/ztjilsfgoephcdcsgcks/database/migrations",
+          "method": "GET",
+          "status": 200
+        }
+      ],
+      "migration": {
+        "path": "supabase/migrations/20260914235445_shiok_report_retention_30_days.sql",
+        "sha256": "e6ae291c54796909aaf79f19613e8a1ee78f1ed2b8788f4e87d0a1435934f4c6",
+        "testsSha256": "d96b42554723a3729bf00d1d1e06a802ceafdb54fdf1f1b50d164e33cdedaaf6",
+        "originalSha256": "9de35faa5275c5c10706167195df81f1832a246b2d336adab192fd1b6a046604"
+      },
+      "passed": true,
+      "before": {
+        "reports": 0,
+        "usage": 0,
+        "control": [
+          {
+            "enabled": false,
+            "singleton": true,
+            "allowed_bundles": [],
+            "policy_approved_at": null,
+            "cleanup_verified_at": null
+          }
+        ],
+        "rpc_sha256": "0c3321bbcd4f9ec067775a9455571e8658d247cc03f683b03ba63b0a6a1e325d",
+        "retention_constraints": 0
+      },
+      "historyBefore": [
+        {
+          "version": "20260914161526",
+          "name": "shiok_private_reports_v1"
+        }
+      ],
+      "tests": [
+        {
+          "name": "day_30_receipt_expired_without_recreation",
+          "passed": true
+        },
+        {
+          "name": "disabled_empty_baseline",
+          "passed": true
+        },
+        {
+          "name": "expired_receipt_keeps_conflict_precedence",
+          "passed": true
+        },
+        {
+          "name": "intake_disabled_after_test_rollback",
+          "passed": true
+        },
+        {
+          "name": "new_report_expires_exactly_30_days",
+          "passed": true
+        },
+        {
+          "name": "replay_preserves_identity_expiry_and_usage",
+          "passed": true
+        },
+        {
+          "name": "service_insert_exactly_30_days_allowed",
+          "passed": true
+        },
+        {
+          "name": "service_insert_over_30_days_rejected",
+          "passed": true
+        },
+        {
+          "name": "subtransaction_restores_reports_usage_and_control",
+          "passed": true
+        },
+        {
+          "name": "validated_constraint_and_unchanged_rpc_boundary",
+          "passed": true
+        }
+      ],
+      "after": {
+        "reports": 0,
+        "usage": 0,
+        "control": [
+          {
+            "enabled": false,
+            "singleton": true,
+            "allowed_bundles": [],
+            "policy_approved_at": null,
+            "cleanup_verified_at": null
+          }
+        ],
+        "rpc_sha256": "0c3321bbcd4f9ec067775a9455571e8658d247cc03f683b03ba63b0a6a1e325d",
+        "retention_constraints": 0
+      },
+      "finishedAt": "2026-09-15T00:04:45.866Z"
+    },
+    {
+      "name": "retention-eH4VMW",
+      "mode": "apply",
+      "target": {
+        "projectRef": "ztjilsfgoephcdcsgcks",
+        "projectName": "sgshiok",
+        "projectUrl": "https://ztjilsfgoephcdcsgcks.supabase.co",
+        "organizationId": "ixonsqiqglwriirutigr",
+        "region": "ap-southeast-1",
+        "plan": "free"
+      },
+      "requests": [
+        {
+          "path": "projects/ztjilsfgoephcdcsgcks",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "organizations/ixonsqiqglwriirutigr",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+          "method": "POST",
+          "status": 201
+        },
+        {
+          "path": "projects/ztjilsfgoephcdcsgcks/database/migrations",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "projects/ztjilsfgoephcdcsgcks/database/migrations",
+          "method": "POST",
+          "status": 200
+        },
+        {
+          "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+          "method": "POST",
+          "status": 201
+        },
+        {
+          "path": "projects/ztjilsfgoephcdcsgcks/database/migrations",
+          "method": "GET",
+          "status": 200
+        }
+      ],
+      "migration": {
+        "path": "supabase/migrations/20260914235445_shiok_report_retention_30_days.sql",
+        "sha256": "e6ae291c54796909aaf79f19613e8a1ee78f1ed2b8788f4e87d0a1435934f4c6",
+        "testsSha256": "d96b42554723a3729bf00d1d1e06a802ceafdb54fdf1f1b50d164e33cdedaaf6",
+        "originalSha256": "9de35faa5275c5c10706167195df81f1832a246b2d336adab192fd1b6a046604"
+      },
+      "passed": true,
+      "before": {
+        "reports": 0,
+        "usage": 0,
+        "control": [
+          {
+            "enabled": false,
+            "singleton": true,
+            "allowed_bundles": [],
+            "policy_approved_at": null,
+            "cleanup_verified_at": null
+          }
+        ],
+        "rpc_sha256": "0c3321bbcd4f9ec067775a9455571e8658d247cc03f683b03ba63b0a6a1e325d",
+        "retention_constraints": 0
+      },
+      "historyBefore": [
+        {
+          "version": "20260914161526",
+          "name": "shiok_private_reports_v1"
+        }
+      ],
+      "applyAttempted": true,
+      "after": {
+        "reports": 0,
+        "usage": 0,
+        "control": [
+          {
+            "enabled": false,
+            "singleton": true,
+            "allowed_bundles": [],
+            "policy_approved_at": null,
+            "cleanup_verified_at": null
+          }
+        ],
+        "rpc_sha256": "8f8520e8f91aee00283102d4bce005180047b85fcee2d315ee81a326225dde68",
+        "retention_constraints": 1
+      },
+      "historyAfter": [
+        {
+          "version": "20260914161526",
+          "name": "shiok_private_reports_v1"
+        },
+        {
+          "version": "20260915000630",
+          "name": "shiok_report_retention_30_days"
+        }
+      ],
+      "remoteVersion": "20260915000630",
+      "finishedAt": "2026-09-15T00:06:29.379Z"
+    },
+    {
+      "name": "retention-YWBTdv",
+      "mode": "verify",
+      "target": {
+        "projectRef": "ztjilsfgoephcdcsgcks",
+        "projectName": "sgshiok",
+        "projectUrl": "https://ztjilsfgoephcdcsgcks.supabase.co",
+        "organizationId": "ixonsqiqglwriirutigr",
+        "region": "ap-southeast-1",
+        "plan": "free"
+      },
+      "requests": [
+        {
+          "path": "projects/ztjilsfgoephcdcsgcks",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "organizations/ixonsqiqglwriirutigr",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+          "method": "POST",
+          "status": 201
+        },
+        {
+          "path": "projects/ztjilsfgoephcdcsgcks/database/migrations",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+          "method": "POST",
+          "status": 201
+        },
+        {
+          "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+          "method": "POST",
+          "status": 201
+        },
+        {
+          "path": "projects/ztjilsfgoephcdcsgcks/advisors/security",
+          "method": "GET",
+          "status": 200
+        }
+      ],
+      "migration": {
+        "path": "supabase/migrations/20260915000630_shiok_report_retention_30_days.sql",
+        "sha256": "e6ae291c54796909aaf79f19613e8a1ee78f1ed2b8788f4e87d0a1435934f4c6",
+        "testsSha256": "d96b42554723a3729bf00d1d1e06a802ceafdb54fdf1f1b50d164e33cdedaaf6",
+        "originalSha256": "9de35faa5275c5c10706167195df81f1832a246b2d336adab192fd1b6a046604"
+      },
+      "passed": true,
+      "before": {
+        "reports": 0,
+        "usage": 0,
+        "control": [
+          {
+            "enabled": false,
+            "singleton": true,
+            "allowed_bundles": [],
+            "policy_approved_at": null,
+            "cleanup_verified_at": null
+          }
+        ],
+        "rpc_sha256": "8f8520e8f91aee00283102d4bce005180047b85fcee2d315ee81a326225dde68",
+        "retention_constraints": 1
+      },
+      "historyBefore": [
+        {
+          "version": "20260914161526",
+          "name": "shiok_private_reports_v1"
+        },
+        {
+          "version": "20260915000630",
+          "name": "shiok_report_retention_30_days"
+        }
+      ],
+      "tests": [
+        {
+          "name": "day_30_receipt_expired_without_recreation",
+          "passed": true
+        },
+        {
+          "name": "disabled_empty_baseline",
+          "passed": true
+        },
+        {
+          "name": "expired_receipt_keeps_conflict_precedence",
+          "passed": true
+        },
+        {
+          "name": "intake_disabled_after_test_rollback",
+          "passed": true
+        },
+        {
+          "name": "new_report_expires_exactly_30_days",
+          "passed": true
+        },
+        {
+          "name": "replay_preserves_identity_expiry_and_usage",
+          "passed": true
+        },
+        {
+          "name": "service_insert_exactly_30_days_allowed",
+          "passed": true
+        },
+        {
+          "name": "service_insert_over_30_days_rejected",
+          "passed": true
+        },
+        {
+          "name": "subtransaction_restores_reports_usage_and_control",
+          "passed": true
+        },
+        {
+          "name": "validated_constraint_and_unchanged_rpc_boundary",
+          "passed": true
+        }
+      ],
+      "after": {
+        "reports": 0,
+        "usage": 0,
+        "control": [
+          {
+            "enabled": false,
+            "singleton": true,
+            "allowed_bundles": [],
+            "policy_approved_at": null,
+            "cleanup_verified_at": null
+          }
+        ],
+        "rpc_sha256": "8f8520e8f91aee00283102d4bce005180047b85fcee2d315ee81a326225dde68",
+        "retention_constraints": 1
+      },
+      "reportAdvisories": [
+        {
+          "name": "rls_enabled_no_policy",
+          "title": "RLS Enabled No Policy",
+          "level": "INFO",
+          "facing": "EXTERNAL",
+          "categories": [
+            "SECURITY"
+          ],
+          "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+          "detail": "Table \\`shiok_reports.control\\` has RLS enabled, but no policies exist",
+          "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+          "metadata": {
+            "schema": "shiok_reports",
+            "name": "control",
+            "type": "table"
+          },
+          "cache_key": "rls_enabled_no_policy_shiok_reports_control",
+          "observed_at": "2026-09-15T00:08:31.262Z"
+        },
+        {
+          "name": "rls_enabled_no_policy",
+          "title": "RLS Enabled No Policy",
+          "level": "INFO",
+          "facing": "EXTERNAL",
+          "categories": [
+            "SECURITY"
+          ],
+          "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+          "detail": "Table \\`shiok_reports.daily_usage\\` has RLS enabled, but no policies exist",
+          "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+          "metadata": {
+            "schema": "shiok_reports",
+            "name": "daily_usage",
+            "type": "table"
+          },
+          "cache_key": "rls_enabled_no_policy_shiok_reports_daily_usage",
+          "observed_at": "2026-09-15T00:08:31.262Z"
+        },
+        {
+          "name": "rls_enabled_no_policy",
+          "title": "RLS Enabled No Policy",
+          "level": "INFO",
+          "facing": "EXTERNAL",
+          "categories": [
+            "SECURITY"
+          ],
+          "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+          "detail": "Table \\`shiok_reports.reports\\` has RLS enabled, but no policies exist",
+          "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+          "metadata": {
+            "schema": "shiok_reports",
+            "name": "reports",
+            "type": "table"
+          },
+          "cache_key": "rls_enabled_no_policy_shiok_reports_reports",
+          "observed_at": "2026-09-15T00:08:31.262Z"
+        }
+      ],
+      "finishedAt": "2026-09-15T00:08:30.221Z"
+    }
+  ],
+  "managementRequests": 21,
+  "managementCredential": "Existing session credential explicitly passed to pinned-project helper; not assumed identical to previously supplied PAT; no credential saved.",
+  "validation": {
+    "focused": 308,
+    "focusedFiles": 5,
+    "full": 2219,
+    "fullFiles": 76,
+    "dependencyGuards": 42,
+    "docsTests": 41,
+    "types": "pass",
+    "fullSourceStable": true
+  },
+  "supersededFull": "checks-woS150 used snapshot63D8RA before the midnight regression and client module. Its post-run source list is not execution identity; final checks-3c72vb explicitly compares snapshot and stable current source hashes.",
+  "findings": [
+    "The default-disabled report POST endpoint now bounds same-origin wire input, trusted-ingress HMAC quotas and upload/storage deadlines.",
+    "Inherited generic503 handling lost commit uncertainty; only the exact RPC admission rejection is now definite unavailability.",
+    "Warm-instance request throttling is not a distributed request budget; global abuse, cleanup and moderator acceptance remain before activation.",
+    "Core-map release does not depend on activating reports, but retained preview is not an exact deployable candidate.",
+    "Independent review caught cumulative uncertainty lost on denied retry. Its predicted Origin:null Chrome failure was not reproduced; both loopback options sent correctOrigin/noReferer, and the failure claim is withdrawn.",
+    "Approved30-day expiry is applied and database-tested, but physical cleanup/tombstone and moderation acceptance remain unfinished."
+  ],
+  "disagreements": [
+    "Build-and-ship approval is not evidence of completed release checks or a waiver of protected-data and physical-device gates."
+  ]
+}

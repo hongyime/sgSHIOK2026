@@ -1,0 +1,35 @@
+{
+  "securityReview": {
+    "method": "Independent read-only subagent review; no remote or credential access; tests not independently rerun by reviewer",
+    "findings": [
+      "Generic503 in prior store code discarded commit uncertainty. Fixed using only exact bounded PT503/reporting_unavailable denial; generic errors remain outcome_unknown.",
+      "Retry identity, content and proof must exist before firstPOST. Browser envelope now generated before sending; never replaced automatically.",
+      "Existing onemap.ts IP fallbacks are not appropriate for private reporting. New boundary requires trusted Vercel environment and exact ingress-owned header without fallback.",
+      "Admission caps do not bound retries/conflicts. Added bounded per-instance pre-provider attempt shield; distributed traffic remains a separate activation gate.",
+      "Deletion removes existing expired-row identity protection. Tombstones/deletion replay acceptance is unfinished and remains gated."
+    ],
+    "followUp": "Reviewer found no additional origin, IPv6, cancellation, route-export or warm-worker-throttle bug in disabled endpoint. Added requested stalled/oversized/invalidUTF8 503-body and caller-upload-abort regressions. Refreshed HMACday after upload. Residual SQL/server UTCboundary alignment remains open."
+  },
+  "releaseReview": {
+    "method": "Independent read-only evidence/source audit, no new browser or deployment claim",
+    "findings": [
+      "Legacy rehearsal stopped before release switch/Reload;47offline cases validate harness only.",
+      "Retained preview has QA override and local previous-release archive; not an exact release candidate or complete production rollback archive.",
+      "CurrentMapLibre6.4.1 is patched; old6.1.0 assets retain prior worker/sanitizer behavior, so retention and rollback require explicit disposition.",
+      "Disabled reporting is not a core-map release dependency.",
+      "Next distinct accessibility check is same-document Chrome native100-to200-to100percent zoom retaining route/URL/focus; no new browser run claimed."
+    ]
+  },
+  "clientReview": {
+    "confirmed": "Prior unknown commit must survive later rejected retry; corrected with six regression cases.",
+    "withdrawn": "Predicted Chrome Origin:null failure was not reproduced. Chrome152 loopback sent correctOrigin/noReferer for both old and new options. Explicitreferrer/same-origin change retained for spec consistency only.",
+    "receipt": "browser-headers-fB8xr9/observations.json",
+    "cleanup": "browser-headers-fB8xr9/cleanup-recovery.json; zero owned processes and three listeners closed",
+    "limitations": "Initial harness failure and failed expected-contrast receipts preserved. No app/provider end-to-end acceptance."
+  },
+  "worker": {
+    "files": ["web/lib/report-submission.ts", "web/lib/__tests__/report-submission.test.ts"],
+    "reportedChecks": "66 focused tests and strict no-emit check passed; parent captures integrated validation separately",
+    "limits": "In-memory retry envelope only; no persistence, UI, live API or navigation-recovery acceptance"
+  }
+}

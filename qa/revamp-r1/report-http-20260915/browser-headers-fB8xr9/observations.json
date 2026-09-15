@@ -1,0 +1,45 @@
+{
+  "at": "2026-09-15T00:11:10.062Z",
+  "kind": "Readback of retained real Chrome capture; no browser relaunch",
+  "browser": "Chrome/152.0.7977.84",
+  "captureDurationMs": 23248.6589,
+  "requestCount": 3,
+  "postCount": 2,
+  "old": {
+    "origin": "http://127.0.0.1:41438",
+    "expectedNull": false,
+    "refererAbsent": true
+  },
+  "corrected": {
+    "origin": "http://127.0.0.1:41438",
+    "matchesLocalOrigin": true,
+    "refererAbsent": true
+  },
+  "both": {
+    "sameOriginFetchMetadata": true,
+    "noCookieOrAuthorization": true,
+    "syntheticProofOnly": true,
+    "identicalSyntheticBodies": true
+  },
+  "expectedContrastReproduced": false,
+  "earlierClaimThatOldPolicyNecessarilyFailsWithdrawn": true,
+  "sourceBindingSha256": "6cf8f7db681fcc6e736fde17bd9aa28a2c63048b6ae1802eb7fb88316a8caf92",
+  "sourceCurrentSha256": "6cf8f7db681fcc6e736fde17bd9aa28a2c63048b6ae1802eb7fb88316a8caf92",
+  "sourceOptions": {
+    "method": "POST",
+    "mode": "same-origin",
+    "credentials": "omit",
+    "redirect": "error",
+    "cache": "no-store",
+    "referrer": "",
+    "referrerPolicy": "same-origin"
+  },
+  "sourceUnchanged": true,
+  "rawHeadersSha256": "c41cacfd25d01ff711be49d3e6fc08f893c29eb6dc09bd626c091e6433b39a5f",
+  "originalSummarySha256": "aa041293c11c05d27b5c2f128213f6d7c309d55b82f0d4d0bb7594c42525c45a",
+  "runnerSha256": "5980d5567f1777311e9bedb236349dfc01b58dcefabdf1544dd5cbe9ab6e923e",
+  "currentRunnerSha256": "5980d5567f1777311e9bedb236349dfc01b58dcefabdf1544dd5cbe9ab6e923e",
+  "proxyRejected": 7,
+  "cleanupVerified": true,
+  "scope": "Synthetic loopback headers only. No app route, provider, credentials, map data or HTTP end-to-end reporting acceptance."
+}
