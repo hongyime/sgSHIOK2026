@@ -1,0 +1,12 @@
+{
+  "command": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\shell-ZnbvBq",
+  "passed": true,
+  "stdout": "{\"version\":\"7.4.20\",\"freeKiB\":1994004,\"chromeCount\":0}\r\n",
+  "values": {
+    "version": "7.4.20",
+    "freeKiB": 1994004,
+    "chromeCount": 0
+  },
+  "elapsedMs": 6084
+}

@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "passed": true,
+      "name": "String receipt exact timestamp"
+    },
+    {
+      "passed": true,
+      "name": "JSON DateTime receipt exact timestamp"
+    },
+    {
+      "passed": true,
+      "name": "Distinct microsecond remains distinct"
+    },
+    {
+      "passed": true,
+      "name": "Offset represents same instant"
+    },
+    {
+      "passed": true,
+      "name": "Malformed timestamp refused"
+    }
+  ],
+  "helperSha256": "108bbbc8e3371561448e6c854397570785425a9bad66d94d7185d244d2d1b1c5",
+  "shell": "7.4.20"
+}

@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { win32 } from 'node:path';
 
 export const ROOT = 'C:\\sgSHIOK2026';
+export const POWERSHELL = 'C:\\Program Files\\PowerShell\\7\\pwsh.exe';
 export const BASE = ROOT + '\\qa\\revamp-r1\\same-document-zoom-20260915';
 export const METRICS = ['Walk distance', 'Covered', 'Uncovered', 'Longest gap'];
 export const BUDGET = { total: 600000, work: 420000, cleanup: 60000, supervisor: 90000, receipt: 30000 };

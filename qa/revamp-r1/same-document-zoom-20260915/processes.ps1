@@ -14,6 +14,10 @@ if($Phase -eq 'discover'){
 }
 if($BrowserPid -le 0){throw 'No owned browser PID'}
 function Creation($p){$p.CreationDate.ToUniversalTime().ToString('o')}
+function RecordedCreation($value){
+  if($value -is [DateTime]){return $value.ToUniversalTime().ToString('o')}
+  return ([DateTimeOffset]::Parse($value)).UtcDateTime.ToString('o')
+}
 function Inventory {
   $all=@(Get-CimInstance Win32_Process -Filter "Name='chrome.exe'")
   $root=@($all | Where-Object { $_.ProcessId -eq $BrowserPid })
@@ -37,7 +41,7 @@ foreach($candidate in $candidates | Sort-Object pid -Unique){
   if($candidate.profile -cne $Profile -or $candidate.executable -ne 'C:\Program Files\Google\Chrome\Application\chrome.exe'){throw 'Invalid owned process receipt'}
   $live=Get-CimInstance Win32_Process -Filter "ProcessId=$($candidate.pid)"
   if(-not $live){continue}
-  if((Creation $live)-cne $candidate.created -or $live.ExecutablePath -ne $candidate.executable){throw 'PID identity changed; refusing stop'}
+  if((Creation $live)-cne (RecordedCreation $candidate.created) -or $live.ExecutablePath -ne $candidate.executable){throw 'PID identity changed; refusing stop'}
   Stop-Process -Id $candidate.pid -Force -ErrorAction Stop
   $stopped+=$candidate.pid
 }
@@ -46,7 +50,7 @@ do {
   $remaining=@()
   foreach($candidate in $candidates | Sort-Object pid -Unique){
     $live=Get-CimInstance Win32_Process -Filter "ProcessId=$($candidate.pid)"
-    if($live -and (Creation $live)-ceq $candidate.created){$remaining+=$candidate.pid}
+    if($live -and (Creation $live)-ceq (RecordedCreation $candidate.created)){$remaining+=$candidate.pid}
   }
   $remaining+=@(Inventory | ForEach-Object pid)
   if($remaining.Count -eq 0){break}

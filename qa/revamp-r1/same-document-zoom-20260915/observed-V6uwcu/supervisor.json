@@ -1,0 +1,37 @@
+{
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-V6uwcu",
+  "profile": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-V6uwcu\\profile",
+  "startedAt": "2026-09-15T09:04:44.253Z",
+  "budget": {
+    "total": 600000,
+    "work": 420000,
+    "cleanup": 60000,
+    "supervisor": 90000,
+    "receipt": 30000
+  },
+  "scope": "Independent deadline and owned-browser cleanup supervisor",
+  "commands": [
+    {
+      "args": [
+        "-Phase",
+        "discover"
+      ],
+      "exit": null,
+      "stdout": "",
+      "stderr": "",
+      "error": "spawnSync powershell.exe ETIMEDOUT"
+    }
+  ],
+  "child": {
+    "exit": 1,
+    "pid": 43636,
+    "signal": null
+  },
+  "cleanup": {
+    "verified": false,
+    "error": "AssertionError [ERR_ASSERTION]: spawnSync powershell.exe ETIMEDOUT\n\nnull !== 0\n\n    at ps (file:///C:/sgSHIOK2026/qa/revamp-r1/same-document-zoom-20260915/run.mjs:24:132)\n    at file:///C:/sgSHIOK2026/qa/revamp-r1/same-document-zoom-20260915/run.mjs:28:22\n    at ModuleJob.run (node:internal/modules/esm/module_job:569:25)\n    at async node:internal/modules/esm/loader:650:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+  },
+  "elapsedMs": 28121,
+  "passed": false,
+  "arithmetic": "420000 work +60000 driver cleanup +90000 independent cleanup +30000 receipt =600000 ms"
+}

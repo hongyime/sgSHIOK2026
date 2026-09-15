@@ -1,0 +1,10 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\preview.mjs",
+    "--go",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\frontend-brzm8xg4\\build.json"
+  ],
+  "timeoutSeconds": 1800,
+  "scope": "Local preview lifetime; Windows job closes all owned descendants at termination"
+}

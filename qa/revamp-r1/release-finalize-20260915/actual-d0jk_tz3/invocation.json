@@ -1,0 +1,16 @@
+{
+  "sourceRevision": "4f0234b126c6af228339ea8df0c5c18e4cc06a49",
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\finalize.py",
+    "worker",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\actual-d0jk_tz3",
+    "80ca2c70b65b1c78c43b6c55a114ea5c80937c0f"
+  ],
+  "timeoutSeconds": 1200,
+  "pipelineRuns": 0,
+  "copies": 0,
+  "deployments": 0,
+  "installs": 0
+}

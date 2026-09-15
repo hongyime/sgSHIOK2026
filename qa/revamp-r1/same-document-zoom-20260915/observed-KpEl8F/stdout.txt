@@ -1,0 +1,11 @@
+{
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-KpEl8F",
+  "passed": false,
+  "checks": 0,
+  "captures": 0,
+  "cleanup": {
+    "verified": false,
+    "error": "Error: spawnSync C:\\Program Files\\PowerShell\\7\\pwsh.exe ETIMEDOUT\n    at Object.spawnSync (node:internal/child_process:1144:20)\n    at spawnSync (node:child_process:928:24)\n    at execFileSync (node:child_process:971:15)\n    at powershell (file:///C:/sgSHIOK2026/qa/revamp-r1/same-document-zoom-20260915/browser.mjs:49:16)\n    at file:///C:/sgSHIOK2026/qa/revamp-r1/same-document-zoom-20260915/browser.mjs:187:19"
+  },
+  "elapsedMs": 31405
+}

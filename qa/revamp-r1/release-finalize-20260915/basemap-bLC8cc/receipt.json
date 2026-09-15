@@ -1,0 +1,14 @@
+{
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\basemap-bLC8cc",
+  "source": "C:\\sgSHIOK2026\\qa\\revamp-r1\\selection-recovery-20260913\\observed-vqv2K4\\browser.json",
+  "sourceSha256": "368e36a194d78fb7daefe6bdcc4da0fceb4ad0c7324f604ab7faec522392a706",
+  "scope": "One-time public display images for offline browser QA, not pipeline inputs; no retries",
+  "requested": 91,
+  "deadlineSeconds": 180,
+  "maxBytes": 36700160,
+  "totalBytes": 0,
+  "localReplies": [],
+  "passed": false,
+  "error": "AssertionError [ERR_ASSERTION]: https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8133.png\n    at file:///C:/sgSHIOK2026/qa/revamp-r1/release-finalize-20260915/freeze-basemap.mjs:23:50\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)",
+  "elapsedMs": 747
+}

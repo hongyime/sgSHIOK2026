@@ -1,0 +1,275 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "PRAWN-E14",
+  "head": "80ca2c70b65b1c78c43b6c55a114ea5c80937c0f",
+  "retentionDays": 30,
+  "stageExecution": {
+    "ok": true,
+    "returncode": 0,
+    "stdout": "{\"phase\": \"_artifact\", \"started\": true}\n{\"phase\": \"_artifact\", \"seconds\": 206.031}\n{\"phase\": \"_artifact\", \"started\": true}\n{\"phase\": \"_artifact\", \"seconds\": 37.391}\n{\"phase\": \"_verify_inputs\", \"started\": true}\n{\"phase\": \"_verify_inputs\", \"seconds\": 117.657}\n{\"phase\": \"_verify_stage_files\", \"started\": true}\n{\"phase\": \"_verify_stage_files\", \"seconds\": 286.562}\n{\n  \"root\": \"C:\\\\sgSHIOK2026\",\n  \"host\": \"PRAWN-E14\",\n  \"sourceRevision\": \"4f0234b126c6af228339ea8df0c5c18e4cc06a49\",\n  \"headAtStart\": \"80ca2c70b65b1c78c43b6c55a114ea5c80937c0f\",\n  \"stage\": \"C:\\\\sgSHIOK2026\\\\tmp\\\\core-release-20260915-candidate-2\",\n  \"previousFrontends\": [],\n  \"retainedClientAcceptance\": false,\n  \"pipelineRuns\": 0,\n  \"copies\": 0,\n  \"builds\": 0,\n  \"deployments\": 0,\n  \"passed\": true,\n  \"protectedBefore\": {\n    \"anchors\": [\n      {\n        \"path\": \"web/public/data/generated_20260805_prefer_scored_routed/manifest.json\",\n        \"bytes\": 13626,\n        \"sha256\": \"7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e\"\n      },\n      {\n        \"path\": \"web/public/data/generated_20260805_prefer_scored_routed/scores/index.json\",\n        \"bytes\": 1751005,\n        \"sha256\": \"d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257\"\n      },\n      {\n        \"path\": \"web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json\",\n        \"bytes\": 5240179,\n        \"sha256\": \"0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2\"\n      },\n      {\n        \"path\": \"web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json\",\n        \"bytes\": 5236013,\n        \"sha256\": \"7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a\"\n      },\n      {\n        \"path\": \"web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json\",\n        \"bytes\": 39674,\n        \"sha256\": \"2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa\"\n      },\n      {\n        \"path\": \"web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json\",\n        \"bytes\": 3538342,\n        \"sha256\": \"6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f\"\n      },\n      {\n        \"path\": \"web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz\",\n        \"bytes\": 184,\n        \"sha256\": \"620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050\"\n      },\n      {\n        \"path\": \"web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz\",\n        \"bytes\": 269,\n        \"sha256\": \"586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7\"\n      },\n      {\n        \"path\": \"web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz\",\n        \"bytes\": 1189,\n        \"sha256\": \"59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd\"\n      },\n      {\n        \"path\": \"web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json\",\n        \"bytes\": 145327,\n        \"sha256\": \"8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f\"\n      },\n      {\n        \"path\": \"web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json\",\n        \"bytes\": 515583,\n        \"sha256\": \"bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7\"\n      }\n    ],\n    \"weights\": \"5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec\"\n  },\n  \"releaseManifestSha256\": \"5ae6803bc224e2f1e408481001c7088ed896fd05f28aa73145b2fa0c9408e471\",\n  \"sourceFiles\": 203,\n  \"stagedFiles\": 5751,\n  \"artifacts\": [\n    {\n      \"directory\": \"generated_20260805_prefer_scored_routed\",\n      \"role\": \"main\",\n      \"inputFiles\": 4848,\n      \"inputBytes\": 5636292250,\n      \"stagedFiles\": 4845,\n      \"stagedBytes\": 5630916179\n    },\n    {\n      \"directory\": \"lamp_posts_v1\",\n      \"role\": \"overlay\",\n      \"inputFiles\": 701,\n      \"inputBytes\": 3146697,\n      \"stagedFiles\": 701,\n      \"stagedBytes\": 3146697\n    }\n  ],\n  \"protectedAfter\": {\n    \"anchors\": [\n      {\n        \"path\": \"web/public/data/generated_20260805_prefer_scored_routed/manifest.json\",\n        \"bytes\": 13626,\n        \"sha256\": \"7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e\"\n      },\n      {\n        \"path\": \"web/public/data/generated_20260805_prefer_scored_routed/scores/index.json\",\n        \"bytes\": 1751005,\n        \"sha256\": \"d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257\"\n      },\n      {\n        \"path\": \"web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json\",\n        \"bytes\": 5240179,\n        \"sha256\": \"0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2\"\n      },\n      {\n        \"path\": \"web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json\",\n        \"bytes\": 5236013,\n        \"sha256\": \"7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a\"\n      },\n      {\n        \"path\": \"web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json\",\n        \"bytes\": 39674,\n        \"sha256\": \"2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa\"\n      },\n      {\n        \"path\": \"web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json\",\n        \"bytes\": 3538342,\n        \"sha256\": \"6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f\"\n      },\n      {\n        \"path\": \"web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz\",\n        \"bytes\": 184,\n        \"sha256\": \"620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050\"\n      },\n      {\n        \"path\": \"web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz\",\n        \"bytes\": 269,\n        \"sha256\": \"586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7\"\n      },\n      {\n        \"path\": \"web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz\",\n        \"bytes\": 1189,\n        \"sha256\": \"59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd\"\n      },\n      {\n        \"path\": \"web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json\",\n        \"bytes\": 145327,\n        \"sha256\": \"8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f\"\n      },\n      {\n        \"path\": \"web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json\",\n        \"bytes\": 515583,\n        \"sha256\": \"bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7\"\n      }\n    ],\n    \"weights\": \"5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec\"\n  },\n  \"elapsedSeconds\": 652.641,\n  \"phases\": [\n    {\n      \"phase\": \"_artifact\",\n      \"seconds\": 206.031\n    },\n    {\n      \"phase\": \"_artifact\",\n      \"seconds\": 37.391\n    },\n    {\n      \"phase\": \"_verify_inputs\",\n      \"seconds\": 117.657\n    },\n    {\n      \"phase\": \"_verify_stage_files\",\n      \"seconds\": 286.562\n    }\n  ]\n}",
+    "stderr": "",
+    "elapsedSeconds": 653.516
+  },
+  "stage": {
+    "root": "C:\\sgSHIOK2026",
+    "host": "PRAWN-E14",
+    "sourceRevision": "4f0234b126c6af228339ea8df0c5c18e4cc06a49",
+    "headAtStart": "80ca2c70b65b1c78c43b6c55a114ea5c80937c0f",
+    "stage": "C:\\sgSHIOK2026\\tmp\\core-release-20260915-candidate-2",
+    "previousFrontends": [],
+    "retainedClientAcceptance": false,
+    "pipelineRuns": 0,
+    "copies": 0,
+    "builds": 0,
+    "deployments": 0,
+    "passed": true,
+    "protectedBefore": {
+      "anchors": [
+        {
+          "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+          "bytes": 13626,
+          "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+        },
+        {
+          "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+          "bytes": 1751005,
+          "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+        },
+        {
+          "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+          "bytes": 5240179,
+          "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+        },
+        {
+          "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+          "bytes": 5236013,
+          "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+        },
+        {
+          "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+          "bytes": 39674,
+          "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+        },
+        {
+          "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+          "bytes": 3538342,
+          "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+        },
+        {
+          "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+          "bytes": 184,
+          "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+        },
+        {
+          "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+          "bytes": 269,
+          "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+        },
+        {
+          "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+          "bytes": 1189,
+          "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+        },
+        {
+          "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+          "bytes": 145327,
+          "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+        },
+        {
+          "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+          "bytes": 515583,
+          "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+        }
+      ],
+      "weights": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec"
+    },
+    "releaseManifestSha256": "5ae6803bc224e2f1e408481001c7088ed896fd05f28aa73145b2fa0c9408e471",
+    "sourceFiles": 203,
+    "stagedFiles": 5751,
+    "artifacts": [
+      {
+        "directory": "generated_20260805_prefer_scored_routed",
+        "role": "main",
+        "inputFiles": 4848,
+        "inputBytes": 5636292250,
+        "stagedFiles": 4845,
+        "stagedBytes": 5630916179
+      },
+      {
+        "directory": "lamp_posts_v1",
+        "role": "overlay",
+        "inputFiles": 701,
+        "inputBytes": 3146697,
+        "stagedFiles": 701,
+        "stagedBytes": 3146697
+      }
+    ],
+    "protectedAfter": {
+      "anchors": [
+        {
+          "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+          "bytes": 13626,
+          "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+        },
+        {
+          "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+          "bytes": 1751005,
+          "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+        },
+        {
+          "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+          "bytes": 5240179,
+          "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+        },
+        {
+          "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+          "bytes": 5236013,
+          "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+        },
+        {
+          "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+          "bytes": 39674,
+          "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+        },
+        {
+          "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+          "bytes": 3538342,
+          "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+        },
+        {
+          "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+          "bytes": 184,
+          "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+        },
+        {
+          "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+          "bytes": 269,
+          "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+        },
+        {
+          "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+          "bytes": 1189,
+          "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+        },
+        {
+          "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+          "bytes": 145327,
+          "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+        },
+        {
+          "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+          "bytes": 515583,
+          "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+        }
+      ],
+      "weights": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec"
+    },
+    "elapsedSeconds": 652.641,
+    "phases": [
+      {
+        "phase": "_artifact",
+        "seconds": 206.031
+      },
+      {
+        "phase": "_artifact",
+        "seconds": 37.391
+      },
+      {
+        "phase": "_verify_inputs",
+        "seconds": 117.657
+      },
+      {
+        "phase": "_verify_stage_files",
+        "seconds": 286.562
+      }
+    ]
+  },
+  "fullFixtureRun": {
+    "path": "checks-2r5nzwut/summary.json",
+    "tests": 102,
+    "passed": true,
+    "qualification": "Before regular-verifier late HEAD check; not a final full-suite invocation."
+  },
+  "finalBoundaryRun": {
+    "path": "checks-j5kusl0y/summary.json",
+    "tests": 5,
+    "passed": true,
+    "collected": 106,
+    "arithmetic": "102 prior cases + 4 reviewer boundary cases = 106; final targeted run includes 1 repeated case."
+  },
+  "protectedAnchors": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "bytes": 13626,
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "bytes": 1751005,
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "bytes": 5240179,
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "bytes": 5236013,
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "bytes": 39674,
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "bytes": 3538342,
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "bytes": 184,
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "bytes": 269,
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "bytes": 1189,
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "bytes": 145327,
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "bytes": 515583,
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "weights": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+  "evidencePrefix": {
+    "bytes": 552447,
+    "sha256": "bf1b24ac0392f2d11a5d753bf587be967f834dc25a025dd9373aa1d2e4ddfb02",
+    "preserved": true
+  },
+  "pipelineRuns": 0,
+  "installs": 0,
+  "deployments": 0,
+  "FINDINGS": [
+    "Implemented independent verify-only finalization rather than recopying the existing scratch payload. Missing, changed, linked or extra files fail without repair.",
+    "Independent review caught a pre-existing late-HEAD gap in the regular verifier; it is fixed and regression-tested. Timeout stdout/stderr now survives confirmed owned-process cleanup.",
+    "One added retained-asset test originally wrote to the wrong fixture path. That failed run is preserved and the corrected path passes. The full count was 102, not the 103 stated briefly in chat.",
+    "No private-report activation or Supabase call occurred in this continuation. The owner-approved policy remains 30 days."
+  ],
+  "DISAGREEMENTS": [
+    "No disagreement with 30-day retention. A completed local stage or fixture test is not browser acceptance or a deployment; those outcomes remain separate."
+  ]
+}

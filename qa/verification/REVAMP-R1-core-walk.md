@@ -9477,3 +9477,190 @@ Command: qa/revamp-r1/core-release-20260915/final-state.ps1
   "next": "Goal active. Diagnose expensive staging IO without rerunning a full copy. Preserve both partial candidates and all frozen inputs. Obtain an authenticated complete stage, then execute the sanitized bounded compiler and same-document browser acceptance. Owner moderator email remains pending; core-map release stays independent of reporting."
 }
 ```
+
+
+## 2026-09-15: Verify-only release staging follow-up
+
+Command: `python -B qa/revamp-r1/release-finalize-20260915/finalize.py`.
+The following command output projects `stage-checkpoint.json`; full raw execution
+and protected-anchor receipts are alongside it. The former failed attempt remains
+unchanged. This section records staging only, not a completed build or deployment.
+
+```json
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "PRAWN-E14",
+  "retentionDays": 30,
+  "sourceRevision": "4f0234b126c6af228339ea8df0c5c18e4cc06a49",
+  "head": "80ca2c70b65b1c78c43b6c55a114ea5c80937c0f",
+  "stagePassed": true,
+  "sourceFiles": 203,
+  "stagedFiles": 5751,
+  "releaseManifestSha256": "5ae6803bc224e2f1e408481001c7088ed896fd05f28aa73145b2fa0c9408e471",
+  "seconds": 652.641,
+  "phaseSeconds": [
+    {
+      "phase": "_artifact",
+      "seconds": 206.031
+    },
+    {
+      "phase": "_artifact",
+      "seconds": 37.391
+    },
+    {
+      "phase": "_verify_inputs",
+      "seconds": 117.657
+    },
+    {
+      "phase": "_verify_stage_files",
+      "seconds": 286.562
+    }
+  ],
+  "protectedAnchors": 11,
+  "weights": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+  "fixtureArithmetic": "102 prior cases + 4 reviewer boundary cases = 106; final targeted run includes 1 repeated case.",
+  "originalEvidencePrefixPreserved": true,
+  "pipelineRuns": 0,
+  "copies": 0,
+  "deployments": 0,
+  "FINDINGS": [
+    "Implemented independent verify-only finalization rather than recopying the existing scratch payload. Missing, changed, linked or extra files fail without repair.",
+    "Independent review caught a pre-existing late-HEAD gap in the regular verifier; it is fixed and regression-tested. Timeout stdout/stderr now survives confirmed owned-process cleanup.",
+    "One added retained-asset test originally wrote to the wrong fixture path. That failed run is preserved and the corrected path passes. The full count was 102, not the 103 stated briefly in chat.",
+    "No private-report activation or Supabase call occurred in this continuation. The owner-approved policy remains 30 days."
+  ],
+  "DISAGREEMENTS": [
+    "No disagreement with 30-day retention. A completed local stage or fixture test is not browser acceptance or a deployment; those outcomes remain separate."
+  ]
+}
+```
+
+
+## 2026-09-15: Production compiler and served preview checkpoint
+
+Command: `.venv/Scripts/python.exe -B qa/revamp-r1/release-finalize-20260915/handback.py`
+
+```json
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "PRAWN-E14",
+  "retentionDays": 30,
+  "sourceRevision": "69eac6a22ab3794a8648c3211c961340081b7d45",
+  "buildId": "D2v5v_SSLYgX0SSyDHqvr",
+  "buildPassed": true,
+  "buildSeconds": 115.172,
+  "buildOutput": {
+    "files": 172,
+    "bytes": 129450261,
+    "manifestSha256": "b3f6a17a0c8a56fc42185ef4bfe43fe87ef717ed8b32b39246049721e57b067c"
+  },
+  "scope": "frontend-only-not-deployable",
+  "servedAuditPassed": true,
+  "servedResponses": 18,
+  "disabledHandlers": [
+    {
+      "path": "/api/reports",
+      "status": 503,
+      "body": {
+        "ok": false,
+        "error": "unavailable"
+      },
+      "cacheControl": "private, no-store"
+    },
+    {
+      "path": "/api/moderation/queue",
+      "status": 503,
+      "body": {
+        "ok": false,
+        "error": "unavailable"
+      },
+      "cacheControl": "private, no-store"
+    }
+  ],
+  "preview": "http://127.0.0.1:10192/",
+  "previewLifetimeSeconds": 1800,
+  "webTests": {
+    "passed": 3331,
+    "files": 86,
+    "dependencyGuards": 42,
+    "arithmetic": "3326 + 3 CSS contracts + 2 route-entry contracts = 3331; 85 + 1 new file = 86"
+  },
+  "typesPassed": true,
+  "browser": {
+    "passed": false,
+    "screenshots": 0,
+    "appNavigation": false,
+    "firstAttempt": "observed-V6uwcu: Windows PowerShell memory-query timeout before Chrome",
+    "secondAttempt": "observed-KpEl8F: native PowerShell7 helper timeout before navigation",
+    "secondElapsedMs": 450266,
+    "ownedCleanupVerified": true,
+    "offlineContracts": 61,
+    "timestampCases": 5
+  },
+  "protectedAnchorsMatched": 11,
+  "weights": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+  "originalEvidencePrefixPreserved": true,
+  "pipelineRuns": 0,
+  "dataCopiesThisContinuation": 0,
+  "deployments": 0,
+  "reportingEnabled": false,
+  "FINDINGS": [
+    "The actual production compiler exposed two inherited defects missed by the ordinary suite: global-only map CSS selectors and invalid helper exports on the reserved Next page entry. Both are fixed, tested and pushed.",
+    "The unchanged Home implementation is now colocated in app/home.tsx; the page entry exports only its default. Fresh Next route validation and prerendering pass.",
+    "Frontend compilation and served-byte identity now pass without another immutable-data copy. The resulting local preview is not a complete deployable package or browser acceptance.",
+    "Native browser attempts failed before app navigation. PowerShell7 JSON timestamp conversion also broke cleanup identity comparison; canonical UTC comparison preserves microseconds and passes five cases. Final independent cleanup confirmed no owned browser remained.",
+    "The first preview lacked job-supervised lifetime; it was closed by exact process identity. Its replacement runs under the existing owned-job supervisor for 1800 seconds. Both served audits passed; shared services were not stopped.",
+    "The 30-day private-report policy remains applied, but intake and moderation are still disabled. Actual owner login, report acceptance and delivery remain separate from the core-map release.",
+    "The failed basemap capture assumed image/png. Public tiles returned image/undefined; a new bounded capture verified actual PNG signatures and recorded 91 images totaling 471815 bytes. These are September15 responses to historical URLs, not recovered historical response bytes."
+  ],
+  "DISAGREEMENTS": [
+    "No disagreement with 30-day retention. Build/test success is not proof that shipping or visual acceptance is complete.",
+    "The existing native harness cannot yet be treated as a reliable automated acceptance gate on this session. Do not relabel either failed attempt as an app failure or rerun blindly."
+  ],
+  "receipts": [
+    {
+      "path": "qa/revamp-r1/release-finalize-20260915/frontend-brzm8xg4/build.json",
+      "sha256": "d4b98d8d7400a82671e79bcb4802f4cf231170d29d74fd36a36a9b39da842f14"
+    },
+    {
+      "path": "qa/revamp-r1/release-finalize-20260915/frontend-brzm8xg4/build-files.json",
+      "sha256": "b3f6a17a0c8a56fc42185ef4bfe43fe87ef717ed8b32b39246049721e57b067c"
+    },
+    {
+      "path": "qa/revamp-r1/release-finalize-20260915/preview-OcJOJb/served-audit.json",
+      "sha256": "da70dc12d885472f777caf89fb65bf14f1eab51cf743fce83cf537527df9db2f"
+    },
+    {
+      "path": "qa/revamp-r1/release-finalize-20260915/full-v3cit5ci/summary.json",
+      "sha256": "ad7f480277982977f66d3727590a2b6b030f58d11df3ab39dd95e402d35d788f"
+    },
+    {
+      "path": "qa/revamp-r1/same-document-zoom-20260915/observed-KpEl8F/supervisor.json",
+      "sha256": "724cff7526ba1d8e25dd3ec49bdf9262b4620c202434f70035a53666a3fa5581"
+    },
+    {
+      "path": "qa/revamp-r1/release-finalize-20260915/timestamp-tests.json",
+      "sha256": "bdcba5095a2f6c67439c14b02c40086fe8998e49ee3ec64f3d73e2f90d709828"
+    }
+  ]
+}
+```
+
+
+### Final documentation validation
+
+Receipt: `qa/revamp-r1/release-finalize-20260915/docs-p0jlomsf/summary.json`
+
+```json
+{
+  "docsPassed": true,
+  "docsStdout": ".........................................                                [100%]\n41 passed in 7.78s",
+  "stateLines": 26,
+  "FINDINGS": [
+    "The STATE rewrite initially broke exact-wording assertions. Restored explicit Supabase Free approval and the sgbuslaobu prohibition; final docs/integrity suite passes. Failed receipt docs-ar_61x1q is preserved."
+  ],
+  "DISAGREEMENTS": [
+    "30-day retention accepted; deployment and reporting activation are not complete."
+  ]
+}
+```

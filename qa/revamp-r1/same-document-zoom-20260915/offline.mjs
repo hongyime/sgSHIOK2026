@@ -3,7 +3,7 @@ import { spawnSync } from 'node:child_process';
 import { mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { resolve } from 'node:path';
-import { ROOT,BASE } from './contract.mjs';
+import { ROOT,BASE,POWERSHELL } from './contract.mjs';
 assert.equal(process.cwd(),ROOT,'Wrong working root');
 const out=mkdtempSync(resolve(BASE,'offline-'));
 const env={...process.env,TEMP:out,TMP:out};
@@ -17,9 +17,9 @@ function run(exe,args,expected=0) {
 try {
   for(const file of ['contract.mjs','contract.test.mjs','probes.mjs','browser.mjs','run.mjs','offline.mjs'])run(process.execPath,['--check',resolve(BASE,file)]);
   run(process.execPath,['--test',resolve(BASE,'contract.test.mjs')]);
-  const abi=run('powershell.exe',['-NoProfile','-NonInteractive','-File',resolve(BASE,'native-shortcut.ps1'),'-SelfTest']);
+  const abi=run(POWERSHELL,['-NoProfile','-NonInteractive','-File',resolve(BASE,'native-shortcut.ps1'),'-SelfTest']);
   const result=JSON.parse(abi.stdout.replace(/^\uFEFF/,''));assert.equal(result.nativeCalls,0);assert.equal(result.inputBytes,result.pointerBytes===8?40:28);report.nativeAbi=result;
-  run('powershell.exe',['-NoProfile','-NonInteractive','-Command',`$ErrorActionPreference='Stop'; if((Get-Location).Path -ne '${ROOT}'){throw 'Wrong root'}; $tokens=$null; $errors=$null; [void][System.Management.Automation.Language.Parser]::ParseFile('${BASE}\\processes.ps1',[ref]$tokens,[ref]$errors); if($errors.Count){throw ($errors | Out-String)}; Write-Output 'processes.ps1 syntax_ok'`]);
+  run(POWERSHELL,['-NoProfile','-NonInteractive','-Command',`$ErrorActionPreference='Stop'; if((Get-Location).Path -ne '${ROOT}'){throw 'Wrong root'}; $tokens=$null; $errors=$null; [void][System.Management.Automation.Language.Parser]::ParseFile('${BASE}\\processes.ps1',[ref]$tokens,[ref]$errors); if($errors.Count){throw ($errors | Out-String)}; Write-Output 'processes.ps1 syntax_ok'`]);
   const refused=run(process.execPath,[resolve(BASE,'browser.mjs')],1);assert.match(refused.stderr,/No browser without parent exact target/);report.noGoRefused=true;
   const supervisor=run(process.execPath,[resolve(BASE,'run.mjs')],1);assert.match(supervisor.stderr,/Explicit parent go required/);report.supervisorNoGoRefused=true;
   for(const file of ['contract.mjs','contract.test.mjs','probes.mjs','browser.mjs','run.mjs','native-shortcut.ps1','processes.ps1','offline.mjs']) {

@@ -1,0 +1,83 @@
+{
+  "scope": "Direct current-shell recovery after child-shell cleanup timeout",
+  "before": {
+    "owned": [
+      {
+        "profile": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-KpEl8F\\profile",
+        "parent": 56540,
+        "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "pid": 48204,
+        "created": "2026-09-15T09:12:14.517136Z"
+      },
+      {
+        "profile": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-KpEl8F\\profile",
+        "parent": 48204,
+        "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "pid": 6252,
+        "created": "2026-09-15T09:12:14.768157Z"
+      },
+      {
+        "profile": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-KpEl8F\\profile",
+        "parent": 48204,
+        "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "pid": 47152,
+        "created": "2026-09-15T09:12:17.495788Z"
+      },
+      {
+        "profile": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-KpEl8F\\profile",
+        "parent": 48204,
+        "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "pid": 52564,
+        "created": "2026-09-15T09:12:17.509431Z"
+      },
+      {
+        "profile": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-KpEl8F\\profile",
+        "parent": 48204,
+        "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "pid": 55816,
+        "created": "2026-09-15T09:12:17.62489Z"
+      },
+      {
+        "profile": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-KpEl8F\\profile",
+        "parent": 48204,
+        "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "pid": 30160,
+        "created": "2026-09-15T09:12:17.888592Z"
+      },
+      {
+        "profile": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-KpEl8F\\profile",
+        "parent": 48204,
+        "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "pid": 24132,
+        "created": "2026-09-15T09:12:18.066303Z"
+      },
+      {
+        "profile": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-KpEl8F\\profile",
+        "parent": 48204,
+        "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "pid": 38004,
+        "created": "2026-09-15T09:12:18.297519Z"
+      }
+    ]
+  },
+  "result": {
+    "remaining": [
+      24132,
+      38004,
+      48204,
+      52564
+    ],
+    "verified": false,
+    "stopped": [
+      6252,
+      24132,
+      30160,
+      38004,
+      47152,
+      48204,
+      52564,
+      55816
+    ]
+  },
+  "exit": 1
+}

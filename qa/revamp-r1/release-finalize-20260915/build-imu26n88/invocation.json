@@ -1,0 +1,14 @@
+{
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\build.py",
+    "worker",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\build-imu26n88",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\actual-d0jk_tz3\\stage.json"
+  ],
+  "timeoutSeconds": 2100,
+  "stageReceiptSha256": "593d30695b51bcb091a7c0b8a4f9096fb9f62daeb86455fc6ba64467d4521d1a",
+  "pipelineRuns": 0,
+  "deployments": 0
+}

@@ -1,0 +1,7 @@
+Error: spawnSync C:\Program Files\PowerShell\7\pwsh.exe ETIMEDOUT
+    at Object.spawnSync (node:internal/child_process:1144:20)
+    at spawnSync (node:child_process:928:24)
+    at execFileSync (node:child_process:971:15)
+    at powershell (file:///C:/sgSHIOK2026/qa/revamp-r1/same-document-zoom-20260915/browser.mjs:49:16)
+    at native (file:///C:/sgSHIOK2026/qa/revamp-r1/same-document-zoom-20260915/browser.mjs:53:15)
+    at file:///C:/sgSHIOK2026/qa/revamp-r1/same-document-zoom-20260915/browser.mjs:137:24

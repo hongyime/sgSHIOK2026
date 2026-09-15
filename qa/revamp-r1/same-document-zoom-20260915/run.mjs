@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 import { mkdtempSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
-import { ROOT,BASE,BUDGET,config,ownedProfile } from './contract.mjs';
+import { ROOT,BASE,POWERSHELL,BUDGET,config,ownedProfile } from './contract.mjs';
 assert.equal(process.cwd(),ROOT,'Wrong working root');
 assert.equal(process.argv[2],'--go','Explicit parent go required');
 const configuration=process.argv[3];assert.equal(dirname(configuration??''),BASE);
@@ -20,7 +20,7 @@ try {
 finally {
   try {
     const ps=(args,ms)=>{
-      const result=spawnSync('powershell.exe',['-NoProfile','-NonInteractive','-File',resolve(BASE,'processes.ps1'),'-Profile',profile,...args],{cwd:ROOT,env,windowsHide:true,encoding:'utf8',timeout:Math.min(ms,started+BUDGET.total-BUDGET.receipt-Date.now()),maxBuffer:1024*1024});
+      const result=spawnSync(POWERSHELL,['-NoProfile','-NonInteractive','-File',resolve(BASE,'processes.ps1'),'-Profile',profile,...args],{cwd:ROOT,env,windowsHide:true,encoding:'utf8',timeout:Math.min(ms,started+BUDGET.total-BUDGET.receipt-Date.now()),maxBuffer:1024*1024});
       record.commands.push({args,exit:result.status,stdout:result.stdout,stderr:result.stderr,error:result.error?.message});assert.equal(result.status,0,result.stderr||result.error?.message);return JSON.parse(result.stdout);
     };
     const driver=existsSync(resolve(out,'browser.json'))?JSON.parse(readFileSync(resolve(out,'browser.json'),'utf8')):null;

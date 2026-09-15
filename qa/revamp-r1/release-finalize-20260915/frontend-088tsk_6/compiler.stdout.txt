@@ -1,0 +1,10 @@
+installed_dependencies=ok
+▲ Next.js 16.3.3 (webpack)
+✓ Running next.config.js took 54ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 88s
+  Running TypeScript ...
+.next/types/app/page.ts(14,13): error TS2344: Type 'OmitWithTag<typeof import("C:/sgSHIOK2026/tmp/frontend-release-20260915-vzhyxpgc/web/app/page"), "config" | "default" | "dynamic" | "dynamicParams" | "fetchCache" | "generateMetadata" | ... 10 more ... | "viewport", "">' does not satisfy the constraint '{ [x: string]: never; }'.
+  Property 'searchResultsAnnouncement' is incompatible with index signature.
+    Type '(results: SearchResult[], loading: boolean, error: string | null, searched?: boolean) => string' is not assignable to type 'never'.

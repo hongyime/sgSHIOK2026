@@ -1,0 +1,87 @@
+{"phase": "verify-before-build", "started": true}
+{"name": "verify-before-build", "seconds": 516.625}
+{"phase": "webpack", "started": true}
+{"name": "webpack", "seconds": 115.875}
+{"phase": "verify-after-build", "started": true}
+{"name": "verify-after-build", "seconds": 231.125}
+{
+  "root": "C:\\sgSHIOK2026",
+  "stage": "C:\\sgSHIOK2026\\tmp\\core-release-20260915-candidate-2",
+  "sourceRevision": "4f0234b126c6af228339ea8df0c5c18e4cc06a49",
+  "stageReceipt": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\actual-d0jk_tz3\\stage.json",
+  "stageReceiptSha256": "593d30695b51bcb091a7c0b8a4f9096fb9f62daeb86455fc6ba64467d4521d1a",
+  "releaseManifestSha256": "5ae6803bc224e2f1e408481001c7088ed896fd05f28aa73145b2fa0c9408e471",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\sgSHIOK2026\\tmp\\core-release-20260915-candidate-2\\web\\scripts\\build-next-release.mjs",
+    "build"
+  ],
+  "environment": {
+    "TEMP": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\build-imu26n88\\compiler-tmp",
+    "TMP": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\build-imu26n88\\compiler-tmp",
+    "NEXT_TELEMETRY_DISABLED": "1",
+    "NODE_OPTIONS": "--max-old-space-size=2048",
+    "SHIOK_DATA_BUNDLE": "generated_20260805_prefer_scored_routed",
+    "NEXT_PUBLIC_DATA_BASE": "/data/generated_20260805_prefer_scored_routed/",
+    "NEXT_PUBLIC_LAMP_OVERLAY_BASE": "/data/lamp_posts_v1/",
+    "SHIOK_REPORTS_ENABLED": "false",
+    "SHIOK_MODERATION_ENABLED": "false"
+  },
+  "compilerTimeoutSeconds": 600,
+  "outerTimeoutSeconds": 2100,
+  "pipelineRuns": 0,
+  "deployments": 0,
+  "installs": 0,
+  "phases": [
+    {
+      "name": "verify-before-build",
+      "seconds": 516.625
+    },
+    {
+      "name": "webpack",
+      "seconds": 115.875
+    },
+    {
+      "name": "verify-after-build",
+      "seconds": 231.125
+    }
+  ],
+  "passed": false,
+  "before": {
+    "status": "verified_not_deployed",
+    "stageRoot": "C:\\sgSHIOK2026\\tmp\\core-release-20260915-candidate-2",
+    "sourceRevision": "4f0234b126c6af228339ea8df0c5c18e4cc06a49",
+    "filesVerified": 5751,
+    "releaseManifestSha256": "5ae6803bc224e2f1e408481001c7088ed896fd05f28aa73145b2fa0c9408e471",
+    "generatedFilePolicy": [
+      "web/next-env.d.ts",
+      "web/tsconfig.tsbuildinfo"
+    ],
+    "generatedTreePolicy": [
+      "web/.next",
+      "web/node_modules"
+    ]
+  },
+  "build": {
+    "ok": false,
+    "returncode": 1,
+    "stdout": "installed_dependencies=ok\n\u25b2 Next.js 16.3.3 (webpack)\n\u2713 Running next.config.js took 114ms\n\n  Creating an optimized production build ...",
+    "stderr": "Warning: Custom Cache-Control headers detected for the following routes:\n  - /_next/static/:path*\n\nSetting a custom Cache-Control header can break Next.js development behavior.\n<w> [webpack.cache.PackFileCacheStrategy] Skipped not serializable cache item 'Compilation/modules|javascript/auto|C:\\sgSHIOK2026\\web\\node_modules\\next\\dist\\build\\webpack\\loaders\\next-flight-css-loader.js??ruleSet[1].rules[13].oneOf[5].use[0]!C:\\sgSHIOK2026\\web\\node_modules\\next\\dist\\build\\webpack\\loaders\\css-loader\\src\\index.js??ruleSet[1].rules[13].oneOf[5].use[1]!C:\\sgSHIOK2026\\web\\node_modules\\next\\dist\\build\\webpack\\loaders\\postcss-loader\\src\\index.js??ruleSet[1].rules[13].oneOf[5].use[2]!C:\\sgSHIOK2026\\tmp\\core-release-20260915-candidate-2\\web\\components\\route-evidence-map.module.css|ssr': No serializer registered for CssSyntaxError\n<w> while serializing webpack/lib/cache/PackFileCacheStrategy.PackContentItems -> webpack/lib/NormalModule -> webpack/lib/ModuleBuildError -> CssSyntaxError\nFailed to compile.\n\n./components/route-evidence-map.module.css:18:1\nSyntax error: Selector \":global(.maplibregl-map)\" is not pure (pure selectors must contain at least one local class or id)\n\n \u001b[90m 16 | \u001b[39m\u001b[33m}\u001b[39m\n \u001b[90m 17 | \u001b[39m\n\u001b[1m\u001b[31m>\u001b[39m\u001b[22m\u001b[90m 18 | \u001b[39m\u001b[33m:\u001b[39m\u001b[36mglobal\u001b[39m\u001b[36m(.maplibregl-map)\u001b[39m \u001b[33m{\u001b[39m\n \u001b[90m    | \u001b[39m\u001b[1m\u001b[31m^\u001b[39m\u001b[22m\n \u001b[90m 19 | \u001b[39m  position\u001b[33m:\u001b[39m relative\u001b[33m;\u001b[39m\n \u001b[90m 20 | \u001b[39m  overflow\u001b[33m:\u001b[39m hidden\u001b[33m;\u001b[39m\n\n\n> Build failed because of webpack errors\nfile:///C:/sgSHIOK2026/tmp/core-release-20260915-candidate-2/web/scripts/build-next-release.mjs:13\n  if (result.error || result.status !== 0) throw Error('DIRECT_NEXT_BUILD_FAILED');\n                                                 ^\n\nError: DIRECT_NEXT_BUILD_FAILED\n    at buildFrontendRelease (file:///C:/sgSHIOK2026/tmp/core-release-20260915-candidate-2/web/scripts/build-next-release.mjs:13:50)\n    at file:///C:/sgSHIOK2026/tmp/core-release-20260915-candidate-2/web/scripts/build-next-release.mjs:23:30\n    at ModuleJob.run (node:internal/modules/esm/module_job:569:25)\n    at async node:internal/modules/esm/loader:650:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v26.5.0"
+  },
+  "after": {
+    "status": "verified_not_deployed",
+    "stageRoot": "C:\\sgSHIOK2026\\tmp\\core-release-20260915-candidate-2",
+    "sourceRevision": "4f0234b126c6af228339ea8df0c5c18e4cc06a49",
+    "filesVerified": 5751,
+    "releaseManifestSha256": "5ae6803bc224e2f1e408481001c7088ed896fd05f28aa73145b2fa0c9408e471",
+    "generatedFilePolicy": [
+      "web/next-env.d.ts",
+      "web/tsconfig.tsbuildinfo"
+    ],
+    "generatedTreePolicy": [
+      "web/.next",
+      "web/node_modules"
+    ]
+  },
+  "elapsedSeconds": 864.719
+}

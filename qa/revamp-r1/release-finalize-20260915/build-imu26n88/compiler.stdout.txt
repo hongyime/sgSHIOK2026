@@ -1,0 +1,5 @@
+installed_dependencies=ok
+▲ Next.js 16.3.3 (webpack)
+✓ Running next.config.js took 114ms
+
+  Creating an optimized production build ...

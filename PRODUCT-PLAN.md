@@ -1,14 +1,29 @@
 # SHIOK Revamp Execution Plan
 Current scope: 2026-09-13 owner revision, replacing the 12 September UI scope.
 Completion resume: IN PROGRESS after14September owner answers, not complete.
-15September exact-release update: packaging fix4f0234b is pushed. Preserve supported
-plain JSON byte-for-byte when optional gzip is absent; never regenerate inputs.
-The explicit Webpack wrapper has contract coverage. Full isolated web3326/85files
-plus42guards passes. Actualcandidate2 reached the1200second staging timeout with
-owned cleanup complete and no success ledger. No build/browser/deployment ran.
-Preserve the partial scratch directory; diagnose/bound staging IO before another
-full copy. QA: qa/revamp-r1/core-release-20260915. Same-document zoom has61offline
-contracts only, not browser acceptance. The30-day policy remains unchanged.
+15September exact-release update:80ca2c7 adds independently reviewed verify-only
+finalization. The earlier1200second staging timeout remains recorded. Existing
+candidate2 now PASSES a fresh652.641second check:203source files and5751staged
+files, no recopy or payload repair. Originalsource4f and all11protected anchors
+plus locked weights match. QA: qa/revamp-r1/release-finalize-20260915.
+The first real Webpack build FAILED on a global-only selector in the map CSS
+module; pre/post5751file verification passed.2ed3263 scopes29selectors to the
+existing map container, with all other stylesheet text unchanged. Next's actual
+purity plugin passes all9modules.69eac6a fixes Next's reserved page-entry exports
+by moving the original Home implementation unchanged into app/home.tsx. Full
+isolated web3331/86files+42guards and types pass. Helper102prior+4new=106cases,
+final5boundarypass, not one final full helper-suite invocation. The frontend-only
+production build PASSED115.172seconds: BUILD_ID D2v5v_SSLYgX0SSyDHqvr,172outputs,
+129450261bytes, no data copy. Served HTML/assets/worker/data identity passed.
+This is NOT a complete deployable package. Native same-document zoom remains
+unverified: two launch attempts failed in PowerShell before app navigation, with
+zero screenshots; the final supervisor confirmed owned-browser cleanup. The
+PowerShell7 timestamp guard correction passes5cases;61offline contracts pass.
+Current 30-minute owned preview: http://127.0.0.1:10192/ (all APIs denied at proxy).
+Next: bounded browser launcher repair or owner-assisted acceptance, final package,
+returning-client/rollback/security/quota checks and exact release decision. No
+blind native rerun. Shared older previews remain historical, not current acceptance.
+The30-day report policy is unchanged; reporting activation does not gate this build.
 15September scope confirmation: the active goal includes ALL remaining build and
 ship tasks, not just Supabase setup. Report HTTP/retry and private cleanup are
 implemented with independent review and daily scheduling, then resident activation, moderator access,

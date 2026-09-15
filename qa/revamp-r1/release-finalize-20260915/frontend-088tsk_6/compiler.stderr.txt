@@ -1,0 +1,18 @@
+Warning: Custom Cache-Control headers detected for the following routes:
+  - /_next/static/:path*
+
+Setting a custom Cache-Control header can break Next.js development behavior.
+Failed to type check.
+
+file:///C:/sgSHIOK2026/tmp/frontend-release-20260915-vzhyxpgc/web/scripts/build-next-release.mjs:13
+  if (result.error || result.status !== 0) throw Error('DIRECT_NEXT_BUILD_FAILED');
+                                                 ^
+
+Error: DIRECT_NEXT_BUILD_FAILED
+    at buildFrontendRelease (file:///C:/sgSHIOK2026/tmp/frontend-release-20260915-vzhyxpgc/web/scripts/build-next-release.mjs:13:50)
+    at file:///C:/sgSHIOK2026/tmp/frontend-release-20260915-vzhyxpgc/web/scripts/build-next-release.mjs:23:30
+    at ModuleJob.run (node:internal/modules/esm/module_job:569:25)
+    at async node:internal/modules/esm/loader:650:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v26.5.0

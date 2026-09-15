@@ -1,0 +1,11 @@
+{
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-V6uwcu",
+  "passed": false,
+  "checks": 0,
+  "captures": 0,
+  "cleanup": {
+    "verified": true,
+    "noBrowserStarted": true
+  },
+  "elapsedMs": 11300
+}

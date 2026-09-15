@@ -4853,3 +4853,45 @@ Reference: https://nextjs.org/docs/app/api-reference/cli/next and
 https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory.
 Evidence: qa/revamp-r1/core-release-20260915/checkpoint.json. The30-day report
 policy is unchanged and private reporting does not block core-map preparation.
+
+### 2026-09-15: Finalize interrupted release staging without recopying payloads
+
+An interrupted scratch copy may be verified in place against independently read
+committed source and frozen artifacts. Do not derive expected hashes from that
+scratch copy. Require an explicitly pinned source revision, exact files and
+directories, matching bytes, no links or generated build/dependency trees, and
+stable HEAD through the final pass. Write only a new exclusive success ledger;
+never repair a mismatch or replace a stranded ledger. This is a quiescent-input
+contract and current equality proof, not atomic protection against hostile writers
+or proof that the interrupted invocation succeeded.
+
+Candidate2 passed this check without recopying. Preserve its original failed
+receipt. The regular verifier also now checks HEAD after its staged hash pass.
+Build preflight must verify the approved dependency junction before compiler use.
+Bind subsequent compiler output and served responses separately; the stage ledger
+does not cover generated .next files and is not deployment approval.
+Evidence: qa/revamp-r1/release-finalize-20260915/actual-d0jk_tz3/stage.json.
+No pipeline run, frozen-data mutation or report-retention change is authorized.
+
+### 2026-09-15: Validate the production compiler, not only unit tests and tsc
+
+The first exact Webpack build exposed global-only selectors in a CSS module.
+Scope the MapLibre root selector to the existing mapCanvas element and vendor
+descendants below it. The29selector changes preserve every other stylesheet byte.
+Tests now run Next's actual pure-selector plugin, including the rejected old
+selector and all nine app/component CSS modules. Do not add the full MapLibre
+stylesheet to the first-load layout or disable compiler validation.
+
+The next frontend-only build compiled that fix but rejected14helper value exports
+from app/page.tsx during generated route type checks. Ordinary tsc had not caught
+that contract. Keep the reserved page entry limited to the route component;
+colocate the byte-identical implementation and testable exports in app/home.tsx.
+Move existing implementation-level tests with it and separately test the route
+entry and its exact component identity. Do not silence generated route checks.
+
+Compile new committed frontend snapshots without repeatedly copying immutable
+release data. Such a build is frontend-only, not a complete deployable stage;
+served-data identity and final package assembly remain explicit later checks.
+Never modify or relabel the earlier candidate, ledger or failed-build receipts.
+Evidence: qa/revamp-r1/release-finalize-20260915. No pipeline processing, input
+mutation, report activation or deployment is part of these compiler corrections.
