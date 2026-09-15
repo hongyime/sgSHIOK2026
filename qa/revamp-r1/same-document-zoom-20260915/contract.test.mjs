@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { BASE, BUDGET, METRICS, config, ownedProfile, sameSelection, nativeZoom, allMetrics, transition } from './contract.mjs';
+import { BASE, BUDGET, METRICS, config, ownedProfile, sameSelection, nativeZoom, allMetrics, transition, knownBlockedBrowserTraffic } from './contract.mjs';
 const input = { approved:'exact-preview-go',target:'http://127.0.0.1:4500/?debugMap=1&postal=018956&transit=mrt_lrt&stop=mrt%3A21677',buildId:'test',sources:[{path:'web/app/page.tsx',sha256:'a'.repeat(64)}] };
 const doc = {timeOrigin:1,documentToken:'id',url:input.target,routeKey:'walk',geometry:'line',destination:'Exit E',postal:'018956',pressed:'MRT',focusToken:'token',focusSame:true};
 const normal = {dpr:1,scale:1,cssZoom:'1',bodyZoom:'1',inner:[1424,799],outer:[1440,950]};
@@ -30,3 +30,13 @@ test('reset uses native Ctrl0 once',async()=>{const actions=[],waits=[];await tr
 test('native send refusal stops without loop or substitution',async()=>{let calls=0;await assert.rejects(transition({snapshot:async()=>doc,shortcut:async()=>{calls++;throw Error('no foreground');},wait:async()=>{},factor:2}),/no foreground/);assert.equal(calls,1);});
 test('missing DPR change stops without another shortcut',async()=>{let calls=0;await assert.rejects(transition({snapshot:async()=>doc,shortcut:async()=>++calls,wait:async()=>{throw Error('DPR unchanged');},factor:2}),/DPR unchanged/);assert.equal(calls,1);});
 test('document navigation cannot pass transition',async()=>{let calls=0;await assert.rejects(transition({snapshot:async()=>calls++?{...doc,timeOrigin:2}:doc,shortcut:async()=>{},wait:async()=>{},factor:1}),/document\/selection\/focus/);});
+for(const url of ['www.gstatic.com:443','accounts.google.com:443','www.google.com:443'])test('classifies only observed blocked browser CONNECT '+url,()=>assert.equal(knownBlockedBrowserTraffic({kind:'connect',url}),true));
+test('classifies blocked Chrome time request without exposing query values',()=>assert.equal(knownBlockedBrowserTraffic({kind:'proxy',method:'GET',url:'http://clients2.google.com/time/1/current?test=1'}),true));
+for(const entry of [
+  {kind:'page',method:'GET',url:'http://clients2.google.com/time/1/current'},
+  {kind:'proxy',method:'POST',url:'http://clients2.google.com/time/1/current'},
+  {kind:'proxy',method:'GET',url:'http://clients2.google.com/other'},
+  {kind:'connect',url:'www.onemap.gov.sg:443'},
+  {kind:'connect',url:'www.google.com:8443'},
+  {kind:'proxy',method:'GET',url:'http://user@clients2.google.com/time/1/current'}
+])test('does not exempt application or unknown traffic '+JSON.stringify(entry),()=>assert.equal(knownBlockedBrowserTraffic(entry),false));

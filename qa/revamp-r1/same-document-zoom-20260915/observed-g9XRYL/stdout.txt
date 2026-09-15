@@ -1,0 +1,17 @@
+PASS selected explicit saved MRT exit loaded
+PASS initial browser page zoom100%
+PASS keyboard focus reaches visible map canvas
+PASS 100-before-metrics-0 current selected route stable across capture
+PASS 100-before-metrics-0 no horizontal page overflow
+PASS 100-before all four complete metric values read
+{
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-g9XRYL",
+  "passed": false,
+  "checks": 6,
+  "captures": 1,
+  "cleanup": {
+    "verified": false,
+    "error": "Error: Command failed: C:\\Program Files\\PowerShell\\7\\pwsh.exe -NoProfile -NonInteractive -File C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\processes.ps1 -BrowserPid 49964 -Profile C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-g9XRYL\\profile -Phase cleanup -Receipt C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-g9XRYL\\owned-before-close.json\n\u001b[31;1mGet-Content: \u001b[0mC:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\processes.ps1:37\u001b[0m\r\n\u001b[31;1m\u001b[0m\u001b[36;1mLine |\u001b[0m\r\n\u001b[31;1m\u001b[0m\u001b[36;1m\u001b[36;1m  37 | \u001b[0m $record=\u001b[36;1mGet-Content -LiteralPath $Receipt -Raw\u001b[0m | ConvertFrom-Json\u001b[0m\r\n\u001b[31;1m\u001b[0m\u001b[36;1m\u001b[36;1m\u001b[0m\u001b[36;1m\u001b[0m\u001b[36;1m     | \u001b[31;1m         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\u001b[0m\r\n\u001b[31;1m\u001b[0m\u001b[36;1m\u001b[36;1m\u001b[0m\u001b[36;1m\u001b[0m\u001b[36;1m\u001b[31;1m\u001b[31;1m\u001b[36;1m     | \u001b[31;1mCannot find path\u001b[0m\r\n\u001b[31;1m\u001b[0m\u001b[36;1m\u001b[36;1m\u001b[0m\u001b[36;1m\u001b[0m\u001b[36;1m\u001b[31;1m\u001b[31;1m\u001b[36;1m\u001b[31;1m\u001b[36;1m     | \u001b[31;1m'C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-g9XRYL\\owned-before-close.json' because it\u001b[0m\r\n\u001b[31;1m\u001b[0m\u001b[36;1m\u001b[36;1m\u001b[0m\u001b[36;1m\u001b[0m\u001b[36;1m\u001b[31;1m\u001b[31;1m\u001b[36;1m\u001b[31;1m\u001b[36;1m\u001b[31;1m\u001b[36;1m     | \u001b[31;1mdoes not exist.\u001b[0m\r\n\n    at genericNodeError (node:internal/errors:999:15)\n    at wrappedFn (node:internal/errors:544:14)\n    at ChildProcess.exithandler (node:child_process:417:12)\n    at ChildProcess.emit (node:events:509:20)\n    at maybeClose (node:internal/child_process:1125:16)\n    at ChildProcess._handle.onexit (node:internal/child_process:305:5)"
+  },
+  "elapsedMs": 83114
+}

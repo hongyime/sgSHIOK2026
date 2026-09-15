@@ -1,0 +1,258 @@
+{
+  "scope": "Offline contracts, syntax and Win32 ABI only. No browser, keyboard injection, window manipulation, target requests, installation or remote calls.",
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\offline-lkqmWz",
+  "startedAt": "2026-09-15T10:18:52.961Z",
+  "commands": [
+    {
+      "exe": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "--check",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\contract.mjs"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsedMs": 267
+    },
+    {
+      "exe": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "--check",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\contract.test.mjs"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsedMs": 276
+    },
+    {
+      "exe": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "--check",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\probes.mjs"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsedMs": 270
+    },
+    {
+      "exe": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "--check",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\browser.mjs"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsedMs": 260
+    },
+    {
+      "exe": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "--check",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\run.mjs"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsedMs": 273
+    },
+    {
+      "exe": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "--check",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\offline.mjs"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsedMs": 302
+    },
+    {
+      "exe": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "--check",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\helper-process.mjs"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsedMs": 263
+    },
+    {
+      "exe": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "--check",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\helper-process.test.mjs"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsedMs": 303
+    },
+    {
+      "exe": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "--check",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\native-probe.mjs"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsedMs": 319
+    },
+    {
+      "exe": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "--test",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\contract.test.mjs"
+      ],
+      "exit": 0,
+      "stdout": "✔ bounds reserve independent cleanup and receipt time (11.3585ms)\n✔ accept exact parent config (2.6403ms)\n✔ reject approval (5.1611ms)\n✔ reject remote (0.9615ms)\n✔ reject credentials (1.0236ms)\n✔ reject withoutSelection (1.1604ms)\n✔ reject withoutSources (0.8867ms)\n✔ reject absoluteSource (0.7238ms)\n✔ reject escapeSource (0.7559ms)\n✔ reject badHash (1.9184ms)\n✔ reject remoteReply (1.6527ms)\n✔ one exact owned profile (0.8031ms)\n✔ reject profile C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-Ab12Cd\\profile\\child (0.5825ms)\n✔ reject profile C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-Ab12Cd\\..\\profile (0.3295ms)\n✔ reject profile C:\\sgSHIOK2026\\tmp\\profile (0.278ms)\n✔ reject profile X:\\profile (0.2297ms)\n✔ identity preserves document and focused DOM object (0.5819ms)\n✔ reject changed timeOrigin (0.2212ms)\n✔ reject changed documentToken (0.1325ms)\n✔ reject changed url (0.1453ms)\n✔ reject changed routeKey (0.2107ms)\n✔ reject changed geometry (0.139ms)\n✔ reject changed destination (0.1179ms)\n✔ reject changed postal (0.1199ms)\n✔ reject changed pressed (0.1676ms)\n✔ reject changed focusToken (0.1791ms)\n✔ reject replaced same-label focused element (0.348ms)\n✔ cannot preserve missing timeOrigin (0.2332ms)\n✔ cannot preserve missing documentToken (0.2251ms)\n✔ cannot preserve missing url (0.1311ms)\n✔ cannot preserve missing routeKey (0.1688ms)\n✔ cannot preserve missing geometry (0.2272ms)\n✔ cannot preserve missing destination (0.1187ms)\n✔ cannot preserve missing postal (0.1269ms)\n✔ cannot preserve missing pressed (0.1335ms)\n✔ cannot preserve missing focusToken (0.2258ms)\n✔ empty geometry cannot establish selected route (0.3643ms)\n✔ native double zoom requires stable physical window and DPR (0.797ms)\n✔ native reset (0.308ms)\n✔ reject zoom substitute pinch (0.3622ms)\n✔ reject zoom substitute css (0.3255ms)\n✔ reject zoom substitute body (0.2993ms)\n✔ reject zoom substitute metricsOnly (0.2287ms)\n✔ reject zoom substitute resize (0.2326ms)\n✔ reject zoom substitute widthOnly (0.1799ms)\n✔ reject native window (0.3571ms)\n✔ reject native client (0.2701ms)\n✔ reject native otherWindow (0.1491ms)\n✔ reject native otherPid (0.1027ms)\n✔ reject native dpi (0.1122ms)\n✔ reject native hidden (0.1204ms)\n✔ reject native minimized (0.1654ms)\n✔ all four metrics read across scroll captures (0.5772ms)\n✔ reject unreadable metric {\"visible\":false} (0.4569ms)\n✔ reject unreadable metric {\"value\":\"changed\"} (0.2198ms)\n✔ not merely count four labels (0.3017ms)\n✔ five native shortcuts observe every genuine intermediate DPR (2.5003ms)\n✔ reset uses native Ctrl0 once (1.081ms)\n✔ native send refusal stops without loop or substitution (2.3653ms)\n✔ missing DPR change stops without another shortcut (0.9062ms)\n✔ document navigation cannot pass transition (1.1999ms)\n✔ classifies only observed blocked browser CONNECT www.gstatic.com:443 (0.3852ms)\n✔ classifies only observed blocked browser CONNECT accounts.google.com:443 (0.1965ms)\n✔ classifies only observed blocked browser CONNECT www.google.com:443 (0.1714ms)\n✔ classifies blocked Chrome time request without exposing query values (0.3757ms)\n✔ does not exempt application or unknown traffic {\"kind\":\"page\",\"method\":\"GET\",\"url\":\"http://clients2.google.com/time/1/current\"} (0.1935ms)\n✔ does not exempt application or unknown traffic {\"kind\":\"proxy\",\"method\":\"POST\",\"url\":\"http://clients2.google.com/time/1/current\"} (0.1151ms)\n✔ does not exempt application or unknown traffic {\"kind\":\"proxy\",\"method\":\"GET\",\"url\":\"http://clients2.google.com/other\"} (0.1477ms)\n✔ does not exempt application or unknown traffic {\"kind\":\"connect\",\"url\":\"www.onemap.gov.sg:443\"} (0.2505ms)\n✔ does not exempt application or unknown traffic {\"kind\":\"connect\",\"url\":\"www.google.com:8443\"} (0.2194ms)\n✔ does not exempt application or unknown traffic {\"kind\":\"proxy\",\"method\":\"GET\",\"url\":\"http://user@clients2.google.com/time/1/current\"} (0.2361ms)\nℹ tests 71\nℹ suites 0\nℹ pass 71\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 472.8183\n",
+      "stderr": "",
+      "elapsedMs": 757
+    },
+    {
+      "exe": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "--test",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\helper-process.test.mjs",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\lifecycle-probe-20260910\\worker-session.test.mjs"
+      ],
+      "exit": 0,
+      "stdout": "✔ worker observation binds every command to the child and resumes only after observers (7.1219ms)\n✔ observer failure is not swallowed: Network.enable (2.7337ms)\n✔ observer failure is not swallowed: Runtime.enable (3.3924ms)\n✔ missing worker identity cannot send to the browser session by accident (0.9795ms)\n✔ helper leaves parent event loop responsive to child HTTP requests (562.7623ms)\n✔ nonzero helper preserves separate stdout and stderr (261.8779ms)\n✔ deadline terminates and reaps the owned helper (1546.3043ms)\n✔ exhausted deadline refuses to spawn (1.2729ms)\nℹ tests 8\nℹ suites 0\nℹ pass 8\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 2845.1272\n",
+      "stderr": "",
+      "elapsedMs": 3121
+    },
+    {
+      "exe": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "--test",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\display-images.test.mjs"
+      ],
+      "exit": 0,
+      "stdout": "✔ exact tile/logo allowlist excludes APIs, credentials, query, fragments and other hosts (5.0409ms)\n✔ same URL is fetched once and recorded with exact bytes; credentials omitted and redirects rejected (109.5867ms)\n✔ request cap rejects before fetch and failed URL is not retried (9.2637ms)\n✔ byte cap rejects before saving (3.4999ms)\n✔ invalid content type and PNG signature fail closed (4.9419ms)\n✔ expired deadline performs no request (1.5015ms)\n✔ concurrency limited to six, queued work still completes (49.03ms)\nℹ tests 7\nℹ suites 0\nℹ pass 7\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 592.881\n",
+      "stderr": "",
+      "elapsedMs": 855
+    },
+    {
+      "exe": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+      "args": [
+        "-NoProfile",
+        "-NonInteractive",
+        "-File",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\native-shortcut.ps1",
+        "-SelfTest"
+      ],
+      "exit": 0,
+      "stdout": "{\"nativeCalls\":0,\"inputBytes\":40,\"pointerBytes\":8,\"keys\":{\"reset\":48,\"zoomOut\":189,\"zoomIn\":187},\"selfTest\":true}\r\n",
+      "stderr": "",
+      "elapsedMs": 7883
+    },
+    {
+      "exe": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+      "args": [
+        "-NoProfile",
+        "-NonInteractive",
+        "-Command",
+        "$ErrorActionPreference='Stop'; if((Get-Location).Path -ne 'C:\\sgSHIOK2026'){throw 'Wrong root'}; $tokens=$null; $errors=$null; [void][System.Management.Automation.Language.Parser]::ParseFile('C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\processes.ps1',[ref]$tokens,[ref]$errors); if($errors.Count){throw ($errors | Out-String)}; Write-Output 'processes.ps1 syntax_ok'"
+      ],
+      "exit": 0,
+      "stdout": "processes.ps1 syntax_ok\r\n",
+      "stderr": "",
+      "elapsedMs": 3922
+    },
+    {
+      "exe": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\browser.mjs"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "node:internal/modules/run_main:107\r\n    triggerUncaughtException(\r\n    ^\r\n\r\nAssertionError [ERR_ASSERTION]: No browser without parent exact target and explicit --go\r\n+ actual - expected\r\n\r\n+ undefined\r\n- '--go'\r\n\r\n    at file:///C:/sgSHIOK2026/qa/revamp-r1/same-document-zoom-20260915/browser.mjs:14:8\r\n    at ModuleJob.run (node:internal/modules/esm/module_job:569:25)\r\n    at async node:internal/modules/esm/loader:650:26\r\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {\r\n  generatedMessage: false,\r\n  code: 'ERR_ASSERTION',\r\n  actual: undefined,\r\n  expected: '--go',\r\n  operator: 'strictEqual',\r\n  diff: 'simple'\r\n}\r\n\r\nNode.js v26.5.0\r\n",
+      "elapsedMs": 1097
+    },
+    {
+      "exe": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\run.mjs"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "node:internal/modules/run_main:107\r\n    triggerUncaughtException(\r\n    ^\r\n\r\nAssertionError [ERR_ASSERTION]: Explicit parent go required\r\n+ actual - expected\r\n\r\n+ undefined\r\n- '--go'\r\n\r\n    at file:///C:/sgSHIOK2026/qa/revamp-r1/same-document-zoom-20260915/run.mjs:7:8\r\n    at ModuleJob.run (node:internal/modules/esm/module_job:569:25)\r\n    at async node:internal/modules/esm/loader:650:26\r\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {\r\n  generatedMessage: false,\r\n  code: 'ERR_ASSERTION',\r\n  actual: undefined,\r\n  expected: '--go',\r\n  operator: 'strictEqual',\r\n  diff: 'simple'\r\n}\r\n\r\nNode.js v26.5.0\r\n",
+      "elapsedMs": 998
+    }
+  ],
+  "sources": [
+    {
+      "file": "contract.mjs",
+      "bytes": 5901,
+      "sha256": "63a18c2be07454227839f20c583afff1c74f2bec74a595ed993b4e23ba0bb3d8"
+    },
+    {
+      "file": "contract.test.mjs",
+      "bytes": 6905,
+      "sha256": "c11746e41ce9f2c32bff516604c3510c858ba20676aa06a5d11115c0db8fb85b"
+    },
+    {
+      "file": "probes.mjs",
+      "bytes": 5208,
+      "sha256": "e6ce8bcc24912fe753e29ea58b089c6553ba915299666a65d3e513226d0b029e"
+    },
+    {
+      "file": "browser.mjs",
+      "bytes": 20412,
+      "sha256": "ccb453ce5cb6e763eca185d2e5ea826584c17ae06ba9b8029b8b5b9caa70db80"
+    },
+    {
+      "file": "run.mjs",
+      "bytes": 3456,
+      "sha256": "bff63b9e5202bd33f4463132a26224562e6322ad700cd881de03d0f37bd08303"
+    },
+    {
+      "file": "native-shortcut.ps1",
+      "bytes": 7318,
+      "sha256": "ec3e03ee9db070ae27f3013df1192ab41835684663180fb5182a13860a3df1ad"
+    },
+    {
+      "file": "processes.ps1",
+      "bytes": 3641,
+      "sha256": "108bbbc8e3371561448e6c854397570785425a9bad66d94d7185d244d2d1b1c5"
+    },
+    {
+      "file": "offline.mjs",
+      "bytes": 3325,
+      "sha256": "6f91be228b0d8a52b86f89b2ce9732de03a589d13c6366b2968f0faac1ae6304"
+    },
+    {
+      "file": "helper-process.mjs",
+      "bytes": 381,
+      "sha256": "2f64270cb47fe5cdd89d46b84581c9b9935ed9eb7e6c5bbe8339651b03cb3b34"
+    },
+    {
+      "file": "helper-process.test.mjs",
+      "bytes": 1490,
+      "sha256": "4c162ee20c5ecfefe27545e7de39018c075bb9bf83f2d9357461516af8db4936"
+    },
+    {
+      "file": "../lifecycle-probe-20260910/worker-session.mjs",
+      "bytes": 397,
+      "sha256": "dc995a19c0f22ba96ed7ec4ebca1c7ded810e5295a0938775332f5726764c10e"
+    }
+  ],
+  "passed": true,
+  "nativeAbi": {
+    "nativeCalls": 0,
+    "inputBytes": 40,
+    "pointerBytes": 8,
+    "keys": {
+      "reset": 48,
+      "zoomOut": 189,
+      "zoomIn": 187
+    },
+    "selfTest": true
+  },
+  "noGoRefused": true,
+  "supervisorNoGoRefused": true
+}

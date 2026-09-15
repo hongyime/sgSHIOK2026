@@ -15,12 +15,16 @@ isolated web3331/86files+42guards and types pass. Helper102prior+4new=106cases,
 final5boundarypass, not one final full helper-suite invocation. The frontend-only
 production build PASSED115.172seconds: BUILD_ID D2v5v_SSLYgX0SSyDHqvr,172outputs,
 129450261bytes, no data copy. Served HTML/assets/worker/data identity passed.
-This is NOT a complete deployable package. Native same-document zoom remains
-unverified: two launch attempts failed in PowerShell before app navigation, with
-zero screenshots; the final supervisor confirmed owned-browser cleanup. The
-PowerShell7 timestamp guard correction passes5cases;61offline contracts pass.
-Current 30-minute owned preview: http://127.0.0.1:10192/ (all APIs denied at proxy).
-Next: bounded browser launcher repair or owner-assisted acceptance, final package,
+This is NOT a complete deployable package. Latest observation g9XRYL visibly
+renders the basemap and6current-route features with all4metrics readable at100%.
+Six checks pass; overall FAIL when the first native zoom helper exceeds15seconds.
+No200% or same-document zoom-cycle acceptance. Independent supervisor cleanup
+verified. Earlier gKgOV1/WV0Y9v failures exposed incomplete frozen tiles and
+discarded CORS headers in the QA harness, not a demonstrated app defect. New
+bounded capture preserves upstream PNG/CORS responses;177images/858648bytes.
+Offline87cases plus9image cases pass (8overlap); app source/build unchanged.
+Current 30-minute owned preview: http://127.0.0.1:62974/ (all APIs denied at proxy).
+Next: reliable native helper or owner-assisted acceptance, final source package,
 returning-client/rollback/security/quota checks and exact release decision. No
 blind native rerun. Shared older previews remain historical, not current acceptance.
 The30-day report policy is unchanged; reporting activation does not gate this build.

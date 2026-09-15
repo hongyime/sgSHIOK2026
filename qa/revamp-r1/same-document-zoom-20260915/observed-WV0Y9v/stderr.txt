@@ -1,0 +1,3 @@
+Error: initial exact saved route timeout
+    at until (file:///C:/sgSHIOK2026/qa/revamp-r1/same-document-zoom-20260915/browser.mjs:48:9)
+    at async file:///C:/sgSHIOK2026/qa/revamp-r1/same-document-zoom-20260915/browser.mjs:154:17

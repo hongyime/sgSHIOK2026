@@ -1,0 +1,60 @@
+{
+  "owned": [
+    {
+      "created": "2026-09-15T10:23:52.5178100Z",
+      "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "profile": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-WV0Y9v\\profile",
+      "parent": 54704,
+      "pid": 49292
+    },
+    {
+      "created": "2026-09-15T10:23:52.6586640Z",
+      "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "profile": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-WV0Y9v\\profile",
+      "parent": 49292,
+      "pid": 54308
+    },
+    {
+      "created": "2026-09-15T10:23:54.8044870Z",
+      "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "profile": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-WV0Y9v\\profile",
+      "parent": 49292,
+      "pid": 48660
+    },
+    {
+      "created": "2026-09-15T10:23:54.8058880Z",
+      "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "profile": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-WV0Y9v\\profile",
+      "parent": 49292,
+      "pid": 56384
+    },
+    {
+      "created": "2026-09-15T10:23:54.8873700Z",
+      "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "profile": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-WV0Y9v\\profile",
+      "parent": 49292,
+      "pid": 47356
+    },
+    {
+      "created": "2026-09-15T10:23:55.0565630Z",
+      "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "profile": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-WV0Y9v\\profile",
+      "parent": 49292,
+      "pid": 53812
+    },
+    {
+      "created": "2026-09-15T10:23:55.2605850Z",
+      "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "profile": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-WV0Y9v\\profile",
+      "parent": 49292,
+      "pid": 57452
+    },
+    {
+      "created": "2026-09-15T10:23:55.4126800Z",
+      "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "profile": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-WV0Y9v\\profile",
+      "parent": 49292,
+      "pid": 57516
+    }
+  ]
+}

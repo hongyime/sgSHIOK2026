@@ -9684,3 +9684,37 @@ Read-only comparison of the raw timestamp-test output with `git show 74f9e3c:qa/
   ]
 }
 ```
+
+### Continuation 2026-09-15: real display responses and native zoom boundary
+
+Committed receipts: `qa/revamp-r1/same-document-zoom-20260915/continuation.json`
+and each named observation's `browser.json` / `supervisor.json`. The scoped
+FINDINGS and DISAGREEMENTS are in continuation.json, not only in chat.
+
+Read-only supervisor/contract extraction output:
+
+```json
+{"run":"observed-gKgOV1","passed":false,"elapsedMs":154123,"cleanup":{"verified":true,"driverReceiptVerified":true}}
+{"run":"observed-WV0Y9v","passed":false,"elapsedMs":151848,"cleanup":{"verified":true,"driverReceiptVerified":true}}
+{"run":"observed-g9XRYL","passed":false,"elapsedMs":105700,"cleanup":{"stopped":[],"verified":true,"remaining":[]}}
+```
+
+Arithmetic: 154123 + 151848 + 105700 = 411671 ms for these three supervised
+app attempts, not pipeline execution. Pipeline runs: 0. No protected-data writes.
+The parent inspected WV0Y9v/failure.png and both g9XRYL screenshots. The latter
+shows a ready basemap and selected walk, but the first native zoom command timed
+out. No same-document cycle pass is claimed. Source and immutable data are unchanged.
+
+FINDINGS
+1. The actual current build has an inspected ready basemap, selected route and
+   all four readable metrics at100%; six checks pass, not the complete run.
+2. Missing QA image replies and dropped CORS headers caused harness failures.
+   The corrected image capture is bounded and preserves upstream headers.
+3. Native zoom still times out in the owned Windows helper. Independent cleanup
+   succeeds; no blind repetition or full acceptance claim is justified.
+4. Thirty-day retention remains applied; private intake stays disabled pending
+   operational acceptance. No pipeline, deployment or protected-data change.
+
+DISAGREEMENTS
+1. Successful Node image downloads do not prove browser CORS/display acceptance.
+2. No disagreement with30-day retention. Startup checks are not shipping approval.

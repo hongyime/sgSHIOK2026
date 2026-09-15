@@ -1,0 +1,10 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\run.mjs",
+    "--go",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\exact-69eac6a-preview-e4IoL5-display.json"
+  ],
+  "timeoutSeconds": 630,
+  "arithmetic": "600 seconds inner aggregate + 30 seconds outer cleanup/receipt = 630 seconds"
+}

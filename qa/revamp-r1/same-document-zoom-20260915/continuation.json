@@ -1,0 +1,34 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "PRAWN-E14",
+  "date": "2026-09-15",
+  "build": "D2v5v_SSLYgX0SSyDHqvr",
+  "appSource": "69eac6a22ab3794a8648c3211c961340081b7d45",
+  "retentionDays": 30,
+  "reportingEnabled": false,
+  "pipelineRuns": 0,
+  "deployments": 0,
+  "appEdits": 0,
+  "protectedDataEdits": 0,
+  "appAttempts": [
+    {"directory":"observed-gKgOV1","passed":false,"supervisorElapsedMs":154123,"cleanupVerified":true,"captures":0},
+    {"directory":"observed-WV0Y9v","passed":false,"supervisorElapsedMs":151848,"cleanupVerified":true,"failureCaptures":1},
+    {"directory":"observed-g9XRYL","passed":false,"supervisorElapsedMs":105700,"cleanupVerified":true,"captures":1,"failureCaptures":1,"checksPassed":6}
+  ],
+  "appAttemptArithmetic": "154123 + 151848 + 105700 = 411671 ms; includes each supervisor once",
+  "latestDisplayCapture": {"images":177,"bytes":858648,"maxImages":256,"maxBytes":16777216},
+  "latestRoute": {"postal":"018956","destination":"BAYFRONT MRT STATION Exit E","renderedFeatures":6,"status":"ready","overflow":false},
+  "offlineReceipt": "offline-BYkd40/offline.json",
+  "offlineArithmetic": "71 contract + 4 asynchronous helper + 4 worker + 8 image = 87 passed; later focused 9 image cases passed with 8 overlapping",
+  "FINDINGS": [
+    "The actual built app now has a parent-inspected ready basemap/selected-route screenshot with all four metrics visible at 100 percent. Six checks pass; this is not complete browser acceptance.",
+    "The previous harness blocked 160 requested image URLs absent from its frozen set. Its next version fetched real PNGs but dropped upstream Access-Control-Allow-Origin. Fresh bounded capture now requires and preserves upstream public CORS and Content-Type; it neither repairs pipeline inputs nor forwards API requests.",
+    "Unpaused type-specific worker observation removes the service-worker instrumentation stall. The canonical default exit legitimately drops the redundant stop parameter; no app selection change was needed.",
+    "The native shortcut process still exceeded its 15-second deadline after Add-Type compilation consumed 8.169 seconds. The 100-to-200-to-100 cycle is unverified. Driver cleanup failed, but the independent supervisor confirmed no owned browser remained.",
+    "All failed receipts remain. No app/data change, installation, pipeline run, deployment or report activation occurred. The applied 30-day retention policy is unchanged."
+  ],
+  "DISAGREEMENTS": [
+    "A PNG downloaded successfully by Node is not proof that the browser can display it; replaying the browser-relevant response headers is required.",
+    "No disagreement with 30-day retention. Do not equate six passed startup checks with a passed native zoom cycle or a shipped product."
+  ]
+}

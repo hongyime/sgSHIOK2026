@@ -7,6 +7,15 @@ export const BASE = ROOT + '\\qa\\revamp-r1\\same-document-zoom-20260915';
 export const METRICS = ['Walk distance', 'Covered', 'Uncovered', 'Longest gap'];
 export const BUDGET = { total: 600000, work: 420000, cleanup: 60000, supervisor: 90000, receipt: 30000 };
 
+export function knownBlockedBrowserTraffic(entry){
+  if(entry.kind==='connect')return ['www.gstatic.com:443','accounts.google.com:443','www.google.com:443'].includes(entry.url);
+  if(entry.kind!=='proxy'||entry.method!=='GET')return false;
+  try{
+    const url=new URL(entry.url);
+    return url.origin==='http://clients2.google.com'&&url.pathname==='/time/1/current'&&!url.username&&!url.password;
+  }catch{return false;}
+}
+
 export function ownedProfile(profile) {
   const relative = win32.relative(BASE, profile);
   return profile === win32.resolve(profile) && /^observed-[A-Za-z0-9]{6}\\profile$/.test(relative);
@@ -27,7 +36,8 @@ export function config(value) {
     assert.ok(typeof source.path === 'string' && !win32.isAbsolute(source.path) && !source.path.split(/[\\/]/).includes('..'), 'Repository relative source only');
     assert.match(source.sha256, /^[a-f0-9]{64}$/);
   }
-  // Optional frozen local tile replies must be explicit. No remote tile fetch is allowed.
+  assert.ok(value.captureDisplayImages===undefined||typeof value.captureDisplayImages==='boolean');
+  // Frozen replies remain exact. Explicit display-image capture has a separate bounded allowlist.
   for (const tile of value.localReplies ?? []) {
     const remote = new URL(tile.url);
     assert.equal(remote.origin, 'https://www.onemap.gov.sg');

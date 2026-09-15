@@ -1,0 +1,120 @@
+{
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-Cp3yL0",
+  "profile": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-Cp3yL0\\profile",
+  "startedAt": "2026-09-15T09:50:45.812Z",
+  "freeBytes": 2370400256,
+  "scope": "Native helper stage diagnosis on one owned blank Chrome window; no app navigation or acceptance claim",
+  "helperSha256": "ec3e03ee9db070ae27f3013df1192ab41835684663180fb5182a13860a3df1ad",
+  "steps": [
+    {
+      "args": [
+        "-SelfTest"
+      ],
+      "timeoutMs": 30000,
+      "startedMs": 5,
+      "stdout": "{\"pointerBytes\":8,\"nativeCalls\":0,\"keys\":{\"zoomOut\":189,\"reset\":48,\"zoomIn\":187},\"inputBytes\":40,\"selfTest\":true}\r\n",
+      "stderr": "{\"elapsedMs\":40,\"stage\":\"compile-start\"}\r\n{\"elapsedMs\":2762,\"stage\":\"compile-end\"}\r\n",
+      "code": 0,
+      "signal": null,
+      "elapsedMs": 5142,
+      "value": {
+        "pointerBytes": 8,
+        "nativeCalls": 0,
+        "keys": {
+          "zoomOut": 189,
+          "reset": 48,
+          "zoomIn": 187
+        },
+        "inputBytes": 40,
+        "selfTest": true
+      }
+    },
+    {
+      "args": [
+        "-BrowserPid",
+        "54360",
+        "-Profile",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-Cp3yL0\\profile",
+        "-Action",
+        "inspect"
+      ],
+      "timeoutMs": 20000,
+      "startedMs": 7558,
+      "stdout": "{\"client\":{\"width\":1424,\"height\":942},\"minimized\":false,\"visible\":false,\"foregroundBefore\":49548448,\"hwnd\":49548448,\"sent\":0,\"dpi\":96,\"pid\":54360,\"window\":{\"height\":950,\"x\":10,\"width\":1440,\"y\":10},\"foregroundAfter\":49548448,\"inputBytes\":40,\"action\":\"inspect\"}\r\n",
+      "stderr": "{\"elapsedMs\":81,\"stage\":\"compile-start\"}\r\n{\"elapsedMs\":1898,\"stage\":\"compile-end\"}\r\n{\"elapsedMs\":1976,\"stage\":\"process-lookup-start\"}\r\n{\"elapsedMs\":2668,\"stage\":\"process-lookup-end\"}\r\n{\"elapsedMs\":2697,\"stage\":\"window-enumeration-start\"}\r\n{\"elapsedMs\":2738,\"stage\":\"window-enumeration-end\"}\r\n",
+      "code": 0,
+      "signal": null,
+      "elapsedMs": 7437,
+      "value": {
+        "client": {
+          "width": 1424,
+          "height": 942
+        },
+        "minimized": false,
+        "visible": false,
+        "foregroundBefore": 49548448,
+        "hwnd": 49548448,
+        "sent": 0,
+        "dpi": 96,
+        "pid": 54360,
+        "window": {
+          "height": 950,
+          "x": 10,
+          "width": 1440,
+          "y": 10
+        },
+        "foregroundAfter": 49548448,
+        "inputBytes": 40,
+        "action": "inspect"
+      }
+    },
+    {
+      "args": [
+        "-BrowserPid",
+        "54360",
+        "-Profile",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-Cp3yL0\\profile",
+        "-Action",
+        "reset"
+      ],
+      "timeoutMs": 20000,
+      "startedMs": 14996,
+      "stdout": "{\"action\":\"reset\",\"client\":{\"width\":1424,\"height\":942},\"visible\":true,\"minimized\":false,\"foregroundAfter\":49548448,\"foregroundBefore\":49548448,\"dpi\":96,\"window\":{\"x\":10,\"height\":950,\"width\":1440,\"y\":10},\"pid\":54360,\"hwnd\":49548448,\"sent\":4,\"inputBytes\":40}\r\n",
+      "stderr": "{\"elapsedMs\":53,\"stage\":\"compile-start\"}\r\n{\"elapsedMs\":1313,\"stage\":\"compile-end\"}\r\n{\"elapsedMs\":1359,\"stage\":\"process-lookup-start\"}\r\n{\"elapsedMs\":1961,\"stage\":\"process-lookup-end\"}\r\n{\"elapsedMs\":1985,\"stage\":\"window-enumeration-start\"}\r\n{\"elapsedMs\":2022,\"stage\":\"window-enumeration-end\"}\r\n{\"elapsedMs\":2067,\"stage\":\"show-window-start\"}\r\n{\"elapsedMs\":2105,\"stage\":\"show-window-end\"}\r\n{\"elapsedMs\":2115,\"stage\":\"foreground-request-end\"}\r\n{\"elapsedMs\":2194,\"stage\":\"send-input-start\"}\r\n{\"elapsedMs\":2274,\"stage\":\"send-input-end\"}\r\n",
+      "code": 0,
+      "signal": null,
+      "elapsedMs": 5086,
+      "value": {
+        "action": "reset",
+        "client": {
+          "width": 1424,
+          "height": 942
+        },
+        "visible": true,
+        "minimized": false,
+        "foregroundAfter": 49548448,
+        "foregroundBefore": 49548448,
+        "dpi": 96,
+        "window": {
+          "x": 10,
+          "height": 950,
+          "width": 1440,
+          "y": 10
+        },
+        "pid": 54360,
+        "hwnd": 49548448,
+        "sent": 4,
+        "inputBytes": 40
+      }
+    }
+  ],
+  "blockedBackgroundRequests": 10,
+  "passed": true,
+  "chromePid": 54360,
+  "chromeExit": {
+    "code": null,
+    "signal": "SIGTERM"
+  },
+  "childExited": false,
+  "elapsedMs": 28161
+}

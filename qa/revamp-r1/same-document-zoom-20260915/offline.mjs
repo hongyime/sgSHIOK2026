@@ -15,14 +15,16 @@ function run(exe,args,expected=0) {
   assert.equal(row.exit,expected,row.stderr||row.error);return row;
 }
 try {
-  for(const file of ['contract.mjs','contract.test.mjs','probes.mjs','browser.mjs','run.mjs','offline.mjs'])run(process.execPath,['--check',resolve(BASE,file)]);
+  for(const file of ['contract.mjs','contract.test.mjs','probes.mjs','browser.mjs','run.mjs','offline.mjs','helper-process.mjs','helper-process.test.mjs','native-probe.mjs'])run(process.execPath,['--check',resolve(BASE,file)]);
   run(process.execPath,['--test',resolve(BASE,'contract.test.mjs')]);
+  run(process.execPath,['--test',resolve(BASE,'helper-process.test.mjs'),resolve(BASE,'../lifecycle-probe-20260910/worker-session.test.mjs')]);
+  run(process.execPath,['--test',resolve(BASE,'display-images.test.mjs')]);
   const abi=run(POWERSHELL,['-NoProfile','-NonInteractive','-File',resolve(BASE,'native-shortcut.ps1'),'-SelfTest']);
   const result=JSON.parse(abi.stdout.replace(/^\uFEFF/,''));assert.equal(result.nativeCalls,0);assert.equal(result.inputBytes,result.pointerBytes===8?40:28);report.nativeAbi=result;
   run(POWERSHELL,['-NoProfile','-NonInteractive','-Command',`$ErrorActionPreference='Stop'; if((Get-Location).Path -ne '${ROOT}'){throw 'Wrong root'}; $tokens=$null; $errors=$null; [void][System.Management.Automation.Language.Parser]::ParseFile('${BASE}\\processes.ps1',[ref]$tokens,[ref]$errors); if($errors.Count){throw ($errors | Out-String)}; Write-Output 'processes.ps1 syntax_ok'`]);
   const refused=run(process.execPath,[resolve(BASE,'browser.mjs')],1);assert.match(refused.stderr,/No browser without parent exact target/);report.noGoRefused=true;
   const supervisor=run(process.execPath,[resolve(BASE,'run.mjs')],1);assert.match(supervisor.stderr,/Explicit parent go required/);report.supervisorNoGoRefused=true;
-  for(const file of ['contract.mjs','contract.test.mjs','probes.mjs','browser.mjs','run.mjs','native-shortcut.ps1','processes.ps1','offline.mjs']) {
+  for(const file of ['contract.mjs','contract.test.mjs','probes.mjs','browser.mjs','run.mjs','native-shortcut.ps1','processes.ps1','offline.mjs','helper-process.mjs','helper-process.test.mjs','../lifecycle-probe-20260910/worker-session.mjs']) {
     const bytes=readFileSync(resolve(BASE,file));report.sources.push({file,bytes:bytes.length,sha256:hash(bytes)});
   }
   report.passed=true;

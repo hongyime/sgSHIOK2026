@@ -1,0 +1,40 @@
+{
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-gKgOV1",
+  "profile": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-gKgOV1\\profile",
+  "startedAt": "2026-09-15T10:05:40.991Z",
+  "budget": {
+    "total": 600000,
+    "work": 420000,
+    "cleanup": 60000,
+    "supervisor": 90000,
+    "receipt": 30000
+  },
+  "scope": "Independent deadline and owned-browser cleanup supervisor",
+  "commands": [
+    {
+      "args": [
+        "-Phase",
+        "discover"
+      ],
+      "exit": 0,
+      "stdout": "{\"pids\":[]}\r\n",
+      "stderr": ""
+    }
+  ],
+  "child": {
+    "exit": 1,
+    "pid": 46544,
+    "signal": null
+  },
+  "discovered": {
+    "pids": []
+  },
+  "cleanup": {
+    "verified": true,
+    "driverReceiptVerified": true
+  },
+  "browserPassed": false,
+  "elapsedMs": 154123,
+  "passed": false,
+  "arithmetic": "420000 work +60000 driver cleanup +90000 independent cleanup +30000 receipt =600000 ms"
+}

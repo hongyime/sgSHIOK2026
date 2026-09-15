@@ -2,13 +2,17 @@ param(
   [int]$BrowserPid,
   [string]$Profile,
   [ValidateSet('inspect','reset','in','out')][string]$Action = 'inspect',
-  [switch]$SelfTest
+  [switch]$SelfTest,
+  [switch]$Trace
 )
 $ErrorActionPreference = 'Stop'
 if ((Get-Location).Path -ne 'C:\sgSHIOK2026') { throw 'Wrong working root' }
 $base = 'C:\sgSHIOK2026\qa\revamp-r1\same-document-zoom-20260915'
 $env:TEMP = $base
 $env:TMP = $base
+$timer=[Diagnostics.Stopwatch]::StartNew()
+function Phase([string]$name){if($Trace){[Console]::Error.WriteLine((@{stage=$name;elapsedMs=$timer.ElapsedMilliseconds}|ConvertTo-Json -Compress))}}
+Phase 'compile-start'
 Add-Type -TypeDefinition @'
 using System;
 using System.Collections.Generic;
@@ -58,6 +62,7 @@ public static class ZoomNative {
   }
 }
 '@
+Phase 'compile-end'
 $size = [Runtime.InteropServices.Marshal]::SizeOf([type][ZoomNative+Input])
 $expected = if ([IntPtr]::Size -eq 8) {40} else {28}
 if ($size -ne $expected) { throw 'Unexpected INPUT ABI layout' }
@@ -67,11 +72,15 @@ if ($SelfTest) {
 }
 if ($Profile -cnotmatch ('^' + [regex]::Escape($base) + '\\observed-[A-Za-z0-9]{6}\\profile$')) { throw 'Unowned profile path' }
 if ($BrowserPid -le 0) { throw 'Browser PID missing' }
+Phase 'process-lookup-start'
 $process = Get-CimInstance Win32_Process -Filter "ProcessId=$BrowserPid"
+Phase 'process-lookup-end'
 if (-not $process -or $process.Name -ne 'chrome.exe' -or $process.ExecutablePath -ne 'C:\Program Files\Google\Chrome\Application\chrome.exe') { throw 'Not owned Chrome executable' }
 $profileArgument = '(?:^|\s)"?--user-data-dir=' + [regex]::Escape($Profile) + '(?:"?(?:\s|$))'
 if ($process.CommandLine -cnotmatch $profileArgument) { throw 'Chrome profile ownership mismatch' }
+Phase 'window-enumeration-start'
 $windows = @([ZoomNative]::Windows([uint32]$BrowserPid))
+Phase 'window-enumeration-end'
 if ($windows.Count -ne 1) { throw "Expected exactly one owned Chrome window; found $($windows.Count)" }
 $handle = $windows[0]
 $beforeForeground = [ZoomNative]::GetForegroundWindow()
@@ -80,13 +89,18 @@ if ($Action -ne 'inspect') {
   foreach ($key in @(16,17,18,91,92)) {
     if (([int][ZoomNative]::GetAsyncKeyState($key) -band 32768) -ne 0) { throw 'Physical modifier already held; no shortcut sent' }
   }
+  Phase 'show-window-start'
   [void][ZoomNative]::ShowWindow($handle,9)
+  Phase 'show-window-end'
   [void][ZoomNative]::SetForegroundWindow($handle)
+  Phase 'foreground-request-end'
   $end = [DateTime]::UtcNow.AddSeconds(2)
   while ([ZoomNative]::GetForegroundWindow() -ne $handle -and [DateTime]::UtcNow -lt $end) { Start-Sleep -Milliseconds 50 }
   if ([ZoomNative]::GetForegroundWindow() -ne $handle -or [ZoomNative]::Owner($handle) -ne $BrowserPid) { throw 'Foreground ownership unavailable; no shortcut sent' }
   $key = switch ($Action) { 'reset' {48} 'in' {187} 'out' {189} }
+  Phase 'send-input-start'
   $sent = [ZoomNative]::Shortcut([ushort]$key)
+  Phase 'send-input-end'
   if ($sent -ne 4) { [ZoomNative]::Release(); throw "Incomplete native input batch: $sent/4" }
   Start-Sleep -Milliseconds 100
   if ([ZoomNative]::GetForegroundWindow() -ne $handle) { throw 'Foreground changed during native shortcut; stop acceptance' }

@@ -1,0 +1,65 @@
+{
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-g9XRYL",
+  "profile": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-g9XRYL\\profile",
+  "startedAt": "2026-09-15T10:34:00.595Z",
+  "budget": {
+    "total": 600000,
+    "work": 420000,
+    "cleanup": 60000,
+    "supervisor": 90000,
+    "receipt": 30000
+  },
+  "scope": "Independent deadline and owned-browser cleanup supervisor",
+  "commands": [
+    {
+      "args": [
+        "-Phase",
+        "discover"
+      ],
+      "exit": 0,
+      "stdout": "{\"pids\":[]}\r\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "-BrowserPid",
+        "49964",
+        "-Phase",
+        "snapshot"
+      ],
+      "exit": 0,
+      "stdout": "{\"owned\":[]}\r\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "-BrowserPid",
+        "49964",
+        "-Phase",
+        "cleanup",
+        "-Receipt",
+        "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-g9XRYL\\owned-before-close.json"
+      ],
+      "exit": 0,
+      "stdout": "{\"stopped\":[],\"verified\":true,\"remaining\":[]}\r\n",
+      "stderr": ""
+    }
+  ],
+  "child": {
+    "exit": 1,
+    "pid": 50576,
+    "signal": null
+  },
+  "discovered": {
+    "pids": []
+  },
+  "cleanup": {
+    "stopped": [],
+    "verified": true,
+    "remaining": []
+  },
+  "browserPassed": false,
+  "elapsedMs": 105700,
+  "passed": false,
+  "arithmetic": "420000 work +60000 driver cleanup +90000 independent cleanup +30000 receipt =600000 ms"
+}

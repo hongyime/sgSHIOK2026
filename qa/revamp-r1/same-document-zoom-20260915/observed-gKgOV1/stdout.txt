@@ -1,0 +1,12 @@
+{
+  "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\same-document-zoom-20260915\\observed-gKgOV1",
+  "passed": false,
+  "checks": 0,
+  "captures": 0,
+  "cleanup": {
+    "verified": true,
+    "remaining": [],
+    "stopped": []
+  },
+  "elapsedMs": 151569
+}

@@ -1,0 +1,686 @@
+{
+  "approved": "exact-preview-go",
+  "target": "http://127.0.0.1:47379/?debugMap=1&postal=018956&transit=mrt_lrt&stop=mrt%3A21677",
+  "buildId": "D2v5v_SSLYgX0SSyDHqvr",
+  "sources": [
+    {
+      "path": "web/app/page.tsx",
+      "sha256": "b7ac833aecc811327db000b5bdc92ee17cdf5c9197c3b3030950fa071b0fe7e0"
+    },
+    {
+      "path": "web/app/home.tsx",
+      "sha256": "e873aa64cdba8c3736c44d47b67345cdd359fa89af46724544a1074604819174"
+    },
+    {
+      "path": "web/app/page.module.css",
+      "sha256": "819ed171bdf922352683be7523e72a6b58a4730c829a1db8faae4cd82479bf3b"
+    },
+    {
+      "path": "web/components/route-evidence-map.tsx",
+      "sha256": "9e7fdd20532c88c2a2cbb10242e615bb4841079af1e43973ade1f940e67868af"
+    },
+    {
+      "path": "web/components/route-evidence-map.module.css",
+      "sha256": "f01f94068217dc3e3f057fb6ff6090f7c320a05770c49b5e259dc7d8707ee28f"
+    },
+    {
+      "path": "web/public/maplibre/6.4.1/maplibre-gl-worker.mjs",
+      "sha256": "ce4957017fe705ac2f9ebef206cca966d08d8621756c39326a78cf09757e7d75"
+    }
+  ],
+  "localReplies": [
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8133.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/5890ada6205d78b18937c6e583cb3aaac6b2c33e12cfef9d4b409003b581243b.png",
+      "sha256": "5b81fc322f5cfd54ce2e6d228c0654f2985283ad54e3cb48623346140da08853",
+      "bytes": 14109,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8132.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/8d6d8c5f346902eca334557af8b059a278d807c221578670a47ff36d6038f35d.png",
+      "sha256": "b6f49a6c79710f44f9060ae1b6653639dd2fe854b36c1451749fd643f3251d5b",
+      "bytes": 13011,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8133.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/e80c35f7239a2b91b2e90943dd6e3f67dce10c29caa901452783bc43abc42025.png",
+      "sha256": "aebfe0937589a7d7213bc97359a9704dfa8967e133f839d0f21bdd389d80ae58",
+      "bytes": 11894,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8133.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/5dac84da35b87bc398dd51de9ae250b7e68c0ee8ddabd8cd1599e0bad71b9835.png",
+      "sha256": "bf7b77024ef360189dc1db05cfa0bf47bef68a6ad0156c6f67024b02cce41d62",
+      "bytes": 10852,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8132.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/3491fd1ab40c7e07bcc14138e995d8901bff54c93e4fa6ec5e333ff6af9fe6db.png",
+      "sha256": "1c8959a688cdeab5252e6fe9015f625a8df2a2496b8ae62873d3c4abb2fb14dd",
+      "bytes": 9796,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8134.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/b37814e7a2673a1a120855180e6ef2dcded375cbb620ea16a9c74fa8e032c6df.png",
+      "sha256": "5aaceed1698531827d095b77844f114bb02f7ba4e1ef6308e1bd97cbc86ae0f0",
+      "bytes": 6176,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8132.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/ec7f4577d73c2b7363360735b18919e6f90bc8ccad94865a372799577a4aff94.png",
+      "sha256": "620ca0b36197c72649727a953a305bdfc9bb45f56b054ea4a2eaac6dfd52d664",
+      "bytes": 11910,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8134.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/90c04229161763c4b50dfc0517a4ad635a11148a2e72169595df88cc24584348.png",
+      "sha256": "59b8c3e0abe896746ddc820dac4a9697c669013ca53eeb0bb7f638eac00fcf07",
+      "bytes": 10393,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8134.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/2b2256f6fb84c1af71d84d891a84b3e62ebe259ea6d2e0f32b62d2836a5bbc38.png",
+      "sha256": "3719c2625293f9ce330a1aba7292efe1288fd32d0aa922b8ddb9552412cbe331",
+      "bytes": 1269,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8131.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/8b0dd70413b72ae93d02d051ebf2e5e1a45afff66cdf82c9e6aa2cf92a662778.png",
+      "sha256": "c22257adb2a1c2e7aeae03aeda44f44d3da25923ea21e9812821d7298d0fe411",
+      "bytes": 13914,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8133.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/a80ca0c98b8d0d1f1d8e9689257583f1d2e43766b3b4163d7e49aab02950b40f.png",
+      "sha256": "25e02773e7cefebe504137c9c83eed82975371a7cc22eb31f539fbe3857caad4",
+      "bytes": 8136,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8131.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/e194852cff25ac0e878be36ced5f8bcae95d72c2c830c76265b654e582b0a671.png",
+      "sha256": "3e7fc241854ffa59fce7b25fafdefa0a86018a43d5f9706c1a263aa9ba4689f2",
+      "bytes": 10896,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8132.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/f28496c241172b88e17cfeda0e14713a45760ff3ab758044bd6dd8dc23259eb9.png",
+      "sha256": "3fe49ad169062edf11c454edeb814f643ef831cbb9e996d3dca77150a007e190",
+      "bytes": 8150,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8131.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/91e266cbc1246a44ea0500b5a3543ac22494abbcd21c41cd27c01cf3f5942d91.png",
+      "sha256": "8b333ad6f21b59c4d620423c2cf6e07200f2a6180fa098c361afc36ec9646b90",
+      "bytes": 10618,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8133.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/a6206de77751816b985a73813a73618d27d9087f8813799b69cd89f04c556524.png",
+      "sha256": "02ad733ca53c3e7277d5afa73b50c3e315c15ac2a2d3d214cb0eeb5d3b6394a1",
+      "bytes": 2364,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8132.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/dd0f355800b0b7d486262eb3120eb1769c381a182607a758b64657e373f841e8.png",
+      "sha256": "65845b8076e49d67fcec278ed1bcbc278b29a38f944b2b6e74c6023dc9ca640a",
+      "bytes": 8794,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8135.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/5a42b0f419147e2758ff14ce4b68f892fada23e91934e7b20f637ab12086af16.png",
+      "sha256": "4b9cd0a292ef4177b44f7e9c317ccc35dc33e8b1f54b591da43407c18d08e311",
+      "bytes": 3663,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8134.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/783b70f53dc23568c3bbdaeb7ea219188633b37d913214097b704aab43563731.png",
+      "sha256": "0dac44bc1bbf369ada7763869a64264898c71063cc3d062cbe085a60549b7b6b",
+      "bytes": 10805,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8135.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/ea38ccfafbad2bc3a7634216c8d379820bef79032b96a1d6595edb5a3a7746ca.png",
+      "sha256": "837e4b08a56d5776634feb26918e0df300ca9a70445be26b383f62d2de2e3c13",
+      "bytes": 10188,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8134.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/606645d964242cd6aee24263c5f91b94e5de49ea501dace3f9e317d0292a93e8.png",
+      "sha256": "4c5d51adbe922ccadc00f178be061411fad1dfa7feb1b0e0a687c9899afad69e",
+      "bytes": 103,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8135.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/7fc9ddef1ab60e3c392107ab9f9ee3b74e7ecf4a1253396fbc9a9388b9ed2dad.png",
+      "sha256": "4c5d51adbe922ccadc00f178be061411fad1dfa7feb1b0e0a687c9899afad69e",
+      "bytes": 103,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8131.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/663b35542b58ef04f691d143da0369f46b18826482a9ac3719c2612e8d69fb02.png",
+      "sha256": "d825cb536bec79a67684d8114481006c509b5a9b9ca45078ad1f01931b0c47b2",
+      "bytes": 9688,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8131.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/50e1034172843dd676da56aa3c0fcab8b09c83ff4ea97f7c3b0dc405d6f45a18.png",
+      "sha256": "e6255ba04aeae16fd0462c566122892cc63439f8599fcd6619620e81d03c1c5c",
+      "bytes": 10856,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12915/8133.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/81ff146df74ccefa130104516732d14b7569633fcde323b82d18518a40abb6d9.png",
+      "sha256": "e61df49707d00f6b2e460dc1d44aa145fda4b62f9ced6442970e9931e1a02114",
+      "bytes": 8002,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8135.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/1fed009c2e09ac3410bd86f0937fcfe21ef28a923bd99d4fe274d8dfe5c09072.png",
+      "sha256": "ace770efd341510fcd227b16a9cb099cd97b7ab0f0cf5e33fbcbba11b3138b7b",
+      "bytes": 1307,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12915/8132.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/57548d3198d0138f70054b5318b6671111ab7097a0323f437b8f124a731a58ec.png",
+      "sha256": "1db785a6ef43f345f8bdebd95f283bf9b5f004be89d3acc5147883586efa30d1",
+      "bytes": 8074,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8135.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/e076400216f621e8cb94e5f6d605e81b61770ec3c27c43b31ebb0a5d7f9808f7.png",
+      "sha256": "4c5d51adbe922ccadc00f178be061411fad1dfa7feb1b0e0a687c9899afad69e",
+      "bytes": 103,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12921/8133.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/921497a56a3aba7004e6fae12f39c544badc0e5985140af6dcfdcc5285e439cc.png",
+      "sha256": "4c5d51adbe922ccadc00f178be061411fad1dfa7feb1b0e0a687c9899afad69e",
+      "bytes": 103,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12915/8134.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/92dd861fb00c8f1ce6b079aee7f8c7f2a01c28ab7c804a0128df6fed601f800b.png",
+      "sha256": "ef75bc858b20ae89d1f48799767b9b543f809a15074d9f560db10d7bcd580de4",
+      "bytes": 2174,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12921/8132.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/fd555ed84330afafcb6e075742b0495b64e85791280790b94498c85892d065f4.png",
+      "sha256": "0a823d9b7dbfcbb7dc8203179df9a7b2f92f33517659b23932c9c5999e93c6e0",
+      "bytes": 7352,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12921/8134.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/b4f2cdfc1da3df9220abc664f3ac13c42fe51b71389f88983f3ab373562cf1c3.png",
+      "sha256": "4c5d51adbe922ccadc00f178be061411fad1dfa7feb1b0e0a687c9899afad69e",
+      "bytes": 103,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12915/8131.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/9127458d07477fecc898856e119ba03e3e634d7a5e76f33dc5640045fb1c66b0.png",
+      "sha256": "b2ac0fcda2bbed81d7dbe08cddb306e548ac05baaa1625713b08cff1361d3db9",
+      "bytes": 5347,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12921/8131.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/d4e8ed9e6c711e6de396212dd3b1550ce46b2c79bb223fb1f7b73e495452d9c5.png",
+      "sha256": "a18459f51458d3713541b5f6d00108da154d5b9dfcb5818960f2663af53aeb46",
+      "bytes": 7714,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12915/8135.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/49acb285591d12f7ca0b115a04d8ee98222218fc2a2fc91fe7259e7e0dc528b5.png",
+      "sha256": "4c5d51adbe922ccadc00f178be061411fad1dfa7feb1b0e0a687c9899afad69e",
+      "bytes": 103,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12921/8135.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/0d0d774dda28a9504ab2d8f65e40acb8d1c2d85fccb1ac116c22b34d34f076a5.png",
+      "sha256": "4c5d51adbe922ccadc00f178be061411fad1dfa7feb1b0e0a687c9899afad69e",
+      "bytes": 103,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12914/8133.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/172f417992a59ca2c87880aa77a77b0aff70cf29958289f8e2a8dd7711a42d00.png",
+      "sha256": "23a953828013dbdcdb1ae9e33d2b8f4e2e14c0fdb3ca37361240b4ba3cf57e7f",
+      "bytes": 3894,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12914/8132.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/8932edeab30ee314e1d7563080f1f56c7379328d434c0ece188b75294c49ae34.png",
+      "sha256": "ec16098601ea294ec90cf82418f3d62af3a98a390a46c88b1f4b08155bacc2c5",
+      "bytes": 8907,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12922/8133.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/fababe3b40944c096ea41a73e74ede63735c9e50fe9e5fd8c9769374443fcbea.png",
+      "sha256": "4c5d51adbe922ccadc00f178be061411fad1dfa7feb1b0e0a687c9899afad69e",
+      "bytes": 103,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12914/8134.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/24f48b0b1f1631a10840aa67b3955eeaf79e165957700272581bb6c6de5e9ac4.png",
+      "sha256": "654362817cf6cf3a1d3dc12cbc52b49ff80ce5401ad43228468d04c0c3ca5e14",
+      "bytes": 550,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12922/8132.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/d0245aa453603b9fe6be5201d53ef8f7220628c59bff5719cf0606bdea47c65b.png",
+      "sha256": "815a7c7f6628264d7676369bf21dab69330189b08285d7bd2f19b9d3c75ba372",
+      "bytes": 5280,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12922/8134.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/cdb6fa00ca9285c0e115f3c0ba80f9f5457296442cc04582f012c58d3d9ffa2f.png",
+      "sha256": "4c5d51adbe922ccadc00f178be061411fad1dfa7feb1b0e0a687c9899afad69e",
+      "bytes": 103,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12914/8131.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/525c800252c5b2f48510362ad01181d108bf32b4a2258fe4fc7e17aab4dd16c4.png",
+      "sha256": "16b59fe04642270ddc2ed127ff147af245baa8bbdb93e975cb3b5a72c550a854",
+      "bytes": 6877,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12922/8131.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/da2ee8887a81d0795c1b4705dd223c6f8cff5830716315d86ddf16b17745a7cb.png",
+      "sha256": "3c116a44269c6641515f64e6b4c3c4f6fc44e38a3ead5d0122b7bb63170bc323",
+      "bytes": 7330,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12914/8135.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/a467555848462eabeb45a8d25f70c099e630ed6a2d2e983b3de29617b95aee31.png",
+      "sha256": "817f134b656da5cb68f518c3024549d6a73fbe9635e35893ecb8a2b426b63c37",
+      "bytes": 3303,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12922/8135.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/ca16539006b1113be5d3a9f0400e63ab93715c3f5e544d602883bc93eedc1528.png",
+      "sha256": "4c5d51adbe922ccadc00f178be061411fad1dfa7feb1b0e0a687c9899afad69e",
+      "bytes": 103,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260275.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/c5eecfbf0e94e255807be08af6085f2a92eb9dcbbc90c7b5801a6565ee3283c2.png",
+      "sha256": "409ad49c509768134ae2ff838a3274e85fecf00c503d7f1589552e502b684367",
+      "bytes": 1530,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260276.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/0d16834e1eb65f629213b6f4f2402be70a35afe2550bff4d2d840ad59c569373.png",
+      "sha256": "7ba4ac1f064c611779677d46386f7af2adb2208711a051a3ff200890408562c7",
+      "bytes": 5573,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260275.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/d78e199048263b3e6a018e027343507ac93c05206e272f4a65e08ad4fab1e0ae.png",
+      "sha256": "64d8b4486ed1fd5b261f1dc4cf0ea932c94397705bf66c8e06f2512be92726d5",
+      "bytes": 9778,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260275.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/1cf1bfaca9c8615abbf9e7eeedefe4548cd9281fda30e1d250cc307afd610bc9.png",
+      "sha256": "27046d0f7098140f29bc7eca532516db0419cddb8185fccf048a3d724ebbf455",
+      "bytes": 2195,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260274.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/3fbf4081773714f7610d9b75dc0ee52730f47da5194e3e73af0aeebb3fc64c4a.png",
+      "sha256": "75ad0a009bda90c2d7900d87a927598c19c148052e80921e9ebf52908b99d828",
+      "bytes": 4963,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260276.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/b71e91a8f1b0966b3b57c4a19dda13b003585d340fe790c6efbc26ed6b8b49ad.png",
+      "sha256": "7eb5dd8003fde54b43b67271d8fa187e02ec64c4351dffafb7925db9885ac1c3",
+      "bytes": 9270,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260276.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/6a2ff34acbd86340ba6dcc4cb0f3d818fe2f47781000aa9386f3d1033a54ddae.png",
+      "sha256": "8f1d46b819f93659b9553273daec94cffe2e91940822b0508f3584278d0d5714",
+      "bytes": 3225,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260274.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/a2dcad3c170a943b5776de32237d7e8d23614365f498cc7437ded2c0c3530dc6.png",
+      "sha256": "8f87f9550556991c5e1ae3f429a84c6438b20b60b0650dbde3221d4dd8165157",
+      "bytes": 4084,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260274.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/644e1b747020c57c466ddb51601e08048b9e4612e1fc39bde14efc45348f67e3.png",
+      "sha256": "58b4e25d64d7e28cc105dcfc166e7a209ad24d8eedf9811b160cfdfd7ef57147",
+      "bytes": 4241,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260277.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/750bec6e4850ca2a78e829c1435a2adfc58d3357e18adf8cee26ed28d43cf8d1.png",
+      "sha256": "5b28ef1f2b41afc7c3eec072d04b7a89170edd49dec26dfd72753c245dd83a62",
+      "bytes": 8334,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260275.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/48669f7ba3900be34f95dee711bac1d9a4e441e172fb33fb6efaaf20ebe683cb.png",
+      "sha256": "abb540f3738dfc82203ddc4a8ff3b9934fd38fa602a338e096fb7451c5284f33",
+      "bytes": 4942,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260275.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/9b4fda674cec9aec8a43b29a3fde9be8ec9f479129dec3a86ed317016930e6c3.png",
+      "sha256": "900be9aed9f9322d0d8531be0b850010c7e16dc1af22793b94bf761f3977df51",
+      "bytes": 5547,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260277.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/708ec8c458c11ffa6376f00eb0ddc9130bd6a1ae57ebf1b4eea8f4b7c10796df.png",
+      "sha256": "ece53e7b8096783bff6b05b9290d0cfd5e901af8fb18c066b40dc851b1c76cf3",
+      "bytes": 915,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260273.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/98a5b095c614087d20974a88915953dedb69d89e22734abdc2f5e176dd95ab58.png",
+      "sha256": "c3ecbd0228dfca11550383f6c163a115f78e2af630190a27140a543a508d045c",
+      "bytes": 2566,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260277.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/1d7d0a53e273c3935abe477395fe41492d7207a7c45c8d28153165887723f0c6.png",
+      "sha256": "f0002eee7a6c2ebcf9b9ae710d5b440124e732d1f328f5bf04d478d6477dc97e",
+      "bytes": 3118,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260276.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/9aa942c1b3a3ba4b23f3ceeffb0f5c818fb19d414f34b89bf7cc68994151e99e.png",
+      "sha256": "8ff1ae984037afabca275ae8af473909020264f008f75ea97a666f3e6b213ba0",
+      "bytes": 4553,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260276.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/982ab0c478f814f543c7f76cc3f5c2881c5e140614730c9b3ebcedfa7c47a21c.png",
+      "sha256": "70f38422f9e80f299d577ca9a56ad4656d295d0339eff65a579f8ca07d696a6c",
+      "bytes": 2547,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260274.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/ec6d698b239714557c512f315adb6546cf21d0a025bb626b96fda9c82721ec15.png",
+      "sha256": "279128a9bef996a723818c5cb8504cd51840fdd92e9adc57bd17d558f63a561d",
+      "bytes": 10639,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260274.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/235066bc7c7434de9f0c1870923f733c6fc68e8f4f7dd682e9db605af58d503a.png",
+      "sha256": "b9026109dcac0e5f86ee53b05b81f2efa33af931fde815403face98d5cf661e0",
+      "bytes": 3942,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260273.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/71eb9b4dc8f7bcf27f6918f3d035c2cd1298358f60929f12c03501060620a1a0.png",
+      "sha256": "6204ce4c1be31fea781c02e8402bfba27fcec75eb4f051faa3fe82a9e2471beb",
+      "bytes": 3391,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260273.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/f0e9aa378cd651889d55233b0cc4d9f9a836829ef9f557e85a144685b3923bc0.png",
+      "sha256": "f99d83ce3a960f60e870e9ae66cfcf0bdbac9b0292e3e217c2d12c6fde3f9da4",
+      "bytes": 5024,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260277.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/86c1bbc5f2fdfcb197e403015032f77eabf35e7889ff9e0444368f03410c83c8.png",
+      "sha256": "26c39f8c1a3502f286d5be8a98958585ad268eade1d49827628f4a487a53cafe",
+      "bytes": 6141,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260277.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/24f764786ceb592efe02fd52261f2e8b2b9cdf3133f122274ec6febfb8f528b2.png",
+      "sha256": "20272b2515ee100d7dc8cb9d0e600cc2074d5d80727b3dbcf540162479709020",
+      "bytes": 3558,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260273.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/696a82dc50590c69e299ab50fc83f390bead2ffa2ad58e1679d08983454e65be.png",
+      "sha256": "e0667e7c07471e726b1a0c892231dd7b3a5df22d9e4069ad2b1f5d1de1a7a9f2",
+      "bytes": 8490,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260273.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/e25a3342a7f4af0a3b54643d661b51a24ee33826f357a1cf10c982cf958acd4c.png",
+      "sha256": "4c5d51adbe922ccadc00f178be061411fad1dfa7feb1b0e0a687c9899afad69e",
+      "bytes": 103,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260275.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/dc4000d8a4a7c02da93cb2a39486c07a8ae2c36b409e5555c3a78049a762724f.png",
+      "sha256": "51ddeeeb0c185bf81ca56d04a044ff5b80e3bc156bbcd5d9758f1339c60d2b30",
+      "bytes": 7344,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260275.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/7b5938e3282ea53469ab976b53b7edc1a85f3d03f8cd000429948d40eeff71f6.png",
+      "sha256": "7a10bc0da30f6b67832f996ed28c896eac45ada04cc82fcc6710772d10357462",
+      "bytes": 348,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260276.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/0352fd8da7256eba04527fea83979ec27899ae9f599e96c1051dbd2829e95336.png",
+      "sha256": "d402b5ad39ecbe71f24bd6bdf710b48bcef82fcf5a79839c1d05e384976d53bd",
+      "bytes": 7691,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260276.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/f8ec0411315b48d4bc4b65586a4bd0c8b3f0aaa50a9fae30477f799ba7618360.png",
+      "sha256": "70d350d90714250d8b2ad5ed657160dcc3e15efcda91f319bfbdc3582143a9c6",
+      "bytes": 6447,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260274.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/946b0882f8dcf2ddc0deaa82b72eb2c62cea4b08aad080e9eddc3148c349b909.png",
+      "sha256": "d2b4eabb62a68d8f1bec5bd81c22b094f0e0c285d87db49f26549d10a2f4c54d",
+      "bytes": 8032,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260274.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/3d60f0192391f1984156c8dbfd9c6ecbd81003544dd2ad623f9ba0298bdcf43d.png",
+      "sha256": "4c5d51adbe922ccadc00f178be061411fad1dfa7feb1b0e0a687c9899afad69e",
+      "bytes": 103,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260277.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/f9e31927d98b71072be06f67ff8fd58b30e997e3bb5d971a6e1554726955d465.png",
+      "sha256": "1d62983bfe1a3ca8d31cb57759c0c053acaa35dcda8e0872ddf6188b2b4ff464",
+      "bytes": 7976,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260277.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/287bb42590cd42fa473244ebde67c1fb5dce55ddd7b08ed23d04c3c207e6f179.png",
+      "sha256": "9b232f2354e8107e73814650c5c9e1c9019716345b6e2e8eda15522c14622dd1",
+      "bytes": 4414,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260273.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/16219734621f1210e0d86fc5f9b0c076e5d0db90a25c00ca0da7004330ce0fd8.png",
+      "sha256": "83a460b644e98f936cb4a74dc2f414cc0704333d217fd386b12bc2a13ee48b1b",
+      "bytes": 7868,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260273.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/0571b744ee674b2df832f86cbeab709cb40a107a3a2c1a60598285c159561328.png",
+      "sha256": "4c5d51adbe922ccadc00f178be061411fad1dfa7feb1b0e0a687c9899afad69e",
+      "bytes": 103,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260275.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/b2d6955955d14f5d1df4647925d9f47d8997d12fb4554fc0a8f5c8c2ecd31e0f.png",
+      "sha256": "4ec9dc0bea19f67492a393284ba65b65289f580bfd0ea1b7f66c95321b690478",
+      "bytes": 4486,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260275.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/45c684abdd4ab45ce06155c56cbae3b753567e0fe8aced5eca9fbc27bc85a016.png",
+      "sha256": "4c5d51adbe922ccadc00f178be061411fad1dfa7feb1b0e0a687c9899afad69e",
+      "bytes": 103,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260276.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/3ab2ab57172c4ead4e2af2ff5308bba2b4fed5f72a45f0f5f6caa646dfe796d6.png",
+      "sha256": "02b81fc5197a510713f3ef8ff265fceb1b6f1bb8451f4bb2b1274b0ba739fdb6",
+      "bytes": 7400,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260276.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/fbc637d30629176c4367dcf464d3e1d135492b9de6de630aa2edd1b2a23028ce.png",
+      "sha256": "4c5d51adbe922ccadc00f178be061411fad1dfa7feb1b0e0a687c9899afad69e",
+      "bytes": 103,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260274.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/805ce5b1eacfa43687595b663c6510aa5cf761e81e48d40d1ec101ede5311953.png",
+      "sha256": "eb3ca60680cfa4acba8676e1ab88e700469dafea54e7423bdfd760e1cb4a0946",
+      "bytes": 2482,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260274.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/bded515340b67542885a691cef5191cb2c634c6e86f23c29269b0bc5ad565a27.png",
+      "sha256": "4c5d51adbe922ccadc00f178be061411fad1dfa7feb1b0e0a687c9899afad69e",
+      "bytes": 103,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260277.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/e7bab5b0ad48f77f01d7c7364374313ad60718db2c3bf7458a317ab4721a3ae1.png",
+      "sha256": "35f6f39d530dbefdf4dd68ae12e49c1fe7811d8dbf3be87d2c6a27564848b07c",
+      "bytes": 6303,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260277.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/e97a5f536ad8f27045117544003c9984a968d67751868ca87ff8e3e7fd702276.png",
+      "sha256": "1bf65b8d1152b1aebdffb51213286befc6d0a62b34bd94e0a6438df7587abaf3",
+      "bytes": 1157,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260273.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/2c3c8ae40f9758c2c8315a6700ba08812552ea2748c11207ee9d6cc2d61848c3.png",
+      "sha256": "327608155987806f7a148706eaa2aad79becc185b9861ca28154bb6961936dfa",
+      "bytes": 4443,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260273.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/ba9d09f8cf86ecde42bbdba0fd488adaf4a545ec403a3fdada90e00bbe222e82.png",
+      "sha256": "4c5d51adbe922ccadc00f178be061411fad1dfa7feb1b0e0a687c9899afad69e",
+      "bytes": 103,
+      "sourceContentType": "image/undefined"
+    },
+    {
+      "url": "https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png",
+      "path": "qa/revamp-r1/release-finalize-20260915/basemap-bwIezw/7eeef076c010b05c39e604e4a48295443c20bc35381b3ecc7e184c80b4a56ec7.png",
+      "sha256": "657db347017b13e71bc4942afbe985566052446b13433f2dd5492e92fce34f16",
+      "bytes": 1514,
+      "sourceContentType": "image/png"
+    }
+  ],
+  "sourceRevision": "69eac6a22ab3794a8648c3211c961340081b7d45",
+  "previewReceipt": {
+    "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\preview-xiQEob\\preview.json",
+    "sha256": "aaf8c247704622f6987d04aa39419de16a5682a50f90368999d1f7322f9f05a5"
+  },
+  "servedAudit": {
+    "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\preview-xiQEob\\served-audit.json",
+    "sha256": "ffecb77b112c244080764df459718b7d7c31b01f3774fae500aa781af73615dc"
+  },
+  "basemapReceipt": {
+    "path": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\basemap-bwIezw\\receipt.json",
+    "sha256": "3c4fe2194a06286a80e6019011f36e4968b6787e922c3f8eed7f946630bf3d7b",
+    "fileCreationUtc": "2026-09-15T09:01:07.739Z",
+    "timingQualification": "Receipt file time after a 1355ms download, not a historical September13 capture"
+  },
+  "qualification": "Offline display images captured September15; no live provider, pipeline, physical-phone or performance claim"
+}

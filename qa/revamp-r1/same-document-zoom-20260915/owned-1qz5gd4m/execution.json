@@ -1,0 +1,6 @@
+{
+  "ok": false,
+  "returncode": 1,
+  "stdout": "{\n  \"out\": \"C:\\\\sgSHIOK2026\\\\qa\\\\revamp-r1\\\\same-document-zoom-20260915\\\\observed-gKgOV1\",\n  \"profile\": \"C:\\\\sgSHIOK2026\\\\qa\\\\revamp-r1\\\\same-document-zoom-20260915\\\\observed-gKgOV1\\\\profile\",\n  \"startedAt\": \"2026-09-15T10:05:40.991Z\",\n  \"budget\": {\n    \"total\": 600000,\n    \"work\": 420000,\n    \"cleanup\": 60000,\n    \"supervisor\": 90000,\n    \"receipt\": 30000\n  },\n  \"scope\": \"Independent deadline and owned-browser cleanup supervisor\",\n  \"commands\": [\n    {\n      \"args\": [\n        \"-Phase\",\n        \"discover\"\n      ],\n      \"exit\": 0,\n      \"stdout\": \"{\\\"pids\\\":[]}\\r\\n\",\n      \"stderr\": \"\"\n    }\n  ],\n  \"child\": {\n    \"exit\": 1,\n    \"pid\": 46544,\n    \"signal\": null\n  },\n  \"discovered\": {\n    \"pids\": []\n  },\n  \"cleanup\": {\n    \"verified\": true,\n    \"driverReceiptVerified\": true\n  },\n  \"browserPassed\": false,\n  \"elapsedMs\": 154123,\n  \"passed\": false,\n  \"arithmetic\": \"420000 work +60000 driver cleanup +90000 independent cleanup +30000 receipt =600000 ms\"\n}",
+  "stderr": ""
+}
