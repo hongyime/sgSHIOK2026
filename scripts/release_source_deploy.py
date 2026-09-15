@@ -36,7 +36,7 @@ class SubmissionError(ValueError):
 
 
 def prepare_source_deployment(repo_root: Path, receipt_path: Path, receipt_sha256: str,
-                              *, target: str, timeout_seconds: float = 30) -> dict:
+                              *, target: str, skip_domain: bool = False, timeout_seconds: float = 30) -> dict:
     """Return the exact reviewable request without reading parts or using network."""
     root = archive._directory(repo_root)
     path = archive.staging._absolute(receipt_path)
@@ -45,6 +45,8 @@ def prepare_source_deployment(repo_root: Path, receipt_path: Path, receipt_sha25
     receipt = archive._load_json(root, path, receipt_sha256, budget)
     if target not in {"preview", "production"}:
         raise ValueError("Explicit preview or production target required")
+    if type(skip_domain) is not bool or (skip_domain and target != "production"):
+        raise ValueError("skip_domain requires a boolean and a production target")
     try:
         if (path.name != archive.RECEIPT_NAME or Path(receipt["repoRoot"]) != root
                 or type(receipt["schemaVersion"]) is not int or receipt["schemaVersion"] != 1
@@ -98,6 +100,8 @@ def prepare_source_deployment(repo_root: Path, receipt_path: Path, receipt_sha25
     }
     if target == "production":
         request["target"] = "production"
+    if skip_domain:
+        request["autoAssignCustomDomains"] = False
     budget.check()
     return {"receipt": str(path), "receiptSha256": receipt_sha256,
             "artifactDirectory": str(path.parent), "parts": parts, "compressedBytes": total,
@@ -172,6 +176,7 @@ def _created(body: bytes, target: str) -> dict:
 
 def submit_source_deployment(repo_root: Path, receipt_path: Path, receipt_sha256: str, *,
                              target: str, request_sha256: str, token: str, output_dir: Path,
+                             skip_domain: bool = False,
                              timeout_seconds: float, transport: Transport | None = None) -> dict:
     """EXTERNAL WRITES: five uploads and one create, only after caller approval.
 
@@ -182,7 +187,7 @@ the result. A failed/uncertain attempt is never resumed or retried automatically
     if not isinstance(token, str) or not re.fullmatch(r"[!-~]{1,8192}", token):
         raise ValueError("Explicit valid runtime token required")
     plan = prepare_source_deployment(repo_root, receipt_path, receipt_sha256,
-                                     target=target, timeout_seconds=timeout_seconds)
+                                     target=target, skip_domain=skip_domain, timeout_seconds=timeout_seconds)
     if archive._digest(request_sha256) != plan["requestSha256"]:
         raise ValueError("Reviewed request hash mismatch")
     root, output, source = archive._directory(repo_root), archive.staging._absolute(output_dir), Path(plan["artifactDirectory"])

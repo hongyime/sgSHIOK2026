@@ -98,8 +98,40 @@ def test_exact_five_binary_posts_then_one_create(source, target):
     assert provider.calls[5][0] == f"/v13/deployments?teamId={deploy.TEAM_ID}"
     request = json.loads(provider.calls[5][2])
     assert request == deploy.prepare_source_deployment(**source)["request"]
+    assert "autoAssignCustomDomains" not in request
     for path in (source["repo_root"] / "tmp/attempt").iterdir():
         assert b"synthetic-test-token" not in path.read_bytes()
+
+
+def test_staged_production_uses_reviewed_request_without_domain_assignment(source):
+    source.update(target="production", skip_domain=True)
+    plan = deploy.prepare_source_deployment(**source)
+    assert plan["request"]["target"] == "production"
+    assert plan["request"]["autoAssignCustomDomains"] is False
+    assert plan["requestSha256"] != deploy.prepare_source_deployment(
+        **{**source, "skip_domain": False})["requestSha256"]
+    provider = Provider()
+    assert submit(source, provider)["ok"]
+    assert len(provider.calls) == 6
+    assert json.loads(provider.calls[-1][2]) == plan["request"]
+
+
+@pytest.mark.parametrize("target,skip_domain", [("preview", True), ("production", "false"),
+                                               ("production", 1), ("production", None)])
+def test_invalid_skip_domain_makes_no_requests(source, target, skip_domain):
+    provider = Provider()
+    with pytest.raises(ValueError, match="skip_domain"):
+        submit(source, provider, target=target, skip_domain=skip_domain)
+    assert provider.calls == []
+
+
+@pytest.mark.parametrize("reviewed_skip,submitted_skip", [(True, False), (False, True)])
+def test_domain_assignment_cannot_change_after_request_review(source, reviewed_skip, submitted_skip):
+    source.update(target="production", skip_domain=reviewed_skip)
+    provider = Provider()
+    with pytest.raises(ValueError, match="request hash mismatch"):
+        submit(source, provider, skip_domain=submitted_skip)
+    assert provider.calls == []
 
 
 @pytest.mark.parametrize("change", ["pin", "part", "request", "token", "output"])
