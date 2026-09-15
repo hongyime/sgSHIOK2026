@@ -9664,3 +9664,23 @@ Receipt: `qa/revamp-r1/release-finalize-20260915/docs-p0jlomsf/summary.json`
   ]
 }
 ```
+
+
+### Committed receipt byte identity
+
+Read-only comparison of the raw timestamp-test output with `git show 74f9e3c:qa/revamp-r1/release-finalize-20260915/timestamp-tests.json`:
+
+```json
+{
+  "path": "qa/revamp-r1/release-finalize-20260915/timestamp-tests.json",
+  "workingTreeSha256": "bdcba5095a2f6c67439c14b02c40086fe8998e49ee3ec64f3d73e2f90d709828",
+  "committedSha256": "6aa9604adf69f0e88a07bd799d435ea5101ac04ecc10d9c2c26dd62803dbdffb",
+  "crlfToLfOnly": true,
+  "FINDINGS": [
+    "The timestamp-test receipt hash in handback.json describes the raw Windows output; Git normalized CRLF to LF. Its committed SHA256 is supplied here for fresh-clone verification. The other five handback receipt hashes match committed bytes. No pipeline input differs."
+  ],
+  "DISAGREEMENTS": [
+    "Do not treat raw-output and normalized Git-byte hashes as interchangeable."
+  ]
+}
+```
