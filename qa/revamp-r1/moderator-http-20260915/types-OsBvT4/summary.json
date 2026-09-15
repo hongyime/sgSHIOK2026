@@ -1,0 +1,49 @@
+{
+  "mode": "types",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "web/node_modules/typescript/bin/tsc",
+    "--project",
+    "web/tsconfig.json",
+    "--noEmit",
+    "--incremental",
+    "false"
+  ],
+  "exit": 0,
+  "error": null,
+  "elapsedMs": 3386,
+  "before": {
+    "web/app/api/moderation/auth.ts": "e60e52d4b0b6c34dd32ba82f0b1429880f28a4420695ef004e4c62044c0871f6",
+    "web/app/api/moderation/http.ts": "4d9a05111717b9fb2d2b284a5a84c7cd0d2013f8fba3712b75941c201aa92603",
+    "web/app/api/moderation/store.ts": "eb870efebb16d2c7e77f3b2f270077610377d401681d83c48abcf4e3ba89feb5",
+    "web/app/api/moderation/queue/route.ts": "5da0e0d9cbfe905c00f68d46cae7f89dceac091f1df85a2920e1da9358641183",
+    "web/app/api/moderation/decision/route.ts": "c3e33ca434658cc0b24a7947b15eb46e14bcacf7b9a265bf09749ba7efb197f7",
+    "web/app/api/moderation/context/route.ts": "164f422d3ab3e9f0cee45c0132798ec4414c241cd9a7caf3e550b204221c63b0",
+    "web/lib/report-lifecycle.ts": "7c3c4abaab6f15f6f5b9428f62b1340d72e6680bd2c0bab778cf14ee7d8fd9ea",
+    "web/lib/reports.ts": "1e6ffff787f664ccd3f2a66ac5dbe08dd4af3bf54143dbcd6593111b7e1d3299",
+    "web/lib/report-project.json": "900adc3b06a795b856386d4c8c392da63327e55a60142dbd3c89a270886bc4f4",
+    "web/lib/__tests__/moderator-http.test.ts": "9c5e2ec9fa2cea2d578d1c801bb1ec9d01c8475f2a9436d224402c761ce0f3f7",
+    "web/lib/__tests__/moderator-store.test.ts": "443ae4252b494599be6aed1d7a0fddf2251eb3b82b5be7102385238e0555e6e6",
+    "web/lib/__tests__/moderator-auth.test.ts": "9e7c3519bd6b51ac377cb9d618f6592a22cd6912861384b0c18b9e1f537c5354",
+    "web/lib/__tests__/report-lifecycle.test.ts": "01ff39c5a52b014b4e9463f742d3af6bdb872ff626057c6973b7e4f6e44383b1"
+  },
+  "after": {
+    "web/app/api/moderation/auth.ts": "e60e52d4b0b6c34dd32ba82f0b1429880f28a4420695ef004e4c62044c0871f6",
+    "web/app/api/moderation/http.ts": "4d9a05111717b9fb2d2b284a5a84c7cd0d2013f8fba3712b75941c201aa92603",
+    "web/app/api/moderation/store.ts": "eb870efebb16d2c7e77f3b2f270077610377d401681d83c48abcf4e3ba89feb5",
+    "web/app/api/moderation/queue/route.ts": "5da0e0d9cbfe905c00f68d46cae7f89dceac091f1df85a2920e1da9358641183",
+    "web/app/api/moderation/decision/route.ts": "c3e33ca434658cc0b24a7947b15eb46e14bcacf7b9a265bf09749ba7efb197f7",
+    "web/app/api/moderation/context/route.ts": "164f422d3ab3e9f0cee45c0132798ec4414c241cd9a7caf3e550b204221c63b0",
+    "web/lib/report-lifecycle.ts": "7c3c4abaab6f15f6f5b9428f62b1340d72e6680bd2c0bab778cf14ee7d8fd9ea",
+    "web/lib/reports.ts": "1e6ffff787f664ccd3f2a66ac5dbe08dd4af3bf54143dbcd6593111b7e1d3299",
+    "web/lib/report-project.json": "900adc3b06a795b856386d4c8c392da63327e55a60142dbd3c89a270886bc4f4",
+    "web/lib/__tests__/moderator-http.test.ts": "9c5e2ec9fa2cea2d578d1c801bb1ec9d01c8475f2a9436d224402c761ce0f3f7",
+    "web/lib/__tests__/moderator-store.test.ts": "443ae4252b494599be6aed1d7a0fddf2251eb3b82b5be7102385238e0555e6e6",
+    "web/lib/__tests__/moderator-auth.test.ts": "9e7c3519bd6b51ac377cb9d618f6592a22cd6912861384b0c18b9e1f537c5354",
+    "web/lib/__tests__/report-lifecycle.test.ts": "01ff39c5a52b014b4e9463f742d3af6bdb872ff626057c6973b7e4f6e44383b1"
+  },
+  "protectedAnchorsVerified": 11,
+  "weights": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+  "sourceStable": true,
+  "accepted": true
+}

@@ -310,6 +310,34 @@ cleanup; moderation never extends its30-day expiry or changes published data.
 Queue pages contain at most25unexpired reports and use received-time/receipt-ID
 keyset pagination. Retry proofs, request IDs and quota buckets are never returned.
 
+The moderator HTTP surface is three POST-only same-origin routes: queue,
+context and decision. Require an explicit bearer, JSON, an exact configured
+HTTPS origin and the pinned project's server secret. Cookies, body actor IDs,
+metadata, request forwarding headers and URL parameters grant no authority.
+Authenticate every request with Auth; authorize every RPC independently in SQL.
+The separate default-off moderation switch never enables resident submissions.
+Every response is private/no-store across browser/CDN/Vercel caches. Bound total
+upload/Auth/context/decision time to15seconds, request bytes to8KiB and each
+upstream reply to384KiB. Do not retry provider operations or expose their errors.
+Every non-final stream chunk must contain bytes; this deliberately stricter
+contract prevents zero-progress loops. It is not a demonstrated network exploit.
+The30/token and60total per-minute warm-instance pressure limits are not an
+account-wide quota; admission ownership/monitoring remains a release requirement.
+
+The SQL adapter validates precise timestamp strings and null audit fields before
+normalizing them for the lifecycle planner. Planning uses database observed_at;
+pagination preserves microseconds and checks ordering without Date truncation.
+Queue responses validate report content against the existing admission schema,
+expiry interval against exact720hours, and state/audit consistency. NUL reasons
+are rejected before IO because PostgreSQL text cannot represent them.
+Decision context and the atomic write remain separate RPCs, so the full ordered
+read set is checked again at commit. A post-dispatch timeout or unrecognized reply
+is outcome_unknown. A later revision conflict does not erase earlier uncertainty.
+The receipt-specific context route enables read-only reconciliation, including
+after an old duplicate target expires. Missing/expired data cannot prove a past
+write failed. Real owner Auth, queue recovery/navigation and overlapping decision/
+revocation/cleanup acceptance remain; these HTTP fixtures are not a live service.
+
 Operational health is a separate, content-free check. A fresh cleanup success
 timestamp must agree with the latest successful scheduled run; a failure latch,
 inactive/mismatched job, stale success or stale/invalid observation blocks health.

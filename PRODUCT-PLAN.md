@@ -466,15 +466,27 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: T13 approval. End-to-end acceptance requires actual durable receipt, not only mocked success.
 
 ### [ ] T17: Build the private owner moderation queue
-- Status: PARTIAL (private SQL and server authentication boundary; no owner queue UI or activation). Size: M. Parent: P1.3.
+- Status: PARTIAL (private SQL, Auth verification and default-off HTTP adapter; no owner queue UI or activation). Size: M. Parent: P1.3.
 - 15September implementation: bounded private queue/context/decision RPCs, live
   allowlisted session checks, full duplicate-chain revision guards and source-scoped
   expiring audit. Authentication verifies the token with the pinned Auth endpoint;
   decoded claims alone do not grant access. The public browser has no DB grants.
   Review found and corrected stale-snapshot isolation and retained-source lookup
   defects before application. READ COMMITTED is explicitly required. Owner login,
-  HTTP adapter, moderation UI, actual concurrent moderation/session-revocation
+  moderation UI, actual concurrent moderation/session-revocation
   acceptance and deployment remain. No account is silently enrolled.
+- Current continuation: POST-only queue/context/decision adapters now connect
+  verified Auth identity to independently authorized RPCs. Precise keyset cursors,
+  full revision read sets, bounded uploads/replies/deadlines and explicit unknown
+  write outcomes are enforced. Receipt-specific reads reconcile a lost decision
+  acknowledgement without repeating a write. Review found and fixed NUL reason
+  admission before PostgreSQL IO. Source-bound acceptance:419focused tests in4files,
+  2856isolated web tests in81files plus42dependency guards, and TypeScript pass.
+  A valid356404-byte page exposed the original256KiB cap;384KiB now covers it.
+  The aggregate deadline is checked pending at14999ms and uncertain at15000ms.
+  Two finite empty-chunk regressions failed before stream hardening and now pass;
+  the earlier2854-test source snapshot remains recorded separately. No live login, UI, runtime secret,
+  activation or release is implied; T17 remains open.
 - Depends on: T15.
 - Scope: approved private moderation route/UI and storage rules; lifecycle/access tests.
 - Do: authenticate only the moderator; list/filter pending reports, inspect context, accept/reject/mark duplicate with reasons and audit time. Keep queue/navigation separate from the resident map experience.

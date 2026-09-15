@@ -1,0 +1,77 @@
+installed_dependencies=ok
+✔ test entry refuses the real MapLibre 6.4.1 lock versus 6.1.0 install shape before Vitest (285.0375ms)
+✔ matching versions may launch the test entry (922.6693ms)
+✔ a failing native guard contract suite prevents Vitest from starting (692.5274ms)
+✔ build entry refuses stale dependencies before even the preparation double (476.603ms)
+✔ matching build reaches only the refusing preparation double, never Next (584.6083ms)
+✔ release CLI checks dependencies before retention/build with installed 6.1.0 (302.0485ms)
+✔ release CLI checks dependencies before retention/build with installed 6.4.1 (265.8305ms)
+✔ reports exact resolved versions for runtime and development dependencies (37.98ms)
+✔ development dependency drift also fails (44.2405ms)
+✔ a manifest edit without matching lock-root metadata is not accepted (52.1504ms)
+✔ refuses invalid JSON in package.json (48.2217ms)
+✔ refuses null in package.json (47.8359ms)
+✔ refuses [] in package.json (42.7299ms)
+✔ refuses invalid JSON in package-lock.json (45.0189ms)
+✔ refuses null in package-lock.json (37.0654ms)
+✔ refuses [] in package-lock.json (48.922ms)
+✔ refuses invalid JSON in node_modules/maplibre-gl/package.json (52.8097ms)
+✔ refuses null in node_modules/maplibre-gl/package.json (42.1014ms)
+✔ refuses [] in node_modules/maplibre-gl/package.json (45.4982ms)
+✔ refuses malformed dependencies (56.34ms)
+✔ refuses malformed devDependencies (47.2849ms)
+✔ unsupported lock format 1 fails closed (48.5144ms)
+✔ unsupported lock format 4 fails closed (46.9429ms)
+✔ unsupported lock format "3" fails closed (62.6531ms)
+✔ unsupported lock format null fails closed (42.322ms)
+✔ lock v2 resolved-package metadata is supported (42.9078ms)
+✔ refuses unresolved lock entry null (45.0279ms)
+✔ refuses unresolved lock entry {} (45.2335ms)
+✔ refuses unresolved lock entry {"link":true,"version":"6.4.1"} (86.1491ms)
+✔ refuses unresolved lock entry {"version":""} (56.6027ms)
+✔ missing installed package is reported without loading or executing it (51.0914ms)
+✔ refuses unsafe dependency name ../escape (51.8704ms)
+✔ refuses unsafe dependency name @scope/../../escape (55.944ms)
+✔ refuses unsafe dependency name C:\escape (57.3082ms)
+✔ refuses unsafe dependency name /escape (48.2718ms)
+✔ refuses unsafe dependency name @scope\escape (49.3198ms)
+✔ refuses unsafe dependency name .hidden (64.5578ms)
+✔ scoped packages and a dependency listed in both sections are checked once (59.96ms)
+✔ empty dependency metadata cannot authorize a vacuous success (51.6216ms)
+✔ matching null dependencies sections are invalid, not absent (68.7669ms)
+✔ matching null devDependencies sections are invalid, not absent (71.2254ms)
+✔ package executable exports are never imported by the version check (56.3883ms)
+ℹ tests 42
+ℹ suites 0
+ℹ pass 42
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5673.8212
+
+ RUN  v4.1.11 C:/sgSHIOK2026/tmp/test-without-data-YifgCg/web
+
+······································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································
+
+ Test Files  81 passed (81)
+      Tests  2854 passed (2854)
+   Start at  13:11:41
+   Duration  137.38s (transform 17.87s, setup 0ms, import 33.04s, tests 51.13s, environment 28ms)
+
+{
+  "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-YifgCg",
+  "copiedFiles": 272,
+  "productionDataDirectoryAbsent": true,
+  "guardProbePassed": true,
+  "forbiddenPaths": [
+    "C:\\sgSHIOK2026\\web\\public\\data",
+    "C:\\sgSHIOK2026\\tmp\\test-without-data-YifgCg\\web\\public\\data"
+  ],
+  "dependencies": "Existing node_modules linked; no installation",
+  "testArgs": [
+    "--reporter=dot",
+    "--testTimeout=15000"
+  ],
+  "exitCode": 0
+}

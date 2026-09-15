@@ -8535,3 +8535,158 @@ NEXT: actual concurrency and scheduler cancellation, daily cleanup, early-deleti
   ]
 }
 ```
+
+
+## 2026-09-15: Private moderation HTTP and read-only reconciliation
+
+```json
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "PRAWN-E14",
+  "base": "01791821e379bbc69e45e0b5f593c5003c45cac6",
+  "receipts": {
+    "focused": "focused-0kxBnb",
+    "redStreamTests": "focused-m1q9g2",
+    "firstFull": "full-TRJo8x",
+    "full": "full-zRQgTp",
+    "types": "types-OsBvT4",
+    "docs": "docs-1HGFJk"
+  },
+  "sourceBindings": {
+    "web/app/api/moderation/auth.ts": "e60e52d4b0b6c34dd32ba82f0b1429880f28a4420695ef004e4c62044c0871f6",
+    "web/app/api/moderation/http.ts": "4d9a05111717b9fb2d2b284a5a84c7cd0d2013f8fba3712b75941c201aa92603",
+    "web/app/api/moderation/store.ts": "eb870efebb16d2c7e77f3b2f270077610377d401681d83c48abcf4e3ba89feb5",
+    "web/app/api/moderation/queue/route.ts": "5da0e0d9cbfe905c00f68d46cae7f89dceac091f1df85a2920e1da9358641183",
+    "web/app/api/moderation/decision/route.ts": "c3e33ca434658cc0b24a7947b15eb46e14bcacf7b9a265bf09749ba7efb197f7",
+    "web/app/api/moderation/context/route.ts": "164f422d3ab3e9f0cee45c0132798ec4414c241cd9a7caf3e550b204221c63b0",
+    "web/lib/report-lifecycle.ts": "7c3c4abaab6f15f6f5b9428f62b1340d72e6680bd2c0bab778cf14ee7d8fd9ea",
+    "web/lib/reports.ts": "1e6ffff787f664ccd3f2a66ac5dbe08dd4af3bf54143dbcd6593111b7e1d3299",
+    "web/lib/report-project.json": "900adc3b06a795b856386d4c8c392da63327e55a60142dbd3c89a270886bc4f4",
+    "web/lib/__tests__/moderator-http.test.ts": "9c5e2ec9fa2cea2d578d1c801bb1ec9d01c8475f2a9436d224402c761ce0f3f7",
+    "web/lib/__tests__/moderator-store.test.ts": "443ae4252b494599be6aed1d7a0fddf2251eb3b82b5be7102385238e0555e6e6",
+    "web/lib/__tests__/moderator-auth.test.ts": "9e7c3519bd6b51ac377cb9d618f6592a22cd6912861384b0c18b9e1f537c5354",
+    "web/lib/__tests__/report-lifecycle.test.ts": "01ff39c5a52b014b4e9463f742d3af6bdb872ff626057c6973b7e4f6e44383b1"
+  },
+  "focused": {
+    "passed": 419,
+    "failed": 0,
+    "pending": 0,
+    "files": 4,
+    "perFile": {
+      "web/lib/__tests__/moderator-auth.test.ts": {
+        "passed": 50,
+        "failed": 0
+      },
+      "web/lib/__tests__/moderator-http.test.ts": {
+        "passed": 81,
+        "failed": 0
+      },
+      "web/lib/__tests__/moderator-store.test.ts": {
+        "passed": 242,
+        "failed": 0
+      },
+      "web/lib/__tests__/report-lifecycle.test.ts": {
+        "passed": 46,
+        "failed": 0
+      }
+    }
+  },
+  "full": {
+    "tests": 2856,
+    "files": 81,
+    "dependencyGuards": 42,
+    "isolation": {
+      "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-nWomI7",
+      "copiedFiles": 272,
+      "productionDataDirectoryAbsent": true,
+      "guardProbePassed": true,
+      "forbiddenPaths": [
+        "C:\\sgSHIOK2026\\web\\public\\data",
+        "C:\\sgSHIOK2026\\tmp\\test-without-data-nWomI7\\web\\public\\data"
+      ],
+      "dependencies": "Existing node_modules linked; no installation",
+      "testArgs": [
+        "--reporter=dot",
+        "--testTimeout=15000"
+      ],
+      "exitCode": 0
+    },
+    "arithmetic": "2531 + 242 store + 81 HTTP + 1 lifecycle NUL + 1 Auth stream = 2856; 79 + 2 files = 81; focused 242 + 81 + 50 + 46 = 419 overlaps full, not additive"
+  },
+  "types": {
+    "command": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "web/node_modules/typescript/bin/tsc",
+      "--project",
+      "web/tsconfig.json",
+      "--noEmit",
+      "--incremental",
+      "false"
+    ],
+    "exit": 0
+  },
+  "docs": {
+    "command": [
+      "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "pytest",
+      "tests/test_readme.py",
+      "tests/test_agent_docs.py",
+      "tests/test_repo_integrity.py",
+      "-q",
+      "-p",
+      "no:cacheprovider"
+    ],
+    "exit": 0,
+    "passed": 41
+  },
+  "preliminary": {
+    "firstFullAcceptedForEarlierSnapshot": true,
+    "redStreamTests": {
+      "passed": 417,
+      "failed": 2,
+      "exit": 1
+    },
+    "implementationHistory": "implementation-history.json",
+    "independentReview": "review.json",
+    "streamReview": "stream-review.json"
+  },
+  "bounds": {
+    "inputBytes": 8192,
+    "replyBytes": 393216,
+    "httpDeadlineMs": 15000,
+    "storeOperationDeadlineMs": 8000,
+    "pageLimit": 25,
+    "pageAllowanceArithmetic": "25 * (8192 + 6000 + 1024) = 380400 < 384 * 1024 = 393216",
+    "legalLargePageBytes": 356404,
+    "pressureLimiter": "30 per token hash and 60 total per minute per warm instance; not distributed quota"
+  },
+  "protectedAnchorsVerified": 11,
+  "weights": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+  "integrity": "repo_integrity=ok\r\n",
+  "checkIgnore": {
+    "stdout": "",
+    "exit": 1
+  },
+  "remote": {
+    "writes": 0,
+    "reads": 0,
+    "note": "No Supabase calls, enrollment, migration, runtime secret or intake change this checkpoint"
+  },
+  "deployment": "Not run; no new build/browser/real Auth/concurrency claim",
+  "pipelineRuns": 0,
+  "findings": [
+    "Implemented default-off private POST queue, context and decision routes, exact-token Auth verification, independent SQL authorization and bounded typed RPC projection.",
+    "Receipt-specific reads now reconcile a lost acknowledgement without another write; client-side persistence/reconciliation UI still needs acceptance.",
+    "Review found NUL reason admission and an insufficient 256KiB queue cap. Both corrected; a valid 356404-byte 25-report page now passes.",
+    "Tightened the aggregate deadline test to pending at14999ms and unknown at15000ms before the store deadline at16000ms.",
+    "Finite zero-progress chunk regressions failed before guards and pass after. This is stricter stream-contract hardening, not a demonstrated network exploit. Original failures and earlier accepted snapshot preserved.",
+    "30-day retention remains unchanged. Owner login/queue UI, actual Auth and overlapping DB acceptance, navigation, alert delivery and exact frontend release remain open."
+  ],
+  "disagreements": [
+    "No disagreement with30-day retention. Expires after720hours does not mean physical deletion at that instant; daily cleanup and recovery residue remain separate.",
+    "Passing API fixtures and isolated tests does not establish a launched reporting service or complete the full build-and-ship goal. No physical-device acceptance is claimed."
+  ]
+}
+```

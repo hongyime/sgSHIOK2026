@@ -4730,3 +4730,58 @@ DISAGREEMENTS
    claim. The actual CLI still exits1 for its explicit unobserved state.
 2. No disagreement with30-day retention. The clock correction neither changes
    that policy nor authorizes scoring, data repair or a new release.
+
+## 2026-09-15: Private moderator HTTP and receipt-specific reconciliation
+
+Connect the installed SQL gateways to three POST-only private routes: queue,
+context and decision. Require same-origin JSON and an explicit bearer verified
+with the dedicated project's Auth endpoint. The database independently checks
+the allowlist/live session on every operation. Cookies and user-supplied actor,
+session or revision-read-set fields do not grant access. Enablement is separate
+from resident intake and remains off. No runtime credentials or accounts were
+configured, no Supabase calls were made and nothing was deployed this checkpoint.
+
+Keep keyset timestamps at full microsecond precision; only the lifecycle planner
+receives normalized millisecond times and absent optional fields. A decision uses
+the command's expected revision, reads the complete target chain and submits its
+ordered read set to the atomic SQL write. Context is available independently so
+a moderator can reconcile a lost acknowledgement without another decision POST.
+A timeout after dispatch is outcome_unknown. A later conflict or absent queue row
+does not prove the earlier write failed. The future UI must retain that uncertainty
+until a trusted read resolves it, including when data is expired or no longer there.
+
+Bound upload/Auth/RPC completion to15seconds, each store operation to8seconds and
+request bodies to8192bytes. The original256KiB reply cap rejected a valid25-row
+decided queue page: independent probe312829bytes; regression fixture356404bytes.
+Use384KiB (393216bytes), above the conservative25*(8192+6000+1024)=380400 allowance.
+The per-token30 and total60 warm-instance attempts/minute are only pressure limits,
+not a distributed quota. All responses are private/no-store; no provider errors,
+tokens, request IDs, retry proofs or quota buckets are emitted by these routes.
+
+Review also found NUL reasons passed the local lifecycle contract even though
+PostgreSQL cannot store them; reject before IO. Reject empty non-final stream
+chunks consistently in upload, Auth and store readers. This is stricter than a
+generic ReadableStream contract, not a demonstrated exploit against live networking.
+Finite regressions produced417passes/2failures before guards and419passes after.
+The HTTP deadline test proves pending at14999ms and uncertainty at15000ms, before
+the store deadline at16000ms; the earlier version could pass on the wrong timer.
+
+Current acceptance:419focused tests in4files,2531+242store+81HTTP+1lifecycle+1Auth
+=2856isolated web tests in79+2=81files, plus42dependency guards. Focused tests
+overlap full and are not added to it. TypeScript passes. The earlier2854-test
+snapshot, failed regression receipt and worker test-correction history remain
+recorded. Both subagents completed scoped implementation/review and are closed.
+
+FINDINGS
+1. Private HTTP and receipt-specific reconciliation are implemented and tested;
+   none of these fixtures establish real owner Auth or a launched report service.
+2. Corrected inherited NUL admission, insufficient valid-page capacity and the
+   misleading deadline test; strict stream-progress regressions are red/green.
+3. Keep owner login/queue UI, real Auth and overlapping database acceptance,
+   report navigation, alert delivery and exact frontend release open in the goal.
+
+DISAGREEMENTS
+1. No disagreement with30days. Expiry remains exact720hours, followed by the next
+   successful daily cleanup; it is not a claim of physical deletion at expiry.
+2. More passing fixtures do not make the product shipped. Core-map release remains
+   independent of reporting activation, with its own acceptance still required.

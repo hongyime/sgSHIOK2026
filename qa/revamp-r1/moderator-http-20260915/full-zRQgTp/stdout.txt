@@ -1,0 +1,77 @@
+installed_dependencies=ok
+✔ test entry refuses the real MapLibre 6.4.1 lock versus 6.1.0 install shape before Vitest (511.2978ms)
+✔ matching versions may launch the test entry (2204.4408ms)
+✔ a failing native guard contract suite prevents Vitest from starting (2242.8536ms)
+✔ build entry refuses stale dependencies before even the preparation double (2490.6266ms)
+✔ matching build reaches only the refusing preparation double, never Next (1919.3654ms)
+✔ release CLI checks dependencies before retention/build with installed 6.1.0 (1626.9594ms)
+✔ release CLI checks dependencies before retention/build with installed 6.4.1 (2148.7411ms)
+✔ reports exact resolved versions for runtime and development dependencies (97.6084ms)
+✔ development dependency drift also fails (130.3501ms)
+✔ a manifest edit without matching lock-root metadata is not accepted (156.0717ms)
+✔ refuses invalid JSON in package.json (202.5179ms)
+✔ refuses null in package.json (159.6247ms)
+✔ refuses [] in package.json (179.7015ms)
+✔ refuses invalid JSON in package-lock.json (219.4286ms)
+✔ refuses null in package-lock.json (122.3755ms)
+✔ refuses [] in package-lock.json (125.6543ms)
+✔ refuses invalid JSON in node_modules/maplibre-gl/package.json (167.4257ms)
+✔ refuses null in node_modules/maplibre-gl/package.json (130.2087ms)
+✔ refuses [] in node_modules/maplibre-gl/package.json (149.5953ms)
+✔ refuses malformed dependencies (128.2496ms)
+✔ refuses malformed devDependencies (102.3269ms)
+✔ unsupported lock format 1 fails closed (125.0787ms)
+✔ unsupported lock format 4 fails closed (158.1541ms)
+✔ unsupported lock format "3" fails closed (170.5623ms)
+✔ unsupported lock format null fails closed (124.1399ms)
+✔ lock v2 resolved-package metadata is supported (134.9734ms)
+✔ refuses unresolved lock entry null (151.2119ms)
+✔ refuses unresolved lock entry {} (138.5632ms)
+✔ refuses unresolved lock entry {"link":true,"version":"6.4.1"} (124.8052ms)
+✔ refuses unresolved lock entry {"version":""} (162.5024ms)
+✔ missing installed package is reported without loading or executing it (222.3976ms)
+✔ refuses unsafe dependency name ../escape (156.0607ms)
+✔ refuses unsafe dependency name @scope/../../escape (133.908ms)
+✔ refuses unsafe dependency name C:\escape (144.7116ms)
+✔ refuses unsafe dependency name /escape (152.3851ms)
+✔ refuses unsafe dependency name @scope\escape (175.2867ms)
+✔ refuses unsafe dependency name .hidden (166.1492ms)
+✔ scoped packages and a dependency listed in both sections are checked once (232.5051ms)
+✔ empty dependency metadata cannot authorize a vacuous success (108.9084ms)
+✔ matching null dependencies sections are invalid, not absent (213.7438ms)
+✔ matching null devDependencies sections are invalid, not absent (177.0121ms)
+✔ package executable exports are never imported by the version check (197.876ms)
+ℹ tests 42
+ℹ suites 0
+ℹ pass 42
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 19520.0762
+
+ RUN  v4.1.11 C:/sgSHIOK2026/tmp/test-without-data-nWomI7/web
+
+········································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································
+
+ Test Files  81 passed (81)
+      Tests  2856 passed (2856)
+   Start at  13:17:27
+   Duration  104.62s (transform 7.75s, setup 0ms, import 17.05s, tests 37.51s, environment 29ms)
+
+{
+  "snapshot": "C:\\sgSHIOK2026\\tmp\\test-without-data-nWomI7",
+  "copiedFiles": 272,
+  "productionDataDirectoryAbsent": true,
+  "guardProbePassed": true,
+  "forbiddenPaths": [
+    "C:\\sgSHIOK2026\\web\\public\\data",
+    "C:\\sgSHIOK2026\\tmp\\test-without-data-nWomI7\\web\\public\\data"
+  ],
+  "dependencies": "Existing node_modules linked; no installation",
+  "testArgs": [
+    "--reporter=dot",
+    "--testTimeout=15000"
+  ],
+  "exitCode": 0
+}

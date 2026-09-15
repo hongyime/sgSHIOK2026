@@ -621,8 +621,22 @@ No user metadata grants access. Reports can be accepted, rejected or marked as
 duplicates, with stale revisions and incomplete/cyclic target chains rejected.
 Private review reasons expire with the source report. A purged target does not
 hide a newer report's decision. No moderator is enrolled automatically; owner
-sign-in, the HTTP/queue interface and concurrent operational acceptance remain.
+sign-in, the review screen and concurrent operational acceptance remain.
 No credential should be pasted into chat or committed for this setup.
+
+The private POST routes `/api/moderation/queue`, `/api/moderation/context` and
+`/api/moderation/decision` use exact-origin JSON and a verified bearer token,
+not a resident receipt or cookie alone. They return no cached responses and
+never log provider errors, tokens or review content. Each database call checks
+the live owner/session again. A context read reconciles an uncertain decision;
+do not automatically retry a decision or interpret a missing queue row as failure.
+Keep the returned microsecond timestamp unchanged when requesting the next page.
+The independent `SHIOK_MODERATION_ENABLED=true` switch also requires the pinned
+server project/secret/origin and Vercel production/preview runtime configuration.
+It does not enable resident intake. No switch or credential was configured here.
+Uploads are limited to8KiB, replies to384KiB and the entire request to15seconds.
+Warm-instance limits of30attempts/token/minute and60total are not distributed
+quotas. Real owner login, review/recovery UI and operational acceptance remain.
 
 Local cleanup diagnosis: `python -B scripts/collect_report_cleanup_health.py`.
 It uses an explicitly set session-only `SHIOK_SUPABASE_ACCESS_TOKEN`; never put

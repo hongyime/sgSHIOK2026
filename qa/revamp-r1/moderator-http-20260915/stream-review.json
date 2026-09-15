@@ -1,0 +1,8 @@
+{
+  "status": {
+    "01a0a367-e3b5-7fb0-8ed1-d5e3c75293e4": {
+      "completed": "C:\\sgSHIOK2026 | PRAWN-E14\n\n**Follow-Up Review**\nNo new issues found in the two guards or regression tests.\n\n- Both guards run **after `done`**, preserving normal EOF.\n- Non-final chunks must be nonempty `Uint8Array` values.\n- Both tests use finite empty-chunk-then-valid-JSON streams and assert cancellation and reader unlock.\n- HTTP rejects before provider calls; Auth returns `unavailable`.\n- Store hash remains unchanged from the prior review.\n\n**Reviewed SHA256**\n```text\nweb/app/api/moderation/auth.ts\nE60E52D4B0B6C34DD32BA82F0B1429880F28A4420695EF004E4C62044C0871F6\nweb/app/api/moderation/http.ts\n4D9A05111717B9FB2D2B284A5A84C7CD0D2013F8FBA3712B75941C201AA92603\nweb/lib/__tests__/moderator-auth.test.ts\n9E7C3519BD6B51AC377CB9D618F6592A22CD6912861384B0C18B9E1F537C5354\nweb/lib/__tests__/moderator-http.test.ts\n9C5E2EC9FA2CEA2D578D1C801BB1EC9D01C8475F2A9436D224402C761CE0F3F7\nweb/app/api/moderation/store.ts\nEB870EFEBB16D2C7E77F3B2F270077610377D401681D83C48ABCF4E3BA89FEB5\n```\n\nInspection only: no test execution, runtime probes, remote calls, or writes. No additional runtime or release-acceptance claim."
+    }
+  },
+  "timed_out": false
+}

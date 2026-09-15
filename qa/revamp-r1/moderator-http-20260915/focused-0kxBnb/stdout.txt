@@ -1,0 +1,52 @@
+installed_dependencies=ok
+✔ test entry refuses the real MapLibre 6.4.1 lock versus 6.1.0 install shape before Vitest (224.1753ms)
+✔ matching versions may launch the test entry (857.7536ms)
+✔ a failing native guard contract suite prevents Vitest from starting (533.6164ms)
+✔ build entry refuses stale dependencies before even the preparation double (314.1675ms)
+✔ matching build reaches only the refusing preparation double, never Next (381.9287ms)
+✔ release CLI checks dependencies before retention/build with installed 6.1.0 (217.8218ms)
+✔ release CLI checks dependencies before retention/build with installed 6.4.1 (208.3775ms)
+✔ reports exact resolved versions for runtime and development dependencies (29.8128ms)
+✔ development dependency drift also fails (33.7157ms)
+✔ a manifest edit without matching lock-root metadata is not accepted (32.4225ms)
+✔ refuses invalid JSON in package.json (31.3826ms)
+✔ refuses null in package.json (25.4326ms)
+✔ refuses [] in package.json (27.347ms)
+✔ refuses invalid JSON in package-lock.json (28.39ms)
+✔ refuses null in package-lock.json (30.7627ms)
+✔ refuses [] in package-lock.json (26.7904ms)
+✔ refuses invalid JSON in node_modules/maplibre-gl/package.json (32.2053ms)
+✔ refuses null in node_modules/maplibre-gl/package.json (32.124ms)
+✔ refuses [] in node_modules/maplibre-gl/package.json (33.4269ms)
+✔ refuses malformed dependencies (34.8702ms)
+✔ refuses malformed devDependencies (34.9846ms)
+✔ unsupported lock format 1 fails closed (31.1083ms)
+✔ unsupported lock format 4 fails closed (35.1154ms)
+✔ unsupported lock format "3" fails closed (42.3581ms)
+✔ unsupported lock format null fails closed (37.8979ms)
+✔ lock v2 resolved-package metadata is supported (36.0489ms)
+✔ refuses unresolved lock entry null (47.2621ms)
+✔ refuses unresolved lock entry {} (37.6247ms)
+✔ refuses unresolved lock entry {"link":true,"version":"6.4.1"} (36.2867ms)
+✔ refuses unresolved lock entry {"version":""} (29.4528ms)
+✔ missing installed package is reported without loading or executing it (39.3759ms)
+✔ refuses unsafe dependency name ../escape (31.1809ms)
+✔ refuses unsafe dependency name @scope/../../escape (36.767ms)
+✔ refuses unsafe dependency name C:\escape (35.5311ms)
+✔ refuses unsafe dependency name /escape (34.3407ms)
+✔ refuses unsafe dependency name @scope\escape (44.4641ms)
+✔ refuses unsafe dependency name .hidden (31.4701ms)
+✔ scoped packages and a dependency listed in both sections are checked once (38.9506ms)
+✔ empty dependency metadata cannot authorize a vacuous success (34.4648ms)
+✔ matching null dependencies sections are invalid, not absent (35.7542ms)
+✔ matching null devDependencies sections are invalid, not absent (38.1279ms)
+✔ package executable exports are never imported by the version check (34.6071ms)
+ℹ tests 42
+ℹ suites 0
+ℹ pass 42
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4228.0707
+JSON report written to C:/sgSHIOK2026/qa/revamp-r1/moderator-http-20260915/focused-0kxBnb/vitest.json
