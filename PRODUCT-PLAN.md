@@ -10,7 +10,7 @@ physical-device participation still need their specific gates.
 Owner policy15September: use30-day report retention, not90days; private reports
 without resident accounts/contact/photos, weekly owner review and fail-closed
 intake on unhealthy cleanup or limits. The 30-day expiry migration is applied and
-database-tested; cleanup is applied/tested but unscheduled. Concurrency and
+database-tested; daily cleanup is activated after actual scheduler acceptance. Resident and
 operational acceptance remain unfinished; intake is disabled.
 Cloudflare rejected. Weekly metadata-only GitHub checks and one issue approved;
 real scheduler active with verified issue delivery and cross-run journal recovery.
@@ -375,6 +375,12 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 
 ### [ ] T15: Persist reports and issue truthful receipts
 - Status: PARTIAL (dedicated storage and disabled-by-default HTTP endpoint implemented). Size: M. Parent: P1.3.
+- Current15September follow-up: nine distinct-backend races plus actual outer
+  statement cancellation pass. Duplicate/conflicting retries, quota contention,
+  cleanup/retry ordering and expiry while blocked use actual applied function
+  bodies in isolated schemas. This closes that concurrency slice, not resident
+  activation or authenticated moderation. Prior rollback-only checkpoints below
+  retain their original scope.
 - Cleanup integration15September: V2 uses UUIDv7 request validity, exact720-hour
   expiry and post-lock UTC quota-date binding. Old V1 execution is revoked.
   476focused/6files,2387isolated/77files+42guards and TypeScript pass with source
@@ -450,7 +456,17 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 - Gate: Approved owner access. No anonymous administrative endpoint or data edits.
 
 ### [ ] T18: Exercise report failure, abuse and retention limits
-- Status: PARTIAL (private cleanup applied and rollback-tested, not scheduled). Size: M. Parent: P1.3.
+- Status: PARTIAL (daily cleanup active; resident/moderator and monitoring acceptance remain). Size: M. Parent: P1.3.
+- Current15September follow-up: migration20260915023644 installs pg_cron1.6.4.
+  Three actual scheduled QA runs pass: expired-row deletion, caught deletion
+  failure with a persisted latch, and200ms outer timeout with complete rollback.
+  Nine database contention cases plus one cancellation also pass. All synthetic
+  schemas/wrappers/jobs were removed; reports/usage remain zero. Job1 activated
+  at01:17SGT daily with30s outer timeout after exact role/host/ID/config checks
+  and initial zero-row cleanup. First natural run remains unobserved. No intake,
+  runtime secret or resident deployment was enabled. Cron succeeded is not enough:
+  inspect cleanup_failed_at and last-success age. Cancellation cannot persist
+  the ordinary-failure latch. Monitoring and moderator/resident acceptance remain.
 - Migration20260915010921 implements atomic expired-row/quota cleanup, monotone
   request watermark and a content-free ordinary-failure latch.23actual SQL groups
   pass before/after apply; zero reports/usage remain and intake stays disabled.

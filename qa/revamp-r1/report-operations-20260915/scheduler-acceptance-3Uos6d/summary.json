@@ -1,0 +1,808 @@
+{
+  "target": {
+    "projectRef": "ztjilsfgoephcdcsgcks",
+    "projectName": "sgshiok",
+    "projectUrl": "https://ztjilsfgoephcdcsgcks.supabase.co",
+    "organizationId": "ixonsqiqglwriirutigr",
+    "region": "ap-southeast-1",
+    "plan": "free"
+  },
+  "qa": "shiok_cron_qa_5c60d9862b3f",
+  "startedAt": "2026-09-15T02:39:22.233Z",
+  "requests": [
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks",
+      "status": 200
+    },
+    {
+      "path": "organizations/ixonsqiqglwriirutigr",
+      "status": 200
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "19e8f327d2c00ed2dc7351b389bd2aba43579408d76c60cf826405074823da7c"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "01604d5bdbee4639f33d11a4bdf1e78c13f2a99090beb9370586690f5ae2b317"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "31312bf12d1954ced93bc71e1300d06a2165c2e429dfe6d9c4f92fe3997a6703"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "9da1d063ec26ddfebf4d05ba212dea1ea69bec6462e276168d1109f736688e6f"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "30e5d3bf27d680eebe3807ed80bdb6138533a123b6b44c3c1c688e9f98f3fbe5"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "cc99e39d8c996bfe994b0038781d68019721da19afd1025e4d25eea3cee035d1"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "923023ceb3721ab39cfe9c37ec56d2f1bcc7eb4a82be5117f6d5fa9adaed3944"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "69e9eb19d2e6654d68f068b3cec89ea625a824195f83c8217407021456318468"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "6e4d29a646cb4ba79a5e09ae2add6abe9294d7b13b368faeae8f454eb5f36d92"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "5f5e425b666385c552a3d45ccd851905c328cbd12f4a35332b5bbf32768f7116"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "5f5e425b666385c552a3d45ccd851905c328cbd12f4a35332b5bbf32768f7116"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "5f5e425b666385c552a3d45ccd851905c328cbd12f4a35332b5bbf32768f7116"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "5f5e425b666385c552a3d45ccd851905c328cbd12f4a35332b5bbf32768f7116"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "5f5e425b666385c552a3d45ccd851905c328cbd12f4a35332b5bbf32768f7116"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "73419841d5b46cd9b162757beb83a2a562da83b791196de60484301d0fd27744"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "967956cd95dc401840e0a2eb4456a6411d239cf2d53061412a0c69e3c5b6998d"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "923023ceb3721ab39cfe9c37ec56d2f1bcc7eb4a82be5117f6d5fa9adaed3944"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "cc99e39d8c996bfe994b0038781d68019721da19afd1025e4d25eea3cee035d1"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "a329ed3688b8515740eade3218d47ba1e112d54dc34af30c46bf0fa07499181e"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "923023ceb3721ab39cfe9c37ec56d2f1bcc7eb4a82be5117f6d5fa9adaed3944"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "ed504d1837985d452b6eefc424dc9038156b88bc2b447bee857abc511e754055"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "e6bd8aafff0d14e72d6f5ee12ae41acb7442970d93508b8396743973b2e3ab5e"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "4a32b8221bc93ba6c6c29a36a0e4886ff1dcd3e7a46c287b27f0361a9dec074d"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "4a32b8221bc93ba6c6c29a36a0e4886ff1dcd3e7a46c287b27f0361a9dec074d"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "4a32b8221bc93ba6c6c29a36a0e4886ff1dcd3e7a46c287b27f0361a9dec074d"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "4a32b8221bc93ba6c6c29a36a0e4886ff1dcd3e7a46c287b27f0361a9dec074d"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "4a32b8221bc93ba6c6c29a36a0e4886ff1dcd3e7a46c287b27f0361a9dec074d"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "070ae7edb9532fe904874777b1b740d8a0be157ebbdd719552de8559f5dd1953"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "26dfc30ed1cafac96c093ba5a29311c21ff2dcdc57943ea29a77faaa9d32356a"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "923023ceb3721ab39cfe9c37ec56d2f1bcc7eb4a82be5117f6d5fa9adaed3944"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "d8471d983016e7f768551b35d917e93e475dab8092052dfff20df1fa8c3b774b"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "cc99e39d8c996bfe994b0038781d68019721da19afd1025e4d25eea3cee035d1"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "e6421cbd2c0292753c7edfb83a3fed7ce912d801824e2f807cddc419569b470c"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "923023ceb3721ab39cfe9c37ec56d2f1bcc7eb4a82be5117f6d5fa9adaed3944"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "cd39e383cf77c886be4d42193f819b254e44889629ab3b022917d14909087ea2"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "524124f2c419b8f64503f547f5fdce771cc978499451e50273f455fd6b299d30"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "7fb1e2325c4682320fd70c2b3b0c6275a461e590876a6af058740c88b2ca85cd"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "7fb1e2325c4682320fd70c2b3b0c6275a461e590876a6af058740c88b2ca85cd"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "7fb1e2325c4682320fd70c2b3b0c6275a461e590876a6af058740c88b2ca85cd"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "7fb1e2325c4682320fd70c2b3b0c6275a461e590876a6af058740c88b2ca85cd"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "7fb1e2325c4682320fd70c2b3b0c6275a461e590876a6af058740c88b2ca85cd"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "dbfd069d7ace5f35751efa37e869baf6b8bc27c40c19868f466956a1ecd16182"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "c38c008db2539ee03c40a9b7fd7f9b09df01c77f94832d67ea874f75d0e95a74"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "923023ceb3721ab39cfe9c37ec56d2f1bcc7eb4a82be5117f6d5fa9adaed3944"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "5369bc0718d2224fb9b03916e62d50ab9d6836aa43a52f15e77b6bc5c6b9a9cb"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "60800a9110f007174da482e185fb5cf19d693cd48ecb03ec8c6a504f70f549a2"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "a24624a7f88c04be8b9c86c701fefed0c3d8dd02241273200094727e029f5230"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "19e8f327d2c00ed2dc7351b389bd2aba43579408d76c60cf826405074823da7c"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/advisors/security",
+      "status": 200
+    }
+  ],
+  "cases": [
+    {
+      "name": "normal",
+      "before": {
+        "reports": [
+          {
+            "state": "pending",
+            "revision": 1,
+            "expires_at": "2026-09-15T01:39:25.645+00:00",
+            "receipt_id": "2b488df4-9771-4e60-b24f-29bbeaa5908c",
+            "request_id": "01a00839-434d-7123-8123-123456789abc",
+            "received_at": "2026-08-16T01:39:25.645+00:00",
+            "report_type": "mapping_error",
+            "content_sha256": "d53cf4615a8331a6424f418d96a599e1c2ed4e45fc4805e75b2b046ebf6f7613",
+            "canonical_content": "{\"schema_version\":1,\"report_type\":\"mapping_error\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[103.85,1.35]},\"referenced_bundle_version\":\"qa-synthetic-bundle\"}",
+            "retry_proof_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "state": "pending",
+            "revision": 1,
+            "expires_at": "2026-10-15T01:39:25.65+00:00",
+            "receipt_id": "22acc490-7347-4651-918d-2ae0e5db7a76",
+            "request_id": "01a0a2b8-0b52-7123-8123-123456789abc",
+            "received_at": "2026-09-15T01:39:25.65+00:00",
+            "report_type": "mapping_error",
+            "content_sha256": "d53cf4615a8331a6424f418d96a599e1c2ed4e45fc4805e75b2b046ebf6f7613",
+            "canonical_content": "{\"schema_version\":1,\"report_type\":\"mapping_error\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[103.85,1.35]},\"referenced_bundle_version\":\"qa-synthetic-bundle\"}",
+            "retry_proof_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "usage": [
+          {
+            "day": "2026-09-13",
+            "bucket": "global",
+            "admitted": 1
+          },
+          {
+            "day": "2026-09-15",
+            "bucket": "global",
+            "admitted": 1
+          }
+        ],
+        "control": {
+          "enabled": false,
+          "singleton": true,
+          "allowed_bundles": [],
+          "request_floor_ms": 0,
+          "cleanup_failed_at": null,
+          "policy_approved_at": null,
+          "cleanup_verified_at": null
+        },
+        "observations": null
+      },
+      "job": {
+        "id": 2,
+        "name": "shiok_cron_qa_5c60d9862b3f_normal",
+        "command": "SET statement_timeout = '30s'; INSERT INTO shiok_cron_qa_5c60d9862b3f.observations(who,timeout,result) SELECT current_user,current_setting('statement_timeout'),shiok_cron_qa_5c60d9862b3f.cleanup_expired_v1();",
+        "removed": true
+      },
+      "runs": [
+        {
+          "jobid": 2,
+          "runid": 1,
+          "job_pid": 64032,
+          "database": "postgres",
+          "username": "postgres",
+          "status": "succeeded",
+          "return_message": "INSERT 0 1",
+          "start_time": "2026-09-15 02:39:36.874302+00",
+          "end_time": "2026-09-15 02:39:36.880181+00"
+        }
+      ],
+      "after": {
+        "reports": [
+          {
+            "state": "pending",
+            "revision": 1,
+            "expires_at": "2026-10-15T01:39:25.65+00:00",
+            "receipt_id": "22acc490-7347-4651-918d-2ae0e5db7a76",
+            "request_id": "01a0a2b8-0b52-7123-8123-123456789abc",
+            "received_at": "2026-09-15T01:39:25.65+00:00",
+            "report_type": "mapping_error",
+            "content_sha256": "d53cf4615a8331a6424f418d96a599e1c2ed4e45fc4805e75b2b046ebf6f7613",
+            "canonical_content": "{\"schema_version\":1,\"report_type\":\"mapping_error\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[103.85,1.35]},\"referenced_bundle_version\":\"qa-synthetic-bundle\"}",
+            "retry_proof_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "usage": [
+          {
+            "day": "2026-09-15",
+            "bucket": "global",
+            "admitted": 1
+          }
+        ],
+        "control": {
+          "enabled": false,
+          "singleton": true,
+          "allowed_bundles": [],
+          "request_floor_ms": 1789353576876,
+          "cleanup_failed_at": null,
+          "policy_approved_at": null,
+          "cleanup_verified_at": "2026-09-15T02:39:36.876308+00:00"
+        },
+        "observations": [
+          {
+            "id": 1,
+            "who": "postgres",
+            "result": {
+              "ok": true,
+              "completed_at": "2026-09-15T02:39:36.876308+00:00",
+              "usage_deleted": 1,
+              "reports_deleted": 1
+            },
+            "timeout": "30s"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "name": "ordinary_failure",
+      "before": {
+        "reports": [
+          {
+            "state": "pending",
+            "revision": 1,
+            "expires_at": "2026-09-15T01:39:38.53+00:00",
+            "receipt_id": "d27042bc-9911-4972-8ff5-0bd362734a7b",
+            "request_id": "01a00839-75a2-7123-8123-123456789abc",
+            "received_at": "2026-08-16T01:39:38.53+00:00",
+            "report_type": "mapping_error",
+            "content_sha256": "d53cf4615a8331a6424f418d96a599e1c2ed4e45fc4805e75b2b046ebf6f7613",
+            "canonical_content": "{\"schema_version\":1,\"report_type\":\"mapping_error\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[103.85,1.35]},\"referenced_bundle_version\":\"qa-synthetic-bundle\"}",
+            "retry_proof_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "state": "pending",
+            "revision": 1,
+            "expires_at": "2026-10-15T01:39:38.531+00:00",
+            "receipt_id": "cb6bb33f-d387-4b97-9484-2bbd4e19bd5d",
+            "request_id": "01a0a2b8-3da3-7123-8123-123456789abc",
+            "received_at": "2026-09-15T01:39:38.531+00:00",
+            "report_type": "mapping_error",
+            "content_sha256": "d53cf4615a8331a6424f418d96a599e1c2ed4e45fc4805e75b2b046ebf6f7613",
+            "canonical_content": "{\"schema_version\":1,\"report_type\":\"mapping_error\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[103.85,1.35]},\"referenced_bundle_version\":\"qa-synthetic-bundle\"}",
+            "retry_proof_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "usage": [
+          {
+            "day": "2026-09-13",
+            "bucket": "global",
+            "admitted": 1
+          },
+          {
+            "day": "2026-09-15",
+            "bucket": "global",
+            "admitted": 1
+          }
+        ],
+        "control": {
+          "enabled": false,
+          "singleton": true,
+          "allowed_bundles": [],
+          "request_floor_ms": 0,
+          "cleanup_failed_at": null,
+          "policy_approved_at": null,
+          "cleanup_verified_at": null
+        },
+        "observations": null
+      },
+      "job": {
+        "id": 3,
+        "name": "shiok_cron_qa_5c60d9862b3f_ordinary_failure",
+        "command": "SET statement_timeout = '30s'; INSERT INTO shiok_cron_qa_5c60d9862b3f.observations(who,timeout,result) SELECT current_user,current_setting('statement_timeout'),shiok_cron_qa_5c60d9862b3f.cleanup_expired_v1();",
+        "removed": true
+      },
+      "runs": [
+        {
+          "jobid": 3,
+          "runid": 2,
+          "job_pid": 64049,
+          "database": "postgres",
+          "username": "postgres",
+          "status": "succeeded",
+          "return_message": "INSERT 0 1",
+          "start_time": "2026-09-15 02:39:49.893559+00",
+          "end_time": "2026-09-15 02:39:49.898345+00"
+        }
+      ],
+      "after": {
+        "reports": [
+          {
+            "state": "pending",
+            "revision": 1,
+            "expires_at": "2026-09-15T01:39:38.53+00:00",
+            "receipt_id": "d27042bc-9911-4972-8ff5-0bd362734a7b",
+            "request_id": "01a00839-75a2-7123-8123-123456789abc",
+            "received_at": "2026-08-16T01:39:38.53+00:00",
+            "report_type": "mapping_error",
+            "content_sha256": "d53cf4615a8331a6424f418d96a599e1c2ed4e45fc4805e75b2b046ebf6f7613",
+            "canonical_content": "{\"schema_version\":1,\"report_type\":\"mapping_error\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[103.85,1.35]},\"referenced_bundle_version\":\"qa-synthetic-bundle\"}",
+            "retry_proof_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "state": "pending",
+            "revision": 1,
+            "expires_at": "2026-10-15T01:39:38.531+00:00",
+            "receipt_id": "cb6bb33f-d387-4b97-9484-2bbd4e19bd5d",
+            "request_id": "01a0a2b8-3da3-7123-8123-123456789abc",
+            "received_at": "2026-09-15T01:39:38.531+00:00",
+            "report_type": "mapping_error",
+            "content_sha256": "d53cf4615a8331a6424f418d96a599e1c2ed4e45fc4805e75b2b046ebf6f7613",
+            "canonical_content": "{\"schema_version\":1,\"report_type\":\"mapping_error\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[103.85,1.35]},\"referenced_bundle_version\":\"qa-synthetic-bundle\"}",
+            "retry_proof_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "usage": [
+          {
+            "day": "2026-09-13",
+            "bucket": "global",
+            "admitted": 1
+          },
+          {
+            "day": "2026-09-15",
+            "bucket": "global",
+            "admitted": 1
+          }
+        ],
+        "control": {
+          "enabled": false,
+          "singleton": true,
+          "allowed_bundles": [],
+          "request_floor_ms": 0,
+          "cleanup_failed_at": "2026-09-15T02:39:49.895353+00:00",
+          "policy_approved_at": null,
+          "cleanup_verified_at": null
+        },
+        "observations": [
+          {
+            "id": 2,
+            "who": "postgres",
+            "result": {
+              "ok": false,
+              "error": "cleanup_failed",
+              "completed_at": "2026-09-15T02:39:49.895353+00:00"
+            },
+            "timeout": "30s"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "name": "statement_timeout",
+      "before": {
+        "reports": [
+          {
+            "state": "pending",
+            "revision": 1,
+            "expires_at": "2026-09-15T01:39:51.148+00:00",
+            "receipt_id": "4bc57fd0-1c59-4756-8cab-02e87004b60b",
+            "request_id": "01a00839-a6ec-7123-8123-123456789abc",
+            "received_at": "2026-08-16T01:39:51.148+00:00",
+            "report_type": "mapping_error",
+            "content_sha256": "d53cf4615a8331a6424f418d96a599e1c2ed4e45fc4805e75b2b046ebf6f7613",
+            "canonical_content": "{\"schema_version\":1,\"report_type\":\"mapping_error\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[103.85,1.35]},\"referenced_bundle_version\":\"qa-synthetic-bundle\"}",
+            "retry_proof_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "state": "pending",
+            "revision": 1,
+            "expires_at": "2026-10-15T01:39:51.149+00:00",
+            "receipt_id": "f559dfef-12c5-4a7c-a7e8-ae5947d03bc4",
+            "request_id": "01a0a2b8-6eed-7123-8123-123456789abc",
+            "received_at": "2026-09-15T01:39:51.149+00:00",
+            "report_type": "mapping_error",
+            "content_sha256": "d53cf4615a8331a6424f418d96a599e1c2ed4e45fc4805e75b2b046ebf6f7613",
+            "canonical_content": "{\"schema_version\":1,\"report_type\":\"mapping_error\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[103.85,1.35]},\"referenced_bundle_version\":\"qa-synthetic-bundle\"}",
+            "retry_proof_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "usage": [
+          {
+            "day": "2026-09-13",
+            "bucket": "global",
+            "admitted": 1
+          },
+          {
+            "day": "2026-09-15",
+            "bucket": "global",
+            "admitted": 1
+          }
+        ],
+        "control": {
+          "enabled": false,
+          "singleton": true,
+          "allowed_bundles": [],
+          "request_floor_ms": 0,
+          "cleanup_failed_at": null,
+          "policy_approved_at": null,
+          "cleanup_verified_at": null
+        },
+        "observations": null
+      },
+      "job": {
+        "id": 4,
+        "name": "shiok_cron_qa_5c60d9862b3f_statement_timeout",
+        "command": "SET statement_timeout = '200ms'; INSERT INTO shiok_cron_qa_5c60d9862b3f.observations(who,timeout,result) SELECT current_user,current_setting('statement_timeout'),shiok_cron_qa_5c60d9862b3f.cleanup_expired_v1();",
+        "removed": true
+      },
+      "runs": [
+        {
+          "jobid": 4,
+          "runid": 3,
+          "job_pid": 64068,
+          "database": "postgres",
+          "username": "postgres",
+          "status": "failed",
+          "return_message": "ERROR:  canceling statement due to statement timeout\nCONTEXT:  SQL statement \"SELECT pg_sleep(2)\"\nPL/pgSQL function shiok_cron_qa_5c60d9862b3f.delay_delete() line 1 at PERFORM\nSQL statement \"delete from shiok_cron_qa_5c60d9862b3f.daily_usage where day < (captured_at at time zone 'UTC')::date - 1\"\nPL/pgSQL function shiok_cron_qa_5c60d9862b3f.cleanup_expired_v1() line 20 at SQL statement\n",
+          "start_time": "2026-09-15 02:40:01.968428+00",
+          "end_time": "2026-09-15 02:40:02.176233+00"
+        }
+      ],
+      "after": {
+        "reports": [
+          {
+            "state": "pending",
+            "revision": 1,
+            "expires_at": "2026-09-15T01:39:51.148+00:00",
+            "receipt_id": "4bc57fd0-1c59-4756-8cab-02e87004b60b",
+            "request_id": "01a00839-a6ec-7123-8123-123456789abc",
+            "received_at": "2026-08-16T01:39:51.148+00:00",
+            "report_type": "mapping_error",
+            "content_sha256": "d53cf4615a8331a6424f418d96a599e1c2ed4e45fc4805e75b2b046ebf6f7613",
+            "canonical_content": "{\"schema_version\":1,\"report_type\":\"mapping_error\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[103.85,1.35]},\"referenced_bundle_version\":\"qa-synthetic-bundle\"}",
+            "retry_proof_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "state": "pending",
+            "revision": 1,
+            "expires_at": "2026-10-15T01:39:51.149+00:00",
+            "receipt_id": "f559dfef-12c5-4a7c-a7e8-ae5947d03bc4",
+            "request_id": "01a0a2b8-6eed-7123-8123-123456789abc",
+            "received_at": "2026-09-15T01:39:51.149+00:00",
+            "report_type": "mapping_error",
+            "content_sha256": "d53cf4615a8331a6424f418d96a599e1c2ed4e45fc4805e75b2b046ebf6f7613",
+            "canonical_content": "{\"schema_version\":1,\"report_type\":\"mapping_error\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[103.85,1.35]},\"referenced_bundle_version\":\"qa-synthetic-bundle\"}",
+            "retry_proof_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "usage": [
+          {
+            "day": "2026-09-13",
+            "bucket": "global",
+            "admitted": 1
+          },
+          {
+            "day": "2026-09-15",
+            "bucket": "global",
+            "admitted": 1
+          }
+        ],
+        "control": {
+          "enabled": false,
+          "singleton": true,
+          "allowed_bundles": [],
+          "request_floor_ms": 0,
+          "cleanup_failed_at": null,
+          "policy_approved_at": null,
+          "cleanup_verified_at": null
+        },
+        "observations": null
+      },
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "before": {
+    "reports": 0,
+    "usage": 0,
+    "control": {
+      "enabled": false,
+      "singleton": true,
+      "allowed_bundles": [],
+      "request_floor_ms": 0,
+      "cleanup_failed_at": null,
+      "policy_approved_at": null,
+      "cleanup_verified_at": null
+    },
+    "jobs": [
+      {
+        "jobid": 1,
+        "active": false,
+        "command": "SET statement_timeout = '30s'; SELECT shiok_reports.cleanup_expired_v1();",
+        "jobname": "shiok-report-cleanup-v1",
+        "database": "postgres",
+        "nodename": "localhost",
+        "nodeport": 5432,
+        "schedule": "17 17 * * *",
+        "username": "postgres"
+      }
+    ],
+    "cleanup_source": "479bd801c44140d1d51f2d03dd7418d372eedd2892501654c6144a7488c27418",
+    "timezone": "GMT",
+    "background_workers": "off"
+  },
+  "sources": [
+    {
+      "name": "20260914161526_shiok_private_reports_v1.sql",
+      "sha256": "9de35faa5275c5c10706167195df81f1832a246b2d336adab192fd1b6a046604",
+      "transformedSha256": "84444e469391c7018fecdc16cce8564145f2aa2c648c8471cc5352ac38329075"
+    },
+    {
+      "name": "20260915000630_shiok_report_retention_30_days.sql",
+      "sha256": "e6ae291c54796909aaf79f19613e8a1ee78f1ed2b8788f4e87d0a1435934f4c6",
+      "transformedSha256": "d7d865f17fee2f99a9fc419970dd1a772109e769cf08dd47dbfd4d905eb4be97"
+    },
+    {
+      "name": "20260915010921_shiok_report_cleanup.sql",
+      "sha256": "1b5d7487d95b42f76c1bf60a3de99f2b7036a38bc0e7b1ffaf375ca79e97ad7c",
+      "transformedSha256": "2b07a554f5dbe6d6c581616f622ff10c6d5775650cffb1edd72f1b6af22fce45"
+    }
+  ],
+  "schemaOid": 18068,
+  "cleanupBinding": {
+    "normalizedHash": "479bd801c44140d1d51f2d03dd7418d372eedd2892501654c6144a7488c27418",
+    "acl": "{postgres=X/postgres}"
+  },
+  "qaSchemaRemoved": true,
+  "after": {
+    "reports": 0,
+    "usage": 0,
+    "control": {
+      "enabled": false,
+      "singleton": true,
+      "allowed_bundles": [],
+      "request_floor_ms": 0,
+      "cleanup_failed_at": null,
+      "policy_approved_at": null,
+      "cleanup_verified_at": null
+    },
+    "jobs": [
+      {
+        "jobid": 1,
+        "active": false,
+        "command": "SET statement_timeout = '30s'; SELECT shiok_reports.cleanup_expired_v1();",
+        "jobname": "shiok-report-cleanup-v1",
+        "database": "postgres",
+        "nodename": "localhost",
+        "nodeport": 5432,
+        "schedule": "17 17 * * *",
+        "username": "postgres"
+      }
+    ],
+    "cleanup_source": "479bd801c44140d1d51f2d03dd7418d372eedd2892501654c6144a7488c27418",
+    "timezone": "GMT",
+    "background_workers": "off"
+  },
+  "productionUnchanged": true,
+  "advisors": {
+    "lints": [
+      {
+        "name": "rls_enabled_no_policy",
+        "title": "RLS Enabled No Policy",
+        "level": "INFO",
+        "facing": "EXTERNAL",
+        "categories": [
+          "SECURITY"
+        ],
+        "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+        "detail": "Table \\`shiok_reports.control\\` has RLS enabled, but no policies exist",
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+        "metadata": {
+          "schema": "shiok_reports",
+          "name": "control",
+          "type": "table"
+        },
+        "cache_key": "rls_enabled_no_policy_shiok_reports_control",
+        "observed_at": "2026-09-15T02:40:04.241Z"
+      },
+      {
+        "name": "rls_enabled_no_policy",
+        "title": "RLS Enabled No Policy",
+        "level": "INFO",
+        "facing": "EXTERNAL",
+        "categories": [
+          "SECURITY"
+        ],
+        "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+        "detail": "Table \\`shiok_reports.daily_usage\\` has RLS enabled, but no policies exist",
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+        "metadata": {
+          "schema": "shiok_reports",
+          "name": "daily_usage",
+          "type": "table"
+        },
+        "cache_key": "rls_enabled_no_policy_shiok_reports_daily_usage",
+        "observed_at": "2026-09-15T02:40:04.241Z"
+      },
+      {
+        "name": "rls_enabled_no_policy",
+        "title": "RLS Enabled No Policy",
+        "level": "INFO",
+        "facing": "EXTERNAL",
+        "categories": [
+          "SECURITY"
+        ],
+        "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+        "detail": "Table \\`shiok_reports.reports\\` has RLS enabled, but no policies exist",
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+        "metadata": {
+          "schema": "shiok_reports",
+          "name": "reports",
+          "type": "table"
+        },
+        "cache_key": "rls_enabled_no_policy_shiok_reports_reports",
+        "observed_at": "2026-09-15T02:40:04.241Z"
+      }
+    ]
+  },
+  "jobs": [
+    {
+      "id": 2,
+      "name": "shiok_cron_qa_5c60d9862b3f_normal",
+      "command": "SET statement_timeout = '30s'; INSERT INTO shiok_cron_qa_5c60d9862b3f.observations(who,timeout,result) SELECT current_user,current_setting('statement_timeout'),shiok_cron_qa_5c60d9862b3f.cleanup_expired_v1();",
+      "removed": true
+    },
+    {
+      "id": 3,
+      "name": "shiok_cron_qa_5c60d9862b3f_ordinary_failure",
+      "command": "SET statement_timeout = '30s'; INSERT INTO shiok_cron_qa_5c60d9862b3f.observations(who,timeout,result) SELECT current_user,current_setting('statement_timeout'),shiok_cron_qa_5c60d9862b3f.cleanup_expired_v1();",
+      "removed": true
+    },
+    {
+      "id": 4,
+      "name": "shiok_cron_qa_5c60d9862b3f_statement_timeout",
+      "command": "SET statement_timeout = '200ms'; INSERT INTO shiok_cron_qa_5c60d9862b3f.observations(who,timeout,result) SELECT current_user,current_setting('statement_timeout'),shiok_cron_qa_5c60d9862b3f.cleanup_expired_v1();",
+      "removed": true
+    }
+  ],
+  "finishedAt": "2026-09-15T02:40:02.651Z"
+}

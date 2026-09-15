@@ -4572,3 +4572,41 @@ DISAGREEMENTS
    a daily job plus outages cannot promise deletion at the exact expiry instant.
 2. Function-local timeout and rollback fixtures do not prove actual cancellation,
    distributed abuse limits or concurrent safety. Those release gates stay open.
+
+## 2026-09-15: Operate daily private-report expiry cleanup
+
+Keep the owner's30-day policy: exact720-hour expiry after receipt, followed by
+deletion on the next successful daily run. Migration20260915023644 installs
+pg_cron1.6.4 and an initially inactive job. Activate the exact job separately,
+only after actual scheduler and concurrency acceptance. The applied operation
+enabled job1 at17:17UTC/01:17SGT with a30s outer statement timeout, after initial
+zero-row cleanup. This does not enable intake or approve resident activation.
+
+Nine actual distinct-backend races and one outer cancellation pass; three real
+scheduler cases verify normal deletion, caught error and canceled deletion.
+Namespace-transformed actual function bodies were used, not an invented cleanup.
+Temporary schemas/wrappers/jobs were removed. Production reports/usage remained
+zero; activation changes only cleanup health/floor and the reviewed job state.
+
+Use the supported cron.alter_job API, not new direct-update grants on cron.job.
+Activation verifies job ID, name, host/port, database, role, command and schedule
+in one explicitly checked SERIALIZABLE transaction; conflicts fail without retry.
+Read both cleanup_failed_at and cleanup_verified_at for health: cron may report
+succeeded after the function caught a deletion error. Statement cancellation
+rolls back the latch too, so retain the26hour stale-success admission guard.
+Natural daily execution and end-to-end health monitoring remain unobserved/open.
+
+FINDINGS
+1. Real contention preserves one receipt/debit and rejects conflict/expiry across
+   actual blocked sessions, including expiry reached while waiting.
+2. Actual scheduled cancellation restores both delete phases and all health/floor
+   writes. Ordinary failures instead persist the explicit failure latch.
+3. The first activation attempt assumed direct cron table locking privileges.
+   Its42501 preceded all writes; serializable activation through the supported
+   function corrects that assumption without widening permissions.
+
+DISAGREEMENTS
+1. No disagreement with30days. Expiry and physical deletion are distinct; daily
+   intervals and outages cannot promise erasure at the exact expiry instant.
+2. Neither a cron succeeded label nor synthetic form receipts establish a
+   functioning resident service. Moderation, monitoring and release work remain.

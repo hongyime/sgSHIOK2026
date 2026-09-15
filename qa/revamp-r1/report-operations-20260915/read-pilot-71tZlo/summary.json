@@ -1,0 +1,247 @@
+{
+  "mode": "read-pilot",
+  "target": {
+    "projectRef": "ztjilsfgoephcdcsgcks",
+    "projectName": "sgshiok",
+    "projectUrl": "https://ztjilsfgoephcdcsgcks.supabase.co",
+    "organizationId": "ixonsqiqglwriirutigr",
+    "region": "ap-southeast-1",
+    "plan": "free"
+  },
+  "schema": "shiok_qa_24d84c5a37ec",
+  "startedAt": "2026-09-15T02:04:45.033Z",
+  "requests": [
+    {
+      "method": "GET",
+      "suffix": "",
+      "status": 200,
+      "elapsedMs": 711
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 186,
+      "querySha256": "b812a068e92e57a6ec6d7cdc6731338068be831632389e4e0a44b922fe0c0c37"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 5193,
+      "querySha256": "cbf6c10f81a307899ca2cd70e3d8770ccb1de848248abf71d1deac0aaaf11895"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 5327,
+      "querySha256": "5f4ec9cb582dfcc519861de09e8b7063848428954a877816204ec366950e0acd"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 242,
+      "querySha256": "5f4ec9cb582dfcc519861de09e8b7063848428954a877816204ec366950e0acd"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 370,
+      "querySha256": "5f4ec9cb582dfcc519861de09e8b7063848428954a877816204ec366950e0acd"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 122,
+      "querySha256": "5f4ec9cb582dfcc519861de09e8b7063848428954a877816204ec366950e0acd"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 226,
+      "querySha256": "5f4ec9cb582dfcc519861de09e8b7063848428954a877816204ec366950e0acd"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 188,
+      "querySha256": "5f4ec9cb582dfcc519861de09e8b7063848428954a877816204ec366950e0acd"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 159,
+      "querySha256": "5f4ec9cb582dfcc519861de09e8b7063848428954a877816204ec366950e0acd"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 129,
+      "querySha256": "b812a068e92e57a6ec6d7cdc6731338068be831632389e4e0a44b922fe0c0c37"
+    }
+  ],
+  "cases": [],
+  "passed": false,
+  "before": {
+    "reports": 0,
+    "usage": 0,
+    "control": {
+      "enabled": false,
+      "singleton": true,
+      "allowed_bundles": [],
+      "request_floor_ms": 0,
+      "cleanup_failed_at": null,
+      "policy_approved_at": null,
+      "cleanup_verified_at": null
+    },
+    "functions": [
+      {
+        "acl": "{postgres=X/postgres}",
+        "name": "cleanup_expired_v1",
+        "config": [
+          "search_path=\"\"",
+          "lock_timeout=2s"
+        ],
+        "source": "479bd801c44140d1d51f2d03dd7418d372eedd2892501654c6144a7488c27418",
+        "definer": false
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "name": "request_time_ms",
+        "config": [
+          "search_path=\"\""
+        ],
+        "source": "46d4dbd88e6971697866ad66f8edf47296b161bbbd2e3e70f26cb2e57e8d3250",
+        "definer": false
+      },
+      {
+        "acl": "{postgres=X/postgres}",
+        "name": "shiok_report_submit_v1",
+        "config": [
+          "search_path=\"\"",
+          "lock_timeout=2s"
+        ],
+        "source": "8f8520e8f91aee00283102d4bce005180047b85fcee2d315ee81a326225dde68",
+        "definer": false
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "name": "shiok_report_submit_v2",
+        "config": [
+          "search_path=\"\"",
+          "lock_timeout=2s"
+        ],
+        "source": "da94e14e6060c03d873152ac8a2f6151c5cc42b6d3fae0bc43422383f4290d83",
+        "definer": false
+      }
+    ],
+    "tables": [
+      {
+        "acl": "{postgres=arwdDxtm/postgres,service_role=r/postgres}",
+        "rls": true,
+        "name": "control"
+      },
+      {
+        "acl": "{postgres=arwdDxtm/postgres,service_role=arw/postgres}",
+        "rls": true,
+        "name": "daily_usage"
+      },
+      {
+        "acl": "{postgres=arwdDxtm/postgres,service_role=ar/postgres}",
+        "rls": true,
+        "name": "reports"
+      }
+    ]
+  },
+  "observations": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ],
+  "error": "Live database observation gate not met; do not restart the run",
+  "after": {
+    "reports": 0,
+    "usage": 0,
+    "control": {
+      "enabled": false,
+      "singleton": true,
+      "allowed_bundles": [],
+      "request_floor_ms": 0,
+      "cleanup_failed_at": null,
+      "policy_approved_at": null,
+      "cleanup_verified_at": null
+    },
+    "functions": [
+      {
+        "acl": "{postgres=X/postgres}",
+        "name": "cleanup_expired_v1",
+        "config": [
+          "search_path=\"\"",
+          "lock_timeout=2s"
+        ],
+        "source": "479bd801c44140d1d51f2d03dd7418d372eedd2892501654c6144a7488c27418",
+        "definer": false
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "name": "request_time_ms",
+        "config": [
+          "search_path=\"\""
+        ],
+        "source": "46d4dbd88e6971697866ad66f8edf47296b161bbbd2e3e70f26cb2e57e8d3250",
+        "definer": false
+      },
+      {
+        "acl": "{postgres=X/postgres}",
+        "name": "shiok_report_submit_v1",
+        "config": [
+          "search_path=\"\"",
+          "lock_timeout=2s"
+        ],
+        "source": "8f8520e8f91aee00283102d4bce005180047b85fcee2d315ee81a326225dde68",
+        "definer": false
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "name": "shiok_report_submit_v2",
+        "config": [
+          "search_path=\"\"",
+          "lock_timeout=2s"
+        ],
+        "source": "da94e14e6060c03d873152ac8a2f6151c5cc42b6d3fae0bc43422383f4290d83",
+        "definer": false
+      }
+    ],
+    "tables": [
+      {
+        "acl": "{postgres=arwdDxtm/postgres,service_role=r/postgres}",
+        "rls": true,
+        "name": "control"
+      },
+      {
+        "acl": "{postgres=arwdDxtm/postgres,service_role=arw/postgres}",
+        "rls": true,
+        "name": "daily_usage"
+      },
+      {
+        "acl": "{postgres=arwdDxtm/postgres,service_role=ar/postgres}",
+        "rls": true,
+        "name": "reports"
+      }
+    ]
+  },
+  "productionUnchanged": true,
+  "finishedAt": "2026-09-15T02:04:53.576Z"
+}

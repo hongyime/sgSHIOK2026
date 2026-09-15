@@ -1,0 +1,151 @@
+{
+  "mode": "test-migration",
+  "startedAt": "2026-09-15T02:35:05.026Z",
+  "target": {
+    "projectRef": "ztjilsfgoephcdcsgcks",
+    "projectName": "sgshiok",
+    "projectUrl": "https://ztjilsfgoephcdcsgcks.supabase.co",
+    "organizationId": "ixonsqiqglwriirutigr",
+    "region": "ap-southeast-1",
+    "plan": "free"
+  },
+  "requests": [
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks",
+      "status": 200
+    },
+    {
+      "path": "organizations/ixonsqiqglwriirutigr",
+      "status": 200
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "778f2f8980e0c463c91849bab0fc77337a1a2a4de6cf508848e97e1f14570e31"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "7408d267d5ee100a07052c4b0916beccaf945d3043e5fa1a9641a59695973df0"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "e2adc9edc6b054d2cc794b336b245d7664875f7755731c30e551ddfe6dbbf875"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/advisors/security",
+      "status": 200
+    }
+  ],
+  "passed": true,
+  "state": [
+    {
+      "current_user": "supabase_read_only_user",
+      "current_database": "postgres",
+      "version": "17.6",
+      "cron_timezone": "GMT",
+      "cron_background_workers": "off",
+      "cron_database": "postgres",
+      "cron_log_run": "on",
+      "cron_extension": [
+        {
+          "name": "pg_cron",
+          "comment": "Job scheduler for PostgreSQL",
+          "default_version": "1.6.4",
+          "installed_version": null
+        }
+      ],
+      "cron_job": null,
+      "reports": 0,
+      "usage": 0,
+      "control": {
+        "enabled": false,
+        "singleton": true,
+        "allowed_bundles": [],
+        "request_floor_ms": 0,
+        "cleanup_failed_at": null,
+        "policy_approved_at": null,
+        "cleanup_verified_at": null
+      }
+    }
+  ],
+  "migration": {
+    "file": "20260915023221_shiok_report_daily_cleanup.sql",
+    "sha256": "e49e98fc2d35b87187504554ec756029e7c68f343348df1bf11ea61143f69d1b"
+  },
+  "rollbackReadback": [
+    {
+      "jobid": 1,
+      "jobname": "shiok-report-cleanup-v1",
+      "schedule": "17 17 * * *",
+      "command": "SET statement_timeout = '30s'; SELECT shiok_reports.cleanup_expired_v1();",
+      "database": "postgres",
+      "username": "postgres",
+      "active": false
+    }
+  ],
+  "rollbackVerified": true,
+  "advisors": {
+    "lints": [
+      {
+        "name": "rls_enabled_no_policy",
+        "title": "RLS Enabled No Policy",
+        "level": "INFO",
+        "facing": "EXTERNAL",
+        "categories": [
+          "SECURITY"
+        ],
+        "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+        "detail": "Table \\`shiok_reports.control\\` has RLS enabled, but no policies exist",
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+        "metadata": {
+          "schema": "shiok_reports",
+          "name": "control",
+          "type": "table"
+        },
+        "cache_key": "rls_enabled_no_policy_shiok_reports_control",
+        "observed_at": "2026-09-15T02:35:09.679Z"
+      },
+      {
+        "name": "rls_enabled_no_policy",
+        "title": "RLS Enabled No Policy",
+        "level": "INFO",
+        "facing": "EXTERNAL",
+        "categories": [
+          "SECURITY"
+        ],
+        "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+        "detail": "Table \\`shiok_reports.daily_usage\\` has RLS enabled, but no policies exist",
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+        "metadata": {
+          "schema": "shiok_reports",
+          "name": "daily_usage",
+          "type": "table"
+        },
+        "cache_key": "rls_enabled_no_policy_shiok_reports_daily_usage",
+        "observed_at": "2026-09-15T02:35:09.679Z"
+      },
+      {
+        "name": "rls_enabled_no_policy",
+        "title": "RLS Enabled No Policy",
+        "level": "INFO",
+        "facing": "EXTERNAL",
+        "categories": [
+          "SECURITY"
+        ],
+        "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+        "detail": "Table \\`shiok_reports.reports\\` has RLS enabled, but no policies exist",
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+        "metadata": {
+          "schema": "shiok_reports",
+          "name": "reports",
+          "type": "table"
+        },
+        "cache_key": "rls_enabled_no_policy_shiok_reports_reports",
+        "observed_at": "2026-09-15T02:35:09.679Z"
+      }
+    ]
+  },
+  "finishedAt": "2026-09-15T02:35:07.988Z"
+}

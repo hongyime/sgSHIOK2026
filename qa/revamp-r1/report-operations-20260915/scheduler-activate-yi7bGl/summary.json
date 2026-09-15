@@ -1,0 +1,68 @@
+{
+  "mode": "activate",
+  "startedAt": "2026-09-15T02:49:11.692Z",
+  "target": {
+    "projectRef": "ztjilsfgoephcdcsgcks",
+    "projectName": "sgshiok",
+    "projectUrl": "https://ztjilsfgoephcdcsgcks.supabase.co",
+    "organizationId": "ixonsqiqglwriirutigr",
+    "region": "ap-southeast-1",
+    "plan": "free"
+  },
+  "requests": [
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks",
+      "status": 200
+    },
+    {
+      "path": "organizations/ixonsqiqglwriirutigr",
+      "status": 200
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 201,
+      "querySha256": "778f2f8980e0c463c91849bab0fc77337a1a2a4de6cf508848e97e1f14570e31"
+    },
+    {
+      "path": "projects/ztjilsfgoephcdcsgcks/database/query",
+      "status": 400,
+      "querySha256": "42aef8414c56c9531ef964ddf7de847fa5a296b10f033173185e67acaf1168f5"
+    }
+  ],
+  "passed": false,
+  "state": [
+    {
+      "current_user": "supabase_read_only_user",
+      "current_database": "postgres",
+      "version": "17.6",
+      "cron_timezone": "GMT",
+      "cron_background_workers": "off",
+      "cron_database": "postgres",
+      "cron_log_run": "on",
+      "cron_extension": [
+        {
+          "name": "pg_cron",
+          "comment": "Job scheduler for PostgreSQL",
+          "default_version": "1.6.4",
+          "installed_version": "1.6.4"
+        }
+      ],
+      "cron_job": "cron.job",
+      "reports": 0,
+      "usage": 0,
+      "control": {
+        "enabled": false,
+        "singleton": true,
+        "allowed_bundles": [],
+        "request_floor_ms": 0,
+        "cleanup_failed_at": null,
+        "policy_approved_at": null,
+        "cleanup_verified_at": null
+      }
+    }
+  ],
+  "schedulerProof": "scheduler-acceptance-3Uos6d",
+  "errorResponse": "{\"message\":\"Failed to run sql query: ERROR:  42501: permission denied for table job\\nCONTEXT:  SQL statement \\\"select *        from cron.job where jobname='shiok-report-cleanup-v1' for update\\\"\\nPL/pgSQL function inline_code_block line 2 at SQL statement\\n\"}",
+  "error": "HTTP 400; no retry",
+  "finishedAt": "2026-09-15T02:49:13.867Z"
+}

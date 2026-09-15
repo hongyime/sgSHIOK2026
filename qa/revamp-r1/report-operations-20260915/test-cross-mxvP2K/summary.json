@@ -1,0 +1,1552 @@
+{
+  "mode": "test-cross",
+  "target": {
+    "projectRef": "ztjilsfgoephcdcsgcks",
+    "projectName": "sgshiok",
+    "projectUrl": "https://ztjilsfgoephcdcsgcks.supabase.co",
+    "organizationId": "ixonsqiqglwriirutigr",
+    "region": "ap-southeast-1",
+    "plan": "free"
+  },
+  "schema": "shiok_qa_0f55e1473628",
+  "startedAt": "2026-09-15T02:22:47.513Z",
+  "requests": [
+    {
+      "method": "GET",
+      "suffix": "",
+      "status": 200,
+      "elapsedMs": 1029
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 334,
+      "querySha256": "b812a068e92e57a6ec6d7cdc6731338068be831632389e4e0a44b922fe0c0c37"
+    },
+    {
+      "method": "GET",
+      "suffix": "/api-keys?reveal=true",
+      "status": 200,
+      "elapsedMs": 317
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 141,
+      "querySha256": "8cf5fc2d3bd78f9c686e78ab486b2a561547b332ec590dc5797d4137c1a35c94"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 210,
+      "querySha256": "4839f74debc08f808e1f089db978c246eb7d0b36478757de041abe41bc9fea4b"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 130,
+      "querySha256": "9d002968d3f6e5b88d3aa9de4cc91ff2d3d1be7a694a75c12169f73ecc82bc1a"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 122,
+      "querySha256": "1819605ec91cbcb303388be026a363b3bbc1005ca894705c607c62922f29a58b"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 458,
+      "querySha256": "f7a7a2f46874432bee44f0f81d429c0104e3c4f90cf5bc17927b934c999644b3"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 240,
+      "querySha256": "3796b4356c528a6aabd289308cef3e5de8e1cdf43ec4f5b2ed22007058b2e366"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 130,
+      "querySha256": "e87a170f3c02bdf4f015286934f890fcb68a4467613bdb477cf932e8226cf82e"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 415,
+      "querySha256": "87f206e208f2899a332777c0e8b18a166fc351f67b4bb6591e1a9bcddfef3184"
+    },
+    {
+      "method": "POST",
+      "suffix": "/rest/v1/rpc/shiok_qa_0f55e1473628_observe",
+      "status": 200,
+      "elapsedMs": 600
+    },
+    {
+      "method": "POST",
+      "suffix": "/rest/v1/rpc/shiok_qa_0f55e1473628_call",
+      "status": 200,
+      "elapsedMs": 1302
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 1919,
+      "querySha256": "45583b7962ad0d192fade65f71c6a6dca3de01834f2e11683ed9e9b1a0b878d5"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 297,
+      "querySha256": "948de6f83b864b2737eb0df4364047f346459589a5f73244eb14047a76aaa7d9"
+    },
+    {
+      "method": "POST",
+      "suffix": "/rest/v1/rpc/shiok_qa_0f55e1473628_observe",
+      "status": 200,
+      "elapsedMs": 44
+    },
+    {
+      "method": "POST",
+      "suffix": "/rest/v1/rpc/shiok_qa_0f55e1473628_observe",
+      "status": 200,
+      "elapsedMs": 45
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 1668,
+      "querySha256": "869f1819c08eedfef859c812d869bde3a0709e7cbc63f2bb512e12abaa33a4e8"
+    },
+    {
+      "method": "POST",
+      "suffix": "/rest/v1/rpc/shiok_qa_0f55e1473628_call",
+      "status": 200,
+      "elapsedMs": 1512
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 229,
+      "querySha256": "948de6f83b864b2737eb0df4364047f346459589a5f73244eb14047a76aaa7d9"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 140,
+      "querySha256": "87f206e208f2899a332777c0e8b18a166fc351f67b4bb6591e1a9bcddfef3184"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 1771,
+      "querySha256": "d167eb78528f191c51394ecc608a11a0b65ca03392ccb352edfb2a105a176e8e"
+    },
+    {
+      "method": "POST",
+      "suffix": "/rest/v1/rpc/shiok_qa_0f55e1473628_observe",
+      "status": 200,
+      "elapsedMs": 74
+    },
+    {
+      "method": "POST",
+      "suffix": "/rest/v1/rpc/shiok_qa_0f55e1473628_observe",
+      "status": 200,
+      "elapsedMs": 49
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 1661,
+      "querySha256": "ace6c80e032dd63b7875daf44cbcf9169320b7e6b2aa9833a7e92769551ddfa6"
+    },
+    {
+      "method": "POST",
+      "suffix": "/rest/v1/rpc/shiok_qa_0f55e1473628_call",
+      "status": 200,
+      "elapsedMs": 1462
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 178,
+      "querySha256": "948de6f83b864b2737eb0df4364047f346459589a5f73244eb14047a76aaa7d9"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 150,
+      "querySha256": "87f206e208f2899a332777c0e8b18a166fc351f67b4bb6591e1a9bcddfef3184"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 109,
+      "querySha256": "323954c9af60ac4148bd74e286058f35da13ec31a5a63ce5d9be83de6ac9e799"
+    },
+    {
+      "method": "POST",
+      "suffix": "/rest/v1/rpc/shiok_qa_0f55e1473628_observe",
+      "status": 200,
+      "elapsedMs": 46
+    },
+    {
+      "method": "POST",
+      "suffix": "/rest/v1/rpc/shiok_qa_0f55e1473628_observe",
+      "status": 200,
+      "elapsedMs": 48
+    },
+    {
+      "method": "POST",
+      "suffix": "/rest/v1/rpc/shiok_qa_0f55e1473628_call",
+      "status": 200,
+      "elapsedMs": 1473
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 1717,
+      "querySha256": "191a48669232d65ad198d0423561e23bc02fc2101d18c5d9c34c3d025c93ac83"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 167,
+      "querySha256": "948de6f83b864b2737eb0df4364047f346459589a5f73244eb14047a76aaa7d9"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 133,
+      "querySha256": "87f206e208f2899a332777c0e8b18a166fc351f67b4bb6591e1a9bcddfef3184"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 1831,
+      "querySha256": "3083df7029f0c6552765eaeb4e6273d8019d53e269cb488135cc6300ba1bc42d"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 225,
+      "querySha256": "948de6f83b864b2737eb0df4364047f346459589a5f73244eb14047a76aaa7d9"
+    },
+    {
+      "method": "POST",
+      "suffix": "/rest/v1/rpc/shiok_qa_0f55e1473628_observe",
+      "status": 200,
+      "elapsedMs": 52
+    },
+    {
+      "method": "POST",
+      "suffix": "/rest/v1/rpc/shiok_qa_0f55e1473628_observe",
+      "status": 200,
+      "elapsedMs": 51
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 1666,
+      "querySha256": "2e5ac0cf104322fddd1335ea265e657b3954840c92129d8bbb752c95ef4e49b8"
+    },
+    {
+      "method": "POST",
+      "suffix": "/rest/v1/rpc/shiok_qa_0f55e1473628_call",
+      "status": 200,
+      "elapsedMs": 1484
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 483,
+      "querySha256": "948de6f83b864b2737eb0df4364047f346459589a5f73244eb14047a76aaa7d9"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 227,
+      "querySha256": "87f206e208f2899a332777c0e8b18a166fc351f67b4bb6591e1a9bcddfef3184"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 342,
+      "querySha256": "88479efd85ba7d30b68f0afbdcb36395c394a4011501ee92476efe92916dbf1e"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 340,
+      "querySha256": "948de6f83b864b2737eb0df4364047f346459589a5f73244eb14047a76aaa7d9"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 412,
+      "querySha256": "11a805bbe0c0c7436af64df13a81e543d192a651f21948baa9138779f1bcf537"
+    },
+    {
+      "method": "POST",
+      "suffix": "/rest/v1/rpc/shiok_qa_0f55e1473628_call",
+      "status": 200,
+      "elapsedMs": 1554
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 1151,
+      "querySha256": "4a847a7f5e78ab8864cf28781ca8174106d0d7209861303fec55151f9458e21b"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 236,
+      "querySha256": "948de6f83b864b2737eb0df4364047f346459589a5f73244eb14047a76aaa7d9"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 207,
+      "querySha256": "87f206e208f2899a332777c0e8b18a166fc351f67b4bb6591e1a9bcddfef3184"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 146,
+      "querySha256": "aac974de6121c792fa7c8f74084c32e44d8e4ff634e7400002628179bee04db8"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 183,
+      "querySha256": "11a805bbe0c0c7436af64df13a81e543d192a651f21948baa9138779f1bcf537"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 1374,
+      "querySha256": "a4b714b4cac6af4451300f4b4dde3d9acd9bc7762d2d5d4548d6e30fdfaef5a9"
+    },
+    {
+      "method": "POST",
+      "suffix": "/rest/v1/rpc/shiok_qa_0f55e1473628_call",
+      "status": 200,
+      "elapsedMs": 1559
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 1237,
+      "querySha256": "948de6f83b864b2737eb0df4364047f346459589a5f73244eb14047a76aaa7d9"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 119,
+      "querySha256": "87f206e208f2899a332777c0e8b18a166fc351f67b4bb6591e1a9bcddfef3184"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 1424,
+      "querySha256": "0503342c715fb50f554b1308a2799122d6f4a0cd06e76e55b2f17e18587acd58"
+    },
+    {
+      "method": "POST",
+      "suffix": "/rest/v1/rpc/shiok_qa_0f55e1473628_observe",
+      "status": 200,
+      "elapsedMs": 89
+    },
+    {
+      "method": "POST",
+      "suffix": "/rest/v1/rpc/shiok_qa_0f55e1473628_observe",
+      "status": 200,
+      "elapsedMs": 160
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 1773,
+      "querySha256": "92a61c4d4035999bceedea95db6c4dadf0f88537f137bbb99b23c6c072a7310b"
+    },
+    {
+      "method": "POST",
+      "suffix": "/rest/v1/rpc/shiok_qa_0f55e1473628_call",
+      "status": 200,
+      "elapsedMs": 1444
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 148,
+      "querySha256": "948de6f83b864b2737eb0df4364047f346459589a5f73244eb14047a76aaa7d9"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 139,
+      "querySha256": "87f206e208f2899a332777c0e8b18a166fc351f67b4bb6591e1a9bcddfef3184"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 322,
+      "querySha256": "c0cf142f0f358f33161238393751a74fce0cf8576dcf6635dae5717d30cfc2f2"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 257,
+      "querySha256": "948de6f83b864b2737eb0df4364047f346459589a5f73244eb14047a76aaa7d9"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 400,
+      "elapsedMs": 402,
+      "querySha256": "afb932edb259ca95a41a6cf65583ea3249c622b873199c9a3561f65b7a8e8631",
+      "error": "{\"message\":\"Failed to run sql query: ERROR:  57014: canceling statement due to statement timeout\\nCONTEXT:  SQL statement \\\"SELECT pg_sleep(2)\\\"\\nPL/pgSQL function shiok_qa_0f55e1473628.delay_usage_delete() line 1 at PERFORM\\nSQL statement \\\"delete from shiok_qa_0f55e1473628.daily_usage where day < (captured_at at time zone 'UTC')::date - 1\\\"\\nPL/pgSQL function shiok_qa_0f55e1473628.cleanup_expired_v1() line 20 at SQL statement\\nPL/pgSQL function public.shiok_qa_0f55e1473628_call(text,uuid,text,text,boolean) line 11 at assignment\\n\"}"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 178,
+      "querySha256": "948de6f83b864b2737eb0df4364047f346459589a5f73244eb14047a76aaa7d9"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 185,
+      "querySha256": "948de6f83b864b2737eb0df4364047f346459589a5f73244eb14047a76aaa7d9"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 206,
+      "querySha256": "e5093cfe49ce6489fea0feb4d12243ac1b46a3be0229eaeaabe1e441cf096679"
+    },
+    {
+      "method": "POST",
+      "suffix": "/rest/v1/rpc/shiok_qa_0f55e1473628_observe",
+      "status": 200,
+      "elapsedMs": 88
+    },
+    {
+      "method": "POST",
+      "suffix": "/rest/v1/rpc/shiok_qa_0f55e1473628_observe",
+      "status": 200,
+      "elapsedMs": 54
+    },
+    {
+      "method": "POST",
+      "suffix": "/rest/v1/rpc/shiok_qa_0f55e1473628_observe",
+      "status": 200,
+      "elapsedMs": 140
+    },
+    {
+      "method": "POST",
+      "suffix": "/rest/v1/rpc/shiok_qa_0f55e1473628_call",
+      "status": 200,
+      "elapsedMs": 1328
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 1782,
+      "querySha256": "9a76b99e530480ef4f98e0bdbd93b40cda908282a88b5e43a73fb62903b32760"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 124,
+      "querySha256": "948de6f83b864b2737eb0df4364047f346459589a5f73244eb14047a76aaa7d9"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 224,
+      "querySha256": "04f370be2e24b3a681defb51cfe3c12315038d4c4ea923cbec3d3c35b1230429"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 104,
+      "querySha256": "6c80ea46d9a9d1c8022ec3ca191b557c6743178d13bd8bfb358295bb9d64b53b"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 94,
+      "querySha256": "365ea40bc45b6fa9026ae1282ef6cf42b107d5b8c1848bc1d2e2c61bd90a6e77"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 123,
+      "querySha256": "64d008954659aa34a7f99dd2cf20439549f440b4da0618f1fd731121056c5a54"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 138,
+      "querySha256": "0fe31b407054b3ec90c0f062fb208511d1715023bbcb13b825362f430c015abb"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 110,
+      "querySha256": "8cf5fc2d3bd78f9c686e78ab486b2a561547b332ec590dc5797d4137c1a35c94"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 105,
+      "querySha256": "56d26aa19b3ff6839deb7a721e33b9ea6d8246709134d0e6477e8f0b01fab5fd"
+    },
+    {
+      "method": "POST",
+      "suffix": "/database/query",
+      "status": 201,
+      "elapsedMs": 115,
+      "querySha256": "b812a068e92e57a6ec6d7cdc6731338068be831632389e4e0a44b922fe0c0c37"
+    }
+  ],
+  "cases": [
+    {
+      "name": "same_id",
+      "first": {
+        "pid": 63044,
+        "role": "service_role",
+        "answer": {
+          "ok": true,
+          "receipt": {
+            "replayed": false,
+            "receipt_id": "cd1f728f-e5e8-4b86-9079-ae6ecd20f69a",
+            "received_at": "2026-09-15T02:22:55.793672+00:00"
+          }
+        },
+        "blocked": [
+          {
+            "pid": 63036,
+            "blockers": [
+              63044
+            ]
+          }
+        ],
+        "entered_at": "2026-09-15T02:22:54.287366+00:00",
+        "finished_at": "2026-09-15T02:22:55.801734+00:00"
+      },
+      "second": {
+        "pid": 63036,
+        "role": "service_role",
+        "answer": {
+          "ok": true,
+          "receipt": {
+            "replayed": true,
+            "receipt_id": "cd1f728f-e5e8-4b86-9079-ae6ecd20f69a",
+            "received_at": "2026-09-15T02:22:55.793672+00:00"
+          }
+        },
+        "blocked": null,
+        "entered_at": "2026-09-15T02:22:54.563032+00:00",
+        "finished_at": "2026-09-15T02:22:55.803658+00:00"
+      },
+      "after": {
+        "reports": 1,
+        "identities": [
+          {
+            "expires_at": "2026-10-15T02:22:55.793672+00:00",
+            "receipt_id": "cd1f728f-e5e8-4b86-9079-ae6ecd20f69a",
+            "request_id": "01a0a2df-d0a2-7123-8123-123456789abc",
+            "received_at": "2026-09-15T02:22:55.793672+00:00"
+          }
+        ],
+        "usage": [
+          {
+            "day": "2026-09-15",
+            "bucket": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "admitted": 1
+          },
+          {
+            "day": "2026-09-15",
+            "bucket": "global",
+            "admitted": 1
+          }
+        ],
+        "control": {
+          "enabled": true,
+          "singleton": true,
+          "allowed_bundles": [
+            "qa-synthetic-bundle"
+          ],
+          "request_floor_ms": 0,
+          "cleanup_failed_at": null,
+          "policy_approved_at": "2026-09-15T02:22:53.866826+00:00",
+          "cleanup_verified_at": "2026-09-15T02:22:53.866827+00:00"
+        }
+      }
+    },
+    {
+      "name": "conflict",
+      "first": {
+        "pid": 63046,
+        "role": "service_role",
+        "answer": {
+          "ok": true,
+          "receipt": {
+            "replayed": true,
+            "receipt_id": "cd1f728f-e5e8-4b86-9079-ae6ecd20f69a",
+            "received_at": "2026-09-15T02:22:55.793672+00:00"
+          }
+        },
+        "blocked": [
+          {
+            "pid": 63036,
+            "blockers": [
+              63046
+            ]
+          }
+        ],
+        "entered_at": "2026-09-15T02:22:56.26876+00:00",
+        "finished_at": "2026-09-15T02:22:57.776432+00:00"
+      },
+      "second": {
+        "pid": 63036,
+        "role": "service_role",
+        "answer": {
+          "ok": false,
+          "sqlstate": "PT409"
+        },
+        "blocked": null,
+        "entered_at": "2026-09-15T02:22:56.3996+00:00",
+        "finished_at": "2026-09-15T02:22:57.77755+00:00"
+      },
+      "after": {
+        "reports": 1,
+        "identities": [
+          {
+            "expires_at": "2026-10-15T02:22:55.793672+00:00",
+            "receipt_id": "cd1f728f-e5e8-4b86-9079-ae6ecd20f69a",
+            "request_id": "01a0a2df-d0a2-7123-8123-123456789abc",
+            "received_at": "2026-09-15T02:22:55.793672+00:00"
+          }
+        ],
+        "usage": [
+          {
+            "day": "2026-09-15",
+            "bucket": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "admitted": 1
+          },
+          {
+            "day": "2026-09-15",
+            "bucket": "global",
+            "admitted": 1
+          }
+        ],
+        "control": {
+          "enabled": true,
+          "singleton": true,
+          "allowed_bundles": [
+            "qa-synthetic-bundle"
+          ],
+          "request_floor_ms": 0,
+          "cleanup_failed_at": null,
+          "policy_approved_at": "2026-09-15T02:22:53.866826+00:00",
+          "cleanup_verified_at": "2026-09-15T02:22:53.866827+00:00"
+        }
+      }
+    },
+    {
+      "name": "global_cap",
+      "first": {
+        "pid": 63050,
+        "role": "service_role",
+        "answer": {
+          "ok": true,
+          "receipt": {
+            "replayed": false,
+            "receipt_id": "471ccf8b-f305-43d0-851f-3bfe18ea499b",
+            "received_at": "2026-09-15T02:23:01.603907+00:00"
+          }
+        },
+        "blocked": [
+          {
+            "pid": 63036,
+            "blockers": [
+              63050
+            ]
+          }
+        ],
+        "entered_at": "2026-09-15T02:23:00.097442+00:00",
+        "finished_at": "2026-09-15T02:23:01.606556+00:00"
+      },
+      "second": {
+        "pid": 63036,
+        "role": "service_role",
+        "answer": {
+          "ok": false,
+          "sqlstate": "PT429"
+        },
+        "blocked": null,
+        "entered_at": "2026-09-15T02:23:00.202329+00:00",
+        "finished_at": "2026-09-15T02:23:01.608738+00:00"
+      },
+      "after": {
+        "reports": 1,
+        "identities": [
+          {
+            "expires_at": "2026-10-15T02:23:01.603907+00:00",
+            "receipt_id": "471ccf8b-f305-43d0-851f-3bfe18ea499b",
+            "request_id": "01a0a2df-e844-7123-8123-111111111111",
+            "received_at": "2026-09-15T02:23:01.603907+00:00"
+          }
+        ],
+        "usage": [
+          {
+            "day": "2026-09-15",
+            "bucket": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "admitted": 1
+          },
+          {
+            "day": "2026-09-15",
+            "bucket": "global",
+            "admitted": 100
+          }
+        ],
+        "control": {
+          "enabled": true,
+          "singleton": true,
+          "allowed_bundles": [
+            "qa-synthetic-bundle"
+          ],
+          "request_floor_ms": 0,
+          "cleanup_failed_at": null,
+          "policy_approved_at": "2026-09-15T02:22:58.177449+00:00",
+          "cleanup_verified_at": "2026-09-15T02:22:58.177449+00:00"
+        }
+      }
+    },
+    {
+      "name": "network_cap",
+      "first": {
+        "pid": 63055,
+        "role": "service_role",
+        "answer": {
+          "ok": true,
+          "receipt": {
+            "replayed": false,
+            "receipt_id": "710746e5-bb93-4ede-bbfa-b25781f035dc",
+            "received_at": "2026-09-15T02:23:03.696822+00:00"
+          }
+        },
+        "blocked": [
+          {
+            "pid": 63036,
+            "blockers": [
+              63055
+            ]
+          }
+        ],
+        "entered_at": "2026-09-15T02:23:02.190543+00:00",
+        "finished_at": "2026-09-15T02:23:03.699346+00:00"
+      },
+      "second": {
+        "pid": 63036,
+        "role": "service_role",
+        "answer": {
+          "ok": false,
+          "sqlstate": "PT429"
+        },
+        "blocked": null,
+        "entered_at": "2026-09-15T02:23:02.27499+00:00",
+        "finished_at": "2026-09-15T02:23:03.700564+00:00"
+      },
+      "after": {
+        "reports": 1,
+        "identities": [
+          {
+            "expires_at": "2026-10-15T02:23:03.696822+00:00",
+            "receipt_id": "710746e5-bb93-4ede-bbfa-b25781f035dc",
+            "request_id": "01a0a2df-f07c-7123-8123-111111111111",
+            "received_at": "2026-09-15T02:23:03.696822+00:00"
+          }
+        ],
+        "usage": [
+          {
+            "day": "2026-09-15",
+            "bucket": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "admitted": 5
+          },
+          {
+            "day": "2026-09-15",
+            "bucket": "global",
+            "admitted": 1
+          }
+        ],
+        "control": {
+          "enabled": true,
+          "singleton": true,
+          "allowed_bundles": [
+            "qa-synthetic-bundle"
+          ],
+          "request_floor_ms": 0,
+          "cleanup_failed_at": null,
+          "policy_approved_at": "2026-09-15T02:23:01.938877+00:00",
+          "cleanup_verified_at": "2026-09-15T02:23:01.938877+00:00"
+        }
+      }
+    },
+    {
+      "name": "cleanup_first",
+      "first": {
+        "pid": 63060,
+        "role": "postgres",
+        "answer": {
+          "ok": true,
+          "completed_at": "2026-09-15T02:23:07.78719+00:00",
+          "usage_deleted": 0,
+          "reports_deleted": 0
+        },
+        "blocked": [
+          {
+            "pid": 63036,
+            "blockers": [
+              63060
+            ]
+          }
+        ],
+        "entered_at": "2026-09-15T02:23:06.282262+00:00",
+        "finished_at": "2026-09-15T02:23:07.788686+00:00"
+      },
+      "second": {
+        "pid": 63036,
+        "role": "service_role",
+        "answer": {
+          "ok": true,
+          "receipt": {
+            "replayed": true,
+            "receipt_id": "af852bc9-3177-4cc5-bec2-f35fc19a9a14",
+            "received_at": "2026-09-15T02:23:05.862373+00:00"
+          }
+        },
+        "blocked": null,
+        "entered_at": "2026-09-15T02:23:06.361847+00:00",
+        "finished_at": "2026-09-15T02:23:07.789685+00:00"
+      },
+      "after": {
+        "reports": 1,
+        "identities": [
+          {
+            "expires_at": "2026-10-15T02:23:05.862373+00:00",
+            "receipt_id": "af852bc9-3177-4cc5-bec2-f35fc19a9a14",
+            "request_id": "01a0a2df-f85d-7123-8123-123456789abc",
+            "received_at": "2026-09-15T02:23:05.862373+00:00"
+          }
+        ],
+        "usage": [
+          {
+            "day": "2026-09-15",
+            "bucket": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "admitted": 1
+          },
+          {
+            "day": "2026-09-15",
+            "bucket": "global",
+            "admitted": 1
+          }
+        ],
+        "control": {
+          "enabled": true,
+          "singleton": true,
+          "allowed_bundles": [
+            "qa-synthetic-bundle"
+          ],
+          "request_floor_ms": 1789352587787,
+          "cleanup_failed_at": null,
+          "policy_approved_at": "2026-09-15T02:23:04.067216+00:00",
+          "cleanup_verified_at": "2026-09-15T02:23:07.78719+00:00"
+        }
+      }
+    },
+    {
+      "name": "retry_first",
+      "first": {
+        "pid": 63036,
+        "role": "service_role",
+        "answer": {
+          "ok": true,
+          "receipt": {
+            "replayed": true,
+            "receipt_id": "37def22a-9e53-48ce-af70-168191d59873",
+            "received_at": "2026-09-15T02:23:08.831008+00:00"
+          }
+        },
+        "blocked": [
+          {
+            "pid": 63067,
+            "blockers": [
+              63036
+            ]
+          }
+        ],
+        "entered_at": "2026-09-15T02:23:09.236287+00:00",
+        "finished_at": "2026-09-15T02:23:10.739741+00:00"
+      },
+      "second": {
+        "pid": 63067,
+        "role": "postgres",
+        "answer": {
+          "ok": true,
+          "completed_at": "2026-09-15T02:23:10.74082+00:00",
+          "usage_deleted": 0,
+          "reports_deleted": 0
+        },
+        "blocked": null,
+        "entered_at": "2026-09-15T02:23:09.815294+00:00",
+        "finished_at": "2026-09-15T02:23:10.742947+00:00"
+      },
+      "after": {
+        "reports": 1,
+        "identities": [
+          {
+            "expires_at": "2026-10-15T02:23:08.831008+00:00",
+            "receipt_id": "37def22a-9e53-48ce-af70-168191d59873",
+            "request_id": "01a0a2e0-09af-7123-8123-123456789abc",
+            "received_at": "2026-09-15T02:23:08.831008+00:00"
+          }
+        ],
+        "usage": [
+          {
+            "day": "2026-09-15",
+            "bucket": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "admitted": 1
+          },
+          {
+            "day": "2026-09-15",
+            "bucket": "global",
+            "admitted": 1
+          }
+        ],
+        "control": {
+          "enabled": true,
+          "singleton": true,
+          "allowed_bundles": [
+            "qa-synthetic-bundle"
+          ],
+          "request_floor_ms": 1789352590740,
+          "cleanup_failed_at": null,
+          "policy_approved_at": "2026-09-15T02:23:08.498798+00:00",
+          "cleanup_verified_at": "2026-09-15T02:23:10.74082+00:00"
+        }
+      }
+    },
+    {
+      "name": "expired_retry_first",
+      "first": {
+        "pid": 63036,
+        "role": "service_role",
+        "answer": {
+          "ok": false,
+          "sqlstate": "PT410"
+        },
+        "blocked": [
+          {
+            "pid": 63072,
+            "blockers": [
+              63036
+            ]
+          }
+        ],
+        "entered_at": "2026-09-15T02:23:11.393005+00:00",
+        "finished_at": "2026-09-15T02:23:12.895304+00:00"
+      },
+      "second": {
+        "pid": 63072,
+        "role": "postgres",
+        "answer": {
+          "ok": true,
+          "completed_at": "2026-09-15T02:23:12.896533+00:00",
+          "usage_deleted": 0,
+          "reports_deleted": 1
+        },
+        "blocked": null,
+        "entered_at": "2026-09-15T02:23:11.840799+00:00",
+        "finished_at": "2026-09-15T02:23:12.898248+00:00"
+      },
+      "after": {
+        "reports": 0,
+        "identities": null,
+        "usage": null,
+        "control": {
+          "enabled": true,
+          "singleton": true,
+          "allowed_bundles": [
+            "qa-synthetic-bundle"
+          ],
+          "request_floor_ms": 1789352592896,
+          "cleanup_failed_at": null,
+          "policy_approved_at": "2026-09-15T02:23:11.160333+00:00",
+          "cleanup_verified_at": "2026-09-15T02:23:12.896533+00:00"
+        }
+      }
+    },
+    {
+      "name": "expiry_while_blocked",
+      "first": {
+        "pid": 63088,
+        "role": "service_role",
+        "answer": {
+          "ok": true,
+          "receipt": {
+            "replayed": false,
+            "receipt_id": "875cfa26-01f8-4f37-bc33-17f6db173eb1",
+            "received_at": "2026-09-15T02:23:17.401977+00:00"
+          }
+        },
+        "blocked": [
+          {
+            "pid": 63036,
+            "blockers": [
+              63088
+            ]
+          }
+        ],
+        "entered_at": "2026-09-15T02:23:15.895281+00:00",
+        "finished_at": "2026-09-15T02:23:17.404546+00:00"
+      },
+      "second": {
+        "pid": 63036,
+        "role": "service_role",
+        "answer": {
+          "ok": false,
+          "sqlstate": "PT410"
+        },
+        "blocked": null,
+        "entered_at": "2026-09-15T02:23:16.054494+00:00",
+        "finished_at": "2026-09-15T02:23:17.405559+00:00"
+      },
+      "after": {
+        "reports": 2,
+        "identities": [
+          {
+            "expires_at": "2026-09-15T02:23:16.816+00:00",
+            "receipt_id": "79f05db9-40bb-4ffa-ae4a-a8c8d425c6de",
+            "request_id": "01a00861-6950-7123-8123-123456789abc",
+            "received_at": "2026-08-16T02:23:16.816+00:00"
+          },
+          {
+            "expires_at": "2026-10-15T02:23:17.401977+00:00",
+            "receipt_id": "875cfa26-01f8-4f37-bc33-17f6db173eb1",
+            "request_id": "01a0a2e0-25b7-7123-8123-123456789abc",
+            "received_at": "2026-09-15T02:23:17.401977+00:00"
+          }
+        ],
+        "usage": [
+          {
+            "day": "2026-09-15",
+            "bucket": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "admitted": 1
+          },
+          {
+            "day": "2026-09-15",
+            "bucket": "global",
+            "admitted": 1
+          }
+        ],
+        "control": {
+          "enabled": true,
+          "singleton": true,
+          "allowed_bundles": [
+            "qa-synthetic-bundle"
+          ],
+          "request_floor_ms": 0,
+          "cleanup_failed_at": null,
+          "policy_approved_at": "2026-09-15T02:23:14.25239+00:00",
+          "cleanup_verified_at": "2026-09-15T02:23:14.25239+00:00"
+        }
+      },
+      "expiring": {
+        "request_id": "01a00861-6950-7123-8123-123456789abc",
+        "received_at": "2026-08-16 02:23:16.816+00",
+        "expires_at": "2026-09-15 02:23:16.816+00"
+      }
+    },
+    {
+      "name": "outer_statement_timeout_rolls_back_both_deletes_and_health",
+      "passed": true,
+      "before": {
+        "reports": 1,
+        "identities": [
+          {
+            "expires_at": "2026-09-15T02:23:14.908+00:00",
+            "receipt_id": "bc5b8e94-114b-4c21-a9b9-9e0cc661dbab",
+            "request_id": "01a00861-61dc-7123-8123-123456789abc",
+            "received_at": "2026-08-16T02:23:14.908+00:00"
+          }
+        ],
+        "usage": [
+          {
+            "day": "2026-09-13",
+            "bucket": "global",
+            "admitted": 1
+          }
+        ],
+        "control": {
+          "enabled": true,
+          "singleton": true,
+          "allowed_bundles": [
+            "qa-synthetic-bundle"
+          ],
+          "request_floor_ms": 0,
+          "cleanup_failed_at": null,
+          "policy_approved_at": "2026-09-15T02:23:17.734182+00:00",
+          "cleanup_verified_at": "2026-09-15T02:23:17.734182+00:00"
+        }
+      },
+      "after": {
+        "reports": 1,
+        "identities": [
+          {
+            "expires_at": "2026-09-15T02:23:14.908+00:00",
+            "receipt_id": "bc5b8e94-114b-4c21-a9b9-9e0cc661dbab",
+            "request_id": "01a00861-61dc-7123-8123-123456789abc",
+            "received_at": "2026-08-16T02:23:14.908+00:00"
+          }
+        ],
+        "usage": [
+          {
+            "day": "2026-09-13",
+            "bucket": "global",
+            "admitted": 1
+          }
+        ],
+        "control": {
+          "enabled": true,
+          "singleton": true,
+          "allowed_bundles": [
+            "qa-synthetic-bundle"
+          ],
+          "request_floor_ms": 0,
+          "cleanup_failed_at": null,
+          "policy_approved_at": "2026-09-15T02:23:17.734182+00:00",
+          "cleanup_verified_at": "2026-09-15T02:23:17.734182+00:00"
+        }
+      }
+    },
+    {
+      "name": "purge_first",
+      "first": {
+        "pid": 63100,
+        "role": "postgres",
+        "answer": {
+          "ok": true,
+          "completed_at": "2026-09-15T02:23:21.060145+00:00",
+          "usage_deleted": 1,
+          "reports_deleted": 1
+        },
+        "blocked": [
+          {
+            "pid": 63098,
+            "blockers": [
+              63100
+            ]
+          }
+        ],
+        "entered_at": "2026-09-15T02:23:19.55495+00:00",
+        "finished_at": "2026-09-15T02:23:21.06156+00:00"
+      },
+      "second": {
+        "pid": 63098,
+        "role": "service_role",
+        "answer": {
+          "ok": false,
+          "sqlstate": "PT410"
+        },
+        "blocked": null,
+        "entered_at": "2026-09-15T02:23:19.787564+00:00",
+        "finished_at": "2026-09-15T02:23:21.063719+00:00"
+      },
+      "after": {
+        "reports": 0,
+        "identities": null,
+        "usage": null,
+        "control": {
+          "enabled": true,
+          "singleton": true,
+          "allowed_bundles": [
+            "qa-synthetic-bundle"
+          ],
+          "request_floor_ms": 1789352601060,
+          "cleanup_failed_at": null,
+          "policy_approved_at": "2026-09-15T02:23:17.734182+00:00",
+          "cleanup_verified_at": "2026-09-15T02:23:21.060145+00:00"
+        }
+      }
+    }
+  ],
+  "passed": true,
+  "before": {
+    "reports": 0,
+    "usage": 0,
+    "control": {
+      "enabled": false,
+      "singleton": true,
+      "allowed_bundles": [],
+      "request_floor_ms": 0,
+      "cleanup_failed_at": null,
+      "policy_approved_at": null,
+      "cleanup_verified_at": null
+    },
+    "functions": [
+      {
+        "acl": "{postgres=X/postgres}",
+        "name": "cleanup_expired_v1",
+        "config": [
+          "search_path=\"\"",
+          "lock_timeout=2s"
+        ],
+        "source": "479bd801c44140d1d51f2d03dd7418d372eedd2892501654c6144a7488c27418",
+        "definer": false
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "name": "request_time_ms",
+        "config": [
+          "search_path=\"\""
+        ],
+        "source": "46d4dbd88e6971697866ad66f8edf47296b161bbbd2e3e70f26cb2e57e8d3250",
+        "definer": false
+      },
+      {
+        "acl": "{postgres=X/postgres}",
+        "name": "shiok_report_submit_v1",
+        "config": [
+          "search_path=\"\"",
+          "lock_timeout=2s"
+        ],
+        "source": "8f8520e8f91aee00283102d4bce005180047b85fcee2d315ee81a326225dde68",
+        "definer": false
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "name": "shiok_report_submit_v2",
+        "config": [
+          "search_path=\"\"",
+          "lock_timeout=2s"
+        ],
+        "source": "da94e14e6060c03d873152ac8a2f6151c5cc42b6d3fae0bc43422383f4290d83",
+        "definer": false
+      }
+    ],
+    "tables": [
+      {
+        "acl": "{postgres=arwdDxtm/postgres,service_role=r/postgres}",
+        "rls": true,
+        "name": "control"
+      },
+      {
+        "acl": "{postgres=arwdDxtm/postgres,service_role=arw/postgres}",
+        "rls": true,
+        "name": "daily_usage"
+      },
+      {
+        "acl": "{postgres=arwdDxtm/postgres,service_role=ar/postgres}",
+        "rls": true,
+        "name": "reports"
+      }
+    ]
+  },
+  "prerequisite": {
+    "receipt": "rest-pilot-W9n4u6",
+    "originalPassed": false,
+    "claim": "Management observed a live REST backend; same-endpoint concurrency was NOT proven."
+  },
+  "sources": [
+    {
+      "file": "20260914161526_shiok_private_reports_v1.sql",
+      "sha256": "9de35faa5275c5c10706167195df81f1832a246b2d336adab192fd1b6a046604",
+      "transformedSha256": "4851346afa79b8d22b33dbbb93ac4b3d806f399c08ee90e86318780fe20c04b6"
+    },
+    {
+      "file": "20260915000630_shiok_report_retention_30_days.sql",
+      "sha256": "e6ae291c54796909aaf79f19613e8a1ee78f1ed2b8788f4e87d0a1435934f4c6",
+      "transformedSha256": "846cd6ccafe133b8e876f4b8fc73b5208b751e96e2bddb1f96816efe68dc46c7"
+    },
+    {
+      "file": "20260915010921_shiok_report_cleanup.sql",
+      "sha256": "1b5d7487d95b42f76c1bf60a3de99f2b7036a38bc0e7b1ffaf375ca79e97ad7c",
+      "transformedSha256": "ecafde8a8bc3d39a940b7cdf1ff46d82021b5db869a7e581e9333cf40b7e9ffe"
+    }
+  ],
+  "schemaCreationAttempted": true,
+  "schemaOid": 17900,
+  "callFunctionOid": 17962,
+  "observeFunctionOid": 17963,
+  "catalogAccess": [
+    {
+      "role": "service_role",
+      "own_blockers": [],
+      "visible_self": 1
+    }
+  ],
+  "normalizedFunctionBodies": 4,
+  "handshakes": [
+    {
+      "name": "same_id",
+      "samples": [
+        [
+          {
+            "pid": 63044,
+            "mode": "RowShareLock",
+            "granted": true
+          }
+        ]
+      ],
+      "holderPid": 63044
+    },
+    {
+      "name": "conflict",
+      "samples": [
+        [],
+        [
+          {
+            "pid": 63046,
+            "mode": "RowShareLock",
+            "granted": true
+          }
+        ]
+      ],
+      "holderPid": 63046
+    },
+    {
+      "name": "global_cap",
+      "samples": [
+        [],
+        [
+          {
+            "pid": 63050,
+            "mode": "RowShareLock",
+            "granted": true
+          }
+        ]
+      ],
+      "holderPid": 63050
+    },
+    {
+      "name": "network_cap",
+      "samples": [
+        [],
+        [
+          {
+            "pid": 63055,
+            "mode": "RowShareLock",
+            "granted": true
+          }
+        ]
+      ],
+      "holderPid": 63055
+    },
+    {
+      "name": "cleanup_first",
+      "samples": [
+        [],
+        [
+          {
+            "pid": 63060,
+            "mode": "RowShareLock",
+            "granted": true
+          }
+        ]
+      ],
+      "holderPid": 63060
+    },
+    {
+      "name": "retry_first",
+      "samples": [
+        [
+          {
+            "pid": 63036,
+            "mode": "RowShareLock",
+            "granted": true
+          }
+        ]
+      ],
+      "holderPid": 63036
+    },
+    {
+      "name": "expired_retry_first",
+      "samples": [
+        [
+          {
+            "pid": 63036,
+            "mode": "RowShareLock",
+            "granted": true
+          }
+        ]
+      ],
+      "holderPid": 63036
+    },
+    {
+      "name": "expiry_while_blocked",
+      "samples": [
+        [],
+        [
+          {
+            "pid": 63088,
+            "mode": "RowShareLock",
+            "granted": true
+          }
+        ]
+      ],
+      "holderPid": 63088
+    },
+    {
+      "name": "purge_first",
+      "samples": [
+        [],
+        [],
+        [
+          {
+            "pid": 63100,
+            "mode": "RowShareLock",
+            "granted": true
+          }
+        ]
+      ],
+      "holderPid": 63100
+    }
+  ],
+  "qaSchemaRemoved": true,
+  "publicWrappersRemoved": true,
+  "after": {
+    "reports": 0,
+    "usage": 0,
+    "control": {
+      "enabled": false,
+      "singleton": true,
+      "allowed_bundles": [],
+      "request_floor_ms": 0,
+      "cleanup_failed_at": null,
+      "policy_approved_at": null,
+      "cleanup_verified_at": null
+    },
+    "functions": [
+      {
+        "acl": "{postgres=X/postgres}",
+        "name": "cleanup_expired_v1",
+        "config": [
+          "search_path=\"\"",
+          "lock_timeout=2s"
+        ],
+        "source": "479bd801c44140d1d51f2d03dd7418d372eedd2892501654c6144a7488c27418",
+        "definer": false
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "name": "request_time_ms",
+        "config": [
+          "search_path=\"\""
+        ],
+        "source": "46d4dbd88e6971697866ad66f8edf47296b161bbbd2e3e70f26cb2e57e8d3250",
+        "definer": false
+      },
+      {
+        "acl": "{postgres=X/postgres}",
+        "name": "shiok_report_submit_v1",
+        "config": [
+          "search_path=\"\"",
+          "lock_timeout=2s"
+        ],
+        "source": "8f8520e8f91aee00283102d4bce005180047b85fcee2d315ee81a326225dde68",
+        "definer": false
+      },
+      {
+        "acl": "{postgres=X/postgres,service_role=X/postgres}",
+        "name": "shiok_report_submit_v2",
+        "config": [
+          "search_path=\"\"",
+          "lock_timeout=2s"
+        ],
+        "source": "da94e14e6060c03d873152ac8a2f6151c5cc42b6d3fae0bc43422383f4290d83",
+        "definer": false
+      }
+    ],
+    "tables": [
+      {
+        "acl": "{postgres=arwdDxtm/postgres,service_role=r/postgres}",
+        "rls": true,
+        "name": "control"
+      },
+      {
+        "acl": "{postgres=arwdDxtm/postgres,service_role=arw/postgres}",
+        "rls": true,
+        "name": "daily_usage"
+      },
+      {
+        "acl": "{postgres=arwdDxtm/postgres,service_role=ar/postgres}",
+        "rls": true,
+        "name": "reports"
+      }
+    ]
+  },
+  "productionUnchanged": true,
+  "finishedAt": "2026-09-15T02:23:20.384Z"
+}

@@ -576,8 +576,12 @@ reached. Migration20260915010921 now enforces an exact720-hour expiry and valid
 UUIDv7 request time for RPC and direct service inserts. Its private cleanup
 function deletes expired content without allowing an old retry to recreate it;
 23 actual PostgreSQL groups pass before and after application. Intake remains
-disabled with no reports or usage rows retained. Scheduling, concurrency and
-actual cancellation acceptance are unfinished; no daily deletion job runs yet.
+disabled with no reports or usage rows retained. Nine actual database races and
+an outer cancellation pass, followed by three real scheduler acceptance cases.
+Daily cleanup is active at01:17Singapore (17:17UTC) with a30s outer timeout;
+first natural daily execution is unobserved. Owner monitoring must check both
+`shiok_reports.control.cleanup_failed_at` and `cleanup_verified_at`: cron can
+report `succeeded` when the function caught a deletion failure and paused intake.
 Cleanup outages and recovery copies can
 extend physical retention. Keep deletion evidence independent of restored snapshots;
 apply expiry/deletion before reopening access. Credential/MFA setup
@@ -600,7 +604,7 @@ Do not use sgbuslaobu for SHIOK. The agent selected it in error; its separate,
 disabled report schema is not a SHIOK deployment and has not been deleted.
 The old project scripts are retired and the server adapter rejects that target.
 The public POST route is implemented but disabled by default; no resident form is wired yet.
-Moderator authentication, scheduled cleanup and real concurrent/HTTP acceptance
+Moderator authentication, cleanup-health monitoring and resident HTTP acceptance
 remain before activation. Owner UI feedback is desktop Chrome
 with a resized viewport, not physical-phone acceptance.
 

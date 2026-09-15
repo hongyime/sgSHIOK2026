@@ -270,9 +270,22 @@ scheduler must set statement_timeout before calling the function. A function-loc
 setting does not prove a whole-statement timeout.
 
 Twenty-three actual PostgreSQL rollback groups pass before and after application.
-No pg_cron extension/job is installed yet, no cleanup health is activated, and no
-reports/usage remain. Daily scheduling, actual cancellation/concurrent sessions,
-moderator authorization and resident form acceptance are still release gates.
+Nine actual distinct-backend races and one outer statement cancellation now pass.
+Separate actual pg_cron runs prove normal cleanup, ordinary-failure latching and
+statement-timeout rollback using namespace-transformed applied function bodies.
+All synthetic schemas/jobs were removed; production reports/usage remain zero.
+Migration20260915023644 installs pg_cron1.6.4 and a disabled daily job. A separately
+verified operational activation enables only job1 after zero-row cleanup. Its
+command sets a30s statement timeout before the cleanup SELECT; the function's
+2s lock timeout remains. UTC17:17 is01:17 Singapore the next day. Configuration
+is checked as GMT, libpq jobs (background workers off), postgres and localhost5432.
+The first natural daily execution has not yet been observed. Intake is disabled;
+moderator authorization, health monitoring and resident acceptance remain gates.
+Cron status alone is insufficient: an ordinary caught error returns ok:false
+and cron reports succeeded. Inspect cleanup_failed_at and cleanup_verified_at,
+not only cron.job_run_details.status. A cancellation rolls back the failure latch;
+the26hour stale-success gate remains necessary. Job activation uses the supported
+cron.alter_job API in a checked serializable transaction, not new cron table grants.
 Expiry at30days is not an exact physical-erasure instant: a daily job introduces
 up to one job interval, and outages/recovery copies need explicit handling.
 

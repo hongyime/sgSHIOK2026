@@ -1,0 +1,386 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "host": "PRAWN-E14",
+  "protectedAnchors": [
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "bytes": 13626,
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/index.json",
+      "bytes": 1751005,
+      "sha256": "d75b7c15e13f52275cbbcad49664b32c877626b3f7d67468dbb198da78120257"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/ANG_MO_KIO_PART_001.json",
+      "bytes": 5240179,
+      "sha256": "0202c445ab78bc1a0921db686d94f4d35a84de00942aee38f7377e14fd5c88d2"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "bytes": 5236013,
+      "sha256": "7d2210870e7b1ef38dcb8c8569edfe4c46b2b3fb429818c87fcb038a35a7351a"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "bytes": 39674,
+      "sha256": "2149976881ea1c794d756dc25c969d370d80d6f5a6e20ae6eb16135e9f1d88aa"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-index.json",
+      "bytes": 3538342,
+      "sha256": "6c28cef3dcf632849f9f86a4bd47f4db99821fea1ffe60e8cfdf9f16c7f2b38f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "bytes": 184,
+      "sha256": "620ed0e9c49ae5662b4b92f40e333cab8da463f1b2850fe5c7d5209a08626050"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/079.json.gz",
+      "bytes": 269,
+      "sha256": "586dd5f91f9c5b47d1c4d7d2224e6e362690d05b4f14f3e6597c9786bbfee9b7"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/560.json.gz",
+      "bytes": 1189,
+      "sha256": "59c94b6f4ccb0e6ee730dad5f650a7447ccd315f44148cad07afa941dccc29fd"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "bytes": 145327,
+      "sha256": "8ca90c51e50533bc4b20d54f914f6fd142d2c56cb77e9396c3400c27e600ec6f"
+    },
+    {
+      "path": "web/public/data/generated_20260805_prefer_scored_routed/geom/h3/89652636c07ffff.json",
+      "bytes": 515583,
+      "sha256": "bb177e71d7d7bdbceb5c9790a66cd46e6f4f043393007ef8e9228f19785dcbf7"
+    }
+  ],
+  "weights": "5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec",
+  "concurrency": {
+    "receipt": "test-cross-mxvP2K",
+    "races": [
+      {
+        "name": "same_id",
+        "holder": 63044,
+        "contender": 63036,
+        "blocked": [
+          {
+            "pid": 63036,
+            "blockers": [
+              63044
+            ]
+          }
+        ]
+      },
+      {
+        "name": "conflict",
+        "holder": 63046,
+        "contender": 63036,
+        "blocked": [
+          {
+            "pid": 63036,
+            "blockers": [
+              63046
+            ]
+          }
+        ]
+      },
+      {
+        "name": "global_cap",
+        "holder": 63050,
+        "contender": 63036,
+        "blocked": [
+          {
+            "pid": 63036,
+            "blockers": [
+              63050
+            ]
+          }
+        ]
+      },
+      {
+        "name": "network_cap",
+        "holder": 63055,
+        "contender": 63036,
+        "blocked": [
+          {
+            "pid": 63036,
+            "blockers": [
+              63055
+            ]
+          }
+        ]
+      },
+      {
+        "name": "cleanup_first",
+        "holder": 63060,
+        "contender": 63036,
+        "blocked": [
+          {
+            "pid": 63036,
+            "blockers": [
+              63060
+            ]
+          }
+        ]
+      },
+      {
+        "name": "retry_first",
+        "holder": 63036,
+        "contender": 63067,
+        "blocked": [
+          {
+            "pid": 63067,
+            "blockers": [
+              63036
+            ]
+          }
+        ]
+      },
+      {
+        "name": "expired_retry_first",
+        "holder": 63036,
+        "contender": 63072,
+        "blocked": [
+          {
+            "pid": 63072,
+            "blockers": [
+              63036
+            ]
+          }
+        ]
+      },
+      {
+        "name": "expiry_while_blocked",
+        "holder": 63088,
+        "contender": 63036,
+        "blocked": [
+          {
+            "pid": 63036,
+            "blockers": [
+              63088
+            ]
+          }
+        ]
+      },
+      {
+        "name": "purge_first",
+        "holder": 63100,
+        "contender": 63098,
+        "blocked": [
+          {
+            "pid": 63098,
+            "blockers": [
+              63100
+            ]
+          }
+        ]
+      }
+    ],
+    "actualStatementCancellation": true,
+    "cases": 10,
+    "normalizedAppliedFunctionBodies": 4,
+    "productionUnchanged": true,
+    "qaRemoved": true
+  },
+  "scheduler": {
+    "receipt": "scheduler-acceptance-3Uos6d",
+    "cases": [
+      {
+        "name": "normal",
+        "passed": true,
+        "status": "succeeded",
+        "start": "2026-09-15 02:39:36.874302+00",
+        "end": "2026-09-15 02:39:36.880181+00"
+      },
+      {
+        "name": "ordinary_failure",
+        "passed": true,
+        "status": "succeeded",
+        "start": "2026-09-15 02:39:49.893559+00",
+        "end": "2026-09-15 02:39:49.898345+00"
+      },
+      {
+        "name": "statement_timeout",
+        "passed": true,
+        "status": "failed",
+        "start": "2026-09-15 02:40:01.968428+00",
+        "end": "2026-09-15 02:40:02.176233+00"
+      }
+    ],
+    "productionUnchanged": true,
+    "qaRemoved": true
+  },
+  "activation": {
+    "receipt": "scheduler-activate-DGKfpe",
+    "migration": "20260915023644",
+    "job": {
+      "jobid": 1,
+      "jobname": "shiok-report-cleanup-v1",
+      "schedule": "17 17 * * *",
+      "command": "SET statement_timeout = '30s'; SELECT shiok_reports.cleanup_expired_v1();",
+      "username": "postgres",
+      "active": true,
+      "control": {
+        "enabled": false,
+        "singleton": true,
+        "allowed_bundles": [],
+        "request_floor_ms": 1789354409975,
+        "cleanup_failed_at": null,
+        "policy_approved_at": null,
+        "cleanup_verified_at": "2026-09-15T02:53:29.975663+00:00"
+      }
+    },
+    "firstNaturalRunObserved": false
+  },
+  "outcomes": [
+    {
+      "path": "pilot-ZQKVgw",
+      "mode": "pilot",
+      "passed": false,
+      "requests": 11,
+      "error": "Live database observation gate not met; do not restart the run",
+      "sourceSnapshot": false
+    },
+    {
+      "path": "read-pilot-71tZlo",
+      "mode": "read-pilot",
+      "passed": false,
+      "requests": 11,
+      "error": "Live database observation gate not met; do not restart the run",
+      "sourceSnapshot": false
+    },
+    {
+      "path": "rest-pilot-W9n4u6",
+      "mode": "rest-pilot",
+      "passed": false,
+      "requests": 12,
+      "error": "Expected \"actual\" to be strictly unequal to: 61383",
+      "sourceSnapshot": false
+    },
+    {
+      "path": "scheduler-acceptance-3Uos6d",
+      "mode": "scheduler-acceptance",
+      "passed": true,
+      "requests": 51,
+      "error": null,
+      "sourceSnapshot": true
+    },
+    {
+      "path": "scheduler-activate-DGKfpe",
+      "mode": "activate",
+      "passed": true,
+      "requests": 5,
+      "error": null,
+      "sourceSnapshot": true
+    },
+    {
+      "path": "scheduler-activate-yi7bGl",
+      "mode": "activate",
+      "passed": false,
+      "requests": 4,
+      "error": "HTTP 400; no retry",
+      "sourceSnapshot": true
+    },
+    {
+      "path": "scheduler-apply-zlSGKF",
+      "mode": "apply",
+      "passed": true,
+      "requests": 9,
+      "error": null,
+      "sourceSnapshot": true
+    },
+    {
+      "path": "scheduler-inspect-1qAKbB",
+      "mode": "inspect",
+      "passed": true,
+      "requests": 4,
+      "error": null,
+      "sourceSnapshot": true
+    },
+    {
+      "path": "scheduler-inspect-vcoMJ5",
+      "mode": "inspect",
+      "passed": true,
+      "requests": 5,
+      "error": null,
+      "sourceSnapshot": true
+    },
+    {
+      "path": "scheduler-test-migration-emb0v3",
+      "mode": "test-migration",
+      "passed": true,
+      "requests": 6,
+      "error": null,
+      "sourceSnapshot": true
+    },
+    {
+      "path": "test-cross-BIzwHD",
+      "mode": "test-cross",
+      "passed": false,
+      "requests": 56,
+      "error": "Management HTTP400; no retry",
+      "sourceSnapshot": true
+    },
+    {
+      "path": "test-cross-GQMPpO",
+      "mode": "test-cross",
+      "passed": false,
+      "requests": 32,
+      "error": "Actual peer blocking not observed; stop, no repetition",
+      "sourceSnapshot": true
+    },
+    {
+      "path": "test-cross-mxvP2K",
+      "mode": "test-cross",
+      "passed": true,
+      "requests": 83,
+      "error": null,
+      "sourceSnapshot": true
+    }
+  ],
+  "managementRequestArithmetic": {
+    "terms": [
+      11,
+      11,
+      12,
+      51,
+      5,
+      4,
+      9,
+      4,
+      5,
+      6,
+      56,
+      32,
+      83
+    ],
+    "sum": 289
+  },
+  "previousEvidence": {
+    "bytes": 480586,
+    "sha256": "aabc7cc482e5a71e3c21ebb37938d5af9a9019ea1668fc3f784325f91b29d47d"
+  },
+  "findings": [
+    "Nine actual blocked-session races plus one statement cancellation passed; expiry while blocked rejects PT410 without an extra quota debit.",
+    "Three actual pg_cron cases passed. A caught deletion error yields cron succeeded while cleanup_failed_at is set; cron status alone is insufficient.",
+    "Daily cleanup job1 activated at17:17UTC/01:17SGT, outer30s timeout. First natural run unobserved; initial empty cleanup advanced health/floor, intake remains false and policy null.",
+    "Direct cron.job FOR UPDATE was denied before any activation write. Corrected with an explicitly checked serializable transaction and supported cron.alter_job, without ACL widening.",
+    "Earlier pilots failed same-endpoint concurrency or permissions and remain failed. Only the narrower cross-endpoint observation was reused. First two pilots lack exact runner snapshots.",
+    "No protected inputs changed, resident rows stored, runtime secrets saved, unrelated project calls, paid resources or pipeline/frontend deployments."
+  ],
+  "disagreements": [
+    "No disagreement with30days; daily deletion and outages cannot promise physical erasure at the precise expiry instant.",
+    "Actual scheduler tests do not establish natural daily execution, health alerting, resident submission, private moderation or complete release acceptance."
+  ],
+  "review": {
+    "agent": "Ohm",
+    "mode": "local read-only",
+    "accepted": "Final concurrency and three scheduler receipts; serializable activation design with explicit isolation assertion",
+    "residual": "Unexpired cleanup/retry harness cases should explicitly assert cleanup ok before future reuse; recorded results are actually true."
+  },
+  "next": "Finish resident integration, private moderator authentication, health monitoring and exact release/device acceptance. Keep full goal active."
+}
