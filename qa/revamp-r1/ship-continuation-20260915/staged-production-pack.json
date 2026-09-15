@@ -1,0 +1,7 @@
+{
+  "elapsedSeconds": 900.094,
+  "error": "Stopped; inspect receipts and remote state before any retry",
+  "errorType": "ReleaseStagingError",
+  "ok": false,
+  "phase": "pack"
+}

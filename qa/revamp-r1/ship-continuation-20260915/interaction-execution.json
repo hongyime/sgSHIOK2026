@@ -1,0 +1,6 @@
+{
+  "ok": false,
+  "returncode": 1,
+  "stdout": "{\"out\":\"C:\\\\sgSHIOK2026\\\\qa\\\\revamp-r1\\\\ship-continuation-20260915\\\\interaction-01\",\"passed\":false,\"failure\":\"actual retry body completion or network failure deadline\",\"captures\":[\"mrt-1440x950\",\"desktop-1440x950\",\"mobile-390x844\",\"mobile-390x667\",\"mobile-320x667\",\"online-unavailable-1440x950\"],\"elapsedMs\":51904}",
+  "stderr": ""
+}

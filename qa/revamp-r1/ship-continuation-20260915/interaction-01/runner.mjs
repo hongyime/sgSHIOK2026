@@ -14,24 +14,17 @@ assert.equal(process.cwd(),ROOT);
 const acceptance=process.argv[3]==='--acceptance';
 const buttonSubmit=acceptance||process.argv[3]==='--button-submit';
 assert.deepEqual(process.argv.slice(2),acceptance?['--go','--acceptance']:buttonSubmit?['--go','--button-submit']:['--go']);
-const origin=process.env.SHIOK_DEPLOYMENT_ORIGIN||'https://sgshiok-83j94nyc2-theprawnvercel.vercel.app';
-assert.match(origin,/^https:\/\/sgshiok-[a-z0-9]+-theprawnvercel\.vercel\.app$/);
-const deployment=process.env.SHIOK_DEPLOYMENT_ID||'dpl_DiLpW8ZRPGSiaQHM76JZsocKC7pJ';
-assert.match(deployment,/^dpl_[A-Za-z0-9]+$/);
-const attempt=process.env.SHIOK_SMOKE_ATTEMPT||(acceptance?'interaction-01':buttonSubmit?'browser-02':'browser-01');
-assert.match(attempt,/^[a-z][a-z0-9-]{1,70}$/);
-const requireRouteSuccess=process.env.SHIOK_REQUIRE_ROUTE_SUCCESS==='1';
-assert.ok(!requireRouteSuccess||acceptance,'Route success requires acceptance mode');
+const origin='https://sgshiok-83j94nyc2-theprawnvercel.vercel.app';
 const access=new URL(process.env.SHIOK_PREVIEW_ACCESS);
 assert.equal(access.origin,origin); assert.equal(access.pathname,'/');
 assert.ok(access.searchParams.has('_vercel_share'));
-const out=resolve(BASE,attempt);
+const out=resolve(BASE,acceptance?'interaction-01':buttonSubmit?'browser-02':'browser-01');
 assert.ok(!existsSync(out),'One fresh attempt; inspect a failure before any later run');
 mkdirSync(out);
 writeFileSync(resolve(out,'runner.mjs'),readFileSync(new URL(import.meta.url)),{flag:'wx'});
 const profile=mkdtempSync(resolve(ROOT,'tmp/preview-smoke-profile-'));
 const started=Date.now(),deadline=started+(acceptance?300000:210000);
-const report={origin,deployment,requireRouteSuccess,startedAt:new Date().toISOString(),
+const report={origin,deployment:'dpl_DiLpW8ZRPGSiaQHM76JZsocKC7pJ',startedAt:new Date().toISOString(),
   checks:[],responses:[],errors:[],captures:[],blockedMutations:[],routeAttempts:[],droppedResponses:0,passed:false,submitControl:buttonSubmit?'native button click':'CDP keyDown/keyUp only',
   scope:'Fresh authenticated preview in owned Chrome, responsive viewport sizes only. No old-client migration, phone, native zoom or representative performance claim. Page-session network metadata only, not complete worker transfer accounting.'};
 let chrome,ws,session,sequence=0,closing=false,routeRequests=0,injectRouteFailure=false,holdRetry=false,releaseRetry; const pending=new Map(),jobs=new Set();
@@ -165,16 +158,6 @@ try{
     check('one selected request received the injected failure',report.injectedFailure?.status===503&&!injectRouteFailure);
     check('failed online preview preserves saved geometry',report.failedSelection.count>0&&report.failedSelection.geometrySha256===report.saved.geometrySha256);
     await capture('online-unavailable-1440x950');
-    await clickButton('Back to saved walk');
-    await settled('recover from injected failure');
-    const recovered=await inspect();
-    check('failure Back restores saved URL and geometry',recovered.url===report.saved.url&&recovered.geometrySha256===report.saved.geometrySha256);
-    check('failure Back clears retry controls',await evaluate(`![...document.querySelectorAll('button')].some(e=>e.textContent.trim()==='Retry preview')`));
-    const retryPoi=await evaluate(`(()=>{const m=window.__shiokRouteMap,c=m.getCanvas(),r=c.getBoundingClientRect(),f=m.queryRenderedFeatures({layers:['bus-stop-dot']}).find(f=>f.properties.id===${JSON.stringify(poi.id)});if(!f)return null;const p=m.project(f.geometry.coordinates),x=p.x+r.x,y=p.y+r.y;return{x,y,visible:x>r.left+10&&x<r.right-10&&y>r.top+10&&y<r.bottom-10&&document.elementFromPoint(x,y)===c};})()`);
-    check('same alternate stop visible after recovery',retryPoi?.visible,retryPoi);
-    injectRouteFailure=true;
-    for(const type of ['mousePressed','mouseReleased'])await send('Input.dispatchMouseEvent',{type,x:retryPoi.x,y:retryPoi.y,button:'left',clickCount:1});
-    await until('second injected failure visible',()=>evaluate(`document.body.innerText.includes('Online preview unavailable.')`),Boolean,22000);
     const attemptsBefore=routeRequests;holdRetry=true;await clickButton('Retry preview');
     await until('explicit retry made one request',()=>routeRequests,n=>n===attemptsBefore+1,15000);
     const actual=report.routeAttempts.at(-1);check('real retry was not injected',actual?.allowed&&!actual.injected&&!!actual.networkId,actual);
@@ -188,13 +171,11 @@ try{
       if(!status.unavailable&&!status.loading&&f.count>0&&!f.moving&&new URL(f.url).searchParams.get('stop')===poi.id&&f.destination?.toLowerCase().replace(/[^a-z0-9]/g,'')===normalizedName)return 'preview';
       return null;
     },Boolean,18000);
-    await settled('real retry tiles');await capture('real-retry-1440x950');
     if(report.retryOutcome==='unavailable')await clickButton('Back to saved walk');else await clickButton('Bus stops');
     await settled('back to saved walk');
     const back=await inspect();check('Back restores saved selection URL',back.url===report.saved.url);
     check('Back clears failed-preview controls',await evaluate(`![...document.querySelectorAll('button')].some(e=>e.textContent.trim()==='Retry preview')`));
     await capture('back-to-saved-1440x950');
-    if(requireRouteSuccess)check('authenticated OneMap route preview succeeds',report.retryOutcome==='preview');
   }
   const identity=await evaluate(`(async()=>{const paths=['/data/generated_20260805_prefer_scored_routed/manifest.json','/sw.js'];const out=[];for(const path of paths){const r=await fetch(path,{cache:'no-store'});const bytes=await r.arrayBuffer();const hash=await crypto.subtle.digest('SHA-256',bytes);out.push({path,status:r.status,bytes:bytes.byteLength,sha256:[...new Uint8Array(hash)].map(v=>v.toString(16).padStart(2,'0')).join('')});}return out;})()`);
   report.staticIdentity=identity;

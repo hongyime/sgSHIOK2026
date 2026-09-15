@@ -10079,3 +10079,138 @@ DISAGREEMENTS
 
 Policy follow-up validation:32docs/integrity tests passed in5.92s;exit0.
 Separate integrity command:repo_integrity=ok;exit0. No browser rerun or pipeline.
+
+## 2026-09-15 Deployed interaction and HTTP error-body disposal
+
+Base:b976126. Root:C:\sgSHIOK2026;hostname:PRAWN-E14.
+The prior goal turn was progress: actual preview plus moderation correction.
+This continuation retains the full build-and-ship goal and does not mark it done.
+No production promotion, second deployment, data mutation, install or pipeline.
+
+Actual preview re-read:READY;dpl_DiLpW8ZRPGSiaQHM76JZsocKC7pJ;
+source69eac6a22ab3794a8648c3211c961340081b7d45;target=null;alias=[].
+Existing browser plugin bootstrap failed withos error3 before a session existed.
+Owned standalone Chrome fallback used the existing temporary access privately;
+no access URL, cookie, credential, profile or request header is retained here.
+
+Executed driver:ship-continuation-20260915/preview-smoke.mjs --go --acceptance.
+Original executable snapshot:interaction-01/runner.mjs. Earlier runners untouched.
+Work deadline300s;owned outer deadline330s. Native Search, MRT/Bus, Details,
+4viewport sizes, then one intentionally injected browser-only503 and one real
+online retry. Max3/api/onemap-route GETs, not a limit on OneMap raster tiles.
+Real retry was held until a fresh loading label appeared, then forwarded once.
+No body response or app state was forged for that real retry.
+
+Raw final stdout:
+{"out":"C:\\sgSHIOK2026\\qa\\revamp-r1\\ship-continuation-20260915\\interaction-01","passed":false,"failure":"actual retry body completion or network failure deadline","captures":["mrt-1440x950","desktop-1440x950","mobile-390x844","mobile-390x667","mobile-320x667","online-unavailable-1440x950"],"elapsedMs":51904}
+
+Offline extraction from original receipt:
+passedAssertions=44;namedBracketedCaptures=6;failureCapture=1.
+MRT current rendered features:3before/3after;bus:4before/4after.
+All six bracketed captures:basemap=true;tilesBefore=true;tilesAfter=true;
+four metric cells visible;document overflow=false. All7PNGs inspected.
+MRT Bayfront Exit C shows109m/0% andUnavailable for both gap measurements;
+readable cells are not a claim that every metric has complete numeric data.
+Injected503:networkId57744.272;real401:networkId57744.274.
+Route API count2=1injected(no upstream request)+1real retry.
+Exact saved-route geometry hash survives injected failure. Final failure screenshot
+also visibly retains the saved bus route and Retry/Back controls after real401.
+Back itself was not executed; current-run static-identity stage was not reached.
+runtimeAndFetchAuditPassed=true;transportComplete=false;
+canceledTileRequests=16;commandFailures=0;httpFailures=6;pendingRequests=3.
+HTTP failures:4optional gzip404+1injected503+1real401=6.
+No unsupported linkage to browser02's old generic interception fault is inferred.
+cleanupConfirmed=true;chrome57240exit0;pendingRequestControls=0.
+Exact later PID57240 query:absent. Original failure remains failed.
+Raw report and offline extraction:interaction-01/summary.json,postflight.json.
+
+Independent review and source inspection established a real disposal gap:
+requestWalkPreview throws on non-OK status without reading/cancelling the body,
+then clears the deadline. This is not proof of a persistent socket/memory leak.
+Four new counterexamples fail before correction:4failed/11passed across15cases.
+Fix5dc9124 requests body cancellation without waiting and preserves status failure.
+Rejected/pending cancellation cannot delay or replace that failure. Successful
+route data and the existing12second request/body timeout are unchanged.
+After correction:15passed. Full isolated suite:3343passed/86files.
+Arithmetic:3337prior+6new=3343. Dependencyguards42passed; no skips.
+TypeScript --noEmit --incremental false:exit0;no stdout/stderr.
+Receipts:error-body-red.json,error-body-green.json,error-body-full-terminal.json,
+error-body-types.json. Full terminal receipt intentionally contains final output,
+not every earlier guard line; focused receipts retain their full guard output.
+Independent source/test review:no blocking findings; no claim of a peer test rerun.
+
+Request audit:45retained+6new redaction contracts=51passed;0failed;0skipped.
+Exact error/session/request IDs are retained without sensitive headers. OneMap
+query/hash presence remains disqualifying after redaction, not silently allowed.
+Receipt:interaction-checks.json. No blanket dismissal of HTTP/network failures.
+
+### Correction to the prior test-command transcription
+
+The preceding READY section incorrectly names node web/scripts/test-without-data.mjs.
+That filename does not exist. The actual repository entry used for isolated runs is
+node web/scripts/test-without-production-data.mjs. Current red/green/full receipts
+and snapshot isolation confirm that entry; the earlier3337count is not withdrawn.
+The erroneous line above is preserved, not edited or silently replaced.
+
+FINDINGS
+1. Deployed Search, both transit categories, Details and four settled viewport
+   captures now have direct evidence. Back/full retry acceptance still incomplete.
+2. The error-body disposal gap is fixed and pushed in5dc9124, with3343web tests
+   passing. The existing preview69eac6a does not contain that later fix.
+3. A real online retry returned401; missing auth configuration alone would not
+   have established the outcome. Saved-route recovery remains the honest fallback.
+4.30-day report retention remains applied; intake/moderation disabled. No moderator
+   identity was invented and no unrelated Supabase project was used.
+5. Normal Vercel preview promotion rebuilds with production variables; a validated
+   preview is not already an identical production runtime. Next preparation must
+   use a documented staged-production/no-domain flow, not guess API flags.
+
+DISAGREEMENTS
+1. Missing body disposal is demonstrated; persistent Chrome resource leakage or
+   performance causation is not. Unit tests prove cancellation, not socket release.
+2. Missing status text is not successful preview completion. Review caught and
+   corrected that draft assertion before the run; positive evidence is required.
+3. Preview success does not waive returning-client or T26 acceptance. The old
+   production release is a prior-state rollback target, not a proven healthy one.
+4. Corrected the earlier nonexistent test-runner command explicitly above.
+
+Provider reference inspected read-only:
+https://vercel.com/docs/deployments/promoting-a-deployment
+No production build or promotion was invoked in this continuation.
+
+## 2026-09-15 Production Candidate Build and Packaging Stop
+
+Source commit: 9516894c8e66295b41f18b5b2ccef53eaaa6628a.
+Command: .venv/Scripts/python.exe -B -m pytest tests/test_release_source_deploy.py -q -p no:cacheprovider --basetemp=C:/sgSHIOK2026/tmp/staged-deploy-tests-20260915-01
+Result: 34 passed in 37.41s; repo_integrity=ok, exit0.
+Staged production uses target=production and autoAssignCustomDomains=false,
+matching the CLI --prod --skip-domain implementation at6331571. It does not
+assign domains. Default requests and their hashes remain unchanged.
+
+Command: .venv/Scripts/python.exe -B qa/revamp-r1/release-finalize-20260915/build-frontend.py
+Receipt: qa/revamp-r1/release-finalize-20260915/frontend-nsp394uq/build.json
+Result: passed=true; beforeVerified=true; afterVerified=true; compiler exit0.
+Build ID: EUQtEL6Ujq0TYFwjo3XX4; frontend source includes5dc9124 and9cbb7af.
+Elapsed: 478.390s worker; 517.438s outer, not additive measurements.
+No data copied, input rebuilt, pipeline run, local installation or deployment.
+
+Pack driver: qa/revamp-r1/ship-continuation-20260915/stage-production.py
+Receipt: qa/revamp-r1/ship-continuation-20260915/staged-production-pack.json
+The first outer invocation omitted required env= and raised TypeError before
+starting the driver. The corrected invocation executed one packing attempt.
+Result: ok=false, phase=pack, errorType=ReleaseStagingError, elapsedSeconds=900.094.
+The wrapper discarded the detailed exception. Elapsed time alone does not prove
+the exception code. No complete source-archive receipt or request plan exists;
+partial files are retained at tmp/production-source-20260915-01 and not submitted.
+The earlier pinned archive remains separate and unchanged. Its recorded total
+was512.829s (451.141s packing plus61.688s verification/receipt overhead).
+
+FINDINGS
+1. Fresh frontend compilation passed. Production is nevertheless still old.
+2. OneMap email/password metadata is production-only; the old preview's missing
+   configuration is not repaired by the client response-disposal change.
+3. The new production source package did not complete. No upload or domain switch
+   occurred. A failed partial package cannot authorize deployment.
+DISAGREEMENTS
+1. A successful build is not a shipped product. Shipping remains incomplete.
+2. Do not claim a specific pack failure code that its wrapper failed to retain.

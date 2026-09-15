@@ -1,0 +1,208 @@
+{
+  "source": "interaction-01/summary.json",
+  "originalPassed": false,
+  "originalFailure": "actual retry body completion or network failure deadline",
+  "passedAssertions": 44,
+  "captures": [
+    {
+      "name": "mrt-1440x950",
+      "beforeCount": 3,
+      "afterCount": 3,
+      "tilesBefore": true,
+      "tilesAfter": true,
+      "sha256": "bc4a57d2a3001ae8173effce9aeb30f7c6ac1dd60381f4daa0c01a8128e35509"
+    },
+    {
+      "name": "desktop-1440x950",
+      "beforeCount": 4,
+      "afterCount": 4,
+      "tilesBefore": true,
+      "tilesAfter": true,
+      "sha256": "e83d2bc4e8d5139f646d881fbcab2934bcae3d2ebe67b3bdceb128f86feac9d5"
+    },
+    {
+      "name": "mobile-390x844",
+      "beforeCount": 4,
+      "afterCount": 4,
+      "tilesBefore": true,
+      "tilesAfter": true,
+      "sha256": "e067e7c1ccd5a1f3616ea15cf543f3ac6470ae6e98565f9f7f0b0b85692d29c4"
+    },
+    {
+      "name": "mobile-390x667",
+      "beforeCount": 4,
+      "afterCount": 4,
+      "tilesBefore": true,
+      "tilesAfter": true,
+      "sha256": "f08671bfc015d3fab8ec981e239320548fd57c852a9b9b37f03a232aa9f97a82"
+    },
+    {
+      "name": "mobile-320x667",
+      "beforeCount": 4,
+      "afterCount": 4,
+      "tilesBefore": true,
+      "tilesAfter": true,
+      "sha256": "1fe95e6f69a2d36d5d55297376781ece634898ee7d3a9c7bbc5509247014c241"
+    },
+    {
+      "name": "online-unavailable-1440x950",
+      "beforeCount": 4,
+      "afterCount": 4,
+      "tilesBefore": true,
+      "tilesAfter": true,
+      "sha256": "0965a8a11bbdbc7885b3dc16c6aff8e16a2510854de212a250f6231ad3cd71fb"
+    }
+  ],
+  "apiResponses": [
+    {
+      "requestId": "57744.272",
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/api/onemap-route",
+      "status": 503,
+      "mime": "application/json",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "requestId": "57744.274",
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/api/onemap-route",
+      "status": 401,
+      "mime": "application/json",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    }
+  ],
+  "runtimeAndFetchAuditPassed": true,
+  "transportComplete": false,
+  "explainedCommandCancellations": 0,
+  "canceledTileRequests": 16,
+  "unclassified": [],
+  "commandFailures": [],
+  "httpFailures": [
+    {
+      "timeMs": 9271,
+      "sessionId": "F024EA5F76117DD9A345C46AC54F4E16",
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "57744.31",
+        "response": {
+          "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+          "status": 404
+        }
+      }
+    },
+    {
+      "timeMs": 9305,
+      "sessionId": "F024EA5F76117DD9A345C46AC54F4E16",
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "57744.35",
+        "response": {
+          "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+          "status": 404
+        }
+      }
+    },
+    {
+      "timeMs": 9451,
+      "sessionId": "F024EA5F76117DD9A345C46AC54F4E16",
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "57744.38",
+        "response": {
+          "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+          "status": 404
+        }
+      }
+    },
+    {
+      "timeMs": 10495,
+      "sessionId": "F024EA5F76117DD9A345C46AC54F4E16",
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "57744.50",
+        "response": {
+          "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+          "status": 404
+        }
+      }
+    },
+    {
+      "timeMs": 29120,
+      "sessionId": "F024EA5F76117DD9A345C46AC54F4E16",
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "57744.272",
+        "response": {
+          "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/api/onemap-route",
+          "status": 503
+        }
+      }
+    },
+    {
+      "timeMs": 32626,
+      "sessionId": "F024EA5F76117DD9A345C46AC54F4E16",
+      "kind": "event",
+      "method": "Network.responseReceived",
+      "params": {
+        "requestId": "57744.274",
+        "response": {
+          "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/api/onemap-route",
+          "status": 401
+        }
+      }
+    }
+  ],
+  "pendingRequests": [
+    {
+      "timeMs": 6128,
+      "sessionId": "F024EA5F76117DD9A345C46AC54F4E16",
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "3988504459E177BBCBE981D18FC7178C",
+        "request": {
+          "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/maplibre/6.4.1/maplibre-gl-worker.mjs",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 28973,
+      "sessionId": "F024EA5F76117DD9A345C46AC54F4E16",
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "57744.272",
+        "request": {
+          "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/api/onemap-route",
+          "method": "GET"
+        }
+      }
+    },
+    {
+      "timeMs": 30391,
+      "sessionId": "F024EA5F76117DD9A345C46AC54F4E16",
+      "kind": "event",
+      "method": "Network.requestWillBeSent",
+      "params": {
+        "requestId": "57744.274",
+        "request": {
+          "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/api/onemap-route",
+          "method": "GET"
+        }
+      }
+    }
+  ],
+  "cleanupConfirmed": true,
+  "chromeExit": {
+    "code": 0,
+    "signal": null
+  },
+  "pipelineRuns": 0,
+  "disposition": "Overall failure preserved. Parent inspected six named captures plus failure PNG; Back and static-identity stages were not reached."
+}

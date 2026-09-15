@@ -1,0 +1,13 @@
+{
+  "command": [
+    "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe",
+    "-B",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\build-frontend.py",
+    "worker",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\frontend-nsp394uq"
+  ],
+  "timeoutSeconds": 900,
+  "driverSha256": "d11ed357f5a402d9c441c9a84cf2c84a98ea369ca23d5798c53cde7ab60c3a77",
+  "pipelineRuns": 0,
+  "dataCopies": 0
+}

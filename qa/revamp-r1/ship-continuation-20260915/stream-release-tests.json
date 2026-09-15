@@ -1,0 +1,9 @@
+{
+  "command": ".venv/Scripts/python.exe -B -m pytest tests/test_release_source_archive.py tests/test_release_source_deploy.py -q -p no:cacheprovider --basetemp=C:/sgSHIOK2026/tmp/stream-release-parent-tests-20260915-01",
+  "scope": "Terminal output chunk of combined parent-run suite; prior progress dots are not retained here.",
+  "chunk_id": "d601a8",
+  "wall_time_seconds": 0.0000065,
+  "exit_code": 0,
+  "original_token_count": 44,
+  "output": ".................................................... [ 98%]\r\n..                                                                       [100%]\r\n146 passed in 259.88s (0:04:19)\r\n"
+}

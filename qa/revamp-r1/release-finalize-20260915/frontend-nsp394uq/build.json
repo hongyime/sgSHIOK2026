@@ -1,0 +1,2310 @@
+{
+  "scope": "frontend-only-not-deployable",
+  "sourceRevision": "9516894c8e66295b41f18b5b2ccef53eaaa6628a",
+  "root": "C:\\sgSHIOK2026",
+  "stage": "C:\\sgSHIOK2026\\tmp\\frontend-release-20260915-__0g0yhp",
+  "webRoot": "C:\\sgSHIOK2026\\tmp\\frontend-release-20260915-__0g0yhp\\web",
+  "files": [
+    {
+      "path": "web/.gitignore",
+      "origin": "git",
+      "bytes": 14,
+      "sha256": "6fe16e5e5dad9408c6a9082604c816d8067641ae1b5e59aceb90eb51c1088c63"
+    },
+    {
+      "path": "web/app/api/moderation/auth.ts",
+      "origin": "git",
+      "bytes": 5768,
+      "sha256": "e60e52d4b0b6c34dd32ba82f0b1429880f28a4420695ef004e4c62044c0871f6"
+    },
+    {
+      "path": "web/app/api/moderation/context/route.ts",
+      "origin": "git",
+      "bytes": 591,
+      "sha256": "164f422d3ab3e9f0cee45c0132798ec4414c241cd9a7caf3e550b204221c63b0"
+    },
+    {
+      "path": "web/app/api/moderation/decision/route.ts",
+      "origin": "git",
+      "bytes": 592,
+      "sha256": "c3e33ca434658cc0b24a7947b15eb46e14bcacf7b9a265bf09749ba7efb197f7"
+    },
+    {
+      "path": "web/app/api/moderation/http.ts",
+      "origin": "git",
+      "bytes": 9500,
+      "sha256": "4d9a05111717b9fb2d2b284a5a84c7cd0d2013f8fba3712b75941c201aa92603"
+    },
+    {
+      "path": "web/app/api/moderation/login/route.ts",
+      "origin": "git",
+      "bytes": 609,
+      "sha256": "361ff715bc18051457aae7f40232d20684e76e3688d2b9f2c691fd503f329a81"
+    },
+    {
+      "path": "web/app/api/moderation/logout/route.ts",
+      "origin": "git",
+      "bytes": 611,
+      "sha256": "aa08f04d03fc5cc7a3a4824a7c0007a12619c52f39c070bc8f1631fb29b58425"
+    },
+    {
+      "path": "web/app/api/moderation/queue/route.ts",
+      "origin": "git",
+      "bytes": 589,
+      "sha256": "5da0e0d9cbfe905c00f68d46cae7f89dceac091f1df85a2920e1da9358641183"
+    },
+    {
+      "path": "web/app/api/moderation/session.ts",
+      "origin": "git",
+      "bytes": 14247,
+      "sha256": "678c00f9bc436c691b16bafaa1f0598f5cd11abd8515461628ccb230d52d1ad9"
+    },
+    {
+      "path": "web/app/api/moderation/store.ts",
+      "origin": "git",
+      "bytes": 22293,
+      "sha256": "eb870efebb16d2c7e77f3b2f270077610377d401681d83c48abcf4e3ba89feb5"
+    },
+    {
+      "path": "web/app/api/onemap-deadline.ts",
+      "origin": "git",
+      "bytes": 1568,
+      "sha256": "9785981091778da7d2d93d34985ed8961235ae3a629d164ffd3f5e6803fe7b1b"
+    },
+    {
+      "path": "web/app/api/onemap-route/route.ts",
+      "origin": "git",
+      "bytes": 5279,
+      "sha256": "35dfef5e396b8974e61a8cfbddf64a5fe77bc07d6caf06b77948868303d3e2cb"
+    },
+    {
+      "path": "web/app/api/onemap-search/route.ts",
+      "origin": "git",
+      "bytes": 3450,
+      "sha256": "6dbca4ca1ffcdf381ac7451c4c585c6489479d2a173b79253e1308fdca360f3e"
+    },
+    {
+      "path": "web/app/api/onemap.ts",
+      "origin": "git",
+      "bytes": 3536,
+      "sha256": "7e770beff76961fce8659347fe72d5db3b38d99ecef17d9e8f252bc9f54422fb"
+    },
+    {
+      "path": "web/app/api/reports/http.ts",
+      "origin": "git",
+      "bytes": 8511,
+      "sha256": "d42678f5054e77a61d2febc2ba91eb26199762a054cbf4d62b73e1198fdd9d6c"
+    },
+    {
+      "path": "web/app/api/reports/route.ts",
+      "origin": "git",
+      "bytes": 546,
+      "sha256": "2246eec0afb2e8ec93f780be8f85b719be7c5e8f8d7dfd67c65312505059349b"
+    },
+    {
+      "path": "web/app/api/reports/store.ts",
+      "origin": "git",
+      "bytes": 6598,
+      "sha256": "4beeb54465790e4a85034041540084e3ad14d15b5d4243080ccd81b964689993"
+    },
+    {
+      "path": "web/app/global-error.tsx",
+      "origin": "git",
+      "bytes": 967,
+      "sha256": "e6b738234f7025de84b7245067bc38cd99c33f0379f0a7d07048815346bd15d9"
+    },
+    {
+      "path": "web/app/home.tsx",
+      "origin": "git",
+      "bytes": 132884,
+      "sha256": "e873aa64cdba8c3736c44d47b67345cdd359fa89af46724544a1074604819174"
+    },
+    {
+      "path": "web/app/icon.svg",
+      "origin": "git",
+      "bytes": 747,
+      "sha256": "c0bd7140b0fdf9ef8220017c4a07428301ab84e80c4090acd36da4c0da9d0dd2"
+    },
+    {
+      "path": "web/app/layout.tsx",
+      "origin": "git",
+      "bytes": 1271,
+      "sha256": "629503df867c00de8bac541deac30d6f16f5cd2800f4540422d407c318d21350"
+    },
+    {
+      "path": "web/app/moderation/page.tsx",
+      "origin": "git",
+      "bytes": 555,
+      "sha256": "7a5c8900484d8a8c446e45fce83c4e3f176cb0a3a60a6fca3ee4df1b57d5015b"
+    },
+    {
+      "path": "web/app/page.module.css",
+      "origin": "git",
+      "bytes": 30874,
+      "sha256": "819ed171bdf922352683be7523e72a6b58a4730c829a1db8faae4cd82479bf3b"
+    },
+    {
+      "path": "web/app/page.tsx",
+      "origin": "git",
+      "bytes": 49,
+      "sha256": "b7ac833aecc811327db000b5bdc92ee17cdf5c9197c3b3030950fa071b0fe7e0"
+    },
+    {
+      "path": "web/app/robots.ts",
+      "origin": "git",
+      "bytes": 951,
+      "sha256": "114d20450cca32f28485448c758c031fa7479b699ba8673e21d115875b66e078"
+    },
+    {
+      "path": "web/app/sitemap.ts",
+      "origin": "git",
+      "bytes": 317,
+      "sha256": "e7ccaa26063b9f0dfce8eb2b7e7b7a7ed3a50681644c2baeb40cc6e348da7ea5"
+    },
+    {
+      "path": "web/components/comparison-share-dialog.module.css",
+      "origin": "git",
+      "bytes": 1754,
+      "sha256": "d3cf3adf495462302dce41ed3f33ead9bd7f2d0340b39de97e3f86a2809d7e04"
+    },
+    {
+      "path": "web/components/comparison-share-dialog.tsx",
+      "origin": "git",
+      "bytes": 5168,
+      "sha256": "c13424b420ca97473599301f832a811dc74d3e79b97f3ceecec1832026abf71b"
+    },
+    {
+      "path": "web/components/exposure-section-explorer.module.css",
+      "origin": "git",
+      "bytes": 1606,
+      "sha256": "a3540b60e154b08b30e04035589b4728cd20a938b3684cefa652e80553294a5a"
+    },
+    {
+      "path": "web/components/exposure-section-explorer.tsx",
+      "origin": "git",
+      "bytes": 4646,
+      "sha256": "23ec39be47f8006770293d0eb6255d0b7b7923a56a5c811f6a6f1a6013b0d50f"
+    },
+    {
+      "path": "web/components/failure-diagnostics-control.module.css",
+      "origin": "git",
+      "bytes": 1372,
+      "sha256": "9d7aaa37a75c122df1c99ef38295d1a8219a7413ba3ee3bc9e76d29dac83b802"
+    },
+    {
+      "path": "web/components/failure-diagnostics-control.tsx",
+      "origin": "git",
+      "bytes": 5143,
+      "sha256": "87023b56eb9e9bae6303cfa78c973295f4fbc56c506bc3804e0a58e7945234b0"
+    },
+    {
+      "path": "web/components/home-comparison.module.css",
+      "origin": "git",
+      "bytes": 4171,
+      "sha256": "ef4559e8f1e671a3f95c9d440f39b30178b45c54840e8f1546bee0439d285773"
+    },
+    {
+      "path": "web/components/home-comparison.tsx",
+      "origin": "git",
+      "bytes": 14917,
+      "sha256": "d2160d18c064d8ced14446ef288bb4ff7d3122639106a4ef11224dd32ecb190e"
+    },
+    {
+      "path": "web/components/moderation-console.module.css",
+      "origin": "git",
+      "bytes": 4259,
+      "sha256": "a1020e768da5008c8fe66d45fd9a42431e2d01162ccade4c2d124df5c8e63b60"
+    },
+    {
+      "path": "web/components/moderation-console.tsx",
+      "origin": "git",
+      "bytes": 21398,
+      "sha256": "2d88e79b99535cc0c9e66f6ebd58f37fcdc31185f7a0f775f6f6f43c20a36768"
+    },
+    {
+      "path": "web/components/report-composer.module.css",
+      "origin": "git",
+      "bytes": 2458,
+      "sha256": "386d548cc8cd06e019274be0266d4797c58536063ec073b8c5b35bc2c541270f"
+    },
+    {
+      "path": "web/components/report-composer.tsx",
+      "origin": "git",
+      "bytes": 15867,
+      "sha256": "0c96311dcc926c1506499f6092ed7412ecdaeeea36663d77110d8fd474fceeb9"
+    },
+    {
+      "path": "web/components/report-location-preview.tsx",
+      "origin": "git",
+      "bytes": 2904,
+      "sha256": "b8bfcbca9b0ace1e45efe15985d0a25475122b7c6d225fd45fb0ca640918cbda"
+    },
+    {
+      "path": "web/components/route-evidence-map.module.css",
+      "origin": "git",
+      "bytes": 5330,
+      "sha256": "f01f94068217dc3e3f057fb6ff6090f7c320a05770c49b5e259dc7d8707ee28f"
+    },
+    {
+      "path": "web/components/route-evidence-map.tsx",
+      "origin": "git",
+      "bytes": 65247,
+      "sha256": "9e7fdd20532c88c2a2cbb10242e615bb4841079af1e43973ade1f940e67868af"
+    },
+    {
+      "path": "web/components/route-map-loader.tsx",
+      "origin": "git",
+      "bytes": 3158,
+      "sha256": "4a9c4dba5e545a6b6f9bf9296a8a22eb7cfe29cee401c27c54d3c38fac32c93b"
+    },
+    {
+      "path": "web/components/transit-stop-picker.module.css",
+      "origin": "git",
+      "bytes": 1737,
+      "sha256": "aac04993ce4fae9e5b222a853bfd0f20e53197ae9bbffff3ca634596bcb7f974"
+    },
+    {
+      "path": "web/components/transit-stop-picker.tsx",
+      "origin": "git",
+      "bytes": 3021,
+      "sha256": "f00079260192f82d6cf81cf07760ec4d3ee5446d52273e336c88ffc353f63f5e"
+    },
+    {
+      "path": "web/components/walk-summary.tsx",
+      "origin": "git",
+      "bytes": 1840,
+      "sha256": "0f8b5d4f1b89c16b3f641ed4ec88ce43a1ccc4a6f8ee7b3e99c03b973e3ff706"
+    },
+    {
+      "path": "web/lib/__tests__/accessibility-render.test.tsx",
+      "origin": "git",
+      "bytes": 80009,
+      "sha256": "c5b3a22be104673b56d5de9d85f46113fbc803b098fcf5c85d641ee1df249ffa"
+    },
+    {
+      "path": "web/lib/__tests__/artifact-failure.test.ts",
+      "origin": "git",
+      "bytes": 3003,
+      "sha256": "e1b80c6786e7f7ede3e3af8009e5a4455286b3289f040695ac577d5e6fb19487"
+    },
+    {
+      "path": "web/lib/__tests__/comparison-controller.test.ts",
+      "origin": "git",
+      "bytes": 34611,
+      "sha256": "b0c63bef195b319afb43aeb11d275f7d2468f829bb38974f539d2d2138d58e9a"
+    },
+    {
+      "path": "web/lib/__tests__/comparison-link.test.ts",
+      "origin": "git",
+      "bytes": 8592,
+      "sha256": "08644514ac30961184d36c7fe8203700a2f47196e938a52f40af98b188402790"
+    },
+    {
+      "path": "web/lib/__tests__/comparison-share-dialog.test.tsx",
+      "origin": "git",
+      "bytes": 20996,
+      "sha256": "a859500d0ec694e467c0c4676854eb4512f611b00627ec419dd918597d198d6c"
+    },
+    {
+      "path": "web/lib/__tests__/comparison-shared-controller.test.ts",
+      "origin": "git",
+      "bytes": 19401,
+      "sha256": "4b2cbbdfba2b8433a9212727f8ce77c957a35470f2cfa14c353277cab3cfc503"
+    },
+    {
+      "path": "web/lib/__tests__/comparison-state.test.ts",
+      "origin": "git",
+      "bytes": 22050,
+      "sha256": "c2d8bbaf01ebc70df02b26a55ed61a46fafa9b1d4420312d11d5665aa48afbb8"
+    },
+    {
+      "path": "web/lib/__tests__/comparison.test.ts",
+      "origin": "git",
+      "bytes": 29968,
+      "sha256": "fb8ab02661fa1210c5c8987f1f655573fec90cfbdffbf293fdf66c1f0416a5f1"
+    },
+    {
+      "path": "web/lib/__tests__/contiguous-route-parts.test.ts",
+      "origin": "git",
+      "bytes": 2831,
+      "sha256": "6f0571b92093de9459ad66dacd7a451dc508006fe95c38dac4b11ef83f88cbf1"
+    },
+    {
+      "path": "web/lib/__tests__/coverage-gap-register.test.ts",
+      "origin": "git",
+      "bytes": 8549,
+      "sha256": "182ea7b1a65dcd173e05ec507b6d7c42d3fa5920981208041ccbd4d470920db2"
+    },
+    {
+      "path": "web/lib/__tests__/data-base.test.ts",
+      "origin": "git",
+      "bytes": 2060,
+      "sha256": "741336b2f620f1567d7715270aa04245e0d0f57ab3436632d77a666e60ab1c02"
+    },
+    {
+      "path": "web/lib/__tests__/data-cache-recovery.test.ts",
+      "origin": "git",
+      "bytes": 9241,
+      "sha256": "f6f8300f0217f927a720e64f1a3a17eb3d6bbc0ee28868ad428c377ee42b187f"
+    },
+    {
+      "path": "web/lib/__tests__/data-failure-diagnostics.test.ts",
+      "origin": "git",
+      "bytes": 21358,
+      "sha256": "a10d85b14a60e0ddbc9370181710d20165799812687e2cc97a9e704c33246265"
+    },
+    {
+      "path": "web/lib/__tests__/data-fetch-policy.test.ts",
+      "origin": "git",
+      "bytes": 5299,
+      "sha256": "b65c4773c49fa2b94d2b86c896ce4141a9f82d113dc090abd4507eb33d812ea1"
+    },
+    {
+      "path": "web/lib/__tests__/data.test.ts",
+      "origin": "git",
+      "bytes": 4706,
+      "sha256": "6d0b688fffe7ae02debb1fcc61e4c4b9745c1de68e556056e794070c1618e763"
+    },
+    {
+      "path": "web/lib/__tests__/deployment.test.ts",
+      "origin": "git",
+      "bytes": 25509,
+      "sha256": "b44965a410a6734ace0727ea22bd1d51567cf340ba07e18980ef0fc58409b151"
+    },
+    {
+      "path": "web/lib/__tests__/ensure-data-bundle.test.mjs",
+      "origin": "git",
+      "bytes": 2275,
+      "sha256": "4e5e8c4373e523ea3edcca0c66d2bf0e67f6b4314bf61430648bd277e58c555c"
+    },
+    {
+      "path": "web/lib/__tests__/exposure-section-explorer.test.tsx",
+      "origin": "git",
+      "bytes": 22455,
+      "sha256": "39218210fb67cf4780f0829a925af5512019258d8919aa31fdd54647a29e4041"
+    },
+    {
+      "path": "web/lib/__tests__/failure-diagnostics-control.test.tsx",
+      "origin": "git",
+      "bytes": 23597,
+      "sha256": "33a50d8a232d14b834969d930448e4817913f13e787a6cf2874b1c5c72b84ea4"
+    },
+    {
+      "path": "web/lib/__tests__/failure-diagnostics.test.ts",
+      "origin": "git",
+      "bytes": 4321,
+      "sha256": "32de671af613525520f5555af6ad7d3dd50e0662e34b6459fe058f60e9f0adb9"
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-data.ts",
+      "origin": "git",
+      "bytes": 480,
+      "sha256": "078361aabbb455955ad70e9cef10a22121fb69476481031cb118b7aee8b990be"
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-options.json",
+      "origin": "git",
+      "bytes": 36007,
+      "sha256": "6c4b0c23329e968489439a4c68329b0acbd4f5719632ae8e2b11e14325fa2ea7"
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-options.provenance.json",
+      "origin": "git",
+      "bytes": 3733,
+      "sha256": "8d0ac40ff2cc3616f2f41eec68b2712982859d301917373aa894ec49f37bf91a"
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-walks.json",
+      "origin": "git",
+      "bytes": 9477,
+      "sha256": "e29cc74ce7ec9f69b360e596a2ecd6b07e4cba453bb46b2cc091c9ff61036c86"
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-walks.provenance.json",
+      "origin": "git",
+      "bytes": 5312,
+      "sha256": "485e9d62fe1488c5cbd8086cdc9a26efc7cb83ec4dc4770b58dddc387c47826d"
+    },
+    {
+      "path": "web/lib/__tests__/frontend-retention.test.ts",
+      "origin": "git",
+      "bytes": 8410,
+      "sha256": "2520da0d562829c5d53735201949c3047c0dcd0c5aa4622021a812c1cf0a0186"
+    },
+    {
+      "path": "web/lib/__tests__/geom-promoted-shard.test.ts",
+      "origin": "git",
+      "bytes": 9248,
+      "sha256": "afbbce3371614bd859684f186d0dd98216f7649ad8cd9a5d56fa941f76050c0d"
+    },
+    {
+      "path": "web/lib/__tests__/geometry-recovery.test.ts",
+      "origin": "git",
+      "bytes": 1253,
+      "sha256": "7609499e054ac0110892542288c38d8d76e4aaedad1bef8f8bfa79d67679e8e4"
+    },
+    {
+      "path": "web/lib/__tests__/global-error.test.tsx",
+      "origin": "git",
+      "bytes": 1644,
+      "sha256": "be3a87a92862d20d3f4fab18ec1710152cde8f28afa50b7a19f29448d7b95460"
+    },
+    {
+      "path": "web/lib/__tests__/home-comparison.test.tsx",
+      "origin": "git",
+      "bytes": 46331,
+      "sha256": "9d047dbda7b0ae8de3117022226a0f6def353f11433fa3cf58bb914373e6f1ad"
+    },
+    {
+      "path": "web/lib/__tests__/ignore-build.test.mjs",
+      "origin": "git",
+      "bytes": 1455,
+      "sha256": "a0f94ed9a81c5bb2da2bcb22d3864e3851e16ecdd450f9d880042d2198a20c55"
+    },
+    {
+      "path": "web/lib/__tests__/lamp-overlay.test.ts",
+      "origin": "git",
+      "bytes": 5768,
+      "sha256": "4721ae09349fcbe885588385578198415ddbda952d659ec2287517a0a36d5b1e"
+    },
+    {
+      "path": "web/lib/__tests__/live-route-scoring.test.ts",
+      "origin": "git",
+      "bytes": 8837,
+      "sha256": "70135b45edec85599df3b31652394f427976128c91eef586988ad4f0510c7284"
+    },
+    {
+      "path": "web/lib/__tests__/locked-score-availability.test.ts",
+      "origin": "git",
+      "bytes": 2424,
+      "sha256": "1ebf79cabb1f31f486cce37d0e8252285f18cccbca8a7d5f467b4f72c6c7967e"
+    },
+    {
+      "path": "web/lib/__tests__/map-first-shell.test.ts",
+      "origin": "git",
+      "bytes": 2882,
+      "sha256": "e3a962265d635922ddb076dbe2667efc700fd2f32e7c6da77efd56bf0627b42e"
+    },
+    {
+      "path": "web/lib/__tests__/map-recovery-actions.test.tsx",
+      "origin": "git",
+      "bytes": 9132,
+      "sha256": "9409d73c017cc7ca62105b73c47d34e1748ce871058d262dfbd812c4d0c97bbb"
+    },
+    {
+      "path": "web/lib/__tests__/map-startup-import.test.ts",
+      "origin": "git",
+      "bytes": 8289,
+      "sha256": "2fcaa4f52893993199402dbf914b72a668e4cc73857cdae5a4adc60f2ed9e165"
+    },
+    {
+      "path": "web/lib/__tests__/map-startup-stage.test.ts",
+      "origin": "git",
+      "bytes": 15029,
+      "sha256": "e06462a0768d755cb46150af2961c8bf9001978016f6b9cc76f149e593b01ff8"
+    },
+    {
+      "path": "web/lib/__tests__/map-viewport.test.ts",
+      "origin": "git",
+      "bytes": 3598,
+      "sha256": "28b270a28cad8d9429a6915d4fd1443e198ab817225adfabbce40ec4e06e2b56"
+    },
+    {
+      "path": "web/lib/__tests__/map-worker.test.ts",
+      "origin": "git",
+      "bytes": 1175,
+      "sha256": "4d40d32ef7d535007f81fc8a95a471e388e50d71532fe4b4349b499a20c0d37c"
+    },
+    {
+      "path": "web/lib/__tests__/moderation-console.test.tsx",
+      "origin": "git",
+      "bytes": 31553,
+      "sha256": "fd70fe0c6936fadf0b9b5b541aced3377cd1687f8e3616ae502077e4acba96bb"
+    },
+    {
+      "path": "web/lib/__tests__/moderation-route.test.ts",
+      "origin": "git",
+      "bytes": 8407,
+      "sha256": "45bac365297bfdde852faa9d0d946b3a2abc61b05cb728bb5cab4feaf4475b88"
+    },
+    {
+      "path": "web/lib/__tests__/moderator-auth.test.ts",
+      "origin": "git",
+      "bytes": 7653,
+      "sha256": "9e7c3519bd6b51ac377cb9d618f6592a22cd6912861384b0c18b9e1f537c5354"
+    },
+    {
+      "path": "web/lib/__tests__/moderator-client.test.ts",
+      "origin": "git",
+      "bytes": 47425,
+      "sha256": "d82135343cea7aedd4588d30e80658c7fe40704f2298b21e4d33276de24818af"
+    },
+    {
+      "path": "web/lib/__tests__/moderator-http.test.ts",
+      "origin": "git",
+      "bytes": 21188,
+      "sha256": "9c5e2ec9fa2cea2d578d1c801bb1ec9d01c8475f2a9436d224402c761ce0f3f7"
+    },
+    {
+      "path": "web/lib/__tests__/moderator-session.test.ts",
+      "origin": "git",
+      "bytes": 42459,
+      "sha256": "e196d450cf0f2a94d666699403c0d7925d77759b317e50b4714b91deac47f31b"
+    },
+    {
+      "path": "web/lib/__tests__/moderator-store.test.ts",
+      "origin": "git",
+      "bytes": 42514,
+      "sha256": "443ae4252b494599be6aed1d7a0fddf2251eb3b82b5be7102385238e0555e6e6"
+    },
+    {
+      "path": "web/lib/__tests__/onemap-api-security.test.ts",
+      "origin": "git",
+      "bytes": 7014,
+      "sha256": "be7b8f13516e8813b3886c18d77b6934329a6123c18cf96f1ff94d75c3b8c5d0"
+    },
+    {
+      "path": "web/lib/__tests__/onemap-deadline.test.ts",
+      "origin": "git",
+      "bytes": 8802,
+      "sha256": "d7760c36d08896acf9b69d5259b9db06a70a52fa85215de96976e21cd243ab59"
+    },
+    {
+      "path": "web/lib/__tests__/onemap-search.test.ts",
+      "origin": "git",
+      "bytes": 5995,
+      "sha256": "d4b2a218584763407356162680f939648096a4a0f3d470a2d15a4b5aec6be26c"
+    },
+    {
+      "path": "web/lib/__tests__/page-entry.test.ts",
+      "origin": "git",
+      "bytes": 471,
+      "sha256": "16a2d2b32c0d1ef15a59afbd0bdde5559aa56c965d946c422409f68bea3cebc4"
+    },
+    {
+      "path": "web/lib/__tests__/polyline.test.ts",
+      "origin": "git",
+      "bytes": 846,
+      "sha256": "8c449899dabe2cdfd9dbab156bb059739976e1d677e96dc0a77debf0bf3741f6"
+    },
+    {
+      "path": "web/lib/__tests__/published-exposure-sections.test.ts",
+      "origin": "git",
+      "bytes": 16575,
+      "sha256": "cd0d6511922174d22d6415893a39d81d5af8c783c5857d9dd96d4e78cc08a298"
+    },
+    {
+      "path": "web/lib/__tests__/published-options-fixture.test.ts",
+      "origin": "git",
+      "bytes": 12436,
+      "sha256": "9b33bffe9ba63063bbd64a6dfd716c761aaeff20f2b89dc22a16ee38a564f55a"
+    },
+    {
+      "path": "web/lib/__tests__/published-transit-choices.test.ts",
+      "origin": "git",
+      "bytes": 28696,
+      "sha256": "6e7890504b25deb486c2eef84556d3639aebd14a00ed24a622272e324fed4095"
+    },
+    {
+      "path": "web/lib/__tests__/published-transit-options.test.ts",
+      "origin": "git",
+      "bytes": 51498,
+      "sha256": "a701a1b913cfad5b37c7cf833e5c58f786ebfbe80dd2d8a4d292ef99b8b261e2"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-page.test.tsx",
+      "origin": "git",
+      "bytes": 93786,
+      "sha256": "6dadafbbea7628173af64ad9bd3ab09d99bc0fe655f3c292cb550e65a34ca702"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-selection.test.ts",
+      "origin": "git",
+      "bytes": 6615,
+      "sha256": "9942fe62a109c62190ea0a1084d23309dcb052b2a7a618ec68c7b4f86c25669a"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-stop-identity.test.ts",
+      "origin": "git",
+      "bytes": 8082,
+      "sha256": "f213110789f96d4bb0c269b91a7b65f06437dc499a8c7f8780b677aad21a3bdc"
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-view.test.ts",
+      "origin": "git",
+      "bytes": 12777,
+      "sha256": "cc828c29aa420f75227c1e7a60ab2cf1f29a19784fa076e1099275efb115de48"
+    },
+    {
+      "path": "web/lib/__tests__/rank-payload.test.ts",
+      "origin": "git",
+      "bytes": 1304,
+      "sha256": "6f825f23c368e34176c979e4be49b2f9a715ffb06f7f2ece42fd731664089a82"
+    },
+    {
+      "path": "web/lib/__tests__/report-composer.test.tsx",
+      "origin": "git",
+      "bytes": 32103,
+      "sha256": "aa2e71c54477379859a0331b19b96f5cac719f2150626ab54a1355939e1730eb"
+    },
+    {
+      "path": "web/lib/__tests__/report-http.test.ts",
+      "origin": "git",
+      "bytes": 24752,
+      "sha256": "6f07026e7ba78364e015df5a24ca93fa2423a9c475b2415ad0f2c9afcb2a055a"
+    },
+    {
+      "path": "web/lib/__tests__/report-lifecycle.test.ts",
+      "origin": "git",
+      "bytes": 11919,
+      "sha256": "01ff39c5a52b014b4e9463f742d3af6bdb872ff626057c6973b7e4f6e44383b1"
+    },
+    {
+      "path": "web/lib/__tests__/report-request-id.test.ts",
+      "origin": "git",
+      "bytes": 7685,
+      "sha256": "de7538f2af2a48edb7849594155aa840308fb634e1a9ad1190f0378f4278335c"
+    },
+    {
+      "path": "web/lib/__tests__/report-store.test.ts",
+      "origin": "git",
+      "bytes": 15195,
+      "sha256": "4f5507bc453eb17103b619ebe948b69510ce77434199ccce0ab7c084c5e8ab4f"
+    },
+    {
+      "path": "web/lib/__tests__/report-submission.test.ts",
+      "origin": "git",
+      "bytes": 21372,
+      "sha256": "44248d371209aa7365ee786264ba8175d65d67691b26097d3a13c893091a50ab"
+    },
+    {
+      "path": "web/lib/__tests__/reports.test.ts",
+      "origin": "git",
+      "bytes": 22465,
+      "sha256": "ff424da8152b39ca11ae770d026c6847dac28478b6be4db46a254d3ec2967866"
+    },
+    {
+      "path": "web/lib/__tests__/revamp-layout.test.ts",
+      "origin": "git",
+      "bytes": 2405,
+      "sha256": "e33caf9b00b9e30f87b9ccb0d770218661776ce06312b8f07ebe318b2cae66b1"
+    },
+    {
+      "path": "web/lib/__tests__/route-display.test.ts",
+      "origin": "git",
+      "bytes": 2807,
+      "sha256": "2c54d6d61a4d7ab9083ab9ac0cd1271300cf2b7eaf2d623627b251329c41d0a4"
+    },
+    {
+      "path": "web/lib/__tests__/route-evidence-map-interaction.test.ts",
+      "origin": "git",
+      "bytes": 21129,
+      "sha256": "4bf1819e399af22ed631f18b401ea1392ce0ece71631e929f706b6c7a109e692"
+    },
+    {
+      "path": "web/lib/__tests__/route-evidence-map-popup.test.ts",
+      "origin": "git",
+      "bytes": 16146,
+      "sha256": "d2f3be58de37d1fd3ae7431c6603fcb489ecfd380d83db7f20ccc0feb9b22157"
+    },
+    {
+      "path": "web/lib/__tests__/route-geojson.test.ts",
+      "origin": "git",
+      "bytes": 2682,
+      "sha256": "c19e3d9963fde623b3024fb3aacf0086f5bb9271ece1f85a9faa14865958314e"
+    },
+    {
+      "path": "web/lib/__tests__/route-map-keyboard.test.ts",
+      "origin": "git",
+      "bytes": 8376,
+      "sha256": "685fa52e560de34b211357f2042dea60f538d8bae5e8e1e6f784147c1a880fa1"
+    },
+    {
+      "path": "web/lib/__tests__/route-map-loader.test.tsx",
+      "origin": "git",
+      "bytes": 15862,
+      "sha256": "d31f8ed81683c76f84698081513cdf3c0c1cfeb12d8484b64ac4a7e04241569c"
+    },
+    {
+      "path": "web/lib/__tests__/route-source-lifecycle.test.ts",
+      "origin": "git",
+      "bytes": 42556,
+      "sha256": "6ac2d8a19da1ad10b16293dbf47ccf552a5d8fcf4bd0e585e3361325a3de8f22"
+    },
+    {
+      "path": "web/lib/__tests__/score-card-copy.test.ts",
+      "origin": "git",
+      "bytes": 79607,
+      "sha256": "07e0ebc5e7029d6ef6fc535ee713218e17114d1b21ebda2bed4f9e5d33da7caa"
+    },
+    {
+      "path": "web/lib/__tests__/score-prefix-index.test.ts",
+      "origin": "git",
+      "bytes": 6285,
+      "sha256": "2d4db8c99905b6f8c1fdbf60934b69e05bcaf5123f05681bc4fec9f4e46623eb"
+    },
+    {
+      "path": "web/lib/__tests__/service-worker-behaviour.test.ts",
+      "origin": "git",
+      "bytes": 31308,
+      "sha256": "53c5c30fdb636519d09a701efce40f78cfe46c5e8ec93489d1b71277e1a7742e"
+    },
+    {
+      "path": "web/lib/__tests__/service-worker-registration.test.ts",
+      "origin": "git",
+      "bytes": 3110,
+      "sha256": "f4535bf604766d3d3f4860dd3bed3913e9e3ef0bbe884adce527806a319f6627"
+    },
+    {
+      "path": "web/lib/__tests__/source-freshness.test.ts",
+      "origin": "git",
+      "bytes": 6417,
+      "sha256": "98de88e223f9794029f003daa4c111a0bf5d0e8083c6db84fbdd3d95d2340f4e"
+    },
+    {
+      "path": "web/lib/__tests__/subscore-ranking.test.ts",
+      "origin": "git",
+      "bytes": 1898,
+      "sha256": "aadb4288f1645ce037708fd94cc15b143e801496ca343cfed30fbbde5e6193a2"
+    },
+    {
+      "path": "web/lib/__tests__/transit-popup.test.ts",
+      "origin": "git",
+      "bytes": 5029,
+      "sha256": "b77778fd85515dca30ad6cb6935d8c283629db9a65ec3d5aec7b8ea64c513acb"
+    },
+    {
+      "path": "web/lib/__tests__/transit-shards.test.ts",
+      "origin": "git",
+      "bytes": 3141,
+      "sha256": "50bad6bbe876f3629714d7a52304cd738521341e02f81d4ffe961d95397c4da4"
+    },
+    {
+      "path": "web/lib/__tests__/transit-stop-picker.test.tsx",
+      "origin": "git",
+      "bytes": 28520,
+      "sha256": "13f2d10db65daa2c6da9dff8f9c7ac0813a748de4c15b4d3885beadc2ca6464a"
+    },
+    {
+      "path": "web/lib/__tests__/typescript-contract.test.ts",
+      "origin": "git",
+      "bytes": 544,
+      "sha256": "c7ea76a7e35962a4888deb4f49f58b40e87ea2c04a1f1a35494ec0adc31d4849"
+    },
+    {
+      "path": "web/lib/__tests__/walk-default.test.ts",
+      "origin": "git",
+      "bytes": 2801,
+      "sha256": "3ea8f3d99239286a1fc0bda1564011ab26dbfc1c8ed5f72e574288927c8bdf3d"
+    },
+    {
+      "path": "web/lib/__tests__/walk-preview-request.test.ts",
+      "origin": "git",
+      "bytes": 4510,
+      "sha256": "e45b05efb3f07637c3e066318b9d69fc31b86b4ba710ebae7b13cf132803bdd7"
+    },
+    {
+      "path": "web/lib/__tests__/walk-real-records.test.ts",
+      "origin": "git",
+      "bytes": 4528,
+      "sha256": "eb5b946a340c526f43eb3b5937eed329f23b0cb9b55ab77d7e96808f15678692"
+    },
+    {
+      "path": "web/lib/__tests__/walk-recovery-focus.test.tsx",
+      "origin": "git",
+      "bytes": 29630,
+      "sha256": "5bf1efeaa3922c65f64a083bd27b3d6376a4c7f42258e22fe1f89e886322db01"
+    },
+    {
+      "path": "web/lib/__tests__/walk-summary-options.test.ts",
+      "origin": "git",
+      "bytes": 11554,
+      "sha256": "0d64607d4299bd7674f63faef65ac9c18f102162041ba9ab2f9b28678c92c063"
+    },
+    {
+      "path": "web/lib/artifact-failure.ts",
+      "origin": "git",
+      "bytes": 1756,
+      "sha256": "3bf84004256bc6adedb15d985806a845296384a4cd6b77f95c0aad6e1663aeaf"
+    },
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "origin": "git",
+      "bytes": 8102,
+      "sha256": "721197adf5a318a0fd6f39f54a00fcb454342a5a99ff39a7aa1a94805adb9240"
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "origin": "git",
+      "bytes": 2640,
+      "sha256": "044ece7a847eaec6393c8712bcecb0c614931fce973379da4dbc3efea8766ec7"
+    },
+    {
+      "path": "web/lib/comparison-state.ts",
+      "origin": "git",
+      "bytes": 6888,
+      "sha256": "5c80bebc049bf6729e1af4892a6621a8ad2e0cfd515335a63df117c1a5340651"
+    },
+    {
+      "path": "web/lib/comparison.ts",
+      "origin": "git",
+      "bytes": 9560,
+      "sha256": "d09b3676607fdddf56d77fe587980b4f1108d139a40eb15dc8201251eb3c2abb"
+    },
+    {
+      "path": "web/lib/contiguous-route-parts.ts",
+      "origin": "git",
+      "bytes": 1362,
+      "sha256": "d8c07f066257377ebf21a1038c6610a5a0788f6492b19144b17b8997fab1e9c3"
+    },
+    {
+      "path": "web/lib/coverage-gap-register.ts",
+      "origin": "git",
+      "bytes": 4468,
+      "sha256": "434ea06f50e85d265751ad29e4b36ed952e87b1c7265da242dee83c0c5b10878"
+    },
+    {
+      "path": "web/lib/data.ts",
+      "origin": "git",
+      "bytes": 18277,
+      "sha256": "accb659c9dc119fb63ca8424b93ef3364f13fb9bc2392eb2d33fff3f0512dc99"
+    },
+    {
+      "path": "web/lib/failure-diagnostics.ts",
+      "origin": "git",
+      "bytes": 3081,
+      "sha256": "b4be16461d9e832bc41eddfea289dc5b8bffea4b9c01538b865590e7061b68b2"
+    },
+    {
+      "path": "web/lib/lamp-overlay.ts",
+      "origin": "git",
+      "bytes": 5758,
+      "sha256": "717167658fa49110c04db6d82ccbdf1e3bf9efb77008fa5cfc2f425551dfe9df"
+    },
+    {
+      "path": "web/lib/live-route-scoring.ts",
+      "origin": "git",
+      "bytes": 9232,
+      "sha256": "b69619c29758536d69954fbfca9335174819121e16c130ba3746a80e21242521"
+    },
+    {
+      "path": "web/lib/local-glyph-protocol.ts",
+      "origin": "git",
+      "bytes": 2974,
+      "sha256": "b4b9a3220c1c10e2542c992bccc9aa41228d907fc02444ace84ce3e7446c5f71"
+    },
+    {
+      "path": "web/lib/locked-score-availability.ts",
+      "origin": "git",
+      "bytes": 2579,
+      "sha256": "8e9adcd7e2b83d6a6d9fbc8c93442cc9a12e32caf2ac7643feaadf6d4ee7de0c"
+    },
+    {
+      "path": "web/lib/map-viewport.ts",
+      "origin": "git",
+      "bytes": 2847,
+      "sha256": "49950f3193d01a2b2c9243c7d5c2e8341d2fa3ceb56ddf859ba6e9fc54d96d15"
+    },
+    {
+      "path": "web/lib/moderator-client.ts",
+      "origin": "git",
+      "bytes": 23134,
+      "sha256": "06be7cd166b79f544e769b3c628a48478998d8518973f9aedf67047ed8939345"
+    },
+    {
+      "path": "web/lib/nearest-transit.ts",
+      "origin": "git",
+      "bytes": 7245,
+      "sha256": "df12643fdf9423b606680d88204980cbf180f563f2641332b4136a516abfc2ad"
+    },
+    {
+      "path": "web/lib/onemap-search.ts",
+      "origin": "git",
+      "bytes": 5632,
+      "sha256": "6aff99e5fed66948a90c12e711a7fb93d0e8a20697bf847f2c262d2b5c874757"
+    },
+    {
+      "path": "web/lib/polyline.ts",
+      "origin": "git",
+      "bytes": 1704,
+      "sha256": "cbfdf306452df89e526561aeea4819a1de794924dbf5bbed5376caaac6c5aa8e"
+    },
+    {
+      "path": "web/lib/published-exposure-sections.ts",
+      "origin": "git",
+      "bytes": 4058,
+      "sha256": "f81f4d2b17acde090bb8cbcc9799cbccabce9bbfc34976a765015947ef3522cf"
+    },
+    {
+      "path": "web/lib/published-transit-choices.ts",
+      "origin": "git",
+      "bytes": 4074,
+      "sha256": "8ae8db8291ee67fdaf6c828f9b4b63a3cc6eb5e6eb535b7c53a6f03e70abacc0"
+    },
+    {
+      "path": "web/lib/published-transit-options.ts",
+      "origin": "git",
+      "bytes": 33952,
+      "sha256": "a437e35178186c6c9e5c3300c27ce675149a7c2136322ae9f722f14f5f9d7d3d"
+    },
+    {
+      "path": "web/lib/published-walk-selection.ts",
+      "origin": "git",
+      "bytes": 8047,
+      "sha256": "62a3944ca3acf138334064163dc4fdd831b9aa756034a3f7ed14e94e8de23952"
+    },
+    {
+      "path": "web/lib/published-walk-view.ts",
+      "origin": "git",
+      "bytes": 2058,
+      "sha256": "f4969aea23227fefe9154848541ba3349c433a59fecf891d647d99c0312ff618"
+    },
+    {
+      "path": "web/lib/report-lifecycle.ts",
+      "origin": "git",
+      "bytes": 9354,
+      "sha256": "7c3c4abaab6f15f6f5b9428f62b1340d72e6680bd2c0bab778cf14ee7d8fd9ea"
+    },
+    {
+      "path": "web/lib/report-project.json",
+      "origin": "git",
+      "bytes": 223,
+      "sha256": "900adc3b06a795b856386d4c8c392da63327e55a60142dbd3c89a270886bc4f4"
+    },
+    {
+      "path": "web/lib/report-request-id.ts",
+      "origin": "git",
+      "bytes": 1557,
+      "sha256": "d76db8639a90b9edc45bdb2f087c7699354f692c8d391c6353c5c5dac69b12de"
+    },
+    {
+      "path": "web/lib/report-submission.ts",
+      "origin": "git",
+      "bytes": 9808,
+      "sha256": "c0d99a16830456d36cd39d34aca284d7a05fb11496db13f126d98719f6fa8e49"
+    },
+    {
+      "path": "web/lib/reports.ts",
+      "origin": "git",
+      "bytes": 11466,
+      "sha256": "1e6ffff787f664ccd3f2a66ac5dbe08dd4af3bf54143dbcd6593111b7e1d3299"
+    },
+    {
+      "path": "web/lib/route-display.ts",
+      "origin": "git",
+      "bytes": 1163,
+      "sha256": "611d1a5d50deb74776f8c79dd67a0b4f48e0fb8647e4e3f5237d923403b4088d"
+    },
+    {
+      "path": "web/lib/route-geojson.ts",
+      "origin": "git",
+      "bytes": 4044,
+      "sha256": "3485e2692a46f92cdfbc7512a8ce95654656cd9beee7c1858ab230d373f60543"
+    },
+    {
+      "path": "web/lib/service-worker-cache.ts",
+      "origin": "git",
+      "bytes": 810,
+      "sha256": "c2f9d464baf18d4404a68e55bee937cb9ad8bb0a8f90c011322fa6f701ea3a89"
+    },
+    {
+      "path": "web/lib/source-freshness.ts",
+      "origin": "git",
+      "bytes": 4477,
+      "sha256": "4644ab5396eeef9e56046761c16b1bf0ea7d7137507a7a030cfe1644d132ceed"
+    },
+    {
+      "path": "web/lib/subscore-ranking.ts",
+      "origin": "git",
+      "bytes": 1539,
+      "sha256": "d8f3f9e6813ddc230af0cafd9eab414aec3e4fb87634447c4c815c50432e9b6a"
+    },
+    {
+      "path": "web/lib/transit-popup.ts",
+      "origin": "git",
+      "bytes": 5594,
+      "sha256": "8a5932c6c317058b0c0d31bf8a8fe8bd09e56374927e9052467d7bb0199a426e"
+    },
+    {
+      "path": "web/lib/types.ts",
+      "origin": "git",
+      "bytes": 5735,
+      "sha256": "c00af915256f6434dfccaaa60a28bbfbcbfe069629e9a9c0141955871f483a98"
+    },
+    {
+      "path": "web/lib/walk-default.ts",
+      "origin": "git",
+      "bytes": 1557,
+      "sha256": "8b0d1310df9f095ae114facb51c97b337e5fdccd1cec979856fbe9fdf4083a04"
+    },
+    {
+      "path": "web/lib/walk-metrics.ts",
+      "origin": "git",
+      "bytes": 5295,
+      "sha256": "0b38b3662c07394e3a9159e85791c01ea26bd917493625e2d9f908f63971231f"
+    },
+    {
+      "path": "web/lib/walk-preview-request.ts",
+      "origin": "git",
+      "bytes": 1028,
+      "sha256": "2e468ab9445cb46647b268341139b2399b526f87426b120ab35f7d7baea42e28"
+    },
+    {
+      "path": "web/next.config.js",
+      "origin": "git",
+      "bytes": 6958,
+      "sha256": "ed9745754cda3adbc5e5f8312050bb12567b7022cba5dc7ea56fd98d3b6a1350"
+    },
+    {
+      "path": "web/package-lock.json",
+      "origin": "git",
+      "bytes": 92098,
+      "sha256": "d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590"
+    },
+    {
+      "path": "web/package.json",
+      "origin": "git",
+      "bytes": 912,
+      "sha256": "5b733157903afa386ed3830af127ca9f145b6ef8d4b7194c941c3e5a55287b7b"
+    },
+    {
+      "path": "web/public/maplibre/6.1.0/LICENSE.txt",
+      "origin": "git",
+      "bytes": 5984,
+      "sha256": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2"
+    },
+    {
+      "path": "web/public/maplibre/6.1.0/maplibre-gl-shared.mjs",
+      "origin": "git",
+      "bytes": 479327,
+      "sha256": "ce66c617187b6956d878d3961aceeb7c335eec3f76ee8d80737a917d8e989860"
+    },
+    {
+      "path": "web/public/maplibre/6.1.0/maplibre-gl-worker.mjs",
+      "origin": "git",
+      "bytes": 19108,
+      "sha256": "5a77b4637ea5ae64f0b1f208e4b1f4d9c681e2575d96e592f2074925597224c6"
+    },
+    {
+      "path": "web/public/maplibre/6.4.1/LICENSE.txt",
+      "origin": "git",
+      "bytes": 5984,
+      "sha256": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2"
+    },
+    {
+      "path": "web/public/maplibre/6.4.1/maplibre-gl-shared.mjs",
+      "origin": "git",
+      "bytes": 482036,
+      "sha256": "fcf4d81450df235da0aea74897cc23926774b5228d38ae1de6a7d701c5905785"
+    },
+    {
+      "path": "web/public/maplibre/6.4.1/maplibre-gl-worker.mjs",
+      "origin": "git",
+      "bytes": 18592,
+      "sha256": "ce4957017fe705ac2f9ebef206cca966d08d8621756c39326a78cf09757e7d75"
+    },
+    {
+      "path": "web/public/site.webmanifest",
+      "origin": "git",
+      "bytes": 403,
+      "sha256": "e0ace347324935ce0e1904ff7c4a1f638a36d9d23bac6422659d683edbf46517"
+    },
+    {
+      "path": "web/public/sw.js",
+      "origin": "git",
+      "bytes": 5496,
+      "sha256": "88e523a5d8b4f8dec18b0a741dfae056674552de9e0f5b67d96a82fd554500a4"
+    },
+    {
+      "path": "web/scripts/__tests__/installed-dependencies.test.mjs",
+      "origin": "git",
+      "bytes": 12377,
+      "sha256": "d432953574ffde5eaffd87041ad665f9dff4664e82969d5abc9f84f357d6c581"
+    },
+    {
+      "path": "web/scripts/browser-smoke.mjs",
+      "origin": "git",
+      "bytes": 33534,
+      "sha256": "e7b2e794bddac3636fa68bb23a72b0556b2150cc10079dff974c108432862185"
+    },
+    {
+      "path": "web/scripts/build-next-release.mjs",
+      "origin": "git",
+      "bytes": 1403,
+      "sha256": "f67a604f2c8fcc2980370a3b94c069001a4d157dcd16afc18fcf52cf147f3ca9"
+    },
+    {
+      "path": "web/scripts/check-installed-dependencies.mjs",
+      "origin": "git",
+      "bytes": 3341,
+      "sha256": "958bdd068538abd065602188c61b66db22c374707936fe905034c46af32d08de"
+    },
+    {
+      "path": "web/scripts/deny-production-data.cjs",
+      "origin": "git",
+      "bytes": 1573,
+      "sha256": "0d6a0c3db6f777cc87ecc1d753cbc07205f492acc29d5a8661bc87471794bfe4"
+    },
+    {
+      "path": "web/scripts/ensure-data-bundle.mjs",
+      "origin": "git",
+      "bytes": 8528,
+      "sha256": "637966de4f209fb88bd9323e99e32b62401f8fe7d2c3fc565a75f4390ed43477"
+    },
+    {
+      "path": "web/scripts/extract-walk-test-fixtures.py",
+      "origin": "git",
+      "bytes": 6206,
+      "sha256": "4e56b76670514fca404e987a0cb14b0cc490b87e3193eab1de451d0792750616"
+    },
+    {
+      "path": "web/scripts/frontend-retention.mjs",
+      "origin": "git",
+      "bytes": 5798,
+      "sha256": "9dc2537d456866620760979ceb5998fa3eac97dc1188fab74ede0bc3501fd7c1"
+    },
+    {
+      "path": "web/scripts/ignore-build.mjs",
+      "origin": "git",
+      "bytes": 1510,
+      "sha256": "12c54471d0fa4a6626e06401659ce2aaa9c052ec5d94c900fd12ee1a4c911126"
+    },
+    {
+      "path": "web/scripts/measure-lookup-transfer.mjs",
+      "origin": "git",
+      "bytes": 5297,
+      "sha256": "93aa67d7d8ed90cad5f18a56b4b28bfc5d9bdfe9acf9564da47cdf4e716c46fe"
+    },
+    {
+      "path": "web/scripts/revamp-browser.mjs",
+      "origin": "git",
+      "bytes": 30121,
+      "sha256": "48dfb9172af03d4f7f7fa5e9df4dfb8495cfe8be673d5b81ed7e4c145ee75461"
+    },
+    {
+      "path": "web/scripts/test-web.mjs",
+      "origin": "git",
+      "bytes": 1309,
+      "sha256": "2d222bff18b41ca26db430a0fc352ae30f66a1b7fca00de8844206eb107cbb5e"
+    },
+    {
+      "path": "web/scripts/test-without-production-data.mjs",
+      "origin": "git",
+      "bytes": 2739,
+      "sha256": "8b01e905acd876d79504fcb4b4639d7ba02141c3d5eb2c4b906477ce1a0e4b44"
+    },
+    {
+      "path": "web/section10-presentation-proposal.md",
+      "origin": "git",
+      "bytes": 4212,
+      "sha256": "28eafa24a80eaf70b903295600f9f334e410869e9068d7e908154588cbedf3fc"
+    },
+    {
+      "path": "web/tsconfig.json",
+      "origin": "git",
+      "bytes": 762,
+      "sha256": "e5020c21a4e117f0a789a28fc54838b21ab2e287f8c2fc0efab2c811839b4459"
+    },
+    {
+      "path": "web/vitest.config.ts",
+      "origin": "git",
+      "bytes": 505,
+      "sha256": "fde5ad962c16b12e84a3a33a006ade9da4d9a750b2245e7eac727ddecc4b8752"
+    },
+    {
+      "path": ".vercelignore",
+      "origin": "previous-verified-derived-control",
+      "bytes": 88,
+      "sha256": "c294d3ad2388fd2c73f05cadea7685ec83a63bc747d775aec8a0df738c6f98bf"
+    },
+    {
+      "path": "web/.vercelignore",
+      "origin": "previous-verified-derived-control",
+      "bytes": 88,
+      "sha256": "c294d3ad2388fd2c73f05cadea7685ec83a63bc747d775aec8a0df738c6f98bf"
+    },
+    {
+      "path": "web/data-bundle.json",
+      "origin": "previous-verified-derived-control",
+      "bytes": 360,
+      "sha256": "a8b64b0b3163b5ec8dc4eb482bc3a7720afa34a9ca2bdf1626a13bd267d7935b"
+    },
+    {
+      "path": "web/frontend-retention.json",
+      "origin": "previous-verified-derived-control",
+      "bytes": 77,
+      "sha256": "f7ca9c23027c46a15d9533a9d08672851515a2125207cc93514c78a1b9d06dd8"
+    },
+    {
+      "path": "web/next-env.d.ts",
+      "origin": "previous-verified-derived-control",
+      "bytes": 288,
+      "sha256": "1862ac4bbbc5192d4bf562161df66ea547ed3e67173100656ab606ae9797db2b"
+    },
+    {
+      "path": "web/vercel.json",
+      "origin": "previous-verified-derived-control",
+      "bytes": 537,
+      "sha256": "f789aacec7e2d03d43c43758dade4dfbe4ffd9455460f4b0ea511c6d99904946"
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "web/.gitignore",
+      "objectId": "245259b697909ccc71cbb4e129e836576ef5505b",
+      "objectBytes": 14
+    },
+    {
+      "path": "web/.vercelignore",
+      "objectId": "ed70895d163a02eb6bc2281a8542c556eb52337a",
+      "objectBytes": 165
+    },
+    {
+      "path": "web/app/api/moderation/auth.ts",
+      "objectId": "e07d7997a04fc94a8f650abf81ae97d276529d0b",
+      "objectBytes": 5768
+    },
+    {
+      "path": "web/app/api/moderation/context/route.ts",
+      "objectId": "044b11fb584e6cf84cea05feec5120fa68825fa7",
+      "objectBytes": 591
+    },
+    {
+      "path": "web/app/api/moderation/decision/route.ts",
+      "objectId": "b2c42e677091518183dfe3d4f5d04f136ad5eb7e",
+      "objectBytes": 592
+    },
+    {
+      "path": "web/app/api/moderation/http.ts",
+      "objectId": "0053ced5387778e160fe75b26c57ad20cecec920",
+      "objectBytes": 9500
+    },
+    {
+      "path": "web/app/api/moderation/login/route.ts",
+      "objectId": "35676c6fef2995264fca5e9ac3b0ddceb7715bea",
+      "objectBytes": 609
+    },
+    {
+      "path": "web/app/api/moderation/logout/route.ts",
+      "objectId": "54ef4ce9ca707fec9de1d0fa08572815acfa839b",
+      "objectBytes": 611
+    },
+    {
+      "path": "web/app/api/moderation/queue/route.ts",
+      "objectId": "be983a164fdbbe74fccdd3c113ae35bb1c8b8534",
+      "objectBytes": 589
+    },
+    {
+      "path": "web/app/api/moderation/session.ts",
+      "objectId": "aa2b78c06852ec9a6d0104e6539487c43f345205",
+      "objectBytes": 14247
+    },
+    {
+      "path": "web/app/api/moderation/store.ts",
+      "objectId": "aa95c32dba1981e0029bb2694358758563f862d8",
+      "objectBytes": 22293
+    },
+    {
+      "path": "web/app/api/onemap-deadline.ts",
+      "objectId": "99897c220b69f1383e6b4d8f49dd1de7381ff891",
+      "objectBytes": 1568
+    },
+    {
+      "path": "web/app/api/onemap-route/route.ts",
+      "objectId": "76fb2c01a46deaa0d22bee455c9f84d0237c64e8",
+      "objectBytes": 5279
+    },
+    {
+      "path": "web/app/api/onemap-search/route.ts",
+      "objectId": "599e431369797f79fb068838e4f1b3a0376e89b7",
+      "objectBytes": 3450
+    },
+    {
+      "path": "web/app/api/onemap.ts",
+      "objectId": "885dbaa6c1e9685890cf64ad3aef56b264f740a5",
+      "objectBytes": 3536
+    },
+    {
+      "path": "web/app/api/reports/http.ts",
+      "objectId": "c2008b438fe910e2ea24c11ff42ee32847d66c89",
+      "objectBytes": 8511
+    },
+    {
+      "path": "web/app/api/reports/route.ts",
+      "objectId": "04a21a4e42e0b660365a52283b7e6e284c5ceee7",
+      "objectBytes": 546
+    },
+    {
+      "path": "web/app/api/reports/store.ts",
+      "objectId": "d0027daad9a49c29e2fcc856304d8a6f12b37cba",
+      "objectBytes": 6598
+    },
+    {
+      "path": "web/app/global-error.tsx",
+      "objectId": "c8fe18c6d320786f56bd451fc6ca9aa7bea4f802",
+      "objectBytes": 967
+    },
+    {
+      "path": "web/app/home.tsx",
+      "objectId": "02715df7c205ce018606653adb5f544bb74f0e9f",
+      "objectBytes": 132884
+    },
+    {
+      "path": "web/app/icon.svg",
+      "objectId": "d6160abd7e20d3c50f9afc3f9841b5f360ad5224",
+      "objectBytes": 747
+    },
+    {
+      "path": "web/app/layout.tsx",
+      "objectId": "e0a07a410d347800a46b335c5f9cf8ac32eddc41",
+      "objectBytes": 1271
+    },
+    {
+      "path": "web/app/moderation/page.tsx",
+      "objectId": "a10496151383e55b13df88a6bddc49e95c032a0f",
+      "objectBytes": 555
+    },
+    {
+      "path": "web/app/page.module.css",
+      "objectId": "666eb873b392c8416f298fd481caeab18c00da18",
+      "objectBytes": 30874
+    },
+    {
+      "path": "web/app/page.tsx",
+      "objectId": "35c13b0eeab821a6bdde2a5ffb567e3030804705",
+      "objectBytes": 49
+    },
+    {
+      "path": "web/app/robots.ts",
+      "objectId": "460cf6bb6fda519d956b058a68d5fd43248740b5",
+      "objectBytes": 951
+    },
+    {
+      "path": "web/app/sitemap.ts",
+      "objectId": "1355c6281595ff12bacb5a2f592530f49cb7bb96",
+      "objectBytes": 317
+    },
+    {
+      "path": "web/components/comparison-share-dialog.module.css",
+      "objectId": "56b5baf5fcf0ccb2953b01b0eebd221ea2b239a5",
+      "objectBytes": 1754
+    },
+    {
+      "path": "web/components/comparison-share-dialog.tsx",
+      "objectId": "842411854023d35f1544b72865cdb27b3354bd25",
+      "objectBytes": 5168
+    },
+    {
+      "path": "web/components/exposure-section-explorer.module.css",
+      "objectId": "bbf835babc27baece4d6d47f2306a5807652fc91",
+      "objectBytes": 1606
+    },
+    {
+      "path": "web/components/exposure-section-explorer.tsx",
+      "objectId": "42511706b326a406c659a5ef7d74606a5fd36b94",
+      "objectBytes": 4646
+    },
+    {
+      "path": "web/components/failure-diagnostics-control.module.css",
+      "objectId": "4b7d56f86c65cd39822d9b00c3ac7fe12b9201df",
+      "objectBytes": 1372
+    },
+    {
+      "path": "web/components/failure-diagnostics-control.tsx",
+      "objectId": "e675ab1d960a218e4311cb992d23d575cf961427",
+      "objectBytes": 5143
+    },
+    {
+      "path": "web/components/home-comparison.module.css",
+      "objectId": "5c3ccf64fcccbb2322111a7a69fdfc2630f98fea",
+      "objectBytes": 4171
+    },
+    {
+      "path": "web/components/home-comparison.tsx",
+      "objectId": "524e438a22b1a9761062e351aebbfbb014b87df5",
+      "objectBytes": 14917
+    },
+    {
+      "path": "web/components/moderation-console.module.css",
+      "objectId": "6c23d6eb783be4610994c670ceec38ac763e1eb2",
+      "objectBytes": 4259
+    },
+    {
+      "path": "web/components/moderation-console.tsx",
+      "objectId": "fe53e42182f477921fe285c0b4b4957b6abd629f",
+      "objectBytes": 21398
+    },
+    {
+      "path": "web/components/report-composer.module.css",
+      "objectId": "a61eccfe2c3b86b68dea58efb1686aee14a2fa08",
+      "objectBytes": 2458
+    },
+    {
+      "path": "web/components/report-composer.tsx",
+      "objectId": "5a5a9358d0c8846d3fa4046a28b7225ede708040",
+      "objectBytes": 15867
+    },
+    {
+      "path": "web/components/report-location-preview.tsx",
+      "objectId": "1fd1937b0b1924845fe3425a90ff3932ab0e3cb3",
+      "objectBytes": 2904
+    },
+    {
+      "path": "web/components/route-evidence-map.module.css",
+      "objectId": "1294d3f696e63771beafcf19eb191186f463bcdf",
+      "objectBytes": 5330
+    },
+    {
+      "path": "web/components/route-evidence-map.tsx",
+      "objectId": "ff23de6a7dce3d6dd811ca29ad0b8f23a2c463a1",
+      "objectBytes": 65247
+    },
+    {
+      "path": "web/components/route-map-loader.tsx",
+      "objectId": "9f6304c160e639acb535cffdc751b1306c9c4508",
+      "objectBytes": 3158
+    },
+    {
+      "path": "web/components/transit-stop-picker.module.css",
+      "objectId": "5dd015dcd2c6156bacd73c010f55ae1e51204a5f",
+      "objectBytes": 1737
+    },
+    {
+      "path": "web/components/transit-stop-picker.tsx",
+      "objectId": "68db02bee88bf1db2ffe5fa678f4acf75e212849",
+      "objectBytes": 3021
+    },
+    {
+      "path": "web/components/walk-summary.tsx",
+      "objectId": "8bab0b124d33c0fc2e52e3c9b328df1645022bed",
+      "objectBytes": 1840
+    },
+    {
+      "path": "web/data-bundle.json",
+      "objectId": "0ed4cabe23f83eea75bbff4a09f1cbab418cd84e",
+      "objectBytes": 360
+    },
+    {
+      "path": "web/lib/__tests__/accessibility-render.test.tsx",
+      "objectId": "184cdbe58391f98500d3496a71a4b0b2da68c27f",
+      "objectBytes": 80009
+    },
+    {
+      "path": "web/lib/__tests__/artifact-failure.test.ts",
+      "objectId": "8cf174c442178a512caeeb6df6d02056b7e685e7",
+      "objectBytes": 3003
+    },
+    {
+      "path": "web/lib/__tests__/comparison-controller.test.ts",
+      "objectId": "6dc69e8accc82cc413b83cba18e558e7e6200a3d",
+      "objectBytes": 34611
+    },
+    {
+      "path": "web/lib/__tests__/comparison-link.test.ts",
+      "objectId": "4d4c59694bb2341883199b89827fe8651d4f012d",
+      "objectBytes": 8592
+    },
+    {
+      "path": "web/lib/__tests__/comparison-share-dialog.test.tsx",
+      "objectId": "ff948064eb9f9de9d7910ef7c8076f443e9d657e",
+      "objectBytes": 20996
+    },
+    {
+      "path": "web/lib/__tests__/comparison-shared-controller.test.ts",
+      "objectId": "30e72656d284effc0c9db95455bbad0fd0b2aa35",
+      "objectBytes": 19401
+    },
+    {
+      "path": "web/lib/__tests__/comparison-state.test.ts",
+      "objectId": "993c9ad8541623985ed704cac3ac900f0436a589",
+      "objectBytes": 22050
+    },
+    {
+      "path": "web/lib/__tests__/comparison.test.ts",
+      "objectId": "27af817ecab74bce1ba2fee30fd6df7ae12d21e5",
+      "objectBytes": 29968
+    },
+    {
+      "path": "web/lib/__tests__/contiguous-route-parts.test.ts",
+      "objectId": "20ba49bfdfd4198604bcdba1aa35a93f8b0726e4",
+      "objectBytes": 2831
+    },
+    {
+      "path": "web/lib/__tests__/coverage-gap-register.test.ts",
+      "objectId": "06042fc2d9e9fd3f7556d004a04766f8a1dbee8d",
+      "objectBytes": 8549
+    },
+    {
+      "path": "web/lib/__tests__/data-base.test.ts",
+      "objectId": "1bd64cc6ad6382c70e171b10e651f8f297eb56ee",
+      "objectBytes": 2060
+    },
+    {
+      "path": "web/lib/__tests__/data-cache-recovery.test.ts",
+      "objectId": "7decddf4ce4d1d9e4dc81f15cb15d9df108196b4",
+      "objectBytes": 9241
+    },
+    {
+      "path": "web/lib/__tests__/data-failure-diagnostics.test.ts",
+      "objectId": "c0359ea829d38bb2920f79d806f24939cbb3d344",
+      "objectBytes": 21358
+    },
+    {
+      "path": "web/lib/__tests__/data-fetch-policy.test.ts",
+      "objectId": "d84775f3e95ff856dff6e721d8d4253dcd76840f",
+      "objectBytes": 5299
+    },
+    {
+      "path": "web/lib/__tests__/data.test.ts",
+      "objectId": "c3031522da6d6bbd65b198829aec920fac775a0d",
+      "objectBytes": 4706
+    },
+    {
+      "path": "web/lib/__tests__/deployment.test.ts",
+      "objectId": "b91cca127ca7b9df345b373975f6a49cc961976f",
+      "objectBytes": 25509
+    },
+    {
+      "path": "web/lib/__tests__/ensure-data-bundle.test.mjs",
+      "objectId": "9abacbbda0dd7dd99c2beabc52a8f0bcf72880e4",
+      "objectBytes": 2275
+    },
+    {
+      "path": "web/lib/__tests__/exposure-section-explorer.test.tsx",
+      "objectId": "d20455af609d83f26da53c18f8494b9aea74e0da",
+      "objectBytes": 22455
+    },
+    {
+      "path": "web/lib/__tests__/failure-diagnostics-control.test.tsx",
+      "objectId": "d5dafc6678015e5f0b4fe51ce814f1e7eed98500",
+      "objectBytes": 23597
+    },
+    {
+      "path": "web/lib/__tests__/failure-diagnostics.test.ts",
+      "objectId": "994111dcc3ee321ff4f3bafe74829bdefa68a932",
+      "objectBytes": 4321
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-data.ts",
+      "objectId": "a302bd4ee51788e10ee44efbf2fff98ddf55b462",
+      "objectBytes": 480
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-options.json",
+      "objectId": "70a6d2eebcab9bbc7b7694d30164219de03e9859",
+      "objectBytes": 36007
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-options.provenance.json",
+      "objectId": "0bb08d57fe08c10d16fcee1e6194716bf55173f6",
+      "objectBytes": 3733
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-walks.json",
+      "objectId": "8156121185939dfa95b75dbc2410fcfad461e8b2",
+      "objectBytes": 9477
+    },
+    {
+      "path": "web/lib/__tests__/fixtures/published-walks.provenance.json",
+      "objectId": "55230bfdda16263f9d64b0300071bb2e4439043b",
+      "objectBytes": 5312
+    },
+    {
+      "path": "web/lib/__tests__/frontend-retention.test.ts",
+      "objectId": "dd0979139208a651ec17bba027c33c5630a70d8e",
+      "objectBytes": 8410
+    },
+    {
+      "path": "web/lib/__tests__/geom-promoted-shard.test.ts",
+      "objectId": "22787beed85e50bfcfd1e12689ff2e9b923960d3",
+      "objectBytes": 9248
+    },
+    {
+      "path": "web/lib/__tests__/geometry-recovery.test.ts",
+      "objectId": "a8331ffe99af3ed36bc872db4490f02affaf466d",
+      "objectBytes": 1253
+    },
+    {
+      "path": "web/lib/__tests__/global-error.test.tsx",
+      "objectId": "35748bf34604ee6aab61bd7ebbd5032641c76375",
+      "objectBytes": 1644
+    },
+    {
+      "path": "web/lib/__tests__/home-comparison.test.tsx",
+      "objectId": "691101bb80bb727a835fcebe6a930a62fdbe59d0",
+      "objectBytes": 46331
+    },
+    {
+      "path": "web/lib/__tests__/ignore-build.test.mjs",
+      "objectId": "5c9545732cef9711e430b0e21d664014c6b8aac7",
+      "objectBytes": 1455
+    },
+    {
+      "path": "web/lib/__tests__/lamp-overlay.test.ts",
+      "objectId": "e45f6685abdb1da065321ab5fb3889226a1f8cda",
+      "objectBytes": 5768
+    },
+    {
+      "path": "web/lib/__tests__/live-route-scoring.test.ts",
+      "objectId": "d0b9a29ea1d0bcdf628f5a989d70ecfc0efa5bc5",
+      "objectBytes": 8837
+    },
+    {
+      "path": "web/lib/__tests__/locked-score-availability.test.ts",
+      "objectId": "89b081acace2d8cb980ca0a7b555852c0bc004bf",
+      "objectBytes": 2424
+    },
+    {
+      "path": "web/lib/__tests__/map-first-shell.test.ts",
+      "objectId": "8943ecbd59ca018745f57119443021095ec5e708",
+      "objectBytes": 2882
+    },
+    {
+      "path": "web/lib/__tests__/map-recovery-actions.test.tsx",
+      "objectId": "b8b5b71aea5e8550f4c02569980d2cf26c794780",
+      "objectBytes": 9132
+    },
+    {
+      "path": "web/lib/__tests__/map-startup-import.test.ts",
+      "objectId": "510d19d335cd5da50db72f35992db3a367aad1b7",
+      "objectBytes": 8289
+    },
+    {
+      "path": "web/lib/__tests__/map-startup-stage.test.ts",
+      "objectId": "4847af724fe32e800808326a96029c0ca5b36635",
+      "objectBytes": 15029
+    },
+    {
+      "path": "web/lib/__tests__/map-viewport.test.ts",
+      "objectId": "66c0818b7f42ae844121c0dcb614397009be84b9",
+      "objectBytes": 3598
+    },
+    {
+      "path": "web/lib/__tests__/map-worker.test.ts",
+      "objectId": "5baccd0666bee1b6402872a24bbba8e8ef343072",
+      "objectBytes": 1175
+    },
+    {
+      "path": "web/lib/__tests__/moderation-console.test.tsx",
+      "objectId": "a9c558c8b9aae29b67ed7f25ef9c7ec8e44c4a86",
+      "objectBytes": 31553
+    },
+    {
+      "path": "web/lib/__tests__/moderation-route.test.ts",
+      "objectId": "9ebb3d27ed852e4ffe31d76f2ee15b5e480057ca",
+      "objectBytes": 8407
+    },
+    {
+      "path": "web/lib/__tests__/moderator-auth.test.ts",
+      "objectId": "e3e7ff7599a73d40b4b15a19ea084e13069792ca",
+      "objectBytes": 7653
+    },
+    {
+      "path": "web/lib/__tests__/moderator-client.test.ts",
+      "objectId": "dfb9134fb0ab0116d980a602071741e42d39456a",
+      "objectBytes": 47425
+    },
+    {
+      "path": "web/lib/__tests__/moderator-http.test.ts",
+      "objectId": "6441d5c14c226ed55bfddf32a28ae87a2d9c1c8c",
+      "objectBytes": 21188
+    },
+    {
+      "path": "web/lib/__tests__/moderator-session.test.ts",
+      "objectId": "a3744bb1f2514f5ab0bea74e43d0daabd7802c6d",
+      "objectBytes": 42459
+    },
+    {
+      "path": "web/lib/__tests__/moderator-store.test.ts",
+      "objectId": "82cb0c86504bcb488ce7a513be85d2986c2c78db",
+      "objectBytes": 42514
+    },
+    {
+      "path": "web/lib/__tests__/onemap-api-security.test.ts",
+      "objectId": "0d89ca373540b7afc7d73b8fffba3a7895586c07",
+      "objectBytes": 7014
+    },
+    {
+      "path": "web/lib/__tests__/onemap-deadline.test.ts",
+      "objectId": "05dc60cc2a4d04a64c173f277f09bf5a4d0e0c1a",
+      "objectBytes": 8802
+    },
+    {
+      "path": "web/lib/__tests__/onemap-search.test.ts",
+      "objectId": "c8029d0cff214b24eebcbc9559a4ff4364c98990",
+      "objectBytes": 5995
+    },
+    {
+      "path": "web/lib/__tests__/page-entry.test.ts",
+      "objectId": "aae1f8d467d13818dab5086c35e775ec6ea76114",
+      "objectBytes": 471
+    },
+    {
+      "path": "web/lib/__tests__/polyline.test.ts",
+      "objectId": "d54812b509d8038435183d84973d0f99b778736a",
+      "objectBytes": 846
+    },
+    {
+      "path": "web/lib/__tests__/published-exposure-sections.test.ts",
+      "objectId": "b326fbca21c3c39c56972346e5c7b9f4171806a4",
+      "objectBytes": 16575
+    },
+    {
+      "path": "web/lib/__tests__/published-options-fixture.test.ts",
+      "objectId": "ed49919e5e3dcf9582db4f68d7f95824f85d8d11",
+      "objectBytes": 12436
+    },
+    {
+      "path": "web/lib/__tests__/published-transit-choices.test.ts",
+      "objectId": "2a9a570e4f5e431c03c080b99f8090495e621779",
+      "objectBytes": 28696
+    },
+    {
+      "path": "web/lib/__tests__/published-transit-options.test.ts",
+      "objectId": "714415e6ab25acfc3ccf052b3b36a6a300356685",
+      "objectBytes": 51498
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-page.test.tsx",
+      "objectId": "fed2a6c7bc8eee9270893d42b7fa1baa5b237ad7",
+      "objectBytes": 93786
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-selection.test.ts",
+      "objectId": "fd683fa14bd68cbdf3e7b9ce0d1780124045dda4",
+      "objectBytes": 6615
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-stop-identity.test.ts",
+      "objectId": "da653bf860181a5f8db27af515aea1879242cce8",
+      "objectBytes": 8082
+    },
+    {
+      "path": "web/lib/__tests__/published-walk-view.test.ts",
+      "objectId": "3192d8f6fc79d50b52f09877ce7d213967f22a09",
+      "objectBytes": 12777
+    },
+    {
+      "path": "web/lib/__tests__/rank-payload.test.ts",
+      "objectId": "41bc66c5301fb892092944c436b3afb8253fd804",
+      "objectBytes": 1304
+    },
+    {
+      "path": "web/lib/__tests__/report-composer.test.tsx",
+      "objectId": "5672271da9c95065bc2b05a058119cf19c836a06",
+      "objectBytes": 32103
+    },
+    {
+      "path": "web/lib/__tests__/report-http.test.ts",
+      "objectId": "9ff4472af1a4a16493037dd34624d22b87de2224",
+      "objectBytes": 24752
+    },
+    {
+      "path": "web/lib/__tests__/report-lifecycle.test.ts",
+      "objectId": "346870fdcea3fd4aa91080f64bfe242ea41ec434",
+      "objectBytes": 11919
+    },
+    {
+      "path": "web/lib/__tests__/report-request-id.test.ts",
+      "objectId": "4c906cc7c987003cc90234ea522cf68a7964ffce",
+      "objectBytes": 7685
+    },
+    {
+      "path": "web/lib/__tests__/report-store.test.ts",
+      "objectId": "357a0d0748a820244c52c6c185457a9ea045409d",
+      "objectBytes": 15195
+    },
+    {
+      "path": "web/lib/__tests__/report-submission.test.ts",
+      "objectId": "a383d885724899471fa21cd0a284d84e82e4e192",
+      "objectBytes": 21372
+    },
+    {
+      "path": "web/lib/__tests__/reports.test.ts",
+      "objectId": "4a2b064721c55b9e662a3804f742fa8e0eba57f0",
+      "objectBytes": 22465
+    },
+    {
+      "path": "web/lib/__tests__/revamp-layout.test.ts",
+      "objectId": "9640d3247aff305ccea3b787231182d7b800a2e2",
+      "objectBytes": 2405
+    },
+    {
+      "path": "web/lib/__tests__/route-display.test.ts",
+      "objectId": "dd2f73d873b3be10449b9184133c6c4c3dabf143",
+      "objectBytes": 2807
+    },
+    {
+      "path": "web/lib/__tests__/route-evidence-map-interaction.test.ts",
+      "objectId": "7909967fb31ae74e2838b1b97096b8e0229a1001",
+      "objectBytes": 21129
+    },
+    {
+      "path": "web/lib/__tests__/route-evidence-map-popup.test.ts",
+      "objectId": "ac5719298e1c99016e89f157afa8fd19f002d508",
+      "objectBytes": 16146
+    },
+    {
+      "path": "web/lib/__tests__/route-geojson.test.ts",
+      "objectId": "7aaf164ef0008acdde6f23a7e02ee06cd85bb2b4",
+      "objectBytes": 2682
+    },
+    {
+      "path": "web/lib/__tests__/route-map-keyboard.test.ts",
+      "objectId": "cbe0c558d5226661d27df25b5113810ec11bb4d8",
+      "objectBytes": 8376
+    },
+    {
+      "path": "web/lib/__tests__/route-map-loader.test.tsx",
+      "objectId": "df4aa727ced761e534cf418476dc08cde4e0c1c4",
+      "objectBytes": 15862
+    },
+    {
+      "path": "web/lib/__tests__/route-source-lifecycle.test.ts",
+      "objectId": "fbd7ceec746b84204c0a1b7f180cf594eff6a724",
+      "objectBytes": 42556
+    },
+    {
+      "path": "web/lib/__tests__/score-card-copy.test.ts",
+      "objectId": "de2bc42a2e789450bbab912a7c68b776b2aa4a5b",
+      "objectBytes": 79607
+    },
+    {
+      "path": "web/lib/__tests__/score-prefix-index.test.ts",
+      "objectId": "754a6fe28956e9a548d1fb8d8eebc766739470e1",
+      "objectBytes": 6285
+    },
+    {
+      "path": "web/lib/__tests__/service-worker-behaviour.test.ts",
+      "objectId": "8decc1baf3a8de526fe648a2d658528c2f2cf657",
+      "objectBytes": 31308
+    },
+    {
+      "path": "web/lib/__tests__/service-worker-registration.test.ts",
+      "objectId": "97b1c931e3fc339bc417bf2c6556c254457de5b4",
+      "objectBytes": 3110
+    },
+    {
+      "path": "web/lib/__tests__/source-freshness.test.ts",
+      "objectId": "e35168d49c29ea7487f839c2b7da83acf084db0f",
+      "objectBytes": 6417
+    },
+    {
+      "path": "web/lib/__tests__/subscore-ranking.test.ts",
+      "objectId": "931d339baa9e8287df2926a91e703a2763e27816",
+      "objectBytes": 1898
+    },
+    {
+      "path": "web/lib/__tests__/transit-popup.test.ts",
+      "objectId": "73026a74cf4afd29944420c6b56142dc870aaa52",
+      "objectBytes": 5029
+    },
+    {
+      "path": "web/lib/__tests__/transit-shards.test.ts",
+      "objectId": "3954f9a4f7eafc682d393fa85d9cb251ddc85162",
+      "objectBytes": 3141
+    },
+    {
+      "path": "web/lib/__tests__/transit-stop-picker.test.tsx",
+      "objectId": "c6753be3c2d2322a8071ea892b82ddbef2a4de01",
+      "objectBytes": 28520
+    },
+    {
+      "path": "web/lib/__tests__/typescript-contract.test.ts",
+      "objectId": "065de2c70e3166996a4079f25b9b19e2642da0ed",
+      "objectBytes": 544
+    },
+    {
+      "path": "web/lib/__tests__/walk-default.test.ts",
+      "objectId": "3d0b40fcbb5329f1a78e7deeb3efe810bbf142f2",
+      "objectBytes": 2801
+    },
+    {
+      "path": "web/lib/__tests__/walk-preview-request.test.ts",
+      "objectId": "69b14ff36092445434461270b0b615fc38f4144e",
+      "objectBytes": 4510
+    },
+    {
+      "path": "web/lib/__tests__/walk-real-records.test.ts",
+      "objectId": "74bfe053352d50d93ec01642f29ff720b35c3d8a",
+      "objectBytes": 4528
+    },
+    {
+      "path": "web/lib/__tests__/walk-recovery-focus.test.tsx",
+      "objectId": "3a507149c461502f7636257791467c61090bca07",
+      "objectBytes": 29630
+    },
+    {
+      "path": "web/lib/__tests__/walk-summary-options.test.ts",
+      "objectId": "4c119ec55f5d6b140b35df7b9db95e38c7014002",
+      "objectBytes": 11554
+    },
+    {
+      "path": "web/lib/artifact-failure.ts",
+      "objectId": "41438b8093e1dd156d92d460821c3d4546c2cfa4",
+      "objectBytes": 1756
+    },
+    {
+      "path": "web/lib/comparison-controller.ts",
+      "objectId": "6436281390a2ebea5ef68b3324ff17b37884fd8e",
+      "objectBytes": 8102
+    },
+    {
+      "path": "web/lib/comparison-link.ts",
+      "objectId": "dbe2b33191c68bdcc2604dd2ea150cf2a6b64301",
+      "objectBytes": 2640
+    },
+    {
+      "path": "web/lib/comparison-state.ts",
+      "objectId": "fd782eecb47b50175a01264ab29016f681298afb",
+      "objectBytes": 6888
+    },
+    {
+      "path": "web/lib/comparison.ts",
+      "objectId": "47266ea2f98a59836545620d1df2adcb444572ee",
+      "objectBytes": 9560
+    },
+    {
+      "path": "web/lib/contiguous-route-parts.ts",
+      "objectId": "51e967bd4e4fe5a228cf64f4dab908eedf9c6d60",
+      "objectBytes": 1362
+    },
+    {
+      "path": "web/lib/coverage-gap-register.ts",
+      "objectId": "1a984663cf67d076757837bd2f8a05120e6b7fe5",
+      "objectBytes": 4468
+    },
+    {
+      "path": "web/lib/data.ts",
+      "objectId": "41ad971541b9cf6ab076646ea573bff1a0464174",
+      "objectBytes": 18277
+    },
+    {
+      "path": "web/lib/failure-diagnostics.ts",
+      "objectId": "0fbd164f5561c32809fcb09687fdd23656c77a21",
+      "objectBytes": 3081
+    },
+    {
+      "path": "web/lib/lamp-overlay.ts",
+      "objectId": "84530c3543e740d46258091a7bf081c2e8dd853d",
+      "objectBytes": 5758
+    },
+    {
+      "path": "web/lib/live-route-scoring.ts",
+      "objectId": "8d8025a978b1932ecf5518fb639c59c08927465e",
+      "objectBytes": 9232
+    },
+    {
+      "path": "web/lib/local-glyph-protocol.ts",
+      "objectId": "bd5f10418d12b943b13dc148b394ec40b2255c00",
+      "objectBytes": 2974
+    },
+    {
+      "path": "web/lib/locked-score-availability.ts",
+      "objectId": "16c4848b38a2e58d14744be05c3699ef0cb17e7f",
+      "objectBytes": 2579
+    },
+    {
+      "path": "web/lib/map-viewport.ts",
+      "objectId": "2050c44cf276c03a9f46a2319298c9f8ebced7a8",
+      "objectBytes": 2847
+    },
+    {
+      "path": "web/lib/moderator-client.ts",
+      "objectId": "f832c45ea35c969266c27782c95655b84dced6c7",
+      "objectBytes": 23134
+    },
+    {
+      "path": "web/lib/nearest-transit.ts",
+      "objectId": "6352b2fd7f6bfd8f5f3de418f7cf8836aac0a0b7",
+      "objectBytes": 7245
+    },
+    {
+      "path": "web/lib/onemap-search.ts",
+      "objectId": "50910fbcda24bf7682237b80ca77a3f2bc666497",
+      "objectBytes": 5632
+    },
+    {
+      "path": "web/lib/polyline.ts",
+      "objectId": "c06ab4726f73b0291cd4b090515e22a141eea8e9",
+      "objectBytes": 1704
+    },
+    {
+      "path": "web/lib/published-exposure-sections.ts",
+      "objectId": "4a8ea5eb3c5c27fbe37dc281102901b40f401088",
+      "objectBytes": 4058
+    },
+    {
+      "path": "web/lib/published-transit-choices.ts",
+      "objectId": "1d4fdcdf9b1fe6ed3afbe807caf00cb7706b6fe3",
+      "objectBytes": 4074
+    },
+    {
+      "path": "web/lib/published-transit-options.ts",
+      "objectId": "c9afb6d760a5caf0dd383346e4cf3539794be8da",
+      "objectBytes": 33952
+    },
+    {
+      "path": "web/lib/published-walk-selection.ts",
+      "objectId": "124831da7e74b056c53a2ba1479611a567e8ef9e",
+      "objectBytes": 8047
+    },
+    {
+      "path": "web/lib/published-walk-view.ts",
+      "objectId": "7cc6743485fe81294664288c7f9fd2361959db60",
+      "objectBytes": 2058
+    },
+    {
+      "path": "web/lib/report-lifecycle.ts",
+      "objectId": "e2604a47e36415fe731a18bc47c764dc17774bd1",
+      "objectBytes": 9354
+    },
+    {
+      "path": "web/lib/report-project.json",
+      "objectId": "4d593840469f058367c4ed2b6e7512271dc40591",
+      "objectBytes": 223
+    },
+    {
+      "path": "web/lib/report-request-id.ts",
+      "objectId": "3bdb94b495419c1f506ecf7fa07285b27aaebbd3",
+      "objectBytes": 1557
+    },
+    {
+      "path": "web/lib/report-submission.ts",
+      "objectId": "21f66e34c9cc2ff6863312065df2a623a568e011",
+      "objectBytes": 9808
+    },
+    {
+      "path": "web/lib/reports.ts",
+      "objectId": "44aed1c30757dc776916b63dc89b8ffd95348f1c",
+      "objectBytes": 11466
+    },
+    {
+      "path": "web/lib/route-display.ts",
+      "objectId": "da388e7c3cff67f2f7f28f1b635304adeda5de22",
+      "objectBytes": 1163
+    },
+    {
+      "path": "web/lib/route-geojson.ts",
+      "objectId": "b4b80506318df6f33b667065b5dd0c13a62701e2",
+      "objectBytes": 4044
+    },
+    {
+      "path": "web/lib/service-worker-cache.ts",
+      "objectId": "897cf1cf089a5e0ac99d566baed2f647873e87da",
+      "objectBytes": 810
+    },
+    {
+      "path": "web/lib/source-freshness.ts",
+      "objectId": "dbdedc19f7cca53cb67826411fb7ef1de4fe1f8a",
+      "objectBytes": 4477
+    },
+    {
+      "path": "web/lib/subscore-ranking.ts",
+      "objectId": "89a05d4c6d0fa61107a2df34f200dbe89cd5b21a",
+      "objectBytes": 1539
+    },
+    {
+      "path": "web/lib/transit-popup.ts",
+      "objectId": "afec0da82e7f11c25bc2399b6e764d401fc9a729",
+      "objectBytes": 5594
+    },
+    {
+      "path": "web/lib/types.ts",
+      "objectId": "6f5fbd6abc4777b888722ce96a2cf3836dfc076b",
+      "objectBytes": 5735
+    },
+    {
+      "path": "web/lib/walk-default.ts",
+      "objectId": "edf9820143b7a41669c746ace893c5ee0172438e",
+      "objectBytes": 1557
+    },
+    {
+      "path": "web/lib/walk-metrics.ts",
+      "objectId": "ca8dbf7886d5c36ab47c243e21c05877a867fa18",
+      "objectBytes": 5295
+    },
+    {
+      "path": "web/lib/walk-preview-request.ts",
+      "objectId": "efc8889536bb1ad7f21e3824109caa40ce1aed1c",
+      "objectBytes": 1028
+    },
+    {
+      "path": "web/next-env.d.ts",
+      "objectId": "a419cbe4e3a5e8d4b481b851dbf4ac767de069e6",
+      "objectBytes": 296
+    },
+    {
+      "path": "web/next.config.js",
+      "objectId": "488e456e031ad88d983d23b832cab9c72c19087d",
+      "objectBytes": 6958
+    },
+    {
+      "path": "web/package-lock.json",
+      "objectId": "4e00bc1f958c19f7482bea9f51c17058488eeb29",
+      "objectBytes": 92098
+    },
+    {
+      "path": "web/package.json",
+      "objectId": "a6f590f1a5fa71885c0b51acd36c7c82b7920968",
+      "objectBytes": 912
+    },
+    {
+      "path": "web/public/maplibre/6.1.0/LICENSE.txt",
+      "objectId": "1e8acbb54fa7baddc844377507cc5a79353174fb",
+      "objectBytes": 5984
+    },
+    {
+      "path": "web/public/maplibre/6.1.0/maplibre-gl-shared.mjs",
+      "objectId": "955af1b7d79cd1e3f6cf690a93900c20a3d00c6a",
+      "objectBytes": 479327
+    },
+    {
+      "path": "web/public/maplibre/6.1.0/maplibre-gl-worker.mjs",
+      "objectId": "863325a989a13ba2853612845729ec6e271b82ce",
+      "objectBytes": 19108
+    },
+    {
+      "path": "web/public/maplibre/6.4.1/LICENSE.txt",
+      "objectId": "1e8acbb54fa7baddc844377507cc5a79353174fb",
+      "objectBytes": 5984
+    },
+    {
+      "path": "web/public/maplibre/6.4.1/maplibre-gl-shared.mjs",
+      "objectId": "b02babc3fbf86ce5866a21bd5e87c5f220fda637",
+      "objectBytes": 482036
+    },
+    {
+      "path": "web/public/maplibre/6.4.1/maplibre-gl-worker.mjs",
+      "objectId": "33e87213c3b5d16e78c45e538167dcac2fcc4c63",
+      "objectBytes": 18592
+    },
+    {
+      "path": "web/public/site.webmanifest",
+      "objectId": "fc1766c3199122a8ff6e07ef3c2934905150a040",
+      "objectBytes": 403
+    },
+    {
+      "path": "web/public/sw.js",
+      "objectId": "df67bf5509750acf2a22fbe0563ea21aa7d92e3e",
+      "objectBytes": 5496
+    },
+    {
+      "path": "web/scripts/__tests__/installed-dependencies.test.mjs",
+      "objectId": "13b55a1d2819030c7d94a69d4547c3bcb70c96fa",
+      "objectBytes": 12377
+    },
+    {
+      "path": "web/scripts/browser-smoke.mjs",
+      "objectId": "2c45b89faf63b5b71a4d1848d7ca20d0f56db888",
+      "objectBytes": 33534
+    },
+    {
+      "path": "web/scripts/build-next-release.mjs",
+      "objectId": "32630cf1bb26ec39b2963498d4a8ef73128e9e57",
+      "objectBytes": 1403
+    },
+    {
+      "path": "web/scripts/check-installed-dependencies.mjs",
+      "objectId": "df47e73122610dd69a0e459d07349ade8dc737ad",
+      "objectBytes": 3341
+    },
+    {
+      "path": "web/scripts/deny-production-data.cjs",
+      "objectId": "1db3f695355bede45efc0b04625d8f87b02c4cc1",
+      "objectBytes": 1573
+    },
+    {
+      "path": "web/scripts/ensure-data-bundle.mjs",
+      "objectId": "6e22977e6a3883330771742ec5caa669326a904d",
+      "objectBytes": 8528
+    },
+    {
+      "path": "web/scripts/extract-walk-test-fixtures.py",
+      "objectId": "5b3f66f30c85a2f81ec7273116bea5f054cbc50c",
+      "objectBytes": 6206
+    },
+    {
+      "path": "web/scripts/frontend-retention.mjs",
+      "objectId": "1ecaa9fbdb043df4ba98d175f4d4f7503d9d2cb8",
+      "objectBytes": 5798
+    },
+    {
+      "path": "web/scripts/ignore-build.mjs",
+      "objectId": "42391ffa374cdb23a8481688846cc1a7fef722b5",
+      "objectBytes": 1510
+    },
+    {
+      "path": "web/scripts/measure-lookup-transfer.mjs",
+      "objectId": "88c1f507b6ad4abfe19edb176ac4f31efa63b601",
+      "objectBytes": 5297
+    },
+    {
+      "path": "web/scripts/revamp-browser.mjs",
+      "objectId": "90a396499c19ddaa43791eecf97b85e347011efe",
+      "objectBytes": 30121
+    },
+    {
+      "path": "web/scripts/test-web.mjs",
+      "objectId": "d5c454c608152a5e2347472a915f09ea4f617848",
+      "objectBytes": 1309
+    },
+    {
+      "path": "web/scripts/test-without-production-data.mjs",
+      "objectId": "d768eef3022403786989da1c00ac0b47f5046f3b",
+      "objectBytes": 2739
+    },
+    {
+      "path": "web/section10-presentation-proposal.md",
+      "objectId": "dcd830ce6ec5df8986839fad54015f70bfa5802d",
+      "objectBytes": 4212
+    },
+    {
+      "path": "web/tsconfig.json",
+      "objectId": "c5826c9df31275675c786e596cf92f0450f1fb71",
+      "objectBytes": 762
+    },
+    {
+      "path": "web/vercel.json",
+      "objectId": "9e6fa5cb8b477d1c3e27254fc312a7eedafcf29b",
+      "objectBytes": 156
+    },
+    {
+      "path": "web/vitest.config.ts",
+      "objectId": "7935e54cbb06ff9b594fd35a3b5e6253d497f273",
+      "objectBytes": 505
+    }
+  ],
+  "dataStage": "C:\\sgSHIOK2026\\tmp\\core-release-20260915-candidate-2",
+  "dataStageManifestSha256": "5ae6803bc224e2f1e408481001c7088ed896fd05f28aa73145b2fa0c9408e471",
+  "dataCopied": false,
+  "priorDataVerification": "qa/revamp-r1/release-finalize-20260915/build-imu26n88/build.json:after",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\sgSHIOK2026\\tmp\\frontend-release-20260915-__0g0yhp\\web\\scripts\\build-next-release.mjs",
+    "build"
+  ],
+  "compilerTimeoutSeconds": 600,
+  "outerTimeoutSeconds": 900,
+  "reporting": false,
+  "moderation": false,
+  "pipelineRuns": 0,
+  "installs": 0,
+  "deployments": 0,
+  "passed": true,
+  "beforeVerified": true,
+  "compiler": {
+    "ok": true,
+    "returncode": 0,
+    "stdout": "installed_dependencies=ok\n\u25b2 Next.js 16.3.3 (webpack)\n\u2713 Running next.config.js took 253ms\n\n  Creating an optimized production build ...\n\u2713 Compiled successfully in 3.3min\n  Running TypeScript ...\n  Finished TypeScript in 35.3s ...\n  Collecting page data using 7 workers ...\n  Generating static pages using 7 workers (0/8) ...\n  Generating static pages using 7 workers (2/8) \n  Generating static pages using 7 workers (4/8) \n  Generating static pages using 7 workers (6/8) \n\u2713 Generating static pages using 7 workers (8/8) in 2.2s\n  Finalizing page optimization ...\n  Collecting build traces ...\n\nRoute (app)\n\u250c \u25cb /\n\u251c \u25cb /_not-found\n\u251c \u0192 /api/moderation/context\n\u251c \u0192 /api/moderation/decision\n\u251c \u0192 /api/moderation/login\n\u251c \u0192 /api/moderation/logout\n\u251c \u0192 /api/moderation/queue\n\u251c \u0192 /api/onemap-route\n\u251c \u0192 /api/onemap-search\n\u251c \u0192 /api/reports\n\u251c \u25cb /icon.svg\n\u251c \u0192 /moderation\n\u251c \u25cb /robots.txt\n\u2514 \u25cb /sitemap.xml\n\n\n\u25cb  (Static)   prerendered as static content\n\u0192  (Dynamic)  server-rendered on demand\n\n{\"built\":true,\"retention\":{\"manifestSha256\":\"f7ca9c23027c46a15d9533a9d08672851515a2125207cc93514c78a1b9d06dd8\",\"buildId\":\"EUQtEL6Ujq0TYFwjo3XX4\",\"retainedBuildIds\":[],\"files\":0,\"bytes\":0}}",
+    "stderr": "Warning: Custom Cache-Control headers detected for the following routes:\n  - /_next/static/:path*\n\nSetting a custom Cache-Control header can break Next.js development behavior."
+  },
+  "afterVerified": true,
+  "buildId": "EUQtEL6Ujq0TYFwjo3XX4",
+  "buildOutput": {
+    "files": 173,
+    "bytes": 129461676,
+    "manifestSha256": "fc5d6005552f57f329528bc7b2a9c9d6c673e286296d51e72eb4cfcdbedf3197"
+  },
+  "elapsedSeconds": 478.39
+}

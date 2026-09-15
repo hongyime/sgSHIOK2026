@@ -1,0 +1,39 @@
+{
+  "scope": "frontend-only-not-deployable",
+  "sourceRevision": "9516894c8e66295b41f18b5b2ccef53eaaa6628a",
+  "root": "C:\\sgSHIOK2026",
+  "stage": "C:\\sgSHIOK2026\\tmp\\frontend-release-20260915-__0g0yhp",
+  "webRoot": "C:\\sgSHIOK2026\\tmp\\frontend-release-20260915-__0g0yhp\\web",
+  "dataStage": "C:\\sgSHIOK2026\\tmp\\core-release-20260915-candidate-2",
+  "dataStageManifestSha256": "5ae6803bc224e2f1e408481001c7088ed896fd05f28aa73145b2fa0c9408e471",
+  "dataCopied": false,
+  "priorDataVerification": "qa/revamp-r1/release-finalize-20260915/build-imu26n88/build.json:after",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\sgSHIOK2026\\tmp\\frontend-release-20260915-__0g0yhp\\web\\scripts\\build-next-release.mjs",
+    "build"
+  ],
+  "compilerTimeoutSeconds": 600,
+  "outerTimeoutSeconds": 900,
+  "reporting": false,
+  "moderation": false,
+  "pipelineRuns": 0,
+  "installs": 0,
+  "deployments": 0,
+  "passed": true,
+  "beforeVerified": true,
+  "compiler": {
+    "ok": true,
+    "returncode": 0,
+    "stdout": "installed_dependencies=ok\n\u25b2 Next.js 16.3.3 (webpack)\n\u2713 Running next.config.js took 253ms\n\n  Creating an optimized production build ...\n\u2713 Compiled successfully in 3.3min\n  Running TypeScript ...\n  Finished TypeScript in 35.3s ...\n  Collecting page data using 7 workers ...\n  Generating static pages using 7 workers (0/8) ...\n  Generating static pages using 7 workers (2/8) \n  Generating static pages using 7 workers (4/8) \n  Generating static pages using 7 workers (6/8) \n\u2713 Generating static pages using 7 workers (8/8) in 2.2s\n  Finalizing page optimization ...\n  Collecting build traces ...\n\nRoute (app)\n\u250c \u25cb /\n\u251c \u25cb /_not-found\n\u251c \u0192 /api/moderation/context\n\u251c \u0192 /api/moderation/decision\n\u251c \u0192 /api/moderation/login\n\u251c \u0192 /api/moderation/logout\n\u251c \u0192 /api/moderation/queue\n\u251c \u0192 /api/onemap-route\n\u251c \u0192 /api/onemap-search\n\u251c \u0192 /api/reports\n\u251c \u25cb /icon.svg\n\u251c \u0192 /moderation\n\u251c \u25cb /robots.txt\n\u2514 \u25cb /sitemap.xml\n\n\n\u25cb  (Static)   prerendered as static content\n\u0192  (Dynamic)  server-rendered on demand\n\n{\"built\":true,\"retention\":{\"manifestSha256\":\"f7ca9c23027c46a15d9533a9d08672851515a2125207cc93514c78a1b9d06dd8\",\"buildId\":\"EUQtEL6Ujq0TYFwjo3XX4\",\"retainedBuildIds\":[],\"files\":0,\"bytes\":0}}",
+    "stderr": "Warning: Custom Cache-Control headers detected for the following routes:\n  - /_next/static/:path*\n\nSetting a custom Cache-Control header can break Next.js development behavior."
+  },
+  "afterVerified": true,
+  "buildId": "EUQtEL6Ujq0TYFwjo3XX4",
+  "buildOutput": {
+    "files": 173,
+    "bytes": 129461676,
+    "manifestSha256": "fc5d6005552f57f329528bc7b2a9c9d6c673e286296d51e72eb4cfcdbedf3197"
+  },
+  "elapsedSeconds": 478.39
+}

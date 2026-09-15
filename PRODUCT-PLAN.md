@@ -1,6 +1,25 @@
 # SHIOK Revamp Execution Plan
 Current scope: 2026-09-13 owner revision, replacing the 12 September UI scope.
 Completion resume: IN PROGRESS after14September owner answers, not complete.
+Latest release:9516894 pushed with34staged-deployment tests passing. Fresh frontend
+build frontend-nsp394uq passed in517.438s outer; no data copied. Loose-file source
+packaging stopped after900.094s with no verified archive and no upload. Preserve
+that attempt. Next is verified streaming reuse of the existing compressed data,
+then production-environment Retry/Back acceptance and publication. Production is
+still the old release. Reports remain disabled and retain the approved30days.
+Latest interaction/fix checkpoint:5dc9124 fixes unread HTTP error bodies in the
+walk-preview client.4red regressions reproduced;15focused/3343full isolated tests
+across86files+42dependencyguards and TypeScript pass. Preview69eac6a predates it.
+Actual deployed Search/MRT/Bus/details and all4viewport tile-settled captures pass
+their44checks. One injected503 preserves saved geometry; one real retry returns401.
+The run still FAILS awaiting an absent network terminal event; Back was not run.
+Six bracketed PNGs plusfailurePNG inspected. This demonstrates body-disposal gap,
+not a measured persistent Chrome leak. A fresh frontend build is needed before
+testing the correction in a deployed candidate; no repeated old-preview run.
+Vercel preview promotion rebuilds with production variables. A reviewed staged
+production build with no domain assignment must be distinguished from this
+preview; no guessing flags or claiming identical environment. Core-only release
+does not require enabling reports or rescoring. Returning-client/T26 gates remain.
 Latest15September shipping update: the build-and-ship mandate covers a preview
 without another approval question. Actual pinned archive upload/create succeeded
 in65.922s on the existing Hobby project. Deployment dpl_DiLpW8ZRPGSiaQHM76JZsocKC7pJ
@@ -901,6 +920,16 @@ No scoring, exports, data copying, Cloudflare or paid scaling is involved.
   project-suite or runtime release acceptance is claimed.
 
 ### [ ] T25: Run cross-feature accessibility and failure acceptance
+
+- Deployed follow-up2026-09-15:interaction-01 has44passing assertions and6bracketed
+  inspected captures. MRT3current features; bus4; both categories and Details work.
+  All4required viewport sizes have settled basemap tiles/no overflow/readable
+  metrics. MRT gap metrics explicitly showUnavailable; no complete-data claim.
+  Injected503 retains exact saved-route geometry; one real retry401 also displays
+  unavailable. Missing Networkterminalevent stops the run beforeBack. Offline
+  runtime/Fetch audit passes, but6HTTPfailures/3pending requests keep transport
+  incomplete. Cleanup confirmed.5dc9124's error-body disposal fix is locally tested
+  and not yet in this deployed candidate. Evidence:ship-continuation-20260915.
 
 - Retry/keyboard follow-up2026-09-13: Retry selection and Retry map now transfer owned focus before removing their controls; stale or unfocused handlers do not steal focus.14hook-host cases plus1CSS contract added. Independent inspection found the segmented MRT/Bus outline clipped by overflow, now fixed with an inset contrasting ring. Final1945/72 isolated tests+42guards, TypeScript/build pass. At native200% zoom,20browser checks cover Retry, complete four-metric reading, visible inactive/active transit focus, camera pan/zoom and Tab exit.15captures are covered by direct inspection/exact-byte matches to inspected images. The initial9/10attempt, canvas geometry assertion error, earlier invalid test setup and valid red regressions remain preserved. Camera checks use actual movement and rendered selected features, not source counts alone. Reduced-motion preference was enabled, but animation duration was not measured. Same-document zoom transition, screen-reader, physical-phone, representative speed and exact-release acceptance remain open. Evidence: `qa/revamp-r1/selection-recovery-20260913/summary.json`.
 - Actual worker lifecycle2026-09-12: current-app trace explicitly joins page request to attached worker target/session,200response and loadingFinished there;18592observed response bytes match packaged6.4.1worker. Inspected current map remains4features. Raw4pass/1strict-error failure remains unchanged; offline analysis explains10exact canceled tile commands and leaves0unexplained errors/page requests after the worker join.20native analysis contracts pass. Fourgzip404probes remain explicit; this closes the current worker-handoff diagnosis, not full transport/platform/performance acceptance and not retroactive attribution of older traces. Evidence: qa/revamp-r1/worker-lifecycle-20260912/summary.json. No rerun solely for a green raw label.

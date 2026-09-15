@@ -4989,3 +4989,24 @@ That exception accepts a named limitation; it does not turn unperformed tests
 into passing evidence. Private-report activation and pipeline budgets remain
 separate. Review caught contradictory wording between the task board and T28;
 the execution ticket now agrees with this distinction.
+
+## 2026-09-15: Dispose failed preview bodies and validate production environment
+
+A failed walking-preview response has no useful route body. Cancel that unused
+body without waiting for cancellation or replacing its original HTTP status.
+Success parsing and the existing request/body timeout remain unchanged. Four
+red regressions established missing disposal; the six new cases also preserve
+successful data and absent-body handling. This is resource ownership, not a
+claim that persistent socket leakage or a performance improvement was measured.
+
+An actual unauthenticated preview retry returned401; missing credentials alone
+would not have established that result. Keep saved-route recovery usable without
+pretending every marker has a saved or online route. Reports remain disabled.
+
+Vercel's normal preview-to-production promotion rebuilds under production
+environment variables. Use a documented staged-production build without domain
+assignment to validate the actual production environment before switching traffic;
+do not infer production identity from this preview or guess REST flags. This
+decision does not execute a build/promotion or waive returning-client/T26 checks.
+Reference:https://vercel.com/docs/deployments/promoting-a-deployment
+Evidence:qa/revamp-r1/ship-continuation-20260915/interaction-01/postflight.json.
