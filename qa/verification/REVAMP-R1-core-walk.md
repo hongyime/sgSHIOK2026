@@ -9921,3 +9921,138 @@ DISAGREEMENTS
 Final combined invocation after documentation updates:27consumer+32docs/integrity
 =59passed in5.91s; exit0. Separate integrity:repo_integrity=ok; exit0.
 This is a focused set, not the entire Python suite or a repeated web invocation.
+
+## 2026-09-15 Shipping continuation: preview authority and pagination regression
+
+Base:73e1fa0. Root:C:\sgSHIOK2026; host:PRAWN-E14.
+Read-only independent review identified a real moderation pagination defect.
+New first-row save, last-row save and full-page expiry cases fail at Next enabled
+before the fix:3failed/34passed. Cursor preservation fixes all three. Further
+reconciliation and late-sign-out coverage added:39passed,42dependencyguards pass.
+Production-data access denied in both the real and absent isolated payload paths.
+TypeScript --noEmit --incremental false:exit0, no stdout. Full suite pending.
+Raw receipts:qa/revamp-r1/ship-continuation-20260915/pagination-regression.json
+and pagination-fixed.json. The earlier piped test-filter attempt failed in cmd
+before Vitest and is preserved separately, not called a regression reproduction.
+
+FINDINGS
+1. Queue Next was tied to visible row count, making later reports unreachable
+   after a successful moderation decision or expiry. Exact scalar page cursors
+   now survive those removals. Reporting remains disabled.
+2. Actual Vercel preflight verified Hobby, exact project/team and Node24/rootweb.
+   Five binary uploads and one preview create succeeded in65.922seconds, with
+   dpl_DiLpW8ZRPGSiaQHM76JZsocKC7pJ initiallyINITIALIZING thenBUILDING. Not READY
+   acceptance. Productionalias absent; production site unchanged. No repack.
+
+DISAGREEMENTS
+1. The previous assistant treated its own unanswered preview question as a user
+   restriction. That was wrong: the existing build-and-ship mandate authorizes
+   this bounded preview. Engineering verification is not extra owner consent.
+2. Preview environment metadata has no OneMap auth entries; existing entries are
+   production-only. No authenticated live-route preview success is implied.
+3. A successful build/create is not full browser acceptance or complete reporting.
+
+## 2026-09-15 Actual preview READY and bounded browser postflight
+
+Continuation of the preceding section; its BUILDING/full-suite-pending statements
+are historical. Existing evidence above is unchanged. Root:C:\sgSHIOK2026;
+hostname:PRAWN-E14. Code commit9cbb7af is pushed to main.
+
+Final local source validation:
+node web/scripts/test-without-data.mjs
+3337passed across86files;42dependencyguards passed; zero skipped.
+Arithmetic:3331prior+6moderation regression cases=3337;86files unchanged.
+Focused moderator console:39passed. TypeScript --noEmit --incremental false:
+exit0/no output. python scripts/check_repo_integrity.py:repo_integrity=ok/exit0.
+Raw output:qa/revamp-r1/ship-continuation-20260915/web-full.json.
+The isolated source snapshot denies both original and copied production-data
+paths. This is not a full Python-suite invocation or a deployed moderator test.
+
+Provider result (read back after build and again during postflight):
+deployment=dpl_DiLpW8ZRPGSiaQHM76JZsocKC7pJ
+url=https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/
+state=READY;target=null;alias=[]
+sourceRevision=69eac6a22ab3794a8648c3211c961340081b7d45
+sourceArchiveSha256=9f5c14acb3ca204cd2f5682366b7442710cc3eb22e9e0dc4968889bcb48861be
+Next_BUILD_ID=_sfL_qDXwJgL_QSBwnQC-
+buildingAt=1789477218138;ready=1789477466408
+(1789477466408-1789477218138)/1000=248.270seconds
+submission65.922+building248.270=314.192seconds of distinct measured intervals;
+this is not end-to-end elapsed time (polling/admission gaps excluded).
+Five binary uploads and one create only. No retry, restaging, repack, paid upgrade,
+production alias mutation, pipeline execution or reporting activation.
+The preview predates9cbb7af's disabled moderation-console pagination change.
+Temporary preview access was kept out of evidence; owner Vercel access is needed.
+
+Actual browser outcomes (failed originals are retained):
+browser-01:passed=false;elapsedMs=85322;failure=current selected route deadline.
+Basemap visibly rendered; Enter keyDown/keyUp produced no observable search.
+No data/API request was observed. This alone does not prove a real Enter-key bug.
+browser-02:passed=false;elapsedMs=69893.
+failure=page request controls completed without errors
+native Search button control:018956 valid,enabled,visible.
+desktop-1440x950:routeKey=3:shiokest:primary;beforeCount=4;afterCount=4.
+mobile-390x844:routeKey=3:shiokest:primary;beforeCount=4;afterCount=4.
+Both basemap/four-visible-metrics/no-overflow checks passed; both PNGs inspected.
+Mobile tiles=false: visible basemap is not all-tiles-settled acceptance.
+No runtime exception observed;blockedMutations=[];droppedResponses=0.
+Errors:net::ERR_ABORTED(canceled=true);interception=Request control failed.
+The diagnostic discarded exact CDP error/request identity, so causation is unknown.
+cleanupConfirmed=false;ownedChromeKillRequested=true;pendingRequestControls=0.
+Later exact query:Get-CimInstance Win32_Process -Filter 'ProcessId=11412'
+matchingProcesses=0;see browser-02/postflight.json for timestamp.
+This subsequent cleanup confirmation does not overwrite the failed runner receipt.
+Arithmetic:85322+69893=155215browser-driver-ms; pipeline runs=0.
+
+Served manifest:status200;13626bytes;
+sha256=7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e
+Served worker:status200;5496bytes;
+sha256=88e523a5d8b4f8dec18b0a741dfae056674552de9e0f5b67d96a82fd554500a4
+Both expected hashes match. Optional gzip404s were recorded; plain score/index/
+geometry responses200 were also recorded. No input regeneration is justified.
+This page-session log is not complete worker/network transfer accounting.
+
+Evidence root:qa/revamp-r1/ship-continuation-20260915.
+browser-01/runner.mjs SHA256:
+69ad274866af6def55d5ae653c2b1f49ccf93bcce7596f27300b35aa81c6be48
+browser-02/runner.mjs SHA256:
+65ed22f2f7493f67c32c1db6f17794c7b02cc3dcd7f354c57ccce37c5a835c3e
+Desktop PNG SHA256:e83d2bc4e8d5139f646d881fbcab2934bcae3d2ebe67b3bdceb128f86feac9d5
+Mobile PNG SHA256:e067e7c1ccd5a1f3616ea15cf543f3ac6470ae6e98565f9f7f0b0b85692d29c4
+
+FINDINGS
+1. A real READY Vercel preview now serves the core map and saved route visibly at
+   both captured sizes; this is stronger than a local build or synthetic fixture.
+2. Fixed inherited moderation pagination: removing rows no longer hides the next
+   server page.39focused/3337full isolated tests pass; reporting is still disabled.
+3. Browser smoke remains FAIL on request-control diagnostics and its cleanup
+   timeout. Subsequent process absence is verified; no application regression is
+   demonstrated by that generic error, and no harmless-cancellation cause is proven.
+4.30-day retention remains applied:exact720hours to expiry, physical deletion at
+   the next successful daily cleanup. Real owner Auth/activation/alerts remain.
+5. Production remains unchanged. Preview lacks OneMap auth environment entries;
+   authenticated live-preview routes, returning users, native same-document zoom,
+   real phone and representative speed remain outside this acceptance slice.
+
+DISAGREEMENTS
+1. The assistant-created extra preview permission gate was unnecessary under the
+   owner's build-and-ship instruction. It is corrected in state and the task board.
+2. Neither READY nor successful route screenshots justify changing an overall
+   failed receipt into PASS. Independent review agreed with this bounded finding.
+3. No speculative app fix or unchanged third browser replay is justified. Preserve
+   the missing diagnostic detail as a limitation and resolve named release checks.
+
+Final documentation checks for this checkpoint:
+pytest tests/test_agent_docs.py tests/test_repo_integrity.py --noconftest
+-p no:cacheprovider -q:32passed in4.84s;exit0.
+python scripts/check_repo_integrity.py:repo_integrity=ok;exit0.
+git check-ignore -v qa/verification/REVAMP-R1-core-walk.md:no stdout;exit1.
+Append-only byte comparison against HEAD9cbb7af:true;original574232bytes SHA256:
+c24248eafda9f1781a18684bd7aaaaef87ea09db59c2e819654df2f07deb9c5c
+git fetch origin:exit0;HEAD and remote main both9cbb7af before this docs commit.
+No file under a protected data path is present in the checkpoint's scoped diff.
+
+Final production-alias readback:sgshiok.vercel.app resolves to
+dpl_wVnDeskyK666GwYUKWzY2aserkJR;READY;target=production.
+This differs from the new preview ID and is unchanged from the preflight baseline.
+Safe provider response:ship-continuation-20260915/production-postflight.json.

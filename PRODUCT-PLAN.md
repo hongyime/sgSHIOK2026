@@ -1,6 +1,24 @@
 # SHIOK Revamp Execution Plan
 Current scope: 2026-09-13 owner revision, replacing the 12 September UI scope.
 Completion resume: IN PROGRESS after14September owner answers, not complete.
+Latest15September shipping update: the build-and-ship mandate covers a preview
+without another approval question. Actual pinned archive upload/create succeeded
+in65.922s on the existing Hobby project. Deployment dpl_DiLpW8ZRPGSiaQHM76JZsocKC7pJ
+is READY (248.270s from building start). Production alias and report intake are
+unchanged. Older approval-pending notes below are historical.
+Source69eac6a is the core-map preview; the later disabled-moderation pagination
+repair is separate. Preview has no OneMap auth environment entries, so live-route
+provider success is not claimed. Evidence: ship-continuation-20260915.
+Actual-preview native Search renders4matching current-route features, basemap
+and4readable metrics at1440x950 and390x844; both PNGs inspected, no overflow.
+Manifest/worker hashes match. Overall browser02 remains FAIL: a generic CDP
+interception error and cleanup timeout. Later exactPID check confirms absent.
+Mobile tiles were not fully settled. No full network, phone, native200% zoom,
+representative-speed or returning-client PASS. Browser01's Enter-only control
+did not submit observably; do not label it a demonstrated application defect.
+No speculative app patch or blind third browser run. Latest main9cbb7af has
+39focused moderation tests and3337isolated webtests/86files+42guards passing;
+TypeScript and integrity pass. The new6cases cover lost pagination on removal.
 15September exact-release update:80ca2c7 adds independently reviewed verify-only
 finalization. The earlier1200second staging timeout remains recorded. Existing
 candidate2 now PASSES a fresh652.641second check:203source files and5751staged
@@ -530,6 +548,12 @@ No ticket is DONE merely because a document, mock, passing count or button exist
 
 ### [ ] T17: Build the private owner moderation queue
 - Status: PARTIAL (private SQL, HTTP, owner sign-in and review screen implemented; live owner/session acceptance and activation remain). Size: M. Parent: P1.3.
+- Latest15September: reviewer found accepting a report incorrectly disabled Next
+  on a formerly full page. Three executable counterexamples cover first/last
+  decision and expiry. The fix preserves the exact fetched scalarcursor across
+  local row removal, including reconciliation, and clears it on failed/new queue
+  loads and session reset.39focused console tests pass; final independent source
+  review accepted. No deployment, live auth or reporting activation for this fix.
 - 15September implementation: bounded private queue/context/decision RPCs, live
   allowlisted session checks, full duplicate-chain revision guards and source-scoped
   expiring audit. Authentication verifies the token with the pinned Auth endpoint;

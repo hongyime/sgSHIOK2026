@@ -1,0 +1,16 @@
+{
+  "query": "vercel_get_deployment sgshiok.vercel.app",
+  "observation": "Read-only postflight; production was not promoted",
+  "deployment": {
+    "id": "dpl_wVnDeskyK666GwYUKWzY2aserkJR",
+    "url": "sgshiok-i0g8r1azg-theprawnvercel.vercel.app",
+    "state": "READY",
+    "readyState": "READY",
+    "target": "production",
+    "alias": [
+      "sgshiok.hong-yi.me",
+      "sgshiok.vercel.app",
+      "sgshiok-theprawnvercel.vercel.app"
+    ]
+  }
+}

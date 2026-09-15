@@ -1,0 +1,6 @@
+{
+  "ok": false,
+  "returncode": 1,
+  "stdout": "{\"out\":\"C:\\\\sgSHIOK2026\\\\qa\\\\revamp-r1\\\\ship-continuation-20260915\\\\browser-01\",\"passed\":false,\"failure\":\"current selected route deadline\",\"captures\":[],\"elapsedMs\":85322}",
+  "stderr": ""
+}

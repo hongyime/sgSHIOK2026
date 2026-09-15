@@ -1,0 +1,6 @@
+{
+  "ok": false,
+  "returncode": 1,
+  "stdout": "{\"out\":\"C:\\\\sgSHIOK2026\\\\qa\\\\revamp-r1\\\\ship-continuation-20260915\\\\browser-02\",\"passed\":false,\"failure\":\"page request controls completed without errors\",\"captures\":[\"desktop-1440x950\",\"mobile-390x844\"],\"elapsedMs\":69893}",
+  "stderr": ""
+}

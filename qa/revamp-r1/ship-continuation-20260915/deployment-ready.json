@@ -1,0 +1,22 @@
+{
+  "id": "dpl_DiLpW8ZRPGSiaQHM76JZsocKC7pJ",
+  "name": "sgshiok",
+  "url": "sgshiok-83j94nyc2-theprawnvercel.vercel.app",
+  "state": "READY",
+  "project": {
+    "id": "prj_y6GIQUdEyXXmtg3UTWkcJECKHdEE",
+    "name": "sgshiok",
+    "framework": "nextjs"
+  },
+  "meta": {
+    "sourceArchiveSha256": "9f5c14acb3ca204cd2f5682366b7442710cc3eb22e9e0dc4968889bcb48861be",
+    "sourceRevision": "69eac6a22ab3794a8648c3211c961340081b7d45",
+    "lambdaRuntimeStats": "{\"nodejs\":4}"
+  },
+  "alias": [],
+  "target": null,
+  "createdAt": 1789477217278,
+  "buildingAt": 1789477218138,
+  "ready": 1789477466408,
+  "readyState": "READY"
+}

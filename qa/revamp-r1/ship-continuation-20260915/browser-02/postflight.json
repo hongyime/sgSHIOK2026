@@ -1,0 +1,10 @@
+{
+  "observedAtUtc": "2026-09-15T13:37:14.6153806Z",
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "command": "Get-CimInstance Win32_Process -Filter 'ProcessId=11412'",
+  "matchingProcesses": 0,
+  "originalCleanupConfirmed": false,
+  "interpretation": "Subsequent exact-process check confirms owned main Chrome PID absent; original runner cleanup failure is preserved.",
+  "executedRunnerSha256": "65ed22f2f7493f67c32c1db6f17794c7b02cc3dcd7f354c57ccce37c5a835c3e"
+}

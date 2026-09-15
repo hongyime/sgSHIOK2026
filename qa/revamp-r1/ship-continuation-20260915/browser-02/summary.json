@@ -1,0 +1,2190 @@
+{
+  "origin": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app",
+  "deployment": "dpl_DiLpW8ZRPGSiaQHM76JZsocKC7pJ",
+  "startedAt": "2026-09-15T13:25:10.549Z",
+  "checks": [
+    {
+      "name": "at least1GiB free before Chrome",
+      "passed": true
+    },
+    {
+      "name": "search button visible and postal valid",
+      "passed": true,
+      "detail": {
+        "x": 290,
+        "y": 74,
+        "value": "018956",
+        "valid": true,
+        "enabled": true,
+        "visible": true
+      }
+    },
+    {
+      "name": "desktop-1440x950 same current rendered route",
+      "passed": true
+    },
+    {
+      "name": "desktop-1440x950 basemap loaded",
+      "passed": true
+    },
+    {
+      "name": "desktop-1440x950 four metrics visible",
+      "passed": true
+    },
+    {
+      "name": "desktop-1440x950 no document overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile-390x844 same current rendered route",
+      "passed": true
+    },
+    {
+      "name": "mobile-390x844 basemap loaded",
+      "passed": true
+    },
+    {
+      "name": "mobile-390x844 four metrics visible",
+      "passed": true
+    },
+    {
+      "name": "mobile-390x844 no document overflow",
+      "passed": true
+    },
+    {
+      "name": "published manifest hash unchanged",
+      "passed": true
+    },
+    {
+      "name": "candidate worker bytes served",
+      "passed": true
+    },
+    {
+      "name": "no runtime exception observed",
+      "passed": true
+    },
+    {
+      "name": "page request controls completed without errors",
+      "passed": false
+    }
+  ],
+  "responses": [
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/",
+      "status": 200,
+      "mime": "text/html",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/_next/static/css/e5ab9e3abb21f165.css",
+      "status": 200,
+      "mime": "text/css",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/_next/static/chunks/webpack-0384e436780a7ac3.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/_next/static/chunks/app/global-error-c9af8e66345ea0ae.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/_next/static/chunks/main-app-f98bb10c3b690b1c.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/_next/static/chunks/4bd1b696-58970b7b91aecaf4.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/_next/static/chunks/8ffc485e-a0d15a629ee61a68.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/_next/static/chunks/app/page-8df4b92325554778.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/_next/static/chunks/794-4288afb5836f76b2.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/icon.svg",
+      "status": 200,
+      "mime": "image/svg+xml",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/_next/static/chunks/347.180d779b709307ce.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/_next/static/chunks/258.c2f225aa475385fa.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/_next/static/css/9e82ff4a22ea7ae3.css",
+      "status": 200,
+      "mime": "text/css",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png",
+      "status": 200,
+      "mime": "image/png",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/_next/static/chunks/ca4dcb09.43e522b8d8544d0e.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/_next/static/chunks/e919c1aa.4c7c5830653c9e19.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/data/generated_20260805_prefer_scored_routed/geom/postal-prefix/018.json.gz",
+      "status": 200,
+      "mime": "application/gzip",
+      "fromDiskCache": false,
+      "fromServiceWorker": true
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json.gz",
+      "status": 404,
+      "mime": "text/html",
+      "fromDiskCache": false,
+      "fromServiceWorker": true
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json.gz",
+      "status": 404,
+      "mime": "text/html",
+      "fromDiskCache": false,
+      "fromServiceWorker": true
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/data/generated_20260805_prefer_scored_routed/geom/h3/886520db39fffff.json",
+      "status": 200,
+      "mime": "application/json",
+      "fromDiskCache": false,
+      "fromServiceWorker": true
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/data/generated_20260805_prefer_scored_routed/scores/prefix-index.json",
+      "status": 200,
+      "mime": "application/json",
+      "fromDiskCache": false,
+      "fromServiceWorker": true
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json.gz",
+      "status": 404,
+      "mime": "text/html",
+      "fromDiskCache": false,
+      "fromServiceWorker": true
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/data/generated_20260805_prefer_scored_routed/scores/DOWNTOWN_CORE_PART_001.json",
+      "status": 200,
+      "mime": "application/json",
+      "fromDiskCache": false,
+      "fromServiceWorker": true
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8133.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8132.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8133.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8133.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8132.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8134.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8132.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8134.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8134.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8131.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3dfffff.json.gz",
+      "status": 404,
+      "mime": "text/html",
+      "fromDiskCache": false,
+      "fromServiceWorker": true
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8133.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12917/8131.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8132.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12919/8131.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8133.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12920/8132.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/data/generated_20260805_prefer_scored_routed/transit/h3/886520db03fffff.json.gz",
+      "status": 200,
+      "mime": "application/gzip",
+      "fromDiskCache": false,
+      "fromServiceWorker": true
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/data/generated_20260805_prefer_scored_routed/transit/h3/886520db39fffff.json.gz",
+      "status": 200,
+      "mime": "application/gzip",
+      "fromDiskCache": false,
+      "fromServiceWorker": true
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/data/generated_20260805_prefer_scored_routed/transit/h3/886520db3bfffff.json.gz",
+      "status": 200,
+      "mime": "application/gzip",
+      "fromDiskCache": false,
+      "fromServiceWorker": true
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/data/generated_20260805_prefer_scored_routed/transit/h3/886520db31fffff.json.gz",
+      "status": 200,
+      "mime": "application/gzip",
+      "fromDiskCache": false,
+      "fromServiceWorker": true
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/data/generated_20260805_prefer_scored_routed/transit/h3/886520db07fffff.json.gz",
+      "status": 200,
+      "mime": "application/gzip",
+      "fromDiskCache": false,
+      "fromServiceWorker": true
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/data/generated_20260805_prefer_scored_routed/transit/h3/886520db15fffff.json.gz",
+      "status": 200,
+      "mime": "application/gzip",
+      "fromDiskCache": false,
+      "fromServiceWorker": true
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12918/8135.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/14/12916/8134.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/icon.svg",
+      "status": 200,
+      "mime": "image/svg+xml",
+      "fromDiskCache": true,
+      "fromServiceWorker": true
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/icon.svg",
+      "status": 200,
+      "mime": "image/svg+xml",
+      "fromDiskCache": true,
+      "fromServiceWorker": true
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/data/lamp_posts_v1/manifest.json",
+      "status": 200,
+      "mime": "application/json",
+      "fromDiskCache": false,
+      "fromServiceWorker": true
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/data/lamp_posts_v1/tiles/886520db31fffff.json",
+      "status": 200,
+      "mime": "application/json",
+      "fromDiskCache": false,
+      "fromServiceWorker": true
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/data/lamp_posts_v1/tiles/886520db39fffff.json",
+      "status": 200,
+      "mime": "application/json",
+      "fromDiskCache": false,
+      "fromServiceWorker": true
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/data/lamp_posts_v1/tiles/886520db3bfffff.json",
+      "status": 200,
+      "mime": "application/json",
+      "fromDiskCache": false,
+      "fromServiceWorker": true
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/data/lamp_posts_v1/tiles/886520db33fffff.json",
+      "status": 200,
+      "mime": "application/json",
+      "fromDiskCache": false,
+      "fromServiceWorker": true
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260275.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260276.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260275.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260275.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260274.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260276.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260276.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260274.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260274.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260277.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260275.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260275.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260277.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260273.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260277.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260276.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260276.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260274.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260274.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260273.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260273.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260277.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260277.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260278.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260273.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260273.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260275.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260275.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260278.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260278.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260276.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260272.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260276.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260274.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260274.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260272.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260272.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260278.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260278.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260277.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260277.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260273.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260273.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260272.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260272.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260279.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260275.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260279.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260276.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260271.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260274.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260278.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260278.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260279.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260275.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260276.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260274.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260271.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260271.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260272.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260279.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260272.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260279.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260277.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260277.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260273.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260273.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260271.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260271.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260280.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260279.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260278.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260279.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260278.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260280.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260280.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260275.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260275.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260276.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260272.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260271.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260272.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260276.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260274.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260271.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260270.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260274.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260270.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413398/260270.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260280.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260280.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260277.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260277.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260273.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260273.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260270.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413397/260270.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260279.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260279.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260280.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260280.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260271.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260278.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260271.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260278.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260272.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260272.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260270.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413396/260270.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260275.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260275.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260276.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260274.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260276.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260274.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260277.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260280.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260279.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260277.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260280.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260279.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260273.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260273.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260271.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260270.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260271.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413395/260270.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260278.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260278.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260272.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260272.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260280.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260275.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260280.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260275.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260276.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260274.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260276.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260274.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260279.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413404/260270.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260279.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413394/260270.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260277.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260271.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260277.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260273.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260271.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260273.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260278.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260278.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260272.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260272.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260280.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260280.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413405/260270.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413393/260270.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260279.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260279.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260271.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260271.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260280.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260280.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413406/260270.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413392/260270.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413401/260269.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413400/260269.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413402/260269.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413399/260269.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/19/413403/260269.png",
+      "status": 200,
+      "mime": "image/undefined",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "status": 200,
+      "mime": "application/json",
+      "fromDiskCache": false,
+      "fromServiceWorker": true
+    },
+    {
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/sw.js",
+      "status": 200,
+      "mime": "application/javascript",
+      "fromDiskCache": false,
+      "fromServiceWorker": false
+    }
+  ],
+  "errors": [
+    {
+      "kind": "request",
+      "error": "net::ERR_ABORTED",
+      "canceled": true
+    },
+    {
+      "kind": "interception",
+      "text": "Request control failed"
+    }
+  ],
+  "captures": [
+    {
+      "name": "desktop-1440x950",
+      "before": {
+        "timeOrigin": 1789478714943.7,
+        "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/",
+        "focusSame": false,
+        "routeKey": "3:shiokest:primary",
+        "mode": "shiokest",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "status": "ready",
+        "basemap": true,
+        "tiles": true,
+        "moving": false,
+        "postal": "018956",
+        "destination": "Bayfront Stn Exit B/MBS",
+        "pressed": "Bus stops",
+        "dpr": 1,
+        "scale": 1,
+        "inner": [
+          1440,
+          950
+        ],
+        "outer": [
+          1440,
+          950
+        ],
+        "cssZoom": "1",
+        "bodyZoom": "1",
+        "overflow": false,
+        "reduced": true
+      },
+      "after": {
+        "timeOrigin": 1789478714943.7,
+        "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/",
+        "focusSame": false,
+        "routeKey": "3:shiokest:primary",
+        "mode": "shiokest",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "status": "ready",
+        "basemap": true,
+        "tiles": true,
+        "moving": false,
+        "postal": "018956",
+        "destination": "Bayfront Stn Exit B/MBS",
+        "pressed": "Bus stops",
+        "dpr": 1,
+        "scale": 1,
+        "inner": [
+          1440,
+          950
+        ],
+        "outer": [
+          1440,
+          950
+        ],
+        "cssZoom": "1",
+        "bodyZoom": "1",
+        "overflow": false,
+        "reduced": true
+      },
+      "metrics": [
+        {
+          "label": "Walk distance",
+          "value": "81 m",
+          "labelPaint": {
+            "rects": [
+              {
+                "x": 25,
+                "y": 257,
+                "width": 72,
+                "height": 13
+              }
+            ],
+            "clip": {
+              "left": 13,
+              "top": 105,
+              "right": 311,
+              "bottom": 458
+            },
+            "visible": true
+          },
+          "valuePaint": {
+            "rects": [
+              {
+                "x": 25,
+                "y": 222,
+                "width": 49,
+                "height": 30
+              }
+            ],
+            "clip": {
+              "left": 13,
+              "top": 105,
+              "right": 311,
+              "bottom": 458
+            },
+            "visible": true
+          },
+          "visible": true
+        },
+        {
+          "label": "Covered",
+          "value": "55%",
+          "labelPaint": {
+            "rects": [
+              {
+                "x": 166,
+                "y": 257,
+                "width": 42,
+                "height": 13
+              }
+            ],
+            "clip": {
+              "left": 13,
+              "top": 105,
+              "right": 311,
+              "bottom": 458
+            },
+            "visible": true
+          },
+          "valuePaint": {
+            "rects": [
+              {
+                "x": 166,
+                "y": 222,
+                "width": 42,
+                "height": 30
+              }
+            ],
+            "clip": {
+              "left": 13,
+              "top": 105,
+              "right": 311,
+              "bottom": 458
+            },
+            "visible": true
+          },
+          "visible": true
+        },
+        {
+          "label": "Uncovered",
+          "value": "37 m",
+          "labelPaint": {
+            "rects": [
+              {
+                "x": 25,
+                "y": 317,
+                "width": 55,
+                "height": 13
+              }
+            ],
+            "clip": {
+              "left": 13,
+              "top": 105,
+              "right": 311,
+              "bottom": 458
+            },
+            "visible": true
+          },
+          "valuePaint": {
+            "rects": [
+              {
+                "x": 25,
+                "y": 282,
+                "width": 49,
+                "height": 30
+              }
+            ],
+            "clip": {
+              "left": 13,
+              "top": 105,
+              "right": 311,
+              "bottom": 458
+            },
+            "visible": true
+          },
+          "visible": true
+        },
+        {
+          "label": "Longest gap",
+          "value": "20 m",
+          "labelPaint": {
+            "rects": [
+              {
+                "x": 166,
+                "y": 317,
+                "width": 64,
+                "height": 13
+              }
+            ],
+            "clip": {
+              "left": 13,
+              "top": 105,
+              "right": 311,
+              "bottom": 458
+            },
+            "visible": true
+          },
+          "valuePaint": {
+            "rects": [
+              {
+                "x": 166,
+                "y": 282,
+                "width": 49,
+                "height": 30
+              }
+            ],
+            "clip": {
+              "left": 13,
+              "top": 105,
+              "right": 311,
+              "bottom": 458
+            },
+            "visible": true
+          },
+          "visible": true
+        }
+      ],
+      "bytes": 468978,
+      "sha256": "e83d2bc4e8d5139f646d881fbcab2934bcae3d2ebe67b3bdceb128f86feac9d5"
+    },
+    {
+      "name": "mobile-390x844",
+      "before": {
+        "timeOrigin": 1789478714943.7,
+        "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/",
+        "focusSame": false,
+        "routeKey": "3:shiokest:primary",
+        "mode": "shiokest",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "status": "ready",
+        "basemap": true,
+        "tiles": false,
+        "moving": false,
+        "postal": "018956",
+        "destination": "Bayfront Stn Exit B/MBS",
+        "pressed": "Bus stops",
+        "dpr": 1,
+        "scale": 1,
+        "inner": [
+          390,
+          844
+        ],
+        "outer": [
+          1440,
+          950
+        ],
+        "cssZoom": "1",
+        "bodyZoom": "1",
+        "overflow": false,
+        "reduced": true
+      },
+      "after": {
+        "timeOrigin": 1789478714943.7,
+        "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/",
+        "focusSame": false,
+        "routeKey": "3:shiokest:primary",
+        "mode": "shiokest",
+        "count": 4,
+        "keys": [
+          "3:shiokest:primary"
+        ],
+        "status": "ready",
+        "basemap": true,
+        "tiles": false,
+        "moving": false,
+        "postal": "018956",
+        "destination": "Bayfront Stn Exit B/MBS",
+        "pressed": "Bus stops",
+        "dpr": 1,
+        "scale": 1,
+        "inner": [
+          390,
+          844
+        ],
+        "outer": [
+          1440,
+          950
+        ],
+        "cssZoom": "1",
+        "bodyZoom": "1",
+        "overflow": false,
+        "reduced": true
+      },
+      "metrics": [
+        {
+          "label": "Walk distance",
+          "value": "81 m",
+          "labelPaint": {
+            "rects": [
+              {
+                "x": 21,
+                "y": 232.6875,
+                "width": 60,
+                "height": 12
+              }
+            ],
+            "clip": {
+              "left": 11,
+              "top": 107.6875,
+              "right": 309,
+              "bottom": 366.6875
+            },
+            "visible": true
+          },
+          "valuePaint": {
+            "rects": [
+              {
+                "x": 21,
+                "y": 203.6875,
+                "width": 41,
+                "height": 23
+              }
+            ],
+            "clip": {
+              "left": 11,
+              "top": 107.6875,
+              "right": 309,
+              "bottom": 366.6875
+            },
+            "visible": true
+          },
+          "visible": true
+        },
+        {
+          "label": "Covered",
+          "value": "55%",
+          "labelPaint": {
+            "rects": [
+              {
+                "x": 91.75,
+                "y": 232.6875,
+                "width": 36,
+                "height": 12
+              }
+            ],
+            "clip": {
+              "left": 11,
+              "top": 107.6875,
+              "right": 309,
+              "bottom": 366.6875
+            },
+            "visible": true
+          },
+          "valuePaint": {
+            "rects": [
+              {
+                "x": 91.75,
+                "y": 203.6875,
+                "width": 35,
+                "height": 23
+              }
+            ],
+            "clip": {
+              "left": 11,
+              "top": 107.6875,
+              "right": 309,
+              "bottom": 366.6875
+            },
+            "visible": true
+          },
+          "visible": true
+        },
+        {
+          "label": "Uncovered",
+          "value": "37 m",
+          "labelPaint": {
+            "rects": [
+              {
+                "x": 162.5,
+                "y": 232.6875,
+                "width": 48,
+                "height": 12
+              }
+            ],
+            "clip": {
+              "left": 11,
+              "top": 107.6875,
+              "right": 309,
+              "bottom": 366.6875
+            },
+            "visible": true
+          },
+          "valuePaint": {
+            "rects": [
+              {
+                "x": 162.5,
+                "y": 203.6875,
+                "width": 41,
+                "height": 23
+              }
+            ],
+            "clip": {
+              "left": 11,
+              "top": 107.6875,
+              "right": 309,
+              "bottom": 366.6875
+            },
+            "visible": true
+          },
+          "visible": true
+        },
+        {
+          "label": "Longest gap",
+          "value": "20 m",
+          "labelPaint": {
+            "rects": [
+              {
+                "x": 233.25,
+                "y": 232.6875,
+                "width": 55,
+                "height": 12
+              }
+            ],
+            "clip": {
+              "left": 11,
+              "top": 107.6875,
+              "right": 309,
+              "bottom": 366.6875
+            },
+            "visible": true
+          },
+          "valuePaint": {
+            "rects": [
+              {
+                "x": 233.25,
+                "y": 203.6875,
+                "width": 41,
+                "height": 23
+              }
+            ],
+            "clip": {
+              "left": 11,
+              "top": 107.6875,
+              "right": 309,
+              "bottom": 366.6875
+            },
+            "visible": true
+          },
+          "visible": true
+        }
+      ],
+      "bytes": 157121,
+      "sha256": "e067e7c1ccd5a1f3616ea15cf543f3ac6470ae6e98565f9f7f0b0b85692d29c4"
+    }
+  ],
+  "blockedMutations": [],
+  "droppedResponses": 0,
+  "passed": false,
+  "submitControl": "native button click",
+  "scope": "Fresh authenticated preview in owned Chrome, responsive viewport sizes only. No old-client migration, phone, native zoom or representative performance claim. Page-session network metadata only, not complete worker transfer accounting.",
+  "chromePid": 11412,
+  "last": {
+    "name": "responsive selected route",
+    "value": {
+      "timeOrigin": 1789478714943.7,
+      "url": "https://sgshiok-83j94nyc2-theprawnvercel.vercel.app/",
+      "focusSame": false,
+      "routeKey": "3:shiokest:primary",
+      "mode": "shiokest",
+      "count": 4,
+      "keys": [
+        "3:shiokest:primary"
+      ],
+      "status": "initializing",
+      "basemap": true,
+      "tiles": true,
+      "moving": false,
+      "postal": "018956",
+      "destination": "Bayfront Stn Exit B/MBS",
+      "pressed": "Bus stops",
+      "dpr": 1,
+      "scale": 1,
+      "inner": [
+        390,
+        844
+      ],
+      "outer": [
+        1440,
+        950
+      ],
+      "cssZoom": "1",
+      "bodyZoom": "1",
+      "overflow": false,
+      "reduced": true
+    }
+  },
+  "staticIdentity": [
+    {
+      "path": "/data/generated_20260805_prefer_scored_routed/manifest.json",
+      "status": 200,
+      "bytes": 13626,
+      "sha256": "7108e66e70628f3211883402fc753c2f5809db5a822d6a2415f6ae6459a1070e"
+    },
+    {
+      "path": "/sw.js",
+      "status": 200,
+      "bytes": 5496,
+      "sha256": "88e523a5d8b4f8dec18b0a741dfae056674552de9e0f5b67d96a82fd554500a4"
+    }
+  ],
+  "failure": "page request controls completed without errors",
+  "failureScreenshot": "failure.png",
+  "ownedChromeKillRequested": true,
+  "cleanupConfirmed": false,
+  "pendingRequestControls": 0,
+  "elapsedMs": 69893
+}

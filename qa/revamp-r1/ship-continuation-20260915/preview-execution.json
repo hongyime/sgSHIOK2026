@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "returncode": 0,
+  "stdout": "{\"ok\": true, \"state\": \"created\", \"uploaded\": [\"8bd42c95a9739c2894f45f61c554263582461b73\", \"0916fff6318311b35ae888c862daa266d72fbf42\", \"11dd0dccb8a659c7f73f04adb81ea2c9cc22847c\", \"7e3f3e55a50638c3cd4aa5e4d28afcc9d30a9f65\", \"1f1c1f585b2424fb16a046b9bc56b58b7fe0a2ae\"], \"requestSha256\": \"1ec8d656b14316fdb9ca00d3e9f289271654135811ed89c6a09b1eee2fde984c\", \"receiptSha256\": \"9f5c14acb3ca204cd2f5682366b7442710cc3eb22e9e0dc4968889bcb48861be\", \"teamId\": \"team_ARK7HKobyCMp0PCArQTLxbz6\", \"projectId\": \"prj_y6GIQUdEyXXmtg3UTWkcJECKHdEE\", \"productionSmokeVerified\": false, \"httpStatus\": 200, \"deployment\": {\"id\": \"dpl_DiLpW8ZRPGSiaQHM76JZsocKC7pJ\", \"url\": \"sgshiok-83j94nyc2-theprawnvercel.vercel.app\", \"readyState\": \"INITIALIZING\", \"target\": null}, \"elapsedSeconds\": 65.922}",
+  "stderr": ""
+}

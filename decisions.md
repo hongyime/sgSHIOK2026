@@ -4959,3 +4959,22 @@ Evidence:qa/revamp-r1/source-package-20260915/deployment-consumer.json.
 27synthetic tests pass; independent final review has no blocking findings.
 No upload, build, deployment, pipeline run, protected-data write or repack was
 performed to validate this consumer. Backend acceptance remains unproven.
+
+## 2026-09-15: Correct preview authorization and preserve moderation pagination
+
+The owner's explicit instruction to complete the build and ship work authorizes
+a bounded preview in the existing SHIOK project. The assistant's later unanswered
+preview question was an unnecessary additional ceremony, not a user prohibition.
+Independent review confirmed this distinction. Verify the exact archive, project,
+target, Hobby plan and disabled reporting as engineering preflight, then execute
+once and inspect that deployment. Do not confuse preview creation with production
+promotion, browser acceptance, or permission to invent an owner login. No paid
+upgrade, pipeline work or protected-data changes are authorized by this correction.
+
+A fetched moderation page's continuation belongs to the server result, not its
+remaining visible rows. Decisions and expiry may remove every row without
+removing later reports. Retain only the exact end timestamp and receipt ID, not
+the old report body; preserve this cursor through save/reconciliation/expiry.
+Clear it when requesting a new page, on failure and when the session clears.
+SQL keyset filtering does not require the boundary report to remain present.
+Evidence:qa/revamp-r1/ship-continuation-20260915.
