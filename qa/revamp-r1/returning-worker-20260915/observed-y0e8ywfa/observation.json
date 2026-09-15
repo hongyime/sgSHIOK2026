@@ -1,0 +1,79 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "startedAt": "2026-09-15T11:42:45.851Z",
+  "scope": "Captured production page/worker -> verified candidate by one ordinary reload, same profile/origin with caches enabled. No cache clear, unregister, bypass, forced worker update or worker override. External requests including basemap tiles denied; route rendering only, not new basemap/phone/performance/rollback acceptance.",
+  "checks": [
+    {
+      "name": "at least 1GiB available before bounded browser",
+      "passed": true
+    },
+    {
+      "name": "preview pins candidate build",
+      "passed": true
+    },
+    {
+      "name": "no captured browser events dropped",
+      "passed": true,
+      "detail": 0
+    },
+    {
+      "name": "no runtime exceptions during current navigation",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "final drained boundary has no limit or active requests",
+      "passed": false
+    }
+  ],
+  "events": [],
+  "blocked": [],
+  "droppedEvents": 0,
+  "passed": false,
+  "identities": {
+    "oldBuildId": "UzVn3WiWA2GW7dtvN27rN",
+    "oldHtmlSha256": "047fd04d4176fd3afa15c224d94312f048dda52561ab3e21e1386321be10f636",
+    "oldWorkerSha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+    "currentBuildId": "D2v5v_SSLYgX0SSyDHqvr",
+    "currentWorkerSha256": "88e523a5d8b4f8dec18b0a741dfae056674552de9e0f5b67d96a82fd554500a4",
+    "sourceRevision": "69eac6a22ab3794a8648c3211c961340081b7d45"
+  },
+  "previewPid": 50624,
+  "last": {
+    "name": "owned Next ready",
+    "value": 502
+  },
+  "preview": {
+    "out": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\preview-685ZVi",
+    "pid": 50624,
+    "nextPid": 26464,
+    "nextPort": 1708,
+    "buildId": "D2v5v_SSLYgX0SSyDHqvr",
+    "webRoot": "C:\\sgSHIOK2026\\tmp\\frontend-release-20260915-0c6bzc1x\\web",
+    "receiptPath": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\frontend-brzm8xg4\\build.json",
+    "receiptSha256": "d4b98d8d7400a82671e79bcb4802f4cf231170d29d74fd36a36a9b39da842f14",
+    "buildOutputManifest": "C:\\sgSHIOK2026\\qa\\revamp-r1\\release-finalize-20260915\\frontend-brzm8xg4\\build-files.json",
+    "buildOutputManifestSha256": "b3f6a17a0c8a56fc42185ef4bfe43fe87ef717ed8b32b39246049721e57b067c",
+    "dataStage": "C:\\sgSHIOK2026\\tmp\\core-release-20260915-candidate-2",
+    "dataStageManifestSha256": "5ae6803bc224e2f1e408481001c7088ed896fd05f28aa73145b2fa0c9408e471",
+    "scope": "frontend-only-not-deployable",
+    "command": [
+      "C:\\sgSHIOK2026\\tmp\\frontend-release-20260915-0c6bzc1x\\web\\node_modules\\next\\dist\\bin\\next",
+      "start",
+      "C:\\sgSHIOK2026\\tmp\\frontend-release-20260915-0c6bzc1x\\web",
+      "-H",
+      "127.0.0.1",
+      "-p",
+      "1708"
+    ],
+    "reporting": false,
+    "moderation": false,
+    "credentialsConfigured": false,
+    "dataMismatches": [],
+    "url": "http://127.0.0.1:1709/"
+  },
+  "failure": "Error: owned Next ready timeout\n    at until (file:///C:/sgSHIOK2026/qa/revamp-r1/returning-worker-20260915/transition.mjs:38:9)\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/returning-worker-20260915/transition.mjs:96:3",
+  "finalFailure": "AssertionError [ERR_ASSERTION]: final drained boundary has no limit or active requests\n    at check (file:///C:/sgSHIOK2026/qa/revamp-r1/returning-worker-20260915/transition.mjs:30:98)\n    at file:///C:/sgSHIOK2026/qa/revamp-r1/returning-worker-20260915/transition.mjs:188:5",
+  "elapsedMs": 38652
+}

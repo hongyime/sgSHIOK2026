@@ -1,0 +1,15 @@
+{
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\returning-worker-20260915\\transition.mjs",
+    "--go",
+    "C:\\sgSHIOK2026\\qa\\revamp-r1\\returning-worker-20260915\\observed-y0e8ywfa"
+  ],
+  "timeoutSeconds": 280,
+  "execution": {
+    "ok": false,
+    "returncode": 1,
+    "stdout": "{\n  \"out\": \"C:\\\\sgSHIOK2026\\\\qa\\\\revamp-r1\\\\returning-worker-20260915\\\\observed-y0e8ywfa\",\n  \"passed\": false,\n  \"checks\": [\n    {\n      \"name\": \"at least 1GiB available before bounded browser\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"preview pins candidate build\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"no captured browser events dropped\",\n      \"passed\": true,\n      \"detail\": 0\n    },\n    {\n      \"name\": \"no runtime exceptions during current navigation\",\n      \"passed\": true,\n      \"detail\": []\n    },\n    {\n      \"name\": \"final drained boundary has no limit or active requests\",\n      \"passed\": false\n    }\n  ],\n  \"failure\": \"Error: owned Next ready timeout\\n    at until (file:///C:/sgSHIOK2026/qa/revamp-r1/returning-worker-20260915/transition.mjs:38:9)\\n    at async file:///C:/sgSHIOK2026/qa/revamp-r1/returning-worker-20260915/transition.mjs:96:3\",\n  \"elapsedMs\": 38652\n}",
+    "stderr": ""
+  }
+}

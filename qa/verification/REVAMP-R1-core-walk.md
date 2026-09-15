@@ -9787,3 +9787,51 @@ FINDINGS
 DISAGREEMENTS
 1. None with30-day retention. Reporting and moderation stay disabled pending
    their actual operational acceptance; a test count does not activate them.
+
+## 2026-09-15 Returning-client attempt stopped before browser startup
+
+Base:8c71eeddd6d32c63633c6d4126e450202f31b3b4.
+Evidence:qa/revamp-r1/returning-worker-20260915/summary.json,
+observed-y0e8ywfa/execution.json and observation.json.
+Executed harness snapshotSHA:e9da8986f91328120eb06a2669889df157214453d6f2f60809452b0535eeb2f2.
+Reused boundary/navigation command:node --test
+qa/revamp-r1/legacy-reload-20260913/release-server-v2.test.mjs
+qa/revamp-r1/legacy-reload-20260913/navigation-proof.test.mjs.
+
+```text
+tests 15
+pass 15
+fail 0
+skipped 0
+duration_ms 1012.721
+```
+
+One owned run:python -B qa/revamp-r1/returning-worker-20260915/run.py --go.
+Returncode1; driver38652ms, outer280s bound. Next readiness30s: last502,
+next.stdout.txt0bytes+next.stderr.txt0bytes=0diagnosticbytes.
+Browser launches0; release switches0; screenshots0; returning acceptanceNOT_RUN.
+Owned preview/Next PIDs50624/26464 no longer appeared in the exact PID query.
+Documentation/integrity fixtures also ran:41passed in5.21s. Repo integrity=ok.
+These41+58archive=99distinct focused Python cases, not the full Python suite.
+The prior web3331/86files invocation is retained, not rerun in this continuation.
+
+FINDINGS
+1. Preview startup failed before any browser or release transition. The receipts
+   do not establish an app regression, upstream cause, or hardware-only cause.
+2. Raw failure stays unchanged. Its no-event/no-exception checks were vacuous
+   before Chrome and its absent-boundary drain was not a cleanup failure.
+   Latest diagnostic code marks these not_run/not_applicable; no second launch.
+3. Source archive and application bytes were not rebuilt or repacked. Locked
+   weightsSHA5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec
+   still matches. No protected writes, X access, pipeline work or deployment.
+
+DISAGREEMENTS
+1. Parent's proposed old-SW TypeError was wrong. The actual captured helper
+   supplies self.location.origin as URL base, producing/undefined and a zero-age
+   lookup, not a TypeError. Peer caught this before the proposed probe executed.
+   Canonicalfetch('/') does not remove the address-bar query. The previously
+   observed empty MapLibre worker URL is a separate established defect.
+2. A passing empty-event assertion cannot establish browser acceptance. The
+   corresponding latest-code correction is diagnostic-only, not a recovered run.
+3. None with30-day retention; its applied policy stands. Full goal remains active,
+   not complete. No unchanged browser retry is justified by this startup failure.

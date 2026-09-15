@@ -1,0 +1,60 @@
+{
+  "root": "C:\\sgSHIOK2026",
+  "hostname": "PRAWN-E14",
+  "base": "8c71eeddd6d32c63633c6d4126e450202f31b3b4",
+  "scope": "One bounded attempt to establish captured-production-to-candidate ordinary reload with preserved browser caches. No deployment, app source change, pipeline run or package rebuild.",
+  "testResults": {
+    "reusedBoundaryAndNavigationCases": 15,
+    "passed": 15,
+    "skipped": 0,
+    "command": "node --test qa/revamp-r1/legacy-reload-20260913/release-server-v2.test.mjs qa/revamp-r1/legacy-reload-20260913/navigation-proof.test.mjs",
+    "durationMs": 1012.721,
+    "syntaxCheck": "node --check qa/revamp-r1/returning-worker-20260915/transition.mjs",
+    "newEndToEndAcceptance": false
+  },
+  "attempt": {
+    "directory": "observed-y0e8ywfa",
+    "executedSource": "observed-y0e8ywfa/transition.mjs",
+    "executedSourceSha256": "e9da8986f91328120eb06a2669889df157214453d6f2f60809452b0535eeb2f2",
+    "command": "C:\\sgSHIOK2026\\.venv\\Scripts\\python.exe -B C:\\sgSHIOK2026\\qa\\revamp-r1\\returning-worker-20260915\\run.py --go",
+    "passed": false,
+    "returnCode": 1,
+    "driverElapsedMs": 38652,
+    "outerTimeoutSeconds": 280,
+    "previewReadinessWindowSeconds": 30,
+    "lastHttpStatus": 502,
+    "preview": "qa/revamp-r1/release-finalize-20260915/preview-685ZVi",
+    "nextStdoutBytes": 0,
+    "nextStderrBytes": 0,
+    "browserLaunched": false,
+    "releaseBoundaryCreated": false,
+    "releaseSwitches": 0,
+    "screenshots": 0,
+    "workerUpdateAcceptance": "not_run",
+    "returningClientAcceptance": "not_run",
+    "cleanup": "Existing Windows job closes owned descendants; subsequent exact PID query for50624 and26464 returned no rows. No unrelated processes stopped.",
+    "correction": "Raw receipt retains vacuous no-event/no-exception PASS checks and boundary-drain FAIL before those facilities existed. Those are not acceptance or a demonstrated cleanup failure. Follow-up driver now records not_run/not_applicable. No second browser or preview launch followed."
+  },
+  "review": {
+    "independentReviewer": "A",
+    "preflight": "Required post-drain limits/data checks, rejection of dropped events/current exceptions, and exact browser Document SHA/length correlation with completed candidate response. Added before execution.",
+    "postflight": "Confirmed startup failure before browser/transition. Underlying startup cause unknown; receipts do not distinguish connection refusal/upstream failure or other startup issues. No blind rerun justified."
+  },
+  "hypothesisCorrection": {
+    "proposedTypeErrorProbeExecuted": false,
+    "oldWorkerSha256": "c1a9e34ed80456e93ade73cd90706269e47a75cc6782dad3d9f12620cf6b2390",
+    "correction": "Parent misread cacheMaxAgeMs. Actual captured source uses new URL(request.url, self.location.origin); passing the navigation string resolves to /undefined, not a TypeError. Lookup falls to zero max-age, normally fetching canonical /. The browser address-bar query is not removed by that fetch. Separate known empty MapLibre worker URL defect remains."
+  },
+  "FINDINGS": [
+    "Archive linked-ancestor tests independently pass58/0skips in8c71eed; this is separate from the unperformed returning-client check.",
+    "Current local Next preview did not become ready within the bounded window. No app/browser regression, host-only cause or upgrade success is established.",
+    "Failed receipts and the exact executed harness are preserved. Diagnostic-only not_run correction was syntax-checked; no unreported rerun.",
+    "Locked weights still match5c62ac5f62e91f777a82f0dfa98eafba11ef47500c9f7822a81a31eae7d2cbec. Thirty-day retention remains applied; reporting/moderation disabled. No X access, protected write, deployment or pipeline run."
+  ],
+  "DISAGREEMENTS": [
+    "The parent's proposed old-worker TypeError mechanism was wrong and was rejected before execution.",
+    "No-event/no-exception checks before browser startup cannot count as browser acceptance. Missing boundary creation is not evidence that its cleanup failed.",
+    "No disagreement with the30-day retention decision. Full goal remains active; no claim all tests or shipping requirements are complete."
+  ],
+  "next": "Retain current verified package/build. Before another replay, obtain bounded preview startup diagnostics including upstream error code and process progress; do not rebuild/repack, blindly relaunch or expand pipeline scope. Actual owner/device, private-report operations and exact release decisions remain separate."
+}

@@ -15,7 +15,8 @@ isolated web3331/86files+42guards and types pass. Helper102prior+4new=106cases,
 final5boundarypass, not one final full helper-suite invocation. The frontend-only
 production build PASSED115.172seconds: BUILD_ID D2v5v_SSLYgX0SSyDHqvr,172outputs,
 129450261bytes, no data copy. Served HTML/assets/worker/data identity passed.
-This is NOT a complete deployable package. Latest observation g9XRYL visibly
+This frontend build alone is not a complete deployable package; the separate
+complete source archive is recorded below. Latest observation g9XRYL visibly
 renders the basemap and6current-route features with all4metrics readable at100%.
 Six checks pass; overall FAIL when the first native zoom helper exceeds15seconds.
 No200% or same-document zoom-cycle acceptance. Independent supervisor cleanup
@@ -23,8 +24,8 @@ verified. Earlier gKgOV1/WV0Y9v failures exposed incomplete frozen tiles and
 discarded CORS headers in the QA harness, not a demonstrated app defect. New
 bounded capture preserves upstream PNG/CORS responses;177images/858648bytes.
 Offline87cases plus9image cases pass (8overlap); app source/build unchanged.
-Current 30-minute owned preview: http://127.0.0.1:62974/ (all APIs denied at proxy).
-Next: reliable native helper or owner-assisted acceptance, final source package,
+The former30-minute preview62974 has expired (all APIs were denied at proxy).
+Next: reliable native helper or owner-assisted acceptance,
 returning-client/rollback/security/quota checks and exact release decision. No
 blind native rerun. Shared older previews remain historical, not current acceptance.
 The30-day report policy is unchanged; reporting activation does not gate this build.
@@ -42,6 +43,11 @@ copy, pipeline processing, upload or deployment. Evidence: source-package-202609
 The bounded62974preview has expired; do not treat it as a persistent live link.
 Next remains returning-client/rollback/security/quota acceptance and the exact
 release decision. Packaging success does not establish Vercel backend acceptance.
+Returning-client follow-up y0e8ywfa stopped before Chrome: pinned Next preview
+never ready in30seconds, last502, no stdout/stderr; driver38.652seconds. No release
+switch or browser acceptance.15reused boundary/navigation tests pass separately.
+Source, raw failure and peer correction are preserved in returning-worker-20260915;
+startup cause is unknown. No blind replay, package rebuild or pipeline action.
 15September scope confirmation: the active goal includes ALL remaining build and
 ship tasks, not just Supabase setup. Report HTTP/retry and private cleanup are
 implemented with independent review and daily scheduling, then resident activation, moderator access,
