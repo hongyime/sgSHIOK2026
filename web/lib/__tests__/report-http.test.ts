@@ -13,7 +13,7 @@ const env = {
   SHIOK_REPORTS_BUCKET_KEY: 'ab'.repeat(32),
 };
 const fixture = {
-  schema_version: 1, client_request_id: '12345678-1234-4123-8123-123456789abc', report_type: 'mapping_error',
+  schema_version: 1, client_request_id: '017f22e2-79b0-7cc3-98c4-dc0c0c07398f', report_type: 'mapping_error',
   geometry: { type: 'Point', coordinates: [103.85, 1.35] }, referenced_bundle_version: 'synthetic-bundle-v1', note: 'private synthetic note',
 };
 const receipt = { receipt_id: '22345678-1234-4123-8123-123456789abc', received_at: '2026-09-15T01:00:00Z', replayed: false };
@@ -34,6 +34,13 @@ const send = (req = request(), transport: typeof fetch = vi.fn().mockResolvedVal
 afterEach(() => { vi.useRealTimers(); vi.unstubAllEnvs(); vi.unstubAllGlobals(); vi.restoreAllMocks(); });
 
 describe('Anonymous report HTTP boundary', () => {
+  it('rejects UUIDv4 request identities before provider IO', async () => {
+    const transport = vi.fn();
+    const result = await send(request({ body: JSON.stringify({ ...fixture, client_request_id: '12345678-1234-4123-8123-123456789abc' }) }), transport);
+    expect(result.status).toBe(400);
+    expect(await result.json()).toEqual({ ok: false, error: 'invalid_report' });
+    expect(transport).not.toHaveBeenCalled();
+  });
   it('persists once and returns only an opaque receipt with no-store on every cache layer', async () => {
     const transport = vi.fn().mockResolvedValue(Response.json(receipt));
     const result = await send(request(), transport);
@@ -135,6 +142,8 @@ describe('Anonymous report HTTP boundary', () => {
     await send(request(), transport);
     const init = transport.mock.calls[0][1];
     const body = JSON.parse(init.body);
+    expect(body.p_abuse_day).toBe('2026-09-15');
+    expect(transport.mock.calls[0][0]).toBe(`${project.projectUrl}/rest/v1/rpc/shiok_report_submit_v2`);
     expect(body.p_abuse_bucket_sha256).toBe(createHmac('sha256', Buffer.from(env.SHIOK_REPORTS_BUCKET_KEY, 'hex')).update('shiok-reports-v1\n2026-09-15\nv4:192.0.2.1').digest('hex'));
     expect(JSON.stringify(init)).not.toContain('192.0.2.1');
     expect(init.body).not.toContain(proof);
@@ -162,13 +171,83 @@ describe('Anonymous report HTTP boundary', () => {
     }
     expect(new Set(buckets).size).toBe(3);
   });
-  it('refreshes the storage bucket when an upload crosses UTC midnight', async () => {
+  it('binds storage date and HMAC to one post-upload clock read across UTC midnight', async () => {
     const transport = vi.fn().mockResolvedValue(Response.json(receipt));
-    const clock = vi.fn().mockReturnValueOnce(Date.parse('2026-09-15T23:59:59Z')).mockReturnValue(Date.parse('2026-09-16T00:00:01Z'));
-    await handleReportPost(request(), { env, transport, now: clock, admitAttempt: createReportAttemptLimiter() });
-    expect(JSON.parse(transport.mock.calls[0][1].body).p_abuse_bucket_sha256).toBe(
+    const clock = vi.fn().mockReturnValueOnce(Date.parse('2026-09-15T23:59:59Z'))
+      .mockReturnValueOnce(Date.parse('2026-09-16T00:00:01Z'))
+      .mockImplementation(() => { throw new Error('Unexpected independent bucket/day clock read'); });
+    let upload!: ReadableStreamDefaultController<Uint8Array>;
+    const pending = handleReportPost(request({ body: new ReadableStream({ start(controller) { upload = controller; } }) }),
+      { env, transport, now: clock, admitAttempt: createReportAttemptLimiter() });
+    expect(clock).toHaveBeenCalledTimes(1);
+    expect(transport).not.toHaveBeenCalled();
+    upload.enqueue(new TextEncoder().encode(JSON.stringify(fixture))); upload.close();
+    expect((await pending).status).toBe(201);
+    const body = JSON.parse(transport.mock.calls[0][1].body);
+    expect(body.p_abuse_day).toBe('2026-09-16');
+    expect(body.p_abuse_bucket_sha256).toBe(
       createHmac('sha256', Buffer.from(env.SHIOK_REPORTS_BUCKET_KEY, 'hex')).update('shiok-reports-v1\n2026-09-16\nv4:192.0.2.1').digest('hex'),
     );
+    expect(clock).toHaveBeenCalledTimes(2);
+    expect(transport).toHaveBeenCalledTimes(1);
+  });
+  it.each([false, true])('models UTC rollover while the DB lock is held, existing receipt=%s', async replayed => {
+    let time = Date.parse('2026-09-15T23:59:59.999Z');
+    const clock = vi.fn(() => time);
+    let release!: () => void;
+    const lock = new Promise<void>(resolve => { release = resolve; });
+    let entered!: () => void;
+    const locked = new Promise<void>(resolve => { entered = resolve; });
+    const bodies: Record<string, unknown>[] = [];
+    const transport = vi.fn<typeof fetch>(async (_url, init) => {
+      const body = JSON.parse(String(init?.body)); bodies.push(body);
+      entered(); await lock;
+      const databaseDay = new Date(time).toISOString().slice(0, 10);
+      // Mock the parent's proposed SQL contract; this is not database verification.
+      if (!replayed && body.p_abuse_day !== databaseDay) {
+        return Response.json({ code: 'PT503', message: 'reporting_unavailable', details: null, hint: null }, { status: 503 });
+      }
+      return Response.json({ ...receipt, replayed });
+    });
+    const admitAttempt = createReportAttemptLimiter();
+    const pending = handleReportPost(request(), { env, transport, now: clock, admitAttempt });
+    await locked;
+    time = Date.parse('2026-09-16T00:00:00.001Z');
+    release();
+    const result = await pending;
+    expect(result.status).toBe(replayed ? 200 : 503);
+    expect(await result.json()).toEqual(replayed
+      ? { ok: true, receipt: { receipt_id: receipt.receipt_id, received_at: receipt.received_at }, replayed: true }
+      : { ok: false, error: 'unavailable' });
+    expect(bodies[0].p_abuse_day).toBe('2026-09-15');
+    expect(bodies[0].p_abuse_bucket_sha256).toBe(createHmac('sha256', Buffer.from(env.SHIOK_REPORTS_BUCKET_KEY, 'hex'))
+      .update('shiok-reports-v1\n2026-09-15\nv4:192.0.2.1').digest('hex'));
+    expect(clock).toHaveBeenCalledTimes(2);
+    expect(transport).toHaveBeenCalledTimes(1);
+    if (!replayed) {
+      // Only a separate explicit HTTP attempt refreshes the bucket; request identity/proof/content stay fixed.
+      expect((await handleReportPost(request(), { env, transport, now: clock, admitAttempt })).status).toBe(201);
+      expect(bodies[1].p_abuse_day).toBe('2026-09-16');
+      expect(bodies[1].p_abuse_bucket_sha256).toBe(createHmac('sha256', Buffer.from(env.SHIOK_REPORTS_BUCKET_KEY, 'hex'))
+        .update('shiok-reports-v1\n2026-09-16\nv4:192.0.2.1').digest('hex'));
+      for (const key of ['p_request_id', 'p_canonical_content', 'p_retry_proof_sha256']) expect(bodies[1][key]).toBe(bodies[0][key]);
+      expect(transport).toHaveBeenCalledTimes(2);
+    }
+  });
+  it.each([NaN, Infinity, 1.5, 8640000000000001])('fails closed on invalid pre-upload time %s', async time => {
+    const transport = vi.fn();
+    const result = await handleReportPost(request(), { env, transport, now: () => time, admitAttempt: createReportAttemptLimiter() });
+    expect(result.status).toBe(503);
+    expect(await result.json()).toEqual({ ok: false, error: 'unavailable' });
+    expect(transport).not.toHaveBeenCalled();
+  });
+  it.each([NaN, Infinity, 1.5, 8640000000000001])('fails closed on invalid post-upload time %s', async time => {
+    const transport = vi.fn();
+    const clock = vi.fn().mockReturnValueOnce(now()).mockReturnValue(time);
+    const result = await handleReportPost(request(), { env, transport, now: clock, admitAttempt: createReportAttemptLimiter() });
+    expect(result.status).toBe(503);
+    expect(await result.json()).toEqual({ ok: false, error: 'unavailable' });
+    expect(transport).not.toHaveBeenCalled();
   });
   it.each([
     ['{"schema_version":1,"schema_version":1}', 'duplicate_fields'], ['{"x":', 'invalid_json'],

@@ -8,7 +8,7 @@ import {
 } from '../reports';
 
 const encoder = new TextEncoder();
-const requestId = '12345678-1234-4123-8123-123456789abc';
+const requestId = '017f22e2-79b0-7cc3-98c4-dc0c0c07398f';
 const point = [103.85, 1.35];
 const fixture = (overrides: Record<string, unknown> = {}) => ({
   schema_version: 1, client_request_id: requestId, report_type: 'mapping_error',
@@ -69,9 +69,26 @@ describe('Proposed report contract: F01/F13 data preparation only', () => {
     for (const value of [null, [], 'report', 1, undefined,
       fixture({ schema_version: '1' }), fixture({ schema_version: 2 }),
       fixture({ report_type: 'correction' }), fixture({ report_type: ['mapping_error', 'shelter_request'] }),
-      ...['', 'random', requestId.toUpperCase(), `${requestId}\n`, requestId.replace('-4123-', '-1123-')]
+      ...['', 'random', requestId.toUpperCase(), `${requestId}\n`, requestId.replace('-7cc3-', '-1cc3-')]
         .map(client_request_id => fixture({ client_request_id })),
     ]) expect(validateReport(value)).toEqual({ ok: false, error: 'invalid_report' });
+  });
+
+  it('rejects UUIDv4 request admission in both object and wire validation', () => {
+    const value = fixture({ client_request_id: '12345678-1234-4123-8123-123456789abc' });
+    expect(validateReport(value)).toEqual({ ok: false, error: 'invalid_report' });
+    expect(parseReportBody(bytes(value))).toEqual({ ok: false, error: 'invalid_report' });
+  });
+
+  it('validates UUIDv7 syntax without imposing a clock, admission age or replay expiry', () => {
+    const clock = vi.spyOn(Date, 'now').mockImplementation(() => { throw new Error('SQL owns admission'); });
+    try {
+      for (const client_request_id of ['00000000-0000-7000-8000-000000000000', 'ffffffff-ffff-7fff-bfff-ffffffffffff']) {
+        expect(valid(validateReport(fixture({ client_request_id }))).report.client_request_id).toBe(client_request_id);
+        expect(valid(parseReportBody(bytes(fixture({ client_request_id })))).report.client_request_id).toBe(client_request_id);
+      }
+      expect(clock).not.toHaveBeenCalled();
+    } finally { clock.mockRestore(); }
   });
 
   it('rejects unknown, server-owned, contact, upload and transport fields at every object level', () => {
@@ -191,7 +208,7 @@ describe('Proposed text and canonical content: F03 preparation, not safe renderi
     const reversed: Record<string, unknown> = Object.fromEntries(Object.entries(input).reverse());
     reversed.context = { postal_code: '001001', transit_category: 'bus' };
     reversed.geometry = { coordinates: point, type: 'Point' };
-    reversed.client_request_id = '87654321-4321-4321-9321-cba987654321';
+    reversed.client_request_id = '87654321-4321-7321-9321-cba987654321';
     const canonical = valid(validateReport(input)).canonicalContent;
     expect(valid(validateReport(reversed)).canonicalContent).toBe(canonical);
     expect(valid(parseReportBody(encoder.encode(JSON.stringify(reversed, null, 2)

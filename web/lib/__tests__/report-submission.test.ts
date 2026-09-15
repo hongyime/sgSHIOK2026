@@ -1,11 +1,13 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { validateReport } from '../reports';
+import { parseReportRequestTime } from '../report-request-id';
 import {
   MAX_REPORT_RESPONSE_BYTES, REPORT_SUBMISSION_TIMEOUT_MS, prepareReportSubmission, submitReport,
   type ReportSubmissionEnvelope,
 } from '../report-submission';
 
-const requestId = '12345678-1234-4123-8123-123456789abc';
+const requestTime = 1645557742000;
+const requestId = '017f22e2-79b0-7607-8809-0a0b0c0d0e0f';
 const receipt = { receipt_id: '22345678-1234-4123-8123-123456789abc', received_at: '2026-09-15T09:00:00.123456+00:00' };
 const success = (replayed = false) => ({ ok: true, receipt: { ...receipt }, replayed });
 const reply = (replayed = false) => Response.json(success(replayed), { status: replayed ? 200 : 201 });
@@ -16,11 +18,11 @@ const draft = (overrides: Record<string, unknown> = {}) => ({
 });
 function fakeCrypto() {
   return {
-    randomUUID: vi.fn(() => requestId),
-    getRandomValues: vi.fn((bytes: Uint8Array) => { bytes.set(Array.from({ length: 32 }, (_, i) => i)); return bytes; }),
+    randomUUID: vi.fn(() => { throw new Error('UUIDv4 request generation forbidden'); }),
+    getRandomValues: vi.fn((bytes: Uint8Array) => { bytes.set(Array.from({ length: bytes.length }, (_, i) => i)); return bytes; }),
   };
 }
-const asCrypto = (random: ReturnType<typeof fakeCrypto>) => random as unknown as Pick<Crypto, 'randomUUID' | 'getRandomValues'>;
+const asCrypto = (random: ReturnType<typeof fakeCrypto>) => random as unknown as Pick<Crypto, 'getRandomValues'>;
 function prepare(value: unknown = draft(), random = fakeCrypto()) {
   const result = prepareReportSubmission(value, asCrypto(random));
   expect(result.ok).toBe(true);
@@ -38,17 +40,20 @@ const jsonText = (text: string, status = 201) => new Response(text, { status, he
 beforeEach(() => {
   vi.stubGlobal('fetch', vi.fn(() => { throw new Error('Unexpected real fetch'); }));
   vi.stubGlobal('crypto', asCrypto(fakeCrypto()));
+  vi.spyOn(Date, 'now').mockReturnValue(requestTime);
 });
 afterEach(() => { vi.useRealTimers(); vi.unstubAllGlobals(); vi.restoreAllMocks(); });
 
 describe('private in-memory report retry envelope', () => {
-  it('prepares random UUID and 32-byte base64url proof before any POST', () => {
+  it('prepares UUIDv7 and separate 32-byte base64url proof before any POST', () => {
     const random = fakeCrypto();
     const envelope = prepare(draft(), random);
-    expect(random.randomUUID).toHaveBeenCalledTimes(1);
-    expect(random.getRandomValues).toHaveBeenCalledTimes(1);
-    expect(random.getRandomValues.mock.calls[0][0]).toHaveLength(32);
+    expect(random.randomUUID).not.toHaveBeenCalled();
+    expect(random.getRandomValues).toHaveBeenCalledTimes(2);
+    expect(random.getRandomValues.mock.calls.map(([bytes]) => bytes.length)).toEqual([16, 32]);
+    expect(random.getRandomValues.mock.calls[0][0]).not.toBe(random.getRandomValues.mock.calls[1][0]);
     expect(envelope.report.client_request_id).toBe(requestId);
+    expect(parseReportRequestTime(envelope.report.client_request_id)).toBe(requestTime);
     expect(envelope.retrySecret).toBe('AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8');
     expect(envelope.retrySecret).toMatch(/^[A-Za-z0-9_-]{43}$/);
     expect(fetch).not.toHaveBeenCalled();
@@ -57,7 +62,8 @@ describe('private in-memory report retry envelope', () => {
   it('uses browser crypto by default, never weak fallback randomness', () => {
     const weak = vi.spyOn(Math, 'random').mockImplementation(() => { throw new Error('weak'); });
     expect(prepareReportSubmission(draft()).ok).toBe(true);
-    expect(crypto.randomUUID).toHaveBeenCalledTimes(1);
+    expect(crypto.randomUUID).not.toHaveBeenCalled();
+    expect(crypto.getRandomValues).toHaveBeenCalledTimes(2);
     expect(weak).not.toHaveBeenCalled();
   });
 
@@ -106,14 +112,33 @@ describe('private in-memory report retry envelope', () => {
     expect(getter).not.toHaveBeenCalled();
   });
 
-  it.each(['absent', 'uuid throws', 'bytes throw', 'invalid uuid'])('fails closed when crypto is %s', kind => {
+  it.each(['absent', 'uuid bytes throw', 'proof bytes throw', 'missing method'])('fails closed when crypto is %s', kind => {
     const random = fakeCrypto();
-    if (kind === 'uuid throws') random.randomUUID.mockImplementation(() => { throw new Error('private crypto failure'); });
-    if (kind === 'bytes throw') random.getRandomValues.mockImplementation(() => { throw new Error('private crypto failure'); });
-    if (kind === 'invalid uuid') random.randomUUID.mockReturnValue('not-a-uuid');
+    if (kind === 'uuid bytes throw') random.getRandomValues.mockImplementation(() => { throw new Error('private crypto failure'); });
+    if (kind === 'proof bytes throw') random.getRandomValues.mockImplementation(bytes => {
+      if (bytes.length === 32) throw new Error('private proof failure');
+      bytes.fill(1); return bytes;
+    });
+    if (kind === 'missing method') Object.defineProperty(random, 'getRandomValues', { value: undefined });
     if (kind === 'absent') vi.stubGlobal('crypto', undefined);
     const result = kind === 'absent' ? prepareReportSubmission(draft()) : prepareReportSubmission(draft(), asCrypto(random));
     expect(result).toEqual({ ok: false, error: 'crypto_unavailable' });
+    expect(fetch).not.toHaveBeenCalled();
+  });
+
+  it.each([-1, 0.5, NaN, Infinity, 0x1000000000000])('fails closed for invalid request timestamp %s', time => {
+    vi.mocked(Date.now).mockReturnValue(time);
+    const random = fakeCrypto();
+    expect(prepareReportSubmission(draft(), asCrypto(random))).toEqual({ ok: false, error: 'crypto_unavailable' });
+    expect(random.getRandomValues).not.toHaveBeenCalled();
+    expect(fetch).not.toHaveBeenCalled();
+  });
+
+  it('contains clock failures without leaking details or attempting HTTP', () => {
+    vi.mocked(Date.now).mockImplementation(() => { throw new Error('private clock detail'); });
+    const random = fakeCrypto();
+    expect(prepareReportSubmission(draft(), asCrypto(random))).toEqual({ ok: false, error: 'crypto_unavailable' });
+    expect(random.getRandomValues).not.toHaveBeenCalled();
     expect(fetch).not.toHaveBeenCalled();
   });
 
@@ -194,12 +219,18 @@ describe('one bounded same-origin report attempt', () => {
     expect(await submitReport(envelope, transport)).toEqual(unknown);
     expect(transport).toHaveBeenCalledTimes(1);
     value.note = 'mutation after unknown outcome';
+    vi.mocked(Date.now).mockReturnValue(requestTime + 2 * 24 * 60 * 60 * 1000);
     expect(await submitReport(envelope, transport)).toEqual(success(true));
     expect(transport).toHaveBeenCalledTimes(2);
     expect(transport.mock.calls[0][1].body).toBe(transport.mock.calls[1][1].body);
     expect(transport.mock.calls[0][1].headers).toEqual(transport.mock.calls[1][1].headers);
-    expect(random.randomUUID).toHaveBeenCalledTimes(1);
-    expect(random.getRandomValues).toHaveBeenCalledTimes(1);
+    expect(random.randomUUID).not.toHaveBeenCalled();
+    expect(random.getRandomValues).toHaveBeenCalledTimes(2);
+    expect(envelope.report.client_request_id).toBe(requestId);
+    expect(parseReportRequestTime(envelope.report.client_request_id)).toBe(requestTime);
+    expect(JSON.parse(transport.mock.calls[1][1].body).client_request_id).toBe(requestId);
+    expect(envelope.canonicalContent).not.toContain(requestId);
+    expect(envelope.canonicalContent).not.toContain(envelope.retrySecret);
   });
   it.each([[429, 'limited'], [503, 'unavailable'], [408, 'request_timeout'], [403, 'forbidden'], [409, 'conflict'], [410, 'expired']])(
     'retains prior uncertainty when the next attempt is rejected with %s', async (status, error) => {
@@ -233,7 +264,8 @@ describe('one bounded same-origin report attempt', () => {
   );
 
   it.each([
-    [201, { ...success(), receipt: { ...receipt, receipt_id: requestId.replace('-4123-', '-1123-') } }],
+    [201, { ...success(), receipt: { ...receipt, receipt_id: receipt.receipt_id.replace('-4123-', '-1123-') } }],
+    [201, { ...success(), receipt: { ...receipt, receipt_id: requestId } }],
     [201, { ...success(), receipt: { ...receipt, received_at: '2026-02-30T00:00:00Z' } }],
     [201, { ...success(), receipt: { ...receipt, received_at: '2026-09-15' } }],
     [201, { ...success(), receipt: { ...receipt, received_at: '2026-09-15T09:00:00' } }],

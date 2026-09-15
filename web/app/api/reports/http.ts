@@ -2,7 +2,7 @@ import { createHmac } from 'node:crypto';
 import { isIP } from 'node:net';
 import { MAX_REPORT_BODY_BYTES, readReportBody } from '../../../lib/reports';
 import project from '../../../lib/report-project.json';
-import { submitPrivateReport, type ReportStoreConfig } from './store';
+import { submitPrivateReport, type ReportAbuseBucket, type ReportStoreConfig } from './store';
 
 export const REPORT_REQUEST_TIMEOUT_MS = 10000;
 export const REPORT_RESPONSE_HEADERS = {
@@ -33,10 +33,13 @@ export function createReportAttemptLimiter(): (bucket: string, time: number) => 
 }
 const admitAttempt = createReportAttemptLimiter();
 
-function bucketFor(key: string, network: string, time: number): string {
+function bucketFor(key: string, network: string, time: number): ReportAbuseBucket {
+  if (!Number.isSafeInteger(time)) throw new Error('Invalid bucket time');
   const day = new Date(time).toISOString().slice(0, 10);
-  return createHmac('sha256', Buffer.from(key, 'hex'))
+  if (!/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(day) || day.startsWith('0000-')) throw new Error('Invalid bucket day');
+  const sha256 = createHmac('sha256', Buffer.from(key, 'hex'))
     .update(`shiok-reports-v1\n${day}\n${network}`).digest('hex');
+  return Object.freeze({ sha256, day });
 }
 
 function response(status: number, body: unknown): Response {
@@ -114,9 +117,13 @@ export async function handleReportPost(request: Request, dependencies: Dependenc
   const network = abuseNetwork(request.headers);
   if (!network) return reject(503, 'unavailable');
   if (request.signal.aborted) return reject(408, 'request_timeout');
-  const capturedAt = (dependencies.now ?? Date.now)();
-  const bucket = bucketFor(settings.bucketKey, network, capturedAt);
-  if (!(dependencies.admitAttempt ?? admitAttempt)(bucket, capturedAt)) return reject(429, 'limited');
+  let capturedAt: number;
+  let bucket: ReportAbuseBucket;
+  try {
+    capturedAt = (dependencies.now ?? Date.now)();
+    bucket = bucketFor(settings.bucketKey, network, capturedAt);
+  } catch { return reject(503, 'unavailable'); }
+  if (!(dependencies.admitAttempt ?? admitAttempt)(bucket.sha256, capturedAt)) return reject(429, 'limited');
   const proof = request.headers.get('x-shiok-retry-secret') ?? '';
   if (!/^[A-Za-z0-9_-]{43}$/.test(proof)) return reject(400, 'invalid_request');
 
@@ -135,6 +142,7 @@ export async function handleReportPost(request: Request, dependencies: Dependenc
       const parsed = await readReportBody(request.body, controller.signal);
       controller.signal.throwIfAborted();
       if (!parsed.ok) return response(parsed.error === 'body_too_large' ? 413 : 400, { ok: false, error: parsed.error });
+      // One post-upload instant binds the HMAC to the date the database checks after its lock.
       const storageBucket = bucketFor(settings.bucketKey, network, (dependencies.now ?? Date.now)());
       dispatched = true;
       const result = await submitPrivateReport(settings.store, parsed.report, proof, storageBucket, controller.signal, dependencies.transport);

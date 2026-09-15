@@ -8,6 +8,7 @@ const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{1
 const HEX = /^[0-9a-f]{64}$/;
 
 export interface ReportStoreConfig { projectUrl: string; secretKey: string }
+export interface ReportAbuseBucket { readonly sha256: string; readonly day: string }
 export type ReportStoreResult =
   | { ok: true; receipt: { receipt_id: string; received_at: string }; replayed: boolean }
   | { ok: false; error: 'invalid_request' | 'unconfigured' | 'conflict' | 'expired' | 'limited' | 'unavailable' | 'outcome_unknown' };
@@ -16,6 +17,19 @@ function configured(config: ReportStoreConfig): boolean {
   // An account credential is not authorization to use another project's storage.
   return config.projectUrl === project.projectUrl
     && /^sb_secret_[A-Za-z0-9_-]{16,256}$/.test(config.secretKey);
+}
+
+function validatedBucket(value: ReportAbuseBucket): ReportAbuseBucket | null {
+  try {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+    const { sha256, day } = value;
+    if (typeof sha256 !== 'string' || sha256.length !== 64 || !HEX.test(sha256)
+      || typeof day !== 'string' || day.length !== 10 || !/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(day)
+      || day.startsWith('0000-')) return null;
+    const time = Date.parse(`${day}T00:00:00Z`);
+    if (!Number.isFinite(time) || new Date(time).toISOString().slice(0, 10) !== day) return null;
+    return Object.freeze({ sha256, day });
+  } catch { return null; }
 }
 
 async function receiptBody(response: Response, signal: AbortSignal): Promise<unknown> {
@@ -47,13 +61,14 @@ export async function submitPrivateReport(
   config: ReportStoreConfig,
   value: unknown,
   retrySecret: string,
-  abuseBucketSha256: string,
+  abuseBucket: ReportAbuseBucket,
   caller: AbortSignal,
   transport: typeof fetch = fetch,
 ): Promise<ReportStoreResult> {
   if (!configured(config)) return { ok: false, error: 'unconfigured' };
   const parsed = validateReport(value);
-  if (!parsed.ok || !/^[A-Za-z0-9_-]{43}$/.test(retrySecret) || !HEX.test(abuseBucketSha256)) return { ok: false, error: 'invalid_request' };
+  const bucket = validatedBucket(abuseBucket);
+  if (!parsed.ok || !/^[A-Za-z0-9_-]{43}$/.test(retrySecret) || !bucket) return { ok: false, error: 'invalid_request' };
   if (caller.aborted) return { ok: false, error: 'unavailable' };
   const controller = new AbortController();
   let reject!: (error: Error) => void;
@@ -64,13 +79,13 @@ export async function submitPrivateReport(
   try {
     return await Promise.race([ended, (async (): Promise<ReportStoreResult> => {
       controller.signal.throwIfAborted();
-      const response = await transport(`${config.projectUrl}/rest/v1/rpc/shiok_report_submit_v1`, {
+      const response = await transport(`${config.projectUrl}/rest/v1/rpc/shiok_report_submit_v2`, {
         method: 'POST', cache: 'no-store', redirect: 'error', signal: controller.signal,
         headers: { apikey: config.secretKey, 'Content-Type': 'application/json' },
         body: JSON.stringify({
           p_request_id: parsed.report.client_request_id, p_canonical_content: parsed.canonicalContent,
           p_retry_proof_sha256: createHash('sha256').update(retrySecret).digest('hex'),
-          p_abuse_bucket_sha256: abuseBucketSha256,
+          p_abuse_bucket_sha256: bucket.sha256, p_abuse_day: bucket.day,
         }),
       });
       if (controller.signal.aborted) {

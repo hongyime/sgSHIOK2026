@@ -1,5 +1,6 @@
 import { haversineMeters } from './nearest-transit';
 import type { PublishedTransitCategory } from './published-transit-options';
+import { parseReportRequestTime } from './report-request-id';
 
 // Local proposed contract only. No submission, persistence, receipt, auth or privacy guarantee.
 export const REPORT_SCHEMA_VERSION = 1;
@@ -49,7 +50,6 @@ const REQUIRED_FIELDS = ['schema_version', 'client_request_id', 'report_type', '
 const REPORT_FIELDS = [...REQUIRED_FIELDS, 'context', 'note'];
 const CONTEXT_FIELDS = ['postal_code', 'destination_id', 'transit_category', 'published_route_id'];
 // Proposed syntax, not proof of randomness, bundle existence or a published destination/route.
-const REQUEST_ID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
 const IDENTIFIER = /^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$/;
 const encoder = new TextEncoder();
 const invalid = (error: ReportValidationError): ReportValidationResult => ({ ok: false, error });
@@ -146,7 +146,7 @@ function note(value: unknown): value is string {
 export function validateReport(value: unknown): ReportValidationResult {
   try {
     if (!record(value, REPORT_FIELDS, REQUIRED_FIELDS) || value.schema_version !== REPORT_SCHEMA_VERSION
-      || typeof value.client_request_id !== 'string' || value.client_request_id.length !== 36 || !REQUEST_ID.test(value.client_request_id)
+      || typeof value.client_request_id !== 'string' || parseReportRequestTime(value.client_request_id) === null
       || (value.report_type !== 'mapping_error' && value.report_type !== 'shelter_request')
       || !identifier(value.referenced_bundle_version)) return invalid('invalid_report');
     const validatedGeometry = geometry(value.geometry);

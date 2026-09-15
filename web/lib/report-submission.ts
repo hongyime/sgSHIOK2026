@@ -1,6 +1,7 @@
 'use client';
 
 import { validateReport, type Report, type ReportValidationError } from './reports';
+import { createReportRequestId } from './report-request-id';
 
 export const REPORT_SUBMISSION_TIMEOUT_MS = 12_000;
 export const MAX_REPORT_RESPONSE_BYTES = 1024;
@@ -31,7 +32,7 @@ interface SubmissionState {
 
 const submissions = new WeakMap<ReportSubmissionEnvelope, SubmissionState>();
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
-const VALIDATION_ID = '00000000-0000-4000-8000-000000000000';
+const VALIDATION_ID = '00000000-0000-7000-8000-000000000000';
 const fail = (error: ReportSubmissionError): ReportSubmissionResult => Object.freeze({ ok: false, error });
 const errorStatuses: Readonly<Record<string, number>> = Object.freeze({
   invalid_report: 400, invalid_geometry: 400, invalid_context: 400, invalid_note: 400,
@@ -45,7 +46,7 @@ const errorStatuses: Readonly<Record<string, number>> = Object.freeze({
 /** Prepare once from a draft without client_request_id. The caller must hold this private envelope before sending. */
 export function prepareReportSubmission(
   draft: unknown,
-  random: Pick<Crypto, 'randomUUID' | 'getRandomValues'> = globalThis.crypto,
+  random: Pick<Crypto, 'getRandomValues'> = globalThis.crypto,
 ): ReportSubmissionPreparation {
   let parsed;
   try {
@@ -61,7 +62,7 @@ export function prepareReportSubmission(
     return { ok: false, error: 'invalid_report' };
   }
   try {
-    const client_request_id = random.randomUUID();
+    const client_request_id = createReportRequestId(Date.now(), random);
     const bytes = new Uint8Array(32);
     random.getRandomValues(bytes);
     const validated = validateReport({ ...parsed.report, client_request_id });
