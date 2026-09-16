@@ -26,7 +26,7 @@ def command_environment() -> dict[str, str]:
     # No caller data overrides, NODE_OPTIONS, lifecycle hooks or private web .env.
     allowed = {
         "PATH", "PATHEXT", "SYSTEMROOT", "WINDIR", "COMSPEC", "TEMP", "TMP",
-        "HOME", "USERPROFILE", "APPDATA", "LOCALAPPDATA", "VERCEL_TOKEN",
+        "HOME", "USERPROFILE", "APPDATA", "LOCALAPPDATA", "VERCEL_TOKEN", "VERCEL_ORG_ID",
     }
     env = {key: value for key, value in os.environ.items() if key.upper() in allowed}
     env.update(NEXT_TELEMETRY_DISABLED="1", CI="1")
