@@ -55,7 +55,7 @@ function settings(env: Environment): Settings | null {
     || env.NODE_ENV !== 'production' || !['production', 'preview'].includes(env.VERCEL_ENV ?? '')
     || env.SHIOK_REPORTS_PROJECT_URL !== project.projectUrl
     || typeof env.SHIOK_REPORTS_SECRET_KEY !== 'string'
-    || /^sb_secret_[A-Za-z0-9_-]{16,256}$/.exec(env.SHIOK_REPORTS_SECRET_KEY ?? '')?.[0] !== env.SHIOK_REPORTS_SECRET_KEY) return null;
+    || !/^(sb_secret_[A-Za-z0-9_-]{16,256}|eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+)$/.test(env.SHIOK_REPORTS_SECRET_KEY ?? '')) return null;
   const origin = env.SHIOK_REPORTS_ORIGIN;
   try {
     const url = new URL(origin ?? '');
