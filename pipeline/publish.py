@@ -185,8 +185,18 @@ def link_build_dependencies(web_dir: Path, stage: Path) -> None:
     link = stage / "web/node_modules"
     if link.exists() or link.is_symlink():
         raise ValueError("staging dependency path already exists")
-    # A missing symlink privilege fails closed; never copy or install dependencies.
-    link.symlink_to(web_dir / "node_modules", target_is_directory=True)
+    # On Windows use a directory junction (no SeCreateSymbolicLinkPrivilege needed).
+    # On other platforms use a symlink; missing privilege still fails closed.
+    source = web_dir / "node_modules"
+    if os.name == "nt":
+        result = subprocess.run(
+            ["cmd", "/c", "mklink", "/J", str(link), str(source)],
+            capture_output=True, timeout=30,
+        )
+        if result.returncode != 0:
+            raise ValueError(f"junction failed: {result.stderr.decode(errors='replace')}".strip())
+    else:
+        link.symlink_to(source, target_is_directory=True)
 
 
 def report_base(mode: str) -> dict[str, Any]:
