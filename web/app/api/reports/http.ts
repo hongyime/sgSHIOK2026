@@ -50,7 +50,7 @@ function config(env: Environment): Config | null {
   if (env.SHIOK_REPORTS_ENABLED !== 'true' || env.VERCEL !== '1'
     || env.NODE_ENV !== 'production' || !['production', 'preview'].includes(env.VERCEL_ENV ?? '')
     || env.SHIOK_REPORTS_PROJECT_URL !== project.projectUrl
-    || !/^sb_secret_[A-Za-z0-9_-]{16,256}$/.test(env.SHIOK_REPORTS_SECRET_KEY ?? '')
+    || !/^(sb_secret_[A-Za-z0-9_-]{16,256}|eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+)$/.test(env.SHIOK_REPORTS_SECRET_KEY ?? '')
     || /\s/.test(env.SHIOK_REPORTS_SECRET_KEY ?? '')
     || env.SHIOK_REPORTS_BUCKET_KEY?.length !== 64
     || !/^[0-9a-f]{64}$/.test(env.SHIOK_REPORTS_BUCKET_KEY ?? '')) return null;

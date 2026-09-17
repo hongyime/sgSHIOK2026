@@ -60,7 +60,7 @@ export async function authenticateModerator(
   config: ReportStoreConfig, accessToken: unknown, caller: AbortSignal,
   transport: typeof fetch = fetch, now: () => number = Date.now,
 ): Promise<ModeratorAuthentication> {
-  if (config.projectUrl !== project.projectUrl || !/^sb_secret_[A-Za-z0-9_-]{16,256}$/.test(config.secretKey)) {
+  if (config.projectUrl !== project.projectUrl || !/^(sb_secret_[A-Za-z0-9_-]{16,256}|eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+)$/.test(config.secretKey)) {
     return { ok: false, error: 'unavailable' };
   }
   const unverified = claims(accessToken, now());

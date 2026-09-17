@@ -249,7 +249,7 @@ async function operation<T extends ModeratorQueueResult | ModeratorDecisionResul
   let key: string, verified: VerifiedModeratorIdentity;
   try {
     if (typeof window !== 'undefined' || !object(config, ['projectUrl', 'secretKey']) || config.projectUrl !== project.projectUrl
-      || typeof config.secretKey !== 'string' || /^sb_secret_[A-Za-z0-9_-]{16,256}$/.exec(config.secretKey)?.[0] !== config.secretKey) return failure('unavailable');
+      || typeof config.secretKey !== 'string' || !/^(sb_secret_[A-Za-z0-9_-]{16,256}|eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+)$/.test(config.secretKey)) return failure('unavailable');
     key = config.secretKey;
     if (!object(identity, ['actor', 'session', 'tokenExpiresAt']) || !uuid(identity.actor) || !uuid(identity.session)) return failure('forbidden');
     const expiry = timestamp(identity.tokenExpiresAt), now = Date.now();

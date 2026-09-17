@@ -16,7 +16,7 @@ export type ReportStoreResult =
 function configured(config: ReportStoreConfig): boolean {
   // An account credential is not authorization to use another project's storage.
   return config.projectUrl === project.projectUrl
-    && /^sb_secret_[A-Za-z0-9_-]{16,256}$/.test(config.secretKey);
+    && /^(sb_secret_[A-Za-z0-9_-]{16,256}|eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+)$/.test(config.secretKey);
 }
 
 function validatedBucket(value: ReportAbuseBucket): ReportAbuseBucket | null {
