@@ -1456,10 +1456,10 @@ export function ScoreCard({
           value: score.paths ? formatPercent(selectedCoverage) : formatScore(null),
           meta: score.paths
             ? "Covered-walkway ratio"
-            : scoredMeta(score.subscores.rain ?? score.subscores.heat, "40% locked shelter exposure", "Shelter-map walk unavailable"),
+            : scoredMeta(score.subscores.rain ?? score.subscores.heat, "40% of score: rain and heat", "Shelter-map walk unavailable"),
           notes: [
-            "In this locked release, shelter exposure and the heat estimate share mostly the same covered-walkway evidence.",
-            "Heat also includes sparse nearby greenery, so SHIOK shows covered-walkway ratio first.",
+            "Covered-walkway ratio drives both the rain and heat subscores — a more sheltered walk raises both signals at once.",
+            "Heat layers in sparse nearby greenery on top, but covered-walkway ratio dominates both; SHIOK leads with the ratio.",
             heatMatchesRain,
             heatEvidenceDetail,
           ].filter((note): note is string => Boolean(note)),
@@ -1468,18 +1468,18 @@ export function ScoreCard({
           id: "access",
           label: "Walk to stop or exit",
           value: score.paths ? formatDistance(selectedDistance) : formatScore(score.subscores.access),
-          meta: scoredMeta(score.subscores.access, "35% locked stop/exit walk", "Stop/exit walk score unavailable"),
-          notes: [`${selectedWalkSentenceLabel} distance to ${transitModeLabel(transitMode)}.`],
+          meta: scoredMeta(score.subscores.access, "35% of score: walk to transit", "Stop/exit walk score unavailable"),
+          notes: [`${selectedWalkSentenceLabel} distance to ${transitModeLabel(transitMode)} — the single largest factor in the locked score.`],
         },
         {
           id: "bus",
           label: "Bus service support",
           value: formatScore(score.subscores.bus),
-          meta: scoredMeta(score.subscores.bus, "20% locked bus support", "Bus support unavailable"),
+          meta: scoredMeta(score.subscores.bus, "20% of score: bus access", "Bus support unavailable"),
           notes: [
-            "A low value can mean weak service evidence, or that the published shelter-map walk does not show access to an official LTA bus stop.",
+            "A low bus score points to either weak nearby service or a shelter-map walk that bypasses official LTA bus stops.",
             busFallback
-              ? `${busFallbackSummary(busFallback)} Straight-line bus estimate is shown separately; no verified shelter-map walk to an official LTA bus stop is published, so the locked bus score remains 0.`
+              ? `${busFallbackSummary(busFallback)} A straight-line bus estimate is shown instead — no verified shelter-map walk to an official LTA bus stop is published, so the locked bus score stays at 0.`
               : null,
           ].filter((note): note is string => Boolean(note)),
         },
@@ -1487,10 +1487,10 @@ export function ScoreCard({
           id: "locked-score",
           label: "Locked SHIOK score",
           value: formatLockedScore(displayScore),
-          meta: scoredMeta(displayScore, "Locked score for sorting", "Locked score unavailable"),
+          meta: scoredMeta(displayScore, "For comparing and sorting postals", "Locked score unavailable"),
           notes: [
-            "Start with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map data.",
-            "Crossing friction still contributes 5% to the locked score, but has low separation in this release.",
+            "Lead with covered-walkway ratio and exposed gaps for the real picture — the locked score is for sorting and comparing postals, not precision measurement.",
+            "Crossing friction adds 5% to the score but contributes little differentiation between postals in this release — treat it as a minor tiebreaker.",
           ],
         },
       ]
@@ -1502,7 +1502,7 @@ export function ScoreCard({
             value: formatPercent(selectedCoverage),
             meta: "Covered-walkway ratio",
             notes: [
-              "Shelter-map walk evidence is shown because a connected shelter-map walk exists, but the locked score is not published beyond the 1.2 km transit range.",
+              "A connected shelter-map walk exists for this postal, so walk evidence is shown — but this address is beyond the 1.2 km locked range, so no locked score is published.",
               heatEvidenceDetail,
             ].filter((note): note is string => Boolean(note)),
           },
@@ -1511,21 +1511,21 @@ export function ScoreCard({
             label: "Walk to stop or exit",
             value: formatDistance(selectedDistance),
             meta: "Beyond 1.2 km locked range",
-            notes: [`${selectedWalkSentenceLabel} distance to ${transitModeLabel(transitMode)}.`],
+            notes: [`${selectedWalkSentenceLabel} distance to ${transitModeLabel(transitMode)}, though no locked score applies at this range.`],
           },
           {
             id: "bus",
             label: "Bus service support",
             value: formatScore(null),
-            meta: "Bus support not computed",
-            notes: ["Bus service support is not computed for addresses outside the locked 1.2 km transit range."],
+            meta: "Bus score: beyond locked range",
+            notes: ["Bus service support is not scored beyond the locked 1.2 km transit range — use the walk evidence and coverage ratio instead."],
           },
           {
             id: "locked-score",
             label: "Locked SHIOK score",
             value: formatLockedScore(displayScore),
             meta: "Locked score unavailable",
-            notes: ["No full locked score is published for this postal, but the shelter-map walk evidence remains inspectable."],
+            notes: ["This postal is beyond the locked 1.2 km transit range, so no locked score is published — but the shelter-map walk evidence remains available to inspect."],
           },
         ]
     : [];
