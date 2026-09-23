@@ -5014,3 +5014,23 @@ Evidence:qa/revamp-r1/ship-continuation-20260915/interaction-01/postflight.json.
 2026-09-17 - Building-height data source decision for shadow/shelter research:
 
 The owner approved using URA's Building Height Control layer (data.gov.sg, `d_0720d955bce304046d173d9e2a309652` for Master Plan 2025, GeoJSON, free forever under the Open Data Licence, same ingestion pattern already used for other data.gov.sg sources in this pipeline) as the building-height proxy for a future shadow/shelter feature, having confirmed via web research that Singapore has no free as-built LiDAR/3D building survey (OneMap's own 3D viewer has shadow analysis, but that dataset is not confirmed downloadable/free at full-island scale). The height-control layer gives per-zone permitted maximum height as either `NUMBER OF STOREYS` or a direct metres value (`HT_CTL_TYP: "METRES BASED ON SHD"`, e.g. `36m SHD`), not an as-built survey. URA's published floor-to-floor standard (1st storey 5.0m, other storeys 3.6m, top storey 3.6-5.0m depending on GPR) converts storey counts to an approximate metre height. This is a permitted-height proxy, not measured building height; error is expected for older/shorter buildings built below their zone's current permitted cap. Combined with the existing free Master Plan Building footprint layer and a free pure-Python solar-position library (pysolar or pvlib, both offline/no-API), this makes 2.5D shadow-casting technically buildable at $0, but remains unimplemented; estimated 1-2 months of engineering, gated on tree-canopy geometry (NParks currently only publishes species/LAI tables, not crown polygons) and void-deck geometry (no dataset found; existing `covered_linkway` may already capture some void-deck paths and should be checked before assuming new data is needed). No code, pipeline stage, or scoring formula has been implemented for this yet; this decision only fixes the data-source approach for when that work starts. This is a research/decision-log entry only; it does not score, export, mutate public data, protected QA evidence, deployment, or locked weights.
+
+
+2026-09-23 - Fixed the CLI-deploy storage bypass in .vercelignore (both root and
+web/): removed the `!public/data/generated_20260805_prefer_scored_routed/`
+un-ignore rule that had caused `vercel deploy` (CLI) to bundle 5.25GB three
+separate times, driving the earlier Vercel Hobby-tier 10GB storage incident.
+Verified before changing: this folder (and all sibling generated_* folders,
+15.55GB total across 6 folders) is fully gitignored and zero files are
+git-tracked, so this had zero effect on normal git-push deploys -- Vercel's
+git integration builds from the git tree and never saw these files either
+way. The bypass only mattered for local CLI deploys. First attempt at this
+fix accidentally deleted the blanket `generated_*/` exclusion line along with
+the bypass, which would have exposed all 15.55GB instead of just 5.25GB to a
+future CLI deploy -- caught this before committing by checking actual folder
+sizes, and corrected it to keep the blanket exclusion while only removing the
+un-ignore lines. No data files touched (nothing moved/deleted), no app code
+touched (home.tsx has unrelated in-progress edits from another session,
+left alone), and no interference with the active pipeline.score_batch rescore
+process (PID observed with ~3.9h accumulated CPU time, operates on a separate
+processed/postal_universe path, unrelated to this ignore-file change).
