@@ -5099,3 +5099,22 @@ Confirmed `pipeline.score_batch --help` lists `--no-resume` as an explicit opt-o
 Owner requested a pause. Confirmed real progress first: chunks are fixed-size (500 records each, verified by reading several chunk files directly), so 77 chunks = 38,500 of 123,967 READY_TO_SCORE records, ~31% complete; expected total ~248 chunks. Paused cleanly: stopped the full process tree (`powershell.exe` 103256 running `tmp/full-rescore-resume-20260921.ps1` -> venv `python.exe` 101832 -> worker `python.exe` 104232) via `Stop-Process -Force` on each PID in order. Verified no corruption: chunk count stayed at 77 after stopping, and the last chunk file's size was unchanged before/after (117,510,278 bytes) -- confirming the stop happened cleanly without truncating an in-flight write. Logged `[STAGE 2 PAUSED BY OWNER]` in `rescore.log`.
 
 Resuming later is the same procedure already proven safe by the 2026-09-21 crash-recovery: re-run `tmp/full-rescore-resume-20260921.ps1` (or a fresh copy), resume-by-default picks up from chunk 78 onward, no data loss beyond whichever single chunk was in-flight (not yet written) at the moment of the stop. This does not score, export, publish, mutate frozen v1, or alter locked weights.
+
+2026-09-23 - Fixed the CLI-deploy storage bypass in .vercelignore (both root and
+web/): removed the `!public/data/generated_20260805_prefer_scored_routed/`
+un-ignore rule that had caused `vercel deploy` (CLI) to bundle 5.25GB three
+separate times, driving the earlier Vercel Hobby-tier 10GB storage incident.
+Verified before changing: this folder (and all sibling generated_* folders,
+15.55GB total across 6 folders) is fully gitignored and zero files are
+git-tracked, so this had zero effect on normal git-push deploys -- Vercel's
+git integration builds from the git tree and never saw these files either
+way. The bypass only mattered for local CLI deploys. First attempt at this
+fix accidentally deleted the blanket `generated_*/` exclusion line along with
+the bypass, which would have exposed all 15.55GB instead of just 5.25GB to a
+future CLI deploy -- caught this before committing by checking actual folder
+sizes, and corrected it to keep the blanket exclusion while only removing the
+un-ignore lines. No data files touched (nothing moved/deleted), no app code
+touched (home.tsx has unrelated in-progress edits from another session,
+left alone), and no interference with the active pipeline.score_batch rescore
+process (PID observed with ~3.9h accumulated CPU time, operates on a separate
+processed/postal_universe path, unrelated to this ignore-file change).
