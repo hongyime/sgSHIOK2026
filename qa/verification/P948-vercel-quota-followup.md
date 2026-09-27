@@ -4,7 +4,7 @@
 
 ```text
 pwd=C:\sgSHIOK2026
-hostname=PRAWN-E14
+hostname=dev-host-2.example
 ```
 
 ## Runtime Logs By Request Path

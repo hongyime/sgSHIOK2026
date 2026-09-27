@@ -4,7 +4,7 @@
 
 ```text
 ROOT=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 HEAD=8eadec4354f2769feac9f993152c470f9bebe323
 REMOTE_MAIN=8eadec4354f2769feac9f993152c470f9bebe323	refs/heads/main
 STATUS_START

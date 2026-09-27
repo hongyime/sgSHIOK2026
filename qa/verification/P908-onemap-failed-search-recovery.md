@@ -10,7 +10,7 @@ Change the generic OneMap address-search failure fallback from `Failed to search
 
 ```text
 PWD=C:\sgSHIOK2026
-HOST=Prawn-E14
+HOST=dev-host-2.example
 HEAD=f3ecb78711780378231631f259ee4bb09cc2ad18
 REMOTE=f3ecb78711780378231631f259ee4bb09cc2ad18	refs/heads/main
 ```

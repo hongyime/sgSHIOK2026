@@ -1,14 +1,14 @@
 # P517 geospatial action output
 
 Working root: C:\sgSHIOK2026
-Host: Prawn-E14
+Host: dev-host-2.example
 Date: 2026-08-22
 
 ## Guard
 
 ```text
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 a62f5c2419ce18dd31fc634905b9f706df25a471
 a62f5c2419ce18dd31fc634905b9f706df25a471	refs/heads/main
 ```

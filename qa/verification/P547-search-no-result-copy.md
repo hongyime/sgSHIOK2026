@@ -1,14 +1,14 @@
 # P547 Search No-Result Copy
 
 Date: 2026-08-22
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 Working root: C:\sgSHIOK2026
 
 ## Startup Guard
 
 ```text
 root=C:\sgSHIOK2026
-host=PRAWN-E14
+host=dev-host-2.example
 ca416d37f70ae8dd8d6fa95a1e1fa5959c5ddd9b
 ```
 

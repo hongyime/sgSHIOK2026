@@ -1,14 +1,14 @@
 # P549 Shelter-Map Terminology
 
 Date: 2026-08-22
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 Working root: C:\sgSHIOK2026
 
 ## Startup Guard
 
 ```text
 root=C:\sgSHIOK2026
-host=PRAWN-E14
+host=dev-host-2.example
 7aa1f05fe02c439adf5bb59937344f376d64a014
 ```
 

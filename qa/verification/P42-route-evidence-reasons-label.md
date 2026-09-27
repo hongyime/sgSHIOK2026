@@ -4,7 +4,7 @@
 
 ```powershell
 ROOT=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 6aca6a8b6e11f1a29edd223c463c5fadf0e080bf
 6aca6a8b6e11f1a29edd223c463c5fadf0e080bf	refs/heads/main
 ?? qa/p10_network_provenance_20260813/
@@ -55,7 +55,7 @@ index bf6c9c0..983d5ee 100644
 +Task: P42 route evidence reasons label is implemented and ready to hand back.
  
  Working root: `C:\sgSHIOK2026`
- Machine: `Prawn-E14`
+ Machine: `dev-host-2.example`
 -Remote main: `b3609b9` at P41 task start.
 +Remote main: `6aca6a8` at P42 task start.
  

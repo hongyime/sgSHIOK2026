@@ -10,7 +10,7 @@ Change the unavailable access-row meta from `Walk-to-transit score unavailable` 
 
 ```text
 PWD=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 39a9a3397dcd4516800f999a9d8cbc144fce9935
 39a9a3397dcd4516800f999a9d8cbc144fce9935	refs/heads/main
 ```

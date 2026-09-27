@@ -1,7 +1,7 @@
 # P564 Walk Exposure Aria Label
 
 Working root: C:\sgSHIOK2026
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 
 ## Scope
 
@@ -11,7 +11,7 @@ Rename the exposure hero's non-visual label from `Walk shelter evidence` to `Wal
 
 ```text
 cwd=C:\sgSHIOK2026
-hostname=PRAWN-E14
+hostname=dev-host-2.example
 ```
 
 ## Focused Web Test

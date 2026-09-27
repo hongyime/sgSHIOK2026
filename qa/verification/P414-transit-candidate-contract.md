@@ -1,7 +1,7 @@
 # P414 transit candidate contract
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 
 ## Scope
 
@@ -11,7 +11,7 @@ Source-contract wording and test coverage only. No scoring, export, rescore, sub
 
 ```text
 ROOT=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 ```
 
 ```text

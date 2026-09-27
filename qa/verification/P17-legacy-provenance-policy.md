@@ -4,7 +4,7 @@ Date: 2026-08-16
 
 Working root: `C:\sgSHIOK2026`
 
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 
 ## Scope
 
@@ -22,7 +22,7 @@ No scoring, export, rescore, subset run, ingest, or network build was run.
 ## Startup Root
 
 ```text
-Prawn-E14
+dev-host-2.example
 C:\sgSHIOK2026
 ```
 

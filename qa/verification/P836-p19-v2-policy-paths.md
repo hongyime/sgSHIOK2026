@@ -1,7 +1,7 @@
 # P836 P19 v2 Policy Paths
 
 Working root: `C:\sgSHIOK2026`
-Machine: `PRAWN-E14`
+Machine: `dev-host-2.example`
 
 ## Evidence Path Ignore Check
 

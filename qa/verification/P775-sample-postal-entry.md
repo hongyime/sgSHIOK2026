@@ -1,7 +1,7 @@
 # P775 sample postal entry
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 
 ## Scope
 

@@ -2,7 +2,7 @@
 
 Date: 2026-08-28
 Working root: C:\sgSHIOK2026
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 
 No scoring, export, rescore, subset run, ingest, network build, upstream probe, public-data write, protected QA mutation, deployment, or locked-weight change was performed.
 
@@ -10,7 +10,7 @@ No scoring, export, rescore, subset run, ingest, network build, upstream probe, 
 
 ```text
 cwd=C:\sgSHIOK2026
-hostname=PRAWN-E14
+hostname=dev-host-2.example
 ```
 
 ## Change

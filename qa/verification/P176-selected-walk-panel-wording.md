@@ -4,7 +4,7 @@
 
 ```text
 root=C:\sgSHIOK2026
-host=Prawn-E14
+host=dev-host-2.example
 objective_read=ok
 git=ok
 2783590652177095ff955dc0cd85aabb1d61b40d

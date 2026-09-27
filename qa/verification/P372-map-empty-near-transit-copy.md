@@ -4,7 +4,7 @@
 
 ```text
 PWD=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 ```
 
 ## Change diff

@@ -4,7 +4,7 @@
 
 ```text
 root=C:\sgSHIOK2026
-host=Prawn-E14
+host=dev-host-2.example
 objective_read=ok
 git=ok
 afa958ee73fe91f6fa8fd36309f9598309ac9744
@@ -20,7 +20,7 @@ Production readiness now reports the expected score-affecting source hash keys, 
 ```text
 ____ test_bundle_score_provenance_reports_real_live_bundle_shape_as_legacy ____
 
-tmp_path = WindowsPath('C:/Users/bryan/AppData/Local/Temp/pytest-of-bryan/pytest-2597/test_bundle_score_provenance_r0')
+tmp_path = WindowsPath('<user-home>/AppData/Local/Temp/pytest-of-user/pytest-2597/test_bundle_score_provenance_r0')
 
     def test_bundle_score_provenance_reports_real_live_bundle_shape_as_legacy(
         tmp_path: Path,

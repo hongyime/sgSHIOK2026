@@ -1,7 +1,7 @@
 # P860 Locked Scoring Rule Copy
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 
 ## Scope
 
@@ -18,7 +18,7 @@ Path
 ----
 C:\sgSHIOK2026
 
-Prawn-E14
+dev-host-2.example
 b3e92b6f25760b3f2a082f81ad12d20fbba8bf37
 b3e92b6f25760b3f2a082f81ad12d20fbba8bf37	refs/heads/main
 ```

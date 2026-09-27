@@ -2,7 +2,7 @@
 
 Date: 2026-08-28
 Working root: C:\sgSHIOK2026
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 
 No scoring, export, rescore, subset run, ingest, network build, upstream probe, public-data write, protected QA mutation, deployment, or locked-weight change was performed.
 
@@ -10,7 +10,7 @@ No scoring, export, rescore, subset run, ingest, network build, upstream probe, 
 
 ```text
 cwd=C:\sgSHIOK2026
-hostname=PRAWN-E14
+hostname=dev-host-2.example
 ```
 
 ## Scope
@@ -34,7 +34,7 @@ F..                                                                      [100%]
 ================================== FAILURES ===================================
 _______ test_export_static_artifacts_preserves_no_transit_walk_evidence _______
 
-tmp_path = WindowsPath('C:/Users/bryan/AppData/Local/Temp/pytest-of-bryan/pytest-2922/test_export_static_artifacts_p0')
+tmp_path = WindowsPath('<user-home>/AppData/Local/Temp/pytest-of-user/pytest-2922/test_export_static_artifacts_p0')
 
     def test_export_static_artifacts_preserves_no_transit_walk_evidence(tmp_path: Path):
         export_static_artifacts([no_transit_walk_evidence_record("560235")], output_dir=tmp_path)

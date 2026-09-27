@@ -3,7 +3,7 @@
 ## Scope
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 
 Change: sort structured stale freshness sources by days past stale and expose the most-overdue source directly.
 
@@ -20,7 +20,7 @@ Hard limits observed:
 
 ```text
 root=C:\sgSHIOK2026
-host=PRAWN-E14
+host=dev-host-2.example
 ```
 
 ### git check-ignore -v qa/verification/P541-prioritized-stale-freshness.md

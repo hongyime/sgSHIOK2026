@@ -1,14 +1,14 @@
 # P526 Geocode universe versioned output guard
 
 Working root: C:\sgSHIOK2026
-Host: Prawn-E14
+Host: dev-host-2.example
 Date: 2026-08-22
 
 ## Guard
 
 ```text
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 e8fed5ae4a1ec6196d0d478f9305d2a1ecadc306
 e8fed5ae4a1ec6196d0d478f9305d2a1ecadc306	refs/heads/main
 ```

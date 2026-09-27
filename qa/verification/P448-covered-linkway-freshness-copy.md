@@ -1,7 +1,7 @@
 # P448 Covered Linkway Freshness Copy
 
 Working root: C:\sgSHIOK2026
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 Date: 2026-08-21
 
 ## Scope
@@ -16,7 +16,7 @@ The freshness policy already treats LTA geospatial files such as Covered Linkway
 
 ```text
 ROOT=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 HEAD=e406213ef16c82880b5ca5a1766925df284dbfe0
 ORIGIN_MAIN=e406213ef16c82880b5ca5a1766925df284dbfe0	refs/heads/main
 ```

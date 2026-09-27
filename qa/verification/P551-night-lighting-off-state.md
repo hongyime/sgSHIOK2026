@@ -1,14 +1,14 @@
 # P551 Night Lighting Off-State Copy
 
 Date: 2026-08-22
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 Working root: C:\sgSHIOK2026
 
 ## Startup Guard
 
 ```text
 root=C:\sgSHIOK2026
-host=PRAWN-E14
+host=dev-host-2.example
 552579b5f04b4aa078b1e4264376159c99309a5d
 ```
 

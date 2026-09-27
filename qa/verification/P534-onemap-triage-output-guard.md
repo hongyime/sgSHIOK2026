@@ -3,7 +3,7 @@
 ## Scope
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 
 Guarded command surface: `scripts/triage_onemap_outliers.py`.
 
@@ -19,7 +19,7 @@ Hard limits observed:
 
 ```text
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 ef86a8d02619a0b1b0a98d794cc0da8a1eef4a49
 ef86a8d02619a0b1b0a98d794cc0da8a1eef4a49	refs/heads/main
 ?? qa/p10_network_provenance_20260813/

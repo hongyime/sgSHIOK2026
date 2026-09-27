@@ -1,14 +1,14 @@
 # P515 freshness help refresh boundary
 
 Working root: C:\sgSHIOK2026
-Host: Prawn-E14
+Host: dev-host-2.example
 Date: 2026-08-22
 
 ## Guard
 
 ```text
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 6e1ff0600933ec5e0c979a2454c634d9e5f429f9
 6e1ff0600933ec5e0c979a2454c634d9e5f429f9	refs/heads/main
 ```

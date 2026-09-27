@@ -9,7 +9,7 @@ Path
 ----
 C:\sgSHIOK2026
 
-Prawn-E14
+dev-host-2.example
 a22d472c41bdbe63aea6f2b0f0ab8aa38d64ae08
 a22d472c41bdbe63aea6f2b0f0ab8aa38d64ae08	refs/heads/main
 ?? qa/p10_network_provenance_20260813/

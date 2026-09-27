@@ -3,7 +3,7 @@
 ## Scope
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 
 New command: `uv run python run.py universe-status`.
 
@@ -20,7 +20,7 @@ Hard limits observed:
 
 ```text
 root=C:\sgSHIOK2026
-host=PRAWN-E14
+host=dev-host-2.example
 ```
 
 ### git check-ignore -v qa/verification/P535-universe-status.md

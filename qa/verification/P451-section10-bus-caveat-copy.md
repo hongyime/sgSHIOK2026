@@ -1,7 +1,7 @@
 # P451 Section 10 Bus Caveat Copy
 
 Working root: C:\sgSHIOK2026
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 Date: 2026-08-21
 
 ## Scope
@@ -16,7 +16,7 @@ The shipped browser copy says a low bus value can mean weak service evidence or 
 
 ```text
 ROOT=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 HEAD=69a63c07ce4b2c4513b6ddd816d93f39cf3743a2
 ORIGIN_MAIN=69a63c07ce4b2c4513b6ddd816d93f39cf3743a2	refs/heads/main
 ```

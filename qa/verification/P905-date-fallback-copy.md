@@ -10,7 +10,7 @@ Change title-card source/evidence date fallbacks from `Unavailable` to `Date una
 
 ```text
 PWD=C:\sgSHIOK2026
-HOST=Prawn-E14
+HOST=dev-host-2.example
 HEAD=6a0bfb5a5df4627e656be97611e0a9078e2d444c
 REMOTE=6a0bfb5a5df4627e656be97611e0a9078e2d444c	refs/heads/main
 ```

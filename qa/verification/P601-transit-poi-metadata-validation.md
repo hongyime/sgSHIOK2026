@@ -8,7 +8,7 @@ Free-tier static export validator change only. No scoring, export CLI run, resco
 
 ```text
 cwd=C:\sgSHIOK2026
-hostname=PRAWN-E14
+hostname=dev-host-2.example
 ```
 
 ## Read-Only Public Artifact Check

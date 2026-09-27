@@ -1,7 +1,7 @@
 # P1012 Vercel Edge Request live triage
 
 Working root: C:\sgSHIOK2026
-Machine: Prawn-E14
+Machine: dev-host-2.example
 Date: 2026-08-30
 
 ## Scope
@@ -11,7 +11,7 @@ Read-only Vercel connector checks only. No deployment, project-setting mutation,
 ## Command Output
 
 ```text
-Prawn-E14
+dev-host-2.example
 C:\sgSHIOK2026
 23fa7fc3a12e25e210b0a4d76aa381e492bd8b0d
 23fa7fc3a12e25e210b0a4d76aa381e492bd8b0d	refs/heads/main

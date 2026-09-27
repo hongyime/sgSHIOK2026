@@ -2,7 +2,7 @@
 
 Date: 2026-08-29
 Working root: `C:\sgSHIOK2026`
-Machine: `PRAWN-E14`
+Machine: `dev-host-2.example`
 
 ## Symptom Contract
 
@@ -16,7 +16,7 @@ Scope: free-tier reporting only. No scoring, export, rescore, subset run, ingest
 
 ```text
 root=C:\sgSHIOK2026
-host=PRAWN-E14
+host=dev-host-2.example
 5cd69d98318d48207287af1dd254d19a8c74f514
 5cd69d98318d48207287af1dd254d19a8c74f514	refs/heads/main
 ```

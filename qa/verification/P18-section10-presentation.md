@@ -5,7 +5,7 @@ Date: 2026-08-16
 Working root and host:
 
 ```text
-PRAWN-E14
+dev-host-2.example
 C:\sgSHIOK2026
 ```
 

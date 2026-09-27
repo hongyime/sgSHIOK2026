@@ -1,7 +1,7 @@
 # P231 Source Config Product Name
 
 Working root: C:\sgSHIOK2026
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 Date: 2026-08-21
 
 ## Scope
@@ -12,7 +12,7 @@ No scoring, export, rescore, subset run, ingest, network build, deployment, publ
 
 ```text
 root=C:\sgSHIOK2026
-host=PRAWN-E14
+host=dev-host-2.example
 ```
 
 ```text

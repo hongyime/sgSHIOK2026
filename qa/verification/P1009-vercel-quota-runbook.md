@@ -1,7 +1,7 @@
 # P1009 Vercel Quota Runbook
 
 Working root: C:\sgSHIOK2026
-Machine: Prawn-E14
+Machine: dev-host-2.example
 
 ## Command Output
 

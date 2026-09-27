@@ -1,7 +1,7 @@
 # P963 Partial Score Copy
 
 Working root: C:\sgSHIOK2026
-Machine: Prawn-E14
+Machine: dev-host-2.example
 
 ## Intent
 

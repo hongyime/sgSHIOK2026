@@ -4,7 +4,7 @@
 
 ```text
 root=C:\sgSHIOK2026
-host=PRAWN-E14
+host=dev-host-2.example
 d6bdb5736c4861c28785704c1a565264a99f9a8c
  M web/app/page.tsx
  M web/lib/__tests__/accessibility-render.test.tsx

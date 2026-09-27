@@ -1,7 +1,7 @@
 # P962 Sorting Score Copy
 
 Working root: C:\sgSHIOK2026
-Machine: Prawn-E14
+Machine: dev-host-2.example
 
 ## Intent
 

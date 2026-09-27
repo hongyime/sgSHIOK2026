@@ -1,7 +1,7 @@
 # P71 batch-plan API environment readiness
 
 Date: 2026-08-20
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 Working root: C:\sgSHIOK2026
 
 ## Scope
@@ -13,7 +13,7 @@ No scoring, export, rescore, subset run, ingest, network build, input rebuild, A
 
 ```text
 PWD=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 ```
 
 ## Pre-fix discrepancy

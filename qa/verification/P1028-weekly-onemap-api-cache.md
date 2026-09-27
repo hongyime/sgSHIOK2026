@@ -3,7 +3,7 @@
 ## Guard
 
 ```text
-Prawn-E14
+dev-host-2.example
 C:\sgSHIOK2026
 568482e40df30cfbe173dbed55f3bb025a2827c3
 568482e40df30cfbe173dbed55f3bb025a2827c3	refs/heads/main

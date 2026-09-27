@@ -7,9 +7,10 @@ $ErrorActionPreference = "Stop"
 $RepoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
 $WebDir = Join-Path $RepoRoot "web"
 $PackageLock = Join-Path $WebDir "package-lock.json"
+$BinSuffix = if ($env:OS -eq "Windows_NT") { ".cmd" } else { "" }
 $RequiredBins = @(
-    (Join-Path $WebDir "node_modules\.bin\vitest.cmd"),
-    (Join-Path $WebDir "node_modules\.bin\next.cmd")
+    (Join-Path $WebDir "node_modules/.bin/vitest$BinSuffix"),
+    (Join-Path $WebDir "node_modules/.bin/next$BinSuffix")
 )
 
 if (-not (Test-Path $PackageLock)) {
@@ -28,7 +29,7 @@ if ($Force -or $Missing.Count -gt 0) {
     if ($Missing.Count -gt 0) {
         Write-Output "missing=$($Missing -join ',')"
     }
-    npm --prefix web ci
+    npm --prefix $WebDir ci
     if ($LASTEXITCODE -ne 0) {
         throw "npm ci failed with exit=$LASTEXITCODE"
     }

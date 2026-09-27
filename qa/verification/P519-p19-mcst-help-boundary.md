@@ -1,14 +1,14 @@
 # P519 P19 MCST help boundary
 
 Working root: C:\sgSHIOK2026
-Host: Prawn-E14
+Host: dev-host-2.example
 Date: 2026-08-22
 
 ## Guard
 
 ```text
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 67ba54b1b2451931057d58d040209210a47c99af
 67ba54b1b2451931057d58d040209210a47c99af	refs/heads/main
 ```

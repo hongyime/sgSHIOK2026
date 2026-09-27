@@ -4,7 +4,7 @@
 
 ```text
 pwd=C:\sgSHIOK2026
-host=PRAWN-E14
+host=dev-host-2.example
 ```
 
 ## Focused tests

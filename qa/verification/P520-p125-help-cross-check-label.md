@@ -1,14 +1,14 @@
 # P520 P125 help cross-check label
 
 Working root: C:\sgSHIOK2026
-Host: Prawn-E14
+Host: dev-host-2.example
 Date: 2026-08-22
 
 ## Guard
 
 ```text
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 b536ebd0df671ed0f235cecb1d3946e8e0f1957c
 b536ebd0df671ed0f235cecb1d3946e8e0f1957c	refs/heads/main
 ```

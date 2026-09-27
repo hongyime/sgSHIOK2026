@@ -1,7 +1,7 @@
 # P1011 non-user crawler robots block
 
 Working root: C:\sgSHIOK2026
-Machine: Prawn-E14
+Machine: dev-host-2.example
 Date: 2026-08-30
 
 ## Scope
@@ -15,7 +15,7 @@ Broadened `web/app/robots.ts` crawler disallow list from the three existing trai
 ## Command Output
 
 ```text
-Prawn-E14
+dev-host-2.example
 C:\sgSHIOK2026
 4fa553da2672a75859d1053013d4a09f5f27c754
 ```

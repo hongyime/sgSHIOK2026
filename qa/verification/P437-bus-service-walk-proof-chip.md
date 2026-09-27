@@ -2,13 +2,13 @@
 
 Date: 2026-08-21
 Working root: C:\sgSHIOK2026
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 
 ## Guard
 
 ```text
 ROOT=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 ```
 
 No scoring, export, rescore, subset run, ingest, network build, deploy, or public data write was run.

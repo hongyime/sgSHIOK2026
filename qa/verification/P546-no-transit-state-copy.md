@@ -2,7 +2,7 @@
 
 Date: 2026-08-22
 Working root: C:\sgSHIOK2026
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 
 ## Scope
 
@@ -12,7 +12,7 @@ Free-tier web/test/docs work only. No scoring, export, rescore, subset run, inge
 
 ```text
 root=C:\sgSHIOK2026
-host=PRAWN-E14
+host=dev-host-2.example
 2a3ddd579329116bc73bd6b67d301df0b8ab7f11
 ?? qa/p10_network_provenance_20260813/
 ?? qa/p11/d_calibration_w2_0050/

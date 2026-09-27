@@ -1,7 +1,7 @@
 # P866 Missing Score Factor Copy
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 
 ## Scope
 
@@ -18,7 +18,7 @@ Path
 ----
 C:\sgSHIOK2026
 
-Prawn-E14
+dev-host-2.example
 42a25e065e003bbc3de8e424f1e569b8e032395d
 42a25e065e003bbc3de8e424f1e569b8e032395d	refs/heads/main
 ```

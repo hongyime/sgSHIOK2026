@@ -10,7 +10,7 @@ Change the sample-search prompt from `Need a quick look?` to `Try a known addres
 
 ```text
 PWD=C:\sgSHIOK2026
-HOST=Prawn-E14
+HOST=dev-host-2.example
 HEAD=445e8cd6bce5dfb2a6facd3a95b5525b900a31e8
 REMOTE=445e8cd6bce5dfb2a6facd3a95b5525b900a31e8	refs/heads/main
 ```

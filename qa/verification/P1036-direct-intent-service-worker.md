@@ -7,7 +7,7 @@ Path
 ----
 C:\sgSHIOK2026
 
-Prawn-E14
+dev-host-2.example
 0d0caad58868ba76c12a51e829ff5d4acb46e0e3
 ```
 

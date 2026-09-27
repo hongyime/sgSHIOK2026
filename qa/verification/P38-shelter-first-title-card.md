@@ -4,7 +4,7 @@
 
 ```powershell
 ROOT=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 99259761ff9563fbd917a5e4ff533747e9f88b7f
 99259761ff9563fbd917a5e4ff533747e9f88b7f	refs/heads/main
 ?? qa/p10_network_provenance_20260813/
@@ -47,7 +47,7 @@ index 7f7dcd9..7ceb7df 100644
 +Task: P38 shelter-first title-card copy is implemented and ready to hand back.
  
  Working root: `C:\sgSHIOK2026`
- Machine: `Prawn-E14`
+ Machine: `dev-host-2.example`
 -Remote main: `0865fb6` at P37 task start.
 +Remote main: `9925976` at P38 task start.
  

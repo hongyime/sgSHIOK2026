@@ -1,7 +1,7 @@
 # P1014 published-walk transit copy
 
 Working root: C:\sgSHIOK2026
-Machine: Prawn-E14
+Machine: dev-host-2.example
 Date: 2026-08-30
 
 ## Scope
@@ -11,7 +11,7 @@ Web copy and tests only. No scoring, export, rescore, subset run, ingest, networ
 ## Command Output
 
 ```text
-Prawn-E14
+dev-host-2.example
 C:\sgSHIOK2026
 f6367a74dc3e874ef550202ec2be8029d10ece0c
 f6367a74dc3e874ef550202ec2be8029d10ece0c	refs/heads/main

@@ -3,7 +3,7 @@
 ## Scope
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 
 Change: include days until stale in the shared oldest-current freshness summary used by `run.py check --freshness-only` and production readiness.
 
@@ -20,7 +20,7 @@ Hard limits observed:
 
 ```text
 root=C:\sgSHIOK2026
-host=PRAWN-E14
+host=dev-host-2.example
 ```
 
 ### git check-ignore -v qa/verification/P538-freshness-summary.md

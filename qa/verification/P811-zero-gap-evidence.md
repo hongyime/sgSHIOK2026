@@ -1,7 +1,7 @@
 # P811 Zero-Gap Evidence State
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 Date: 2026-08-29
 
 ## Scope
@@ -14,7 +14,7 @@ No scoring, export, rescore, subset run, ingest, network build, public-data muta
 
 ```text
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 ```
 
 ## Finding

@@ -8,7 +8,7 @@ Free-tier browser copy/test change only. No scoring, export, rescore, ingest, ne
 
 ```text
 cwd=C:\sgSHIOK2026
-hostname=PRAWN-E14
+hostname=dev-host-2.example
 ```
 
 ## Change

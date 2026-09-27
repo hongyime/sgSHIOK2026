@@ -1,7 +1,7 @@
 # P565 Planning-Area Rank Labels
 
 Working root: C:\sgSHIOK2026
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 
 ## Scope
 

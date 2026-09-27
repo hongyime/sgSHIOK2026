@@ -3,7 +3,7 @@
 ## Scope
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 
 Guarded command surface: `scripts/audit_current_bundle.py`.
 
@@ -19,7 +19,7 @@ Hard limits observed:
 
 ```text
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 75dd3bd9348d345fe33fda04cf7845db84141b29
 75dd3bd9348d345fe33fda04cf7845db84141b29	refs/heads/main
 ?? qa/p10_network_provenance_20260813/

@@ -4,7 +4,7 @@
 
 ```powershell
 ROOT=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 b3609b9397616b6ffdc53d02744dd4e51403be93
 b3609b9397616b6ffdc53d02744dd4e51403be93	refs/heads/main
 ?? qa/p10_network_provenance_20260813/
@@ -55,7 +55,7 @@ index 9976d75..bf6c9c0 100644
 +Task: P41 browser smoke route-evidence selector is implemented and ready to hand back.
  
  Working root: `C:\sgSHIOK2026`
- Machine: `Prawn-E14`
+ Machine: `dev-host-2.example`
 -Remote main: `6b1816d` at P40 task start.
 +Remote main: `b3609b9` at P41 task start.
  

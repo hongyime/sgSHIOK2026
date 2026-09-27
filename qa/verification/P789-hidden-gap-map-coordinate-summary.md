@@ -4,7 +4,7 @@
 
 ```text
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 ```
 
 ## Scope
@@ -15,7 +15,7 @@ Browser-only product copy/test change. No scoring, export, rescore, subset run, 
 
 ```text
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 8a43f0c2620bd69d54f06ff847dcd62b7f44ef42
 8a43f0c2620bd69d54f06ff847dcd62b7f44ef42	refs/heads/main
 ```

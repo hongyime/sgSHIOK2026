@@ -8,7 +8,7 @@ Free-tier web generated-bundle test change only. No scoring, export CLI run, res
 
 ```text
 cwd=C:\sgSHIOK2026
-hostname=PRAWN-E14
+hostname=dev-host-2.example
 ```
 
 ## Read-Only Public Artifact Check

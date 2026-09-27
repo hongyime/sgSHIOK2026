@@ -1,7 +1,7 @@
 # P681 UI Freshness Line 2026-08-28
 
 Date: 2026-08-28
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 Working root: C:\sgSHIOK2026
 
 Scope:

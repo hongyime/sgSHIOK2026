@@ -1,7 +1,7 @@
 # P415 outside published bundle heading
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 
 ## Scope
 
@@ -11,7 +11,7 @@ Browser copy and test coverage only. No scoring, export, rescore, subset run, in
 
 ```text
 ROOT=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 ```
 
 ```text

@@ -1,7 +1,7 @@
 # P959 Vercel Query Crawler Control
 
 Working root: C:\sgSHIOK2026
-Machine: Prawn-E14
+Machine: dev-host-2.example
 
 ## Intent
 

@@ -1,7 +1,7 @@
 # P1010 Agent Vercel Quota Boundary
 
 Working root: C:\sgSHIOK2026
-Machine: Prawn-E14
+Machine: dev-host-2.example
 
 ## Command Output
 

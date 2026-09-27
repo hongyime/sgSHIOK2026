@@ -6,7 +6,7 @@ Date: 2026-08-21
 
 ```text
 root=C:\sgSHIOK2026
-host=PRAWN-E14
+host=dev-host-2.example
 2237cd5bd3bd7231017105f7576be89203c183f7
 2237cd5bd3bd7231017105f7576be89203c183f7	refs/heads/main
 ?? qa/p10_network_provenance_20260813/

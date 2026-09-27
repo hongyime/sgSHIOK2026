@@ -8,7 +8,7 @@ Zero-pipeline browser product change. No scoring, export, rescore, subset run, i
 
 ```text
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 ```
 
 ## Change

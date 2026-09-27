@@ -12,7 +12,7 @@ Browser-smoke telemetry keys that include `_loaded` were left unchanged because 
 
 ```text
 PWD=C:\sgSHIOK2026
-HOST=Prawn-E14
+HOST=dev-host-2.example
 HEAD=7f19098ca27bbf7e09e3bb36286c6f7d27852b54
 REMOTE=7f19098ca27bbf7e09e3bb36286c6f7d27852b54	refs/heads/main
 ?? qa/p10_network_provenance_20260813/

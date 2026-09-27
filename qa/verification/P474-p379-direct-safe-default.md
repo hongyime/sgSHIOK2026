@@ -4,7 +4,7 @@ Startup guard:
 
 ```text
 C:\sgSHIOK2026
-PRAWN-E14
+dev-host-2.example
 ```
 
 Scope:

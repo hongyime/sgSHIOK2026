@@ -10,7 +10,7 @@ Change the default screen-reader shelter evidence fallback from `Shelter-map wal
 
 ```text
 PWD=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 41a3ce8e14c49eb39f45fabc84a1fd5e2afaeba9
 41a3ce8e14c49eb39f45fabc84a1fd5e2afaeba9	refs/heads/main
 ```

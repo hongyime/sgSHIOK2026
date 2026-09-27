@@ -1,7 +1,7 @@
 # P413 published bundle missing score
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 
 ## Scope
 
@@ -11,7 +11,7 @@ Browser copy and smoke-script alignment only. No scoring, export, rescore, subse
 
 ```text
 ROOT=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 ```
 
 ```text

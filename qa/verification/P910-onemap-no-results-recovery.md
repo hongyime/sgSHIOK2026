@@ -10,7 +10,7 @@ Change OneMap no-results copy to suggest another address spelling or a 6-digit p
 
 ```text
 PWD=C:\sgSHIOK2026
-HOST=Prawn-E14
+HOST=dev-host-2.example
 HEAD=2b6015ee992cda14a9422709ee686457e0f22850
 REMOTE=2b6015ee992cda14a9422709ee686457e0f22850	refs/heads/main
 ```

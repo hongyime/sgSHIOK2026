@@ -8,7 +8,7 @@ Browser copy/formatting only. No scoring, export, rescore, subset run, ingest, n
 
 ```text
 root=C:\sgSHIOK2026
-host=PRAWN-E14
+host=dev-host-2.example
 ```
 
 ## Check Ignore

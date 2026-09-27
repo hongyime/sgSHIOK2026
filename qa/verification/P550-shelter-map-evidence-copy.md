@@ -1,14 +1,14 @@
 # P550 Shelter-Map Evidence Copy
 
 Date: 2026-08-22
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 Working root: C:\sgSHIOK2026
 
 ## Startup Guard
 
 ```text
 root=C:\sgSHIOK2026
-host=PRAWN-E14
+host=dev-host-2.example
 631f2d4a946f97d2294fb220e3b36e9eba0a91d8
 ```
 

@@ -1,7 +1,7 @@
 # P864 Heat Estimate Copy
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 
 ## Scope
 
@@ -18,7 +18,7 @@ Path
 ----
 C:\sgSHIOK2026
 
-Prawn-E14
+dev-host-2.example
 7caf4e2ecb99b45abd164f81b7d21231da633340
 7caf4e2ecb99b45abd164f81b7d21231da633340	refs/heads/main
 ```

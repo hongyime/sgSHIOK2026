@@ -12,7 +12,7 @@ Output:
 
 ```text
 cwd=C:\sgSHIOK2026
-host=PRAWN-E14
+host=dev-host-2.example
 ```
 
 ## First Focused Test Run

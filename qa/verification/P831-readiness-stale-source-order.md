@@ -4,7 +4,7 @@
 
 ```text
 root=C:\sgSHIOK2026
-host=PRAWN-E14
+host=dev-host-2.example
 HEAD=e88f5a4cd32c2dc6e88e42ceb6458d7e29df6c51
 origin/main=e88f5a4cd32c2dc6e88e42ceb6458d7e29df6c51
 ```

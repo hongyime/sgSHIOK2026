@@ -1,7 +1,7 @@
 # P935 Nearby Address Aria Labels
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 
 ## Change
 

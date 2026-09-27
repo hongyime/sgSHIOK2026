@@ -1,14 +1,14 @@
 # P514 web freshness refresh boundary
 
 Working root: C:\sgSHIOK2026
-Host: Prawn-E14
+Host: dev-host-2.example
 Date: 2026-08-22
 
 ## Guard
 
 ```text
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 2b0e3d2b58762156983846e7d35aee6d6da899f7
 2b0e3d2b58762156983846e7d35aee6d6da899f7	refs/heads/main
 ```

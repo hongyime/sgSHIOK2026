@@ -4,7 +4,7 @@ Startup guard:
 
 ```text
 C:\sgSHIOK2026
-PRAWN-E14
+dev-host-2.example
 ```
 
 Scope:
@@ -32,7 +32,7 @@ Verification:
 
 ```text
 C:\sgSHIOK2026
-PRAWN-E14
+dev-host-2.example
 
 uv run pytest C:\sgSHIOK2026\tests\test_attribution.py -q -p no:cacheprovider
 .                                                                        [100%]

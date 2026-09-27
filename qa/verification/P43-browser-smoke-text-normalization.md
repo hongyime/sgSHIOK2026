@@ -4,7 +4,7 @@
 
 ```powershell
 ROOT=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 30a89ca8c214f5cc610f4a8cf2763e3b9c8cbcba
 30a89ca8c214f5cc610f4a8cf2763e3b9c8cbcba	refs/heads/main
 ?? qa/p10_network_provenance_20260813/
@@ -55,7 +55,7 @@ index 983d5ee..2debc66 100644
 +Task: P43 browser smoke visible-text matching is implemented and ready to hand back.
  
  Working root: `C:\sgSHIOK2026`
- Machine: `Prawn-E14`
+ Machine: `dev-host-2.example`
 -Remote main: `6aca6a8` at P42 task start.
 +Remote main: `30a89ca` at P43 task start.
  

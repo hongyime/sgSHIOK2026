@@ -1,7 +1,7 @@
 # P561 Covered-Walkway Breakdown Copy
 
 Working root: C:\sgSHIOK2026
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 
 ## Scope
 
@@ -11,7 +11,7 @@ Replace internal `shelter trace` wording in the live score breakdown with explic
 
 ```text
 cwd=C:\sgSHIOK2026
-hostname=PRAWN-E14
+hostname=dev-host-2.example
 ```
 
 ## Focused Web Tests

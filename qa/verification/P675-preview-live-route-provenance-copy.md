@@ -1,7 +1,7 @@
 # P675 Preview Live Route Provenance Copy
 
 Date: 2026-08-28
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 Working root: C:\sgSHIOK2026
 
 Scope:

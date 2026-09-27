@@ -1,14 +1,14 @@
 # P512 readiness stale freshness action
 
 Working root: C:\sgSHIOK2026
-Host: Prawn-E14
+Host: dev-host-2.example
 Date: 2026-08-22
 
 ## Guard
 
 ```text
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 5cdf705ac653cf4294759203faaa19685d97edd4
 5cdf705ac653cf4294759203faaa19685d97edd4	refs/heads/main
 ```

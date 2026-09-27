@@ -1,7 +1,7 @@
 # P411 planning-area empty copy
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 
 ## Scope
 
@@ -11,7 +11,7 @@ Browser copy only. No scoring, export, rescore, subset run, ingest, network buil
 
 ```text
 ROOT=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 ```
 
 ```text

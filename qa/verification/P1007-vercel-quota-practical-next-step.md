@@ -1,7 +1,7 @@
 # P1007 Vercel Quota Practical Next Step
 
 Working root: C:\sgSHIOK2026
-Machine: Prawn-E14
+Machine: dev-host-2.example
 
 ## Command Output
 

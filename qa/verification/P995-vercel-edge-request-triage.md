@@ -1,7 +1,7 @@
 # P995 Vercel Edge request triage
 
 Working root: C:\sgSHIOK2026
-Machine: Prawn-E14
+Machine: dev-host-2.example
 Date: 2026-08-29
 
 ## Scope
@@ -14,7 +14,7 @@ No pipeline, scoring, export, rescore, ingest, network build, deployment, or pro
 
 ```text
 PS C:\sgSHIOK2026> hostname
-Prawn-E14
+dev-host-2.example
 ```
 
 ```text

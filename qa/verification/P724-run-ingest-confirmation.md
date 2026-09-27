@@ -12,7 +12,7 @@ Output:
 
 ```text
 ROOT=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 ```
 
 ## head and remote before change

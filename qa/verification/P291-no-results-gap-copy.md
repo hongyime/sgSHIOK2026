@@ -5,7 +5,7 @@
 Command output is recorded below for the no-results frozen-bundle caveat copy change.
 
 ```text
-ROOT_GUARD_OK actual=C:\sgSHIOK2026 host=PRAWN-E14
+ROOT_GUARD_OK actual=C:\sgSHIOK2026 host=dev-host-2.example
 ```
 
 ```text

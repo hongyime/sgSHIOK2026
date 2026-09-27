@@ -10,7 +10,7 @@ Change live OneMap preview copy from `not part of the published shelter-map data
 
 ```text
 PWD=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 2ee9a82fe566b73f52714ffae038119ae63f2470
 2ee9a82fe566b73f52714ffae038119ae63f2470	refs/heads/main
 ```

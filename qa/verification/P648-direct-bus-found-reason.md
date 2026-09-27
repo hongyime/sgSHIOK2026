@@ -1,7 +1,7 @@
 # P648 Direct Bus Found Reason
 
 Working root: C:\sgSHIOK2026
-Host: PRAWN-E14
+Host: dev-host-2.example
 
 ## Scope
 
@@ -17,7 +17,7 @@ Commands and results are recorded after implementation.
 
 ```text
 root=C:\sgSHIOK2026
-host=PRAWN-E14
+host=dev-host-2.example
 ```
 
 ### Focused Render And Source Tests

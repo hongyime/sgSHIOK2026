@@ -1,7 +1,7 @@
 # P563 Walk Evidence Status Copy
 
 Working root: C:\sgSHIOK2026
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 
 ## Scope
 
@@ -11,7 +11,7 @@ Use `walk evidence` in screen-reader status, unavailable metadata, planning-area
 
 ```text
 cwd=C:\sgSHIOK2026
-hostname=PRAWN-E14
+hostname=dev-host-2.example
 ```
 
 ## Focused Web Tests
