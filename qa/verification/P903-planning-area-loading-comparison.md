@@ -10,7 +10,7 @@ Change the visible planning-area loading message for evidence and locked-score r
 
 ```text
 PWD=C:\sgSHIOK2026
-HOST=Prawn-E14
+HOST=dev-host-2.example
 HEAD=798fc12db4419287ebf3af05a13a79aac2143c5d
 REMOTE=798fc12db4419287ebf3af05a13a79aac2143c5d	refs/heads/main
 ?? qa/p10_network_provenance_20260813/

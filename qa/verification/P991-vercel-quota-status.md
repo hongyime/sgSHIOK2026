@@ -3,7 +3,7 @@
 ## Working Root
 
 ```text
-Prawn-E14
+dev-host-2.example
 C:\sgSHIOK2026
 ```
 

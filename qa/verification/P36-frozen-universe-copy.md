@@ -6,7 +6,7 @@ Date: 2026-08-16
 
 ```text
 ROOT=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 ```
 
 ```text

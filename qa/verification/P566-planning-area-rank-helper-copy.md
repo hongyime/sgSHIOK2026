@@ -1,7 +1,7 @@
 # P566 Planning-Area Rank Helper Copy
 
 Working root: C:\sgSHIOK2026
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 
 ## Scope
 

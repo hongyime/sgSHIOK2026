@@ -1,7 +1,7 @@
 # P450 Section 10 Reference Status
 
 Working root: C:\sgSHIOK2026
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 Date: 2026-08-21
 
 ## Scope
@@ -16,7 +16,7 @@ P18 implemented the Section 10 shelter-first four-row browser presentation. The 
 
 ```text
 ROOT=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 HEAD=915cde5bf4bb95bdbd4cd5de65d965e76c0fea73
 ORIGIN_MAIN=915cde5bf4bb95bdbd4cd5de65d965e76c0fea73	refs/heads/main
 ```

@@ -1,7 +1,7 @@
 # P562 Section 10 Evidence Language
 
 Working root: C:\sgSHIOK2026
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 
 ## Scope
 
@@ -11,7 +11,7 @@ Align the Section 10 presentation reference with the implemented live copy by re
 
 ```text
 cwd=C:\sgSHIOK2026
-hostname=PRAWN-E14
+hostname=dev-host-2.example
 ```
 
 ## Focused Web Test

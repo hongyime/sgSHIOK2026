@@ -5,7 +5,7 @@
 ```text
 PS C:\sgSHIOK2026> Get-Location; hostname
 
-Prawn-E14
+dev-host-2.example
 Path
 ----
 C:\sgSHIOK2026

@@ -2,13 +2,13 @@
 
 Date: 2026-08-29
 Working root: C:\sgSHIOK2026
-Machine: Prawn-E14
+Machine: dev-host-2.example
 
 ## Command Output
 
 ```text
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 6643a7633b06f97471775e83991d237a9d1b8076
 6643a7633b06f97471775e83991d237a9d1b8076	refs/heads/main
 ```

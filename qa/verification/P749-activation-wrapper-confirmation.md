@@ -1,7 +1,7 @@
 # P749 activation wrapper confirmation
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 
 ## Command output
 

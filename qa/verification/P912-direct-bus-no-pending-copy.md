@@ -10,7 +10,7 @@ Change direct-bus fallback copy from `shelter-map walk pending` / `No verified s
 
 ```text
 PWD=C:\sgSHIOK2026
-HOST=Prawn-E14
+HOST=dev-host-2.example
 HEAD=1f1f9e76b34f80e9cdd320df593cd667012e34ce
 REMOTE=1f1f9e76b34f80e9cdd320df593cd667012e34ce	refs/heads/main
 ```

@@ -4,7 +4,7 @@
 
 ```powershell
 ROOT=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 6b1816d0e9abb7769722ab183886d35be30243d7
 6b1816d0e9abb7769722ab183886d35be30243d7	refs/heads/main
 ?? qa/p10_network_provenance_20260813/
@@ -55,7 +55,7 @@ index c6df482..9976d75 100644
 +Task: P40 route evidence panel accessibility copy is implemented and ready to hand back.
  
  Working root: `C:\sgSHIOK2026`
- Machine: `Prawn-E14`
+ Machine: `dev-host-2.example`
 -Remote main: `e5f83b5` at P39 task start.
 +Remote main: `6b1816d` at P40 task start.
  

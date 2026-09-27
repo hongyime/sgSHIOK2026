@@ -1,7 +1,7 @@
 # P510 fetch help shelter map sources
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 Date: 2026-08-22
 
 ## Change

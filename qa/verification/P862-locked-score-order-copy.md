@@ -1,7 +1,7 @@
 # P862 Locked Score Order Copy
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 
 ## Scope
 
@@ -19,7 +19,7 @@ Path
 ----
 C:\sgSHIOK2026
 
-Prawn-E14
+dev-host-2.example
 6cd4a0092526e3dfe70e3c3e049480520649a7bd
 6cd4a0092526e3dfe70e3c3e049480520649a7bd	refs/heads/main
 ```

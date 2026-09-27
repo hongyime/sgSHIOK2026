@@ -5,7 +5,7 @@ Path
 X:\01 REPOSITORIES\sgSHIOK2026
 
 $ hostname
-Prawn-E14
+dev-host-2.example
 
 $ Get-CimInstance Win32_Processor | Select-Object -First 1 Name,NumberOfCores,NumberOfLogicalProcessors | ConvertTo-Json -Compress; Get-CimInstance Win32_ComputerSystem | Select-Object TotalPhysicalMemory | ConvertTo-Json -Compress
 {"Name":"Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz","NumberOfCores":4,"NumberOfLogicalProcessors":8}
@@ -213,7 +213,7 @@ OSError: [WinError 1450] Insufficient system resources exist to complete the req
 
 $ FINDINGS
 FINDINGS
-- E14 confirmed by hostname `Prawn-E14` and hardware identity `Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz`, 4 cores, 8 logical processors, TotalPhysicalMemory 16942411776.
+- E14 confirmed by hostname `dev-host-2.example` and hardware identity `Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz`, 4 cores, 8 logical processors, TotalPhysicalMemory 16942411776.
 - Command execution must explicitly `Set-Location -LiteralPath 'X:\01 REPOSITORIES\sgSHIOK2026'`; one plain `pwd` invocation returned `C:\Program Files\PowerShell\7`, so the handback uses explicit location commands only.
 - HEAD is `cf3879c7d8c7113bd39acabd54542365c1e66e0a`, not the Step 0 base `8014acf`; `cf3879c` is the pushed `.agents` tracking commit made before the P11 strand instructions were complete.
 - `uv.lock`, `web/package-lock.json`, `raw/manifest.json`, `processed/network_island.parquet`, and `qa/p8_provenance_repair_20260813/subset_1200_ready.parquet` match the Step 0 byte sizes and sha256 values shown above.

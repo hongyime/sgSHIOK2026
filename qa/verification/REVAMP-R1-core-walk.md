@@ -8,7 +8,7 @@ Status: **Submitted for review** — Round 1 complete; awaiting independent revi
 
 ## Working root and hostname
 
-`C:\sgSHIOK2026` — PRAWN-E14
+`C:\sgSHIOK2026` — dev-host-2.example
 
 ---
 
@@ -90,12 +90,12 @@ revamp-layout.test.ts
 ### Dev server
 
 Started via `node web/node_modules/next/dist/bin/next dev --port 3001` from `C:\sgSHIOK2026\web`.
-Available at `http://100.92.164.125:3001/` (Docker backend holds `127.0.0.1:3000`; loopback blocked).
-Local preview URL: `http://100.92.164.125:3001/`
+Available at `http://192.0.2.10:3001/` (Docker backend holds `127.0.0.1:3000`; loopback blocked).
+Local preview URL: `http://192.0.2.10:3001/`
 
 ### Screenshots
 
-Captured via minimal CDP harness against `http://100.92.164.125:3001/?postal=018956&debugMap=1`:
+Captured via minimal CDP harness against `http://192.0.2.10:3001/?postal=018956&debugMap=1`:
 
 | Viewport | File | Size |
 |---|---|---|
@@ -235,7 +235,7 @@ are withdrawn pending executed behaviour checks. Other previously cited tests mu
 be identified by actual executed names before being counted as coverage.
 
 Repair base: d1cd97f50ffdb48e3c421d8d142ead75f0b5bcbe. Root C:\sgSHIOK2026;
-host Prawn-E14. `git pull --ff-only`: already up to date. Initial
+host dev-host-2.example. `git pull --ff-only`: already up to date. Initial
 `python scripts/check_repo_integrity.py`: repo_integrity=ok.
 
 Baseline findings: search is inside the result panel; mobile receives desktop
@@ -533,7 +533,7 @@ No pipeline, installation, browser rerun, protected-data mutation or deployment.
 
 ### Bounded loading-time diagnosis handback (2026-09-07)
 
-Contract/base: 7851cde. Working root asserted as C:\sgSHIOK2026; host Prawn-E14.
+Contract/base: 7851cde. Working root asserted as C:\sgSHIOK2026; host dev-host-2.example.
 Round 1 functional/portability acceptance stands. Diagnosis began about 22:32 SGT;
 the only browser pair ran about 22:40-22:41. No product fix or UI change was made.
 Existing verification and decision lines remain intact; this section is appended.
@@ -701,7 +701,7 @@ was not deployed. Pipeline runs 0; pipeline cost $0. Stop for independent review
 
 ### 2026-09-07: Sync-bot repair and demonstrated target opt-out
 
-Root asserted before work: C:\sgSHIOK2026. Hostname: Prawn-E14. No commands used
+Root asserted before work: C:\sgSHIOK2026. Hostname: dev-host-2.example. No commands used
 an X: working directory; all task writes stayed under the asserted C: root.
 Read .agents/STATE.md, AGENTS.md and IMPLEMENTATION-BRIEF.md. This section appends
 to the prior evidence; previous PASS classifications are not broadened.
@@ -841,7 +841,7 @@ python -m pytest tests/test_repo_integrity.py --basetemp=C:/sgSHIOK2026/tmp/sync
 
 ### Route-source separation implementation, 2026-09-08
 
-Root/host asserted first: C:\sgSHIOK2026 / Prawn-E14. Read STATE, AGENTS,
+Root/host asserted first: C:\sgSHIOK2026 / dev-host-2.example. Read STATE, AGENTS,
 web/AGENTS, installed Next use-client guidance and IMPLEMENTATION-BRIEF, including
 the fc6d1c6 authorization. Clean tracked main was already at
 fc6d1c660d2a89937ead51dafdab351d1739989e; fetch and --ff-only pull found no
@@ -996,7 +996,7 @@ DISAGREEMENTS
 ### Direct current-build visual validation, 2026-09-08
 Owner: "i need all those, can you just run?" This explicitly overrides the host
 headroom pause for bounded functional checks. No unrelated app was terminated.
-Root C:\sgSHIOK2026, host PRAWN-E14, source HEAD 03af28b; runtime product 303ef44.
+Root C:\sgSHIOK2026, host dev-host-2.example, source HEAD 03af28b; runtime product 303ef44.
 Direct installed Next build bypassed package ensure-data-bundle.mjs:
 ```text
 node C:/sgSHIOK2026/web/node_modules/next/dist/bin/next build C:/sgSHIOK2026/web
@@ -1075,7 +1075,7 @@ Exact browser receipts, screenshot brackets and images are in `first/` and
 Observed validation:
 ```text
 root=C:\sgSHIOK2026
-hostname=Prawn-E14
+hostname=dev-host-2.example
 base=89598c1c4c0171458b217cb697657efc59258566
 TDD: 8 passed + 4 expected failures = 12 tests, 2 files
 Focused green: 12 passed, 2 files
@@ -1158,7 +1158,7 @@ The copyright/logo line is not an optional legend. About data moves independentl
 Observed commands/results; full browser receipts/captures and build logs are at
 qa/revamp-r1/left-stack-20260908/ with summary.json mapping every attempt:
 ```text
-root=C:\sgSHIOK2026 hostname=Prawn-E14
+root=C:\sgSHIOK2026 hostname=dev-host-2.example
 base=c76acc783f23ce506d8b058b1a90d2cd662c5fcd
 node web/scripts/test-web.mjs lib/__tests__/map-viewport.test.ts lib/__tests__/map-first-shell.test.ts --reporter=dot
 red=3 expected failures + 6 passed = 9 tests; 2 files
@@ -1648,7 +1648,7 @@ DISAGREEMENTS
 
 ## T05 bounded published choices, 2026-09-09
 
-Working root:C:\sgSHIOK2026; host:Prawn-E14; base:6f33923.
+Working root:C:\sgSHIOK2026; host:dev-host-2.example; base:6f33923.
 Receipt:qa/revamp-r1/published-options-20260909/choices-summary.json.
 Full command output:choices-full-1/checks.json in the same directory.
 The selector and its tests match the tested snapshot byte-for-byte. The only
@@ -1705,7 +1705,7 @@ DISAGREEMENTS
 
 ## 2026-09-09 T06: Published choices, independent measurements and selected geometry
 
-Working root:C:\sgSHIOK2026; host:Prawn-E14; base:64d8f51.
+Working root:C:\sgSHIOK2026; host:dev-host-2.example; base:64d8f51.
 Receipt:qa/revamp-r1/published-interaction-20260909/summary.json.
 Raw commands/results:published-options-20260909/interaction-full-1 through
 interaction-full-5/checks.json. Earlier failures are retained unchanged.
@@ -1804,7 +1804,7 @@ staged; their build/process identity is recorded in STATE and browser receipts.
 
 ## 2026-09-09 T07: Published mapped-section exploration
 
-Working root: C:\sgSHIOK2026; hostname: Prawn-E14.
+Working root: C:\sgSHIOK2026; hostname: dev-host-2.example.
 Base: e5d33b578287ae2a23e19c604ffa2c390195012c.
 Receipt: qa/revamp-r1/exposure-sections-20260909/summary.json.
 This section is appended; no previous evidence line is replaced.
@@ -1891,7 +1891,7 @@ deliberately returns503 for live preview APIs.
 
 ## 2026-09-09 T08: Shared category-default comparison row
 
-Working root: C:\sgSHIOK2026; hostname: Prawn-E14.
+Working root: C:\sgSHIOK2026; hostname: dev-host-2.example.
 Base: ab671dc011e2640646ba67b96e0195f5cce81a74.
 Receipt: qa/revamp-r1/comparison-20260909/summary.json.
 This section is appended; no previous verification line changes.
@@ -1976,7 +1976,7 @@ T08build on4326; continuously written server logs are not committed.
 
 ## 2026-09-09 T09: Minimal shortlist state and persistence
 
-Working root: C:\sgSHIOK2026; hostname: Prawn-E14.
+Working root: C:\sgSHIOK2026; hostname: dev-host-2.example.
 Base:532e7aa. Receipt: qa/revamp-r1/comparison-state-20260909/summary.json.
 This section is appended; no prior verification line is changed.
 
@@ -2034,7 +2034,7 @@ Protected inputs/outputs, weights.yaml and X: remain unmodified.
 
 ## T10 home comparison, 2026-09-09 (new append-only section)
 
-Working root C:\sgSHIOK2026; hostname Prawn-E14. Base da256cc9ed1453afa6b4a3166f4ef21ab7b636e0.
+Working root C:\sgSHIOK2026; hostname dev-host-2.example. Base da256cc9ed1453afa6b4a3166f4ef21ab7b636e0.
 Machine handback: qa/revamp-r1/comparison-ui-20260909/summary.json
 sha256 4b41e1e2087111ff7d3012df3a3c7fb91fed54ab1dc9956a2322bb9b68afd1e0
 
@@ -2129,7 +2129,7 @@ Final LF normalization and prefix checks are required before committing.
 
 ```text
 working_root=C:\sgSHIOK2026
-hostname=PRAWN-E14
+hostname=dev-host-2.example
 base=bd53b8b410af0f7084673432e4e407754f32c8b6
 git fetch origin=exit0
 HEAD and origin/main before change=bd53b8b410af0f7084673432e4e407754f32c8b6
@@ -2237,7 +2237,7 @@ pre_append_working_prefix_unchanged=true
 
 ```text
 working_root=C:\sgSHIOK2026
-hostname=PRAWN-E14
+hostname=dev-host-2.example
 base=0e2d08cfdde0fcbde41368b215d5479b571e19df
 task_status=PARTIAL
 summary=qa/revamp-r1/cross-feature-20260909/summary.json
@@ -2372,7 +2372,7 @@ Command: `node C:/sgSHIOK2026/qa/revamp-r1/map-download-recovery-20260909/handba
 
 ```text
 working_root=C:\sgSHIOK2026
-hostname=PRAWN-E14
+hostname=dev-host-2.example
 base=df0d73b90ba9fc90ec2d4cd72b5888282cfcae47
 summary_sha256=710df626237c2589e89fd7b42acea3f1732a0b48484eae5d96493ee421505df3
 source_validation_ok=true
@@ -2440,7 +2440,7 @@ Command: `node C:/sgSHIOK2026/qa/revamp-r1/automatic-upgrade-20260909/handback.m
 
 ```text
 working_root=C:\sgSHIOK2026
-hostname=PRAWN-E14
+hostname=dev-host-2.example
 base=c658c1ee98f68701bebe8336ec352e2a180e65f4
 summary_sha256=3e96dc77d0a583ee9458134005b863b0196881d5c598c64fc6d11db4ec221115
 browser_receipt=qa/revamp-r1/automatic-upgrade-20260909/observed-1-rOOKcg/browser.json
@@ -2512,7 +2512,7 @@ Command: `node C:/sgSHIOK2026/qa/revamp-r1/security-triage-20260909/handback.mjs
 
 ```text
 working_root=C:\sgSHIOK2026
-hostname=PRAWN-E14
+hostname=dev-host-2.example
 command=gh api repos/hongyime/sgSHIOK2026/dependabot/alerts?state=open&per_page=100 --jq [.[] | select(.security_advisory.severity == "critical") | {number,state,dependency,ghsa_id:.security_advisory.ghsa_id,html_url:.html_url,range:.security_vulnerability.vulnerable_version_range,patched:.security_vulnerability.first_patched_version}]
 [{"dependency":{"manifest_path":"web/package-lock.json","package":{"ecosystem":"npm","name":"maplibre-gl"},"relationship":"direct","scope":"runtime"},"ghsa_id":"GHSA-jrc7-96c5-q579","html_url":"https://github.com/hongyime/sgSHIOK2026/security/dependabot/27","number":27,"patched":{"identifier":"6.4.1"},"range":"\u003c= 6.4.0","state":"open"},{"dependency":{"manifest_path":"web/package.json","package":{"ecosystem":"npm","name":"maplibre-gl"},"relationship":"direct","scope":"runtime"},"ghsa_id":"GHSA-jrc7-96c5-q579","html_url":"https://github.com/hongyime/sgSHIOK2026/security/dependabot/26","number":26,"patched":{"identifier":"6.4.1"},"range":"\u003c= 6.4.0","state":"open"}]
 exit=0
@@ -2552,7 +2552,7 @@ protected_payload_mutations=0
 
 ```text
 working_root=C:\sgSHIOK2026
-hostname=Prawn-E14
+hostname=dev-host-2.example
 base=74a79017aa715e7f09c3cb431e4657f59044e8b0
 summary=qa/revamp-r1/failure-diagnostics-20260909/summary.json
 reviews=qa/revamp-r1/failure-diagnostics-20260909/reviews.json
@@ -2611,7 +2611,7 @@ protected_payload_mutations=0
 
 ```text
 working_root=C:\sgSHIOK2026
-hostname=Prawn-E14
+hostname=dev-host-2.example
 base=3fc92ff1b176e0a193be5ee63fcb662c15b89008
 summary=qa/revamp-r1/native-postal-20260909/summary.json
 reviews=qa/revamp-r1/native-postal-20260909/reviews.json
@@ -2680,7 +2680,7 @@ work is preserved and excluded from this commit and the running snapshot.
 
 ```text
 root=C:\sgSHIOK2026
-hostname=Prawn-E14
+hostname=dev-host-2.example
 base=a17fa5059dfd9215026b904ca83620a4a6567116
 preview=http://127.0.0.1:4332/
 proxy_advertised_build=ENBtn8fzW-j8FH5dZ6qyJ
@@ -2724,7 +2724,7 @@ identities and append-only evidence proof are in
 
 ```text
 root=C:\sgSHIOK2026
-hostname=Prawn-E14
+hostname=dev-host-2.example
 base=b8bccceb97adeb38ec461086799eea5001af7eb1
 task=T22
 implementation_scope=source-freshness helper/tests,DataDetails/import,two existing rendered/copy test files
@@ -2805,7 +2805,7 @@ the isolated suite is in
 
 ```text
 working_root=C:\sgSHIOK2026
-hostname=Prawn-E14
+hostname=dev-host-2.example
 base=a26deb5c615d7b1a92892eefcba417e1d0ee0a8f
 node qa/revamp-r1/comparison-sharing-20260909/focused.mjs coverage-causes-green lib/__tests__/coverage-gap-register.test.ts
 core_tests=32 passed
@@ -2901,7 +2901,7 @@ external notice, workflow activation or pipeline operation ran in this task.
 
 ```text
 working_root=C:\sgSHIOK2026
-hostname=Prawn-E14
+hostname=dev-host-2.example
 base_commit=d8c8f04f6bff62f08d1b8b75b4bc85ec319f1ce2
 node qa/revamp-r1/source-monitor-20260909/check.mjs cli-green-2 tests/test_source_metadata_cli.py tests/test_source_metadata_http.py tests/test_source_metadata_catalog.py tests/test_source_metadata_state.py
 ........................................................................ [ 38%]
@@ -3202,7 +3202,7 @@ free-cap review, private payload preservation and non-destructive recovery.
 ```text
 node qa/revamp-r1/maintenance-20260910/inspect.mjs
 working_root=C:\sgSHIOK2026
-hostname=Prawn-E14
+hostname=dev-host-2.example
 inventory_scope=named-path presence and Git-index membership; no recursive payload scan
 X_access=false
 env_content_read=false
@@ -3338,7 +3338,7 @@ copy test would preserve the wrong operational policy; test the approved policy.
 
 ## T31: Immutable Release Preparation, 2026-09-10
 
-Working root: C:\sgSHIOK2026. Host: Prawn-E14.
+Working root: C:\sgSHIOK2026. Host: dev-host-2.example.
 Base: 8fa20c0e30ea51f40899666ab5c006c60023abd4; fetch confirmed origin/main at
 the same commit before finalization. Existing top-left layout was already complete;
 this is the unfinished release-safety ticket, not another UI rewrite.
@@ -3441,7 +3441,7 @@ timeout or an acceptance tolerance for published data.
 ## T25: Comparison Retry and Scrolled Failure Acceptance, 2026-09-10
 
 Working root: C:\sgSHIOK2026
-Hostname: Prawn-E14
+Hostname: dev-host-2.example
 Base: d7e5019e94ff662766f0adfd742b1262c5f93938
 Release-test follow-up: 4a39db7 (separate coherent change).
 New receipts: qa/revamp-r1/cross-feature-20260910/
@@ -3540,7 +3540,7 @@ recorded above and is not reclassified as zero cost.
 
 ## 2026-09-10 T01/M17 Retained Legacy Tab: Two Reproduced Failures
 
-Root C:\sgSHIOK2026; host Prawn-E14; base c2276dd4aaa3f65e677932d0831d02103dedfdda.
+Root C:\sgSHIOK2026; host dev-host-2.example; base c2276dd4aaa3f65e677932d0831d02103dedfdda.
 Receipt: qa/revamp-r1/retained-tab-20260910/summary.json.
 Actual browser/network/worker/cache/Document evidence:
 qa/revamp-r1/retained-tab-20260910/observed-waRkIU/browser.json.
@@ -3747,7 +3747,7 @@ No dependency installation, scoring/export, protected-payload write or deploymen
 
 ```text
 working_root=C:\sgSHIOK2026
-hostname=Prawn-E14
+hostname=dev-host-2.example
 base=38022b4df2482142d19570e93aa6e4daaffb1f8e
 focused: 93 passed / 5 files
 full: 1744 + 11 = 1755 passed / 64 files
@@ -3811,7 +3811,7 @@ Command: `node qa/revamp-r1/cross-feature-motion-20260910/audit.mjs`
 ```json
 {
   "root": "C:\\sgSHIOK2026",
-  "hostname": "PRAWN-E14",
+  "hostname": "dev-host-2.example",
   "base": "b7196b6683ab333ab4bb3eb4f88a65021516c3bf",
   "task": "T25 selection-readiness and sticky-column focus repair",
   "status": "Progress; browser audit and overall goal incomplete",
@@ -4266,7 +4266,7 @@ installed_dependencies=failed
 
 ## 2026-09-10: Owner-Approved Dependency and Worker Alignment
 
-Base4d7391b; root C:\sgSHIOK2026; Prawn-E14. Owner approved dependency/worker alignment. Receipt directory: qa/revamp-r1/worker-alignment-20260910/. summary.json records exact commands, durations, lock identity, source identity and findings. npm ci ran once with --ignore-scripts --no-audit --no-fund and a repository-local cache; exit0 after1126.1391637seconds. Lock hash before/after: d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590. No root install/build lifecycle hook ran.
+Base4d7391b; root C:\sgSHIOK2026; dev-host-2.example. Owner approved dependency/worker alignment. Receipt directory: qa/revamp-r1/worker-alignment-20260910/. summary.json records exact commands, durations, lock identity, source identity and findings. npm ci ran once with --ignore-scripts --no-audit --no-fund and a repository-local cache; exit0 after1126.1391637seconds. Lock hash before/after: d8ec1ecbc889bc5d1e86a805ceaf7077d8dc4fde9c24fd00c35508807ce77590. No root install/build lifecycle hook ran.
 
 ```text
 installed_dependencies=ok
@@ -4306,7 +4306,7 @@ Current read-only HTTP check: Next4361 returned200,14192B,correct build in637.98
 
 ## 2026-09-10: Browser Stall Diagnosis, Results and Headroom Gate
 
-Root C:\sgSHIOK2026; host PRAWN-E14; base373c73f. Application code is unchanged in this continuation. Current preview4362 serves build sou6pZfEMMmsCl52vdXg4. Source anchoring below checks all156 build sources against the current tree. Five screenshots were inspected by the parent; subagent quota still prevents independent review. Browser-plugin bootstrap remains unavailable (os error3 from the previous attempt), so these are explicitly owned Chrome/CDP observations, not plugin acceptance.
+Root C:\sgSHIOK2026; host dev-host-2.example; base373c73f. Application code is unchanged in this continuation. Current preview4362 serves build sou6pZfEMMmsCl52vdXg4. Source anchoring below checks all156 build sources against the current tree. Five screenshots were inspected by the parent; subagent quota still prevents independent review. Browser-plugin bootstrap remains unavailable (os error3 from the previous attempt), so these are explicitly owned Chrome/CDP observations, not plugin acceptance.
 
 Commands: node qa/revamp-r1/map-stall-20260910/probe.mjs probe-1; then probe-2 after adding per-query/GL timing; then probe-3 --viewports after making a bounded four-size check. Each launched probe archives its runner; probe2 additionally archives its injected instrumentation. Probe1/2 raw reports, screenshots and CPU profiles are retained. Probe3's headroom check runs before directory creation or Chrome launch. Its command exited1 with Browser headroom gate: less than1024MiB free. Exact free RAM was not emitted and is not reconstructed from an earlier sample. There was no retry.
 
@@ -4343,10 +4343,10 @@ Exit0. source-anchors.json includes compiled snippets and five-capture inspectio
 
 ## 2026-09-10: Retire Obsolete QA Preview Processes
 
-Basea2772eb; C:\sgSHIOK2026; Prawn-E14. Previous goal turn made progress through a committed diagnosis; this continuation revalidated the full31-task plan and current resource gate. Startup observation:
+Basea2772eb; C:\sgSHIOK2026; dev-host-2.example. Previous goal turn made progress through a committed diagnosis; this continuation revalidated the full31-task plan and current resource gate. Startup observation:
 
 ```text
-{"freeMiB":1022.046875,"host":"Prawn-E14","at":"2026-09-10T14:42:09.955Z"}
+{"freeMiB":1022.046875,"host":"dev-host-2.example","at":"2026-09-10T14:42:09.955Z"}
 ```
 
 Rather than immediately repeating a browser run or asking the owner to close unrelated apps, inspected the two explicitly obsolete QA listeners4353/4354. Recorded proxy identity matched build jNTP8fdVgYwcHrBSMHG0l and PID105140. Process command lines and creation times matched the prior QA launch; Next PID93692 was bound to the matching old snapshot. Current4362 proxy source routes only to4361 and data4321; its sha256 is recorded in result.json. Both live current/proxy identities matched the worker-alignment receipt. Initial lookup guessed a nonexistent serve.mjs under worker-alignment and an overly broad rg result was truncated; narrowed explicit preview.mjs/serve-2.mjs reads supplied the actual dependency proof. No guessed path was used for a write or termination.
@@ -4383,10 +4383,10 @@ repo_integrity=ok
 
 ## 2026-09-10: Completion Blocked After Third Resource Gate
 
-Root C:\sgSHIOK2026; hostname Prawn-E14; HEAD cfe50968e1ed203881b9a936e14f7becdd7f9693. Previous goal turn was progress: it retired two verified-obsolete QA processes, preserved their terminal receipt and confirmed the current/data servers. This turn revalidates the blocker; it does not invent a new application change or restart a stopped run.
+Root C:\sgSHIOK2026; hostname dev-host-2.example; HEAD cfe50968e1ed203881b9a936e14f7becdd7f9693. Previous goal turn was progress: it retired two verified-obsolete QA processes, preserved their terminal receipt and confirmed the current/data servers. This turn revalidates the blocker; it does not invent a new application change or restart a stopped run.
 
 ```text
-{"freeMiB":944.76171875,"host":"Prawn-E14","at":"2026-09-10T15:05:05.001Z"}
+{"freeMiB":944.76171875,"host":"dev-host-2.example","at":"2026-09-10T15:05:05.001Z"}
 ```
 
 The prior two consecutive goal turns recorded a pre-launch below1024MiB refusal and643.55078125MiB after the only explicitly obsolete owned QA pair was retired. This third observation remains below1024MiB. The old PIDs105140/93692 are absent; preserved97544/98236/108948 remain live. No browser, build, test suite or data pilot is running awaiting completion. The retained preview servers are intentionally live services, not jobs whose eventual exit could satisfy the goal. No unrelated apps were stopped and no new browser/pipeline/deployment ran.
@@ -4405,7 +4405,7 @@ Current PRODUCT-PLAN labels were read again: T01/T02/T19/T25/T29 partial; T13/T2
 
 ## 2026-09-12: Resumed Current-Build Map And Browser Acceptance
 
-Root C:\sgSHIOK2026; hostname Prawn-E14. Base454d8ff72a8bc178c5f2a111b405a91e3fe06abf. User resumed; startup5844.78515625MiB available cleared the earlier resource gate. Previous preview processes were absent. Restarted the existing build sou6pZfEMMmsCl52vdXg4 after156source/11fixture-anchor hashes matched; no build, install or payload copying. Initial HTML10second probe timed out during startup; subsequent bounded browser succeeded. No attribution of old stalls solely to hardware follows.
+Root C:\sgSHIOK2026; hostname dev-host-2.example. Base454d8ff72a8bc178c5f2a111b405a91e3fe06abf. User resumed; startup5844.78515625MiB available cleared the earlier resource gate. Previous preview processes were absent. Restarted the existing build sou6pZfEMMmsCl52vdXg4 after156source/11fixture-anchor hashes matched; no build, install or payload copying. Initial HTML10second probe timed out during startup; subsequent bounded browser succeeded. No attribution of old stalls solely to hardware follows.
 
 Reproducible commands and complete receipts are committed under qa/revamp-r1/resume-20260912/. Summary generation checks all156current source hashes,11anchors,14screenshot hashes and the existing296320-byte verification prefix (sha2569564e754547d7a12beebf2b07d2f2c2bc359fb879d5b4d559a97933e1fa36963). It does not rehash every protected artifact. All original failed browser/summary attempts remain described, not converted to passes.
 
@@ -4451,7 +4451,7 @@ Read-only coverage pilot command: node qa/revamp-r1/coverage-register-20260909/s
 
 ## 2026-09-12: Retained Local A Through Current B Completes
 
-Root C:\sgSHIOK2026; hostname Prawn-E14; base1fb93aa9a282c8cbc8ac0c8201c427106fd2f5cc. Previous turn was progress; no stale blocked audit is reused. Peer quota remains unavailable until September15, so parent review only. The in-app browser connection still fails os error3; the existing owned Chrome/CDP fallback is used.
+Root C:\sgSHIOK2026; hostname dev-host-2.example; base1fb93aa9a282c8cbc8ac0c8201c427106fd2f5cc. Previous turn was progress; no stale blocked audit is reused. Peer quota remains unavailable until September15, so parent review only. The in-app browser connection still fails os error3; the existing owned Chrome/CDP fallback is used.
 
 Committed evidence root: qa/revamp-r1/retained-current-20260912/. build.mjs makes a fresh snapshot from156tracked web source files, excludes public/data, links existing dependencies and stages the previously pinned29-file frontend archive only. No data-helper/package preparation hooks, input rebuilding, pipeline, installation or deployment. The actual guarded Next build validates retained asset identities before/after compilation, including same-path byte conflicts. Archive manifest eb4eba48cdb6b97eeaaae16bb25ae173ce23a40fa9d803a4549be816e193a7b1 matches the previous capture; current retention manifest3857d143ec044900b9bf397b581759fa47719f602c3358e85ab81c9bb3660cbb contains29files totaling5786770bytes. Full entries with per-file arithmetic are in the existing archive/build receipts.
 
@@ -4488,7 +4488,7 @@ Both attempts cleaned up their owned browsers and used authenticated proxy shutd
 
 ## 2026-09-12: Actual-App Worker Lifecycle And Reporting Decision Request
 
-Root C:\sgSHIOK2026; hostname Prawn-E14; baseaa36d3d0eb60dca3997823a45001920bdd59cff3. Previous turn was progress: retained-tab/current-B sequence completed. No old blocked counter reused. Current state still contains17open tasks; reporting implementation T14-T18 explicitly depends on T13, not generic permission to finish.
+Root C:\sgSHIOK2026; hostname dev-host-2.example; baseaa36d3d0eb60dca3997823a45001920bdd59cff3. Previous turn was progress: retained-tab/current-B sequence completed. No old blocked counter reused. Current state still contains17open tasks; reporting implementation T14-T18 explicitly depends on T13, not generic permission to finish.
 
 Sent owner asynchronous questions about the proposed Cloudflare Free reporting exception to the existing no-Cloudflare rule; private minimized reports, caps and retention; moderator/absence coverage and private encrypted backup/key ownership. No answer or authorization is assumed. No account, storage, secret, provider activation or deployment was created. Official docs rechecked September12: https://developers.cloudflare.com/cloudflare-one/setup/ still requires payment details during Free onboarding; https://developers.cloudflare.com/d1/platform/pricing/ says Free-limit exhaustion returns errors; https://developers.cloudflare.com/workers/platform/pricing/ lists Free limits. These checks do not verify the owner's account plan or guarantee operational cost.
 
@@ -4527,7 +4527,7 @@ This demonstrates the current-app handoff mechanism previously shown only in a f
 
 ## 2026-09-12: Loading Clock Attribution
 
-Working root C:\sgSHIOK2026; Prawn-E14. Base e5dc34e.
+Working root C:\sgSHIOK2026; dev-host-2.example. Base e5dc34e.
 New evidence: qa/revamp-r1/loading-clock-20260912/summary.json, with source trace hash, all data response timings and raw five-test output.
 Executed: node --test qa/revamp-r1/loading-clock-20260912/analyze.test.mjs (5 passed, 0 failed).
 Executed: node qa/revamp-r1/loading-clock-20260912/analyze.mjs (exit 0).
@@ -4545,7 +4545,7 @@ No browser run, application edit, installation, protected-data mutation, pipelin
 
 ## 2026-09-12: Unpaused Local Loading Pair
 
-Root C:\sgSHIOK2026; Prawn-E14; base90dccd9. Evidence qa/revamp-r1/loading-profile-20260912/summary.json and observed-OUYeAZ/browser.json; original executed runner.mjs retained separately from corrected driver.
+Root C:\sgSHIOK2026; dev-host-2.example; base90dccd9. Evidence qa/revamp-r1/loading-profile-20260912/summary.json and observed-OUYeAZ/browser.json; original executed runner.mjs retained separately from corrected driver.
 Executed node qa/revamp-r1/loading-profile-20260912/browser.mjs: exit1,3functional checks pass,10interception errors. Exact-ID analysis explains10canceled tiles,0unexplained; rawfailure remains.
 Executed node --test qa/revamp-r1/loading-profile-20260912/analyze.test.mjs:5passed,0failed.
 Both cold.png/warm.png inspected: visible basemap, selected route, correct metric panel;4matching features before/after each capture. Browser cleanup verified. Existing preview remains live; no pipeline/install/build/deploy/app edit.
@@ -4562,7 +4562,7 @@ Both cold.png/warm.png inspected: visible basemap, selected route, correct metri
 
 ## 2026-09-12: Settled Geometry Selection Fix
 
-Root C:\sgSHIOK2026; Prawn-E14; base2c469a4. Evidence qa/revamp-r1/settled-geometry-20260912/summary.json plus raw tests.json/build-1/observed-SKgwD8.
+Root C:\sgSHIOK2026; dev-host-2.example; base2c469a4. Evidence qa/revamp-r1/settled-geometry-20260912/summary.json plus raw tests.json/build-1/observed-SKgwD8.
 New regression before edit: expected1selection update, observed2 (exit1).
 After edit: node web/scripts/test-without-production-data.mjs --testTimeout15000 (argument passed as separate flag/value):1788passed/65files plus42native guards,exit0. Production-data access denied by isolation guard; dependencieslinked,notinstalled.
 Installed tsc --project web/tsconfig.json --noEmit --incremental false:exit0. python -B scripts/check_repo_integrity.py:repo_integrity=ok,exit0. Build2aYxZG6C5VyvZ5pQfNOkD:exit0,sourceStabletrue,retentionguards pass.
@@ -4581,7 +4581,7 @@ Built browser pair:exit0,3checks; both390x844screenshots parent-inspected,4selec
 
 ## 2026-09-12: Completion Gate Audit After Loading Fix
 
-Root C:\sgSHIOK2026; Prawn-E14; base8a8217c. Ran node qa/revamp-r1/completion-gates-20260912/audit.mjs (exit0).
+Root C:\sgSHIOK2026; dev-host-2.example; base8a8217c. Ran node qa/revamp-r1/completion-gates-20260912/audit.mjs (exit0).
 Output: {"counts":{"total":31,"markedDone":14,"open":17},"coverageBufferedSeconds":2257,"goal":"active"}
 Full per-task gate list and original projection: qa/revamp-r1/completion-gates-20260912/summary.json.
 STATE consolidated; existing verification lines preserved. No app change, browser repetition, pipeline, input read/repair, installation, activation or deployment.
@@ -4598,7 +4598,7 @@ STATE consolidated; existing verification lines preserved. No app change, browse
 
 ## 2026-09-12: Completion Goal Blocked After Revalidation
 
-Root C:\sgSHIOK2026; Prawn-E14. HEAD4bddf4076c0cbd6f434c5801e1595463b024130f; tracked status clean before this handoff edit. Local time2026-09-12T14:50:27.0908659+08:00.
+Root C:\sgSHIOK2026; dev-host-2.example. HEAD4bddf4076c0cbd6f434c5801e1595463b024130f; tracked status clean before this handoff edit. Local time2026-09-12T14:50:27.0908659+08:00.
 Three consecutive equivalent impasse observations: completion gate audit, live preview/host revalidation, final state/time revalidation. No owner decisions arrived; quota reset2026-09-15remainsfuture. No implementation or test process awaiting completion. Preview4374intentionally remains available.
 
 ### FINDINGS
@@ -4613,7 +4613,7 @@ Three consecutive equivalent impasse observations: completion gate audit, live p
 
 ## 2026-09-12: Owner-Requested Walk UI Reset
 
-Root C:\sgSHIOK2026; hostname Prawn-E14; base5f02a68402df969b3cb31abdf71615fbfac35d24.
+Root C:\sgSHIOK2026; hostname dev-host-2.example; base5f02a68402df969b3cb31abdf71615fbfac35d24.
 This is new actionable UX work, not another revalidation of the blocked broad goal.
 Evidence: qa/revamp-r1/ux-reset-20260912/summary.json and original per-attempt runners/results.
 Current local preview http://127.0.0.1:4386/; build D1Gwrtssel1Jckk93bfdo. Older preview ports do not serve this revision.
@@ -4660,7 +4660,7 @@ Final staging check2026-09-13:75artifact SHA256 values match their staged bytes;
 
 ## 2026-09-13: Walk-only owner revision, shortest saved default and preview recovery
 
-Working root: C:\sgSHIOK2026; hostname:Prawn-E14. Base:ea825bca19e916f8c32ecbb5f8f0294a1c585162.
+Working root: C:\sgSHIOK2026; hostname:dev-host-2.example. Base:ea825bca19e916f8c32ecbb5f8f0294a1c585162.
 Current records:qa/revamp-r1/walk-only-20260913/summary.json. Full raw receipts, commands, source hashes and count changes are included there and in the indexed compressed artifacts. Existing evidence above is unchanged.
 
 Command:node qa/revamp-r1/walk-only-20260913/checks.mjs --full
@@ -4721,7 +4721,7 @@ Final staging receipt:staging-byte-check.json. All93indexed artifacts match thei
 
 ## Completion Resume 2026-09-13: Server Provider Deadline
 
-Root C:\sgSHIOK2026; host PRAWN-E14. Base 1a8d72004c73f2ee77a2177b238228fa8b9beeb9.
+Root C:\sgSHIOK2026; host dev-host-2.example. Base 1a8d72004c73f2ee77a2177b238228fa8b9beeb9.
 The goal tool now reports ACTIVE. The previous blocked statement describes the
 previous turn, not this resume. Subagent spawning succeeded; no quota bypass.
 
@@ -5023,7 +5023,7 @@ verify post-load configuration; they do not independently prove attachment timin
 
 ## 2026-09-13: Append-only maintenance delivery continuation
 
-Root C:\sgSHIOK2026; host Prawn-E14. Base73935b2. No X access, installations,
+Root C:\sgSHIOK2026; host dev-host-2.example. Base73935b2. No X access, installations,
 scoring, export, rescore, subset run, ingest, network build or input repair.
 No reporting account, GitHub notice, workflow/schedule or deployment was activated.
 Scoped receipts: qa/revamp-r1/append-only-notices-20260913/.
@@ -5108,7 +5108,7 @@ DISAGREEMENTS follow-up
 
 ## 2026-09-13: Immutable notice-acknowledgement checkpoints
 
-Root C:\sgSHIOK2026; host Prawn-E14; basec3c8de3. Existing evidence is preserved.
+Root C:\sgSHIOK2026; host dev-host-2.example; basec3c8de3. Existing evidence is preserved.
 No X access, installation, pipeline execution, scoring/export/subset run, ingest,
 network build, input repair, actual source check, comment write or deployment.
 Git operations set TEMP/TMP to the repository tmp directory for inherited hooks.
@@ -5179,7 +5179,7 @@ DISAGREEMENTS
 ## Continuation 2026-09-13: persistent request admission and cooldowns
 
 Working root: C:\sgSHIOK2026
-Hostname: Prawn-E14
+Hostname: dev-host-2.example
 Base: 7c9ab7b17a0ea94782e36ec77eb667957b62cd29
 Evidence: qa/revamp-r1/notice-pacing-20260913/
 
@@ -5276,7 +5276,7 @@ artifact-index-final.json are the current finalization, retaining the earlier fi
 
 ## Keyboard recovery continuation 2026-09-13
 
-Working root: C:\sgSHIOK2026. Host: Prawn-E14. Base:0e2245180f7a4201408ce74dcb7a2097e343f3c8.
+Working root: C:\sgSHIOK2026. Host: dev-host-2.example. Base:0e2245180f7a4201408ce74dcb7a2097e343f3c8.
 Evidence directory: qa/revamp-r1/keyboard-recovery-20260913/.
 The actual production deployment remains the old dirty CLI deployment; its two
 explicitly named local BUILD_ID paths are absent. inspection.json records the
@@ -5367,7 +5367,7 @@ No X access, protected-data mutation, score/input generation or locked-weight ed
 
 ## 2026-09-13: Native page zoom and visible reset focus
 
-Working root:C:\sgSHIOK2026. Host:Prawn-E14.
+Working root:C:\sgSHIOK2026. Host:dev-host-2.example.
 Base:021d5dfc070fb0d8721a4d2cf5aa8f9db2303234.
 Evidence:qa/revamp-r1/native-zoom-20260913/.
 Original records above this section remain byte-for-byte unchanged.
@@ -5484,7 +5484,7 @@ No X access, protected-data mutation, score/input generation or locked-weight ed
 
 ## 2026-09-13: Read-only notice-journal operator inspection
 
-Working root:C:\sgSHIOK2026. Host:Prawn-E14.
+Working root:C:\sgSHIOK2026. Host:dev-host-2.example.
 Base:f9b23bca6dcdc40bc43788423594f83f0b639b64.
 Prior goal turn:PROGRESS, committed and remote verified. Overall goal remains ACTIVE.
 Evidence:qa/revamp-r1/notice-inspection-20260913/.
@@ -5572,7 +5572,7 @@ No X access, protected-data mutation, score/input generation or locked-weight ed
 ## 2026-09-13: Actual production runtime capture and worker-path review
 
 Working root: C:\sgSHIOK2026
-Hostname: Prawn-E14
+Hostname: dev-host-2.example
 Base: 5e15a36437910e2a35001234c122e7a9c9fff39d
 Goal ACTIVE, not complete. QA and documentation only; web sources unchanged.
 Evidence: qa/revamp-r1/production-runtime-20260913/summary.json
@@ -5718,7 +5718,7 @@ owned browser, server or command handles. Replay remains unrun and guarded.
 
 ### 2026-09-13: Captured-production Worker diagnostic, not deployment acceptance
 
-Root C:\sgSHIOK2026; hostname PRAWN-E14. Base451dcfe37b1715e0ea170bd5b873dc7b4b850112.
+Root C:\sgSHIOK2026; hostname dev-host-2.example. Base451dcfe37b1715e0ea170bd5b873dc7b4b850112.
 All earlier396996bytes remain exact; prefix SHA256:
 caa0988bdd12db7a40f1363ad5a1d2cf7d2e906bb0e693cc01dd59e2f06b871d.
 
@@ -5937,7 +5937,7 @@ QA files are explicitly staged and their index/disk bytes checked before commit.
 ## 2026-09-13: Selection/map retry focus and visible transit keyboard controls
 
 Base:06953fd873e39d08392c171437e4cc7963155dbf. Working root C:\sgSHIOK2026;
-hostname PRAWN-E14. This is appended evidence; nothing above is changed.
+hostname dev-host-2.example. This is appended evidence; nothing above is changed.
 Machine receipts, exact commands/stdout/stderr, source hashes, failed attempts,
 review and screenshots: `qa/revamp-r1/selection-recovery-20260913/`.
 
@@ -6024,7 +6024,7 @@ DISAGREEMENTS
 ## 2026-09-13: Captured legacy Reload checkpoint, NOT accepted
 
 Working root: C:\sgSHIOK2026
-Hostname: PRAWN-E14
+Hostname: dev-host-2.example
 Base: 88e7ae5ca7761cf1e1219f859fd2a88e9fc97ad4
 Receipts: qa/revamp-r1/legacy-reload-20260913/summary.json
 Method/review: method.json and review.json in that directory.
@@ -6093,7 +6093,7 @@ DISAGREEMENTS
 
 ## 2026-09-13: Command-level legacy diagnostic and completion audit
 
-Root C:\sgSHIOK2026; host PRAWN-E14.
+Root C:\sgSHIOK2026; host dev-host-2.example.
 Base13487ead04115b4c732a7d0c8b0acab5922032ea.
 Evidence:qa/revamp-r1/legacy-command-20260913/summary.json.
 8/8new metadata-only command tests; syntax checks pass. Reused15server/navigation
@@ -6145,7 +6145,7 @@ DISAGREEMENTS
 
 ## 2026-09-13: T14 local report lifecycle implementation
 
-Root C:\sgSHIOK2026; host PRAWN-E14.
+Root C:\sgSHIOK2026; host dev-host-2.example.
 Base5b2dee025c127f85fe435c68fb80169120987e01.
 Evidence:qa/revamp-r1/report-lifecycle-20260913/summary.json.
 New code:web/lib/report-lifecycle.ts.
@@ -6207,7 +6207,7 @@ No source normalization, data changes or input repair is performed.
 
 ### Continuation 2026-09-13: integrated inactive maintenance runner
 
-Root C:\sgSHIOK2026; host PRAWN-E14. Basee6113cfd09bd9cfbd615debad826827b6758dcac.
+Root C:\sgSHIOK2026; host dev-host-2.example. Basee6113cfd09bd9cfbd615debad826827b6758dcac.
 Source:scripts/run_source_maintenance.py; tests:test_source_maintenance_runner.py.
 Receipts:qa/revamp-r1/maintenance-runner-20260913/summary.json.
 focused-vkZXJr:18pass/1fail, nine-source fixture supplied only one response.
@@ -6367,7 +6367,7 @@ DISAGREEMENTS
 
 ## 2026-09-14: Owner-approved weekly metadata scheduler, before activation
 
-Root C:\sgSHIOK2026; hostname Prawn-E14; base f4de99c16185e1a9a101e45068d835d713a365ee.
+Root C:\sgSHIOK2026; hostname dev-host-2.example; base f4de99c16185e1a9a101e45068d835d713a365ee.
 Owner rejected Cloudflare and approved weekly metadata-only checks to one GitHub
 issue. Phone participation agreed, not executed; generic tentative release assent
 does not identify an exact tested deployment. No pipeline or deployment run.
@@ -6517,7 +6517,7 @@ comment was edited or deleted. The metadata activation itself is unaffected.
 
 ## Supabase provider approval and browser clarification, 14 September 2026
 
-Working root: C:\sgSHIOK2026. Host: Prawn-E14. Baseline: c152a55.
+Working root: C:\sgSHIOK2026. Host: dev-host-2.example. Baseline: c152a55.
 Owner selected Supabase Free for private resident reports, with no Cloudflare.
 Owner uses desktop Chrome with resized viewports, not a physical phone.
 STATE, PRODUCT-PLAN, ARCHITECTURE, README, decisions and postplan now reflect
@@ -6585,7 +6585,7 @@ DISAGREEMENTS
 
 ## Designated Supabase project and disabled report storage, 14 September 2026
 
-Working root: C:\sgSHIOK2026. Host: Prawn-E14. Baseline: bfba3a6.
+Working root: C:\sgSHIOK2026. Host: dev-host-2.example. Baseline: bfba3a6.
 Owner identified sgbuslaobu, resolving the preceding project-name question.
 Existing authenticated SUPABASE_ACCESS_TOKEN environment was sufficient. No
 credential value from chat was put into code, files, evidence or commits.
@@ -6769,7 +6769,7 @@ DISAGREEMENTS
 
 ## Dedicated SHIOK Supabase setup, 15 September 2026
 
-Working root C:\sgSHIOK2026, Prawn-E14. Pulled main from0030fb5 to6f3b632;
+Working root C:\sgSHIOK2026, dev-host-2.example. Pulled main from0030fb5 to6f3b632;
 the sole advanced file was last_sync.txt. That unrelated change was preserved.
 Owner supplied the dedicated project URL. No request was made to sgbuslaobu,
 and its old scripts remain retired. No cleanup, copy or migration from it occurred.
@@ -7073,7 +7073,7 @@ DISAGREEMENTS
 
 ```text
 $ node C:\sgSHIOK2026\qa\revamp-r1\report-cleanup-20260915\evidence.mjs
-C:\sgSHIOK2026 | PRAWN-E14
+C:\sgSHIOK2026 | dev-host-2.example
 $ git rev-parse HEAD
 3a936854823df2fc3e7e9893af10e24507e3fe62
 exit=0
@@ -7407,7 +7407,7 @@ NEXT: actual concurrency and scheduler cancellation, daily cleanup, early-deleti
 ```json
 {
   "root": "C:\\sgSHIOK2026",
-  "host": "PRAWN-E14",
+  "host": "dev-host-2.example",
   "protectedAnchors": [
     {
       "path": "web/public/data/generated_20260805_prefer_scored_routed/manifest.json",
@@ -7799,7 +7799,7 @@ NEXT: actual concurrency and scheduler cancellation, daily cleanup, early-deleti
 ```json
 {
   "root": "C:\\sgSHIOK2026",
-  "host": "PRAWN-E14",
+  "host": "dev-host-2.example",
   "proofs": {
     "full": "checks-full-lmnBqi",
     "focused": "checks-focused-DhvBiC",
@@ -8313,7 +8313,7 @@ NEXT: actual concurrency and scheduler cancellation, daily cleanup, early-deleti
 ```json
 {
   "root": "C:\\sgSHIOK2026",
-  "host": "PRAWN-E14",
+  "host": "dev-host-2.example",
   "previousGoalTurn": "No progress: final verification/status only. Concrete implementation resumed this turn.",
   "migration": {
     "path": "supabase/migrations/20260915041505_shiok_report_moderation.sql",
@@ -8426,7 +8426,7 @@ NEXT: actual concurrency and scheduler cancellation, daily cleanup, early-deleti
 ```json
 {
   "root": "C:\\sgSHIOK2026",
-  "host": "PRAWN-E14",
+  "host": "dev-host-2.example",
   "receipts": {
     "failed": "live-sbvIlY",
     "clock": "clock-A4cKDh",
@@ -8542,7 +8542,7 @@ NEXT: actual concurrency and scheduler cancellation, daily cleanup, early-deleti
 ```json
 {
   "root": "C:\\sgSHIOK2026",
-  "host": "PRAWN-E14",
+  "host": "dev-host-2.example",
   "base": "01791821e379bbc69e45e0b5f593c5003c45cac6",
   "receipts": {
     "focused": "focused-0kxBnb",
@@ -8697,7 +8697,7 @@ NEXT: actual concurrency and scheduler cancellation, daily cleanup, early-deleti
 ```json
 {
   "root": "C:\\sgSHIOK2026",
-  "host": "PRAWN-E14",
+  "host": "dev-host-2.example",
   "base": "86e6274ab4fa1bee2196a3ec72b32de37630d272",
   "sourceBindings": {
     "web/app/api/moderation/session.ts": "678c00f9bc436c691b16bafaa1f0598f5cd11abd8515461628ccb230d52d1ad9",
@@ -9239,12 +9239,12 @@ Command: qa/revamp-r1/core-release-20260915/checkpoint.ps1
 ```json
 {
   "root": "C:\\sgSHIOK2026",
-  "host": "PRAWN-E14",
+  "host": "dev-host-2.example",
   "base": "f66d08676ba24f165a9f54d5ea7c4bbbf8ec3d9d",
   "retentionDays": 30,
   "firstStage": {
     "root": "C:\\sgSHIOK2026",
-    "host": "PRAWN-E14",
+    "host": "dev-host-2.example",
     "sourceRevision": "f66d08676ba24f165a9f54d5ea7c4bbbf8ec3d9d",
     "stage": "C:\\sgSHIOK2026\\tmp\\core-release-20260915-candidate-1",
     "previousFrontends": [],
@@ -9379,7 +9379,7 @@ Command: qa/revamp-r1/core-release-20260915/final-state.ps1
 ```json
 {
   "root": "C:\\sgSHIOK2026",
-  "host": "PRAWN-E14",
+  "host": "dev-host-2.example",
   "sourceRevision": "4f0234b126c6af228339ea8df0c5c18e4cc06a49",
   "retentionDays": 30,
   "attempt": {
@@ -9489,7 +9489,7 @@ unchanged. This section records staging only, not a completed build or deploymen
 ```json
 {
   "root": "C:\\sgSHIOK2026",
-  "host": "PRAWN-E14",
+  "host": "dev-host-2.example",
   "retentionDays": 30,
   "sourceRevision": "4f0234b126c6af228339ea8df0c5c18e4cc06a49",
   "head": "80ca2c70b65b1c78c43b6c55a114ea5c80937c0f",
@@ -9543,7 +9543,7 @@ Command: `.venv/Scripts/python.exe -B qa/revamp-r1/release-finalize-20260915/han
 ```json
 {
   "root": "C:\\sgSHIOK2026",
-  "host": "PRAWN-E14",
+  "host": "dev-host-2.example",
   "retentionDays": 30,
   "sourceRevision": "69eac6a22ab3794a8648c3211c961340081b7d45",
   "buildId": "D2v5v_SSLYgX0SSyDHqvr",
@@ -9924,7 +9924,7 @@ This is a focused set, not the entire Python suite or a repeated web invocation.
 
 ## 2026-09-15 Shipping continuation: preview authority and pagination regression
 
-Base:73e1fa0. Root:C:\sgSHIOK2026; host:PRAWN-E14.
+Base:73e1fa0. Root:C:\sgSHIOK2026; host:dev-host-2.example.
 Read-only independent review identified a real moderation pagination defect.
 New first-row save, last-row save and full-page expiry cases fail at Next enabled
 before the fix:3failed/34passed. Cursor preservation fixes all three. Further
@@ -9956,7 +9956,7 @@ DISAGREEMENTS
 
 Continuation of the preceding section; its BUILDING/full-suite-pending statements
 are historical. Existing evidence above is unchanged. Root:C:\sgSHIOK2026;
-hostname:PRAWN-E14. Code commit9cbb7af is pushed to main.
+hostname:dev-host-2.example. Code commit9cbb7af is pushed to main.
 
 Final local source validation:
 node web/scripts/test-without-data.mjs
@@ -10082,7 +10082,7 @@ Separate integrity command:repo_integrity=ok;exit0. No browser rerun or pipeline
 
 ## 2026-09-15 Deployed interaction and HTTP error-body disposal
 
-Base:b976126. Root:C:\sgSHIOK2026;hostname:PRAWN-E14.
+Base:b976126. Root:C:\sgSHIOK2026;hostname:dev-host-2.example.
 The prior goal turn was progress: actual preview plus moderation correction.
 This continuation retains the full build-and-ship goal and does not mark it done.
 No production promotion, second deployment, data mutation, install or pipeline.

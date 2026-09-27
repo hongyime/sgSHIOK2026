@@ -10,7 +10,7 @@ Change the generic missing-path reason chip from `Shelter-map evidence unavailab
 
 ```text
 PWD=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 8470ecd828a7e0fb771cdf8bab5198e9c5c54e7b
 8470ecd828a7e0fb771cdf8bab5198e9c5c54e7b	refs/heads/main
 ```

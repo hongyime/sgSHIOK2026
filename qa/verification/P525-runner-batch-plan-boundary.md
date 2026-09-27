@@ -1,14 +1,14 @@
 # P525 Runner batch-plan release boundary
 
 Working root: C:\sgSHIOK2026
-Host: Prawn-E14
+Host: dev-host-2.example
 Date: 2026-08-22
 
 ## Guard
 
 ```text
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 1fe96632b38d7d75e72027c9ef3397ca3e8ea00f
 1fe96632b38d7d75e72027c9ef3397ca3e8ea00f	refs/heads/main
 ```

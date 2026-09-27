@@ -1,7 +1,7 @@
 # P1018 Section 10 Reference Current Copy
 
 Working root: C:\sgSHIOK2026
-Machine: Prawn-E14
+Machine: dev-host-2.example
 
 ## Scope
 

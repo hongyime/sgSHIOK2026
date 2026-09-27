@@ -10,7 +10,7 @@ Change graph-disconnected transit copy from `not connected yet` wording to curre
 
 ```text
 PWD=C:\sgSHIOK2026
-HOST=Prawn-E14
+HOST=dev-host-2.example
 HEAD=8fbdd5c66e1fff3a9c476b5f35b25690bfff6224
 REMOTE=8fbdd5c66e1fff3a9c476b5f35b25690bfff6224	refs/heads/main
 ```

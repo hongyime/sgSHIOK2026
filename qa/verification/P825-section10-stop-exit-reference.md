@@ -1,7 +1,7 @@
 # P825 Section 10 Stop-Or-Exit Reference
 
 Working root: C:\sgSHIOK2026
-Machine: Prawn-E14
+Machine: dev-host-2.example
 
 ## Commands
 

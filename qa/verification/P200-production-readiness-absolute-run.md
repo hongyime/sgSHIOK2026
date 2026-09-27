@@ -2,13 +2,13 @@
 
 Date: 2026-08-21
 Working root: C:\sgSHIOK2026
-Machine: Prawn-E14
+Machine: dev-host-2.example
 
 ## Startup Guard
 
 ```text
 root=C:\sgSHIOK2026
-host=Prawn-E14
+host=dev-host-2.example
 ```
 
 ## Command

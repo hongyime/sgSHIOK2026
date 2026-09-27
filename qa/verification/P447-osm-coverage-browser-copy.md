@@ -1,7 +1,7 @@
 # P447 OSM Coverage Browser Copy
 
 Working root: C:\sgSHIOK2026
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 Date: 2026-08-21
 
 ## Scope
@@ -16,7 +16,7 @@ P443 measured live OSM `addr:postcode` coverage as 25,873 of 124,443 frozen post
 
 ```text
 ROOT=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 HEAD=2d2e4b4dfa96acea78fc5074e46a6e4fc32471e2
 ORIGIN_MAIN=2d2e4b4dfa96acea78fc5074e46a6e4fc32471e2	refs/heads/main
 ```

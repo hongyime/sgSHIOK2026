@@ -4,7 +4,7 @@
 
 ```text
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 4e1f14bf7da731fe0e9cb2f4c0cb19a2dc538363
 4e1f14bf7da731fe0e9cb2f4c0cb19a2dc538363	refs/heads/main
 ```

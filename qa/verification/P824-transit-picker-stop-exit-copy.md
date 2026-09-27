@@ -1,7 +1,7 @@
 # P824 Transit Picker Stop-Or-Exit Copy
 
 Working root: C:\sgSHIOK2026
-Machine: Prawn-E14
+Machine: dev-host-2.example
 
 ## Commands
 

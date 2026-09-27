@@ -1,7 +1,7 @@
 # P449 LAI Browser Boundary
 
 Working root: C:\sgSHIOK2026
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 Date: 2026-08-21
 
 ## Scope
@@ -16,7 +16,7 @@ The first-view browser freshness block named NParks Leaf Area Index as near its 
 
 ```text
 ROOT=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 HEAD=dc82a56df1c26380d3bb81f9bbb0e8d9ffbb02d1
 ORIGIN_MAIN=dc82a56df1c26380d3bb81f9bbb0e8d9ffbb02d1	refs/heads/main
 ```

@@ -12,7 +12,7 @@ No scoring, export, rescore, subset run, ingest, network build, input mutation, 
 
 ```text
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 d225beaf4238c033fd89167881bdae38271af2ec
 d225beaf4238c033fd89167881bdae38271af2ec	refs/heads/main
 ```

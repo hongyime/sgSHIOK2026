@@ -2,7 +2,7 @@
 
 Date: 2026-08-30
 Working root: C:\sgSHIOK2026
-Machine: Prawn-E14
+Machine: dev-host-2.example
 
 ## Scope
 
@@ -12,7 +12,7 @@ No scoring, export, rescore, subset run, ingest, network build, deployment, depe
 ## Local State
 
 ```text
-Prawn-E14
+dev-host-2.example
 C:\sgSHIOK2026
 01715cc1c675004f2873226e21e6088966408132
 01715cc1c675004f2873226e21e6088966408132	refs/heads/main

@@ -8,7 +8,7 @@ Free-tier web test change only. No scoring, export CLI run, rescore, ingest, net
 
 ```text
 cwd=C:\sgSHIOK2026
-hostname=PRAWN-E14
+hostname=dev-host-2.example
 ```
 
 ## Change

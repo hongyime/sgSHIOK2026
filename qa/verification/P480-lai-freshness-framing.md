@@ -2,7 +2,7 @@
 
 Date: 2026-08-22
 Working root: C:\sgSHIOK2026
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 
 ## Scope
 

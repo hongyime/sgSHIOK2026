@@ -1,7 +1,7 @@
 # P834 DataMall Discovery Policy Alignment
 
 Working root: `C:\sgSHIOK2026`
-Machine: `PRAWN-E14`
+Machine: `dev-host-2.example`
 
 ## Evidence Path Ignore Check
 
@@ -38,7 +38,7 @@ Get-Content -LiteralPath 'C:\sgSHIOK2026\qa\verification\P682-datamall-geospatia
 # P682 DataMall Geospatial Discovery
 
 Date: 2026-08-28
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 Working root: C:\sgSHIOK2026
 
 Scope:
@@ -90,7 +90,7 @@ Get-Content -LiteralPath 'C:\sgSHIOK2026\qa\verification\P750-readme-datamall-di
 # P750 README DataMall discovery copy
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 
 ## Command output
 

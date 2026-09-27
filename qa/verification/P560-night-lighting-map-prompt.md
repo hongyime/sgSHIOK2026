@@ -1,7 +1,7 @@
 # P560 Night Lighting Map Prompt
 
 Working root: C:\sgSHIOK2026
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 
 ## Scope
 
@@ -11,7 +11,7 @@ Clarify first-view and no-selection prompts so covered-walkway ratio and exposed
 
 ```text
 cwd=C:\sgSHIOK2026
-hostname=PRAWN-E14
+hostname=dev-host-2.example
 ```
 
 ## Focused Web Tests

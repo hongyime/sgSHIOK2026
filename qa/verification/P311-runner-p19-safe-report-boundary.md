@@ -7,7 +7,7 @@ Command output is recorded below for the runner P19 safe-report boundary change.
 ### Root Guard
 
 ```text
-ROOT_GUARD_OK actual=C:\sgSHIOK2026 host=PRAWN-E14
+ROOT_GUARD_OK actual=C:\sgSHIOK2026 host=dev-host-2.example
 ```
 
 ### Focused Python Test

@@ -10,7 +10,7 @@ Change the locked-score availability breakdown from `awaiting scoring` to a stat
 
 ```text
 PWD=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 885a6aaad85e950ebc8c92d2846d69e9634ee71b
 885a6aaad85e950ebc8c92d2846d69e9634ee71b	refs/heads/main
 ```

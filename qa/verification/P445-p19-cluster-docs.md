@@ -1,7 +1,7 @@
 # P445 P19 Cluster Docs
 
 Working root: C:\sgSHIOK2026
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 Date: 2026-08-21
 
 ## Scope
@@ -24,7 +24,7 @@ Unvalidated MCST proxy warnings remain separated:
 
 ```text
 ROOT=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 HEAD=798c2d097b8da3e451ffd9f7f2b6def9452dd84d
 ORIGIN_MAIN=798c2d097b8da3e451ffd9f7f2b6def9452dd84d	refs/heads/main
 ```

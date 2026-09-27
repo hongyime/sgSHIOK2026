@@ -1,7 +1,7 @@
 # P446 P19 Browser Cluster Copy
 
 Working root: C:\sgSHIOK2026
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 Date: 2026-08-21
 
 ## Scope
@@ -16,7 +16,7 @@ P445 made the confirmed P19 HDB missing-address clusters visible in README and C
 
 ```text
 ROOT=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 HEAD=ef444531a835186278efa7cc24f2a1e594b32473
 ORIGIN_MAIN=ef444531a835186278efa7cc24f2a1e594b32473	refs/heads/main
 ```

@@ -8,7 +8,7 @@ Free-tier reporting, documentation, and test coverage only. No scoring, export, 
 
 ```text
 cwd=C:\sgSHIOK2026
-hostname=PRAWN-E14
+hostname=dev-host-2.example
 ```
 
 ## Change

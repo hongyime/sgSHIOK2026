@@ -1,7 +1,7 @@
 # P559 Footer Evidence Copy
 
 Working root: C:\sgSHIOK2026
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 
 ## Scope
 
@@ -11,7 +11,7 @@ Clarify the persistent footer so covered-walkway ratio and exposed gaps are desc
 
 ```text
 cwd=C:\sgSHIOK2026
-hostname=PRAWN-E14
+hostname=dev-host-2.example
 ```
 
 ## Focused Test

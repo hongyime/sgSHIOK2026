@@ -1,14 +1,14 @@
 # P650 Direct Bus Fallback Note
 
 Working root: C:\sgSHIOK2026
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 Pipeline cost: zero; no scoring, export, rescore, subset run, ingest, or network build.
 
 ## Root Guard
 
 ```text
 root=C:\sgSHIOK2026
-host=PRAWN-E14
+host=dev-host-2.example
 ```
 
 ## Change

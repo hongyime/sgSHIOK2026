@@ -1,7 +1,7 @@
 # P931 Nearby-Address Closed Helper Copy
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 
 ## Change
 

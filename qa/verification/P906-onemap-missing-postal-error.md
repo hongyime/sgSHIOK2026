@@ -10,7 +10,7 @@ Change the selected OneMap result error from internal `usable postal code` langu
 
 ```text
 PWD=C:\sgSHIOK2026
-HOST=Prawn-E14
+HOST=dev-host-2.example
 HEAD=dea6d66ce9094c59e84e444e3bc71d3c08d2dcea
 REMOTE=dea6d66ce9094c59e84e444e3bc71d3c08d2dcea	refs/heads/main
 ```

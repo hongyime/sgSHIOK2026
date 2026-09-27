@@ -4,7 +4,7 @@
 
 ```text
 cwd=C:\sgSHIOK2026
-hostname=Prawn-E14
+hostname=dev-host-2.example
 ```
 
 ## Command: uv run python run.py check --freshness-only

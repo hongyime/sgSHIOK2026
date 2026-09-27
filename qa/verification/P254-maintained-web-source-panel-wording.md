@@ -4,7 +4,7 @@
 
 ```text
 ROOT_OK C:\sgSHIOK2026
-HOST PRAWN-E14
+HOST dev-host-2.example
 ```
 
 ## Scope

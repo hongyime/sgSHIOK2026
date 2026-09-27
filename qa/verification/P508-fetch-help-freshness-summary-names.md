@@ -1,7 +1,7 @@
 # P508 fetch help freshness summary names
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 Date: 2026-08-22
 
 ## Change

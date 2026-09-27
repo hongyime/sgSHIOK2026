@@ -1,7 +1,7 @@
 # P263 DataMall signed URL regression
 
 Working root: `C:\sgSHIOK2026`
-Machine: `PRAWN-E14`
+Machine: `dev-host-2.example`
 Date: 2026-08-21
 
 ## Command output

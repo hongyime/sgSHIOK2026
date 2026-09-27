@@ -1,14 +1,14 @@
 # P522 Postal-universe Overture policy help
 
 Working root: C:\sgSHIOK2026
-Host: Prawn-E14
+Host: dev-host-2.example
 Date: 2026-08-22
 
 ## Guard
 
 ```text
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 334fb67b11cd9af02839d55649624d8c44fce2b0
 334fb67b11cd9af02839d55649624d8c44fce2b0	refs/heads/main
 ```

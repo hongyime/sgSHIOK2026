@@ -2,7 +2,7 @@
 
 Date: 2026-08-22
 Working root: C:\sgSHIOK2026
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 
 ## Scope
 
@@ -15,7 +15,7 @@ No scoring, export, rescore, subset run, ingest, network build, deployment, inpu
 ```text
 PS C:\sgSHIOK2026> $PWD.Path; hostname; git rev-parse HEAD; git status --short
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 d3031da141703fc7f82446d8e79d2b223ee13fe6
 ?? qa/p10_network_provenance_20260813/
 ?? qa/p11/d_calibration_w2_0050/

@@ -1,7 +1,7 @@
 # P861 Transit Fallback Copy
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 
 ## Scope
 
@@ -18,7 +18,7 @@ Path
 ----
 C:\sgSHIOK2026
 
-Prawn-E14
+dev-host-2.example
 fde6d03cb8c1215deb2670c2d544e37ccbd8abc2
 fde6d03cb8c1215deb2670c2d544e37ccbd8abc2	refs/heads/main
 ```

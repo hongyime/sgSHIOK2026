@@ -10,7 +10,7 @@ Change bus-support caveats from `could not prove` / `could not be connected` wor
 
 ```text
 PWD=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 5c2b3e665855f08fe9d63c58060a5cdcbd873a73
 5c2b3e665855f08fe9d63c58060a5cdcbd873a73	refs/heads/main
 ```

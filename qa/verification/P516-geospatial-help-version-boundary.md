@@ -1,14 +1,14 @@
 # P516 geospatial help version boundary
 
 Working root: C:\sgSHIOK2026
-Host: Prawn-E14
+Host: dev-host-2.example
 Date: 2026-08-22
 
 ## Guard
 
 ```text
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 35fb323dc6937843deb4cc350caea2f092c97961
 35fb323dc6937843deb4cc350caea2f092c97961	refs/heads/main
 ```

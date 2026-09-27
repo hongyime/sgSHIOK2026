@@ -10,7 +10,7 @@ Change no-transit range copy from passive `was found` wording to active locked-b
 
 ```text
 PWD=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 d0f25105840ac6b0989964567eccd2b8aed62b6a
 d0f25105840ac6b0989964567eccd2b8aed62b6a	refs/heads/main
 ```

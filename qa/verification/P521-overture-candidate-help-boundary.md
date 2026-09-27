@@ -1,14 +1,14 @@
 # P521 Overture candidate help boundary
 
 Working root: C:\sgSHIOK2026
-Host: Prawn-E14
+Host: dev-host-2.example
 Date: 2026-08-22
 
 ## Guard
 
 ```text
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 9fd24afced2a0806e739aa8d1506b7cec3af3fdb
 9fd24afced2a0806e739aa8d1506b7cec3af3fdb	refs/heads/main
  M pipeline/overture_addresses.py

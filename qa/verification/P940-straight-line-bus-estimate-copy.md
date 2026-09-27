@@ -4,7 +4,7 @@
 
 ```text
 pwd=C:\sgSHIOK2026
-hostname=PRAWN-E14
+hostname=dev-host-2.example
 head=da871c3
 da871c37fc3d0eea6500a0d864cb67890ce26c5a	refs/heads/main
 repo_integrity=ok

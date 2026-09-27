@@ -1,7 +1,7 @@
 # P958 Vercel App Shell Cache
 
 Working root: C:\sgSHIOK2026
-Machine: Prawn-E14
+Machine: dev-host-2.example
 
 ## Intent
 

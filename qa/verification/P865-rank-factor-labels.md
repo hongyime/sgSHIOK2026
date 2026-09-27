@@ -1,7 +1,7 @@
 # P865 Rank Factor Labels
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 
 ## Scope
 
@@ -18,7 +18,7 @@ Path
 ----
 C:\sgSHIOK2026
 
-Prawn-E14
+dev-host-2.example
 bdeb41fe9a66941c72f6d97e680697b9d08efe2d
 bdeb41fe9a66941c72f6d97e680697b9d08efe2d	refs/heads/main
 ```

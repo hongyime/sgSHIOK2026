@@ -3,7 +3,7 @@
 Date: 2026-08-15
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 
 Scope:
 - Zero pipeline cost.
@@ -14,7 +14,7 @@ Scope:
 ## Start State
 
 ```text
-Prawn-E14
+dev-host-2.example
 C:\sgSHIOK2026
 85819196dccd26b12aed985ae829fb894c26c62a
 85819196dccd26b12aed985ae829fb894c26c62a	refs/heads/main

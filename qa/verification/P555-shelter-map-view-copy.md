@@ -4,7 +4,7 @@
 
 ```text
 root=C:\sgSHIOK2026
-host=PRAWN-E14
+host=dev-host-2.example
 7c049143058d2692ccc4d2e0526e7e82afce2e32
 ?? qa/p10_network_provenance_20260813/
 ?? qa/p11/d_calibration_w2_0050/

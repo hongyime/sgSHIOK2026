@@ -1,7 +1,7 @@
 # P251 freshness cadence interpretation
 
 Root: `C:\sgSHIOK2026`
-Host: `PRAWN-E14`
+Host: `dev-host-2.example`
 Date: 2026-08-21
 
 ## Scope

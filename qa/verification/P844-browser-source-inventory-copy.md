@@ -8,7 +8,7 @@ Free-tier browser copy cleanup. No scoring, export, rescore, subset run, ingest,
 
 ```text
 root=C:\sgSHIOK2026
-host=PRAWN-E14
+host=dev-host-2.example
 ```
 
 ## Change
@@ -21,7 +21,7 @@ The browser source-freshness detail now describes the source inventory by user-f
 
 ```text
 root=C:\sgSHIOK2026
-host=PRAWN-E14
+host=dev-host-2.example
 e1681580ac84e609b9c78b777738b4ea6962fa68
 e1681580ac84e609b9c78b777738b4ea6962fa68	refs/heads/main
 ?? qa/p10_network_provenance_20260813/

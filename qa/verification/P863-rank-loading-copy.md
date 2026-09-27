@@ -1,7 +1,7 @@
 # P863 Rank Loading Copy
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 
 ## Scope
 
@@ -18,7 +18,7 @@ Path
 ----
 C:\sgSHIOK2026
 
-Prawn-E14
+dev-host-2.example
 adc0bd3ef0701e20fe93f97a3db65239f2ef7563
 adc0bd3ef0701e20fe93f97a3db65239f2ef7563	refs/heads/main
 ```

@@ -8,7 +8,7 @@ Zero-pipeline refactor. No scoring, export, rescore, subset run, ingest, network
 
 ```text
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 ```
 
 ## Change

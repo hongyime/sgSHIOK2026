@@ -1,14 +1,14 @@
 # P587 Route Option Manifest Contract
 
 Date: 2026-08-28
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 Working root: C:\sgSHIOK2026
 
 ## Startup Guard
 
 ```text
 cwd=C:\sgSHIOK2026
-hostname=PRAWN-E14
+hostname=dev-host-2.example
 ```
 
 ## Scope

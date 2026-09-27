@@ -2,7 +2,7 @@
 
 Date: 2026-08-30
 Working root: C:\sgSHIOK2026
-Machine: Prawn-E14
+Machine: dev-host-2.example
 
 ## Intent
 
@@ -15,7 +15,7 @@ Success responses were already weekly cacheable. Throttles, upstream errors, no-
 PWD
 C:\sgSHIOK2026
 HOST
-Prawn-E14
+dev-host-2.example
 HEAD
 9aeeff2530555dbaa56e11e01e0f192e3e093603
 ORIGIN_MAIN

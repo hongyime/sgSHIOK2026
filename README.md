@@ -202,6 +202,28 @@ conflation repair, and any approved postal-universe v2 promotion after each
 change passes on the 1,200-record subset. Do not run piecemeal full-bundle
 reruns, deploy, or repoint the live site without explicit owner approval.
 
+## Windows and Linux development
+
+Use the same Node/npm versions and checked-in `web/package-lock.json` on both
+platforms. From the checkout root, install dependencies explicitly with
+`npm --prefix web ci`, then run `npm --prefix web run dev`. Linux also has
+`sh dev.sh`; it accepts additional Next.js development arguments. Source edits
+use the development server without a Docker image build. Existing data-bundle
+prerequisites still apply; these commands do not generate or publish data.
+
+`npm --prefix web test` runs the existing web tests and
+`npm --prefix web run build` performs an explicit application build. The optional
+dependency-check helper works through PowerShell 7 on either OS:
+`pwsh -File scripts/ensure-web-deps.ps1`.
+
+The older `launch-check`/watchdog scripts use Windows process APIs, and production
+wrappers retain their approved-host and confirmation safeguards. They are
+operational Windows tools, not prerequisites for Linux web development. Shared
+Python pipeline commands remain available through `uv run python run.py`; use
+their documented explicit arguments and preserve frozen data. On SMB, use a
+Linux mount path rather than a Windows drive letter, and keep each OS's dependency
+environment separate.
+
 ## Repo map
 
 - `CLAUDE.md` — agent instructions: hard constraints, stack, layout, conventions. Read first.

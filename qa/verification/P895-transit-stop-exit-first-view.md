@@ -1,7 +1,7 @@
 # P895 Transit stop-or-exit first-view copy
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 Date: 2026-08-29
 
 ## Scope

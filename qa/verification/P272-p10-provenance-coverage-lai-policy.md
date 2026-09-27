@@ -3,7 +3,7 @@
 ## Root Guard
 
 ```text
-ROOT_GUARD_OK actual=C:\sgSHIOK2026 host=PRAWN-E14
+ROOT_GUARD_OK actual=C:\sgSHIOK2026 host=dev-host-2.example
 ```
 
 ## Evidence Path

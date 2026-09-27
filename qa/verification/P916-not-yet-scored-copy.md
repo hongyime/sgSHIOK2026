@@ -10,7 +10,7 @@ Change the `NOT_YET_SCORED` explanatory sentence from pending-style `yet` wordin
 
 ```text
 PWD=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 24a8a2a4ab8b4bc8a54d8fad8b4934adcaf168dd
 24a8a2a4ab8b4bc8a54d8fad8b4934adcaf168dd	refs/heads/main
 ```

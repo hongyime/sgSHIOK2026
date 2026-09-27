@@ -1,7 +1,7 @@
 # P894 OneMap no-match copy
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 Date: 2026-08-29
 
 ## Scope
@@ -18,7 +18,7 @@ The search no-results state now says no OneMap match instead of no OneMap addres
 
 ```text
 PWD=C:\sgSHIOK2026
-HOST=Prawn-E14
+HOST=dev-host-2.example
 HEAD=7ac6bc8cbb012e383a56a815f3e220fa09f3b195
 REMOTE=7ac6bc8cbb012e383a56a815f3e220fa09f3b195	refs/heads/main
 ```

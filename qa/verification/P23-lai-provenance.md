@@ -4,7 +4,7 @@
 
 ```text
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 9b6ec125e6d135ff1a56ee9b194845a5d0ff22d5
 9b6ec125e6d135ff1a56ee9b194845a5d0ff22d5	refs/heads/main
  M pipeline/scoring_integration.py

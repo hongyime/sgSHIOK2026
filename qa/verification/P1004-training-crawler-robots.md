@@ -1,14 +1,14 @@
 # P1004 Training Crawler Robots Policy
 
 Working root: C:\sgSHIOK2026
-Machine: Prawn-E14
+Machine: dev-host-2.example
 
 ## Command Output
 
 ### hostname; working root; HEAD; status
 
 ```text
-Prawn-E14
+dev-host-2.example
 C:\sgSHIOK2026
 76ea5060ff4217e78afda72956be5187729b0a59
 ?? qa/p10_network_provenance_20260813/

@@ -1,14 +1,14 @@
 # P513 freshness docs stale action
 
 Working root: C:\sgSHIOK2026
-Host: Prawn-E14
+Host: dev-host-2.example
 Date: 2026-08-22
 
 ## Guard
 
 ```text
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 8ebf30ba6acc971ddc52d941e382c2465a390815
 8ebf30ba6acc971ddc52d941e382c2465a390815	refs/heads/main
 ```

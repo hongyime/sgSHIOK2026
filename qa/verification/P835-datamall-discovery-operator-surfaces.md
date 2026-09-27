@@ -1,7 +1,7 @@
 # P835 DataMall Discovery Operator Surfaces
 
 Working root: `C:\sgSHIOK2026`
-Machine: `PRAWN-E14`
+Machine: `dev-host-2.example`
 
 ## Evidence Path Ignore Check
 

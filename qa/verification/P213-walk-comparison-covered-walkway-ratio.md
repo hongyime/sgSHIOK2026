@@ -6,7 +6,7 @@ Date: 2026-08-21
 
 ```text
 root=C:\sgSHIOK2026
-host=PRAWN-E14
+host=dev-host-2.example
 ecdfd54fe6428ca6805dd8a0a087bb8b9e99fc34
 ecdfd54fe6428ca6805dd8a0a087bb8b9e99fc34	refs/heads/main
 ```

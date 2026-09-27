@@ -1,14 +1,14 @@
 # P518 P19 help sample label
 
 Working root: C:\sgSHIOK2026
-Host: Prawn-E14
+Host: dev-host-2.example
 Date: 2026-08-22
 
 ## Guard
 
 ```text
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 530a30bc75d174a7ba69a8f7635a1f17b494139c
 530a30bc75d174a7ba69a8f7635a1f17b494139c	refs/heads/main
 ```

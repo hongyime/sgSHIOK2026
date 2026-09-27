@@ -1,7 +1,7 @@
 # P408 walk feedback count grammar
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 
 ## Scope
 

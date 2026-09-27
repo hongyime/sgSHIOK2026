@@ -10,7 +10,7 @@ Change the OneMap 429 search error to mention direct 6-digit postal-code entry a
 
 ```text
 PWD=C:\sgSHIOK2026
-HOST=Prawn-E14
+HOST=dev-host-2.example
 HEAD=01715bf9c05f09f7109df4b84fa47cbfe2a0396b
 REMOTE=01715bf9c05f09f7109df4b84fa47cbfe2a0396b	refs/heads/main
 ```

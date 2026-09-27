@@ -1,14 +1,14 @@
 # P523 Overture source policy boundary
 
 Working root: C:\sgSHIOK2026
-Host: Prawn-E14
+Host: dev-host-2.example
 Date: 2026-08-22
 
 ## Guard
 
 ```text
 C:\sgSHIOK2026
-Prawn-E14
+dev-host-2.example
 31aeb2ab8c5e5f54e893513ce5753edd466e5168
 31aeb2ab8c5e5f54e893513ce5753edd466e5168	refs/heads/main
 ```

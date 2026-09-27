@@ -1,7 +1,7 @@
 # P452 Section 10 Heat Proxy Copy
 
 Working root: C:\sgSHIOK2026
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 Date: 2026-08-21
 
 ## Scope
@@ -16,7 +16,7 @@ The browser avoids the shorthand `Heat: shelter + NParks shade proxy` because it
 
 ```text
 ROOT=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 HEAD=b3e3f1eae83acb77c4a51e3cdb551185e9ee44ac
 ORIGIN_MAIN=b3e3f1eae83acb77c4a51e3cdb551185e9ee44ac	refs/heads/main
 ```

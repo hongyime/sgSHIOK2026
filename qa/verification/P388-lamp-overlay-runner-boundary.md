@@ -8,7 +8,7 @@ Free-tier runner/docs/test change only. No scoring, export, rescore, ingest, net
 
 ```text
 cwd=C:\sgSHIOK2026
-hostname=PRAWN-E14
+hostname=dev-host-2.example
 ```
 
 ## Focused Tests

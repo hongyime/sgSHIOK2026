@@ -4,7 +4,7 @@
 
 ```powershell
 ROOT=C:\sgSHIOK2026
-HOST=PRAWN-E14
+HOST=dev-host-2.example
 e5f83b53d401ea39c5dbf3490a864744085446b3
 e5f83b53d401ea39c5dbf3490a864744085446b3	refs/heads/main
 ?? qa/p10_network_provenance_20260813/
@@ -55,7 +55,7 @@ index 7ceb7df..c6df482 100644
 +Task: P39 empty score-panel route evidence copy is implemented and ready to hand back.
  
  Working root: `C:\sgSHIOK2026`
- Machine: `Prawn-E14`
+ Machine: `dev-host-2.example`
 -Remote main: `9925976` at P38 task start.
 +Remote main: `e5f83b5` at P39 task start.
  

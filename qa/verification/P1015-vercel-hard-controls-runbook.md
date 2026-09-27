@@ -1,7 +1,7 @@
 # P1015 Vercel Hard Controls Runbook
 
 Working root: C:\sgSHIOK2026
-Machine: Prawn-E14
+Machine: dev-host-2.example
 
 ## Scope
 

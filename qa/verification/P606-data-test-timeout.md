@@ -8,7 +8,7 @@ Free-tier web test reliability change only. No scoring, export CLI run, rescore,
 
 ```text
 cwd=C:\sgSHIOK2026
-hostname=PRAWN-E14
+hostname=dev-host-2.example
 ```
 
 ## Change

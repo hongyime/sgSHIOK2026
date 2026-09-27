@@ -1,7 +1,7 @@
 # P1016 Move-Here First Screen
 
 Working root: C:\sgSHIOK2026
-Machine: Prawn-E14
+Machine: dev-host-2.example
 
 ## Scope
 

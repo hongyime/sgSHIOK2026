@@ -1,7 +1,7 @@
 # P933 Nearby-Address Status Sentences
 
 Working root: `C:\sgSHIOK2026`
-Machine: `Prawn-E14`
+Machine: `dev-host-2.example`
 
 ## Change
 

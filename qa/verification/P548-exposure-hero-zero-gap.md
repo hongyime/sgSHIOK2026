@@ -1,14 +1,14 @@
 # P548 Exposure Hero Zero-Gap Copy
 
 Date: 2026-08-22
-Machine: PRAWN-E14
+Machine: dev-host-2.example
 Working root: C:\sgSHIOK2026
 
 ## Startup Guard
 
 ```text
 root=C:\sgSHIOK2026
-host=PRAWN-E14
+host=dev-host-2.example
 b6cdee01befc9a2e2dcbe818ffa6413d69193be8
 ```
 
