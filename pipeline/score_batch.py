@@ -349,11 +349,19 @@ def build_score_batch(
     resume: bool = True,
     context_loader: Callable[[Path, Path | None], Any] = load_scoring_context,
     score_chunker: ScoreChunker = score_postal_gdf,
+    shard_index: int | None = None,
+    shard_count: int | None = None,
 ) -> tuple[bool, dict[str, Any]]:
     if limit is not None and limit < 0:
         return False, {"ok": False, "errors": ["limit must be >= 0"]}
     if chunk_size <= 0:
         return False, {"ok": False, "errors": ["chunk_size must be positive"]}
+    if (shard_index is None) != (shard_count is None):
+        return False, {"ok": False, "errors": ["shard_index and shard_count must be given together"]}
+    if shard_count is not None and shard_index is not None and (
+        shard_count < 1 or not 0 <= shard_index < shard_count
+    ):
+        return False, {"ok": False, "errors": ["shard_index must satisfy 0 <= shard_index < shard_count"]}
     output_errors = output_dir_preflight_errors(
         output_dir=output_dir,
         dry_run=dry_run,
@@ -395,6 +403,9 @@ def build_score_batch(
         "chunk_count": len(chunks),
         "chunks_written": 0,
         "chunks_skipped_existing": 0,
+        "chunks_skipped_other_shard": 0,
+        "shard_index": shard_index,
+        "shard_count": shard_count,
         "records_written": 0,
         "not_yet_scored_records_written": 0,
         "generated_at": datetime.now(UTC).isoformat(),
@@ -451,6 +462,9 @@ def build_score_batch(
     report["networks_by_digest"] = dict(sorted(network_maps.items()))
     data_as_of = load_manifest().get("generated_at")
     for chunk_index, (start, end) in enumerate(chunks, start=1):
+        if shard_count is not None and (chunk_index - 1) % shard_count != shard_index:
+            report["chunks_skipped_other_shard"] += 1
+            continue
         chunk = postal_rows.iloc[start:end].copy()
         postals = [str(item) for item in chunk["postal_code"].tolist()]
         path = chunk_path(output_dir, chunk_index, postals)
@@ -512,7 +526,12 @@ def build_score_batch(
             }
         )
 
-    manifest_path = output_dir / "batch_manifest.json"
+    manifest_name = (
+        "batch_manifest.json"
+        if shard_count is None
+        else f"batch_manifest.shard{shard_index}of{shard_count}.json"
+    )
+    manifest_path = output_dir / manifest_name
     report["manifest_path"] = str(manifest_path)
     write_json(manifest_path, report)
     return True, report
@@ -550,6 +569,12 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help="Required with --full-batch after human checkpoint approval.",
     )
+    parser.add_argument(
+        "--shard-index",
+        type=int,
+        help="With --shard-count, process only chunks where (chunk_index-1) %% shard_count == shard_index.",
+    )
+    parser.add_argument("--shard-count", type=int, help="Total parallel shards writing the same --output-dir.")
     args = parser.parse_args(argv)
 
     if args.output_dir is None and not args.dry_run:
@@ -593,6 +618,8 @@ def main(argv: list[str] | None = None) -> int:
         confirm_full_batch=bool(args.confirm_full_batch),
         dry_run=bool(args.dry_run),
         resume=not args.no_resume,
+        shard_index=args.shard_index,
+        shard_count=args.shard_count,
     )
     print(json.dumps(report, indent=2, sort_keys=True))
     return 0 if ok else 1

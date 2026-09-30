@@ -324,6 +324,8 @@ def test_score_batch_cli_confirmed_limited_run_reaches_build(monkeypatch, tmp_pa
             "confirm_full_batch": False,
             "dry_run": False,
             "resume": True,
+            "shard_index": None,
+            "shard_count": None,
         }
     ]
 
@@ -410,3 +412,54 @@ def test_json_safe_score_record_serializes_shapely_geometries():
         safe["_candidate_geometries"]["bus:66361"]["shortest_path_edges"][0]["geometry"]
         == "LINESTRING (0 0, 3 0)"
     )
+
+
+def test_score_batch_shards_partition_chunks_and_final_pass_writes_manifest(tmp_path: Path):
+    universe_path = tmp_path / "postal_universe.parquet"
+    output_dir = tmp_path / "scores"
+    write_universe(universe_path)
+    common = {
+        "postal_universe_path": universe_path,
+        "output_dir": output_dir,
+        "network_path": universe_path,
+        "limit": 3,
+        "chunk_size": 1,
+        "context_loader": fake_context_loader,
+        "score_chunker": fake_score_chunker,
+    }
+
+    ok0, report0 = build_score_batch(**common, shard_index=0, shard_count=2)
+    assert ok0, report0
+    assert report0["chunks_written"] == 2
+    assert report0["chunks_skipped_other_shard"] == 1
+    assert not (output_dir / "batch_manifest.json").exists()
+    assert (output_dir / "batch_manifest.shard0of2.json").is_file()
+
+    ok1, report1 = build_score_batch(**common, shard_index=1, shard_count=2)
+    assert ok1, report1
+    assert report1["chunks_written"] == 1
+    assert report1["chunks_skipped_other_shard"] == 2
+
+    ok, report = build_score_batch(**common)
+    assert ok, report
+    assert report["chunks_written"] == 0
+    assert report["chunks_skipped_existing"] == 3
+    assert (output_dir / "batch_manifest.json").is_file()
+
+
+def test_score_batch_rejects_invalid_shard_arguments(tmp_path: Path):
+    universe_path = tmp_path / "postal_universe.parquet"
+    write_universe(universe_path)
+    for shard_index, shard_count in [(0, None), (None, 2), (2, 2), (-1, 2), (0, 0)]:
+        ok, report = build_score_batch(
+            postal_universe_path=universe_path,
+            output_dir=tmp_path / "scores",
+            network_path=universe_path,
+            limit=3,
+            context_loader=fake_context_loader,
+            score_chunker=fake_score_chunker,
+            shard_index=shard_index,
+            shard_count=shard_count,
+        )
+        assert not ok
+        assert "shard" in report["errors"][0]
