@@ -758,6 +758,31 @@ function busFallbackSummary(evidence: DirectBusFallbackEvidence): string {
   return `${countText} found${distanceText}; ${waitText}.`;
 }
 
+/**
+ * SCORED_PARTIAL whose only missing locked term is bus: the pipeline found no bus
+ * stop within the candidate radius, so (since P577) it reports bus as null rather
+ * than 0.0. Bus contributes 0 under the locked weights either way, so the total is
+ * complete and the record is presented as fully scored, with the missing bus stop
+ * named. Mirrors pipeline.export.is_bus_only_null_partial. decisions.md 2026-10-02.
+ */
+function isBusOnlyNullPartial(score: ScoreRecord): boolean {
+  if (score.state !== "SCORED_PARTIAL" || typeof score.total !== "number") return false;
+  const subs = score.subscores;
+  if (!subs || typeof subs !== "object" || !("bus" in subs)) return false;
+  return Object.entries(subs).every(([key, value]) =>
+    key === "bus" ? value === null : typeof value === "number"
+  );
+}
+
+function busStopCandidateRadiusM(score: ScoreRecord): number | null {
+  return nestedNumber(score.provenance, ["transit_node_set", "bus_stop_candidate_radius_m"]);
+}
+
+function busRadiusText(score: ScoreRecord): string {
+  const radius = busStopCandidateRadiusM(score);
+  return radius !== null && radius > 0 ? formatDistance(radius) : "the bus-stop search radius";
+}
+
 function provenanceReason(score: ScoreRecord, transitMode: TransitAccessMode): string | null {
   if (transitMode !== "best_transit") return null;
   const provenance = score.provenance;
@@ -784,6 +809,9 @@ function noTransitTitle(score: ScoreRecord, transitMode: TransitAccessMode): str
 function scoreStateNote(score: ScoreRecord, transitMode: TransitAccessMode): string | null {
   if (score.paths?.routing_type === "live_onemap_preview") {
     return "Preview only: this clicked MRT/LRT exit or bus stop has shelter-map evidence, but it is outside the published shelter-map data.";
+  }
+  if (isBusOnlyNullPartial(score)) {
+    return `No bus stop within ${busRadiusText(score)} of this address; the locked bus term is 0 and the total is complete. All other locked terms are published.`;
   }
   if (score.state === "SCORED_PARTIAL") {
     return "Partial locked score: some shelter-map evidence may still be inspectable, but incomplete locked-score inputs are treated as zero in this release.";
@@ -1475,9 +1503,13 @@ export function ScoreCard({
           id: "bus",
           label: "Bus service support",
           value: formatScore(score.subscores.bus),
-          meta: scoredMeta(score.subscores.bus, "20% of score: bus access", "Bus support unavailable"),
+          meta: isBusOnlyNullPartial(score)
+            ? "No bus stop within range (bus term 0)"
+            : scoredMeta(score.subscores.bus, "20% of score: bus access", "Bus support unavailable"),
           notes: [
-            "A low bus score points to either weak nearby service or a shelter-map walk that bypasses official LTA bus stops.",
+            isBusOnlyNullPartial(score)
+              ? `No bus stop within ${busRadiusText(score)} of this address, so the 20% bus term contributes 0 to the complete locked score.`
+              : "A low bus score points to either weak nearby service or a shelter-map walk that bypasses official LTA bus stops.",
             busFallback
               ? `${busFallbackSummary(busFallback)} A straight-line bus estimate is shown instead — no verified shelter-map walk to an official LTA bus stop is published, so the locked bus score stays at 0.`
               : null,

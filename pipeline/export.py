@@ -612,6 +612,42 @@ def state_counts(records: list[dict[str, Any]]) -> dict[str, int]:
     return dict(sorted(counts.items()))
 
 
+def is_bus_only_null_partial(record: dict[str, Any]) -> bool:
+    """SCORED_PARTIAL whose only missing subscore is bus: no bus stop within the
+    candidate radius. Bus contributes 0 under the locked weights, so the total is
+    complete; only the bus term is honestly reported as absent (decisions.md
+    2026-10-02)."""
+    if record.get("state") != "SCORED_PARTIAL":
+        return False
+    subscores = record.get("subscores")
+    if not isinstance(subscores, dict) or "bus" not in subscores:
+        return False
+    return all(value is None if key == "bus" else value is not None for key, value in subscores.items())
+
+
+def locked_score_coverage(records: list[dict[str, Any]]) -> dict[str, Any]:
+    counts = Counter(str(record.get("state")) for record in records)
+    bus_none = sum(1 for record in records if is_bus_only_null_partial(record))
+    radius: float | None = None
+    for record in records:
+        node_set = (record.get("provenance") or {}).get("transit_node_set")
+        value = node_set.get("bus_stop_candidate_radius_m") if isinstance(node_set, dict) else None
+        if isinstance(value, (int, float)) and not isinstance(value, bool):
+            radius = float(value)
+            break
+    return {
+        "full_locked_score": counts["SCORED"] + bus_none,
+        "scored": counts["SCORED"],
+        "bus_none_in_range": bus_none,
+        "partial_other": counts["SCORED_PARTIAL"] - bus_none,
+        "no_transit_in_range": counts[NO_TRANSIT_IN_RANGE],
+        "not_yet_scored": counts[NOT_YET_SCORED],
+        "bus_stop_candidate_radius_m": radius,
+        "rule": "SCORED, plus SCORED_PARTIAL whose only null subscore is bus (no bus stop "
+        "within the candidate radius); bus contributes 0 under the locked weights.",
+    }
+
+
 def score_provenance_summary(records: list[dict[str, Any]]) -> dict[str, Any]:
     source_hashes: dict[str, str] = {}
     scoring_fingerprints: dict[str, str] = {}
@@ -1314,6 +1350,7 @@ def export_static_artifacts(
             "artifact": "shiok-static-json",
             "record_count": len(records),
             "state_counts": state_counts(records),
+            "locked_score_coverage": locked_score_coverage(records),
             **manifest_provenance,
         },
         "scores": {

@@ -70,7 +70,7 @@ describe("score card copy", () => {
     expect(source).toContain("Nearby direct bus service without verified shelter-map walk");
     expect(source).not.toContain("Nearby bus service without verified shelter-map walk");
     expect(source).toContain(
-      "Straight-line bus estimate is shown separately; no verified shelter-map walk to an official LTA bus stop is published, so the locked bus score remains 0."
+      "A straight-line bus estimate is shown instead — no verified shelter-map walk to an official LTA bus stop is published, so the locked bus score stays at 0."
     );
     expect(source).not.toContain("Direct bus service is shown as fallback evidence");
     expect(source).not.toContain("the bus term remains 0");
@@ -712,10 +712,10 @@ describe("score card copy", () => {
     expect(source).toContain('aria-label="Shelter-map evidence and locked score breakdown"');
     expect(source).toContain("aria-label={reasonListLabel}");
     expect(source).toContain('"Shelter-map evidence reasons"');
-    expect(source).toContain("35% locked stop/exit walk");
+    expect(source).toContain("35% of score: walk to transit");
     expect(source).not.toContain("35% locked walk-to-transit");
-    expect(source).toContain("20% locked bus support");
-    expect(source).toContain("40% locked shelter exposure");
+    expect(source).toContain("20% of score: bus access");
+    expect(source).toContain("40% of score: rain and heat");
     expect(source).not.toContain("35% locked access");
     expect(source).not.toContain('"20% locked bus",');
     expect(source).not.toContain("40% locked rain+heat");
@@ -825,7 +825,7 @@ describe("score card copy", () => {
     expect(source).toContain('"Locked score for sorting"');
     expect(source).not.toContain('"Sorting-only score"');
     expect(source).not.toContain('"Release sorting index"');
-    expect(source).toContain("Start with covered-walkway ratio and exposed gaps; use the locked score only to sort the published shelter-map data.");
+    expect(source).toContain("Lead with covered-walkway ratio and exposed gaps for the real picture — the locked score is for sorting and comparing postals, not precision measurement.");
     expect(source).not.toContain("Start with the shelter trace and exposed gaps; use the locked score only to sort the published shelter-map data.");
     expect(source).not.toContain("Start with the shelter trace and exposed gaps; use the locked score only to sort the current bundle.");
     expect(source).not.toContain("Use this locked score to sort the current bundle");
@@ -894,8 +894,8 @@ describe("score card copy", () => {
     expect(source).not.toContain('"Walk-to-transit score unavailable"');
     expect(source).toContain('"Bus support unavailable"');
     expect(source).not.toContain('"Bus evidence unavailable"');
-    expect(source).toContain('"Bus support not computed"');
-    expect(source).toContain("Bus service support is not computed for addresses outside the locked 1.2 km transit range.");
+    expect(source).toContain('"Bus score: beyond locked range"');
+    expect(source).toContain("Bus service support is not scored beyond the locked 1.2 km transit range — use the walk evidence and coverage ratio instead.");
     expect(source).not.toContain('"Bus service not scored"');
     expect(source).not.toContain('"Locked bus term unavailable"');
     expect(source).not.toContain("Locked bus evidence is not computed for records outside the 1.2 km transit range.");
@@ -907,11 +907,11 @@ describe("score card copy", () => {
     expect(source).not.toContain('access: { low: "Longer walk to transit", high: "Short walk to transit" }');
     expect(source).toContain('label: "Bus service support"');
     expect(source).toContain(
-      "A low value can mean weak service evidence, or that the published shelter-map walk does not show access to an official LTA bus stop."
+      "A low bus score points to either weak nearby service or a shelter-map walk that bypasses official LTA bus stops."
     );
     expect(source).not.toContain("the published shelter-map walk could not prove access to an official LTA bus stop");
     expect(source).toContain(
-      "Straight-line bus estimate is shown separately; no verified shelter-map walk to an official LTA bus stop is published, so the locked bus score remains 0."
+      "A straight-line bus estimate is shown instead — no verified shelter-map walk to an official LTA bus stop is published, so the locked bus score stays at 0."
     );
     expect(source).not.toContain("Direct bus service is shown as fallback evidence");
     expect(source).not.toContain("Shelter-map walk access was not verified");
@@ -932,7 +932,7 @@ describe("score card copy", () => {
     expect(source).not.toContain("Limited bus connectivity");
     expect(source).not.toContain("Strong bus connectivity");
     expect(source).toContain(
-      "In this locked release, shelter exposure and the heat estimate share mostly the same covered-walkway evidence."
+      "Covered-walkway ratio drives both the rain and heat subscores — a more sheltered walk raises both signals at once."
     );
     expect(source).not.toContain(
       "Rain shelter and heat comfort currently share mostly the same covered-walkway evidence."
@@ -947,7 +947,7 @@ describe("score card copy", () => {
     expect(source).toContain("Good covered-walkway coverage");
     expect(source).not.toContain("Same displayed value as rain shelter for this postal.");
     expect(source).toContain("Same displayed value as shelter exposure for this postal.");
-    expect(source).toContain("Heat also includes sparse nearby greenery, so SHIOK shows covered-walkway ratio first.");
+    expect(source).toContain("Heat layers in sparse nearby greenery on top, but covered-walkway ratio dominates both; SHIOK leads with the ratio.");
     expect(source).not.toContain("Heat also includes the sparse NParks greenery proxy, so SHIOK shows the shelter trace first.");
     expect(source).toContain("Heat estimate evidence: covered ${formatDistance(score.paths.covered_m)}");
     expect(source).not.toContain("greenery proxy ${formatDistance(score.paths.shade_m)}");
@@ -955,7 +955,7 @@ describe("score card copy", () => {
     expect(source).not.toContain('heat: { low: "Low heat-proxy evidence", high: "Stronger heat-proxy evidence" }');
     expect(source).not.toContain("Better heat-proxy score");
     expect(source).toContain(
-      "Crossing friction still contributes 5% to the locked score, but has low separation in this release."
+      "Crossing friction adds 5% to the score but contributes little differentiation between postals in this release — treat it as a minor tiebreaker."
     );
     expect(source).not.toContain("Crossing friction remains a 5% locked term");
     expect(source).not.toContain('label: "Rain shelter"');
@@ -1118,5 +1118,16 @@ describe("score card copy", () => {
     expect(source).not.toContain("Direct-bus fallback evidence reasons");
     expect(source).toContain("aria-label={sourceEvidenceLabel}");
     expect(source).toContain("aria-label={reasonListLabel}");
+  });
+
+  it("treats a bus-only null partial as fully scored and names the missing bus stop (decisions.md 2026-10-02)", () => {
+    const source = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
+
+    expect(source).toContain("function isBusOnlyNullPartial(score: ScoreRecord): boolean");
+    expect(source).toContain("function busStopCandidateRadiusM(score: ScoreRecord): number | null");
+    expect(source).toContain("if (isBusOnlyNullPartial(score)) {");
+    expect(source).toContain("No bus stop within ${busRadiusText(score)} of this address; the locked bus term is 0 and the total is complete. All other locked terms are published.");
+    expect(source).toContain('"No bus stop within range (bus term 0)"');
+    expect(source).toContain("No bus stop within ${busRadiusText(score)} of this address, so the 20% bus term contributes 0 to the complete locked score.");
   });
 });

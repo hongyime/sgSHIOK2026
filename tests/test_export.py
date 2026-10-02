@@ -15,6 +15,7 @@ from pipeline.export import (
     geom_record,
     json_size,
     load_score_batch_records,
+    locked_score_coverage,
     main as export_main,
     refresh_score_provenance_manifest,
     refresh_transit_manifest,
@@ -2013,4 +2014,37 @@ def test_refresh_provenance_cli_requires_confirmation_before_mutating(
             "in-place manifest mutation must name its bundle directory"
         ],
         "ok": False,
+    }
+
+
+def test_locked_score_coverage_counts_bus_only_null_partials_as_full():
+    def rec(state, subscores=None, radius=300.0):
+        return {
+            "state": state,
+            "subscores": subscores,
+            "provenance": {"transit_node_set": {"bus_stop_candidate_radius_m": radius}},
+        }
+
+    full = {"access": 50.0, "bus": 50.0, "rain": 50.0, "heat": 50.0, "crossing": 50.0}
+    bus_null = {**full, "bus": None}
+    walk_null = {**full, "rain": None, "heat": None, "crossing": None}
+    records = [
+        rec("SCORED", full),
+        rec("SCORED", full),
+        rec("SCORED_PARTIAL", bus_null),
+        rec("SCORED_PARTIAL", walk_null),
+        rec("NO_TRANSIT_IN_RANGE"),
+        rec("NOT_YET_SCORED"),
+    ]
+
+    assert locked_score_coverage(records) == {
+        "full_locked_score": 3,
+        "scored": 2,
+        "bus_none_in_range": 1,
+        "partial_other": 1,
+        "no_transit_in_range": 1,
+        "not_yet_scored": 1,
+        "bus_stop_candidate_radius_m": 300.0,
+        "rule": "SCORED, plus SCORED_PARTIAL whose only null subscore is bus (no bus stop "
+        "within the candidate radius); bus contributes 0 under the locked weights.",
     }
