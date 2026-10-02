@@ -1287,7 +1287,7 @@ def export_static_artifacts(
     geom_cell_by_postal: dict[str, str] = {}
     for record in records:
         origin = record.get("_origin")
-        geometry_record = geom_record(record)
+        geometry_record = export_geom_record(record)
         if not isinstance(origin, dict) or geometry_record is None:
             continue
         lat = float(origin["lat"])
@@ -2055,7 +2055,7 @@ def refresh_score_provenance_manifest(output_dir: Path) -> dict[str, Any]:
     }
 
 
-def load_score_batch_records(records_dir: Path) -> list[dict[str, Any]]:
+def load_score_batch_records(records_dir: Path, *, project: bool = True) -> list[dict[str, Any]]:
     chunks_dir = records_dir / "chunks"
     if not chunks_dir.is_dir():
         raise FileNotFoundError(f"score batch chunks directory not found: {chunks_dir}")
@@ -2084,8 +2084,40 @@ def load_score_batch_records(records_dir: Path) -> list[dict[str, Any]]:
             # `pipeline/scoring_integration.py:candidate_sort_key` and
             # decisions.md 2026-08-05 for rationale.
             repick_best_transit_from_route_options(item)
-            records.append(item)
+            records.append(project_record_for_export(item) if project else item)
     return sorted(records, key=lambda item: str(item["postal"]))
+
+
+# Chunk payloads the exporter reads only through geom_record(). Measured on a
+# median real chunk (chunk_00079, 161 MB, 500 records): _candidate_geometries
+# 52.7% and _geometry_options 33.7% of serialized bytes, _geometry 9.6%. Computing
+# geom_record once at load time and keeping only its output cuts a chunk from
+# ~409 MB parsed to ~19 MB (geom_record 14.2 MB + public record 4.5 MB). The full
+# 249-chunk / 43.9 GB batch does not fit in RAM otherwise. decisions.md 2026-10-02.
+GEOM_SOURCE_KEYS = frozenset({"_geometry", "_geometry_options", "_candidate_geometries"})
+PRECOMPUTED_GEOM_KEY = "_geom_record"
+
+
+def project_record_for_export(record: dict[str, Any]) -> dict[str, Any]:
+    """Replace the raw geometry payloads with their already-computed geom_record.
+
+    geom_record(record) is evaluated exactly once here and stored under
+    PRECOMPUTED_GEOM_KEY; export_geom_record() returns it unchanged, so the
+    exported geom shards are byte-identical. Every other key is preserved for
+    public_score_record, planning-area lookup and provenance summaries.
+    Returns the same object when the record carries no geometry payload.
+    """
+    if not GEOM_SOURCE_KEYS.intersection(record):
+        return record
+    projected = {key: value for key, value in record.items() if key not in GEOM_SOURCE_KEYS}
+    projected[PRECOMPUTED_GEOM_KEY] = geom_record(record)
+    return projected
+
+
+def export_geom_record(record: dict[str, Any]) -> dict[str, Any] | None:
+    if PRECOMPUTED_GEOM_KEY in record:
+        return record[PRECOMPUTED_GEOM_KEY]
+    return geom_record(record)
 
 
 def validate_score_record(record: dict[str, Any], errors: list[str], context: str) -> None:

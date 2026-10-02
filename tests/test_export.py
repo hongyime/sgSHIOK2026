@@ -16,6 +16,7 @@ from pipeline.export import (
     json_size,
     load_score_batch_records,
     locked_score_coverage,
+    project_record_for_export,
     main as export_main,
     refresh_score_provenance_manifest,
     refresh_transit_manifest,
@@ -1036,10 +1037,15 @@ def test_load_score_batch_records_preserves_no_transit_walk_evidence(tmp_path: P
     record = json_safe_score_record(no_transit_walk_evidence_record("560235"))
     write_json(chunks_dir / "chunk_00001_560235_560235.json", [record])
 
-    loaded = load_score_batch_records(tmp_path)
+    loaded = load_score_batch_records(tmp_path, project=False)
 
     assert loaded == [record]
     assert loaded[0]["state"] == "NO_TRANSIT_IN_RANGE"
+    # default (projected) path keeps everything export reads; raw geometry is folded into _geom_record
+    projected = load_score_batch_records(tmp_path)[0]
+    assert {k: v for k, v in projected.items() if not k.startswith("_")} == {
+        k: v for k, v in record.items() if not k.startswith("_")
+    }
     assert loaded[0]["total"] is None
     assert loaded[0]["subscores"] is None
     assert loaded[0]["best_node"]["routed_m"] == 1500.0
@@ -2048,3 +2054,138 @@ def test_locked_score_coverage_counts_bus_only_null_partials_as_full():
         "rule": "SCORED, plus SCORED_PARTIAL whose only null subscore is bus (no bus stop "
         "within the candidate radius); bus contributes 0 under the locked weights.",
     }
+
+
+def _heavy_chunk_record(postal: str, state: str = "SCORED") -> dict:
+    line = "LINESTRING (0 0, 1 1)"
+    edge = {"geometry": line, "length_m": 10.0, "is_covered": True, "source_layer": "x"}
+    rec = {
+        "postal": postal,
+        "state": state,
+        "total": 50.0 if state != "NOT_YET_SCORED" else None,
+        "subscores": (
+            None
+            if state == "NOT_YET_SCORED"
+            else {"access": 50.0, "bus": None if state == "SCORED_PARTIAL" else 50.0,
+                  "rain": 50.0, "heat": 50.0, "crossing": 50.0}
+        ),
+        "best_node": {"type": "mrt_lrt_exit", "name": "T", "routed_m": 100.0},
+        "paths": {"shortest_m": 100.0, "sheltered_m": 100.0, "covered_ratio": 0.5},
+        "exposure_gaps": [],
+        "data_as_of": "2026-09-18T00:00:00+00:00",
+        "provenance": {
+            "scoring_fingerprint_digest": "a" * 24,
+            "scoring_input_digest": "b" * 24,
+            "network_digest": "c" * 24,
+            "transit_node_set": {"bus_stop_candidate_radius_m": 300.0},
+        },
+        "candidates": [{"type": "bus_stop", "name": f"B{i}", "state": state} for i in range(5)],
+        "route_options": {"best_transit": {"routed_m": 100.0}},
+        "_area": "ANG MO KIO",
+        "_origin": {"lat": 1.37, "lon": 103.85},
+    }
+    if state != "NOT_YET_SCORED":
+        rec["_geometry"] = {
+            "shortest": line, "sheltered": line,
+            "shortest_path_edges": [edge], "sheltered_path_edges": [edge], "exposure_gap_edges": [],
+        }
+        # the two payloads that make real chunks 90-700 MB; export never reads them
+        rec["_geometry_options"] = {k: dict(rec["_geometry"]) for k in ("best_transit", "bus", "mrt_lrt")}
+        rec["_candidate_geometries"] = {f"bus:{i}": dict(rec["_geometry"]) for i in range(5)}
+    return rec
+
+
+def test_project_record_for_export_drops_unused_geometry_and_keeps_everything_export_reads():
+    rec = _heavy_chunk_record("560001")
+    projected = project_record_for_export(rec)
+
+    from pipeline.export import PRECOMPUTED_GEOM_KEY, export_geom_record, geom_record
+
+    for dropped in ("_candidate_geometries", "_geometry_options", "_geometry"):
+        assert dropped not in projected
+    assert projected[PRECOMPUTED_GEOM_KEY] == geom_record(rec)
+    assert export_geom_record(projected) == geom_record(rec)
+    for key in ("_origin", "_area", "candidates", "route_options", "provenance"):
+        assert projected[key] == rec[key]
+    assert {k: v for k, v in projected.items() if not k.startswith("_")} == {
+        k: v for k, v in rec.items() if not k.startswith("_")
+    }
+    # passthrough when nothing to drop
+    light = {k: v for k, v in rec.items() if not k.startswith("_") or k in ("_origin", "_area")}
+    assert project_record_for_export(light) == light
+
+
+def test_export_from_projected_records_is_byte_identical_to_raw(tmp_path: Path, monkeypatch):
+    chunks = tmp_path / "batch" / "chunks"
+    chunks.mkdir(parents=True)
+    recs = [
+        _heavy_chunk_record("560001"),
+        _heavy_chunk_record("560002", "SCORED_PARTIAL"),
+        _heavy_chunk_record("560003", "NOT_YET_SCORED"),
+    ]
+    (chunks / "chunk_00001_560001_560002.json").write_text(json.dumps(recs[:2]), encoding="utf-8")
+    (chunks / "chunk_00002_560003_560003.json").write_text(json.dumps(recs[2:]), encoding="utf-8")
+    # the real batch dir always carries batch_manifest.json; export resolves every
+    # record digest against its *_by_digest maps and raises otherwise.
+    (tmp_path / "batch" / "batch_manifest.json").write_text(
+        json.dumps(
+            {
+                "scoring_provenance_at_start": {
+                    "scoring_fingerprint_digest": "a" * 24,
+                    "scoring_input_digest": "b" * 24,
+                    "network_digest": "c" * 24,
+                },
+                "scoring_fingerprints_by_digest": {"a" * 24: {"weights": "w"}},
+                "scoring_inputs_by_digest": {
+                    "b" * 24: {
+                        "inputs": [{"path": "u.parquet", "row_count": 3, "sha256": "0" * 64}],
+                        "scoring_input_algorithm": "sha256-json-sort-keys-24hex",
+                        "total_rows": 3,
+                    }
+                },
+                "networks_by_digest": {
+                    "c" * 24: {
+                        "network_algorithm": "sha256-json-sort-keys-24hex",
+                        "networks": [{"path": "n.parquet", "row_count": 3, "sha256": "0" * 64}],
+                        "total_rows": 3,
+                    }
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    frozen = "2026-10-02T00:00:00+00:00"
+
+    class FrozenDatetime:
+        @staticmethod
+        def now(_tz):
+            class _D:
+                @staticmethod
+                def isoformat():
+                    return frozen
+            return _D()
+
+    import pipeline.export as export_module
+
+    monkeypatch.setattr(export_module, "datetime", FrozenDatetime)
+    monkeypatch.setattr(export_module, "export_transit_pois", lambda out: {"path": "transit/pois.json", "bytes": 0, "feature_count": 0, "counts": {}, "source_hashes": {}})
+
+    raw = load_score_batch_records(tmp_path / "batch", project=False)
+    projected = load_score_batch_records(tmp_path / "batch")
+    assert all("_candidate_geometries" in r for r in raw if r["state"] != "NOT_YET_SCORED")
+    assert not any("_candidate_geometries" in r for r in projected)
+
+    out_raw = tmp_path / "out_raw"
+    out_proj = tmp_path / "out_proj"
+    export_static_artifacts(raw, output_dir=out_raw, records_dir=tmp_path / "batch")
+    export_static_artifacts(projected, output_dir=out_proj, records_dir=tmp_path / "batch")
+
+    raw_files = sorted(p.relative_to(out_raw) for p in out_raw.rglob("*") if p.is_file())
+    proj_files = sorted(p.relative_to(out_proj) for p in out_proj.rglob("*") if p.is_file())
+    assert raw_files == proj_files and raw_files
+    for rel in raw_files:
+        assert (out_raw / rel).read_bytes() == (out_proj / rel).read_bytes(), rel
+    manifest = json.loads((out_proj / "manifest.json").read_text(encoding="utf-8"))
+    assert manifest["provenance"]["locked_score_coverage"]["full_locked_score"] == 2
+    assert manifest["provenance"]["locked_score_coverage"]["bus_none_in_range"] == 1
