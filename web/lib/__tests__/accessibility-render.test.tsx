@@ -341,7 +341,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Locked score 72 out of 100.");
     expect(html).toContain("<span>Locked score for sorting</span><strong>72/100</strong>");
     expect(html).not.toContain("<span>Locked score</span><strong>72/100</strong>");
-    expect(html).toContain("<strong>72/100</strong><small>Locked score for sorting</small>");
+    expect(html).toContain("<strong>72/100</strong><small>For comparing and sorting postals</small>");
     expect(html).not.toContain("Sorting-only score");
     expect(html).not.toContain("<strong>72/100</strong><small>Release sorting index</small>");
     expect(html).toContain("Custom MRT/LRT exit or bus stop selected.");
@@ -632,25 +632,25 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("40% locked rain+heat");
     expect(html).toContain("Walk to stop or exit");
     expect(html).not.toContain("Walk to transit");
-    expect(html).toContain("Sheltered walk distance to transit stop or exit.");
+    expect(html).toContain("Sheltered walk distance to transit stop or exit — the single largest factor in the locked score.");
     expect(html).toContain("240 m sheltered walk to transit stop or exit");
     expect(html).not.toContain("Sheltered walk distance to transit.");
     expect(html).not.toContain("Selected walk distance to transit.");
     expect(html).not.toContain("240 m to transit");
     expect(html).not.toContain("Selected route distance to transit.");
     const busHtml = renderScoreCard({ transitMode: "bus" });
-    expect(busHtml).toContain("Sheltered walk distance to bus stop.");
+    expect(busHtml).toContain("Sheltered walk distance to bus stop — the single largest factor in the locked score.");
     expect(busHtml).toContain("240 m sheltered walk to bus stop");
     expect(busHtml).not.toContain("Sheltered walk distance to bus.");
     expect(busHtml).not.toContain("240 m sheltered walk to bus</span>");
     const mrtHtml = renderScoreCard({ transitMode: "mrt_lrt" });
-    expect(mrtHtml).toContain("Sheltered walk distance to MRT/LRT exit.");
+    expect(mrtHtml).toContain("Sheltered walk distance to MRT/LRT exit — the single largest factor in the locked score.");
     expect(mrtHtml).toContain("240 m sheltered walk to MRT/LRT exit");
     expect(mrtHtml).not.toContain("Sheltered walk distance to MRT/LRT.");
     expect(mrtHtml).not.toContain("240 m sheltered walk to MRT/LRT</span>");
     expect(html).toContain("Bus service support");
     expect(html).toContain(
-      "A low value can mean weak service evidence, or that the published shelter-map walk does not show access to an official LTA bus stop."
+      "A low bus score points to either weak nearby service or a shelter-map walk that bypasses official LTA bus stops."
     );
     expect(html).not.toContain("trusted walk to a DataMall bus stop");
     expect(html).toContain("Locked SHIOK score");
@@ -687,7 +687,7 @@ describe("rendered accessibility output", () => {
     expect(breakdownHtml).not.toContain(">Rain shelter<");
     expect(breakdownHtml).not.toContain(">Crossing friction<");
     expect(html).toContain(
-      "In this locked release, shelter exposure and the heat estimate share mostly the same covered-walkway evidence."
+      "Covered-walkway ratio drives both the rain and heat subscores — a more sheltered walk raises both signals at once."
     );
     expect(html).not.toContain(
       "In this locked release, rain shelter and the heat estimate share mostly the same covered-walkway evidence."
@@ -695,7 +695,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("rain shelter and heat comfort share mostly the same covered-walkway evidence.");
     expect(html).not.toContain("Rain shelter and heat comfort currently share mostly the same covered-walkway evidence.");
     expect(html).toContain(
-      "Heat also includes sparse nearby greenery, so SHIOK shows covered-walkway ratio first."
+      "Heat layers in sparse nearby greenery on top, but covered-walkway ratio dominates both; SHIOK leads with the ratio."
     );
     expect(html).not.toContain("SHIOK shows the shelter trace first.");
     expect(html).toContain("Same displayed value as shelter exposure for this postal.");
@@ -987,7 +987,7 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("48% covered-walkway ratio on the shortest walk.");
     expect(html).toContain("Exposed gap measurements are unavailable for this shortest walk.");
     expect(html).not.toContain("181 m exposed across 2 gaps");
-    expect(html).toContain("Shortest walk distance to transit stop or exit.");
+    expect(html).toContain("Shortest walk distance to transit stop or exit — the single largest factor in the locked score.");
     expect(html).not.toContain("Shortest walk distance to transit.");
     expect(html).not.toContain("Sheltered walk distance to transit.");
     expect(html).toContain(
@@ -1154,17 +1154,17 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("48%");
     expect(html).toContain("1.5 km");
     expect(html).toContain("Exposed gaps on sheltered walk");
-    expect(html).toContain("Shelter-map walk evidence is shown because a connected shelter-map walk exists, but the locked score is not published beyond the 1.2 km transit range.");
+    expect(html).toContain("A connected shelter-map walk exists for this postal, so walk evidence is shown — but this address is beyond the 1.2 km locked range, so no locked score is published.");
     expect(html).not.toContain("the locked score is suppressed beyond the 1.2 km transit range");
     expect(html).toContain("Beyond 1.2 km locked range");
     expect(html).not.toContain("Outside locked transit range");
     expect(html).not.toContain("Outside locked access range");
-    expect(html).toContain("Bus support not computed");
-    expect(html).toContain("Bus service support is not computed for addresses outside the locked 1.2 km transit range.");
+    expect(html).toContain("Bus score: beyond locked range");
+    expect(html).toContain("Bus service support is not scored beyond the locked 1.2 km transit range — use the walk evidence and coverage ratio instead.");
     expect(html).not.toContain("Bus service not scored");
     expect(html).not.toContain("Locked bus term unavailable");
     expect(html).not.toContain("Locked bus evidence is not computed for records outside the 1.2 km transit range.");
-    expect(html).toContain("No full locked score is published for this postal, but the shelter-map walk evidence remains inspectable.");
+    expect(html).toContain("This postal is beyond the locked 1.2 km transit range, so no locked score is published — but the shelter-map walk evidence remains available to inspect.");
     expect(html).not.toContain("No full locked score is published for this postal, but the route evidence remains inspectable.");
     expect(html).toContain("<span>No full locked score</span><strong>Walk evidence</strong>");
     expect(html).not.toContain("<span>No full locked score</span><strong>Published data</strong>");
@@ -1316,7 +1316,7 @@ describe("rendered accessibility output", () => {
     expect(html).toContain("<strong>Unavailable</strong><small>Stop/exit walk score unavailable</small>");
     expect(html).toContain("<strong>No full locked score</strong><small>Locked score unavailable</small>");
     expect(html).not.toContain("<strong>No full locked score</strong><small>Release sorting index unavailable</small>");
-    expect(html).toContain("<strong>42</strong><small>20% locked bus support</small>");
+    expect(html).toContain("<strong>42</strong><small>20% of score: bus access</small>");
     expect(html).not.toContain("<strong>42</strong><small>20% locked bus</small>");
     expect(html).not.toContain("<strong>0</strong><small>Shelter-map walk unavailable</small>");
     expect(html).not.toContain("Walk evidence unavailable");
@@ -1410,7 +1410,7 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("direct bus candidates found");
     expect(html).not.toContain("Direct line to bus stop; walking route pending.");
     expect(html).toContain(
-      "Straight-line bus estimate is shown separately; no verified shelter-map walk to an official LTA bus stop is published, so the locked bus score remains 0."
+      "A straight-line bus estimate is shown instead — no verified shelter-map walk to an official LTA bus stop is published, so the locked bus score stays at 0."
     );
     expect(html).not.toContain("Direct bus service is shown as fallback evidence");
     expect(html).not.toContain("so this component score remains 0");
