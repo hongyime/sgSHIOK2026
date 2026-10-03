@@ -65,7 +65,7 @@ export function sourceFreshnessAtCheck(record: SourceFreshnessInput): {
 // These three hashes also match the frozen bundle's manifest source_hashes.
 // fetchedAt is kept as supporting metadata; it is NEVER a publisher update date.
 export const RECORDED_SOURCE_FRESHNESS = {
-  bundle: 'generated_20260805_prefer_scored_routed',
+  bundle: 'generated_20261002_full_rescore_bus_remodel_network_repair',  // same three source hashes as the 2026-08-05 bundle; verified against its manifest 2026-10-03
   checkedAt: '2026-08-29T17:23:22.780137+00:00',
   checkKind: 'manifest-only',
   // No publication timestamp is recorded in the pinned or frozen manifest.

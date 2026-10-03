@@ -1,14 +1,14 @@
 {
-  "bundle": "generated_20260805_prefer_scored_routed",
-  "generated_at": "2026-08-05T14:00:15.974693+00:00",
-  "data_as_of": "2026-08-01T21:49:20.977890+00:00",
+  "bundle": "generated_20261002_full_rescore_bus_remodel_network_repair",
+  "generated_at": "2026-10-03T08:37:17.932357+00:00",
+  "data_as_of": "2026-08-25T12:35:08.603848+00:00",
   "provenance": {
     "record_count": 124443,
     "state_counts": {
       "NOT_YET_SCORED": 476,
-      "NO_TRANSIT_IN_RANGE": 9827,
-      "SCORED": 95157,
-      "SCORED_PARTIAL": 18983
+      "NO_TRANSIT_IN_RANGE": 1252,
+      "SCORED": 57299,
+      "SCORED_PARTIAL": 65416
     }
   }
 }
