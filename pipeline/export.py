@@ -47,7 +47,12 @@ DEFAULT_VALIDATE_DIR = PROJECT_ROOT / "web" / "public" / "data"
 CONFIRM_EXPORT_FLAG = "--confirm-export"
 CONFIRM_LIVE_SCORE_EXPORT_FLAG = "--confirm-live-score-export"
 CONFIRM_REFRESH_PROVENANCE_FLAG = "--confirm-refresh-provenance"
-MAX_DATA_FILES = 5000
+# Sanity cap against runaway sharding, not a platform limit. Raised 5000 -> 8000
+# on 2026-10-03 for the full-rescore bundle (5,211 files: +8,575 routed postals
+# -> 4,886 geom/h3 shards). The live bundle already deploys ~9.7k files once the
+# web build adds gzip twins and transit/h3 shards; scripts/release_staging.py
+# caps at 20,000. decisions.md 2026-10-03.
+MAX_DATA_FILES = 8000
 MAX_FILE_BYTES = 5 * 1024 * 1024
 GEOM_PROMOTION_THRESHOLD_BYTES = int(MAX_FILE_BYTES * 0.9)
 GEOM_MAX_PROMOTION_RESOLUTION = 12

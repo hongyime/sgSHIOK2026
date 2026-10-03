@@ -2226,3 +2226,25 @@ def test_load_score_batch_records_parallel_rejects_duplicate_postal_across_chunk
 
     with pytest.raises(ValueError, match="duplicate postal across score batch chunks: 560001"):
         load_score_batch_records(tmp_path / "batch", workers=2)
+
+
+
+def test_validate_file_cap_admits_full_rescore_bundle_size(tmp_path: Path):
+    # The 2026-10-02 full-rescore bundle has 5,211 JSON files (8,575 more routed
+    # postals than the Aug bundle -> 4,886 geom/h3 shards). The cap is a sanity
+    # check against runaway sharding, not a platform limit: the live bundle already
+    # deploys ~9.7k files once gzip twins and transit/h3 shards are added at build
+    # time, and scripts/release_staging.py caps at 20,000. decisions.md 2026-10-03.
+    import pipeline.export as export_module
+
+    assert export_module.MAX_DATA_FILES == 8000
+
+    for i in range(5211):
+        (tmp_path / f"f{i}.json").write_text("{}", encoding="utf-8")
+    _ok, report = validate_static_artifacts(input_dir=tmp_path)
+    assert not any("file count" in error for error in report["errors"]), report["errors"]
+
+    for i in range(5211, 8001):
+        (tmp_path / f"f{i}.json").write_text("{}", encoding="utf-8")
+    _ok, report = validate_static_artifacts(input_dir=tmp_path)
+    assert "file count 8001 exceeds 8000" in report["errors"]
