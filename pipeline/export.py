@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import concurrent.futures
 import csv
 import gzip
 import json
@@ -2055,7 +2056,51 @@ def refresh_score_provenance_manifest(output_dir: Path) -> dict[str, Any]:
     }
 
 
-def load_score_batch_records(records_dir: Path, *, project: bool = True) -> list[dict[str, Any]]:
+def load_score_batch_chunk(path: Path, *, project: bool = True) -> list[dict[str, Any]]:
+    """Read one chunk file and apply the per-record export projection.
+
+    Module-level (not a closure) so ProcessPoolExecutor can pickle it. Duplicate
+    detection across chunks stays in load_score_batch_records, which sees all
+    chunks; a single chunk never contains the same postal twice by construction.
+    """
+    payload = read_json(path)
+    if not isinstance(payload, list):
+        raise TypeError(f"score batch chunk must contain a list: {path}")
+    records: list[dict[str, Any]] = []
+    for item in payload:
+        if not isinstance(item, dict):
+            raise TypeError(f"score batch chunk record must be an object: {path}")
+        postal = str(item.get("postal", ""))
+        if not postal:
+            raise ValueError(f"score batch chunk record missing postal: {path}")
+        # Apply the state-preferring best_transit picker to legacy chunks that
+        # were assembled under the older score-only sort key. See
+        # `pipeline/scoring_integration.py:candidate_sort_key` and
+        # decisions.md 2026-08-05 for rationale.
+        repick_best_transit_from_route_options(item)
+        records.append(project_record_for_export(item) if project else item)
+    return records
+
+
+def _load_score_batch_chunk_projected(path: Path) -> list[dict[str, Any]]:
+    return load_score_batch_chunk(path, project=True)
+
+
+def load_score_batch_records(
+    records_dir: Path, *, project: bool = True, workers: int = 1
+) -> list[dict[str, Any]]:
+    """Load every chunk under records_dir/chunks, projected for export by default.
+
+    workers > 1 reads and projects chunks in a process pool. geom_record is pure
+    per record and dominates load time (measured 126 s vs 3.7 s JSON parse on a
+    108 MB real chunk, decisions.md 2026-10-03), so chunk-level parallelism keeps
+    the output byte-identical: results are consumed in chunk-path order and the
+    final postal sort is unchanged. Each worker holds one parsed chunk at a time,
+    so RAM scales with workers x largest chunk; the parent keeps only the
+    projected (~19 MB per 500 records) output.
+    """
+    if workers < 1:
+        raise ValueError(f"workers must be >= 1, got {workers}")
     chunks_dir = records_dir / "chunks"
     if not chunks_dir.is_dir():
         raise FileNotFoundError(f"score batch chunks directory not found: {chunks_dir}")
@@ -2064,28 +2109,32 @@ def load_score_batch_records(records_dir: Path, *, project: bool = True) -> list
     if not chunk_paths:
         raise FileNotFoundError(f"no score batch chunk JSON files found in {chunks_dir}")
 
+    if workers == 1 or len(chunk_paths) == 1 or not project:
+        chunk_results: Iterable[list[dict[str, Any]]] = (
+            load_score_batch_chunk(path, project=project) for path in chunk_paths
+        )
+        records = _merge_score_batch_chunks(chunk_results)
+    else:
+        with concurrent.futures.ProcessPoolExecutor(
+            max_workers=min(workers, len(chunk_paths))
+        ) as pool:
+            records = _merge_score_batch_chunks(
+                pool.map(_load_score_batch_chunk_projected, chunk_paths)
+            )
+    return sorted(records, key=lambda item: str(item["postal"]))
+
+
+def _merge_score_batch_chunks(chunk_results: Iterable[list[dict[str, Any]]]) -> list[dict[str, Any]]:
     records: list[dict[str, Any]] = []
     seen: set[str] = set()
-    for path in chunk_paths:
-        payload = read_json(path)
-        if not isinstance(payload, list):
-            raise TypeError(f"score batch chunk must contain a list: {path}")
-        for item in payload:
-            if not isinstance(item, dict):
-                raise TypeError(f"score batch chunk record must be an object: {path}")
-            postal = str(item.get("postal", ""))
-            if not postal:
-                raise ValueError(f"score batch chunk record missing postal: {path}")
+    for chunk_records in chunk_results:
+        for item in chunk_records:
+            postal = str(item["postal"])
             if postal in seen:
                 raise ValueError(f"duplicate postal across score batch chunks: {postal}")
             seen.add(postal)
-            # Apply the state-preferring best_transit picker to legacy chunks that
-            # were assembled under the older score-only sort key. See
-            # `pipeline/scoring_integration.py:candidate_sort_key` and
-            # decisions.md 2026-08-05 for rationale.
-            repick_best_transit_from_route_options(item)
-            records.append(project_record_for_export(item) if project else item)
-    return sorted(records, key=lambda item: str(item["postal"]))
+            records.append(item)
+    return records
 
 
 # Chunk payloads the exporter reads only through geom_record(). Measured on a
@@ -2699,6 +2748,16 @@ def main(argv: list[str] | None = None) -> int:
         help="Confirm this export may score live records after owner approval.",
     )
     export_parser.add_argument(
+        "--workers",
+        type=int,
+        default=1,
+        help=(
+            "Processes used to read and project --records-dir chunks. Output is "
+            "byte-identical for any value; RAM grows by roughly one parsed chunk "
+            "(up to ~3 GB) per worker."
+        ),
+    )
+    export_parser.add_argument(
         "--full-batch",
         action="store_true",
         help="Export all eligible rows from --postal-universe; requires --confirm-full-batch.",
@@ -2765,7 +2824,7 @@ def main(argv: list[str] | None = None) -> int:
 
         if args.records_dir is not None:
             try:
-                records = load_score_batch_records(args.records_dir)
+                records = load_score_batch_records(args.records_dir, workers=args.workers)
             except (FileNotFoundError, ValueError, json.JSONDecodeError) as exc:
                 print(
                     json.dumps(

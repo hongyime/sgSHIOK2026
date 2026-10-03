@@ -2189,3 +2189,40 @@ def test_export_from_projected_records_is_byte_identical_to_raw(tmp_path: Path, 
     manifest = json.loads((out_proj / "manifest.json").read_text(encoding="utf-8"))
     assert manifest["provenance"]["locked_score_coverage"]["full_locked_score"] == 2
     assert manifest["provenance"]["locked_score_coverage"]["bus_none_in_range"] == 1
+
+
+def test_load_score_batch_records_parallel_workers_match_serial(tmp_path: Path):
+    chunks = tmp_path / "batch" / "chunks"
+    chunks.mkdir(parents=True)
+    recs = [
+        _heavy_chunk_record("560001"),
+        _heavy_chunk_record("560002", "SCORED_PARTIAL"),
+        _heavy_chunk_record("560003", "NOT_YET_SCORED"),
+        _heavy_chunk_record("560004"),
+    ]
+    # three chunks, out of postal order on disk, so ordering must come from the
+    # serial path's final sort and not from worker completion order.
+    (chunks / "chunk_00001_560003_560004.json").write_text(json.dumps(recs[2:]), encoding="utf-8")
+    (chunks / "chunk_00002_560001_560001.json").write_text(json.dumps(recs[:1]), encoding="utf-8")
+    (chunks / "chunk_00003_560002_560002.json").write_text(json.dumps(recs[1:2]), encoding="utf-8")
+
+    serial = load_score_batch_records(tmp_path / "batch")
+    parallel = load_score_batch_records(tmp_path / "batch", workers=2)
+
+    assert [r["postal"] for r in serial] == ["560001", "560002", "560003", "560004"]
+    assert json.dumps(parallel, sort_keys=True) == json.dumps(serial, sort_keys=True)
+    assert all("_geom_record" in r for r in parallel if r["state"] != "NOT_YET_SCORED")
+
+    with pytest.raises(ValueError, match="workers must be >= 1"):
+        load_score_batch_records(tmp_path / "batch", workers=0)
+
+
+def test_load_score_batch_records_parallel_rejects_duplicate_postal_across_chunks(tmp_path: Path):
+    chunks = tmp_path / "batch" / "chunks"
+    chunks.mkdir(parents=True)
+    rec = _heavy_chunk_record("560001")
+    (chunks / "chunk_00001_560001_560001.json").write_text(json.dumps([rec]), encoding="utf-8")
+    (chunks / "chunk_00002_560001_560001.json").write_text(json.dumps([rec]), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="duplicate postal across score batch chunks: 560001"):
+        load_score_batch_records(tmp_path / "batch", workers=2)
