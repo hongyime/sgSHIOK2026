@@ -23,8 +23,7 @@ release, so its identity must be verified before it can seed retention.
 
 Core release work remains: T01/T02, T25/T26, T27/T28 and T29. Reporting remains
 separate and disabled (T13-T18); data-gap analysis and any new job are separate
-(T19-T21, with a specific job/budget gate at T21); T23 still needs natural
-scheduled-run evidence. The plan's remaining tickets are not complete.
+(T19-T21, with a specific job/budget gate at T21); T23 is complete for the bounded routine; source-attention follow-up remains. The plan's remaining tickets are not complete.
 Older checkpoint paragraphs below are historical, not the current release state.
 Latest interaction/fix checkpoint:5dc9124 fixes unread HTTP error bodies in the
 walk-preview client.4red regressions reproduced;15focused/3343full isolated tests
@@ -751,7 +750,7 @@ No scoring, exports, data copying, Cloudflare or paid scaling is involved.
   and bounded disclosure scrolling. No live source check, pipeline or deployment.
   Evidence: `qa/revamp-r1/source-freshness-20260909/summary.json`.
 
-### [ ] T23: Establish a bounded metadata-check routine
+### [x] T23: Establish a bounded metadata-check routine
 
 - Owner-approved2026-09-14: Monday01:17UTC/09:17SGT metadata-only checks to
   https://github.com/hongyime/sgSHIOK2026/issues/34, repository owner operating.
@@ -861,7 +860,7 @@ No scoring, exports, data copying, Cloudflare or paid scaling is involved.
   review found no blocking bug within that contract. No real GitHub CAS adapter,
   hosted runner, persistence, issue or scheduled run exists. Weekly GitHub metadata
   checks/one-issue activation requested; live verification remains mandatory.
-- Status: ACTIVE; weekly scheduler/issue approved14September, two real manual runs verify delivery and cross-run recovery. First natural cron observation remains outstanding. Size: M. Parent: P2.3.
+- Status: DONE for the bounded scheduled routine. The first three natural Monday runs are visible as schedule events. Latest run 37275469196 (2026-10-05) produced a ready immutable checkpoint, completed the metadata check (14 requests), delivered its source notice (3 GitHub requests; zero pending), and ran zero pipeline jobs. Its action conclusion was failure because sourceHealth=attention_required/exitCode=1; this is the routine surfacing source attention, not a scheduler or checkpoint failure. The source-attention findings remain operational follow-up. Evidence: https://github.com/hongyime/sgSHIOK2026/actions/runs/37275469196 and issue34.
 - Depends on: T22.
 - Scope: inspect existing freshness/check automation, then a narrowly scoped read-only checker and workflow only if needed; runbook/fixtures.
 - Do: choose a documented cadence and inspect source metadata, not datasets. Deduplicate notices, handle rate limits and errors, record successful/failed checks and give the owner an actionable failure notice. No automatic processing or blanket workflow rewrite.
