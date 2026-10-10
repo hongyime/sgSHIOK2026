@@ -1,42 +1,99 @@
-import { cleanTransitPoiProperties, transitPoiLabelText, transitPoiPopupHtml } from "../transit-popup";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { cleanTransitPoiProperties, transitPoiLabelText, transitPoiPopupContent } from "../transit-popup";
 
-describe("transit popup formatting", () => {
+class PopupElement {
+  children: PopupElement[] = [];
+  attributes = new Map<string, string>();
+  private ownText = "";
+
+  constructor(readonly tagName: string) {}
+
+  get textContent() {
+    return this.ownText + this.children.map(child => child.textContent).join("");
+  }
+
+  set textContent(value: string) {
+    this.ownText = value;
+    this.children = [];
+  }
+
+  set innerHTML(_value: string) {
+    throw new Error("Popup content must use textContent instead of innerHTML");
+  }
+
+  append(...children: PopupElement[]) {
+    this.children.push(...children);
+  }
+
+  setAttribute(name: string, value: string) {
+    this.attributes.set(name, value);
+  }
+
+  querySelector(tag: string): PopupElement | null {
+    for (const child of this.children) {
+      if (child.tagName === tag) return child;
+      const nested = child.querySelector(tag);
+      if (nested) return nested;
+    }
+    return null;
+  }
+}
+
+function popup(properties: Record<string, unknown>, options: { compact?: boolean } = {}) {
+  return transitPoiPopupContent(properties, options) as unknown as PopupElement;
+}
+
+describe("transit popup content", () => {
+  beforeEach(() => {
+    vi.stubGlobal("document", { createElement: (tag: string) => new PopupElement(tag) });
+  });
+
+  afterEach(() => vi.unstubAllGlobals());
+
   const fieldsByKind = {
-    bus_stop: ['name', 'code', 'road', 'services', 'service_nos', 'service_count',
-      'weekday_first_bus', 'weekday_last_bus', 'operators'],
-    mrt_station: ['name', 'exit_count', 'system', 'station_codes', 'lines', 'line'],
-    mrt_exit: ['name', 'station', 'exit', 'system', 'station_codes', 'lines', 'line'],
+    bus_stop: ["name", "code", "road", "services", "service_nos", "service_count",
+      "weekday_first_bus", "weekday_last_bus", "operators"],
+    mrt_station: ["name", "exit_count", "system", "station_codes", "lines", "line"],
+    mrt_exit: ["name", "station", "exit", "system", "station_codes", "lines", "line"],
   };
-  const hostileText = '<details open onload="1" ontoggle="2"><img src=x onerror="3"></details>&"\'';
+  const hostileText = "<details open onload=\"window.__xss=1\" ontoggle=\"window.__xss=2\"><img src=x onerror=\"window.__xss=3\"></img></details>&\"'";
+
   for (const [kind, fields] of Object.entries(fieldsByKind)) {
-    it.each(fields)(`escapes ${kind}.%s independently, including fallback-only fields`, field => {
-      const html = transitPoiPopupHtml({ kind, name: 'Public stop', [field]: hostileText });
-      expect(html.toLowerCase()).toContain('&lt;details');
-      expect(html.toLowerCase()).toContain('&lt;img');
-      expect(html).toContain('&amp;&quot;\'');
-      expect(html.toLowerCase()).not.toMatch(/<(?:details|img|script)\b/);
+    it.each(fields)("keeps hostile " + kind + ".%s data as inert text", field => {
+      const content = popup({ kind, name: "Public stop", [field]: hostileText });
+      expect(content.textContent.toLowerCase()).toContain("<details");
+      expect(content.textContent.toLowerCase()).toContain("onload");
+      expect(content.querySelector("details")).toBeNull();
+      expect(content.querySelector("img")).toBeNull();
+      expect(content.querySelector("script")).toBeNull();
     });
   }
+
   it.each([
-    ['bus_stop', 'name'], ['bus_stop', 'code'], ['mrt_station', 'name'], ['mrt_exit', 'name'],
-  ])('escapes compact %s.%s without relying on MapLibre sanitization', (kind, field) => {
-    const html = transitPoiPopupHtml({ kind, name: 'Public stop', [field]: hostileText }, { compact: true });
-    expect(html.toLowerCase()).toContain('&lt;details');
-    expect(html).toContain('&amp;&quot;\'');
-    expect(html.toLowerCase()).not.toMatch(/<(?:details|img|script)\b/);
+    ["bus_stop", "name"], ["bus_stop", "code"],
+    ["mrt_station", "name"], ["mrt_exit", "name"],
+  ])("keeps compact %s.%s data as inert text", (kind, field) => {
+    const content = popup({ kind, name: "Public stop", [field]: hostileText }, { compact: true });
+    expect(content.textContent.toLowerCase()).toContain("<details");
+    expect(content.querySelector("details")).toBeNull();
+    expect(content.querySelector("img")).toBeNull();
   });
-  it.each(['bus_stop', 'mrt_station', 'mrt_exit'])("escapes adjacent event attributes and markup in every %s text field", (kind) => {
-    const payload = '<details open onload="1" ontoggle="alert(1)"><img src=x onerror="alert(2)"></details>';
-    const fields = ['name', 'code', 'road', 'services', 'service_nos', 'service_count',
-      'weekday_first_bus', 'weekday_last_bus', 'operators', 'system', 'station_codes',
-      'lines', 'line', 'station', 'exit', 'exit_count'];
-    const html = transitPoiPopupHtml({ kind, ...Object.fromEntries(fields.map(field => [field, payload])) });
-    expect(html.toLowerCase()).not.toMatch(/<(?:details|img|script)\b/);
-    expect(html.toLowerCase()).toContain('&lt;details');
-    expect(html).toContain('&quot;');
+
+  it("renders compact stop identity without secondary service details", () => {
+    const content = popup({
+      kind: "bus_stop",
+      name: "OPP MAYFLOWER SEC SCH",
+      code: "54211",
+      services: "71, 76, 262",
+      weekday_first_bus: "05:45",
+    }, { compact: true });
+
+    expect(content.textContent).toBe("Opp Mayflower Sec SchBus stop / Stop 54211");
+    expect(content.querySelector("dl")).toBeNull();
   });
+
   it("shows static bus stop service details without claiming live arrivals", () => {
-    const html = transitPoiPopupHtml({
+    const content = popup({
       kind: "bus_stop",
       name: "OPP MAYFLOWER SEC SCH",
       code: "54211",
@@ -48,20 +105,22 @@ describe("transit popup formatting", () => {
       pm_peak_best_min: 6,
       operators: "SBST",
     });
+    const text = content.textContent;
 
-    expect(html).toContain("Opp Mayflower Sec Sch");
-    expect(html).toContain("Bus stop");
-    expect(html).toContain("54211");
-    expect(html).toContain("71, 76, 262");
-    expect(html).toContain("05:45");
-    expect(html).toContain("00:38");
-    expect(html).toContain("4 min best scheduled");
-    expect(html).toContain("6 min best scheduled");
-    expect(html).not.toMatch(/arrival|eta/i);
+    expect(text).toContain("Opp Mayflower Sec Sch");
+    expect(text).toContain("Bus stop");
+    expect(text).toContain("54211");
+    expect(text).toContain("71, 76, 262");
+    expect(text).toContain("05:45");
+    expect(text).toContain("00:38");
+    expect(text).toContain("4 min best scheduled");
+    expect(text).toContain("6 min best scheduled");
+    expect(text).not.toMatch(/arrival|eta/i);
+    expect(content.querySelector("dl")?.children.map(child => child.tagName)).toEqual(["dt", "dd", "dt", "dd", "dt", "dd", "dt", "dd", "dt", "dd", "dt", "dd", "dt", "dd", "dt", "dd"]);
   });
 
   it("shows MRT station and exit details", () => {
-    const stationHtml = transitPoiPopupHtml({
+    const station = popup({
       kind: "mrt_station",
       name: "MAYFLOWER MRT STATION",
       system: "MRT",
@@ -69,7 +128,7 @@ describe("transit popup formatting", () => {
       lines: "Thomson-East Coast Line",
       exit_count: 5,
     });
-    const exitHtml = transitPoiPopupHtml({
+    const exit = popup({
       kind: "mrt_exit",
       name: "MAYFLOWER MRT STATION EXIT 5",
       station: "MAYFLOWER MRT STATION",
@@ -79,19 +138,18 @@ describe("transit popup formatting", () => {
       lines: "Thomson-East Coast Line",
     });
 
-    expect(stationHtml).toContain("Mayflower MRT Station");
-    expect(stationHtml).toContain("MRT/LRT station");
-    expect(stationHtml).toContain("Exits");
-    expect(stationHtml).toContain("Codes");
-    expect(stationHtml).toContain("TE6");
-    expect(stationHtml).toContain("Thomson-East Coast Line");
-    expect(exitHtml).toContain("MRT/LRT exit");
-    expect(exitHtml).toContain("Mayflower MRT Station");
-    expect(exitHtml).toContain("Exit 5");
-    expect(exitHtml).toContain("TE6");
+    expect(station.textContent).toContain("Mayflower MRT Station");
+    expect(station.textContent).toContain("MRT/LRT station");
+    expect(station.textContent).toContain("Exits5");
+    expect(station.textContent).toContain("CodesTE6");
+    expect(station.textContent).toContain("Thomson-East Coast Line");
+    expect(exit.textContent).toContain("MRT/LRT exit");
+    expect(exit.textContent).toContain("Mayflower MRT Station");
+    expect(exit.textContent).toContain("Exit 5");
+    expect(exit.textContent).toContain("TE6");
   });
 
-  it("cleans labels and escapes unsafe popup text", () => {
+  it("cleans labels and excludes object-valued popup properties", () => {
     expect(transitPoiLabelText({ kind: "mrt_station", name: "MAYFLOWER MRT STATION" })).toBe("Mayflower");
     expect(transitPoiLabelText({ kind: "bus_stop", code: "54211" })).toBe("Bus 54211");
 
@@ -103,12 +161,8 @@ describe("transit popup formatting", () => {
     expect(clean).toMatchObject({ kind: "bus_stop", label_text: "Opp Mayflower Sec Sch" });
     expect(clean).not.toHaveProperty("geometry");
 
-    const html = transitPoiPopupHtml({
-      kind: "bus_stop",
-      name: "<script>alert(1)</script>",
-      code: "54211",
-    });
-    expect(html).toContain("&lt;Script&gt;Alert(1)&lt;/Script&gt;");
-    expect(html).not.toContain("<script>");
+    const content = popup({ kind: "bus_stop", name: "<script>alert(1)</script>", code: "54211" });
+    expect(content.textContent.toLowerCase()).toContain("<script>alert(1)</script>");
+    expect(content.querySelector("script")).toBeNull();
   });
 });

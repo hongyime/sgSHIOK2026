@@ -9,14 +9,6 @@ export function toProperCase(value: string): string {
     .replace(/\bSt\b/g, "St");
 }
 
-function escapeHtml(value: string): string {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
-}
-
 function asPopupText(value: unknown): string | null {
   if (typeof value === "string" && value.trim()) return value.trim();
   if (typeof value === "number" && Number.isFinite(value)) return String(value);
@@ -28,7 +20,21 @@ function formatPeakMinutes(value: unknown): string | null {
   return `${value} min best scheduled`;
 }
 
-export function transitPoiPopupHtml(properties: Record<string, unknown>, options: { compact?: boolean } = {}): string {
+function styledTextElement<Tag extends keyof HTMLElementTagNameMap>(
+  tag: Tag,
+  text: string,
+  style: string,
+): HTMLElementTagNameMap[Tag] {
+  const element = document.createElement(tag);
+  element.setAttribute("style", style);
+  element.textContent = text;
+  return element;
+}
+
+export function transitPoiPopupContent(
+  properties: Record<string, unknown>,
+  options: { compact?: boolean } = {},
+): HTMLDivElement {
   const kind =
     properties.kind === "bus_stop"
       ? "Bus stop"
@@ -36,12 +42,20 @@ export function transitPoiPopupHtml(properties: Record<string, unknown>, options
         ? "MRT/LRT station"
         : "MRT/LRT exit";
   const title = typeof properties.name === "string" ? toProperCase(properties.name) : kind;
+  const content = document.createElement("div");
+  content.append(styledTextElement("strong", title, "display:block;color:#17211f;font-size:12px;line-height:1.25"));
+
   if (options.compact) {
     const code = properties.kind === "bus_stop" ? asPopupText(properties.code) : null;
-    return `<strong style="display:block;color:#17211f;font-size:12px;line-height:1.25">${escapeHtml(title)}</strong><span style="display:block;color:#4f625b;font-size:11px;margin-top:2px">${escapeHtml(kind)}${code ? ` / Stop ${escapeHtml(code)}` : ""}</span>`;
+    content.append(styledTextElement(
+      "span",
+      kind + (code ? " / Stop " + code : ""),
+      "display:block;color:#4f625b;font-size:11px;margin-top:2px",
+    ));
+    return content;
   }
-  const rows: Array<[string, string]> = [];
 
+  const rows: Array<[string, string]> = [];
   if (properties.kind === "bus_stop") {
     const code = asPopupText(properties.code);
     const road = asPopupText(properties.road);
@@ -83,22 +97,19 @@ export function transitPoiPopupHtml(properties: Record<string, unknown>, options
     if (lines) rows.push(["Lines", lines]);
   }
 
-  const rowsHtml = rows
-    .map(
-      ([label, value]) =>
-        `<dt style="font-weight:800;color:#43564f">${escapeHtml(label)}</dt><dd style="margin:0">${escapeHtml(
-          value
-        )}</dd>`
-    )
-    .join("");
-
-  return `<strong style="display:block;color:#17211f;font-size:12px;line-height:1.25">${escapeHtml(
-    title
-  )}</strong><span style="display:block;color:#4f625b;font-size:11px;margin-top:2px">${escapeHtml(kind)}</span>${
-    rows.length
-      ? `<dl style="display:grid;grid-template-columns:auto 1fr;gap:2px 7px;margin:6px 0 0;color:#5f6f69;font-size:10px">${rowsHtml}</dl>`
-      : ""
-  }`;
+  content.append(styledTextElement("span", kind, "display:block;color:#4f625b;font-size:11px;margin-top:2px"));
+  if (rows.length) {
+    const details = document.createElement("dl");
+    details.setAttribute("style", "display:grid;grid-template-columns:auto 1fr;gap:2px 7px;margin:6px 0 0;color:#5f6f69;font-size:10px");
+    for (const [label, value] of rows) {
+      details.append(
+        styledTextElement("dt", label, "font-weight:800;color:#43564f"),
+        styledTextElement("dd", value, "margin:0"),
+      );
+    }
+    content.append(details);
+  }
+  return content;
 }
 
 export function transitPoiLabelText(properties: Record<string, unknown>): string | null {

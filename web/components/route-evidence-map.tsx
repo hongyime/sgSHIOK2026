@@ -14,7 +14,7 @@ import {
   type LampOverlayManifest,
   type LampTilePayload,
 } from "../lib/lamp-overlay";
-import { cleanTransitPoiProperties, transitPoiPopupHtml } from "../lib/transit-popup";
+import { cleanTransitPoiProperties, transitPoiPopupContent } from "../lib/transit-popup";
 import type { LineStringFeatureCollection, LineStringFeature, LngLat } from "../lib/route-geojson";
 import type { PostalGeom, TransitPoiCollection } from "../lib/types";
 import { decodePolyline, type LatLng } from "../lib/polyline";
@@ -986,9 +986,8 @@ function bindPoiInteractions(map: maplibregl.Map, Popup: PopupConstructor) {
       const coordinates = pointCoordinates(event);
       if (!coordinates) return;
       const properties = (event.features?.[0]?.properties ?? {}) as Record<string, unknown>;
-      const content = document.createElement("div");
+      const content = transitPoiPopupContent(properties, { compact: true });
       content.className = styles.transitPopup;
-      content.innerHTML = transitPoiPopupHtml(properties, { compact: true });
       const popup = new Popup({ closeButton: true, offset: 12 });
       // A dot and its larger hit target can both receive the same click.
       activePopup?.remove();
@@ -1884,8 +1883,18 @@ export function RouteEvidenceMap({
       <div
         data-map-overlay="bottom"
         className={styles.oneMapAttribution}
-        dangerouslySetInnerHTML={{ __html: ONE_MAP_ATTRIBUTION }}
-      />
+      >
+        <img
+          src="https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png"
+          alt=""
+          height={20}
+          width={20}
+        />
+        {"\u00a0"}
+        <a href="https://www.onemap.gov.sg/" target="_blank" rel="noopener noreferrer">OneMap</a>
+        {"\u00a0©\u00a0contributors\u00a0|\u00a0"}
+        <a href="https://www.sla.gov.sg/" target="_blank" rel="noopener noreferrer">Singapore Land Authority</a>
+      </div>
       {visibleLampOverlaySummary && (
         <p className={styles.screenReaderOnly} aria-live="polite">
           {visibleLampOverlaySummary}

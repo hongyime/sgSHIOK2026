@@ -5330,3 +5330,13 @@ The reviewed GitHub advisory identifies CVE-2026-85061, Critical / CVSS 10, affe
 ## 2026-10-11: Keep browser acceptance aligned with the current interaction
 
 The production browser runner still expected a retired gap-focus button and scrolled the inner details node even though its parent result panel owns scrolling. Update the harness to open the current “Uncovered sections” disclosure, select a mapped section, verify its line highlight and clearing, and send map gestures to an unobscured map point. Preview tests now select a currently rendered stop and preserve its transit mode in the shared URL. The corrected live-production run passed 34/34 checks with 14 captures. This is the headless browser slice only; it does not close same-document zoom, screen-reader, physical-device, comparison, or unaided-user acceptance. No product code changed.
+
+## 2026-10-11: Keep MapLibre attribution and transit popup values out of HTML parsing
+
+The T29 source-boundary review found that the built-in MapLibre attribution control is disabled and source attribution is a literal constant, but the visible attribution was still inserted with React dangerouslySetInnerHTML. Transit POI fields were escaped before a generated popup string was assigned to element.innerHTML. Although the hostile-input tests passed, both app-owned HTML parsing sinks were avoidable. The map now renders visible attribution as explicit React elements and builds popup elements with DOM APIs, assigning every dynamic field through textContent. The MapLibre source attribution remains literal and attributionControl remains false.
+
+Focused route-popup and transit-popup suites pass 52/52; the full web suite passes 3,355/3,355 across 86 files; installed-dependency guards pass 42/42; TypeScript --noEmit passes. The first focused run caught the map caller defaulting to the full detail mode; the caller now explicitly requests compact mode and the rerun passes. No dependency install, data preparation, production build, asset change, or deployment ran.
+
+This closes the app-owned popup/visible-attribution HTML sink review slice. It does not establish application exploitability or resolve the separate public MapLibre 6.1.0 asset-retention policy. The owner choice remains open before the next release. Advisory: https://github.com/maplibre/maplibre-gl-js/security/advisories/GHSA-jrc7-96c5-q579
+
+Machine-readable result and source hashes: qa/revamp-r1/maplibre-boundary-hardening-20261011/summary.json

@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-11",
+  "sourceHead": "c8d565ecde59c2e98d58db2f5e39ab0034d9022e",
+  "scope": "Replace app-owned map attribution and transit-popup HTML parsing with React/DOM text nodes",
+  "advisory": "https://github.com/maplibre/maplibre-gl-js/security/advisories/GHSA-jrc7-96c5-q579",
+  "sourceSha256": {
+    "web/components/route-evidence-map.tsx": "528844F47AC9C58D29B03A5D12D0520E74DDF8D27415D44C95B3440B86026BAD",
+    "web/lib/transit-popup.ts": "A0B7BE68E42069B25A2E13C899A93FD515401578B462C3DF13B9E0C57437E007",
+    "web/lib/__tests__/route-evidence-map-popup.test.ts": "4A312A9C6770427EF77BFBD56D99AB832602170EAF426854881ECA254AD207AC",
+    "web/lib/__tests__/transit-popup.test.ts": "457029F444196E3BDC6E737EB48A59F33212BB8B3428F2252C648B8D1A8D4380"
+  },
+  "verification": {
+    "focusedSuites": {
+      "command": "vitest run lib/__tests__/route-evidence-map-popup.test.ts lib/__tests__/transit-popup.test.ts",
+      "files": 2,
+      "passed": 52,
+      "failed": 0
+    },
+    "fullWebSuite": {
+      "command": "node scripts/test-web.mjs",
+      "files": 86,
+      "passed": 3355,
+      "failed": 0
+    },
+    "installedDependencyGuards": {
+      "passed": 42,
+      "failed": 0
+    },
+    "typescript": {
+      "command": "tsc --noEmit",
+      "result": "passed"
+    },
+    "firstFocusedRun": {
+      "passed": 50,
+      "failed": 2,
+      "cause": "The map caller omitted compact mode, so it rendered the full detail rows; corrected the caller and reran 52/52."
+    }
+  },
+  "notRun": [
+    "Next production build",
+    "Deployment"
+  ],
+  "t29Status": "The application-owned HTML parsing boundary is hardened. Public MapLibre 6.1.0 files still need the owner retention-policy decision."
+}

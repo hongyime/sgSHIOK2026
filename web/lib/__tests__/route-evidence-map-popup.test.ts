@@ -2,7 +2,6 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import type { ComponentProps } from "react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { transitPoiPopupHtml } from "../transit-popup";
 
 // Exercise the component's actual popup bindings with deterministic effects and
 // DOM/MapLibre doubles. Native HTML parsing and keyboard behavior need browser QA.
@@ -60,18 +59,14 @@ class ElementDouble {
   attributes = new Map<string, string>();
   listeners = new Map<string, (event: { stopPropagation: () => void }) => void>();
   className = "";
-  textContent = "";
+  private ownText = "";
   type = "";
   open = false;
   tabIndex = -1;
-  html = "";
+  get textContent() { return this.ownText + this.children.map(child => child.textContent).join(""); }
+  set textContent(value: string) { this.ownText = value; this.children = []; }
   constructor(readonly tagName: string) {}
-  set innerHTML(html: string) {
-    this.html = html;
-    // Model only the formatter's optional dl node; do not emulate HTML parsing.
-    if (html.includes("<dl ")) this.append(new ElementDouble("dl"));
-  }
-  get innerHTML() { return this.html; }
+  set innerHTML(_html: string) { throw new Error("Popup content must be built with textContent, not innerHTML"); }
   append(...children: ElementDouble[]) {
     for (const child of children) {
       if (child.parent) child.parent.children = child.parent.children.filter(node => node !== child);
@@ -180,20 +175,19 @@ describe("bounded transit map popups", () => {
   });
   it("shows only stop identity without service metadata or a second panel", () => {
     const content = clickPoi(bus);
-    expect(content.innerHTML).toBe(transitPoiPopupHtml(bus, { compact: true }));
-    expect(content.innerHTML).toContain("Opp Mayflower Sec Sch");
-    expect(content.innerHTML).toContain("Bus stop");
-    expect(content.children).toEqual([]);
-    expect(content.innerHTML).toContain("Stop 54211");
+    expect(content.children.map(child => child.tagName)).toEqual(["strong", "span"]);
+    expect(content.textContent).toContain("Opp Mayflower Sec Sch");
+    expect(content.textContent).toContain("Bus stop");
+    expect(content.textContent).toContain("Stop 54211");
     for (const secondary of ["71, 76, 262", "05:45", "00:38", "4 min", "6 min", "<dl", "<details"]) {
-      expect(content.innerHTML).not.toContain(secondary);
+      expect(content.textContent).not.toContain(secondary);
     }
   });
 
   it.each(["mrt_station", "mrt_exit"])("keeps %s identity without secondary station rows", kind => {
     const content = clickPoi({ kind, id: kind, name: "MAYFLOWER MRT STATION EXIT 5", station_codes: "TE6" });
-    expect(content.innerHTML).toContain("Mayflower MRT Station Exit 5");
-    expect(content.innerHTML).toContain(kind === "mrt_station" ? "MRT/LRT station" : "MRT/LRT exit");
+    expect(content.textContent).toContain("Mayflower MRT Station Exit 5");
+    expect(content.textContent).toContain(kind === "mrt_station" ? "MRT/LRT station" : "MRT/LRT exit");
     expect(content.querySelector("summary")).toBeNull();
     expect(content.querySelector("details")).toBeNull();
   });
@@ -202,7 +196,7 @@ describe("bounded transit map popups", () => {
     const content = clickPoi({ kind: "bus_stop", id: "bus", name: "STOP" });
     expect(content.querySelector("details")).toBeNull();
     expect(content.querySelector("button")).toBeNull();
-    expect(content.innerHTML).not.toContain("Walk here");
+    expect(content.textContent).not.toContain("Walk here");
   });
 
   it.each([bus.id, undefined, "", 123])("never adds a second selection control for id %s", id => {
@@ -287,29 +281,32 @@ describe("bounded transit map popups", () => {
   });
 
   it.each(["bus_stop", "mrt_station", "mrt_exit"])("preserves escaping for all %s fields", kind => {
-    const payload = '<details open ontoggle="alert(1)"><img src=x onerror="alert(2)"></details>&';
-    const fields = ["name", "code", "road", "services", "service_nos", "service_count",
-      "weekday_first_bus", "weekday_last_bus", "operators", "system", "station_codes",
-      "lines", "line", "station", "exit", "exit_count"];
-    const properties = { kind, id: "safe-id", ...Object.fromEntries(fields.map(field => [field, payload])) };
-    const content = clickPoi(properties);
-    expect(content.innerHTML).toBe(transitPoiPopupHtml(properties, { compact: true }));
-    expect(content.innerHTML.toLowerCase()).not.toMatch(/<(?:details|img|script)\b/);
-    expect(content.innerHTML.toLowerCase()).toContain("&lt;details");
-    expect(content.innerHTML).toContain("&quot;");
-    expect(content.innerHTML).toContain("&amp;");
-    expect(content.querySelector("summary")).toBeNull();
+    const payload = '<details open onload="window.__xss=1" ontoggle="window.__xss=2"><img src=x onerror="window.__xss=3"></details>&';
+    const content = clickPoi({ kind, id: "safe-id", name: payload, code: payload });
+    expect(content.textContent.toLowerCase()).toContain("<details");
+    expect(content.textContent.toLowerCase()).toContain("onload");
     expect(content.querySelector("details")).toBeNull();
+    expect(content.querySelector("img")).toBeNull();
+    expect(content.children.map(child => child.tagName)).toEqual(["strong", "span"]);
+    expect(content.querySelector("summary")).toBeNull();
   });
 
   it("leaves required attribution outside the popup disclosure", () => {
     clickPoi(bus);
     const attribution = tree.props.children[1];
     expect(attribution.props["data-map-overlay"]).toBe("bottom");
-    expect(attribution.props.dangerouslySetInnerHTML.__html).toBe(map.getSource('onemap').spec.attribution);
-    expect(attribution.props.dangerouslySetInnerHTML.__html).toContain('href="https://www.onemap.gov.sg/"');
-    expect(attribution.props.dangerouslySetInnerHTML.__html).toContain('href="https://www.sla.gov.sg/"');
-    expect(attribution.props.dangerouslySetInnerHTML.__html).toContain("Singapore Land Authority");
+    expect(attribution.props.dangerouslySetInnerHTML).toBeUndefined();
+    const children = attribution.props.children;
+    const logo = children.find((child: any) => child?.type === "img");
+    const links = children.filter((child: any) => child?.type === "a");
+    expect(logo.props.src).toBe("https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png");
+    expect(logo.props.alt).toBe("");
+    expect(links.map((link: any) => [link.props.href, link.props.children])).toEqual([
+      ["https://www.onemap.gov.sg/", "OneMap"],
+      ["https://www.sla.gov.sg/", "Singapore Land Authority"],
+    ]);
+    expect(map.getSource("onemap").spec.attribution).toContain("https://www.onemap.gov.sg/");
+    expect(lib.mapOptions[0].attributionControl).toBe(false);
   });
 
   it("styles keyboard focus, close target and long identity text without secondary panels", () => {
