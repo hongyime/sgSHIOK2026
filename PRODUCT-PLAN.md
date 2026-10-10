@@ -1,26 +1,28 @@
 # SHIOK Revamp Execution Plan
 Current scope: 2026-09-13 owner revision, replacing the 12 September UI scope.
 Completion resume: IN PROGRESS after14September owner answers, not complete.
-Current checkpoint16September: source06372d2 is a READY production-configured
-candidate (dpl_AnXUMz7PWUmFDgbkTgsd3oQrRXMf). Streaming package verification and
-upload succeeded. Both primary domains remain old; Vercel moved only the team
-generated alias despite skip-domain configuration. Do not claim fully shipped.
-The previous9516894 candidate's actual Retry200 renders the correct stop; injected-failure Back restores exact
-saved URL/geometry. The overall browser run still fails at basemap settlement.
-Source06372d2 now uses256logical-pixel tiles:79focused and3343isolated tests pass,
-TypeScript/integrity pass, fresh build passes. Desktop renders the saved route;
-local visual run fails at native MRT click timeout before its viewport captures.
-Package/upload are complete. Next: release-specific recovery/returning-client checks
-and primary-domain publication. No measured speedup claimed. Reporting stays
-disabled with30day retention. First natural daily cleanup now verified healthy.
-Its moderator identity and real activation remain.
-Reporting implementation follow-up: the entry and Send now share one default-off
-public build-time setting; changing server configuration alone no longer leaves
-the frontend permanently hardcoded off.306focused checks pass; real activation
-and resident/browser acceptance remain separate from these fixture tests.
-Final16September code checks:3354isolated tests/86files plus42dependencyguards,
-TypeScript and41docs/integrity tests pass. Added8report availability cases and
-3formatter reuse/equivalence cases;3343+8+3=3354. Reports remain disabled.
+Current checkpoint 2026-10-10: `main` is pushed through commit `48b8e2e`.
+The full rescore/export is complete and the October bundle is active in
+`web/data-bundle.json` (124,443 records; 5,211 files; validation passed). Do not
+repeat the rescore or export.
+
+The isolated web dependency update resolves to Next 16.4.0 and MapLibre 6.4.1;
+`npm audit` reports zero vulnerabilities, and 3,357 web tests, 42 dependency
+guards and TypeScript pass. GitHub had four open Python `virtualenv` alerts in
+`uv.lock`; `virtualenv` has now been upgraded from 21.7.0 to 21.14.5 and
+`uv lock --check` passes. Recheck GitHub after this lock update is pushed. The
+critical Next.js alert is marked fixed.
+
+No October production build or deployment ran. The release wrapper stopped
+before compilation because `web/frontend-retention.json` and
+`web/public/_retained` are absent. The local D2v5 frontend inventory is
+hash-checked but does not establish that it matches the deployed previous
+release, so its identity must be verified before it can seed retention.
+
+Core release work remains: T01/T02, T25/T26, T27/T28 and T29. Reporting remains
+separate and disabled (T13-T18); data-gap analysis and any new job are separate
+(T19-T21, with a specific job/budget gate at T21); T23 still needs natural
+scheduled-run evidence. The plan's remaining tickets are not complete.
 Older checkpoint paragraphs below are historical, not the current release state.
 Latest interaction/fix checkpoint:5dc9124 fixes unread HTTP error bodies in the
 walk-preview client.4red regressions reproduced;15focused/3343full isolated tests
