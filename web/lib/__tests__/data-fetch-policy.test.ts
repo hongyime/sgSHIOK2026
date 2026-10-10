@@ -25,18 +25,12 @@ describe("data fetch compression policy", () => {
     vi.resetModules();
   });
 
-  it("prefers compressed score artifacts but falls back for older bundles", async () => {
+  it("uses CDN-compressed plain score artifacts without missing gzip probes", async () => {
     vi.stubEnv("NEXT_PUBLIC_DATA_BASE", "/data/generated/");
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input);
-      if (url.endsWith("/scores/prefix-index.json.gz")) {
-        return jsonResponse(false);
-      }
       if (url.endsWith("/scores/prefix-index.json")) {
         return jsonResponse(true, { "560": ["ANG_MO_KIO"] });
-      }
-      if (url.endsWith("/scores/ANG_MO_KIO.json.gz")) {
-        return jsonResponse(false);
       }
       if (url.endsWith("/scores/ANG_MO_KIO.json")) {
         return jsonResponse(true, [{ postal: "560234", total: 87 }]);
@@ -49,9 +43,7 @@ describe("data fetch compression policy", () => {
     await expect(fetchScoreForPostal("560234")).resolves.toEqual({ postal: "560234", total: 87 });
 
     expect(requestedUrls(fetchMock)).toEqual([
-      "/data/generated/scores/prefix-index.json.gz",
       "/data/generated/scores/prefix-index.json",
-      "/data/generated/scores/ANG_MO_KIO.json.gz",
       "/data/generated/scores/ANG_MO_KIO.json",
     ]);
   });
@@ -81,14 +73,14 @@ describe("data fetch compression policy", () => {
     expect(calls).toBe(1);
   });
 
-  it("prefers compressed geometry shards resolved by postal prefix", async () => {
+  it("uses CDN-compressed plain geometry shards resolved by postal prefix", async () => {
     vi.stubEnv("NEXT_PUBLIC_DATA_BASE", "/data/generated/");
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input);
       if (url.endsWith("/geom/postal-prefix/560.json.gz")) {
         return jsonResponse(true, { "560234": "postal-child" });
       }
-      if (url.endsWith("/geom/h3/postal-child.json.gz")) {
+      if (url.endsWith("/geom/h3/postal-child.json")) {
         return jsonResponse(true, [{ postal: "560234", shortest: "abc", sheltered: "def" }]);
       }
       return jsonResponse(false);
@@ -104,7 +96,7 @@ describe("data fetch compression policy", () => {
 
     expect(requestedUrls(fetchMock)).toEqual([
       "/data/generated/geom/postal-prefix/560.json.gz",
-      "/data/generated/geom/h3/postal-child.json.gz",
+      "/data/generated/geom/h3/postal-child.json",
     ]);
   });
 

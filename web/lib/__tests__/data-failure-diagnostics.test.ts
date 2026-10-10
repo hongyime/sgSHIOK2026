@@ -330,7 +330,7 @@ describe("artifact diagnostics at actual reader boundaries", () => {
     const { fetchScoreForPostal, getArtifactFailure } = await reader();
     await expect(fetchScoreForPostal("018956")).resolves.toBeNull();
     expect(getArtifactFailure(original)?.artifactRole).toBe("score-index");
-    expect(fetchMock).toHaveBeenCalledTimes(3);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 
   it.each(["pois", "shard"])("preserves optional transit %s behavior while tagging a caught network failure", async (kind) => {
@@ -341,7 +341,7 @@ describe("artifact diagnostics at actual reader boundaries", () => {
     const operation = kind === "pois" ? fetchTransitPois() : fetchTransitPoisForGeom({ postal: "018956", shortest: "??", sheltered: "??", exposure_gaps: [] });
     await expect(operation).resolves.toEqual({ type: "FeatureCollection", features: [] });
     expect(getArtifactFailure(original)?.artifactRole).toBe("transit");
-    expect(fetchMock).toHaveBeenCalledTimes(kind === "pois" ? 2 : 1);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 
   it("keeps missing optional geometry missing, not a surfaced artifact failure", async () => {

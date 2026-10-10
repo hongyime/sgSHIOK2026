@@ -30,15 +30,11 @@ describe("cached alternate-format recovery", () => {
     vi.resetModules();
   });
 
-  it.each(["503", "network rejection"])("loads unchanged published scores from cached JSON after gzip %s", async (failure) => {
+  it("loads published scores from Vercel-compressed plain JSON without probing absent gzip twins", async () => {
     const fetchMock = vi.fn(async (input: RequestInfo | URL, options?: RequestInit) => {
       const path = String(input).slice(base.length);
-      if (path.endsWith(".gz")) {
-        expect(options).toEqual({ cache: "force-cache" });
-        if (failure === "network rejection") throw new TypeError("Failed to fetch");
-        return response(null, 503);
-      }
-      expect(options).toEqual(cachedOptions);
+      expect(path.endsWith(".gz")).toBe(false);
+      expect(options).toEqual({ cache: "force-cache" });
       return response(readPublishedFixture(path));
     });
     vi.stubGlobal("fetch", fetchMock);
@@ -50,8 +46,7 @@ describe("cached alternate-format recovery", () => {
     expect(expected).toBeDefined();
     await expect(fetchScoreForPostal("018956")).resolves.toEqual(expected);
     expect(fetchMock.mock.calls.map(([url]) => String(url))).toEqual([
-      `${base}scores/prefix-index.json.gz`, `${base}scores/prefix-index.json`,
-      `${base}scores/${shard}.json.gz`, `${base}scores/${shard}.json`,
+      `${base}scores/prefix-index.json`, `${base}scores/${shard}.json`,
     ]);
   });
 
@@ -164,11 +159,11 @@ describe("cached alternate-format recovery", () => {
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 
-  it("deduplicates concurrent score artifact recovery without the manifest promise cache", async () => {
+  it("deduplicates concurrent plain score reads without the manifest promise cache", async () => {
     const fetchMock = vi.fn(async (input: RequestInfo | URL, options?: RequestInit) => {
       const path = String(input).slice(base.length);
-      if (path.endsWith(".gz")) return response(null, 503);
-      expect(options).toEqual(cachedOptions);
+      expect(path.endsWith(".gz")).toBe(false);
+      expect(options).toEqual({ cache: "force-cache" });
       await new Promise((resolve) => setTimeout(resolve, 5));
       return response(readPublishedFixture(path));
     });
@@ -177,7 +172,7 @@ describe("cached alternate-format recovery", () => {
     const results = await Promise.all([fetchScoreForPostal("018956"), fetchScoreForPostal("018956")]);
     expect(results[0]).toBe(results[1]);
     expect(results[0]?.postal).toBe("018956");
-    expect(fetchMock).toHaveBeenCalledTimes(4);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 
   it("deduplicates concurrent reads through the cache fallback", async () => {

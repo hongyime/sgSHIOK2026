@@ -44,19 +44,14 @@ function hasCompressedArtifact(path: string): boolean {
   if (
     path === "manifest.json" ||
     path === "scores/index.json" ||
-    path === "scores/prefix-index.json" ||
     path === "geom/index.json" ||
-    path === "geom/postal-index.json" ||
-    path === "transit/pois.json"
+    path === "geom/postal-index.json"
   ) {
     return true;
   }
-  return (
-    /^scores\/[^/]+\.json$/.test(path) ||
-    /^geom\/h3\/[^/]+\.json$/.test(path) ||
-    /^geom\/postal-prefix\/[^/]+\.json$/.test(path) ||
-    /^transit\/h3\/[^/]+\.json$/.test(path)
-  );
+  // The build creates these immutable gzip-only shards. Vercel compresses the
+  // plain score/geometry JSON endpoints, so probing absent .gz twins adds a 404.
+  return /^geom\/postal-prefix\/[^/]+\.json$/.test(path) || /^transit\/h3\/[^/]+\.json$/.test(path);
 }
 
 function compressedOnlyArtifact(path: string): boolean {
