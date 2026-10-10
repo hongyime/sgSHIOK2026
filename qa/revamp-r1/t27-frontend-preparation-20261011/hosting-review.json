@@ -34,6 +34,7 @@
     "compressedCliArchiveSize": "not measured; this candidate has not been submitted",
     "remoteBuildDuration": "unverified for this candidate; its local production build passed",
     "teamDeploymentStorageHeadroom": "unverified; read-only usage query returned Costs not found (404)",
+    "storageUsagePage": "Vercel Dashboard team Usage page, Deployment Storage section",
     "previousPlainUpload": "a prior 7.2 GB plain-upload attempt failed; do not retry unchanged",
     "deploymentPerformed": false
   },
@@ -41,6 +42,7 @@
   "sources": [
     "https://vercel.com/docs/limits",
     "https://vercel.com/changelog/hobby-projects-now-retain-fewer-deployments-to-free-up-storage",
+    "https://vercel.com/changelog/deployment-storage-pricing-expands-to-existing-teams",
     "https://vercel.com/docs/cli/usage"
   ]
 }
