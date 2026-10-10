@@ -62,3 +62,5 @@ uv run pytest -q --collect-only | Select-Object -Last 1
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

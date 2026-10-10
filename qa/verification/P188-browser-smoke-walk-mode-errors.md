@@ -53,3 +53,5 @@ C:\sgSHIOK2026\web\scripts\browser-smoke.mjs:424:  if (!label) throw new Error(`
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

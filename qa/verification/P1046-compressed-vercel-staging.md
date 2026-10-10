@@ -83,3 +83,5 @@ npm notice run node scripts/test-web.mjs data-fetch-policy.test.ts deployment.te
 ## DISAGREEMENTS
 
 1. I do not think we should rely on GitHub auto-deploy for this project right now. The deploy needs the local protected data bundle, and `web/vercel.json` intentionally disables automatic Git deployments to prevent surprise quota spend.
+
+Machine-specific values in this document use privacy placeholders.

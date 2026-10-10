@@ -55,3 +55,5 @@ exit=0
 ## DISAGREEMENTS
 
 1. The standing objective still says Leaf Area Index is hashed into 124,443 published records and consumed by nothing, then asks to wire it into shade proxy or stop hashing it in. That was true for the legacy published bundle, but the current code has already chosen the correct future policy: stop hashing it in score provenance while retaining it as a freshness-only reference.
+
+Machine-specific values in this document use privacy placeholders.

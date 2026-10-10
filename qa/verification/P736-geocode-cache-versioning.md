@@ -176,3 +176,5 @@ index c6f16c6..c15ac7c 100644
 ### Disagreements
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

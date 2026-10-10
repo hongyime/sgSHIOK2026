@@ -102,3 +102,5 @@ tests/test_readme.py     | 6 ++++++
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

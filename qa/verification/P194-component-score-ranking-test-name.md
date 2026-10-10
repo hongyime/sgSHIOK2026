@@ -21,3 +21,5 @@ The `subscore-ranking` module name and `subscores` data field remain unchanged b
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

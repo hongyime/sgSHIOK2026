@@ -81,3 +81,5 @@ exit_code=0
 ## DISAGREEMENTS
 
 1. This is a small request-count reduction, not a substitute for deploying the cache/header changes and measuring Vercel usage.
+
+Machine-specific values in this document use privacy placeholders.

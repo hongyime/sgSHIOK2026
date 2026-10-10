@@ -179,3 +179,5 @@ EXIT=0
 ## DISAGREEMENTS
 
 1. None for P46.
+
+Machine-specific values in this document use privacy placeholders.

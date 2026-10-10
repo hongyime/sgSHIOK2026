@@ -91,3 +91,5 @@ warning: in the working copy of 'tests/test_production_readiness.py', CRLF will 
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

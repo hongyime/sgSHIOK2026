@@ -366,3 +366,5 @@ to `X:` occurred through a relative patch path and is recorded above.
 2. I disagree with spending the full export time on E14 before solving the provenance-source
    issue. The pilot already shows both the value-identity success and the readiness failure,
    and the full export projects over the approved budget.
+
+Machine-specific values in this document use privacy placeholders.

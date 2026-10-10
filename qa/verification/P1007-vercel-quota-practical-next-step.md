@@ -91,3 +91,5 @@ p1007_check_ignore_exit=1
 ## DISAGREEMENTS
 
 1. I do not recommend adding more speculative request micro-optimizations before making the already-committed reductions live or obtaining a dashboard/path-level traffic breakdown that explains the quota counter.
+
+Machine-specific values in this document use privacy placeholders.

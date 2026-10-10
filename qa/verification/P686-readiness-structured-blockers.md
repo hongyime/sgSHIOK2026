@@ -119,3 +119,5 @@ exit=0
 ## DISAGREEMENTS
 
 1. None for this step.
+
+Machine-specific values in this document use privacy placeholders.

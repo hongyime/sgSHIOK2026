@@ -49,3 +49,5 @@ C:\sgSHIOK2026\README.md:53:120-day stale threshold, so a current local freshnes
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

@@ -58,3 +58,5 @@ qa/verification/P465-browser-datamall-matched-source.md
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

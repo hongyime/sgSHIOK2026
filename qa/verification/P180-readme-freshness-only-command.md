@@ -100,3 +100,5 @@ exit=1
 ## DISAGREEMENTS
 
 1. None for this slice.
+
+Machine-specific values in this document use privacy placeholders.

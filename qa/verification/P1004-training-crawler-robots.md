@@ -90,3 +90,5 @@ Common Crawl CCBot controls: https://commoncrawl.org/ccbot
 ## DISAGREEMENTS
 
 1. I did not block every AI-related crawler. Blocking only `GPTBot`, `ClaudeBot`, and `CCBot` is the lower-risk split because it targets training/common-crawl traffic without deliberately suppressing search/user-fetch integrations.
+
+Machine-specific values in this document use privacy placeholders.

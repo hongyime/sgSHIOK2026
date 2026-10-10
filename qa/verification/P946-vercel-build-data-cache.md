@@ -156,3 +156,5 @@ exit_code=0
 ## DISAGREEMENTS
 
 1. The largest avoidable Edge/CDN consumer may have been deployment self-downloads, not end-user page views. Vercel usage should be checked after the next successful cached deployment before assuming traffic was the main driver.
+
+Machine-specific values in this document use privacy placeholders.

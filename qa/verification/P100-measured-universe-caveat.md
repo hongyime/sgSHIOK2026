@@ -73,3 +73,4 @@ web/lib/__tests__/score-card-copy.test.ts:37:    expect(source).not.toContain("n
 
 1. None.
 
+Machine-specific values in this document use privacy placeholders.

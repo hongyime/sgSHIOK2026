@@ -125,3 +125,5 @@ qa/p19/overpass_addr_postcodes_cache_v2.json carries the raw Overpass postcodes 
 ## DISAGREEMENTS
 
 1. Subagents could not be restarted in this crashed continuation because `spawn_agent` returned `agent thread limit reached`; the review was therefore local-only.
+
+Machine-specific values in this document use privacy placeholders.

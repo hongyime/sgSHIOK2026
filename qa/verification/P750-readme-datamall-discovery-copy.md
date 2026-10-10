@@ -26,3 +26,5 @@ C:\sgSHIOK2026\qa\verification\P683-ui-datamall-discovery-line.md:26:1. The UI s
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

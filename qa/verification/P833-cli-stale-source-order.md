@@ -36,3 +36,5 @@ nparks_nature_ways (NParks Nature Ways), leaf_area_index (NParks Leaf Area Index
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

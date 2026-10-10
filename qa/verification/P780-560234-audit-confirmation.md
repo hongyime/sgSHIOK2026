@@ -51,3 +51,5 @@ tests/test_audit_560234_shelter.py | 29 +++++++++++++++++++++++++++++
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

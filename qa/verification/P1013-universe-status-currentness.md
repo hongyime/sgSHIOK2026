@@ -158,3 +158,5 @@ Read-only cached universe status only. No APIs, scoring, export, rescore, subset
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

@@ -60,3 +60,5 @@ usage: fetch.py [-h] [--freshness-only] [--geospatial-discovery-only]
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

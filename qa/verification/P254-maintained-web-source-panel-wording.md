@@ -44,3 +44,5 @@ npm notice run node scripts/test-web.mjs transit-stop-picker.test.tsx route-evid
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

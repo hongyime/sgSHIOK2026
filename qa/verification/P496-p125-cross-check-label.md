@@ -168,3 +168,5 @@ This keeps the machine-readable status aligned with the settled release policy: 
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

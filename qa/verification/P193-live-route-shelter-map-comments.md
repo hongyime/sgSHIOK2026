@@ -55,3 +55,5 @@ C:\sgSHIOK2026\web\lib\__tests__\route-evidence-map-interaction.test.ts:166:    
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

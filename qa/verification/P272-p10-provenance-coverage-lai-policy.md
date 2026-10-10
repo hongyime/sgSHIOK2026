@@ -88,3 +88,5 @@ def test_p10_provenance_coverage_names_leaf_area_index_policy() -> None:
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

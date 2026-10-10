@@ -110,3 +110,5 @@ exit=0
 
 1. I did not commit the generated `qa/p21/lamp_overlay_h3r8_preview/` artifact. It is local measurement output; the committed deliverable is the deterministic builder and evidence.
 2. I did not place the artifact under `web/public/data/` or add a map toggle yet. That is the user-visible shipping step, but it should happen in a new versioned public-data directory after the artifact strategy is reviewed.
+
+Machine-specific values in this document use privacy placeholders.

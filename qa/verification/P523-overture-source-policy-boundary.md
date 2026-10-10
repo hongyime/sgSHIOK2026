@@ -71,3 +71,5 @@ Interrupted after exceeding a reasonable bound for this copy-only policy check. 
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

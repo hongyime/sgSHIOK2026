@@ -28,3 +28,5 @@ No scoring, export, rescore, subset run, ingest, network build, public-data writ
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

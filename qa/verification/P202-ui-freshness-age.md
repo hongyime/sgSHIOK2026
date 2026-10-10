@@ -45,3 +45,5 @@ npm notice run node scripts/test-web.mjs --run lib/__tests__/score-card-copy.tes
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

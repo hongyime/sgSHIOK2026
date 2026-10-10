@@ -65,3 +65,5 @@ check_ignore_exit=1
 ## Disagreements
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

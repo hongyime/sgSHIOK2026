@@ -133,3 +133,5 @@ Content-Type=image/svg+xml
 Content-Length=747
 Cache-Control=public, max-age=31536000, immutable
 ```
+
+Machine-specific values in this document use privacy placeholders.

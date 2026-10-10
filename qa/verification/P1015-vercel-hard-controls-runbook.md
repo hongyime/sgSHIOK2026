@@ -77,3 +77,5 @@ These controls can reduce or stop traffic, but they change public availability o
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

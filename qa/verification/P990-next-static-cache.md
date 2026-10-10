@@ -53,3 +53,5 @@ git diff -- pipeline/config/weights.yaml
 
 1. I did not restart old P11-P17 tasks. They are settled by the owner and restarting them would spend time and increase risk without addressing the current Edge Requests quota problem.
 2. I did not deploy, pause, firewall, or otherwise mutate the Vercel project. Those are owner-level production controls and need explicit approval.
+
+Machine-specific values in this document use privacy placeholders.

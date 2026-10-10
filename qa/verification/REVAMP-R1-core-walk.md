@@ -10363,3 +10363,5 @@ DISAGREEMENTS
 
 Receipts: qa/revamp-r1/report-availability-20260916/formatting-check.json
 Final full/type: qa/revamp-r1/release-finalize-20260915/{full-9ys4pdir,types-dqn6gugv}/summary.json
+
+Machine-specific values in this document use privacy placeholders.

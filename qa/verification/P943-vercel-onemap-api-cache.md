@@ -93,3 +93,5 @@ exit_code=0
 ## DISAGREEMENTS
 
 1. This reduces repeat request pressure after deployment, but it does not make first-time visits free and does not bypass Vercel's Edge/CDN request accounting.
+
+Machine-specific values in this document use privacy placeholders.

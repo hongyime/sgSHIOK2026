@@ -150,3 +150,5 @@ repo_integrity=ok
 ## DISAGREEMENTS
 
 1. I do not think the map should mount on an empty first page again. The cheaper and better behavior is what this change implements: keep the empty page light, but automatically open and preload the map once the user shows search intent or loads a result.
+
+Machine-specific values in this document use privacy placeholders.

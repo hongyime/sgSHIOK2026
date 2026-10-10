@@ -227,3 +227,5 @@ FINDINGS
 $ DISAGREEMENTS
 DISAGREEMENTS
 None
+
+Machine-specific values in this document use privacy placeholders.

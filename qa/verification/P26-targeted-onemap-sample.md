@@ -171,3 +171,5 @@ Dry-run collection against the prepared sample:
 ## DISAGREEMENTS
 
 1. The project should not regenerate this sample casually. The scan cost is non-trivial, and the committed sample is sufficient as the next credential-backed measurement input unless the active bundle changes.
+
+Machine-specific values in this document use privacy placeholders.

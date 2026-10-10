@@ -353,3 +353,5 @@ PS C:\sgSHIOK2026> uv run python run.py p19-gap-status
 ## Disagreements
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

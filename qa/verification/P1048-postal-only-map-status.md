@@ -149,3 +149,5 @@ Screenshots inspected: qa/debug-runs/sync-repair-live-map/screenshots/summary_de
 ### DISAGREEMENTS
 
 1. A passing smoke summary alone does not establish that all map tiles and route overlays are consistently visible; the screenshots and final feature-count snapshot constrain that claim.
+
+Machine-specific values in this document use privacy placeholders.

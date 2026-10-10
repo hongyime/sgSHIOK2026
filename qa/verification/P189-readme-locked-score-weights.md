@@ -43,3 +43,5 @@ C:\sgSHIOK2026\README.md:82:> Read README.md, CLAUDE.md, decisions.md, pipeline/
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

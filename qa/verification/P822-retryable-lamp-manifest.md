@@ -62,3 +62,5 @@ Night-lighting map layer manifest fetches now cache valid manifests only. Failed
 ## Disagreements
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

@@ -40,3 +40,5 @@ This is source-comment and source-test alignment only. It does not change runtim
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

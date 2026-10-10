@@ -62,3 +62,5 @@ registry; it calls no APIs and writes no files.
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

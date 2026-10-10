@@ -24,3 +24,5 @@ PS C:\sgSHIOK2026> uv run pytest tests/test_agent_docs.py -q
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

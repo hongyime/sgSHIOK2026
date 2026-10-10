@@ -77,3 +77,5 @@ Command: git diff -- pipeline/config/weights.yaml checksums.json web/public/data
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

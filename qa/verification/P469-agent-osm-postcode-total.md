@@ -50,3 +50,5 @@ qa/verification/P469-agent-osm-postcode-total.md
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

@@ -75,3 +75,4 @@ web/lib/__tests__/accessibility-render.test.tsx:393:    expect(html).not.toConta
 
 1. None.
 
+Machine-specific values in this document use privacy placeholders.

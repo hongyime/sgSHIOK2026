@@ -107,3 +107,5 @@ protected_diff_exit=0
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

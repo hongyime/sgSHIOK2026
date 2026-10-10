@@ -60,3 +60,5 @@ git diff -- pipeline/config/weights.yaml
 
 1. I did not hide or soften the exact locked-score counts. The product needs the roughly-quarter limitation visible; this change adjusts framing, not the disclosed evidence.
 2. I did not build or deploy. Source-level and read-only generated-data tests cover this copy formatter change.
+
+Machine-specific values in this document use privacy placeholders.

@@ -130,3 +130,5 @@ exit_code=0
 ## DISAGREEMENTS
 
 1. Keeping automatic production deployments enabled conflicts with the standing release rule that publishing is the owner's decision. Disabling Git-triggered deployments is the safer default for this project.
+
+Machine-specific values in this document use privacy placeholders.

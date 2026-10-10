@@ -63,3 +63,5 @@ The persistent browser note now avoids exact lamp count/date claims before the r
 ## Disagreements
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

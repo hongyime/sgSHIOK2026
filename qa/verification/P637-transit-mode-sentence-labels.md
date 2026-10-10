@@ -87,3 +87,5 @@ No protected-path names were printed by `git diff --name-only -- pipeline/config
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

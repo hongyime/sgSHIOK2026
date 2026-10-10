@@ -47,3 +47,5 @@ web/lib/__tests__/deployment.test.ts:76:    expect(script).not.toContain('[aria-
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

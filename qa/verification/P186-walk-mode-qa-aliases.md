@@ -53,3 +53,5 @@ This changes copied QA/browser-smoke metadata only. It does not change route sel
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

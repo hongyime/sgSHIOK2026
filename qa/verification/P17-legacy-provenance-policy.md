@@ -196,3 +196,5 @@ Mandatory startup guard for every future session: first assert the working direc
 2. I do not disagree with the four-row section 10 framing. It is more honest than five
    rows because rain and heat share the same dominant evidence, crossing barely moves
    rankings, and bus remains partly a routing-trust signal.
+
+Machine-specific values in this document use privacy placeholders.

@@ -70,3 +70,5 @@ git diff -- pipeline/config/weights.yaml
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

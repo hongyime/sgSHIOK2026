@@ -103,3 +103,5 @@ web/lib/__tests__/score-card-copy.test.ts | 20 ++++++++++++++++++++
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

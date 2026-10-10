@@ -55,3 +55,5 @@ Use the mitigate property within a route to block requests based on specific hea
 ## DISAGREEMENTS
 
 1. I do not recommend treating another repository commit as the immediate fix for a 100% Edge Request counter. The already-pushed cache/crawler reductions need deployment, and hard request suppression is a Vercel project setting decision.
+
+Machine-specific values in this document use privacy placeholders.

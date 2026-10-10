@@ -52,3 +52,5 @@ qa/verification/P470-lamp-post-attribution.md
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

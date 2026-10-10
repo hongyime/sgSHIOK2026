@@ -41,3 +41,5 @@ C:\sgSHIOK2026\tests\test_run.py:1624:            "geocode-universe",
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

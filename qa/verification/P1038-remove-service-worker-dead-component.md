@@ -114,3 +114,5 @@ protected_data_status_after_build=no_output
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

@@ -32,3 +32,5 @@ uv run pytest tests/test_production_readiness.py -q
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

@@ -57,3 +57,5 @@ qa/verification/P471-notice-lamp-post-attribution.md
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

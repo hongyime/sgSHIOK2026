@@ -73,3 +73,5 @@ PS C:\sgSHIOK2026> git diff --name-only -- pipeline/config/weights.yaml web/publ
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

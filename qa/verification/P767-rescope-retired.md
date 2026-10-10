@@ -28,3 +28,5 @@ git diff -- pipeline/rescope.py tests/test_legacy_geocode.py decisions.md qa/ver
 ## DISAGREEMENTS
 
 1. None for this slice.
+
+Machine-specific values in this document use privacy placeholders.

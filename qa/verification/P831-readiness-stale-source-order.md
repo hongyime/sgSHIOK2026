@@ -39,3 +39,5 @@ stale_order ['planning_area_boundary', 'nparks_tracks', 'nparks_heritage_road_gr
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

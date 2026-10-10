@@ -11,7 +11,7 @@ import math
 import re
 import zipfile
 from collections import Counter, defaultdict
-from collections.abc import Callable, Iterable
+from collections.abc import Callable, Iterable, Iterator
 from datetime import UTC, datetime
 from functools import lru_cache
 from pathlib import Path
@@ -654,91 +654,109 @@ def locked_score_coverage(records: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
-def score_provenance_summary(records: list[dict[str, Any]]) -> dict[str, Any]:
-    source_hashes: dict[str, str] = {}
-    scoring_fingerprints: dict[str, str] = {}
-    fingerprint_digest_counts: Counter[str] = Counter()
-    fingerprint_maps_by_digest: dict[str, dict[str, str]] = {}
-    records_missing_digest = 0
-    input_digest_counts: Counter[str] = Counter()
-    input_maps_by_digest: dict[str, dict[str, Any]] = {}
-    records_missing_input_digest = 0
-    network_digest_counts: Counter[str] = Counter()
-    network_maps_by_digest: dict[str, dict[str, Any]] = {}
-    records_missing_network_digest = 0
-    subscore_status: dict[str, str] = {}
-    for record in records:
+class _ScoreProvenanceAccumulator:
+    """Fold the per-record state of :func:`score_provenance_summary` one record at a time.
+
+    Mirrors the loop body of score_provenance_summary so a streaming export can
+    aggregate across chunks without holding the full records list in memory.
+    ``finalize()`` returns the same dict shape as score_provenance_summary.
+    """
+
+    def __init__(self) -> None:
+        self.source_hashes: dict[str, str] = {}
+        self.scoring_fingerprints: dict[str, str] = {}
+        self.fingerprint_digest_counts: Counter[str] = Counter()
+        self.fingerprint_maps_by_digest: dict[str, dict[str, str]] = {}
+        self.records_missing_digest: int = 0
+        self.input_digest_counts: Counter[str] = Counter()
+        self.input_maps_by_digest: dict[str, dict[str, Any]] = {}
+        self.records_missing_input_digest: int = 0
+        self.network_digest_counts: Counter[str] = Counter()
+        self.network_maps_by_digest: dict[str, dict[str, Any]] = {}
+        self.records_missing_network_digest: int = 0
+        self.subscore_status: dict[str, str] = {}
+
+    def update(self, record: dict[str, Any]) -> None:
         provenance = record.get("provenance")
         if not isinstance(provenance, dict):
-            records_missing_digest += 1
-            records_missing_input_digest += 1
-            records_missing_network_digest += 1
-            continue
+            self.records_missing_digest += 1
+            self.records_missing_input_digest += 1
+            self.records_missing_network_digest += 1
+            return
         raw_hashes = provenance.get("source_hashes")
         if isinstance(raw_hashes, dict):
             for key, value in raw_hashes.items():
                 if isinstance(key, str) and isinstance(value, str) and value:
-                    source_hashes[key] = value
+                    self.source_hashes[key] = value
         raw_fingerprints = provenance.get("scoring_fingerprints")
         raw_digest = provenance.get("scoring_fingerprint_digest")
         if isinstance(raw_digest, str) and raw_digest:
-            fingerprint_digest_counts[raw_digest] += 1
+            self.fingerprint_digest_counts[raw_digest] += 1
         if isinstance(raw_fingerprints, dict):
             clean_fingerprints: dict[str, str] = {}
             for key, value in raw_fingerprints.items():
                 if isinstance(key, str) and isinstance(value, str) and value:
-                    scoring_fingerprints[key] = value
+                    self.scoring_fingerprints[key] = value
                     clean_fingerprints[key] = value
             if clean_fingerprints and not isinstance(raw_digest, str):
                 digest = scoring_fingerprint_digest(clean_fingerprints)
-                fingerprint_digest_counts[digest] += 1
-                fingerprint_maps_by_digest[digest] = dict(sorted(clean_fingerprints.items()))
+                self.fingerprint_digest_counts[digest] += 1
+                self.fingerprint_maps_by_digest[digest] = dict(sorted(clean_fingerprints.items()))
         elif not isinstance(raw_digest, str):
-            records_missing_digest += 1
+            self.records_missing_digest += 1
         raw_input_digest = provenance.get("scoring_input_digest")
         raw_input = provenance.get("scoring_input")
         if isinstance(raw_input_digest, str) and raw_input_digest:
-            input_digest_counts[raw_input_digest] += 1
+            self.input_digest_counts[raw_input_digest] += 1
         if isinstance(raw_input, dict):
             clean_input = clean_scoring_input_payload(raw_input)
             if clean_input and not isinstance(raw_input_digest, str):
                 digest = scoring_input_digest(clean_input)
-                input_digest_counts[digest] += 1
-                input_maps_by_digest[digest] = clean_input
+                self.input_digest_counts[digest] += 1
+                self.input_maps_by_digest[digest] = clean_input
         elif not isinstance(raw_input_digest, str):
-            records_missing_input_digest += 1
+            self.records_missing_input_digest += 1
         raw_network_digest = provenance.get("network_digest")
         raw_network = provenance.get("network")
         if isinstance(raw_network_digest, str) and raw_network_digest:
-            network_digest_counts[raw_network_digest] += 1
+            self.network_digest_counts[raw_network_digest] += 1
         if isinstance(raw_network, dict):
             clean_network = clean_network_payload(raw_network)
             if clean_network and not isinstance(raw_network_digest, str):
                 digest = network_digest(clean_network)
-                network_digest_counts[digest] += 1
-                network_maps_by_digest[digest] = clean_network
+                self.network_digest_counts[digest] += 1
+                self.network_maps_by_digest[digest] = clean_network
         elif not isinstance(raw_network_digest, str):
-            records_missing_network_digest += 1
-        if not subscore_status:
+            self.records_missing_network_digest += 1
+        if not self.subscore_status:
             raw_status = provenance.get("subscore_status")
             if isinstance(raw_status, dict):
-                subscore_status = {
+                self.subscore_status = {
                     str(key): str(value) for key, value in raw_status.items() if value is not None
                 }
-    return {
-        "scoring_fingerprint_digest_counts": dict(sorted(fingerprint_digest_counts.items())),
-        "scoring_fingerprint_maps_by_digest": dict(sorted(fingerprint_maps_by_digest.items())),
-        "scoring_fingerprints": dict(sorted(scoring_fingerprints.items())),
-        "records_missing_scoring_fingerprint_digest": records_missing_digest,
-        "scoring_input_digest_counts": dict(sorted(input_digest_counts.items())),
-        "scoring_input_maps_by_digest": dict(sorted(input_maps_by_digest.items())),
-        "records_missing_scoring_input_digest": records_missing_input_digest,
-        "network_digest_counts": dict(sorted(network_digest_counts.items())),
-        "network_maps_by_digest": dict(sorted(network_maps_by_digest.items())),
-        "records_missing_network_digest": records_missing_network_digest,
-        "source_hashes": dict(sorted(source_hashes.items())),
-        "subscore_status": dict(sorted(subscore_status.items())),
-    }
+
+    def finalize(self) -> dict[str, Any]:
+        return {
+            "scoring_fingerprint_digest_counts": dict(sorted(self.fingerprint_digest_counts.items())),
+            "scoring_fingerprint_maps_by_digest": dict(sorted(self.fingerprint_maps_by_digest.items())),
+            "scoring_fingerprints": dict(sorted(self.scoring_fingerprints.items())),
+            "records_missing_scoring_fingerprint_digest": self.records_missing_digest,
+            "scoring_input_digest_counts": dict(sorted(self.input_digest_counts.items())),
+            "scoring_input_maps_by_digest": dict(sorted(self.input_maps_by_digest.items())),
+            "records_missing_scoring_input_digest": self.records_missing_input_digest,
+            "network_digest_counts": dict(sorted(self.network_digest_counts.items())),
+            "network_maps_by_digest": dict(sorted(self.network_maps_by_digest.items())),
+            "records_missing_network_digest": self.records_missing_network_digest,
+            "source_hashes": dict(sorted(self.source_hashes.items())),
+            "subscore_status": dict(sorted(self.subscore_status.items())),
+        }
+
+
+def score_provenance_summary(records: Iterable[dict[str, Any]]) -> dict[str, Any]:
+    acc = _ScoreProvenanceAccumulator()
+    for record in records:
+        acc.update(record)
+    return acc.finalize()
 
 
 def clean_scoring_input_payload(payload: dict[str, Any]) -> dict[str, Any] | None:
@@ -879,11 +897,17 @@ def score_batch_provenance(records_dir: Path) -> dict[str, Any] | None:
 def build_manifest_provenance(
     *,
     records_dir: Path | None,
-    records: list[dict[str, Any]],
+    records: Iterable[dict[str, Any]] | None = None,
+    score_provenance: dict[str, Any] | None = None,
     scoring_input_provenance: dict[str, Any] | None = None,
     network_provenance: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
-    score_provenance = score_provenance_summary(records)
+    if score_provenance is None:
+        if records is None:
+            raise ValueError(
+                "build_manifest_provenance needs records or a pre-computed score_provenance"
+            )
+        score_provenance = score_provenance_summary(records)
     score_batch = score_batch_provenance(records_dir) if records_dir is not None else None
     scoring_start = (
         score_batch.get("scoring_provenance_at_start")
@@ -1215,8 +1239,40 @@ def geom_record_shards(
     return shards
 
 
+# Chunk payloads the exporter reads only through geom_record(). Measured on a
+# median real chunk (chunk_00079, 161 MB, 500 records): _candidate_geometries
+# 52.7% and _geometry_options 33.7% of serialized bytes, _geometry 9.6%. Computing
+# geom_record once at load time and keeping only its output cuts a chunk from
+# ~409 MB parsed to ~19 MB (geom_record 14.2 MB + public record 4.5 MB). The full
+# 249-chunk / 43.9 GB batch does not fit in RAM otherwise. decisions.md 2026-10-02.
+GEOM_SOURCE_KEYS = frozenset({"_geometry", "_geometry_options", "_candidate_geometries"})
+PRECOMPUTED_GEOM_KEY = "_geom_record"
+
+
+def project_record_for_export(record: dict[str, Any]) -> dict[str, Any]:
+    """Replace the raw geometry payloads with their already-computed geom_record.
+
+    geom_record(record) is evaluated exactly once here and stored under
+    PRECOMPUTED_GEOM_KEY; export_geom_record() returns it unchanged, so the
+    exported geom shards are byte-identical. Every other key is preserved for
+    public_score_record, planning-area lookup and provenance summaries.
+    Returns the same object when the record carries no geometry payload.
+    """
+    if not GEOM_SOURCE_KEYS.intersection(record):
+        return record
+    projected = {key: value for key, value in record.items() if key not in GEOM_SOURCE_KEYS}
+    projected[PRECOMPUTED_GEOM_KEY] = geom_record(record)
+    return projected
+
+
+def export_geom_record(record: dict[str, Any]) -> dict[str, Any] | None:
+    if PRECOMPUTED_GEOM_KEY in record:
+        return record[PRECOMPUTED_GEOM_KEY]
+    return geom_record(record)
+
+
 def export_static_artifacts(
-    records: list[dict[str, Any]],
+    records: Iterable[dict[str, Any]] | None = None,
     output_dir: Path = DEFAULT_EXPORT_DIR,
     records_dir: Path | None = None,
     scoring_input_provenance: dict[str, Any] | None = None,
@@ -1225,18 +1281,83 @@ def export_static_artifacts(
     geom_max_promotion_resolution: int = GEOM_MAX_PROMOTION_RESOLUTION,
     score_shard_max_bytes: int = MAX_FILE_BYTES,
 ) -> dict[str, Any]:
-    records = sorted(records, key=lambda item: str(item["postal"]))
-    area_lookup = load_planning_area_lookup(records)
+    """Write the shelter-map static JSON bundle.
+
+    When ``records`` is ``None``, records are streamed from ``records_dir`` one
+    chunk at a time via :func:`iter_score_batch_records`; the full chunk-record
+    list is never materialised. When ``records`` is given (the live-scoring
+    path), it is sorted by postal and funnelled through the same single-pass
+    accumulator so the written output is byte-identical to the historical
+    list-based implementation. See decisions.md 2026-10-02.
+    """
+    if records is None:
+        if records_dir is None:
+            raise ValueError(
+                "export_static_artifacts requires records or records_dir"
+            )
+        record_iter: Iterable[dict[str, Any]] = iter_score_batch_records(records_dir)
+    else:
+        # Legacy live-score path: records come as a pre-materialised list. Sort
+        # once by postal to match the historical global order so score_index +
+        # area shard ordering stay byte-identical across both callers.
+        record_iter = sorted(records, key=lambda item: str(item["postal"]))
+
+    # Streaming accumulators. Each raw record is projected to its small public
+    # and geom form in the loop below and then falls out of scope, so the
+    # heavy _geometry / _candidate_geometries payloads are released before the
+    # next chunk record is read.
+    provenance_acc = _ScoreProvenanceAccumulator()
+    area_lookup_input: list[dict[str, Any]] = []
+    public_records_by_postal: list[tuple[str, dict[str, Any]]] = []
+    geom_entries: list[tuple[dict[str, Any], float, float, str]] = []
+    state_counts_acc: Counter[str] = Counter()
+    data_as_of_set: set[str] = set()
+    record_count = 0
+    bus_none_count = 0
+    bus_stop_radius: float | None = None
+
+    for record in record_iter:
+        record_count += 1
+        state_counts_acc[str(record.get("state"))] += 1
+        data_as_of = record.get("data_as_of")
+        if data_as_of is not None:
+            data_as_of_set.add(str(data_as_of))
+        provenance_acc.update(record)
+
+        if is_bus_only_null_partial(record):
+            bus_none_count += 1
+        if bus_stop_radius is None:
+            node_set = (record.get("provenance") or {}).get("transit_node_set")
+            val = node_set.get("bus_stop_candidate_radius_m") if isinstance(node_set, dict) else None
+            if isinstance(val, (int, float)) and not isinstance(val, bool):
+                bus_stop_radius = float(val)
+
+        postal = str(record["postal"])
+        pseudo: dict[str, Any] = {"postal": postal}
+        if "_area" in record:
+            pseudo["_area"] = record["_area"]
+        if isinstance(record.get("_origin"), dict):
+            pseudo["_origin"] = record["_origin"]
+        area_lookup_input.append(pseudo)
+
+        public_records_by_postal.append((postal, public_score_record(record)))
+
+        origin = record.get("_origin")
+        geom_rec = export_geom_record(record)
+        if isinstance(origin, dict) and geom_rec is not None:
+            lat = float(origin["lat"])
+            lon = float(origin["lon"])
+            max_res_cell = h3.latlng_to_cell(lat, lon, geom_max_promotion_resolution)
+            geom_entries.append((geom_rec, lat, lon, max_res_cell))
+
+    area_lookup = load_planning_area_lookup(area_lookup_input)
     scores_by_area: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for postal, public in public_records_by_postal:
+        scores_by_area[area_lookup.get(postal, "UNKNOWN")].append(public)
     score_index: dict[str, list[str]] = defaultdict(list)
     score_digest_counts_by_shard: dict[str, dict[str, int]] = {}
     score_input_digest_counts_by_shard: dict[str, dict[str, int]] = {}
     network_digest_counts_by_shard: dict[str, dict[str, int]] = {}
-
-    for record in records:
-        postal = str(record["postal"])
-        area = area_lookup.get(postal, "UNKNOWN")
-        scores_by_area[area].append(public_score_record(record))
 
     output_dir.mkdir(parents=True, exist_ok=True)
     scores_dir = output_dir / "scores"
@@ -1291,18 +1412,11 @@ def export_static_artifacts(
     # resolutions (breaking the parent-child invariant) and caused merged,
     # oversized geom shards on the URA-expanded 124k-record full-batch export.
     geom_cell_by_postal: dict[str, str] = {}
-    for record in records:
-        origin = record.get("_origin")
-        geometry_record = export_geom_record(record)
-        if not isinstance(origin, dict) or geometry_record is None:
-            continue
-        lat = float(origin["lat"])
-        lon = float(origin["lon"])
-        max_res_cell = h3.latlng_to_cell(lat, lon, geom_max_promotion_resolution)
+    for geom_rec, lat, lon, max_res_cell in geom_entries:
         cell = h3.cell_to_parent(max_res_cell, 8)
-        geom_by_cell[cell].append(geometry_record)
-        geom_origin_by_postal[str(record["postal"])] = (lat, lon)
-        geom_cell_by_postal[str(record["postal"])] = max_res_cell
+        geom_by_cell[cell].append(geom_rec)
+        geom_origin_by_postal[str(geom_rec["postal"])] = (lat, lon)
+        geom_cell_by_postal[str(geom_rec["postal"])] = max_res_cell
 
     geom_shard_records: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for cell, cell_records in sorted(geom_by_cell.items()):
@@ -1336,27 +1450,35 @@ def export_static_artifacts(
     transit_report = export_transit_pois(output_dir)
     written_files[transit_report["path"]] = int(transit_report["bytes"])
 
-    data_as_of_values = sorted(
-        {
-            str(record.get("data_as_of"))
-            for record in records
-            if record.get("data_as_of") is not None
-        }
-    )
+    data_as_of_values = sorted(data_as_of_set)
     manifest_provenance = build_manifest_provenance(
         records_dir=records_dir,
-        records=records,
+        score_provenance=provenance_acc.finalize(),
         scoring_input_provenance=scoring_input_provenance,
         network_provenance=network_provenance,
     )
+    state_counts_result = dict(sorted(state_counts_acc.items()))
+    locked_coverage = {
+        "full_locked_score": state_counts_acc["SCORED"] + bus_none_count,
+        "scored": state_counts_acc["SCORED"],
+        "bus_none_in_range": bus_none_count,
+        "partial_other": state_counts_acc["SCORED_PARTIAL"] - bus_none_count,
+        "no_transit_in_range": state_counts_acc[NO_TRANSIT_IN_RANGE],
+        "not_yet_scored": state_counts_acc[NOT_YET_SCORED],
+        "bus_stop_candidate_radius_m": bus_stop_radius,
+        "rule": (
+            "SCORED, plus SCORED_PARTIAL whose only null subscore is bus (no bus stop "
+            "within the candidate radius); bus contributes 0 under the locked weights."
+        ),
+    }
     manifest = {
         "generated_at": datetime.now(UTC).isoformat(),
         "data_as_of": data_as_of_values[-1] if data_as_of_values else None,
         "provenance": {
             "artifact": "shiok-static-json",
-            "record_count": len(records),
-            "state_counts": state_counts(records),
-            "locked_score_coverage": locked_score_coverage(records),
+            "record_count": record_count,
+            "state_counts": state_counts_result,
+            "locked_score_coverage": locked_coverage,
             **manifest_provenance,
         },
         "scores": {
@@ -1478,8 +1600,8 @@ def export_static_artifacts(
 
     return {
         "output_dir": str(output_dir),
-        "record_count": len(records),
-        "state_counts": state_counts(records),
+        "record_count": record_count,
+        "state_counts": state_counts_result,
         "score_area_count": len(scores_by_area),
         "score_shard_count": len(score_index),
         "geom_shard_count": len([path for path in written_files if path.startswith("geom/h3")]),
@@ -2142,36 +2264,47 @@ def _merge_score_batch_chunks(chunk_results: Iterable[list[dict[str, Any]]]) -> 
     return records
 
 
-# Chunk payloads the exporter reads only through geom_record(). Measured on a
-# median real chunk (chunk_00079, 161 MB, 500 records): _candidate_geometries
-# 52.7% and _geometry_options 33.7% of serialized bytes, _geometry 9.6%. Computing
-# geom_record once at load time and keeping only its output cuts a chunk from
-# ~409 MB parsed to ~19 MB (geom_record 14.2 MB + public record 4.5 MB). The full
-# 249-chunk / 43.9 GB batch does not fit in RAM otherwise. decisions.md 2026-10-02.
-GEOM_SOURCE_KEYS = frozenset({"_geometry", "_geometry_options", "_candidate_geometries"})
-PRECOMPUTED_GEOM_KEY = "_geom_record"
+def iter_score_batch_records(records_dir: Path) -> Iterator[dict[str, Any]]:
+    """Yield score batch records one at a time, chunk by chunk.
 
-
-def project_record_for_export(record: dict[str, Any]) -> dict[str, Any]:
-    """Replace the raw geometry payloads with their already-computed geom_record.
-
-    geom_record(record) is evaluated exactly once here and stored under
-    PRECOMPUTED_GEOM_KEY; export_geom_record() returns it unchanged, so the
-    exported geom shards are byte-identical. Every other key is preserved for
-    public_score_record, planning-area lookup and provenance summaries.
-    Returns the same object when the record carries no geometry payload.
+    Memory-bounded alternative to :func:`load_score_batch_records`: never
+    retains more than one chunk's records at once (and the per-chunk
+    ``read_json`` still parses one chunk into memory - that cost cannot be
+    streamed through ``json.load``). The in-memory loader materialises every
+    chunk's records at once plus a global postal sort; the real full-rescore
+    batch (249 chunks, 43.9 GB) OOMs on a 15.8 GB machine. Preserves the
+    duplicate-postal check and the state-preferring best_transit repick that
+    the in-memory loader applies. See decisions.md 2026-10-02.
     """
-    if not GEOM_SOURCE_KEYS.intersection(record):
-        return record
-    projected = {key: value for key, value in record.items() if key not in GEOM_SOURCE_KEYS}
-    projected[PRECOMPUTED_GEOM_KEY] = geom_record(record)
-    return projected
+    chunks_dir = records_dir / "chunks"
+    if not chunks_dir.is_dir():
+        raise FileNotFoundError(f"score batch chunks directory not found: {chunks_dir}")
 
+    chunk_paths = sorted(chunks_dir.glob("chunk_*.json"))
+    if not chunk_paths:
+        raise FileNotFoundError(f"no score batch chunk JSON files found in {chunks_dir}")
 
-def export_geom_record(record: dict[str, Any]) -> dict[str, Any] | None:
-    if PRECOMPUTED_GEOM_KEY in record:
-        return record[PRECOMPUTED_GEOM_KEY]
-    return geom_record(record)
+    seen: set[str] = set()
+    for path in chunk_paths:
+        payload = read_json(path)
+        if not isinstance(payload, list):
+            raise TypeError(f"score batch chunk must contain a list: {path}")
+        for item in payload:
+            if not isinstance(item, dict):
+                raise TypeError(f"score batch chunk record must be an object: {path}")
+            postal = str(item.get("postal", ""))
+            if not postal:
+                raise ValueError(f"score batch chunk record missing postal: {path}")
+            if postal in seen:
+                raise ValueError(f"duplicate postal across score batch chunks: {postal}")
+            seen.add(postal)
+            # Apply the state-preferring best_transit picker to legacy chunks
+            # that were assembled under the older score-only sort key. See
+            # ``pipeline/scoring_integration.py:candidate_sort_key`` and
+            # decisions.md 2026-08-05 for rationale.
+            repick_best_transit_from_route_options(item)
+            yield item
+
 
 
 def validate_score_record(record: dict[str, Any], errors: list[str], context: str) -> None:
@@ -2854,13 +2987,31 @@ def main(argv: list[str] | None = None) -> int:
             )
             input_provenance = scoring_input_snapshot(args.postal_universe)
             network_provenance = network_snapshot(args.network)
-        report = export_static_artifacts(
-            records,
-            output_dir=args.output,
-            records_dir=args.records_dir,
-            scoring_input_provenance=input_provenance,
-            network_provenance=network_provenance,
-        )
+        try:
+            report = export_static_artifacts(
+                records,
+                output_dir=args.output,
+                records_dir=args.records_dir,
+                scoring_input_provenance=input_provenance,
+                network_provenance=network_provenance,
+            )
+        except (FileNotFoundError, ValueError, json.JSONDecodeError, TypeError) as exc:
+            # Preserve the records-dir path's historical nice-JSON error
+            # report. The live-score (score_postals) path never swallowed
+            # these exceptions, so bubble them when records_dir is unset.
+            if args.records_dir is None:
+                raise
+            print(
+                json.dumps(
+                    {
+                        "ok": False,
+                        "errors": [str(exc)],
+                    },
+                    indent=2,
+                    sort_keys=True,
+                )
+            )
+            return 1
         print(json.dumps(report, indent=2, sort_keys=True))
         return 0
 

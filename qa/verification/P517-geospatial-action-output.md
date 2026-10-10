@@ -66,3 +66,5 @@ Exit code: 1, because the discovery-only report found changed discovery URLs.
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

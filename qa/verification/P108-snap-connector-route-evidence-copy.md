@@ -76,3 +76,4 @@ web/lib/__tests__/score-card-copy.test.ts:129:    expect(tsxSource).not.toContai
 
 1. None.
 
+Machine-specific values in this document use privacy placeholders.

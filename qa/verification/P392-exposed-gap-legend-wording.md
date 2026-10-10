@@ -56,3 +56,5 @@ npm notice run node scripts/test-web.mjs accessibility-render.test.tsx score-car
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

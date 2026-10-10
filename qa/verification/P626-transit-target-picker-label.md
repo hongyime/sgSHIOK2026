@@ -119,3 +119,5 @@ web/lib/__tests__/transit-stop-picker.test.tsx | 2 ++
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

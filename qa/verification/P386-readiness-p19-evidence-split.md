@@ -77,3 +77,5 @@ tests\test_production_readiness.py .........................             [100%]
 ## Disagreements
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

@@ -108,3 +108,5 @@ githubCommitMessage: fix: keep crawlers off data and API payloads
 ## DISAGREEMENTS
 
 1. More code-side quota work is now lower leverage than making the already-committed quota fixes live. The repository has several request-reduction commits that cannot affect production until the owner performs an explicit Vercel deployment.
+
+Machine-specific values in this document use privacy placeholders.

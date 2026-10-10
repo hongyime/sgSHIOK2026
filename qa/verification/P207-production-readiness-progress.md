@@ -134,3 +134,5 @@ weights_diff_exit=0
 ## Disagreements
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

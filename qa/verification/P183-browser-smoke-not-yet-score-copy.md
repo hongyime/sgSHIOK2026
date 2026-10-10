@@ -42,3 +42,5 @@ This is browser-smoke verification alignment only. It does not change app render
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

@@ -47,3 +47,5 @@ tests/test_readme.py and tests/test_agent_docs.py assert that operator-facing do
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

@@ -4,7 +4,7 @@
 
 ```text
 root=C:\sgSHIOK2026
-host=Prawn-E14
+host=dev-host-2.example
 objective_read=ok
 git=ok
 7f30e20eda82d002cc9358ecbacd0f20074b9e10
@@ -66,3 +66,5 @@ exit=1
 ## DISAGREEMENTS
 
 1. None for this slice.
+
+Machine-specific values in this document use privacy placeholders.

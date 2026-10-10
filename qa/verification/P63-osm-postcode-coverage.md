@@ -305,3 +305,5 @@ frozen_coverage_of_osm_percent = 25873 / 25879 * 100 = 99.977
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

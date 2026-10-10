@@ -5124,6 +5124,8 @@ processed/postal_universe path, unrelated to this ignore-file change).
 
 The owner authorized repository-wide portability/privacy maintenance and publication. Only approved identifier substitutions and development launcher changes are integrated in an isolated checkout, preserving active workspace edits and newer upstream work. Locked data, scoring decisions, deployment controls and recorded verification outcomes are unchanged. Privacy substitutions are the owner-authorized exception to retaining historical verification text verbatim.
 
+- 2026-09-27: Added Linux web development entry point and portable npm selection in the existing dependency helper. Windows/Linux offline dispatch checks passed within fixture scope; frozen data and production-host guards were preserved.
+
 2026-09-30 - Full rescore switched to 3 parallel shards (owner-approved "do it do it fast"):
 
 Between 2026-09-22 and 2026-09-30 the single-worker rescore was resumed (23 Sep), starved at BelowNormal priority then bumped to Normal on owner request, killed by a Windows Update reboot on 27 Sep 23:11 (TrustedInstaller "Operating System: Upgrade (Planned)", chunk 137 already safely written; only in-flight chunk 138 lost), and resumed again. By 30 Sep 08:00 it had 166 of ~248 chunks at ~2 h/chunk on one core (~89% of a single core; 8 logical CPUs on the machine), projecting ~6 more days. Owner asked to speed it up.
@@ -5209,3 +5211,5 @@ Candidate readiness returned exit 1 with `release_gate_status=blocked`, although
 The candidate manifest records two scoring digests across rows: `951c37006178729023c89188` (82,991 records) and `ff624d8ba220ccdb35e750c1` (41,452 records). Their fingerprint maps differ in `pipeline/score_batch.py`; the recorded versions are commits `741b221` and `c938b04`, whose diff adds shard selection and shard-manifest bookkeeping. The core scoring modules match. The run-to-export fingerprint change is in `pipeline/export.py`, which changed after scoring. Input provenance is complete: `be7931b045d4943347d1cd44` covers 124,431 records and the separately retained Phase 4 digest `8280bc942095159c63f77daf` covers the 12 replacements; network digest is uniform across all 124,443 records. Readiness still treats the fingerprint flags as blocking, so do not reinterpret them as passed without resolving the gate's policy or recording an explicit exception.
 
 `web/data-bundle.json` remains on `generated_20261002_full_rescore_bus_remodel_network_repair`; no candidate pointer activation or production deployment occurred. Next: resolve/waive the fingerprint gate with an evidence-based rationale, run candidate-specific OneMap validation or obtain its explicit waiver, confirm the Vercel root-directory setting, rerun readiness, and only then apply the already approved pointer activation if its gate passes. Source-freshness warnings remain separate follow-up.
+
+Machine-specific values in this document use privacy placeholders.

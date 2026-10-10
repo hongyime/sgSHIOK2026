@@ -53,3 +53,5 @@ PS C:\sgSHIOK2026> git diff -- pipeline/config/weights.yaml
 ## Disagreements
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

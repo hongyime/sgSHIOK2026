@@ -320,3 +320,5 @@ FINDINGS
 DISAGREEMENTS
 
 1. The private-residential sample is not a direct condo TOP sample. BCA MCST constitution date is the best open-data proxy found in this pass, but it is not the same thing as project completion/TOP.
+
+Machine-specific values in this document use privacy placeholders.

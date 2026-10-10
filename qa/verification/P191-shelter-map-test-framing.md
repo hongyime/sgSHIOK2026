@@ -53,3 +53,5 @@ C:\sgSHIOK2026\web\lib\__tests__\accessibility-render.test.tsx:276:  it("explain
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

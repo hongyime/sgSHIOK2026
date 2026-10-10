@@ -56,3 +56,5 @@ Command: uv run pytest C:\sgSHIOK2026\tests\test_heat_presentation_analysis.py C
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

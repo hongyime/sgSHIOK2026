@@ -50,3 +50,5 @@ C:\sgSHIOK2026\web\section10-presentation-proposal.md:9:stop presenting the curr
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

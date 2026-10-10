@@ -79,3 +79,5 @@ exit_code=0
 ## DISAGREEMENTS
 
 1. None for this scoped continuation.
+
+Machine-specific values in this document use privacy placeholders.

@@ -68,3 +68,5 @@ warning: in the working copy of 'decisions.md', CRLF will be replaced by LF the 
 ## DISAGREEMENTS
 
 1. None for this slice.
+
+Machine-specific values in this document use privacy placeholders.

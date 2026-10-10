@@ -145,3 +145,5 @@ EXIT=0
 ## DISAGREEMENTS
 
 1. None for P45. I did not run the web suite because the change is README/decision/state documentation only; repository integrity, whitespace, exact README term checks, and the locked weights diff cover the touched surface.
+
+Machine-specific values in this document use privacy placeholders.

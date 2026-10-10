@@ -74,3 +74,5 @@ PS C:\sgSHIOK2026> uv run pytest tests/test_fetch.py -q
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

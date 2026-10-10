@@ -73,3 +73,5 @@ overture_addresses_sg_candidate (Overture Maps Addresses \u2014 Singapore candid
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

@@ -93,3 +93,5 @@ qa/verification/P467-osm-postcode-total-copy.md
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

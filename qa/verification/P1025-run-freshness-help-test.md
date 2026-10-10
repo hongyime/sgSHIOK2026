@@ -66,3 +66,5 @@ FAILED tests/test_run.py::test_run_help_headline_does_not_flatten_all_tasks
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

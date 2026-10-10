@@ -110,3 +110,5 @@ web/lib/__tests__/accessibility-render.test.tsx | 27 +++++++++++++++++++++++++
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

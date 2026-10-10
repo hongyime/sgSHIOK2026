@@ -26,3 +26,5 @@ C:\sgSHIOK2026\scripts\release-data-bundle.ps1:102:            & (Join-Path $PSS
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

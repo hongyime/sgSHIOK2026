@@ -175,3 +175,5 @@ npm notice run node scripts/test-web.mjs deployment.test.ts route-evidence-map-i
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

@@ -42,3 +42,5 @@ geom/postal-index.json.gz PRESENT 347381
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

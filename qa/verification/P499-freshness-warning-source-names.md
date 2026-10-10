@@ -82,3 +82,5 @@ Readiness source-freshness warnings now include source display names alongside s
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

@@ -87,3 +87,5 @@ exit_code=0
 ## DISAGREEMENTS
 
 1. P943 was directionally useful but incomplete for Vercel quota pressure because it did not explicitly separate browser cache from Vercel CDN cache.
+
+Machine-specific values in this document use privacy placeholders.

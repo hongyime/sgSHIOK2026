@@ -9,6 +9,7 @@ from pipeline.export import (
     CONFIRM_EXPORT_FLAG,
     CONFIRM_LIVE_SCORE_EXPORT_FLAG,
     CONFIRM_REFRESH_PROVENANCE_FLAG,
+    NETWORK_PATH,
     build_transit_poi_collection,
     encode_polyline,
     export_static_artifacts,
@@ -1882,7 +1883,7 @@ def test_export_cli_confirmed_live_score_reaches_scoring(tmp_path: Path, monkeyp
             "postal_codes": ["560234"],
             "limit": 5,
             "include_geometry": True,
-            "network_path": Path("C:/sgSHIOK2026/processed/network_island.parquet"),
+            "network_path": NETWORK_PATH,
             "postal_universe_path": None,
         }
     ]
@@ -2248,3 +2249,105 @@ def test_validate_file_cap_admits_full_rescore_bundle_size(tmp_path: Path):
         (tmp_path / f"f{i}.json").write_text("{}", encoding="utf-8")
     _ok, report = validate_static_artifacts(input_dir=tmp_path)
     assert "file count 8001 exceeds 8000" in report["errors"]
+def _scored_partial_bus_null_record(postal: str = "300001") -> dict:
+    """SCORED_PARTIAL with only `bus` subscore null (locked_score_coverage edge case)."""
+    record = sample_record(postal)
+    record["state"] = "SCORED_PARTIAL"
+    record["subscores"] = dict(record["subscores"])
+    record["subscores"]["bus"] = None
+    return record
+
+
+def _write_streaming_fixture_chunks(root: Path) -> Path:
+    """Build a 3-chunk score batch records_dir for the streaming equivalence test."""
+    chunks_dir = root / "chunks"
+    chunks_dir.mkdir(parents=True)
+    chunk_1 = [json_safe_score_record(sample_record_with_candidates("100001"))]
+    chunk_2 = [
+        json_safe_score_record(unscored_record("200001")),
+        json_safe_score_record(no_transit_walk_evidence_record("200002")),
+    ]
+    chunk_3 = [json_safe_score_record(_scored_partial_bus_null_record("300001"))]
+    for idx, chunk in enumerate((chunk_1, chunk_2, chunk_3), start=1):
+        first = chunk[0]["postal"]
+        last = chunk[-1]["postal"]
+        write_json(chunks_dir / f"chunk_{idx:05d}_{first}_{last}.json", chunk)
+    return root
+
+
+def test_streaming_export_matches_in_memory_export_byte_for_byte(
+    tmp_path: Path, monkeypatch
+):
+    """Streaming (records=None, records_dir=...) produces byte-identical output."""
+    import inspect
+
+    from pipeline import export as export_mod
+
+    # STREAMING PROOF 1: iter_score_batch_records is a generator so no chunk's
+    # records are materialised beyond the one currently being yielded.
+    assert inspect.isgeneratorfunction(export_mod.iter_score_batch_records), (
+        "iter_score_batch_records must be a generator; chunk records must stream"
+    )
+
+    records_mem = _write_streaming_fixture_chunks(tmp_path / "mem_src")
+    records_stream = _write_streaming_fixture_chunks(tmp_path / "stream_src")
+
+    out_mem = tmp_path / "out_mem"
+    out_stream = tmp_path / "out_stream"
+
+    # Legacy in-memory path: load every chunk record into a list, then export.
+    in_memory_records = export_mod.load_score_batch_records(records_mem)
+    export_mod.export_static_artifacts(
+        in_memory_records,
+        output_dir=out_mem,
+        records_dir=records_mem,
+    )
+
+    # STREAMING PROOF 2: streaming path must NOT call the full in-memory loader.
+    sabotage = {"calls": 0}
+    original_loader = export_mod.load_score_batch_records
+
+    def _spy(*args, **kwargs):
+        sabotage["calls"] += 1
+        return original_loader(*args, **kwargs)
+
+    monkeypatch.setattr("pipeline.export.load_score_batch_records", _spy)
+
+    export_mod.export_static_artifacts(
+        records=None,
+        output_dir=out_stream,
+        records_dir=records_stream,
+    )
+
+    assert sabotage["calls"] == 0, (
+        "streaming export called the in-memory loader; peak retention is unbounded"
+    )
+
+    # BYTE EQUIVALENCE: every output file matches, file-by-file.
+    mem_rels = {
+        p.relative_to(out_mem).as_posix() for p in out_mem.rglob("*") if p.is_file()
+    }
+    stream_rels = {
+        p.relative_to(out_stream).as_posix()
+        for p in out_stream.rglob("*")
+        if p.is_file()
+    }
+    assert mem_rels == stream_rels, (
+        f"file set differs: only-in-mem={sorted(mem_rels - stream_rels)}, "
+        f"only-in-stream={sorted(stream_rels - mem_rels)}"
+    )
+    for rel in sorted(mem_rels):
+        a_bytes = (out_mem / rel).read_bytes()
+        b_bytes = (out_stream / rel).read_bytes()
+        if rel == "manifest.json":
+            # `generated_at` reflects the wall clock at write time; strip it so
+            # the test proves content equivalence, not microsecond coincidence.
+            a_payload = json.loads(a_bytes)
+            b_payload = json.loads(b_bytes)
+            a_payload.pop("generated_at", None)
+            b_payload.pop("generated_at", None)
+            assert a_payload == b_payload, (
+                "manifest.json content differs after stripping generated_at"
+            )
+        else:
+            assert a_bytes == b_bytes, f"{rel} bytes differ between streaming and in-memory"

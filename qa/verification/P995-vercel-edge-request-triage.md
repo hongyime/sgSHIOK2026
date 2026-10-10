@@ -207,3 +207,5 @@ Vercel connector list_projects included:
 ## Disagreements
 
 1. None with the premise that Edge Request pressure needs action. The constraint is that code-only mitigations require a deployment before they affect live traffic, and immediate hard throttling belongs in Vercel project controls.
+
+Machine-specific values in this document use privacy placeholders.

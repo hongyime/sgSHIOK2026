@@ -59,3 +59,5 @@ The practical v2 path is therefore:
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

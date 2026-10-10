@@ -87,3 +87,5 @@ exit_code=0
 ## DISAGREEMENTS
 
 1. Crawler controls are worth shipping, but they are not a substitute for traffic measurement in Vercel after deployment.
+
+Machine-specific values in this document use privacy placeholders.

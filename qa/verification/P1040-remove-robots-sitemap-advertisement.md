@@ -81,3 +81,5 @@ npm notice run node scripts/test-web.mjs deployment.test.ts
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

@@ -170,3 +170,5 @@ exit=0
 
 1. I did not generate a new `web/public/data` lamp artifact in this phase. That would be the right path for a real overlay, but it is data-publication work in a gitignored artifact tree, not a tracked React-only change.
 2. I did not make staleness fail `run.py check`. A stale source is a refresh-action warning; it is not the same class of defect as a hash mismatch or changed upstream payload.
+
+Machine-specific values in this document use privacy placeholders.

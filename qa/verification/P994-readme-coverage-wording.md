@@ -71,3 +71,5 @@ git diff -- pipeline/config/weights.yaml
 
 1. I did not change old decision-log entries that quote historical wording. The new P994 entry supersedes them without rewriting history.
 2. I did not broaden this into browser copy or scoring work; the browser formatter was already aligned in P993.
+
+Machine-specific values in this document use privacy placeholders.

@@ -71,3 +71,5 @@ sw_check_ignore_exit=1
 ## Disagreements
 
 1. None with the quota-reduction goal. The remaining caveat is operational: code-side request reductions cannot lower the active production deployment's traffic until that deployment is replaced.
+
+Machine-specific values in this document use privacy placeholders.

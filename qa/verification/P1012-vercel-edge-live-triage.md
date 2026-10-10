@@ -47,3 +47,5 @@ githubCommitMessage fix: keep crawlers off data and API payloads
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

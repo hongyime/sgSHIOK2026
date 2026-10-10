@@ -400,3 +400,5 @@ Recommended P15:
 1. I disagree that P10 was a mixed-code exported record bundle in the sense of records split across two scoring fingerprint digests. The exported records are uniform: 1,200 of 1,200 carry `06a6d36c1c8cabf7a5f1052a`.
 2. I agree with rejecting the earlier "single dirty tree" model, but the replacement model is narrower: P10 appears to be a resumed/stale score-chunk export where all records came from the old digest and the batch/export metadata came from the newer clean digest.
 3. I disagree with treating a five-hour-ten-minute E14 same-machine determinism run as the next best use of pipeline time. It is useful only for future E14 repeatability; it cannot recover the original T14 cross-machine same-code claim.
+
+Machine-specific values in this document use privacy placeholders.

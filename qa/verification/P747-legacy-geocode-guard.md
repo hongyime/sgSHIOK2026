@@ -55,3 +55,5 @@ PS C:\sgSHIOK2026> uv run pytest tests/test_run.py tests/test_legacy_geocode.py 
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

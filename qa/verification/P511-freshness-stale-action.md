@@ -57,3 +57,5 @@ Stale freshness action: report and plan a versioned refresh; do not mutate froze
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

@@ -66,3 +66,5 @@ No scoring, export, rescore, subset run, ingest, network build, deployment, depe
 
 1. I did not deploy or change Vercel settings. The standing project rule says publishing and production access changes are owner decisions.
 2. I did not keep broadening code changes without measured evidence. The last safe app-level duplicate-request reducers have already landed, and further browser behavior changes are now likely to trade against user experience or discoverability.
+
+Machine-specific values in this document use privacy placeholders.

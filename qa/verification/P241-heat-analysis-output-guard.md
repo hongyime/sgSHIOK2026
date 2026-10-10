@@ -68,3 +68,5 @@ wrote=C:\sgSHIOK2026\qa\p241\heat_presentation_investigation.json
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

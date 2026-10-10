@@ -454,3 +454,5 @@ DISAGREEMENTS
 
 1. I disagree with treating P11 Section D as cross-machine determinism of a single code state. The P10 base record-level fingerprint includes two unrecovered file hashes, so the comparison was not same-code.
 2. I disagree with relying on this repository's current object database as a complete recovery source. `git fsck --dangling` reports thousands of missing-blob/broken-link lines on both C and X, so absence from the object-store sweep is evidence of non-recovery from available objects, not proof that the bytes never existed.
+
+Machine-specific values in this document use privacy placeholders.

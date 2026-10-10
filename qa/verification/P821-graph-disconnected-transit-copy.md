@@ -64,3 +64,5 @@ Graph-disconnected no-transit browser copy now says "Transit stop or exit found"
 ## Disagreements
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

@@ -176,3 +176,5 @@ Output:
 ## DISAGREEMENTS
 
 1. None for P44. The compatibility-alias choice is intentional because browser smoke summary JSON is a QA artifact schema and older evidence/scripts may still read the old keys.
+
+Machine-specific values in this document use privacy placeholders.

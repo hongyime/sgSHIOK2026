@@ -301,3 +301,5 @@ The environment has no OneMap token credentials, while current docs say Search n
 ## DISAGREEMENTS
 
 1. The standing objective says API credentials are available in the environment. They are not: `ONEMAP_EMAIL`, `ONEMAP_PASSWORD`, `ONEMAP_TOKEN`, and `ONEMAP_ACCESS_TOKEN` are all missing in this session.
+
+Machine-specific values in this document use privacy placeholders.

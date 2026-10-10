@@ -185,3 +185,5 @@ weights_diff_exit=0
 ## DISAGREEMENTS
 
 1. I would not publish this change by itself. It changes future score values for affected records and should be batched with the owner-approved bus/network repair rescore rather than shipped as a standalone scoring run.
+
+Machine-specific values in this document use privacy placeholders.

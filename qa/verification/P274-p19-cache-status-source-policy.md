@@ -94,3 +94,5 @@ index ad7c7a9..9cc39ca 100644
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

@@ -220,3 +220,5 @@ Recommended order:
 
 1. I disagree with making mixed scoring-input digests a release blocker when the digest maps are complete. Partitioned scoring naturally creates multiple input digests; this should warn, not fail.
 2. I disagree that the section 10 presentation change outranks provenance/release hygiene right now. The gate now correctly says the live bundle is provenance-incomplete, which is more foundational than presentation sequencing.
+
+Machine-specific values in this document use privacy placeholders.

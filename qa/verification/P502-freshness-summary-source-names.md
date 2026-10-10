@@ -56,3 +56,5 @@ Unknown-age sources: overture_addresses_sg_candidate (Overture Maps Addresses â€
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

@@ -33,3 +33,5 @@ uv run pytest C:\sgSHIOK2026\tests\test_readme.py C:\sgSHIOK2026\tests\test_agen
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

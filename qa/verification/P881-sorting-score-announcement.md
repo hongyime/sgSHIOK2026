@@ -64,3 +64,5 @@ Test Files  2 passed (2)
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

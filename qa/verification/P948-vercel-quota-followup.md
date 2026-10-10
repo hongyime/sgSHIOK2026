@@ -97,3 +97,5 @@ Set deploymentEnabled to false to prevent any branch from triggering a deploymen
 ## DISAGREEMENTS
 
 1. I would not spend more free-tier work on speculative app-side request shaving until the deployment-rate-limit window clears and the dashboard is checked after a quiet period with automatic Git deployments disabled.
+
+Machine-specific values in this document use privacy placeholders.

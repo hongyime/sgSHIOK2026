@@ -47,3 +47,5 @@ git diff -- pipeline/config/weights.yaml
 
 1. I did not rename internal subscore keys such as `rain`; that would be a schema/provenance change, not a copy cleanup.
 2. I did not run a build or any pipeline task because this change is browser copy and source-level tests cover the edited surface.
+
+Machine-specific values in this document use privacy placeholders.

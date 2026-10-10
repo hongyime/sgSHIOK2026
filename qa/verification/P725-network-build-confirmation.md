@@ -186,3 +186,5 @@ Output before adding untracked evidence/test file:
 ## disagreements
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.

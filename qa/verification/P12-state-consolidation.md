@@ -453,3 +453,5 @@ FINDINGS — "None" will be rejected
 DISAGREEMENTS
 
 1. I disagree with the P11 evidence classification that `scoring_fingerprint_digest` differences are merely record-level provenance bookkeeping caused by machine/path state. The raw mapping diff shows two code-file hash values differ in the P10 record-level fingerprint.
+
+Machine-specific values in this document use privacy placeholders.

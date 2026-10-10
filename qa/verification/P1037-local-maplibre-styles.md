@@ -252,3 +252,5 @@ reason=web/scripts/ensure-data-bundle.mjs can create missing derived artifacts u
 ## DISAGREEMENTS
 
 1. None.
+
+Machine-specific values in this document use privacy placeholders.
