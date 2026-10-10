@@ -238,9 +238,17 @@ def scoring_fingerprint_equivalence_status(
     start_snapshot = provenance.get("scoring_fingerprints_at_scoring_start")
     export_snapshot = provenance.get("scoring_fingerprints_at_export")
     if start_snapshot != normalized_maps[score_start_digest]:
-        return {"verified": False, "non_scoring_files": [], "reason": "score-start snapshot does not match its map"}
+        return {
+            "verified": False,
+            "non_scoring_files": [],
+            "reason": "score-start snapshot does not match its map",
+        }
     if export_snapshot != normalized_maps[export_digest]:
-        return {"verified": False, "non_scoring_files": [], "reason": "export snapshot does not match its map"}
+        return {
+            "verified": False,
+            "non_scoring_files": [],
+            "reason": "export snapshot does not match its map",
+        }
     score_digest = provenance.get("scoring_fingerprint_digest")
     score_snapshot = provenance.get("scoring_fingerprints")
     if (

@@ -1,5 +1,6 @@
-import json
 import gzip
+import hashlib
+import json
 from pathlib import Path
 
 import httpx
@@ -108,6 +109,99 @@ def test_build_validation_sample_prefers_postal_and_transit_source_endpoints(tmp
     assert payload["samples"][0]["endpoint_source"] == "postal_universe_to_transit_poi"
     assert payload["samples"][0]["start"] == {"lat": 1.312345, "lon": 103.801234}
     assert payload["samples"][0]["end"] == {"lat": 1.323456, "lon": 103.812345}
+
+
+def test_build_validation_sample_uses_recorded_scoring_input_origin(tmp_path: Path):
+    record = sample_record("123456")
+    record["best_node"] = {
+        "type": "bus_stop",
+        "exit": "54321",
+        "name": "Test Stop",
+        "station": "Test Stop",
+    }
+    input_digest = "i" * 24
+    scored_universe_path = tmp_path / "scored_universe.parquet"
+    pd.DataFrame(
+        [
+            {
+                "postal_code": "123456",
+                "lat": 1.319876,
+                "lon": 103.811234,
+                "status": "READY_TO_SCORE",
+            }
+        ]
+    ).to_parquet(scored_universe_path, index=False)
+
+    bundle_dir = tmp_path / "bundle"
+    export_static_artifacts([record], output_dir=bundle_dir)
+    transit_dir = bundle_dir / "transit"
+    transit_dir.mkdir(exist_ok=True)
+    (transit_dir / "pois.json").write_text(
+        json.dumps(
+            {
+                "type": "FeatureCollection",
+                "features": [
+                    {
+                        "type": "Feature",
+                        "geometry": {"type": "Point", "coordinates": [103.812345, 1.323456]},
+                        "properties": {
+                            "kind": "bus_stop",
+                            "code": "54321",
+                            "name": "Test Stop",
+                        },
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    score_path = next(
+        path
+        for path in (bundle_dir / "scores").glob("*.json")
+        if path.name not in {"index.json", "prefix-index.json"}
+    )
+    score_records = json.loads(score_path.read_text(encoding="utf-8"))
+    score_record = next(item for item in score_records if item["postal"] == "123456")
+    score_record["provenance"]["scoring_input_digest"] = input_digest
+    score_record["provenance"]["postal_universe"] = str(scored_universe_path)
+    score_path.write_text(json.dumps(score_records), encoding="utf-8")
+
+    base_universe_path = tmp_path / "base_universe.parquet"
+    pd.DataFrame(
+        [
+            {
+                "postal_code": "123456",
+                "lat": 1.312345,
+                "lon": 103.801234,
+                "status": "READY_TO_SCORE",
+            }
+        ]
+    ).to_parquet(base_universe_path, index=False)
+    manifest_path = bundle_dir / "manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["provenance"]["scoring_inputs_by_digest"] = {
+        input_digest: {
+            "inputs": [
+                {
+                    "path": str(scored_universe_path),
+                    "row_count": 1,
+                    "sha256": hashlib.sha256(scored_universe_path.read_bytes()).hexdigest(),
+                }
+            ],
+            "total_rows": 1,
+        }
+    }
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+    payload = build_validation_sample(
+        bundle_dir=bundle_dir,
+        postal_universe_path=base_universe_path,
+        sample_size=1,
+    )
+
+    assert payload["samples"][0]["start"] == {"lat": 1.319876, "lon": 103.811234}
+    assert payload["samples"][0]["scoring_input_digest"] == input_digest
 
 
 def test_build_validation_sample_skips_missing_geometry_shard(tmp_path: Path):

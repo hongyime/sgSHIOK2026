@@ -200,6 +200,10 @@ def load_postal_origin_index(postal_universe_path: Path) -> dict[str, dict[str, 
     if not postal_universe_path.is_file():
         return {}
     frame = pd.read_parquet(postal_universe_path, columns=["postal_code", "lat", "lon", "status"])
+    return postal_origin_index_from_frame(frame)
+
+
+def postal_origin_index_from_frame(frame: pd.DataFrame) -> dict[str, dict[str, float]]:
     origins: dict[str, dict[str, float]] = {}
     for row in frame.itertuples(index=False):
         postal = str(row.postal_code).zfill(6)
@@ -209,6 +213,121 @@ def load_postal_origin_index(postal_universe_path: Path) -> dict[str, dict[str, 
         lat, lon = lat_lon
         origins[postal] = {"lat": round(lat, 6), "lon": round(lon, 6)}
     return origins
+
+
+def resolve_scoring_input_path(raw_path: Any) -> Path | None:
+    if not isinstance(raw_path, str) or not raw_path.strip():
+        return None
+    path = Path(raw_path)
+    if not path.is_absolute():
+        path = PROJECT_ROOT / path
+    return path.resolve()
+
+
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def load_scoring_input_origin_indexes(
+    *,
+    bundle_dir: Path,
+    candidates: Iterable[dict[str, Any]],
+    postal_universe_path: Path,
+    default_origin_index: dict[str, dict[str, float]],
+) -> dict[str, dict[str, dict[str, float]]]:
+    candidate_digests: set[str] = set()
+    candidate_paths: dict[str, set[Path]] = defaultdict(set)
+    for candidate in candidates:
+        digest = candidate.get("scoring_input_digest")
+        if not isinstance(digest, str) or not digest:
+            continue
+        candidate_digests.add(digest)
+        source_path = resolve_scoring_input_path(candidate.get("_scoring_input_path"))
+        if source_path is not None:
+            candidate_paths[digest].add(source_path)
+
+    if not candidate_digests:
+        return {}
+
+    manifest_path = bundle_dir / "manifest.json"
+    manifest = read_json(manifest_path) if manifest_path.is_file() else {}
+    provenance = manifest.get("provenance") if isinstance(manifest, dict) else None
+    raw_source_maps = (
+        provenance.get("scoring_inputs_by_digest")
+        if isinstance(provenance, dict)
+        else None
+    )
+    source_maps = raw_source_maps if isinstance(raw_source_maps, dict) else {}
+    default_path = resolve_scoring_input_path(str(postal_universe_path))
+    origin_indexes: dict[str, dict[str, dict[str, float]]] = {}
+
+    for digest in sorted(candidate_digests):
+        source_entry = source_maps.get(digest)
+        record_paths = candidate_paths.get(digest, set())
+        if len(record_paths) > 1:
+            raise ValueError(
+                f"scoring input digest {digest} references multiple postal universes"
+            )
+        if not isinstance(source_entry, dict):
+            if record_paths and record_paths != {default_path}:
+                raise ValueError(
+                    f"scoring input digest {digest} has no manifest source map for its postal universe"
+                )
+            continue
+
+        source_inputs = source_entry.get("inputs")
+        if not isinstance(source_inputs, list) or not source_inputs:
+            raise ValueError(f"scoring input digest {digest} has no source input files")
+        normalized_inputs = [
+            (resolve_scoring_input_path(item.get("path")), item)
+            for item in source_inputs
+            if isinstance(item, dict)
+        ]
+        normalized_inputs = [item for item in normalized_inputs if item[0] is not None]
+        if record_paths:
+            record_path = next(iter(record_paths))
+            matching_inputs = [item for item in normalized_inputs if item[0] == record_path]
+        elif len(normalized_inputs) == 1:
+            matching_inputs = normalized_inputs
+        else:
+            matching_inputs = [item for item in normalized_inputs if item[0] == default_path]
+        if len(matching_inputs) != 1:
+            raise ValueError(
+                f"scoring input digest {digest} does not resolve to one recorded postal universe"
+            )
+
+        source_path, source_metadata = matching_inputs[0]
+        if source_path is None or not source_path.is_file():
+            raise ValueError(f"scoring input source for digest {digest} is unavailable")
+        expected_sha256 = source_metadata.get("sha256")
+        expected_row_count = source_metadata.get("row_count")
+        if not isinstance(expected_sha256, str) or len(expected_sha256) != 64:
+            raise ValueError(f"scoring input source for digest {digest} has no valid SHA256")
+        if not isinstance(expected_row_count, int) or isinstance(expected_row_count, bool):
+            raise ValueError(f"scoring input source for digest {digest} has no valid row count")
+        if sha256_file(source_path) != expected_sha256.lower():
+            raise ValueError(f"scoring input source hash does not match digest {digest}")
+
+        if source_path == default_path:
+            postal_count = len(pd.read_parquet(source_path, columns=["postal_code"]))
+            if postal_count != expected_row_count:
+                raise ValueError(f"scoring input source row count does not match digest {digest}")
+            origin_indexes[digest] = default_origin_index
+            continue
+
+        frame = pd.read_parquet(
+            source_path,
+            columns=["postal_code", "lat", "lon", "status"],
+        )
+        if len(frame) != expected_row_count:
+            raise ValueError(f"scoring input source row count does not match digest {digest}")
+        origin_indexes[digest] = postal_origin_index_from_frame(frame)
+
+    return origin_indexes
 
 
 def transit_key(*parts: Any) -> str:
@@ -310,6 +429,8 @@ def iter_score_candidates(
             if not isinstance(record, dict):
                 continue
             postal = str(record.get("postal", "")).zfill(6)
+            provenance = record.get("provenance")
+            provenance = provenance if isinstance(provenance, dict) else {}
             route_record = record
             if route_mode != "best_transit":
                 route_options = record.get("route_options")
@@ -337,6 +458,8 @@ def iter_score_candidates(
                 "area": area,
                 "state": state,
                 "total": route_record.get("total", record.get("total")),
+                "scoring_input_digest": provenance.get("scoring_input_digest"),
+                "_scoring_input_path": provenance.get("postal_universe"),
                 "best_node": {
                     "type": best_node.get("type"),
                     "exit": best_node.get("exit"),
@@ -366,7 +489,7 @@ def endpoint_validation_samples(
     geom_index = read_json(bundle_dir / "geom" / "postal-index.json")
     if not isinstance(geom_index, dict):
         raise TypeError("geom/postal-index.json must contain a JSON object")
-    origin_index = load_postal_origin_index(postal_universe_path)
+    default_origin_index = load_postal_origin_index(postal_universe_path)
     transit_index = load_transit_poi_index(bundle_dir)
 
     buckets: dict[str, list[dict[str, Any]]] = defaultdict(list)
@@ -378,6 +501,13 @@ def endpoint_validation_samples(
     ):
         buckets[str(candidate["area"])].append(candidate)
 
+    origin_indexes = load_scoring_input_origin_indexes(
+        bundle_dir=bundle_dir,
+        candidates=(candidate for items in buckets.values() for candidate in items),
+        postal_universe_path=postal_universe_path,
+        default_origin_index=default_origin_index,
+    )
+
     endpoint_buckets: dict[str, list[dict[str, Any]]] = {}
     for area in sorted(buckets):
         endpoint_buckets[area] = attach_endpoints(
@@ -385,7 +515,8 @@ def endpoint_validation_samples(
             buckets[area],
             route_mode=route_mode,
             geom_postal_index=geom_index,
-            origin_index=origin_index,
+            default_origin_index=default_origin_index,
+            origin_indexes=origin_indexes,
             transit_index=transit_index,
         )
     endpoint_buckets = {area: samples for area, samples in endpoint_buckets.items() if samples}
@@ -393,7 +524,10 @@ def endpoint_validation_samples(
         buckets,
         endpoint_buckets,
         {
-            "origin_index_size": len(origin_index),
+            "origin_index_size": len(default_origin_index),
+            "origin_input_index_sizes": {
+                digest: len(index) for digest, index in sorted(origin_indexes.items())
+            },
             "transit_index_size": len(transit_index),
         },
     )
@@ -411,6 +545,13 @@ def validation_route_trust(*, node_type: str, routing_type: str) -> str:
     if node_type == "mrt_lrt_exit":
         return "graph_routed_mrt_lrt"
     return "graph_routed_other"
+
+
+def origin_input_digest_counts(samples: Iterable[dict[str, Any]]) -> dict[str, int]:
+    counts = Counter(
+        sample.get("origin_input_digest") or "default_postal_universe" for sample in samples
+    )
+    return dict(sorted(counts.items()))
 
 
 def allocate_area_quotas(
@@ -512,7 +653,8 @@ def attach_endpoints(
     *,
     route_mode: str,
     geom_postal_index: dict[str, str],
-    origin_index: dict[str, dict[str, float]],
+    default_origin_index: dict[str, dict[str, float]],
+    origin_indexes: dict[str, dict[str, dict[str, float]]],
     transit_index: dict[str, dict[str, float]],
 ) -> list[dict[str, Any]]:
     shard_cache: dict[str, list[dict[str, Any]]] = {}
@@ -528,7 +670,16 @@ def attach_endpoints(
         if not geom:
             continue
         points = route_points_from_geom(geom, route_mode=route_mode, route_kind="shortest")
+        input_digest = candidate.get("scoring_input_digest")
+        has_resolved_input = isinstance(input_digest, str) and input_digest in origin_indexes
+        origin_index = (
+            origin_indexes[input_digest] if has_resolved_input else default_origin_index
+        )
         origin = origin_index.get(postal)
+        if has_resolved_input and origin is None:
+            raise ValueError(
+                f"postal {postal} is missing from its recorded scoring input {input_digest}"
+            )
         destination = destination_from_best_node(
             candidate.get("best_node", {}) if isinstance(candidate.get("best_node"), dict) else {},
             transit_index,
@@ -543,10 +694,11 @@ def attach_endpoints(
         if origin == destination:
             continue
         sample = {
-            **candidate,
+            **{key: value for key, value in candidate.items() if not key.startswith("_")},
             "route_mode": route_mode,
             "route_kind": "shortest",
             "endpoint_source": endpoint_source,
+            "origin_input_digest": input_digest if has_resolved_input else None,
             "start": origin,
             "end": destination,
         }
@@ -594,6 +746,7 @@ def build_validation_sample(
         "skipped_endpoint_records": raw_candidate_records - eligible_records,
         "area_count": len(endpoint_buckets),
         "origin_index_size": indexes["origin_index_size"],
+        "origin_input_digest_counts": origin_input_digest_counts(samples),
         "transit_index_size": indexes["transit_index_size"],
         "area_quotas": quotas,
         "will_call_onemap": False,
@@ -726,6 +879,7 @@ def build_targeted_risk_validation_sample(
         "raw_candidate_records": sum(len(items) for items in buckets.values()),
         "risk_candidate_records": len(scored_samples),
         "origin_index_size": indexes["origin_index_size"],
+        "origin_input_digest_counts": origin_input_digest_counts(samples),
         "transit_index_size": indexes["transit_index_size"],
         "prior_report_path": str(prior_report_path) if prior_report_path else None,
         "risk_flag_counts": dict(
