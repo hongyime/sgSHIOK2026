@@ -252,6 +252,33 @@ describe("service worker release behavior (executed worker, synthetic transport)
     expect(worker.networkCalls.some((request) => request.url.includes("/static/A/"))).toBe(false);
   });
 
+  it("retries a missing old Next chunk from the retained release archive", async () => {
+    const worker = createWorker();
+    worker.controls.fetch = async (request) => {
+      const path = new URL(request.url).pathname;
+      if (path === "/_next/static/chunks/old-page.js") {
+        return new Response("missing from current release", { status: 404 });
+      }
+      if (path === "/_retained/_next/static/chunks/old-page.js") {
+        return new Response("archived old page", { headers: { "content-type": "text/javascript" } });
+      }
+      return new Response("unexpected request", { status: 500 });
+    };
+
+    const response = await worker.request(new Request(`${ORIGIN}/_next/static/chunks/old-page.js`));
+
+    expect(response.status).toBe(200);
+    expect(await response.text()).toBe("archived old page");
+    expect(worker.networkCalls.map(request => new URL(request.url).pathname)).toEqual([
+      "/_next/static/chunks/old-page.js",
+      "/_retained/_next/static/chunks/old-page.js",
+    ]);
+    await worker.settle();
+    worker.controls.fetch = async () => { throw new Error("recovered chunk should be cached by its old URL"); };
+    expect(await (await worker.request(new Request(`${ORIGIN}/_next/static/chunks/old-page.js`))).text()).toBe("archived old page");
+    expect(worker.networkCalls).toHaveLength(2);
+  });
+
   it.each(["open", "match", "put"] as const)("a rejected %s cannot replace successful online HTML with a failure", async (operation) => {
     const worker = createWorker();
     worker.controls.fetch = async () => html("B");

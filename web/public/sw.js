@@ -119,6 +119,19 @@ async function assetResponse(event) {
   let pending = inFlight.get(key);
   if (!pending) {
     pending = fetch(request).then(response => {
+      const url = new URL(request.url);
+      if (response.status === 404 && url.pathname.startsWith("/_next/static/")) {
+        const retainedUrl = new URL(`/_retained${url.pathname}${url.search}`, url.origin);
+        return fetch(new Request(retainedUrl, request))
+          .then(retainedResponse => {
+            if (!retainedResponse.ok) return response;
+            if (canStore(retainedResponse)) {
+              event.waitUntil(writeCache(CACHE_NAME, request, retainedResponse.clone()));
+            }
+            return retainedResponse;
+          })
+          .catch(() => response);
+      }
       if (canStore(response)) event.waitUntil(writeCache(CACHE_NAME, request, response.clone()));
       return response;
     }).finally(() => inFlight.delete(key));
