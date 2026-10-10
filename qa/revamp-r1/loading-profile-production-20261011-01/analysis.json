@@ -1,0 +1,93 @@
+{
+  "date": "2026-10-11",
+  "target": "https://sgshiok.vercel.app/?postal=018956",
+  "observedBundle": "generated_20261010_full_rescore_phase4_merged",
+  "repositoryHeadDuringCapture": "8901466",
+  "methodology": {
+    "pairCount": 1,
+    "viewport": "390x844 CSS pixels, DPR 1",
+    "browser": "Headless Chrome 154, SwiftShader",
+    "cold": "Fresh isolated profile, cache cleared once, service worker bypassed",
+    "warm": "Same profile and HTTP cache, new document, service worker bypassed",
+    "networkAndCpuThrottling": "None",
+    "routeCriterion": "Map ready and four current selected-route features visible",
+    "screenshots": [
+      "cold-390x844.png",
+      "warm-390x844.png"
+    ]
+  },
+  "cold": {
+    "navigationToRouteVisibleMs": 7348,
+    "selectedTextVisibleMs": 5269,
+    "routeVisibleEventMs": 7281.4,
+    "mapPublishedMs": 4115.2,
+    "sourceSetDataWrites": 11,
+    "pageAndWorkerRequestsObserved": 68,
+    "http404Count": 4,
+    "currentRouteFeatures": 4,
+    "mapStatus": "ready",
+    "runtimeExceptions": 0,
+    "requiredMissingGzip404s": [
+      {
+        "path": "scores/prefix-index.json.gz",
+        "encodedBytes": 2617,
+        "plainFallback": "scores/prefix-index.json",
+        "fallbackStatus": 200,
+        "fallbackEncoding": "br",
+        "fallbackEncodedBytes": 4196
+      },
+      {
+        "path": "geom/h3/886520db39fffff.json.gz",
+        "encodedBytes": 2937,
+        "plainFallback": "geom/h3/886520db39fffff.json",
+        "fallbackStatus": 200,
+        "fallbackEncoding": "br",
+        "fallbackEncodedBytes": 5441
+      },
+      {
+        "path": "scores/DOWNTOWN_CORE_PART_001.json.gz",
+        "encodedBytes": 2451,
+        "plainFallback": "scores/DOWNTOWN_CORE_PART_001.json",
+        "fallbackStatus": 200,
+        "fallbackEncoding": "br",
+        "fallbackEncodedBytes": 341326
+      }
+    ],
+    "optionalMissingTransitShard": {
+      "path": "transit/h3/886520db3dfffff.json.gz",
+      "encodedBytes": 2494,
+      "matchingPoiFeaturesInPublishedGlobalPoiCollection": 0,
+      "behavior": "optional shard failure is caught as empty"
+    },
+    "additionalNetworkEvents": "15 tile requests reported ERR_ABORTED; the selected route remained ready."
+  },
+  "warm": {
+    "navigationToRouteVisibleMs": 2428,
+    "selectedTextVisibleMs": 1030.5,
+    "routeVisibleEventMs": 1991.8,
+    "mapPublishedMs": 430.7,
+    "sourceSetDataWrites": 13,
+    "pageAndWorkerRequestsObserved": 67,
+    "http404Count": 4,
+    "currentRouteFeatures": 4,
+    "mapStatus": "ready",
+    "runtimeExceptions": 0,
+    "diagnosticIssue": "Worker timing query found its CDP session had already ended; this is a harness observation error.",
+    "additionalNetworkEvents": "2 tile requests reported ERR_ABORTED; the selected route remained ready."
+  },
+  "hostPressure": {
+    "samples": 11,
+    "availableMemoryMinMiB": 4768,
+    "availableMemoryMaxMiB": 5403,
+    "cpuSamplesAtOrAbove90Percent": 10,
+    "cpuMaxPercent": 100,
+    "pagesInputPerSecondMax": 7357.9,
+    "pagesOutputPerSecondMax": 0,
+    "machineIdentifier": "redacted in this summary"
+  },
+  "conclusion": "The live pre-fix release confirms three avoidable gzip-sidecar probes and successful Brotli plain-JSON fallbacks. The pushed T02 source fix was not deployed during this profile. Host CPU saturation and instrumentation make the measured cold/warm times unsuitable for M12 or a performance claim. No repeat was run. The missing transit cell has no POI in the published collection and remains an optional empty result.",
+  "screenshotSha256": {
+    "cold": "fa9af0d7bd3c92b79e219cbff2cdc81f0a53704e42d92e11f9c43555cc6554b2",
+    "warm": "fa9af0d7bd3c92b79e219cbff2cdc81f0a53704e42d92e11f9c43555cc6554b2"
+  }
+}
