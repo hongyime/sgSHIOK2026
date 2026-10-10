@@ -1,0 +1,2189 @@
+{
+  "phase": "acceptance-production-20261011-11",
+  "startedAt": "2026-10-10T21:56:30.359Z",
+  "url": "https://sgshiok.vercel.app/",
+  "captures": [
+    {
+      "name": "empty-desktop",
+      "time": 4460.5999999940395,
+      "width": 1440,
+      "height": 950,
+      "counts": {
+        "shiokest-route-line": 0,
+        "shortest-route-line": 0
+      },
+      "debug": {
+        "routeKey": "1:shiokest:",
+        "padding": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "mode": "shiokest",
+        "routeCount": 0,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 0,
+          "exposure": 0,
+          "transit": 0,
+          "activeGap": 0,
+          "lamp": 0
+        },
+        "lampStatus": "off",
+        "summary": "Singapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops."
+      },
+      "url": "https://sgshiok.vercel.app/",
+      "camera": {
+        "center": {
+          "lng": 103.851959,
+          "lat": 1.29027
+        },
+        "zoom": 11.6,
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "moving": false,
+        "loaded": false,
+        "sourceCount": 0,
+        "sample": []
+      },
+      "identity": {
+        "x": 12,
+        "y": 12,
+        "width": 300,
+        "height": 32,
+        "bottom": 44,
+        "right": 312
+      },
+      "search": {
+        "x": 12,
+        "y": 52,
+        "width": 300,
+        "height": 44,
+        "bottom": 96,
+        "right": 312
+      },
+      "panel": null,
+      "metrics": [],
+      "attribution": {
+        "x": 1164,
+        "y": 922,
+        "width": 268,
+        "height": 24,
+        "bottom": 946,
+        "right": 1432
+      },
+      "status": "mounting",
+      "overflow": false,
+      "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops.\n\nSHIOK.\n\nMap starting",
+      "screenshotEnd": {
+        "time": 5798,
+        "width": 1440,
+        "height": 950,
+        "key": "1:shiokest:",
+        "center": {
+          "lng": 103.851959,
+          "lat": 1.29027
+        },
+        "zoom": 11.6,
+        "count": 0
+      },
+      "sameCaptureState": true
+    },
+    {
+      "name": "loaded-1440x950",
+      "time": 16517.39999999106,
+      "width": 1440,
+      "height": 950,
+      "counts": {
+        "shiokest-route-line": 4,
+        "shortest-route-line": 0
+      },
+      "debug": {
+        "routeKey": "3:shiokest:primary",
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "mode": "shiokest",
+        "routeCount": 1,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 4,
+          "exposure": 3,
+          "transit": 1,
+          "activeGap": 0,
+          "lamp": 1180
+        },
+        "lampStatus": "loaded",
+        "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 1180 lamp-post points in view."
+      },
+      "url": "https://sgshiok.vercel.app/?postal=018956&transit=bus",
+      "camera": {
+        "center": {
+          "lng": 103.85892577084383,
+          "lat": 1.2828009273631125
+        },
+        "zoom": 16.6,
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "moving": false,
+        "loaded": true,
+        "sourceCount": 8,
+        "sample": [
+          {
+            "properties": {
+              "kind": "sheltered",
+              "is_covered": 0,
+              "len_m": 16.3,
+              "segment_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR",
+              "confidence": "inferred_endpoint_snap",
+              "source_summary": "exposed:1",
+              "route_id": "primary",
+              "route_label": "Postal 018956",
+              "color": "#008f86",
+              "render_key": "3:shiokest:primary"
+            },
+            "projected": [
+              {
+                "x": 876.0140921234666,
+                "y": 497.7590425136633
+              },
+              {
+                "x": 860.4779973133824,
+                "y": 483.6439319811369
+              }
+            ]
+          }
+        ]
+      },
+      "identity": {
+        "x": 12,
+        "y": 12,
+        "width": 300,
+        "height": 32,
+        "bottom": 44,
+        "right": 312
+      },
+      "search": {
+        "x": 12,
+        "y": 52,
+        "width": 300,
+        "height": 44,
+        "bottom": 96,
+        "right": 312
+      },
+      "panel": {
+        "x": 12,
+        "y": 104,
+        "width": 300,
+        "height": 355,
+        "bottom": 459,
+        "right": 312
+      },
+      "metrics": [
+        {
+          "text": "81 m\nWalk distance",
+          "bottom": 270
+        },
+        {
+          "text": "55%\nCovered",
+          "bottom": 270
+        },
+        {
+          "text": "37 m\nUncovered",
+          "bottom": 330
+        },
+        {
+          "text": "20 m\nLongest gap",
+          "bottom": 330
+        }
+      ],
+      "attribution": {
+        "x": 1164,
+        "y": 922,
+        "width": 268,
+        "height": 24,
+        "bottom": 946,
+        "right": 1432
+      },
+      "status": "ready",
+      "overflow": false,
+      "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n1180 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 1180 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+      "screenshotEnd": {
+        "time": 17259.79999999702,
+        "width": 1440,
+        "height": 950,
+        "key": "3:shiokest:primary",
+        "center": {
+          "lng": 103.85892577084383,
+          "lat": 1.2828009273631125
+        },
+        "zoom": 16.6,
+        "count": 4
+      },
+      "sameCaptureState": true
+    },
+    {
+      "name": "loaded-390x844",
+      "time": 18573.89999999106,
+      "width": 390,
+      "height": 844,
+      "counts": {
+        "shiokest-route-line": 4,
+        "shortest-route-line": 0
+      },
+      "debug": {
+        "routeKey": "3:shiokest:primary",
+        "padding": {
+          "top": 379.6875,
+          "right": 12,
+          "bottom": 40,
+          "left": 12
+        },
+        "mode": "shiokest",
+        "routeCount": 1,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 4,
+          "exposure": 3,
+          "transit": 1,
+          "activeGap": 0,
+          "lamp": 794
+        },
+        "lampStatus": "loaded",
+        "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 794 lamp-post points in view."
+      },
+      "url": "https://sgshiok.vercel.app/?postal=018956&transit=bus",
+      "camera": {
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.284101919023044
+        },
+        "zoom": 16.6,
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "moving": false,
+        "loaded": true,
+        "sourceCount": 8,
+        "sample": [
+          {
+            "properties": {
+              "kind": "sheltered",
+              "is_covered": 0,
+              "len_m": 16.3,
+              "segment_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR",
+              "confidence": "inferred_endpoint_snap",
+              "source_summary": "exposed:1",
+              "route_id": "primary",
+              "route_label": "Postal 018956",
+              "color": "#008f86",
+              "render_key": "3:shiokest:primary"
+            },
+            "projected": [
+              {
+                "x": 195.0140921244689,
+                "y": 628.6027925108658
+              },
+              {
+                "x": 179.47799732033488,
+                "y": 614.4876819839598
+              }
+            ]
+          }
+        ]
+      },
+      "identity": {
+        "x": 10,
+        "y": 10,
+        "width": 300,
+        "height": 36.6875,
+        "bottom": 46.6875,
+        "right": 310
+      },
+      "search": {
+        "x": 10,
+        "y": 54.6875,
+        "width": 300,
+        "height": 44,
+        "bottom": 98.6875,
+        "right": 310
+      },
+      "panel": {
+        "x": 10,
+        "y": 106.6875,
+        "width": 300,
+        "height": 261,
+        "bottom": 367.6875,
+        "right": 310
+      },
+      "metrics": [
+        {
+          "text": "81 m\nWalk distance",
+          "bottom": 244.6875
+        },
+        {
+          "text": "55%\nCovered",
+          "bottom": 244.6875
+        },
+        {
+          "text": "37 m\nUncovered",
+          "bottom": 244.6875
+        },
+        {
+          "text": "20 m\nLongest gap",
+          "bottom": 244.6875
+        }
+      ],
+      "attribution": {
+        "x": 114,
+        "y": 816,
+        "width": 268,
+        "height": 24,
+        "bottom": 840,
+        "right": 382
+      },
+      "status": "ready",
+      "overflow": false,
+      "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n794 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 794 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+      "screenshotEnd": {
+        "time": 19247.29999999702,
+        "width": 390,
+        "height": 844,
+        "key": "3:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.284101919023044
+        },
+        "zoom": 16.6,
+        "count": 4
+      },
+      "sameCaptureState": true
+    },
+    {
+      "name": "loaded-390x667",
+      "time": 19942.59999999404,
+      "width": 390,
+      "height": 667,
+      "counts": {
+        "shiokest-route-line": 4,
+        "shortest-route-line": 0
+      },
+      "debug": {
+        "routeKey": "3:shiokest:primary",
+        "padding": {
+          "top": 379.6875,
+          "right": 12,
+          "bottom": 40,
+          "left": 12
+        },
+        "mode": "shiokest",
+        "routeCount": 1,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 4,
+          "exposure": 3,
+          "transit": 1,
+          "activeGap": 0,
+          "lamp": 794
+        },
+        "lampStatus": "loaded",
+        "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 794 lamp-post points in view."
+      },
+      "url": "https://sgshiok.vercel.app/?postal=018956&transit=bus",
+      "camera": {
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.284101919023044
+        },
+        "zoom": 16.6,
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "moving": false,
+        "loaded": true,
+        "sourceCount": 8,
+        "sample": [
+          {
+            "properties": {
+              "kind": "sheltered",
+              "is_covered": 0,
+              "len_m": 16.3,
+              "segment_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR",
+              "confidence": "inferred_endpoint_snap",
+              "source_summary": "exposed:1",
+              "route_id": "primary",
+              "route_label": "Postal 018956",
+              "color": "#008f86",
+              "render_key": "3:shiokest:primary"
+            },
+            "projected": [
+              {
+                "x": 195.0140921284353,
+                "y": 540.1027925139603
+              },
+              {
+                "x": 179.4779973218347,
+                "y": 525.9876819860333
+              }
+            ]
+          }
+        ]
+      },
+      "identity": {
+        "x": 10,
+        "y": 10,
+        "width": 300,
+        "height": 36.6875,
+        "bottom": 46.6875,
+        "right": 310
+      },
+      "search": {
+        "x": 10,
+        "y": 54.6875,
+        "width": 300,
+        "height": 44,
+        "bottom": 98.6875,
+        "right": 310
+      },
+      "panel": {
+        "x": 10,
+        "y": 106.6875,
+        "width": 300,
+        "height": 261,
+        "bottom": 367.6875,
+        "right": 310
+      },
+      "metrics": [
+        {
+          "text": "81 m\nWalk distance",
+          "bottom": 244.6875
+        },
+        {
+          "text": "55%\nCovered",
+          "bottom": 244.6875
+        },
+        {
+          "text": "37 m\nUncovered",
+          "bottom": 244.6875
+        },
+        {
+          "text": "20 m\nLongest gap",
+          "bottom": 244.6875
+        }
+      ],
+      "attribution": {
+        "x": 114,
+        "y": 639,
+        "width": 268,
+        "height": 24,
+        "bottom": 663,
+        "right": 382
+      },
+      "status": "ready",
+      "overflow": false,
+      "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n794 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 794 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+      "screenshotEnd": {
+        "time": 20125.29999999702,
+        "width": 390,
+        "height": 667,
+        "key": "3:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.284101919023044
+        },
+        "zoom": 16.6,
+        "count": 4
+      },
+      "sameCaptureState": true
+    },
+    {
+      "name": "loaded-320x667",
+      "time": 21098.89999999106,
+      "width": 320,
+      "height": 667,
+      "counts": {
+        "shiokest-route-line": 4,
+        "shortest-route-line": 0
+      },
+      "debug": {
+        "routeKey": "3:shiokest:primary",
+        "padding": {
+          "top": 376.6875,
+          "right": 12,
+          "bottom": 40,
+          "left": 12
+        },
+        "mode": "shiokest",
+        "routeCount": 1,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 4,
+          "exposure": 3,
+          "transit": 1,
+          "activeGap": 0,
+          "lamp": 416
+        },
+        "lampStatus": "loaded",
+        "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 416 lamp-post points in view."
+      },
+      "url": "https://sgshiok.vercel.app/?postal=018956&transit=bus",
+      "camera": {
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2840913041013948
+        },
+        "zoom": 16.6,
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "moving": false,
+        "loaded": true,
+        "sourceCount": 8,
+        "sample": [
+          {
+            "properties": {
+              "kind": "sheltered",
+              "is_covered": 0,
+              "len_m": 16.3,
+              "segment_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR",
+              "confidence": "inferred_endpoint_snap",
+              "source_summary": "exposed:1",
+              "route_id": "primary",
+              "route_label": "Postal 018956",
+              "color": "#008f86",
+              "render_key": "3:shiokest:primary"
+            },
+            "projected": [
+              {
+                "x": 160.01409212080972,
+                "y": 538.6027925139603
+              },
+              {
+                "x": 144.47799731420912,
+                "y": 524.4876819860333
+              }
+            ]
+          }
+        ]
+      },
+      "identity": {
+        "x": 10,
+        "y": 10,
+        "width": 300,
+        "height": 36.6875,
+        "bottom": 46.6875,
+        "right": 310
+      },
+      "search": {
+        "x": 10,
+        "y": 54.6875,
+        "width": 300,
+        "height": 44,
+        "bottom": 98.6875,
+        "right": 310
+      },
+      "panel": {
+        "x": 10,
+        "y": 106.6875,
+        "width": 300,
+        "height": 258,
+        "bottom": 364.6875,
+        "right": 310
+      },
+      "metrics": [
+        {
+          "text": "81 m\nWalk distance",
+          "bottom": 241.6875
+        },
+        {
+          "text": "55%\nCovered",
+          "bottom": 241.6875
+        },
+        {
+          "text": "37 m\nUncovered",
+          "bottom": 241.6875
+        },
+        {
+          "text": "20 m\nLongest gap",
+          "bottom": 241.6875
+        }
+      ],
+      "attribution": {
+        "x": 44,
+        "y": 639,
+        "width": 268,
+        "height": 24,
+        "bottom": 663,
+        "right": 312
+      },
+      "status": "ready",
+      "overflow": false,
+      "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n416 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 416 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+      "screenshotEnd": {
+        "time": 21527,
+        "width": 320,
+        "height": 667,
+        "key": "3:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2840913041013948
+        },
+        "zoom": 16.6,
+        "count": 4
+      },
+      "sameCaptureState": true
+    },
+    {
+      "name": "sheet-expanded",
+      "time": 24085,
+      "width": 390,
+      "height": 667,
+      "counts": {
+        "shiokest-route-line": 4,
+        "shortest-route-line": 0
+      },
+      "debug": {
+        "routeKey": "3:shiokest:primary",
+        "padding": {
+          "top": 488.890625,
+          "right": 12,
+          "bottom": 40,
+          "left": 12
+        },
+        "mode": "shiokest",
+        "routeCount": 1,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 4,
+          "exposure": 3,
+          "transit": 1,
+          "activeGap": 0,
+          "lamp": 794
+        },
+        "lampStatus": "loaded",
+        "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 794 lamp-post points in view."
+      },
+      "url": "https://sgshiok.vercel.app/?postal=018956&transit=bus",
+      "camera": {
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2844883131973717
+        },
+        "zoom": 16.6,
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "moving": false,
+        "loaded": true,
+        "sourceCount": 8,
+        "sample": [
+          {
+            "properties": {
+              "kind": "sheltered",
+              "is_covered": 0,
+              "len_m": 16.3,
+              "segment_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR",
+              "confidence": "inferred_endpoint_snap",
+              "source_summary": "exposed:1",
+              "route_id": "primary",
+              "route_label": "Postal 018956",
+              "color": "#008f86",
+              "render_key": "3:shiokest:primary"
+            },
+            "projected": [
+              {
+                "x": 195.0140921284353,
+                "y": 594.7043550101475
+              },
+              {
+                "x": 179.4779973218347,
+                "y": 580.5892444822206
+              }
+            ]
+          }
+        ]
+      },
+      "identity": {
+        "x": 10,
+        "y": 10,
+        "width": 300,
+        "height": 36.6875,
+        "bottom": 46.6875,
+        "right": 310
+      },
+      "search": {
+        "x": 10,
+        "y": 54.6875,
+        "width": 300,
+        "height": 44,
+        "bottom": 98.6875,
+        "right": 310
+      },
+      "panel": {
+        "x": 10,
+        "y": 106.6875,
+        "width": 300,
+        "height": 370.203125,
+        "bottom": 476.890625,
+        "right": 310
+      },
+      "metrics": [
+        {
+          "text": "81 m\nWalk distance",
+          "bottom": 244.6875
+        },
+        {
+          "text": "55%\nCovered",
+          "bottom": 244.6875
+        },
+        {
+          "text": "37 m\nUncovered",
+          "bottom": 244.6875
+        },
+        {
+          "text": "20 m\nLongest gap",
+          "bottom": 244.6875
+        }
+      ],
+      "attribution": {
+        "x": 114,
+        "y": 639,
+        "width": 268,
+        "height": 24,
+        "bottom": 663,
+        "right": 382
+      },
+      "status": "ready",
+      "overflow": false,
+      "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n794 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 794 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nCollapse walk details\nUncovered sections (3)\nSection 1\n16 m\nSection 2\n11 m\nSection 3\n9 m\nShortest same as sheltered walk.",
+      "screenshotEnd": {
+        "time": 24760.79999999702,
+        "width": 390,
+        "height": 667,
+        "key": "3:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2844883131973717
+        },
+        "zoom": 16.6,
+        "count": 4
+      },
+      "sameCaptureState": true
+    },
+    {
+      "name": "gap-focused",
+      "time": 25532.29999999702,
+      "width": 390,
+      "height": 667,
+      "counts": {
+        "shiokest-route-line": 4,
+        "shortest-route-line": 0
+      },
+      "debug": {
+        "routeKey": "3:shiokest:primary",
+        "padding": {
+          "top": 488.890625,
+          "right": 12,
+          "bottom": 40,
+          "left": 12
+        },
+        "mode": "shiokest",
+        "routeCount": 1,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 4,
+          "exposure": 3,
+          "transit": 1,
+          "activeGap": 1,
+          "lamp": 794
+        },
+        "lampStatus": "loaded",
+        "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. Selected mapped exposed section, 16 m, on the sheltered walk. 794 lamp-post points in view."
+      },
+      "url": "https://sgshiok.vercel.app/?postal=018956&transit=bus",
+      "camera": {
+        "center": {
+          "lng": 103.85997500000002,
+          "lat": 1.2842783133150988
+        },
+        "zoom": 16.6,
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "moving": false,
+        "loaded": true,
+        "sourceCount": 8,
+        "sample": [
+          {
+            "properties": {
+              "kind": "sheltered",
+              "is_covered": 0,
+              "len_m": 16.3,
+              "segment_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR",
+              "confidence": "inferred_endpoint_snap",
+              "source_summary": "exposed:1",
+              "route_id": "primary",
+              "route_label": "Postal 018956",
+              "color": "#008f86",
+              "render_key": "3:shiokest:primary"
+            },
+            "projected": [
+              {
+                "x": 202.78421841782966,
+                "y": 565.0291609871334
+              },
+              {
+                "x": 187.24812361122906,
+                "y": 550.9140504592065
+              }
+            ]
+          }
+        ]
+      },
+      "identity": {
+        "x": 10,
+        "y": 10,
+        "width": 300,
+        "height": 36.6875,
+        "bottom": 46.6875,
+        "right": 310
+      },
+      "search": {
+        "x": 10,
+        "y": 54.6875,
+        "width": 300,
+        "height": 44,
+        "bottom": 98.6875,
+        "right": 310
+      },
+      "panel": {
+        "x": 10,
+        "y": 106.6875,
+        "width": 300,
+        "height": 370.203125,
+        "bottom": 476.890625,
+        "right": 310
+      },
+      "metrics": [
+        {
+          "text": "81 m\nWalk distance",
+          "bottom": 107.6875
+        },
+        {
+          "text": "55%\nCovered",
+          "bottom": 107.6875
+        },
+        {
+          "text": "37 m\nUncovered",
+          "bottom": 107.6875
+        },
+        {
+          "text": "20 m\nLongest gap",
+          "bottom": 107.6875
+        }
+      ],
+      "attribution": {
+        "x": 114,
+        "y": 639,
+        "width": 268,
+        "height": 24,
+        "bottom": 663,
+        "right": 382
+      },
+      "status": "ready",
+      "overflow": false,
+      "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n794 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. Selected mapped exposed section, 16 m, on the sheltered walk. 794 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nCollapse walk details\nUncovered sections (3)\nSection 1\n16 m\nSection 2\n11 m\nSection 3\n9 m\nBack to walk\nShortest same as sheltered walk.",
+      "screenshotEnd": {
+        "time": 25988.09999999404,
+        "width": 390,
+        "height": 667,
+        "key": "3:shiokest:primary",
+        "center": {
+          "lng": 103.85997500000002,
+          "lat": 1.2842783133150988
+        },
+        "zoom": 16.6,
+        "count": 4
+      },
+      "sameCaptureState": true
+    },
+    {
+      "name": "walk-restored",
+      "time": 26308.39999999106,
+      "width": 390,
+      "height": 667,
+      "counts": {
+        "shiokest-route-line": 4,
+        "shortest-route-line": 0
+      },
+      "debug": {
+        "routeKey": "3:shiokest:primary",
+        "padding": {
+          "top": 488.890625,
+          "right": 12,
+          "bottom": 40,
+          "left": 12
+        },
+        "mode": "shiokest",
+        "routeCount": 1,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 4,
+          "exposure": 3,
+          "transit": 1,
+          "activeGap": 0,
+          "lamp": 794
+        },
+        "lampStatus": "loaded",
+        "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 794 lamp-post points in view."
+      },
+      "url": "https://sgshiok.vercel.app/?postal=018956&transit=bus",
+      "camera": {
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2844883131973717
+        },
+        "zoom": 16.6,
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "moving": false,
+        "loaded": true,
+        "sourceCount": 8,
+        "sample": [
+          {
+            "properties": {
+              "kind": "sheltered",
+              "is_covered": 0,
+              "len_m": 16.3,
+              "segment_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR",
+              "confidence": "inferred_endpoint_snap",
+              "source_summary": "exposed:1",
+              "route_id": "primary",
+              "route_label": "Postal 018956",
+              "color": "#008f86",
+              "render_key": "3:shiokest:primary"
+            },
+            "projected": [
+              {
+                "x": 195.0140921284353,
+                "y": 594.7043550101475
+              },
+              {
+                "x": 179.4779973218347,
+                "y": 580.5892444822206
+              }
+            ]
+          }
+        ]
+      },
+      "identity": {
+        "x": 10,
+        "y": 10,
+        "width": 300,
+        "height": 36.6875,
+        "bottom": 46.6875,
+        "right": 310
+      },
+      "search": {
+        "x": 10,
+        "y": 54.6875,
+        "width": 300,
+        "height": 44,
+        "bottom": 98.6875,
+        "right": 310
+      },
+      "panel": {
+        "x": 10,
+        "y": 106.6875,
+        "width": 300,
+        "height": 370.203125,
+        "bottom": 476.890625,
+        "right": 310
+      },
+      "metrics": [
+        {
+          "text": "81 m\nWalk distance",
+          "bottom": 107.6875
+        },
+        {
+          "text": "55%\nCovered",
+          "bottom": 107.6875
+        },
+        {
+          "text": "37 m\nUncovered",
+          "bottom": 107.6875
+        },
+        {
+          "text": "20 m\nLongest gap",
+          "bottom": 107.6875
+        }
+      ],
+      "attribution": {
+        "x": 114,
+        "y": 639,
+        "width": 268,
+        "height": 24,
+        "bottom": 663,
+        "right": 382
+      },
+      "status": "ready",
+      "overflow": false,
+      "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n794 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 794 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nCollapse walk details\nUncovered sections (3)\nSection 1\n16 m\nSection 2\n11 m\nSection 3\n9 m\nShortest same as sheltered walk.",
+      "screenshotEnd": {
+        "time": 27048.39999999106,
+        "width": 390,
+        "height": 667,
+        "key": "3:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2844883131973717
+        },
+        "zoom": 16.6,
+        "count": 4
+      },
+      "sameCaptureState": true
+    },
+    {
+      "name": "stale-A-failure-B-success",
+      "time": 6156.20000000298,
+      "width": 390,
+      "height": 667,
+      "counts": {
+        "shiokest-route-line": 4,
+        "shortest-route-line": 0
+      },
+      "debug": {
+        "routeKey": "3:shiokest:primary",
+        "padding": {
+          "top": 379.6875,
+          "right": 12,
+          "bottom": 40,
+          "left": 12
+        },
+        "mode": "shiokest",
+        "routeCount": 1,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 3,
+          "exposure": 3,
+          "transit": 1,
+          "activeGap": 0,
+          "lamp": 0
+        },
+        "lampStatus": "loading",
+        "summary": "Shelter-map view for Postal 238801. Showing 3 sheltered-walk segments, 3 mapped exposed sections, and 4 MRT or LRT stations, 24 exits, and 59 bus stops. Loading lamp-post points for this map view."
+      },
+      "url": "https://sgshiok.vercel.app/?postal=238801&transit=bus&stop=bus%3A09059",
+      "camera": {
+        "center": {
+          "lng": 103.83661999999998,
+          "lat": 1.3024719104539884
+        },
+        "zoom": 16.6,
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "moving": false,
+        "loaded": true,
+        "sourceCount": 12,
+        "sample": [
+          {
+            "properties": {
+              "kind": "sheltered",
+              "is_covered": 0,
+              "len_m": 35.7,
+              "segment_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR",
+              "confidence": "inferred_endpoint_snap",
+              "source_summary": "exposed:1",
+              "route_id": "primary",
+              "route_label": "Postal 238801",
+              "color": "#008f86",
+              "render_key": "3:shiokest:primary"
+            },
+            "projected": [
+              {
+                "x": 173.84354464308373,
+                "y": 384.6752831889414
+              },
+              {
+                "x": 146.93957558421718,
+                "y": 421.3366776427765
+              }
+            ]
+          }
+        ]
+      },
+      "identity": {
+        "x": 10,
+        "y": 10,
+        "width": 300,
+        "height": 36.6875,
+        "bottom": 46.6875,
+        "right": 310
+      },
+      "search": {
+        "x": 10,
+        "y": 54.6875,
+        "width": 300,
+        "height": 44,
+        "bottom": 98.6875,
+        "right": 310
+      },
+      "panel": {
+        "x": 10,
+        "y": 106.6875,
+        "width": 300,
+        "height": 261,
+        "bottom": 367.6875,
+        "right": 310
+      },
+      "metrics": [
+        {
+          "text": "301 m\nWalk distance",
+          "bottom": 244.6875
+        },
+        {
+          "text": "0%\nCovered",
+          "bottom": 244.6875
+        },
+        {
+          "text": "Unavailable\nUncovered",
+          "bottom": 244.6875
+        },
+        {
+          "text": "Unavailable\nLongest gap",
+          "bottom": 244.6875
+        }
+      ],
+      "attribution": {
+        "x": 114,
+        "y": 639,
+        "width": 268,
+        "height": 24,
+        "bottom": 663,
+        "right": 382
+      },
+      "status": "ready",
+      "overflow": false,
+      "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nLoading lamp-post points for this map view.\n\nShelter-map view for Postal 238801. Showing 3 sheltered-walk segments, 3 mapped exposed sections, and 4 MRT or LRT stations, 24 exits, and 59 bus stops. Loading lamp-post points for this map view.\n\nSHIOK.\n\nMap ready\n\nPostal 238801\n\nWalk to bus stop\nSomerset Youth Pk\n\n301 m\nWalk distance\n0%\nCovered\nUnavailable\nUncovered\nUnavailable\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+      "screenshotEnd": {
+        "time": 6655.20000000298,
+        "width": 390,
+        "height": 667,
+        "key": "3:shiokest:primary",
+        "center": {
+          "lng": 103.83661999999998,
+          "lat": 1.3024719104539884
+        },
+        "zoom": 16.6,
+        "count": 4
+      },
+      "sameCaptureState": true
+    },
+    {
+      "name": "geometry-failed",
+      "time": 1362.199999988079,
+      "width": 390,
+      "height": 667,
+      "counts": {
+        "shiokest-route-line": 0,
+        "shortest-route-line": 0
+      },
+      "debug": {
+        "routeKey": "3:shiokest:",
+        "padding": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "mode": "shiokest",
+        "routeCount": 0,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 0,
+          "exposure": 0,
+          "transit": 0,
+          "activeGap": 0,
+          "lamp": 0
+        },
+        "lampStatus": "off",
+        "summary": "Singapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops."
+      },
+      "url": "https://sgshiok.vercel.app/?postal=018956",
+      "camera": {
+        "center": {
+          "lng": 103.851959,
+          "lat": 1.29027
+        },
+        "zoom": 11.6,
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "moving": false,
+        "loaded": true,
+        "sourceCount": 0,
+        "sample": []
+      },
+      "identity": {
+        "x": 10,
+        "y": 10,
+        "width": 300,
+        "height": 36.6875,
+        "bottom": 46.6875,
+        "right": 310
+      },
+      "search": {
+        "x": 10,
+        "y": 54.6875,
+        "width": 300,
+        "height": 44,
+        "bottom": 98.6875,
+        "right": 310
+      },
+      "panel": {
+        "x": 10,
+        "y": 221.78125,
+        "width": 300,
+        "height": 255.109375,
+        "bottom": 476.890625,
+        "right": 310
+      },
+      "metrics": [
+        {
+          "text": "81 m\nWalk distance",
+          "bottom": 359.78125
+        },
+        {
+          "text": "55%\nCovered",
+          "bottom": 359.78125
+        },
+        {
+          "text": "37 m\nUncovered",
+          "bottom": 359.78125
+        },
+        {
+          "text": "20 m\nLongest gap",
+          "bottom": 359.78125
+        }
+      ],
+      "attribution": {
+        "x": 114,
+        "y": 639,
+        "width": 268,
+        "height": 24,
+        "bottom": 663,
+        "right": 382
+      },
+      "status": "initializing",
+      "overflow": false,
+      "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nSingapore shelter-map view with 190 MRT or LRT stations, 613 exits, and 5208 bus stops.\n\nSHIOK.\n\nMap loading\n\nWalk geometry could not load. Your record is still available.\nRetry geometry\nCopy diagnostics\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+      "screenshotEnd": {
+        "time": 2248.5999999940395,
+        "width": 390,
+        "height": 667,
+        "key": "3:shiokest:",
+        "center": {
+          "lng": 103.851959,
+          "lat": 1.29027
+        },
+        "zoom": 11.6,
+        "count": 0
+      },
+      "sameCaptureState": true
+    },
+    {
+      "name": "tiles-partial",
+      "time": 1977.7999999970198,
+      "width": 390,
+      "height": 667,
+      "counts": {
+        "shiokest-route-line": 4,
+        "shortest-route-line": 0
+      },
+      "debug": {
+        "routeKey": "3:shiokest:primary",
+        "padding": {
+          "top": 379.6875,
+          "right": 12,
+          "bottom": 40,
+          "left": 12
+        },
+        "mode": "shiokest",
+        "routeCount": 1,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 4,
+          "exposure": 3,
+          "transit": 1,
+          "activeGap": 0,
+          "lamp": 0
+        },
+        "lampStatus": "loading",
+        "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. Loading lamp-post points for this map view."
+      },
+      "url": "https://sgshiok.vercel.app/?postal=018956&transit=bus",
+      "camera": {
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.284101919023044
+        },
+        "zoom": 16.6,
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "moving": false,
+        "loaded": true,
+        "sourceCount": 8,
+        "sample": [
+          {
+            "properties": {
+              "kind": "sheltered",
+              "is_covered": 0,
+              "len_m": 16.3,
+              "segment_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR",
+              "confidence": "inferred_endpoint_snap",
+              "source_summary": "exposed:1",
+              "route_id": "primary",
+              "route_label": "Postal 018956",
+              "color": "#008f86",
+              "render_key": "3:shiokest:primary"
+            },
+            "projected": [
+              {
+                "x": 195.0140921284353,
+                "y": 540.1027925139603
+              },
+              {
+                "x": 179.4779973218347,
+                "y": 525.9876819860333
+              }
+            ]
+          }
+        ]
+      },
+      "identity": {
+        "x": 10,
+        "y": 10,
+        "width": 300,
+        "height": 36.6875,
+        "bottom": 46.6875,
+        "right": 310
+      },
+      "search": {
+        "x": 10,
+        "y": 54.6875,
+        "width": 300,
+        "height": 44,
+        "bottom": 98.6875,
+        "right": 310
+      },
+      "panel": {
+        "x": 10,
+        "y": 221.78125,
+        "width": 300,
+        "height": 255.109375,
+        "bottom": 476.890625,
+        "right": 310
+      },
+      "metrics": [
+        {
+          "text": "81 m\nWalk distance",
+          "bottom": 359.78125
+        },
+        {
+          "text": "55%\nCovered",
+          "bottom": 359.78125
+        },
+        {
+          "text": "37 m\nUncovered",
+          "bottom": 359.78125
+        },
+        {
+          "text": "20 m\nLongest gap",
+          "bottom": 359.78125
+        }
+      ],
+      "attribution": {
+        "x": 114,
+        "y": 639,
+        "width": 268,
+        "height": 24,
+        "bottom": 663,
+        "right": 382
+      },
+      "status": "partial",
+      "overflow": false,
+      "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nLoading lamp-post points for this map view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. Loading lamp-post points for this map view.\n\nSHIOK.\n\nSome basemap tiles could not load. Walk evidence is still available.\n\nSome basemap tiles could not load. Walk evidence is still available.\nRetry map\nCopy diagnostics\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+      "screenshotEnd": {
+        "time": 2628.8999999910593,
+        "width": 390,
+        "height": 667,
+        "key": "3:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.2844883131973717
+        },
+        "zoom": 16.6,
+        "count": 4
+      },
+      "sameCaptureState": false
+    },
+    {
+      "name": "tiles-recovered",
+      "time": 3326.2999999970198,
+      "width": 390,
+      "height": 667,
+      "counts": {
+        "shiokest-route-line": 4,
+        "shortest-route-line": 0
+      },
+      "debug": {
+        "routeKey": "3:shiokest:primary",
+        "padding": {
+          "top": 379.6875,
+          "right": 12,
+          "bottom": 40,
+          "left": 12
+        },
+        "mode": "shiokest",
+        "routeCount": 1,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 4,
+          "exposure": 3,
+          "transit": 1,
+          "activeGap": 0,
+          "lamp": 794
+        },
+        "lampStatus": "loaded",
+        "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 794 lamp-post points in view."
+      },
+      "url": "https://sgshiok.vercel.app/?postal=018956&transit=bus",
+      "camera": {
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.284101919023044
+        },
+        "zoom": 16.6,
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "moving": false,
+        "loaded": true,
+        "sourceCount": 8,
+        "sample": [
+          {
+            "properties": {
+              "kind": "sheltered",
+              "is_covered": 0,
+              "len_m": 16.3,
+              "segment_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR",
+              "confidence": "inferred_endpoint_snap",
+              "source_summary": "exposed:1",
+              "route_id": "primary",
+              "route_label": "Postal 018956",
+              "color": "#008f86",
+              "render_key": "3:shiokest:primary"
+            },
+            "projected": [
+              {
+                "x": 195.0140921284353,
+                "y": 540.1027925139603
+              },
+              {
+                "x": 179.4779973218347,
+                "y": 525.9876819860333
+              }
+            ]
+          }
+        ]
+      },
+      "identity": {
+        "x": 10,
+        "y": 10,
+        "width": 300,
+        "height": 36.6875,
+        "bottom": 46.6875,
+        "right": 310
+      },
+      "search": {
+        "x": 10,
+        "y": 54.6875,
+        "width": 300,
+        "height": 44,
+        "bottom": 98.6875,
+        "right": 310
+      },
+      "panel": {
+        "x": 10,
+        "y": 106.6875,
+        "width": 300,
+        "height": 261,
+        "bottom": 367.6875,
+        "right": 310
+      },
+      "metrics": [
+        {
+          "text": "81 m\nWalk distance",
+          "bottom": 244.6875
+        },
+        {
+          "text": "55%\nCovered",
+          "bottom": 244.6875
+        },
+        {
+          "text": "37 m\nUncovered",
+          "bottom": 244.6875
+        },
+        {
+          "text": "20 m\nLongest gap",
+          "bottom": 244.6875
+        }
+      ],
+      "attribution": {
+        "x": 114,
+        "y": 639,
+        "width": 268,
+        "height": 24,
+        "bottom": 663,
+        "right": 382
+      },
+      "status": "ready",
+      "overflow": false,
+      "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\n794 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 794 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+      "screenshotEnd": {
+        "time": 3422.2999999970198,
+        "width": 390,
+        "height": 667,
+        "key": "3:shiokest:primary",
+        "center": {
+          "lng": 103.86003,
+          "lat": 1.284101919023044
+        },
+        "zoom": 16.6,
+        "count": 4
+      },
+      "sameCaptureState": true
+    },
+    {
+      "name": "preview-failed",
+      "time": 32107.29999999702,
+      "width": 1440,
+      "height": 950,
+      "counts": {
+        "shiokest-route-line": 4,
+        "shortest-route-line": 0
+      },
+      "debug": {
+        "routeKey": "5:shiokest:primary",
+        "padding": {
+          "top": 12,
+          "right": 12,
+          "bottom": 40,
+          "left": 324
+        },
+        "mode": "shiokest",
+        "routeCount": 1,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 4,
+          "exposure": 3,
+          "transit": 1,
+          "activeGap": 0,
+          "lamp": 1180
+        },
+        "lampStatus": "loaded",
+        "summary": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 1180 lamp-post points in view."
+      },
+      "url": "https://sgshiok.vercel.app/?postal=018956&transit=bus&stop=bus%3A03501",
+      "camera": {
+        "center": {
+          "lng": 103.85892577084377,
+          "lat": 1.2828009273631125
+        },
+        "zoom": 16.6,
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "moving": false,
+        "loaded": true,
+        "sourceCount": 8,
+        "sample": [
+          {
+            "properties": {
+              "kind": "sheltered",
+              "is_covered": 0,
+              "len_m": 16.3,
+              "segment_index": 0,
+              "source_class": "exposed",
+              "source_layer": "origin_graph_snap_connector",
+              "synth_class": "ORIGIN_GRAPH_SNAP_CONNECTOR",
+              "confidence": "inferred_endpoint_snap",
+              "source_summary": "exposed:1",
+              "route_id": "primary",
+              "route_label": "Postal 018956",
+              "color": "#008f86",
+              "render_key": "5:shiokest:primary"
+            },
+            "projected": [
+              {
+                "x": 876.0140921341746,
+                "y": 497.7590425136633
+              },
+              {
+                "x": 860.4779973240902,
+                "y": 483.6439319811369
+              }
+            ]
+          }
+        ]
+      },
+      "identity": {
+        "x": 12,
+        "y": 12,
+        "width": 300,
+        "height": 32,
+        "bottom": 44,
+        "right": 312
+      },
+      "search": {
+        "x": 12,
+        "y": 52,
+        "width": 300,
+        "height": 44,
+        "bottom": 96,
+        "right": 312
+      },
+      "panel": {
+        "x": 12,
+        "y": 221.09375,
+        "width": 300,
+        "height": 355,
+        "bottom": 576.09375,
+        "right": 312
+      },
+      "metrics": [
+        {
+          "text": "81 m\nWalk distance",
+          "bottom": 387.09375
+        },
+        {
+          "text": "55%\nCovered",
+          "bottom": 387.09375
+        },
+        {
+          "text": "37 m\nUncovered",
+          "bottom": 447.09375
+        },
+        {
+          "text": "20 m\nLongest gap",
+          "bottom": 447.09375
+        }
+      ],
+      "attribution": {
+        "x": 1164,
+        "y": 922,
+        "width": 268,
+        "height": 24,
+        "bottom": 946,
+        "right": 1432
+      },
+      "status": "ready",
+      "overflow": false,
+      "text": "Marina Bay Sands Theatre\nBus stop / Stop 03501\n×\n \nOneMap\n © contributors | \nSingapore Land Authority\n\n1180 lamp-post points in view.\n\nShelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 1180 lamp-post points in view.\n\nSHIOK.\n\nMap ready\n\nOnline preview unavailable. Your saved walk is still shown.\nRetry preview\nBack to saved walk\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+      "screenshotEnd": {
+        "time": 32627.69999998808,
+        "width": 1440,
+        "height": 950,
+        "key": "5:shiokest:primary",
+        "center": {
+          "lng": 103.85892577084377,
+          "lat": 1.2828009273631125
+        },
+        "zoom": 16.6,
+        "count": 4
+      },
+      "sameCaptureState": true
+    },
+    {
+      "name": "geometry-delayed",
+      "time": 3455.7999999970198,
+      "width": 1440,
+      "height": 950,
+      "counts": {
+        "shiokest-route-line": 0,
+        "shortest-route-line": 0
+      },
+      "debug": {
+        "routeKey": "3:shiokest:",
+        "padding": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "mode": "shiokest",
+        "routeCount": 0,
+        "sourceFeatureCounts": {
+          "shortest": 0,
+          "shiokest": 0,
+          "exposure": 0,
+          "transit": 0,
+          "activeGap": 0,
+          "lamp": 0
+        },
+        "lampStatus": "off",
+        "summary": "Singapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops."
+      },
+      "url": "https://sgshiok.vercel.app/?postal=018956",
+      "camera": {
+        "center": {
+          "lng": 103.851959,
+          "lat": 1.29027
+        },
+        "zoom": 11.6,
+        "padding": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "moving": false,
+        "loaded": false,
+        "sourceCount": 0,
+        "sample": []
+      },
+      "identity": {
+        "x": 12,
+        "y": 12,
+        "width": 300,
+        "height": 32,
+        "bottom": 44,
+        "right": 312
+      },
+      "search": {
+        "x": 12,
+        "y": 52,
+        "width": 300,
+        "height": 44,
+        "bottom": 96,
+        "right": 312
+      },
+      "panel": {
+        "x": 12,
+        "y": 104,
+        "width": 300,
+        "height": 355,
+        "bottom": 459,
+        "right": 312
+      },
+      "metrics": [
+        {
+          "text": "81 m\nWalk distance",
+          "bottom": 270
+        },
+        {
+          "text": "55%\nCovered",
+          "bottom": 270
+        },
+        {
+          "text": "37 m\nUncovered",
+          "bottom": 330
+        },
+        {
+          "text": "20 m\nLongest gap",
+          "bottom": 330
+        }
+      ],
+      "attribution": {
+        "x": 1164,
+        "y": 922,
+        "width": 268,
+        "height": 24,
+        "bottom": 946,
+        "right": 1432
+      },
+      "status": "initializing",
+      "overflow": false,
+      "text": " \nOneMap\n © contributors | \nSingapore Land Authority\n\nSingapore shelter-map view with 0 MRT or LRT stations, 0 exits, and 0 bus stops.\n\nSHIOK.\n\nMap loading\n\nPostal 018956\n\nWalk to bus stop\nBayfront Stn Exit B/MBS\n\n81 m\nWalk distance\n55%\nCovered\n37 m\nUncovered\n20 m\nLongest gap\nMRT/LRT exits\nBus stops\nWalk details",
+      "screenshotEnd": {
+        "time": 4563.899999991059,
+        "width": 1440,
+        "height": 950,
+        "key": "3:shiokest:",
+        "center": {
+          "lng": 103.851959,
+          "lat": 1.29027
+        },
+        "zoom": 11.6,
+        "count": 0
+      },
+      "sameCaptureState": true
+    }
+  ],
+  "checks": [
+    {
+      "name": "M01/M02/M13/M15 1440x950",
+      "ok": true,
+      "detail": {
+        "shiokest-route-line": 4,
+        "shortest-route-line": 0
+      }
+    },
+    {
+      "name": "M01/M02/M13/M15 390x844",
+      "ok": true,
+      "detail": {
+        "shiokest-route-line": 4,
+        "shortest-route-line": 0
+      }
+    },
+    {
+      "name": "M01/M02/M13/M15 390x667",
+      "ok": true,
+      "detail": {
+        "shiokest-route-line": 4,
+        "shortest-route-line": 0
+      }
+    },
+    {
+      "name": "M01/M02/M13/M15 320x667",
+      "ok": true,
+      "detail": {
+        "shiokest-route-line": 4,
+        "shortest-route-line": 0
+      }
+    },
+    {
+      "name": "M03 expanded sheet scrolls",
+      "ok": true
+    },
+    {
+      "name": "W09 selected section highlights visible gap",
+      "ok": true
+    },
+    {
+      "name": "W09 back to whole walk clears focus",
+      "ok": true
+    },
+    {
+      "name": "M10 drag without delayed snap-back",
+      "ok": true
+    },
+    {
+      "name": "M10 wheel zoom",
+      "ok": true
+    },
+    {
+      "name": "M14 keyboard map pan",
+      "ok": true
+    },
+    {
+      "name": "M10 pinch zoom",
+      "ok": true
+    },
+    {
+      "name": "M14 reduced-motion layout fit",
+      "ok": true
+    },
+    {
+      "name": "S06/S07 shared postal and unknown stop",
+      "ok": true
+    },
+    {
+      "name": "S05 race A held",
+      "ok": true
+    },
+    {
+      "name": "S05/M11 stale A failure cannot overwrite B",
+      "ok": true
+    },
+    {
+      "name": "M06 geometry error keeps record",
+      "ok": true
+    },
+    {
+      "name": "M07 geometry recovery without reload",
+      "ok": true
+    },
+    {
+      "name": "M04 useful partial map",
+      "ok": true
+    },
+    {
+      "name": "M07 tile retry recovers",
+      "ok": true
+    },
+    {
+      "name": "M04 non-tile errors are not suppressed",
+      "ok": true
+    },
+    {
+      "name": "W12 failed stop preview preserves published evidence",
+      "ok": true
+    },
+    {
+      "name": "S06 valid shared stop restored",
+      "ok": true
+    },
+    {
+      "name": "W12 preview request held",
+      "ok": true
+    },
+    {
+      "name": "W10/W12 stale preview failure after B success",
+      "ok": true,
+      "detail": {
+        "chosenStop": {
+          "x": 958.0522512924462,
+          "y": 163.54353959468372,
+          "id": "bus:03501",
+          "kind": "bus_stop"
+        }
+      }
+    },
+    {
+      "name": "M06 delayed geometry publishes text independently",
+      "ok": true
+    },
+    {
+      "name": "M06 delayed geometry eventually renders",
+      "ok": true
+    },
+    {
+      "name": "S04 unavailable postal",
+      "ok": true
+    },
+    {
+      "name": "S07 malformed URL safe",
+      "ok": true
+    },
+    {
+      "name": "S02 paste bounded to six digits",
+      "ok": true
+    },
+    {
+      "name": "S02 numeric input",
+      "ok": true
+    },
+    {
+      "name": "S03 accessible validation",
+      "ok": true
+    },
+    {
+      "name": "S08 keyboard reaches search button",
+      "ok": true
+    },
+    {
+      "name": "S02 no address API search",
+      "ok": true
+    },
+    {
+      "name": "S01/S08 keyboard search retains leading zero",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "resourceErrors": [
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/scores/prefix-index.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/geom/h3/886520db39fffff.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/scores/DOWNTOWN_CORE_PART_001.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/transit/h3/886520db3dfffff.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/scores/prefix-index.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/geom/h3/886520db39fffff.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/scores/DOWNTOWN_CORE_PART_001.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/transit/h3/886520db3dfffff.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/scores/prefix-index.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/geom/h3/886520db39fffff.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/scores/MUSEUM.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/geom/h3/896520d9533ffff.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/scores/NEWTON_PART_002.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/scores/ORCHARD.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/scores/DOWNTOWN_CORE_PART_001.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/transit/h3/886520d951fffff.json.gz"
+    },
+    {
+      "text": "Failed to load resource: net::ERR_CACHE_MISS",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/scores/DOWNTOWN_CORE_PART_001.json"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/scores/prefix-index.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/geom/h3/886520db39fffff.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/geom/h3/886520db39fffff.json"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/scores/DOWNTOWN_CORE_PART_001.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/transit/pois.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/geom/h3/886520db39fffff.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/scores/prefix-index.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/geom/h3/886520db39fffff.json.gz"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://sgshiok.vercel.app/data/generated_20261010_full_rescore_phase4_merged/scores/DOWNTOWN_CORE_PART_001.json.gz"
+    },
+    {
+      "text": "Failed to load resource: net::ERR_CONNECTION_FAILED",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/18/206700/130136.png"
+    },
+    {
+      "text": "Failed to load resource: net::ERR_CONNECTION_FAILED",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/18/206700/130137.png"
+    },
+    {
+      "text": "Failed to load resource: net::ERR_CONNECTION_FAILED",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/18/206701/130136.png"
+    },
+    {
+      "text": "Failed to load resource: net::ERR_CONNECTION_FAILED",
+      "url": "https://www.onemap.gov.sg/maps/tiles/Grey_HD/18/206699/130136.png"
+    }
+  ],
+  "startupLastError": "fetch failed",
+  "serviceWorker": "bypassed for deterministic network failure and HTTP cache measurement",
+  "cancelledInterceptions": 3
+}

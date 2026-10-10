@@ -101,7 +101,7 @@ try {
   };
   const clickText = text => evaluate(`([...document.querySelectorAll('button')].find(b=>b.textContent.trim()===${JSON.stringify(text)}) || (()=>{throw Error('Missing button')})()).click()`);
   const validateSearch=async()=>{
-    await search('000000');await until(`document.querySelector('[data-postal]')?.dataset.postal==='000000'`);check('S04 unavailable postal',await evaluate(`document.querySelector('[aria-label="Walk summary"]')?.innerText.includes('No shelter-map walk is published')`));
+    await search('000000');await until(`document.querySelector('[data-postal]')?.dataset.postal==='000000'`);await until(`document.body.innerText.includes('No published walk is available for this destination.')`);check('S04 unavailable postal',await evaluate(`document.body.innerText.includes('No published walk is available for this destination.')`));
     await fresh('?postal=invalid&stop=unknown');await delay(500);check('S07 malformed URL safe',await evaluate(`!document.querySelector('[data-postal]')`));
     await evaluate(`document.querySelector('#postal-search-input').focus();document.querySelector('#postal-search-input').select()`);await send('Input.insertText',{text:'123456789'});
     check('S02 paste bounded to six digits',await evaluate(`document.querySelector('#postal-search-input').value==='123456'`));
@@ -204,29 +204,31 @@ try {
   if(phase.startsWith('acceptance') || phase.startsWith('preview')) {
     if(!phase.startsWith('preview')) {
     await viewport(390,667);await ready();
-    await clickText('Walk details');await delay(600);await ready();await capture('sheet-expanded');
-    check('M03 expanded sheet scrolls',await evaluate(`(()=>{const e=document.querySelector('#walk-details');return e.scrollHeight>e.clientHeight&&e.clientHeight>0})()`));
-    await evaluate(`document.querySelector('#walk-details').scrollTop=99999`);
-    await until(`!!document.querySelector('button[aria-label^="Focus on map for"]')`);
-    await evaluate(`document.querySelector('button[aria-label^="Focus on map for"]').click()`);await delay(700);await ready();await capture('gap-focused');
-    check('W09 gap focus visible and sheet collapses',await evaluate(`window.__shiokRouteMap.queryRenderedFeatures({layers:['active-exposure-gap-ring']}).length>0 && document.querySelector('[aria-controls="walk-details"]').getAttribute('aria-expanded')==='false'`));
-    await clickText('Walk details');await delay(500);await clickText('Collapse walk details');await delay(500);await ready();
+    await clickText('Walk details');await delay(600);await ready();
+    await evaluate("document.querySelector('#walk-details details > summary')?.click()");await delay(300);await ready();await capture('sheet-expanded');
+    check('M03 expanded sheet scrolls',await evaluate(`(()=>{const e=document.querySelector('#walk-details')?.parentElement;return Boolean(e&&e.scrollHeight>e.clientHeight&&e.clientHeight>0)})()`));
+    await evaluate(`document.querySelector('#walk-details').parentElement.scrollTop=99999`);
+    await evaluate("document.querySelector('#walk-details [role=\"group\"] button')?.click()");await ready();await delay(300);await capture('gap-focused');
+    check('W09 selected section highlights visible gap',await evaluate(`document.querySelector('#walk-details [role="group"] button[aria-pressed="true"]')!==null && window.__shiokRouteMap.queryRenderedFeatures({layers:['active-exposure-section-line']}).length>0`));
+    await clickText('Back to walk');await ready();await capture('walk-restored');
+    check('W09 back to whole walk clears focus',await evaluate(`document.querySelector('#walk-details [role="group"] button[aria-pressed="true"]')===null && window.__shiokRouteMap.queryRenderedFeatures({layers:['active-exposure-section-line']}).length===0`));
+    await clickText('Collapse walk details');await delay(500);await ready();
     const center=()=>evaluate(`JSON.stringify(window.__shiokRouteMap.getCenter())`);
     const before=await center();
-    await send('Input.dispatchMouseEvent',{type:'mousePressed',x:200,y:230,button:'left',clickCount:1});
-    for(let i=1;i<=5;i++) {await send('Input.dispatchMouseEvent',{type:'mouseMoved',x:200+i*12,y:230+i*5,buttons:1});await delay(30);}
-    await send('Input.dispatchMouseEvent',{type:'mouseReleased',x:260,y:255,button:'left',clickCount:1});await delay(1000);
+    await send('Input.dispatchMouseEvent',{type:'mousePressed',x:330,y:450,button:'left',clickCount:1});
+    for(let i=1;i<=5;i++) {await send('Input.dispatchMouseEvent',{type:'mouseMoved',x:330+i*7,y:450+i*5,buttons:1});await delay(30);}
+    await send('Input.dispatchMouseEvent',{type:'mouseReleased',x:365,y:475,button:'left',clickCount:1});await delay(1000);
     const dragged=await center();await delay(1200);check('M10 drag without delayed snap-back',before!==dragged&&dragged===await center());
     let zoom=await evaluate(`window.__shiokRouteMap.getZoom()`);
-    await send('Input.dispatchMouseEvent',{type:'mouseWheel',x:180,y:230,deltaY:-140,deltaX:0});await delay(800);
+    await send('Input.dispatchMouseEvent',{type:'mouseWheel',x:340,y:450,deltaY:-140,deltaX:0});await delay(800);
     check('M10 wheel zoom',await evaluate(`window.__shiokRouteMap.getZoom()`)>zoom);
     await evaluate(`document.querySelector('.maplibregl-canvas').focus()`);
     const keyCenter=await center();await send('Input.dispatchKeyEvent',{type:'keyDown',key:'ArrowLeft',code:'ArrowLeft',windowsVirtualKeyCode:37});await send('Input.dispatchKeyEvent',{type:'keyUp',key:'ArrowLeft',code:'ArrowLeft',windowsVirtualKeyCode:37});await delay(500);
     check('M14 keyboard map pan',keyCenter!==await center());
     await send('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:2});
     zoom=await evaluate(`window.__shiokRouteMap.getZoom()`);
-    await send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:130,y:230,id:1},{x:230,y:230,id:2}]});
-    for(let i=1;i<=5;i++){await send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:130-i*6,y:230,id:1},{x:230+i*6,y:230,id:2}]});await delay(30);}
+    await send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:320,y:450,id:1},{x:360,y:450,id:2}]});
+    for(let i=1;i<=5;i++){await send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:320-i*4,y:450,id:1},{x:360+i*4,y:450,id:2}]});await delay(30);}
     await send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await delay(600);
     check('M10 pinch zoom',await evaluate(`window.__shiokRouteMap.getZoom()`)>zoom);
     await send('Emulation.setTouchEmulationEnabled',{enabled:false});
@@ -272,25 +274,31 @@ try {
     check('M04 non-tile errors are not suppressed',await evaluate(`document.querySelector('[data-postal]')?.innerText.includes('81 m')`));
     await clickText('Retry map');await ready();
     const chooseStop=async()=>{
-      const point=await evaluate(`(()=>{const m=window.__shiokRouteMap,p=window.__shiokRouteDebug.padding;const f=m.queryRenderedFeatures([[p.left,p.top],[innerWidth-p.right,innerHeight-p.bottom]],{layers:['mrt-exit-dot']}).find(f=>!['mrt:21624','mrt:21678'].includes(f.properties.id));if(!f)return null;const c=m.project(f.geometry.coordinates);return {x:c.x,y:c.y,id:f.properties.id}})()`);
-      if(!point)throw Error('No rendered alternate exit for preview test');
-      await send('Input.dispatchMouseEvent',{type:'mousePressed',x:point.x,y:point.y,button:'left',clickCount:1});await send('Input.dispatchMouseEvent',{type:'mouseReleased',x:point.x,y:point.y,button:'left',clickCount:1});
-      return point.id;
+      const attempted=new Set();
+      for(let attempt=0;attempt<20;attempt++){
+        const point=await evaluate(`(()=>{const m=window.__shiokRouteMap,p=window.__shiokRouteDebug.padding,panel=document.querySelector('main aside')?.getBoundingClientRect(),attempted=new Set(${JSON.stringify([...attempted])});return m.queryRenderedFeatures([[p.left,p.top],[innerWidth-p.right,innerHeight-p.bottom]],{layers:['bus-stop-dot','mrt-exit-dot']}).map(f=>{const c=m.project(f.geometry.coordinates);return {x:c.x,y:c.y,id:f.properties.id,kind:f.properties.kind}}).filter(q=>!attempted.has(q.id)&&q.x>=0&&q.x<innerWidth&&q.y>=0&&q.y<innerHeight&&!(panel&&q.x>=panel.left&&q.x<=panel.right&&q.y>=panel.top&&q.y<=panel.bottom)).sort((a,b)=>(a.kind==='bus_stop'?0:1)-(b.kind==='bus_stop'?0:1))[0]??null;})()`);
+        if(!point)break;
+        attempted.add(point.id);
+        await send('Input.dispatchMouseEvent',{type:'mousePressed',x:point.x,y:point.y,button:'left',clickCount:1});await send('Input.dispatchMouseEvent',{type:'mouseReleased',x:point.x,y:point.y,button:'left',clickCount:1});
+        for(let i=0;i<60;i++){if(mode==='preview-hold'?previewHeld.length>0:await evaluate(`document.body.innerText.includes('Retry preview')`))return point;await delay(100);}
+      }
+      throw Error('No rendered transit stop triggered an online preview failure');
     };
     await viewport(1440,950);await ready();
     mode='preview';const chosenStop=await chooseStop();await until(`document.body.innerText.includes('Retry preview')`);
-    check('W12 failed stop preview preserves published evidence',await evaluate(`document.querySelector('[data-postal]')?.innerText.includes('81 m') && document.body.innerText.includes('Published walk shown')`));
+    check('W12 failed stop preview preserves published evidence',await evaluate(`document.body.innerText.includes('Online preview unavailable. Your saved walk is still shown.') && window.__shiokRouteMap.queryRenderedFeatures({layers:['shiokest-route-line']}).some(f=>f.properties.render_key===window.__shiokRouteDebug.routeKey)`));
     await capture('preview-failed');
-    await fresh('?postal=018956&stop='+encodeURIComponent(chosenStop));await ready();await until(`document.body.innerText.includes('Retry preview')`);
-    check('S06 valid shared stop restored',await evaluate(`new URLSearchParams(location.search).get('stop')===${JSON.stringify(chosenStop)}`));
-    await clickText('Keep published walk');await ready();
+    const chosenMode=chosenStop.kind==='bus_stop'?'bus':'mrt_lrt';
+    await fresh('?postal=018956&transit='+chosenMode+'&stop='+encodeURIComponent(chosenStop.id));await ready();await until(`document.body.innerText.includes('Retry preview')`);
+    check('S06 valid shared stop restored',await evaluate(`new URLSearchParams(location.search).get('stop')===${JSON.stringify(chosenStop.id)}`));
+    await clickText('Back to saved walk');await ready();
     mode='preview-hold';await chooseStop();for(let i=0;i<100&&!previewHeld.length;i++)await delay(100);
     check('W12 preview request held',previewHeld.length>0);
     await search('238801');await until(`document.querySelector('[data-postal]')?.dataset.postal==='238801'`);await ready();
     mode='none';for(const requestId of previewHeld)await send('Fetch.fulfillRequest',{requestId,responseCode:503,responseHeaders:[{name:'Content-Type',value:'application/json'}],body:Buffer.from('{"ok":false}').toString('base64')});await delay(500);
     check('W10/W12 stale preview failure after B success',await evaluate(`document.querySelector('[data-postal]')?.dataset.postal==='238801' && !document.body.innerText.includes('Retry preview') && window.__shiokRouteDebug.sourceFeatureCounts.activeGap===0`),{chosenStop});
     mode='geometry-hold';await fresh('?postal=018956');await until(`document.querySelector('[data-postal]')?.innerText.includes('81 m')`);
-    check('M06 delayed geometry publishes text independently',geometryHeld.length>0 && await evaluate(`!window.__shiokRouteMap`));await capture('geometry-delayed');
+    check('M06 delayed geometry publishes text independently',geometryHeld.length>0 && await evaluate(`document.querySelector('[data-postal]')?.innerText.includes('81 m') && !window.__shiokRouteMap.queryRenderedFeatures({layers:['shiokest-route-line']}).some(f=>f.properties.render_key===window.__shiokRouteDebug.routeKey)`));await capture('geometry-delayed');
     mode='none';for(const requestId of geometryHeld)await send('Fetch.continueRequest',{requestId});await ready();check('M06 delayed geometry eventually renders',true);
     events.delete('Fetch.requestPaused');await Promise.all([...eventJobs]);await send('Fetch.disable');
     await validateSearch();
