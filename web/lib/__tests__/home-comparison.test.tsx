@@ -9,6 +9,7 @@ import type { ArtifactFailure } from "../artifact-failure";
 import { resolveComparisonWalk } from "../comparison";
 import type { ComparisonEntry } from "../comparison-controller";
 import { emptyComparisonState, transitionComparison } from "../comparison-state";
+import dataBundle from "../../data-bundle.json";
 import type { PublishedTransitCategory } from "../published-transit-options";
 import fixture from "./fixtures/published-options.json";
 
@@ -873,7 +874,7 @@ describe("T03 comparison diagnostic wiring", () => {
   }
 
   it("passes only each failing column's typed data to its role-specific control", () => {
-    props.diagnosticDataBase = `/data/${bundle}/`;
+    props.diagnosticDataBase = `/data/${dataBundle.bundle}/`;
     props.state = { ...props.state, postals: [realPostal, secondPostal] };
     props.entries = {
       [realPostal]: { ...entry(), requestKey: 7, geometryStatus: "error", geometryFailure },
@@ -883,9 +884,9 @@ describe("T03 comparison diagnostic wiring", () => {
     const controls = diagnostics();
     expect(controls.map(control => control.snapshotKey)).toEqual(["7:geometry", "8:score"]);
     expect(JSON.parse(controls[0].value)).toMatchObject({ area: "geometry-data", status: "error", stage: "artifact-decode",
-      reason: "error", artifact_role: "geometry-shard", http_status: null, elapsed_ms: 9, artifact_bundle_id: bundle });
+      reason: "error", artifact_role: "geometry-shard", http_status: null, elapsed_ms: 9, artifact_bundle_id: dataBundle.bundle });
     expect(JSON.parse(controls[1].value)).toMatchObject({ area: "score-data", status: "error", stage: "artifact-fetch",
-      reason: "http", artifact_role: "score-shard", http_status: 503, elapsed_ms: 24, artifact_bundle_id: bundle });
+      reason: "http", artifact_role: "score-shard", http_status: 503, elapsed_ms: 24, artifact_bundle_id: dataBundle.bundle });
     expect(cells("Walk distance")).toEqual(["81 m", "Unavailable"]);
     for (const control of controls) {
       expect(control.value).not.toContain(realPostal);

@@ -1,0 +1,23 @@
+{
+  "bundle": "generated_20261002_full_rescore_bus_remodel_network_repair",
+  "sourceCheckoutCommit": "afd260caae53bc76c7211250e4276f36ffa08aed",
+  "bundlePointerSha256": "ce19578528be11b9098e58e817fb0a3cc3b520fad7cc02b7dc2a06ac871d15ea",
+  "fixtureSha256": "ce19578528be11b9098e58e817fb0a3cc3b520fad7cc02b7dc2a06ac871d15ea",
+  "sources": {
+    "manifest.json": {
+      "path": "web/public/data/generated_20261002_full_rescore_bus_remodel_network_repair/manifest.json",
+      "bytes": 106618,
+      "sha256": "22096a367ef142d5c2a0bcdace43692f2da59c3ad54647b71445d110bd468160",
+      "decodedSha256": "22096a367ef142d5c2a0bcdace43692f2da59c3ad54647b71445d110bd468160"
+    },
+    "web/data-bundle.json": {
+      "path": "web/data-bundle.json",
+      "bytes": 379,
+      "sha256": "ce19578528be11b9098e58e817fb0a3cc3b520fad7cc02b7dc2a06ac871d15ea"
+    }
+  },
+  "reduction": [
+    "Metadata-only fixture copied from the activated bundle's actual manifest and pointer.",
+    "Existing published-walks route samples retain their original August bundle provenance."
+  ]
+}

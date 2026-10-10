@@ -1,10 +1,11 @@
 import { DEFAULT_DATA_BASE, normalizeDataBase } from "../data";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { createHash } from "node:crypto";
 import { readFileSync } from "fs";
 import { join } from "path";
 import dataBundle from "../../data-bundle.json";
-import { readPublishedFixture } from "./fixtures/published-data";
-import fixtureProvenance from "./fixtures/published-walks.provenance.json";
+import manifestFixture from "./fixtures/published-manifest-20261002.json";
+import fixtureProvenance from "./fixtures/published-manifest-20261002.provenance.json";
 
 describe("normalizeDataBase", () => {
   afterEach(() => {
@@ -27,13 +28,14 @@ describe("normalizeDataBase", () => {
   });
 
   it("keeps pinned first-load metadata aligned with the recorded manifest fixture", () => {
-    const manifest = readPublishedFixture<typeof dataBundle>("manifest.json");
+    const fixtureBytes = readFileSync(join(__dirname, "fixtures/published-manifest-20261002.json"));
 
     expect(dataBundle.bundle).toBe(fixtureProvenance.bundle);
-    expect(dataBundle.generated_at).toBe(manifest.generated_at);
-    expect(dataBundle.data_as_of).toBe(manifest.data_as_of);
-    expect(dataBundle.provenance.record_count).toBe(manifest.provenance.record_count);
-    expect(dataBundle.provenance.state_counts).toEqual(manifest.provenance.state_counts);
+    expect(dataBundle.bundle).toBe(manifestFixture.bundle);
+    expect(createHash("sha256").update(fixtureBytes).digest("hex")).toBe(fixtureProvenance.fixtureSha256);
+    expect(dataBundle.generated_at).toBe(manifestFixture.generated_at);
+    expect(dataBundle.data_as_of).toBe(manifestFixture.data_as_of);
+    expect(dataBundle.provenance).toEqual(manifestFixture.provenance);
   });
 
   it("normalizes relative and absolute paths", () => {
