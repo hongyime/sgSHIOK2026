@@ -37,7 +37,11 @@ from pipeline.fetch import (
     source_freshness_status,
 )
 from pipeline.network_qa import validate_network_qa
-from pipeline.scoring_integration import SCORING_FINGERPRINT_FILES, SCORE_PROVENANCE_SOURCE_HASH_KEYS
+from pipeline.scoring_integration import (
+    SCORING_FINGERPRINT_FILES,
+    SCORE_PROVENANCE_SOURCE_HASH_KEYS,
+    scoring_fingerprint_digest,
+)
 from scripts.audit_current_bundle import active_bundle_dir, build_report, summarize_state_report
 
 WEB_DIR = PROJECT_ROOT / "web"
@@ -50,6 +54,14 @@ DEFAULT_LAMP_OVERLAY_DIRNAME = "lamp_posts_v1"
 REQUIRED_SUBSCORE_STATUS = {"access", "bus", "rain", "heat", "crossing"}
 REQUIRED_SCORING_FINGERPRINTS = {
     rel_path.replace("/", "\\") for rel_path in SCORING_FINGERPRINT_FILES
+}
+# These files remain part of the raw fingerprint maps for auditability. They
+# control batch partitioning and static bundle export, not score calculations.
+# Readiness may treat variance in these files as non-scoring only when complete,
+# digest-verified maps prove every scoring-input/logic file is identical.
+NON_SCORING_FINGERPRINT_FILES = {
+    "pipeline\\export.py",
+    "pipeline\\score_batch.py",
 }
 NON_SCORE_REFERENCE_SOURCE_HASH_KEYS = {"leaf_area_index"}
 SOURCE_HASH_WARNING_LABELS = {
@@ -67,6 +79,12 @@ BLOCKING_PROVENANCE_SIGNALS = {
 WARNING_PROVENANCE_SIGNALS = {
     "scoring_input_changed_during_run": "scoring input changed during run",
     "mixed_scoring_input_digests": "mixed scoring input digests",
+    "scoring_fingerprint_changed_during_run": (
+        "scoring fingerprint snapshots differ only in non-scoring files"
+    ),
+    "mixed_scoring_fingerprint_digests": (
+        "record scoring fingerprints differ only in non-scoring files"
+    ),
 }
 SCORING_FINGERPRINT_PROVENANCE_FIELDS = {
     "scoring_fingerprint_digest",
@@ -104,6 +122,156 @@ NETWORK_PROVENANCE_FIELDS = {
     "network_provenance_complete",
     "networks_by_digest",
 }
+
+
+def scoring_fingerprint_equivalence_status(
+    provenance: Mapping[str, Any], *, record_count: int | None
+) -> dict[str, Any]:
+    """Verify whether complete fingerprint maps differ only in batch/export code.
+
+    The original maps and record digests remain untouched. This only establishes
+    equivalence of the score-affecting files when all map hashes and snapshots
+    can be independently checked.
+    """
+    raw_maps = provenance.get("scoring_fingerprints_by_digest")
+    digest_counts = provenance.get("scoring_fingerprint_digest_counts")
+    if not isinstance(raw_maps, dict) or not raw_maps:
+        return {
+            "verified": False,
+            "non_scoring_files": [],
+            "reason": "fingerprint maps are missing",
+        }
+    if not isinstance(digest_counts, dict) or not digest_counts:
+        return {
+            "verified": False,
+            "non_scoring_files": [],
+            "reason": "record digest counts are missing",
+        }
+    if provenance.get("scoring_fingerprint_provenance_complete") is not True:
+        return {
+            "verified": False,
+            "non_scoring_files": [],
+            "reason": "fingerprint provenance is incomplete",
+        }
+    if provenance.get("records_missing_scoring_fingerprint_digest") != 0:
+        return {
+            "verified": False,
+            "non_scoring_files": [],
+            "reason": "records are missing fingerprint digests",
+        }
+    if provenance.get("scoring_fingerprint_digests_missing_maps"):
+        return {
+            "verified": False,
+            "non_scoring_files": [],
+            "reason": "record fingerprint maps are missing",
+        }
+
+    score_start_digest = provenance.get("score_batch_start_scoring_fingerprint_digest")
+    export_digest = provenance.get("export_scoring_fingerprint_digest")
+    if not isinstance(score_start_digest, str) or not isinstance(export_digest, str):
+        return {
+            "verified": False,
+            "non_scoring_files": [],
+            "reason": "start/export snapshots are missing",
+        }
+    required_digests = set(digest_counts) | {score_start_digest, export_digest}
+    if not required_digests.issubset(raw_maps):
+        return {
+            "verified": False,
+            "non_scoring_files": [],
+            "reason": "a referenced fingerprint map is missing",
+        }
+
+    normalized_maps: dict[str, dict[str, str]] = {}
+    for digest, raw_fingerprints in raw_maps.items():
+        if not isinstance(digest, str) or not isinstance(raw_fingerprints, dict):
+            return {
+                "verified": False,
+                "non_scoring_files": [],
+                "reason": "fingerprint map shape is invalid",
+            }
+        fingerprints = {
+            str(path): str(file_digest)
+            for path, file_digest in raw_fingerprints.items()
+        }
+        if set(fingerprints) != REQUIRED_SCORING_FINGERPRINTS:
+            return {
+                "verified": False,
+                "non_scoring_files": [],
+                "reason": "fingerprint map is incomplete",
+            }
+        for file_digest in fingerprints.values():
+            try:
+                valid_digest = len(file_digest) == 64 and len(bytes.fromhex(file_digest)) == 32
+            except ValueError:
+                valid_digest = False
+            if not valid_digest:
+                return {
+                    "verified": False,
+                    "non_scoring_files": [],
+                    "reason": "file fingerprint is invalid",
+                }
+        if scoring_fingerprint_digest(fingerprints) != digest:
+            return {
+                "verified": False,
+                "non_scoring_files": [],
+                "reason": "fingerprint map digest does not match its contents",
+            }
+        normalized_maps[digest] = fingerprints
+
+    counts: dict[str, int] = {}
+    for digest, count in digest_counts.items():
+        if not isinstance(count, int) or isinstance(count, bool) or count <= 0:
+            return {
+                "verified": False,
+                "non_scoring_files": [],
+                "reason": "record fingerprint counts are invalid",
+            }
+        counts[str(digest)] = count
+    if record_count is not None and sum(counts.values()) != record_count:
+        return {
+            "verified": False,
+            "non_scoring_files": [],
+            "reason": "record fingerprint counts do not match the manifest",
+        }
+
+    start_snapshot = provenance.get("scoring_fingerprints_at_scoring_start")
+    export_snapshot = provenance.get("scoring_fingerprints_at_export")
+    if start_snapshot != normalized_maps[score_start_digest]:
+        return {"verified": False, "non_scoring_files": [], "reason": "score-start snapshot does not match its map"}
+    if export_snapshot != normalized_maps[export_digest]:
+        return {"verified": False, "non_scoring_files": [], "reason": "export snapshot does not match its map"}
+    score_digest = provenance.get("scoring_fingerprint_digest")
+    score_snapshot = provenance.get("scoring_fingerprints")
+    if (
+        isinstance(score_digest, str)
+        and score_digest in normalized_maps
+        and score_snapshot != normalized_maps[score_digest]
+    ):
+        return {
+            "verified": False,
+            "non_scoring_files": [],
+            "reason": "primary fingerprint snapshot does not match its map",
+        }
+
+    all_paths = set(REQUIRED_SCORING_FINGERPRINTS)
+    reference = next(iter(normalized_maps.values()))
+    different_paths = sorted(
+        path
+        for path in all_paths
+        if any(fingerprints[path] != reference[path] for fingerprints in normalized_maps.values())
+    )
+    if not set(different_paths).issubset(NON_SCORING_FINGERPRINT_FILES):
+        return {
+            "verified": False,
+            "non_scoring_files": different_paths,
+            "reason": "a score-affecting fingerprint differs",
+        }
+    return {
+        "verified": True,
+        "non_scoring_files": different_paths,
+        "reason": "all complete fingerprint maps agree on score-affecting files",
+    }
 REQUIRED_NETWORK_PROVENANCE_FIELDS = NETWORK_PROVENANCE_FIELDS | {
     "network_algorithm",
     "network_changed_during_run",
@@ -737,14 +905,34 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
         or missing_network_digest_count > 0
         or bool(missing_network_digest_maps)
     )
+    fingerprint_equivalence = scoring_fingerprint_equivalence_status(
+        provenance,
+        record_count=(
+            manifest_payload.get("record_count")
+            if isinstance(manifest_payload.get("record_count"), int)
+            else None
+        ),
+    )
+    non_scoring_variance_verified = bool(fingerprint_equivalence["verified"])
+    reviewed_fingerprint_signals = {
+        "scoring_fingerprint_changed_during_run",
+        "mixed_scoring_fingerprint_digests",
+    }
     blocking_provenance_signals = [
         key for key, blocked in provenance_signals.items() if blocked
         and key in BLOCKING_PROVENANCE_SIGNALS
+        and not (non_scoring_variance_verified and key in reviewed_fingerprint_signals)
     ]
     warning_provenance_signals = [
         key for key, warned in provenance_signals.items() if warned
         and key in WARNING_PROVENANCE_SIGNALS
     ]
+    if non_scoring_variance_verified:
+        warning_provenance_signals.extend(
+            key
+            for key in sorted(reviewed_fingerprint_signals)
+            if provenance_signals[key] and key not in warning_provenance_signals
+        )
     legacy_missing_capabilities: list[str] = []
     if missing_fingerprints and not scoring_schema_present:
         legacy_missing_capabilities.append("full 18-file scoring fingerprint set")
@@ -911,6 +1099,11 @@ def bundle_score_provenance_status(bundle_dir: Path) -> dict[str, Any]:
         "scoring_input_digests_missing_maps": missing_scoring_input_digest_maps,
         "network_digests_missing_maps": missing_network_digest_maps,
         "mixed_scoring_fingerprint_digests": mixed_fingerprints,
+        "scoring_fingerprint_equivalence_verified": non_scoring_variance_verified,
+        "scoring_fingerprint_non_scoring_files": fingerprint_equivalence[
+            "non_scoring_files"
+        ],
+        "scoring_fingerprint_equivalence_reason": fingerprint_equivalence["reason"],
         "incomplete_scoring_fingerprint_provenance": incomplete_fingerprint_provenance,
         "scoring_fingerprint_changed_during_run": provenance_signals[
             "scoring_fingerprint_changed_during_run"
