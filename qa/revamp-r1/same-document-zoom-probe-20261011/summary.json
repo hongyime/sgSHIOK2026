@@ -1,0 +1,52 @@
+{
+  "url": "https://sgshiok.vercel.app/?postal=018956",
+  "startedAt": "2026-10-10T22:08:28.406Z",
+  "method": "headless Chrome CDP Ctrl+Plus then Ctrl+0; no page-scale/device-metrics override",
+  "before": {
+    "marker": "zoom-check-0.937173579400081",
+    "timeOrigin": 1791670109291.1,
+    "url": "https://sgshiok.vercel.app/?postal=018956&transit=bus",
+    "innerWidth": 764,
+    "outerWidth": 780,
+    "innerHeight": 429,
+    "devicePixelRatio": 1,
+    "visualScale": 1,
+    "rootZoom": "1",
+    "mapStatus": "ready",
+    "routeFeatures": 4,
+    "documentWidth": 764
+  },
+  "afterPlus": {
+    "marker": "zoom-check-0.937173579400081",
+    "timeOrigin": 1791670109291.1,
+    "url": "https://sgshiok.vercel.app/?postal=018956&transit=bus",
+    "innerWidth": 764,
+    "outerWidth": 780,
+    "innerHeight": 429,
+    "devicePixelRatio": 1,
+    "visualScale": 1,
+    "rootZoom": "1",
+    "mapStatus": "ready",
+    "routeFeatures": 4,
+    "documentWidth": 764
+  },
+  "sameDocumentAfterPlus": true,
+  "afterCtrl0": {
+    "marker": "zoom-check-0.937173579400081",
+    "timeOrigin": 1791670109291.1,
+    "url": "https://sgshiok.vercel.app/?postal=018956&transit=bus",
+    "innerWidth": 764,
+    "outerWidth": 780,
+    "innerHeight": 429,
+    "devicePixelRatio": 1,
+    "visualScale": 1,
+    "rootZoom": "1",
+    "mapStatus": "ready",
+    "routeFeatures": 4,
+    "documentWidth": 764
+  },
+  "sameDocumentAfterCtrl0": true,
+  "zoomChanged": false,
+  "conclusion": "INCONCLUSIVE: headless CDP Ctrl+Plus/Ctrl+0 did not change native page zoom. The marker, document timeOrigin, URL, map-ready state, and four route features remained stable; the page metrics stayed at innerWidth 764, DPR 1, visual scale 1, root zoom 1. This did not operate Chrome browser chrome and cannot satisfy same-document browser-UI zoom acceptance.",
+  "scopeBoundary": "No application failure is established. Same-document native zoom remains unverified and requires a browser UI that exposes browser-level shortcuts or owner acceptance."
+}
