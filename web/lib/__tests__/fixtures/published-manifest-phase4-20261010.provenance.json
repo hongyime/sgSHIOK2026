@@ -1,0 +1,23 @@
+{
+  "bundle": "generated_20261010_full_rescore_phase4_merged",
+  "sourceCheckoutCommit": "f6a0376ac30de1ef4a90cf13f42f8c815333c99c",
+  "bundlePointerSha256": "12269fa0d1e1da6f1eff7e8f2219d6c87376c16a89c7ed5b2a62623c367cc0e1",
+  "fixtureSha256": "a2d86c7eb89d9f734ced2148a6fb002831da4fb44bb76e1cec4746515fa3705f",
+  "sources": {
+    "manifest.json": {
+      "path": "web/public/data/generated_20261010_full_rescore_phase4_merged/manifest.json",
+      "bytes": 107785,
+      "sha256": "227f0fa8b906cc0cbc6cbf17d3a97ec5fc0c0ae2f06a31919f78a9be427e68a2",
+      "decodedSha256": "227f0fa8b906cc0cbc6cbf17d3a97ec5fc0c0ae2f06a31919f78a9be427e68a2"
+    },
+    "web/data-bundle.json": {
+      "path": "web/data-bundle.json",
+      "bytes": 380,
+      "sha256": "12269fa0d1e1da6f1eff7e8f2219d6c87376c16a89c7ed5b2a62623c367cc0e1"
+    }
+  },
+  "reduction": [
+    "Metadata-only fixture copied from the selected bundle pointer and actual manifest.",
+    "Existing published-walks route samples retain their original August bundle provenance."
+  ]
+}

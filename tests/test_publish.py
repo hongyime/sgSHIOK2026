@@ -113,6 +113,34 @@ def test_release_selection_accepts_crlf_worktree_for_committed_pointer(release, 
     assert selected["data"] == data
 
 
+def test_test_source_identity_requires_the_pinned_checkout_and_allows_local_markdown(monkeypatch, tmp_path):
+    calls = []
+
+    def run(cmd, **kwargs):
+        calls.append(cmd)
+        stdout = b"web/AGENTS.md\n" if cmd[1] == "ls-files" else b""
+        return type("Result", (), {"returncode": 0, "stdout": stdout, "stderr": b""})()
+
+    monkeypatch.setattr(publish.subprocess, "run", run)
+    result = publish.verify_test_source_identity(tmp_path, "a" * 40)
+
+    assert result == {"ok": True, "revision": "a" * 40, "untrackedSources": []}
+    assert calls[0] == ["git", "diff", "--quiet", "a" * 40, "--", "web", "scripts", "pipeline", "run.py", ".gitignore", ".vercelignore"]
+    assert calls[1][:5] == ["git", "ls-files", "--others", "--exclude-standard", "--"]
+
+
+def test_test_source_identity_blocks_untracked_code(monkeypatch, tmp_path):
+    def run(cmd, **kwargs):
+        stdout = b"web/lib/new-feature.test.ts\n" if cmd[1] == "ls-files" else b""
+        return type("Result", (), {"returncode": 0, "stdout": stdout, "stderr": b""})()
+
+    monkeypatch.setattr(publish.subprocess, "run", run)
+    result = publish.verify_test_source_identity(tmp_path, "a" * 40)
+
+    assert result["ok"] is False
+    assert result["error"] == "untracked_test_sources"
+
+
 @pytest.fixture
 def prepared(release, monkeypatch):
     root, web, data = release
@@ -126,9 +154,11 @@ def prepared(release, monkeypatch):
     monkeypatch.setattr(publish, "validate_stage", lambda *a: {"ok": True, "static": {}, "overlay": {}})
     monkeypatch.setattr(publish, "link_build_dependencies", lambda *a: calls.append("link"))
     monkeypatch.setattr(publish, "check_build_dependencies", lambda *a: None)
+    monkeypatch.setattr(publish, "verify_test_source_identity", lambda *a: {"ok": True})
 
     def run(cmd, cwd, **kwargs):
         calls.append(cmd)
+        run.contexts.append((cmd, cwd))
         stdout = ""
         if "audit" in cmd:
             stdout = '{"metadata":{"vulnerabilities":{"total":0}}}'
@@ -146,12 +176,13 @@ def prepared(release, monkeypatch):
                 "rootDirectory": "web", "framework": "nextjs", "outputDirectory": None,
             })
         return {"ok": True, "returncode": 0, "stdout": stdout, "stderr": ""}
+    run.contexts = []
     monkeypatch.setattr(publish, "run_command", run)
     return root, web, data, stage, calls, run
 
 
 def test_preparation_never_deploys_and_builds_stage_directly(prepared):
-    _, web, data, stage, calls, _ = prepared
+    _, web, data, stage, calls, run = prepared
     ok, report = publish.publish_preflight(data, web, run_external_checks=True, confirm_preparation=True)
     assert ok, report
     assert report["state"] == "prepared"
@@ -164,14 +195,19 @@ def test_preparation_never_deploys_and_builds_stage_directly(prepared):
     assert "next" in build[1]
     assert not any("install" in cmd or "ci" in cmd or "ensure-data-bundle" in str(cmd) for cmd in commands)
     assert str(stage) in report["deploy_source_dir"]
+    web_test = next(cmd for cmd in commands if any("test-web.mjs" in part for part in cmd))
+    assert web_test[-1] == str(web / "scripts/test-web.mjs")
+    assert next(cwd for cmd, cwd in run.contexts if cmd is web_test) == web
 
 
-@pytest.mark.parametrize("gate", ["dependencies", "staging", "identity", "validation", "audit", "tests", "build"])
+@pytest.mark.parametrize("gate", ["test_source_identity", "dependencies", "staging", "identity", "validation", "audit", "tests", "build"])
 def test_every_pre_submission_failure_prevents_deploy(prepared, monkeypatch, gate):
     _, web, data, _, calls, original = prepared
     def fail(*a, **kw):
         raise ValueError("injected failure")
-    if gate == "dependencies":
+    if gate == "test_source_identity":
+        monkeypatch.setattr(publish, "verify_test_source_identity", lambda *a: {"ok": False, "error": "injected failure"})
+    elif gate == "dependencies":
         monkeypatch.setattr(publish, "check_build_dependencies", fail)
     elif gate == "staging":
         monkeypatch.setattr(publish, "prepare_vercel_source", fail)

@@ -161,3 +161,44 @@ Machine-specific values in this document use privacy placeholders.
 ## Publisher recovery — 2026-10-11
 - Production publish attempt 1 stopped before submission because VERCEL_PROJECT_ID and VERCEL_ORG_ID were absent from the process environment; verified matching IDs from the linked sgshiok project config and current team deployment, then supplied them transiently.
 - Attempt 2 stopped before submission because publish.py compared the Windows CRLF worktree pointer byte-for-byte with Git's LF blob. Normalized CRLF for this identity comparison and added a regression test. tests/test_publish.py: 76 passed. No deployment was submitted; retry with the approved archive publisher after committing this fix.
+
+## Phase 4 export completion — 2026-10-11
+- Archive staging stopped before deployment because the candidate lacks derived geom/postal-prefix lookup shards. The web build's ensure-data-bundle.mjs generates them from the exported geom/postal-index.json without changing scored records. Ran it idempotently on the selected candidate; next verify generated artifacts and retry staging/publish.
+
+
+## Publisher Python environment correction — 2026-10-11
+- ensure-data-bundle.mjs completed the selected export's derived runtime indexes: 526 geom postal-prefix shards and 558 transit H3 shards.
+- Production publisher attempt using system Python stopped in validate_stage with ModuleNotFoundError for h3, before dependency checks or any Vercel command. No deployment submitted; preserve stage tmp/vercel_source_bd8d1a9e8ac543feb2f1e44b5c115ad9. The locked uv environment has h3 4.5.0; rerun there.
+
+
+## Publisher launcher correction — 2026-10-11
+- uv run spawned alternating base/venv Python processes; the innermost system-Python publisher lacked h3. Stopped it during local preflight before any Vercel command. No deployment submitted. Preserve partial stage tmp/vercel_source_db1b89d05f76414e957623c6c868124c and the empty redirected output file; direct .venv Python reports h3 4.5.0. Retry through guarded run.py using .venv/Scripts/python.exe directly.
+
+
+## Vercel project check — 2026-10-11
+- Direct repository-venv publisher passed the Python import setup but stopped at its initial Vercel project-configuration check with 'authenticated project configuration unreadable'. No staging or deployment occurred. Inspect CLI authentication and project API status using sanitized output before retrying.
+
+
+- Sanitized follow-up through the repository venv passed both authenticated Vercel project API checks and confirmed the expected sgshiok project/team IDs. Retry the same guarded production publisher with the pinned candidate and frontend inventory.
+
+
+- Stopped the direct-.venv run.py attempt when Windows spawned the base interpreter for its nested module. It had not reached any Vercel deployment command. To keep artifact validation in the working venv, invoke the same production publisher module directly with its explicit --confirm-production gate; its preflight still validates the staged artifacts before submission.
+
+
+- Direct pipeline.publish under the repository environment passed Vercel project configuration and created the fresh archive release stage at tmp/vercel_source_0e4e47e80825498596b96d18e21adbb2. Its release-manifest.json is present; post-stage identity/artifact validation is running. No tests/build/deployment submitted yet.
+
+
+- Captured web-test failure: installed_dependencies check reports Next.js 16.3.3 installed versus 16.4.0 locked. No source/lockfile change and no deployment. The release stage's node_modules junction points at the local web/node_modules, so align that install to the existing lock and rerun the staged check.
+
+
+- Verified npm tarball SHA-512 against package-lock for next@16.4.0, preserved the stale 16.3.3 folder under tmp, and linked the verified package at web/node_modules/next. The locked direct-dependency check now passes. Rerunning staged web tests before another publisher attempt.
+
+
+- Staged web-test output: 3,252/3,268 tests passed; remaining failures include missing repository-root fixtures/config (scripts, pipeline, .gitignore) because Vercel stage contains only web sources, tests expecting the historical October 2 fixture/pointer, and Next resolution from the temporary junction. No deployment occurred. Validate the suite from the full committed checkout before changing expectations or release behavior.
+
+## Phase 4 test preflight repair — 2026-10-11
+- Added a publisher identity gate for tracked and non-Markdown untracked test sources against the pinned revision; the web suite now runs from the full checkout, while the production build remains against the staged archive. Added regression coverage. `tests/test_publish.py`: 79 passed.
+- Added a metadata-only Phase 4 active pointer fixture and provenance hashes; updated the active source-freshness reference after confirming all three freshness source hashes match the existing August 29 manifest-only check. Added the candidate exception to both Vercel ignore allowlists. No bundle data or score changed.
+- First full web suite run found one fixture-only UTC-versus-SGT serialization mismatch (3,356/3,357 tests passed); the fixture now preserves the pointer's exact UTC strings, with the UI test retaining the Singapore-time display expectation.
+- After that correction, full `web/scripts/test-web.mjs` passed: 86 files, 3,357 tests. Publisher unit tests passed: 79. No production submission has occurred; review and commit the focused tracked set, then rerun the guarded archive publisher.
+- Next: run the full web suite from the canonical checkout, commit only focused release files plus this state, push `main`, then retry the guarded archive publisher. The previous Vercel attempt stopped before submission; no production deployment exists yet.

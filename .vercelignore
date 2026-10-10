@@ -21,3 +21,5 @@ web/public/data/generated_*/
 !web/public/data/generated_20260805_prefer_scored_routed/**
 !web/public/data/generated_20261002_full_rescore_bus_remodel_network_repair/
 !web/public/data/generated_20261002_full_rescore_bus_remodel_network_repair/**
+!web/public/data/generated_20261010_full_rescore_phase4_merged/
+!web/public/data/generated_20261010_full_rescore_phase4_merged/**

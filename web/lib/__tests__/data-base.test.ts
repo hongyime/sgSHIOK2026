@@ -4,8 +4,8 @@ import { createHash } from "node:crypto";
 import { readFileSync } from "fs";
 import { join } from "path";
 import dataBundle from "../../data-bundle.json";
-import manifestFixture from "./fixtures/published-manifest-20261002.json";
-import fixtureProvenance from "./fixtures/published-manifest-20261002.provenance.json";
+import manifestFixture from "./fixtures/published-manifest-phase4-20261010.json";
+import fixtureProvenance from "./fixtures/published-manifest-phase4-20261010.provenance.json";
 
 describe("normalizeDataBase", () => {
   afterEach(() => {
@@ -27,8 +27,8 @@ describe("normalizeDataBase", () => {
     expect(source).not.toContain("Defaults to the latest validated static shelter-map bundle.");
   });
 
-  it("keeps pinned first-load metadata aligned with the recorded manifest fixture", () => {
-    const fixtureBytes = readFileSync(join(__dirname, "fixtures/published-manifest-20261002.json"));
+  it("keeps active pinned first-load metadata aligned with its manifest fixture", () => {
+    const fixtureBytes = readFileSync(join(__dirname, "fixtures/published-manifest-phase4-20261010.json"));
 
     expect(dataBundle.bundle).toBe(fixtureProvenance.bundle);
     expect(dataBundle.bundle).toBe(manifestFixture.bundle);

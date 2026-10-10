@@ -1,0 +1,14 @@
+{
+  "bundle": "generated_20261010_full_rescore_phase4_merged",
+  "generated_at": "2026-10-10T06:24:31.581852+00:00",
+  "data_as_of": "2026-08-25T12:35:08.603848+00:00",
+  "provenance": {
+    "record_count": 124443,
+    "state_counts": {
+      "NOT_YET_SCORED": 475,
+      "NO_TRANSIT_IN_RANGE": 1251,
+      "SCORED": 57300,
+      "SCORED_PARTIAL": 65417
+    }
+  }
+}

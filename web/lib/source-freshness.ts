@@ -62,10 +62,11 @@ export function sourceFreshnessAtCheck(record: SourceFreshnessInput): {
 // Historical facts, not a new check. Dates/hashes: tracked raw/manifest.json;
 // thresholds: pipeline/config/sources.yaml via quarterly=120d, weekly=30d policy.
 // Check receipt: qa/verification/P1023-browser-source-age-snapshot.md.
-// These three hashes also match the frozen bundle's manifest source_hashes.
+// These three hashes also match the frozen bundle's manifest source_hashes and
+// the active Phase 4 manifest, verified 2026-10-11; this does not claim a new check.
 // fetchedAt is kept as supporting metadata; it is NEVER a publisher update date.
 export const RECORDED_SOURCE_FRESHNESS = {
-  bundle: 'generated_20261002_full_rescore_bus_remodel_network_repair',  // same three source hashes as the 2026-08-05 bundle; verified against its manifest 2026-10-03
+  bundle: 'generated_20261010_full_rescore_phase4_merged',  // source hashes match the manifest-only check; verified against its manifest 2026-10-11
   checkedAt: '2026-08-29T17:23:22.780137+00:00',
   checkKind: 'manifest-only',
   // No publication timestamp is recorded in the pinned or frozen manifest.

@@ -183,6 +183,37 @@ def check_build_dependencies(web_dir: Path) -> None:
             raise ValueError("installed build/test dependencies missing; installation requires separate approval")
 
 
+def verify_test_source_identity(root: Path, revision: str) -> dict[str, Any]:
+    if not re.fullmatch(r"[0-9a-f]{40,64}", revision):
+        return {"ok": False, "error": "invalid_source_revision"}
+    paths = ("web", "scripts", "pipeline", "run.py", ".gitignore", ".vercelignore")
+    try:
+        changed = subprocess.run(
+            ["git", "diff", "--quiet", revision, "--", *paths], cwd=root,
+            capture_output=True, timeout=30, check=False,
+        )
+        if changed.returncode != 0:
+            return {"ok": False, "revision": revision, "error": "test_sources_differ_from_revision"}
+        untracked = subprocess.run(
+            ["git", "ls-files", "--others", "--exclude-standard", "--", *paths], cwd=root,
+            capture_output=True, timeout=30, check=False,
+        )
+        if untracked.returncode != 0:
+            return {"ok": False, "revision": revision, "error": "test_source_inventory_failed"}
+        untracked_sources = [
+            path for path in untracked.stdout.decode("utf-8", errors="replace").splitlines()
+            if Path(path).suffix.lower() != ".md"
+        ]
+    except (OSError, subprocess.SubprocessError):
+        return {"ok": False, "revision": revision, "error": "test_source_identity_unavailable"}
+    if untracked_sources:
+        return {
+            "ok": False, "revision": revision, "error": "untracked_test_sources",
+            "untrackedSources": untracked_sources,
+        }
+    return {"ok": True, "revision": revision, "untrackedSources": []}
+
+
 def link_build_dependencies(web_dir: Path, stage: Path) -> None:
     link = stage / "web/node_modules"
     if link.exists() or link.is_symlink():
@@ -240,6 +271,8 @@ def publish_preflight(
         if not run_external_checks:
             report.update(ok=True, state="plan_only")
             return True, report
+        report["failed_step"] = "test_source_identity"
+        require_check(report, "test_source_identity", verify_test_source_identity(PROJECT_ROOT, selection["revision"]))
         report["failed_step"] = "dependencies"
         check_build_dependencies(web_dir)
         report["failed_step"] = "staging"
@@ -269,7 +302,7 @@ def publish_preflight(
         link_build_dependencies(web_dir, stage)
         report["failed_step"] = "web_tests"
         require_check(report, "web_tests", command_status(run_command(
-            [command_name("node"), str(stage / "web/scripts/test-web.mjs")], cwd=stage / "web",
+            [command_name("node"), str(web_dir / "scripts/test-web.mjs")], cwd=web_dir,
         )))
         report["failed_step"] = "next_build"
         require_check(report, "next_build", command_status(run_command(

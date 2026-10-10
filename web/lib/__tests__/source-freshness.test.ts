@@ -99,7 +99,7 @@ describe('currently recorded metadata, not a new freshness baseline', () => {
     expect(RECORDED_SOURCE_FRESHNESS.checkedAt).toBe('2026-08-29T17:23:22.780137+00:00');
     expect(RECORDED_SOURCE_FRESHNESS.checkKind).toBe('manifest-only');
     expect(RECORDED_SOURCE_FRESHNESS.releasedAt).toBeNull();
-    expect(parseFreshnessDate(bundle.generated_at)?.label).toBe('3 Oct 2026, 16:37 SGT');
+    expect(parseFreshnessDate(bundle.generated_at)?.label).toBe('10 Oct 2026, 14:24 SGT');
     expect(parseFreshnessDate(bundle.data_as_of)?.label).toBe('25 Aug 2026, 20:35 SGT');
     expect(parseFreshnessDate(RECORDED_SOURCE_FRESHNESS.checkedAt)?.label).toBe('30 Aug 2026, 01:23 SGT');
   });
