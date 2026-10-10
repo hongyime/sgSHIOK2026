@@ -1,7 +1,7 @@
 # SHIOK Revamp Execution Plan
 Current scope: 2026-09-13 owner revision, replacing the 12 September UI scope.
 Completion resume: IN PROGRESS after14September owner answers, not complete.
-Current checkpoint 2026-10-11: canonical C:\sgSHIOK2026 main and origin/main are synchronized at c2ec91e.
+Current checkpoint 2026-10-11: canonical C:\sgSHIOK2026 main and origin/main are synchronized after the T01/T02 source fixes. Production acceptance remains open.
 
 Phase 4 production release completed for generated_20261010_full_rescore_phase4_merged: 124,443 records, 5,211 artifacts, data_as_of 2026-08-25. Deployment dpl_CYm6EAxHRq37XDcptzpQRBi5VEP3 is READY; both production aliases are verified and serve the exact selected manifest SHA256 227f0fa8b906cc0cbc6cbf17d3a97ec5fc0c0ae2f06a31919f78a9be427e68a2. Release receipt: qa/revamp-r1/post-rescore-20261001/phase4_production_completion_20261011.json.
 
