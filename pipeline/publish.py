@@ -88,7 +88,9 @@ def release_selection(input_dir: Path | None, web_dir: Path) -> dict[str, Any]:
         raise ValueError("release must use the repository web directory")
     pointer_path = scoped_path(web_dir / "data-bundle.json", root)
     revision, pointer_bytes = committed_pointer(root)
-    if pointer_path.read_bytes() != pointer_bytes:
+    worktree_pointer = pointer_path.read_bytes().replace(b"\r\n", b"\n")
+    committed_pointer_bytes = pointer_bytes.replace(b"\r\n", b"\n")
+    if worktree_pointer != committed_pointer_bytes:
         raise ValueError("web/data-bundle.json differs from committed source")
     pointer = json.loads(pointer_bytes)
     bundle = pointer.get("bundle") if isinstance(pointer, dict) else None

@@ -102,6 +102,17 @@ def test_changed_pointer_is_not_replaced_silently(release):
     assert "committed" in report["errors"][0]
 
 
+def test_release_selection_accepts_crlf_worktree_for_committed_pointer(release, monkeypatch):
+    _, web, data = release
+    committed = b'{\n  "bundle": "current"\n}\n'
+    monkeypatch.setattr(publish, "committed_pointer", lambda root: ("a" * 40, committed))
+    (web / "data-bundle.json").write_bytes(committed.replace(b"\n", b"\r\n"))
+
+    selected = publish.release_selection(data, web)
+
+    assert selected["data"] == data
+
+
 @pytest.fixture
 def prepared(release, monkeypatch):
     root, web, data = release
