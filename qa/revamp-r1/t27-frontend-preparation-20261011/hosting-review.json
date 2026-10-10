@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "reviewedDate": "2026-10-11",
+  "ticket": "T27",
+  "candidate": {
+    "sourceRevision": "30760dd6b271f5108ab551bb7438e7df01f1269d",
+    "releaseManifestSha256": "2bdcdfd12e69e4c0ccd4e9c526ce98d59b29db8632697817529119ad3814a957",
+    "stagedFiles": 7225,
+    "stagedInputBytes": 7937900407,
+    "largestStagedFileBytes": 5242860,
+    "stagedFilesOver100MB": 0,
+    "uploadedArchiveBytes": null,
+    "deploymentStorageBytes": null
+  },
+  "hobbyLimits": {
+    "sourceFileUploadSize": "100 MB",
+    "sourceFilesPerDeployment": 15000,
+    "buildMinutesPerDeployment": 45,
+    "concurrentDeployments": 1,
+    "deploymentStorage": "10 GB"
+  },
+  "checks": {
+    "sourceFileCount": {
+      "observed": 7225,
+      "limit": 15000,
+      "status": "within_limit_by_count"
+    },
+    "sourceFileUploadSize": {
+      "largestObservedBytes": 5242860,
+      "limit": "100 MB",
+      "filesOverLimit": 0,
+      "status": "within_limit"
+    },
+    "compressedCliArchiveSize": "not measured; this candidate has not been submitted",
+    "remoteBuildDuration": "unverified for this candidate; its local production build passed",
+    "teamDeploymentStorageHeadroom": "unverified; read-only usage query returned Costs not found (404)",
+    "previousPlainUpload": "a prior 7.2 GB plain-upload attempt failed; do not retry unchanged",
+    "deploymentPerformed": false
+  },
+  "assessment": "The source-file count and per-file upload-size checks pass. Current team deployment-storage headroom is unknown, and the compressed CLI archive has not been produced because the candidate has not been submitted. Do not submit until storage headroom and the T25/T26/T29 release gates are resolved. The staged input byte total is not equivalent to Vercel deployment storage usage.",
+  "sources": [
+    "https://vercel.com/docs/limits",
+    "https://vercel.com/changelog/hobby-projects-now-retain-fewer-deployments-to-free-up-storage",
+    "https://vercel.com/docs/cli/usage"
+  ]
+}
