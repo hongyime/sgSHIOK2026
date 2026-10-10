@@ -1,16 +1,18 @@
 # SHIOK Revamp Execution Plan
 Current scope: 2026-09-13 owner revision, replacing the 12 September UI scope.
 Completion resume: IN PROGRESS after14September owner answers, not complete.
-Current checkpoint 2026-10-10: `main` is pushed through commit `48b8e2e`.
+Current checkpoint 2026-10-10: `main` includes commits `48b8e2e` and `a3a11a6`.
 The full rescore/export is complete and the October bundle is active in
 `web/data-bundle.json` (124,443 records; 5,211 files; validation passed). Do not
 repeat the rescore or export.
 
 The isolated web dependency update resolves to Next 16.4.0 and MapLibre 6.4.1;
 `npm audit` reports zero vulnerabilities, and 3,357 web tests, 42 dependency
-guards and TypeScript pass. GitHub had four open Python `virtualenv` alerts in
-`uv.lock`; `virtualenv` has now been upgraded from 21.7.0 to 21.14.5 and
-`uv lock --check` passes. Recheck GitHub after this lock update is pushed. The
+guards and TypeScript pass. GitHub had four open Python `virtualenv` alerts in `uv.lock`; `virtualenv` has
+now been upgraded from 21.7.0 to 21.14.5 and `uv lock --check` passes. After
+push `a3a11a6`, GitHub still reports four open alerts and its default-branch
+SBOM still shows 21.7.0 although `origin/main` contains 21.14.5. Keep the alert
+task open until the dependency graph refreshes and the alerts are rechecked. The
 critical Next.js alert is marked fixed.
 
 No October production build or deployment ran. The release wrapper stopped
