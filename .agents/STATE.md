@@ -78,3 +78,16 @@ POST-RESCORE AUTOMATED (1Oct, owner "auto continue"): scheduled task SHIOK-PostR
 - Step 5 is now verified: Phase 4's 12 corrected records were merged into a derived score batch in 11 chunks; 238 unchanged chunks are hard-linked to the immutable full-rescore source. Receipt: `qa/revamp-r1/post-rescore-20261001/phase4_merge_20261010.json`. Source full-rescore batch and active October bundle remain untouched.
 - Phase 4 merged candidate export completed: `generated_20261010_full_rescore_phase4_merged`, 5,211 files / 124,443 records / 4,884 geometry shards. Export and both static validators exit 0 with no errors or warnings. Exact state/total/subscores comparison passed for all 12 Phase 4 records; receipt `qa/revamp-r1/post-rescore-20261001/phase4_export_comparison_20261010.json`. Readiness is blocked (exit 1): mixed scoring fingerprints, no fresh same-bundle OneMap validation or waiver, and local Vercel root directory missing; `infrastructure_readiness` is false because of that Vercel config error. Full report: `qa/revamp-r1/post-rescore-20261001/phase4_merged_readiness_20261010.log`. `web/data-bundle.json` remains on the October 2 bundle; do not activate the candidate until the readiness blockers are resolved or explicitly waived. Next: reconcile fingerprint provenance, obtain/record candidate-specific OneMap validation or waiver, confirm Vercel project root configuration, then rerun readiness and activate only if its gate passes.
 Machine-specific values in this document use privacy placeholders.
+
+<!-- MOLT_AUTO_START -->
+## Auto State
+
+- Updated: 2026-10-10 17:13:48 +08:00
+- Machine: PRAWN-E14
+- Harness: codex
+- Event: session-start
+- Branch: main
+- HEAD: eaa677ae
+- Dirty files: 0
+- Resume hint: Read .agents/STATE.md, then the latest file in .agents/handoffs/ if present.
+<!-- MOLT_AUTO_END -->
