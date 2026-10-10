@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-11",
+  "ticket": "T27",
+  "result": "prepared_not_deployed",
+  "sourceRevision": "30760dd6b271f5108ab551bb7438e7df01f1269d",
+  "bundle": "generated_20261010_full_rescore_phase4_merged",
+  "overlay": "lamp_posts_v1",
+  "previousFrontend": {
+    "buildId": "bld_403kn1yag",
+    "manifestSha256": "0d5b121c36054440a6560dda949a78a91099852374143268c5203203cf83ab8f",
+    "files": 17,
+    "bytes": 1960042
+  },
+  "checks": {
+    "sourceIdentity": {"ok": true, "untrackedSources": []},
+    "stageIntegrity": {"ok": true, "filesVerified": 7225},
+    "artifactValidation": {
+      "ok": true,
+      "mainFiles": 6296,
+      "indexedPostals": 124443,
+      "geometryPostalsWithRouteSegments": 122717,
+      "lampOverlayTiles": 700,
+      "lampOverlayMissingTiles": 0,
+      "lampOverlaySizeMismatches": 0
+    },
+    "npmAudit": {"ok": true, "vulnerabilities": 0},
+    "webTests": {"ok": true, "passed": 3355, "files": 86},
+    "productionBuild": {
+      "ok": true,
+      "nextVersion": "16.4.0",
+      "bundler": "webpack",
+      "typescript": "passed",
+      "staticPages": "8/8",
+      "buildId": "JoNf40iMupE-FhEICn85l",
+      "retentionManifestSha256": "59b615c7025043e21ea39fae454b24873381b0fd1758c9de0c6c388eeccebc06"
+    },
+    "postBuildIdentity": {
+      "ok": true,
+      "status": "verified_not_deployed",
+      "filesVerified": 7225,
+      "releaseManifestSha256": "2bdcdfd12e69e4c0ccd4e9c526ce98d59b29db8632697817529119ad3814a957"
+    }
+  },
+  "warnings": [
+    "Installed @next/swc is 16.3.3 while Next.js is 16.4.0; the guarded Webpack build passed."
+  ],
+  "environmentRecovery": "The first invocation used system Python without h3. The existing repository virtual environment supplied h3, and the same already-staged candidate was reused for the remaining checks.",
+  "deployExecuted": false,
+  "readyToSubmit": false,
+  "remainingGates": ["T25 full accessibility/failure acceptance", "T26 owner/device/user acceptance", "T29 old MapLibre 6.1.0 asset policy"]
+}

@@ -5340,3 +5340,7 @@ Focused route-popup and transit-popup suites pass 52/52; the full web suite pass
 This closes the app-owned popup/visible-attribution HTML sink review slice. It does not establish application exploitability or resolve the separate public MapLibre 6.1.0 asset-retention policy. The owner choice remains open before the next release. Advisory: https://github.com/maplibre/maplibre-gl-js/security/advisories/GHSA-jrc7-96c5-q579
 
 Machine-readable result and source hashes: qa/revamp-r1/maplibre-boundary-hardening-20261011/summary.json
+
+## 2026-10-11: Keep the Phase 4 candidate prepared but unsubmitted
+
+The current source and unchanged Phase 4 data bundle passed local release staging, artifact validation, the dependency audit, the full web suite, the guarded Webpack build, and post-build manifest verification. The candidate pins the exact prior production frontend inventory for compatibility. Keep it unsubmitted until T29's public MapLibre 6.1.0 retention policy is decided and the remaining accessibility/owner acceptance gates are addressed. The build's SWC/Next.js version mismatch is recorded for follow-up. This preparation did not deploy, change the live pointer, or export/rescore data. Receipt: `qa/revamp-r1/t27-frontend-preparation-20261011/summary.json`.
