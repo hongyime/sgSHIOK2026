@@ -1,0 +1,32 @@
+{
+  "observedAtUtc": "2026-10-10T22:20:43.96Z",
+  "url": "https://sgshiok.vercel.app/?postal=018956",
+  "method": "Chrome DevTools Accessibility.getFullAXTree; read-only production snapshot; not screen-reader output",
+  "scope": "Read-only production accessibility-tree snapshot",
+  "page": {
+    "status": "ready",
+    "routeFeatures": 4,
+    "expanded": "true",
+    "nestedDisclosureOpen": true
+  },
+  "axNodeCount": 156,
+  "checks": {
+    "postalSearchNamed": true,
+    "searchButtonNamed": true,
+    "walkDetailsExpanded": true,
+    "busAndMrtControlsNamed": true,
+    "sectionActionNamed": true,
+    "uncoveredDisclosure": {
+      "role": "DisclosureTriangle",
+      "name": "Uncovered sections (3)",
+      "expanded": true
+    }
+  },
+  "extractorCorrection": "The raw probe has uncoveredDisclosureExpanded=false because the summary selector expected a button. The AX node is a DisclosureTriangle and its expanded property is true; the selector result is not evidence that the app disclosure is collapsed.",
+  "limitations": [
+    "This tree does not provide actual screen-reader speech, order, timing, or usability.",
+    "Does not close T25 screen-reader or same-document zoom acceptance.",
+    "Does not replace T26 owner and physical-device acceptance."
+  ],
+  "rawEvidence": "raw-probe.json"
+}

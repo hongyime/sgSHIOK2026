@@ -1,0 +1,308 @@
+{
+  "url": "https://sgshiok.vercel.app/?postal=018956",
+  "startedAt": "2026-10-10T22:20:43.960Z",
+  "method": "Chrome DevTools Accessibility.getFullAXTree; read-only production snapshot; not screen-reader output",
+  "page": {
+    "status": "ready",
+    "routeFeatures": 4,
+    "expanded": "true",
+    "nestedDisclosureOpen": true
+  },
+  "axSummary": {
+    "nodeCount": 156,
+    "relevant": [
+      {
+        "role": "generic",
+        "name": "",
+        "description": "",
+        "value": "",
+        "properties": {}
+      },
+      {
+        "role": "generic",
+        "name": "",
+        "description": "",
+        "value": "",
+        "properties": {}
+      },
+      {
+        "role": "generic",
+        "name": "",
+        "description": "",
+        "value": "",
+        "properties": {}
+      },
+      {
+        "role": "generic",
+        "name": "",
+        "description": "",
+        "value": "",
+        "properties": {}
+      },
+      {
+        "role": "generic",
+        "name": "",
+        "description": "",
+        "value": "",
+        "properties": {}
+      },
+      {
+        "role": "region",
+        "name": "Postal-code search",
+        "description": "",
+        "value": "",
+        "properties": {}
+      },
+      {
+        "role": "generic",
+        "name": "",
+        "description": "",
+        "value": "",
+        "properties": {}
+      },
+      {
+        "role": "generic",
+        "name": "",
+        "description": "",
+        "value": "",
+        "properties": {}
+      },
+      {
+        "role": "heading",
+        "name": "S.H.I.O.K. Shelter Map",
+        "description": "",
+        "value": "",
+        "properties": {
+          "level": 1
+        }
+      },
+      {
+        "role": "status",
+        "name": "",
+        "description": "",
+        "value": "",
+        "properties": {
+          "live": "polite",
+          "atomic": true,
+          "relevant": "additions text"
+        }
+      },
+      {
+        "role": "status",
+        "name": "",
+        "description": "",
+        "value": "",
+        "properties": {
+          "live": "polite",
+          "atomic": true,
+          "relevant": "additions text"
+        }
+      },
+      {
+        "role": "region",
+        "name": "Walk summary",
+        "description": "",
+        "value": "",
+        "properties": {}
+      },
+      {
+        "role": "generic",
+        "name": "Transit stop or exit type",
+        "description": "",
+        "value": "",
+        "properties": {}
+      },
+      {
+        "role": "button",
+        "name": "Collapse walk details",
+        "description": "",
+        "value": "",
+        "properties": {
+          "invalid": "false",
+          "focusable": true,
+          "expanded": true,
+          "controls": "walk-details"
+        }
+      },
+      {
+        "role": "generic",
+        "name": "",
+        "description": "",
+        "value": "",
+        "properties": {}
+      },
+      {
+        "role": "region",
+        "name": "Shelter-map view for Postal 018956, showing sheltered walk",
+        "description": "Shelter-map view for Postal 018956. Showing 4 sheltered-walk segments, 3 mapped exposed sections, and 7 MRT or LRT stations, 34 exits, and 27 bus stops. 794 lamp-post points in view.",
+        "value": "",
+        "properties": {
+          "focusable": true,
+          "describedby": "route-map-summary"
+        }
+      },
+      {
+        "role": "textbox",
+        "name": "Enter 6-digit Singapore postal code",
+        "description": "",
+        "value": "018956",
+        "properties": {
+          "invalid": "false",
+          "focusable": true,
+          "editable": "plaintext",
+          "settable": true,
+          "multiline": false,
+          "readonly": false,
+          "required": true
+        }
+      },
+      {
+        "role": "button",
+        "name": "Search postal code",
+        "description": "Search postal code",
+        "value": "",
+        "properties": {
+          "invalid": "false",
+          "focusable": true
+        }
+      },
+      {
+        "role": "heading",
+        "name": "Postal 018956",
+        "description": "",
+        "value": "",
+        "properties": {
+          "focusable": true,
+          "level": 2
+        }
+      },
+      {
+        "role": "button",
+        "name": "MRT/LRT exits",
+        "description": "Show mrt/lrt exits walk",
+        "value": "",
+        "properties": {
+          "invalid": "false",
+          "focusable": true,
+          "pressed": "false"
+        }
+      },
+      {
+        "role": "button",
+        "name": "Bus stops",
+        "description": "Show bus stops walk",
+        "value": "",
+        "properties": {
+          "invalid": "false",
+          "focusable": true,
+          "pressed": "true"
+        }
+      },
+      {
+        "role": "group",
+        "name": "",
+        "description": "",
+        "value": "",
+        "properties": {}
+      },
+      {
+        "role": "generic",
+        "name": "",
+        "description": "",
+        "value": "",
+        "properties": {}
+      },
+      {
+        "role": "generic",
+        "name": "",
+        "description": "",
+        "value": "",
+        "properties": {
+          "editable": "plaintext"
+        }
+      },
+      {
+        "role": "group",
+        "name": "Mapped exposed sections",
+        "description": "",
+        "value": "",
+        "properties": {}
+      },
+      {
+        "role": "button",
+        "name": "Section 1 16 m",
+        "description": "",
+        "value": "",
+        "properties": {
+          "invalid": "false",
+          "focusable": true,
+          "pressed": "false"
+        }
+      },
+      {
+        "role": "button",
+        "name": "Section 2 11 m",
+        "description": "",
+        "value": "",
+        "properties": {
+          "invalid": "false",
+          "focusable": true,
+          "pressed": "false"
+        }
+      },
+      {
+        "role": "button",
+        "name": "Section 3 9 m",
+        "description": "",
+        "value": "",
+        "properties": {
+          "invalid": "false",
+          "focusable": true,
+          "pressed": "false"
+        }
+      }
+    ],
+    "searchNamePresent": true,
+    "searchButtonPresent": true,
+    "walkDetailsExpandedButton": true,
+    "uncoveredDisclosureExpanded": false,
+    "sectionActionPresent": true,
+    "busControlPresent": true,
+    "mrtControlPresent": true,
+    "uncoveredNodes": [
+      {
+        "role": "StaticText",
+        "name": "Uncovered",
+        "ignored": false,
+        "properties": {}
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "Uncovered",
+        "ignored": false,
+        "properties": {}
+      },
+      {
+        "role": "DisclosureTriangle",
+        "name": "Uncovered sections (3)",
+        "ignored": false,
+        "properties": {
+          "focusable": true,
+          "expanded": true
+        }
+      },
+      {
+        "role": "StaticText",
+        "name": "Uncovered sections ",
+        "ignored": false,
+        "properties": {}
+      },
+      {
+        "role": "InlineTextBox",
+        "name": "Uncovered sections ",
+        "ignored": false,
+        "properties": {}
+      }
+    ]
+  }
+}
