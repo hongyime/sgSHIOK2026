@@ -5384,3 +5384,7 @@ Authenticated read-only `vercel inspect https://sgshiok.hong-yi.me` still identi
 ## 2026-10-11: Verify T02 request paths in the corrected candidate
 
 The existing local captured-production-A to candidate-B browser run records candidate B's ordinary navigation. The score-prefix, score-shard and geometry-shard plain JSON requests each returned HTTP 200; those three paths issued no `.json.gz` probes. Compressed postal and transit paths remained; one optional transit H3 request returned 404 for a cell with zero POIs. This confirms the candidate's request-path fix in the local run, not deployed cold/warm timing or M12 acceptance. Evidence: `qa/revamp-r1/t01-candidate-local-preflight-20261011/observed-Ssxnkk/browser.json`.
+
+## 2026-10-11: Confirm the effect of pushing to `main`
+
+The authenticated Vercel project API reports that `sgshiok` is linked to GitHub repository `hongyime/sgSHIOK2026`, production branch `main`, with `gitProviderOptions.createDeployments="enabled"` and no ignore-build command. A push to `main` can trigger a production deployment. Keep the prepared commits local until T27 storage headroom and T28 exception approval are resolved; do not disable Git deployments to bypass those gates.
