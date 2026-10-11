@@ -1,6 +1,7 @@
 # Current State
 Date: 2026-10-11
 Current decision: owner chose removal of the prior MapLibre 6.1.0 files from the next release. Production still serves them; a replacement candidate must omit them. The owner reports Vercel Hobby storage is full.
+Current T27 candidate: local stage from `e810f9850e1b03d9c8a9ee19e996ff582f7a60b3` passed post-build identity with manifest SHA256 `f6533a3a3fd9bfd44498b5c1c13fed572d1358a796624c101422ec49b4d2103f`, Next build `JKWWpNQT62N7sNnGKKFCX`, and 7,222 staged files. It has no 6.1.0 paths. No deployment. Receipt: `qa/revamp-r1/t27-frontend-preparation-20261011/maplibre-removal-candidate.json`.
 Working root: C:\sgSHIOK2026; machine: dev-host-2.example.
 Startup: assert cwd equals C:\sgSHIOK2026; abort otherwise. Absolute C: writes only. X: is a cold mirror, never a session root.
 Before git, set TEMP and TMP to C:\sgSHIOK2026\tmp. Conventional commits go directly to main and must be pushed; no amend, force-push or history rewrite.

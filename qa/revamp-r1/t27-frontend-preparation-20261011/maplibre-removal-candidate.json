@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-11",
+  "ticket": "T27",
+  "decision": "Remove archived MapLibre 6.1.0 assets from the next release",
+  "result": "prepared_not_deployed",
+  "sourceRevision": "e810f9850e1b03d9c8a9ee19e996ff582f7a60b3",
+  "bundle": "generated_20261010_full_rescore_phase4_merged",
+  "localStage": "tmp/vercel_source_no_maplibre_6_1_0_20261011",
+  "releaseManifestSha256": "f6533a3a3fd9bfd44498b5c1c13fed572d1358a796624c101422ec49b4d2103f",
+  "stagedFiles": 7222,
+  "previousFrontend": {
+    "sourceBuildId": "bld_403kn1yag",
+    "filteredInventorySha256": "a3b3cfa90d02a56dd27da646358902935b071e936ac631f7cee1d5a0f02973e7",
+    "retainedFiles": 14,
+    "retainedBytes": 1455623,
+    "removedFiles": [
+      "maplibre/6.1.0/LICENSE.txt",
+      "maplibre/6.1.0/maplibre-gl-shared.mjs",
+      "maplibre/6.1.0/maplibre-gl-worker.mjs"
+    ],
+    "removedBytes": 504419
+  },
+  "build": {
+    "status": "passed",
+    "nextVersion": "16.4.0",
+    "bundler": "webpack",
+    "buildId": "JKWWpNQT62N7sNnGKKFCX",
+    "typescript": "passed",
+    "staticPages": "8/8",
+    "retentionManifestSha256": "7ace147cfe8722d5a242bbcacf5005dfe75ccd7dbc62d6d63e3099859bc2e996",
+    "retainedBuildIds": [
+      "bld_403kn1yag"
+    ],
+    "retainedFiles": 14,
+    "retainedBytes": 1455623
+  },
+  "checks": {
+    "preBuildIdentity": "verified_not_deployed",
+    "postBuildIdentity": "verified_not_deployed",
+    "maplibre61PathsRemaining": 0,
+    "deployment": "not run"
+  },
+  "reuse": {
+    "priorTestEvidenceRevision": "30760dd6b271f5108ab551bb7438e7df01f1269d",
+    "releaseSourceDiffSinceTestRevision": [],
+    "webTestsRerun": false,
+    "npmAuditRerun": false
+  },
+  "warnings": [
+    "Installed @next/swc is 16.3.3 while Next.js is 16.4.0; the Webpack build passed.",
+    "Post-build identity verification returned successfully; a subsequent summary formatter had a KeyError reading a nonexistent retention-manifest field. Verification was not rerun."
+  ],
+  "remainingGates": [
+    "T01 retained-client production acceptance",
+    "T25 accessibility and failure acceptance",
+    "T26 owner/device/user acceptance",
+    "Vercel deployment-storage capacity",
+    "T28 controlled deployment and post-deploy acceptance",
+    "T29 production confirmation that archived MapLibre 6.1.0 URLs are absent"
+  ]
+}
