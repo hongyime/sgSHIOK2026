@@ -53,6 +53,7 @@
   ],
   "remainingGates": [
     "T01 retained-client production acceptance",
+    "T02 post-fix deployed loading profile",
     "T25 accessibility and failure acceptance",
     "T26 owner/device/user acceptance",
     "Vercel deployment-storage capacity",
