@@ -5380,3 +5380,7 @@ The owner selected preparation of a limited-release exception after confirming t
 ## 2026-10-11: Recheck the current production release gates
 
 Authenticated read-only `vercel inspect https://sgshiok.hong-yi.me` still identifies READY deployment `dpl_CYm6EAxHRq37XDcptzpQRBi5VEP3` with all three production aliases. HTTP HEAD returned 200 for the public MapLibre 6.1.0 shared module, worker and license; T29 is still open. The installed Vercel CLI 59.5.0 help defines `vercel usage` as billing MIUs/costs, with project/region grouping; it offers no Deployment Storage metric. No numeric post-removal storage usage is available through that command, and no new deployment was submitted.
+
+## 2026-10-11: Verify T02 request paths in the corrected candidate
+
+The existing local captured-production-A to candidate-B browser run records candidate B's ordinary navigation. The score-prefix, score-shard and geometry-shard plain JSON requests each returned HTTP 200; those three paths issued no `.json.gz` probes. Compressed postal and transit paths remained; one optional transit H3 request returned 404 for a cell with zero POIs. This confirms the candidate's request-path fix in the local run, not deployed cold/warm timing or M12 acceptance. Evidence: `qa/revamp-r1/t01-candidate-local-preflight-20261011/observed-Ssxnkk/browser.json`.
