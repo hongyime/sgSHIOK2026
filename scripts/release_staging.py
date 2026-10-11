@@ -26,6 +26,9 @@ MAX_FILES = 20000
 MAX_FRONTEND_BYTES = 64 * 1024 * 1024
 MAX_FRONTEND_FILES = 5000
 MAX_FRONTEND_GENERATIONS = 2
+# Owner-selected T29 policy: preserve source history, but omit this retired
+# public runtime from every newly prepared release stage.
+RELEASE_OMITTED_SOURCE_PREFIXES = ("web/public/maplibre/6.1.0/",)
 BUILD_COMMAND = "node scripts/build-next-release.mjs build"
 INSTALL_COMMAND = "npm ci --ignore-scripts --no-audit --no-fund"
 GENERATED_FILES = {"web/next-env.d.ts", "web/tsconfig.tsbuildinfo"}
@@ -186,6 +189,8 @@ def _source_inventory(root: Path, revision: str) -> list[dict]:
         info, name = raw.split(b"\t", 1)
         mode, kind, oid, size = info.decode().split()
         path = _relative(name.decode("utf-8")).as_posix()
+        if path.startswith(RELEASE_OMITTED_SOURCE_PREFIXES):
+            continue
         if path == "web/frontend-retention.json" or path.startswith("web/public/_retained/"):
             raise ReleaseStagingError("RESERVED_RETENTION_SOURCE", path)
         if not path.startswith("web/") or mode not in {"100644", "100755"} or kind != "blob" or _private(path):

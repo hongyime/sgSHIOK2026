@@ -169,6 +169,28 @@ def test_committed_source_only_both_artifacts_gzip_bytes_and_no_input_changes(st
     json.dumps(result)
 
 
+def test_owner_selected_maplibre61_source_is_excluded_from_release_stage(staging, repository):
+    root, _, _ = repository
+    removed_assets = {
+        "web/public/maplibre/6.1.0/LICENSE.txt": b"retired license",
+        "web/public/maplibre/6.1.0/maplibre-gl-shared.mjs": b"retired shared runtime",
+        "web/public/maplibre/6.1.0/maplibre-gl-worker.mjs": b"retired worker runtime",
+    }
+    for path, content in removed_assets.items():
+        put(root, path, content)
+    git(root, "add", "web/public/maplibre/6.1.0")
+    git(root, "commit", "-qm", "test: fixture retired map runtime")
+
+    result = prepare(staging, repository)
+    stage = Path(result["stageRoot"])
+    staged_paths = {entry["path"] for entry in result["files"]}
+    source_paths = {entry["path"] for entry in result["sourceFiles"]}
+    assert not (stage / "web/public/maplibre/6.1.0").exists()
+    assert all(path not in staged_paths and path not in source_paths for path in removed_assets)
+    assert all((root / path).read_bytes() == content for path, content in removed_assets.items())
+    staging.verify_release_stage(root, stage, expected_manifest_sha256=result["releaseManifestSha256"])
+
+
 def test_derived_remote_config_does_not_execute_package_hooks(staging, repository):
     root, _, _ = repository
     original = json.loads((root / "web/vercel.json").read_bytes())
