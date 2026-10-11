@@ -467,10 +467,12 @@ def test_staging_adapters_forward_the_pinned_revision_overlay_and_creation_hash(
     monkeypatch.setattr(release_staging, "prepare_release_stage", prepare)
     monkeypatch.setattr(release_staging, "verify_release_stage", verify)
     selected = [(root / "tmp/previous-frontend", "b" * 64)]
-    result = publish.prepare_vercel_source(web, data, revision="a" * 40, previous_frontends=selected)
+    result = publish.prepare_vercel_source(web, data, revision="a" * 40, previous_frontends=selected,
+                                           gzip_main_json=True)
     assert called["repo"] == root and called["main"] == data
     assert called["revision"] == "a" * 40 and called["overlay_dir"] == data.parent / "lamp_posts_v1"
     assert called["previous_frontends"] == selected
+    assert called["gzip_main_json"] is True
     assert publish.verify_stage(Path(result["stageRoot"]), result["releaseManifestSha256"])["ok"]
 
 

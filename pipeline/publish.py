@@ -147,16 +147,22 @@ def deploy_compressed_json_only(relative_path: Path) -> bool:
 
 
 def prepare_vercel_source(web_dir: Path, data_dir: Path, *, revision: str,
-                          previous_frontends: list[tuple[Path, str]] | None = None) -> dict[str, Any]:
+                          previous_frontends: list[tuple[Path, str]] | None = None,
+                          gzip_main_json: bool = False) -> dict[str, Any]:
     from scripts.release_staging import prepare_release_stage
 
     if not previous_frontends:
         raise ValueError("previous frontend archive and manifest SHA256 required; use --previous-frontend PATH SHA256 after release-identity/security review")
     stage = PROJECT_ROOT / "tmp" / f"vercel_source_{uuid4().hex}"
+    options = dict(
+        previous_frontends=previous_frontends,
+    )
+    if gzip_main_json:
+        options["gzip_main_json"] = True
     return prepare_release_stage(
         PROJECT_ROOT, data_dir, stage_dir=stage,
         overlay_dir=web_dir / "public/data" / OVERLAY_BUNDLE, revision=revision,
-        previous_frontends=previous_frontends,
+        **options,
     )
 
 
@@ -256,6 +262,7 @@ def publish_preflight(
     input_dir: Path | None = None, web_dir: Path = WEB_DIR, *,
     run_external_checks: bool = False, confirm_preparation: bool = False,
     previous_frontends: list[tuple[Path, str]] | None = None,
+    gzip_main_json: bool = False,
 ) -> tuple[bool, dict[str, Any]]:
     report = report_base("preflight")
     if run_external_checks and not confirm_preparation:
@@ -277,7 +284,8 @@ def publish_preflight(
         check_build_dependencies(web_dir)
         report["failed_step"] = "staging"
         prepared = prepare_vercel_source(web_dir, selection["data"], revision=selection["revision"],
-                                         previous_frontends=previous_frontends)
+                                         previous_frontends=previous_frontends,
+                                         gzip_main_json=gzip_main_json)
         stage = Path(prepared["stageRoot"])
         ledger_hash = prepared["releaseManifestSha256"]
         if not isinstance(ledger_hash, str) or not re.fullmatch(r"[a-f0-9]{64}", ledger_hash):

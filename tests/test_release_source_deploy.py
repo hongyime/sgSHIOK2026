@@ -27,7 +27,7 @@ def source(tmp_path, monkeypatch):
                "scope": "source-archive", "status": "verified-not-deployed", "completeSourceInventory": True,
                "pilotMaxBytes": None, "cliReference": archive.CLI_REFERENCE, "partBytes": 256, "parts": parts,
                "compressedBytes": sum(p["size"] for p in parts), "sourceRevision": "a" * 40,
-               "artifacts": {"main": "generated_20260805_prefer_scored_routed", "overlay": "lamp_posts_v1"},
+               "artifacts": {"main": "generated_20261010_full_rescore_phase4_merged", "overlay": "lamp_posts_v1"},
                "deploymentFiles": [{k: p[k] for k in ("file", "sha", "size", "mode")} for p in parts]}
     receipt["verification"] = {"compressedBytes": receipt["compressedBytes"]}
     path = directory / archive.RECEIPT_NAME

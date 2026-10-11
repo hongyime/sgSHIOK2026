@@ -35,12 +35,14 @@ type GeomPostalIndex = Record<string, string>;
 type ScorePrefixIndex = Record<string, string[]>;
 const DATA_FETCH_OPTIONS: RequestInit = { cache: "force-cache" };
 const _jsonInFlight = new Map<string, Promise<unknown>>();
+const GZIP_ONLY_DATA_BUNDLE = (dataBundle as typeof dataBundle & { jsonEncoding?: string }).jsonEncoding === "gzip";
 
 function dataUrl(path: string): string {
   return `${DATA_BASE}${path}`;
 }
 
 function hasCompressedArtifact(path: string): boolean {
+  if (GZIP_ONLY_DATA_BUNDLE && path.endsWith(".json")) return true;
   if (
     path === "manifest.json" ||
     path === "scores/index.json" ||
@@ -55,7 +57,8 @@ function hasCompressedArtifact(path: string): boolean {
 }
 
 function compressedOnlyArtifact(path: string): boolean {
-  return /^transit\/h3\/[^/]+\.json$/.test(path);
+  return (GZIP_ONLY_DATA_BUNDLE && path.endsWith(".json"))
+    || /^transit\/h3\/[^/]+\.json$/.test(path);
 }
 
 function artifactRole(path: string): ArtifactFailure["artifactRole"] {

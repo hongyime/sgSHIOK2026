@@ -191,6 +191,29 @@ def test_owner_selected_maplibre61_source_is_excluded_from_release_stage(staging
     staging.verify_release_stage(root, stage, expected_manifest_sha256=result["releaseManifestSha256"])
 
 
+def test_gzip_only_representation_changes_staged_bytes_not_source_json(staging, repository):
+    root, data, _ = repository
+    raw_path = data / "scores/AREA.json"
+    raw_before = raw_path.read_bytes()
+    (data / "scores/AREA.json.gz").unlink()
+    source_before = snapshot(data)
+
+    result = staging.prepare_release_stage(root, data, stage_dir=root / "tmp/gzip-stage",
+        overlay_dir=root / "web/public/data/lamp_posts_v1", revision="HEAD", gzip_main_json=True)
+    stage = Path(result["stageRoot"])
+    physical = stage / "web/public/data/generated_fixture/scores/AREA.json.gz"
+    assert not physical.with_suffix("").exists()
+    assert gzip.decompress(physical.read_bytes()) == raw_before
+    assert json.loads((stage / "web/data-bundle.json").read_bytes())["jsonEncoding"] == "gzip"
+    assert snapshot(data) == source_before
+    encoded = next(item for item in result["files"] if item["path"].endswith("/scores/AREA.json.gz"))
+    assert encoded["encoding"] == "gzip"
+    assert encoded["sourcePath"] == "scores/AREA.json"
+    assert encoded["sourceSha256"] == hashlib.sha256(raw_before).hexdigest()
+    assert physical.read_bytes().startswith(b"\x1f\x8b")
+    staging.verify_release_stage(root, stage, expected_manifest_sha256=result["releaseManifestSha256"])
+
+
 def test_derived_remote_config_does_not_execute_package_hooks(staging, repository):
     root, _, _ = repository
     original = json.loads((root / "web/vercel.json").read_bytes())

@@ -22,6 +22,7 @@ describe("data fetch compression policy", () => {
   afterEach(() => {
     vi.restoreAllMocks();
     vi.unstubAllEnvs();
+    vi.doUnmock("../../data-bundle.json");
     vi.resetModules();
   });
 
@@ -45,6 +46,32 @@ describe("data fetch compression policy", () => {
     expect(requestedUrls(fetchMock)).toEqual([
       "/data/generated/scores/prefix-index.json",
       "/data/generated/scores/ANG_MO_KIO.json",
+    ]);
+  });
+
+  it("requires gzip-only score artifacts when the staged bundle declares that encoding", async () => {
+    vi.doMock("../../data-bundle.json", () => ({ default: {
+      bundle: "generated", generated_at: "2026-10-11T00:00:00Z", jsonEncoding: "gzip",
+    } }));
+    vi.stubEnv("NEXT_PUBLIC_DATA_BASE", "/data/generated/");
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input);
+      if (url.endsWith("/scores/prefix-index.json.gz")) {
+        return jsonResponse(true, { "560": ["ANG_MO_KIO"] });
+      }
+      if (url.endsWith("/scores/ANG_MO_KIO.json.gz")) {
+        return jsonResponse(true, [{ postal: "560234", total: 87 }]);
+      }
+      return jsonResponse(false);
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    const { fetchScoreForPostal } = await import("../data");
+    await expect(fetchScoreForPostal("560234")).resolves.toEqual({ postal: "560234", total: 87 });
+
+    expect(requestedUrls(fetchMock)).toEqual([
+      "/data/generated/scores/prefix-index.json.gz",
+      "/data/generated/scores/ANG_MO_KIO.json.gz",
     ]);
   });
 

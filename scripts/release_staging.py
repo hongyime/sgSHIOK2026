@@ -293,6 +293,40 @@ def _decoded(root: Path, name: str, limit: int) -> tuple[str, int]:
     return digest.hexdigest(), size
 
 
+def _gzip_source(source: Path, destination: Path, expected: dict[str, Any]) -> dict[str, Any]:
+    """Create a deterministic staged gzip copy and prove its decoded source identity."""
+    before = _plain(source)
+    if not stat.S_ISREG(before.st_mode):
+        raise ReleaseStagingError("UNSAFE_INPUT", source)
+    digest, size = hashlib.sha256(), 0
+    try:
+        _mkdir(destination.parent)
+        with source.open("rb") as original, destination.open("xb") as target:
+            opened = os.fstat(original.fileno())
+            if _stamp(opened)[:4] != _stamp(before)[:4]:
+                raise ReleaseStagingError("INPUT_CHANGED", source)
+            with gzip.GzipFile(filename="", mode="wb", fileobj=target, mtime=0, compresslevel=9) as encoded:
+                while chunk := original.read(CHUNK_BYTES):
+                    size += len(chunk)
+                    if size > MAX_JSON_BYTES:
+                        raise ReleaseStagingError("JSON_SIZE_LIMIT", source)
+                    digest.update(chunk)
+                    encoded.write(chunk)
+            if _stamp(opened) != _stamp(os.fstat(original.fileno())):
+                raise ReleaseStagingError("INPUT_CHANGED", source)
+        after = _plain(source)
+        if _stamp(before) != _stamp(after) or size != before.st_size:
+            raise ReleaseStagingError("INPUT_CHANGED", source)
+    except OSError as error:
+        raise ReleaseStagingError("FILE_IO_FAILED", destination, actual=error.errno) from error
+    raw_identity = {"bytes": size, "sha256": digest.hexdigest()}
+    _same(source, expected, raw_identity)
+    encoded_identity = _hash_file(destination)
+    decoded_sha256, decoded_bytes = _decoded(destination.parent, destination.name, MAX_JSON_BYTES)
+    _same(destination, expected, {"bytes": decoded_bytes, "sha256": decoded_sha256})
+    return encoded_identity
+
+
 def _json_bytes(content: bytes, path: Path | str) -> dict | list:
     try:
         value = json.loads(content.decode("utf-8"), parse_constant=lambda _: (_ for _ in ()).throw(ValueError()))
@@ -335,6 +369,8 @@ def _required_main(root: Path, entries: dict[str, dict], manifest: dict) -> None
     def require(name: str) -> None:
         _relative(name)
         physical = name + ".gz" if _compressed_only(name) or (_gzip_preferred(name) and name + ".gz" in entries) else name
+        if physical not in entries and name + ".gz" in entries:
+            physical = name + ".gz"
         if physical not in entries:
             raise ReleaseStagingError("MISSING_REQUIRED_FILE", root / physical)
 
@@ -587,13 +623,16 @@ def capture_frontend_archive(repo_root: Path, build_web_root: Path, output_dir: 
 
 
 def prepare_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, overlay_dir: Path,
-                          revision: str = "HEAD", previous_frontends: list[tuple[Path, str]] | None = None) -> dict:
+                          revision: str = "HEAD", previous_frontends: list[tuple[Path, str]] | None = None,
+                          gzip_main_json: bool = False) -> dict:
     return _prepare_release_stage(repo_root, data_dir, stage_dir=stage_dir, overlay_dir=overlay_dir,
-                                  revision=revision, previous_frontends=previous_frontends, verify_existing=False)
+                                  revision=revision, previous_frontends=previous_frontends,
+                                  verify_existing=False, gzip_main_json=gzip_main_json)
 
 
 def finalize_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, overlay_dir: Path,
-                           revision: str, previous_frontends: list[tuple[Path, str]] | None = None) -> dict:
+                           revision: str, previous_frontends: list[tuple[Path, str]] | None = None,
+                           gzip_main_json: bool = False) -> dict:
     """Verify a quiescent, ledgerless scratch copy; add only a new success ledger.
 
     This establishes current equality, not the history of an interrupted copy.
@@ -601,12 +640,15 @@ def finalize_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, 
     and its externally recorded hash, not merely the presence of that file.
     """
     return _prepare_release_stage(repo_root, data_dir, stage_dir=stage_dir, overlay_dir=overlay_dir,
-                                  revision=revision, previous_frontends=previous_frontends, verify_existing=True)
+                                  revision=revision, previous_frontends=previous_frontends,
+                                  verify_existing=True, gzip_main_json=gzip_main_json)
 
 
 def _prepare_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, overlay_dir: Path,
                            revision: str, previous_frontends: list[tuple[Path, str]] | None,
-                           verify_existing: bool) -> dict:
+                           verify_existing: bool, gzip_main_json: bool) -> dict:
+    if type(gzip_main_json) is not bool:
+        raise ReleaseStagingError("INVALID_REPRESENTATION_POLICY", stage_dir)
     root, stage = _paths(repo_root, stage_dir, data_dir, overlay_dir)
     if verify_existing:
         if not stat.S_ISDIR(_plain(stage).st_mode):
@@ -671,8 +713,41 @@ def _prepare_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, 
     for artifact in artifacts:
         origin = root / "web/public/data" / artifact["directory"]
         available = {entry["path"] for entry in artifact["inputs"]}
+        inputs_by_path = {entry["path"]: entry for entry in artifact["inputs"]}
         for entry in artifact["inputs"]:
             relative = entry["path"]
+            if artifact["role"] == "main" and gzip_main_json and relative.endswith(".json"):
+                entry["stagedPath"] = None
+                if relative + ".gz" not in available:
+                    output_path = f"web/public/data/{origin.name}/{relative}.gz"
+                    destination = stage / output_path
+                    if verify_existing:
+                        if _plain(destination, missing=True) is None:
+                            raise ReleaseStagingError("MISSING_STAGE_FILE", destination)
+                        encoded_identity = _hash_file(destination)
+                        decoded = _decoded(stage / "web/public/data" / origin.name,
+                                           relative + ".gz", MAX_JSON_BYTES)
+                        _same(destination, entry, {"bytes": decoded[1], "sha256": decoded[0]})
+                    else:
+                        encoded_identity = _gzip_source(origin / relative, destination, entry)
+                    files.append({"path": output_path, "origin": artifact["role"], "encoding": "gzip",
+                                  "sourcePath": relative, "sourceBytes": entry["bytes"],
+                                  "sourceSha256": entry["sha256"], **encoded_identity})
+                continue
+            if artifact["role"] == "main" and gzip_main_json and relative.endswith(".json.gz"):
+                source_path = relative[:-3]
+                source_entry = inputs_by_path.get(source_path)
+                staged_path = f"web/public/data/{origin.name}/{relative}"
+                copied = ({key: entry[key] for key in ("bytes", "sha256")} if verify_existing else
+                          _hash_file(origin / relative, stage / staged_path))
+                _same(origin / relative, entry, copied)
+                file_entry = {"path": staged_path, "origin": artifact["role"], **copied}
+                if source_entry is not None:
+                    file_entry.update(encoding="gzip", sourcePath=source_path,
+                                      sourceBytes=source_entry["bytes"], sourceSha256=source_entry["sha256"])
+                files.append(file_entry)
+                entry["stagedPath"] = staged_path
+                continue
             omitted = artifact["role"] == "main" and _gzip_preferred(relative) and relative + ".gz" in available
             entry["stagedPath"] = None if omitted else f"web/public/data/{origin.name}/{relative}"
             if not omitted:
@@ -700,6 +775,8 @@ def _prepare_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, 
         raise ReleaseStagingError("INVALID_MANIFEST_PROVENANCE", data_dir)
     pointer = {"bundle": data_dir.name, "generated_at": manifest["generated_at"], "data_as_of": manifest.get("data_as_of"),
                "provenance": {key: provenance[key] for key in ("record_count", "state_counts") if key in provenance}}
+    if gzip_main_json:
+        pointer["jsonEncoding"] = "gzip"
     ignore = b".env*\n.vercel/\nnode_modules/\n.next/\nweb/.env*\nweb/.vercel/\nweb/node_modules/\nweb/.next/\n"
     derived = [("web/vercel.json", _json_content(config), "direct-next-and-ignore-install-hooks"),
                ("web/data-bundle.json", _json_content(pointer), "selected-manifest-pointer"),
@@ -718,6 +795,7 @@ def _prepare_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, 
                       **candidate_file(stage / path, content)})
     report = {"schemaVersion": 1, "status": "prepared_not_built", "repoRoot": str(root), "stageRoot": str(stage),
               "webRoot": str(stage / "web"), "sourceRevision": pinned, "headAtStart": head,
+              "gzipMainJson": gzip_main_json,
               "preparationMode": "verified-existing" if verify_existing else "copied-new",
               "sourceFiles": sources, "files": sorted(files, key=lambda entry: entry["path"]), "artifacts": artifacts,
               "previousFrontends": frontends,
@@ -735,6 +813,8 @@ def _prepare_release_stage(repo_root: Path, data_dir: Path, *, stage_dir: Path, 
 
 
 def _verify_inputs(root: Path, report: dict) -> None:
+    if type(report.get("gzipMainJson", False)) is not bool:
+        raise ReleaseStagingError("INVALID_REPRESENTATION_POLICY", report.get("stageRoot", root))
     current = _revision(root, "HEAD")
     if current != report["headAtStart"]:
         raise ReleaseStagingError("HEAD_CHANGED", root, expected=report["headAtStart"], actual=current)
@@ -758,6 +838,33 @@ def _verify_inputs(root: Path, report: dict) -> None:
         for entry in artifact["inputs"]:
             _relative(entry["path"])
             _same(origin / entry["path"], entry, _hash_file(origin / entry["path"]))
+    if report.get("gzipMainJson"):
+        main = next(item for item in report["artifacts"] if item["role"] == "main")
+        input_by_path = {entry["path"]: entry for entry in main["inputs"]}
+        stage = Path(report["stageRoot"])
+        encoded_sources = set()
+        for entry in report["files"]:
+            if entry.get("origin") != "main" or entry.get("encoding") != "gzip":
+                continue
+            source_path = entry.get("sourcePath")
+            source = input_by_path.get(source_path)
+            if (source is None or not isinstance(source_path, str) or not source_path.endswith(".json")
+                    or entry.get("sourceBytes") != source["bytes"]
+                    or entry.get("sourceSha256") != source["sha256"]
+                    or entry.get("path") != f"web/public/data/{main['directory']}/{source_path}.gz"):
+                raise ReleaseStagingError("GZIP_SOURCE_MISMATCH", entry.get("path", ""))
+            if source_path in encoded_sources:
+                raise ReleaseStagingError("DUPLICATE_GZIP_SOURCE", source_path)
+            encoded_sources.add(source_path)
+            decoded = _decoded(stage, entry["path"], MAX_JSON_BYTES)
+            _same(entry["path"], source, {"bytes": decoded[1], "sha256": decoded[0]})
+        expected_sources = {name for name in input_by_path if name.endswith(".json")}
+        if encoded_sources != expected_sources:
+            raise ReleaseStagingError("GZIP_SOURCE_INVENTORY_MISMATCH", stage,
+                                      expected=len(expected_sources), actual=len(encoded_sources))
+        pointer = _json_bytes((stage / "web/data-bundle.json").read_bytes(), stage / "web/data-bundle.json")
+        if not isinstance(pointer, dict) or pointer.get("jsonEncoding") != "gzip":
+            raise ReleaseStagingError("GZIP_POINTER_MISMATCH", stage / "web/data-bundle.json")
     if _revision(root, "HEAD") != report["headAtStart"]:
         raise ReleaseStagingError("HEAD_CHANGED", root)
 

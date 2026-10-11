@@ -59,12 +59,13 @@ def prepare_source_deployment(repo_root: Path, receipt_path: Path, receipt_sha25
                 or receipt["partBytes"] != archive.PART_BYTES):
             raise ValueError("Full verified source archive required")
         parts = receipt["parts"]
-        if not isinstance(parts, list) or len(parts) != 5:
-            raise ValueError("This consumer requires the reviewed five-part archive")
+        if (not isinstance(parts, list) or not parts
+                or len(parts) > MAX_UPLOAD_BYTES // archive.PART_BYTES):
+            raise ValueError("Full source archive must fit the reviewed upload ceiling")
         for index, part in enumerate(parts, 1):
             if (part["file"] != f".vercel/source.tgz.part{index}"
                     or type(part["size"]) is not int or not 0 < part["size"] <= archive.PART_BYTES
-                    or (index < 5 and part["size"] != archive.PART_BYTES)
+                    or (index < len(parts) and part["size"] != archive.PART_BYTES)
                     or part["mode"] != 0o666):
                 raise ValueError("Invalid part order, size or mode")
             archive._digest(part["sha"], 40)
@@ -76,7 +77,7 @@ def prepare_source_deployment(repo_root: Path, receipt_path: Path, receipt_sha25
                 or receipt["verification"]["compressedBytes"] != total):
             raise ValueError("Part references or compressed-byte total mismatch")
         if receipt["artifacts"] != {
-                "main": "generated_20260805_prefer_scored_routed", "overlay": "lamp_posts_v1"}:
+                "main": "generated_20261010_full_rescore_phase4_merged", "overlay": "lamp_posts_v1"}:
             raise ValueError("Unexpected data artifacts")
         revision = archive._digest(receipt["sourceRevision"], 40)
     except (KeyError, TypeError, AttributeError) as error:
