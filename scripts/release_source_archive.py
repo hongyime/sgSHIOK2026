@@ -221,7 +221,8 @@ def plan_source_archive(repo_root: Path, frontend_build: Path, frontend_sha256: 
                 if not isinstance(entry, dict):
                     raise ArchiveError("INVALID_MEMBER", source)
                 origin = entry.get("origin")
-                if source == "data" and origin not in {"main", "overlay", "git", "derived"}:
+                if source == "data" and origin not in {
+                        "main", "overlay", "git", "derived", "previous-frontend"}:
                     raise ArchiveError("UNSUPPORTED_STAGE_ORIGIN", str(origin))
                 if source == "data" and origin not in {"main", "overlay"}:
                     continue
@@ -229,8 +230,10 @@ def plan_source_archive(repo_root: Path, frontend_build: Path, frontend_sha256: 
                 name = member["path"]
                 if source == "frontend":
                     if (name.lower() == "web/public/data" or name.lower().startswith("web/public/data/")
-                            or origin not in {"git", "previous-verified-derived-control"}
-                            or (origin != "git" and name not in CONTROLS)):
+                            or origin not in {"git", "previous-verified-derived-control", "previous-frontend"}
+                            or (origin == "previous-verified-derived-control" and name not in CONTROLS)
+                            or (origin == "previous-frontend"
+                                and not name.startswith("web/public/_retained/"))):
                         raise ArchiveError("INVALID_FRONTEND_MEMBER", name)
                 elif not name.startswith(f"web/public/data/{artifacts[origin]}/"):
                     raise ArchiveError("INVALID_DATA_MEMBER", name)
