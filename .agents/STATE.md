@@ -1,7 +1,7 @@
 # Current State
 Date: 2026-10-11
 Current decision: owner chose removal of the prior MapLibre 6.1.0 files from the next release. Production still serves them; a replacement candidate must omit them. The owner reports Vercel Hobby storage is full.
-Pending owner decision: delete or keep `dpl_23q7z37TL8w4azb1kCJG22jq9GDW`, the prior-production rollback candidate. No answer yet; deleting it is separate from MapLibre asset removal.
+Storage review needed: Vercel team inventory has 28 projects and 66 listed deployments; exact Deployment Storage is only available per project in the Dashboard Usage page. The earlier prompt to delete `dpl_23q7z37TL8w4azb1kCJG22jq9GDW` is superseded until that table is reviewed. Do not delete it or another project's deployment without identifying actual storage use and getting owner approval.
 Current T27 candidate: local stage from `e810f9850e1b03d9c8a9ee19e996ff582f7a60b3` passed post-build identity with manifest SHA256 `f6533a3a3fd9bfd44498b5c1c13fed572d1358a796624c101422ec49b4d2103f`, Next build `JKWWpNQT62N7sNnGKKFCX`, and 7,222 staged files. It has no 6.1.0 paths. No deployment. Receipt: `qa/revamp-r1/t27-frontend-preparation-20261011/maplibre-removal-candidate.json`.
 T25: no Orca, NVDA, or `belt` browser-control CLI is available in this Windows session; installs are prohibited by the current handoff. Actual screen-reader and browser-UI zoom acceptance needs a capable owner/device environment.
 The 2026-09-16 T26 exception was for the earlier promotion and is not a blanket exception for this replacement release. If owner/device checks remain unavailable, a new candidate-specific limited-release decision is required under T28.
