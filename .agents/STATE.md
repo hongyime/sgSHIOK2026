@@ -1,5 +1,6 @@
 # Current State
-Date: 2026-09-16
+Date: 2026-10-11
+Current decision: owner chose removal of the prior MapLibre 6.1.0 files from the next release. Production still serves them; a replacement candidate must omit them. The owner reports Vercel Hobby storage is full.
 Working root: C:\sgSHIOK2026; machine: dev-host-2.example.
 Startup: assert cwd equals C:\sgSHIOK2026; abort otherwise. Absolute C: writes only. X: is a cold mirror, never a session root.
 Before git, set TEMP and TMP to C:\sgSHIOK2026\tmp. Conventional commits go directly to main and must be pushed; no amend, force-push or history rewrite.
