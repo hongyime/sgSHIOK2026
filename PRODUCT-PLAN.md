@@ -1022,6 +1022,7 @@ No scoring, exports, data copying, Cloudflare or paid scaling is involved.
 - Depends on: T27.
 - Scope: only the exact approved deployment target/commit and unchanged artifact, existing safe deploy workflow.
 - Do: use the existing build-and-ship authorization after T27 and applicable T26 acceptance. Do not ask for blanket deployment permission again. If a required acceptance check cannot be completed, request a named limited-release exception describing that unmet check and risk, not a fabricated PASS. Deploy once, verify fresh/returning users, selected route, URLs, enabled features and request behaviour; record deployment identity. On failure stop at the named stage and follow only the approved rollback.
+- Exception scope: the owner's 2026-09-16 T26 exception applied to that earlier promotion. It does not automatically waive phone, user, screen-reader, or zoom evidence for this replacement release. Record the checks and risks for a new limited-release decision if any remain unmet.
 - Tests/done: O06-O08, M16-M17, applicable S/C/F smoke tests. Remote app actually matches the approved commit/artifact, not merely a successful push. Errors are visible and the prior release remains recoverable. Set the next maintenance review from T24.
 - Gate: engineering release acceptance; any exception to an unmet check is an owner decision. No export/rescore, existing payload overwrite or new provider implicit. A READY preview alone does not satisfy this gate.
 

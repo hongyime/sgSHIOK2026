@@ -4,6 +4,7 @@ Current decision: owner chose removal of the prior MapLibre 6.1.0 files from the
 Pending owner decision: delete or keep `dpl_23q7z37TL8w4azb1kCJG22jq9GDW`, the prior-production rollback candidate. No answer yet; deleting it is separate from MapLibre asset removal.
 Current T27 candidate: local stage from `e810f9850e1b03d9c8a9ee19e996ff582f7a60b3` passed post-build identity with manifest SHA256 `f6533a3a3fd9bfd44498b5c1c13fed572d1358a796624c101422ec49b4d2103f`, Next build `JKWWpNQT62N7sNnGKKFCX`, and 7,222 staged files. It has no 6.1.0 paths. No deployment. Receipt: `qa/revamp-r1/t27-frontend-preparation-20261011/maplibre-removal-candidate.json`.
 T25: no Orca, NVDA, or `belt` browser-control CLI is available in this Windows session; installs are prohibited by the current handoff. Actual screen-reader and browser-UI zoom acceptance needs a capable owner/device environment.
+The 2026-09-16 T26 exception was for the earlier promotion and is not a blanket exception for this replacement release. If owner/device checks remain unavailable, a new candidate-specific limited-release decision is required under T28.
 Working root: C:\sgSHIOK2026; machine: dev-host-2.example.
 Startup: assert cwd equals C:\sgSHIOK2026; abort otherwise. Absolute C: writes only. X: is a cold mirror, never a session root.
 Before git, set TEMP and TMP to C:\sgSHIOK2026\tmp. Conventional commits go directly to main and must be pushed; no amend, force-push or history rewrite.
