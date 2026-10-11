@@ -1,7 +1,7 @@
 # SHIOK Revamp Execution Plan
 Current scope: 2026-09-13 owner revision, replacing the 12 September UI scope.
 Completion resume: IN PROGRESS after14September owner answers, not complete.
-Current checkpoint 2026-10-11: local `main` is at `5a77e0db8963cd2b13698e89ef958bef89b2b024`, one commit ahead of `origin/main`; the MapLibre release-inventory fix is not pushed. Production acceptance remains open.
+Current checkpoint 2026-10-11: local `main` contains the MapLibre release-inventory fix from `5a77e0db8963cd2b13698e89ef958bef89b2b024` and release-readiness documentation; these changes are not pushed. Production acceptance remains open.
 
 Phase 4 production release completed for generated_20261010_full_rescore_phase4_merged: 124,443 records, 5,211 artifacts, data_as_of 2026-08-25. Deployment dpl_CYm6EAxHRq37XDcptzpQRBi5VEP3 is READY; both production aliases are verified and serve the exact selected manifest SHA256 227f0fa8b906cc0cbc6cbf17d3a97ec5fc0c0ae2f06a31919f78a9be427e68a2. Release receipt: qa/revamp-r1/post-rescore-20261001/phase4_production_completion_20261011.json.
 
