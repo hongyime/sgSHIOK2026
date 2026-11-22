@@ -568,31 +568,38 @@ describe("rendered accessibility output", () => {
     expect(mcstHtml).not.toContain("cached recent public-source misses");
   });
 
-  it("renders the route exposure lead and four-row score presentation", () => {
-    const recordWithEqualRainHeat: ScoreRecord = {
-      ...scoredRecord,
-      paths: { ...scoredRecord.paths!, endpoint_snap_connector_m: 9 },
-      subscores: { access: 78, rain: 69, heat: 69, bus: 82, crossing: 90 },
-    };
-    const html = renderScoreCard({
-      selection: {
-        ...selection,
-        score: recordWithEqualRainHeat,
-      },
-      rankingRecords: [recordWithEqualRainHeat],
-    });
-    const closedRankHtml = renderScoreCard({
-      selection: {
-        ...selection,
-        score: recordWithEqualRainHeat,
-      },
-      rankingRecords: [recordWithEqualRainHeat],
-      rankPanelOpen: false,
-    });
-    const breakdownHtml = html.slice(
-      html.indexOf('aria-label="Shelter-map evidence and locked score breakdown"'),
-      html.indexOf('aria-label="Nearby address comparison"')
-    );
+  function renderRouteExposureCard() {
+      const recordWithEqualRainHeat: ScoreRecord = {
+        ...scoredRecord,
+        paths: { ...scoredRecord.paths!, endpoint_snap_connector_m: 9 },
+        subscores: { access: 78, rain: 69, heat: 69, bus: 82, crossing: 90 },
+      };
+      const html = renderScoreCard({
+        selection: {
+          ...selection,
+          score: recordWithEqualRainHeat,
+        },
+        rankingRecords: [recordWithEqualRainHeat],
+      });
+      const closedRankHtml = renderScoreCard({
+        selection: {
+          ...selection,
+          score: recordWithEqualRainHeat,
+        },
+        rankingRecords: [recordWithEqualRainHeat],
+        rankPanelOpen: false,
+      });
+      const breakdownHtml = html.slice(
+        html.indexOf('aria-label="Shelter-map evidence and locked score breakdown"'),
+        html.indexOf('aria-label="Nearby address comparison"')
+      );
+
+    const busHtml = renderScoreCard({ transitMode: "bus" });
+    return { html, closedRankHtml, breakdownHtml, busHtml };
+  }
+
+  it("renders the route exposure lead", () => {
+    const { html } = renderRouteExposureCard();
 
     expect(html).toContain("Where the walk is exposed");
     expect(html).toContain('aria-label="Walk exposure evidence"');
@@ -620,6 +627,12 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Sheltered route");
     expect(html).toContain("Shelter-map evidence and locked score");
     expect(html).toContain('aria-label="Shelter-map evidence and locked score breakdown"');
+  });
+
+
+  it("renders the four-row score presentation", () => {
+    const { html, closedRankHtml, busHtml } = renderRouteExposureCard();
+
     expect(html).toContain("Four display rows; weights unchanged");
     expect(html).toContain('aria-label="Shelter-map evidence reasons"');
     expect(html).not.toContain("Route evidence and locked score");
@@ -638,7 +651,6 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain("Selected walk distance to transit.");
     expect(html).not.toContain("240 m to transit");
     expect(html).not.toContain("Selected route distance to transit.");
-    const busHtml = renderScoreCard({ transitMode: "bus" });
     expect(busHtml).toContain("Sheltered walk distance to bus stop — the single largest factor in the locked score.");
     expect(busHtml).toContain("240 m sheltered walk to bus stop");
     expect(busHtml).not.toContain("Sheltered walk distance to bus.");
@@ -678,6 +690,12 @@ describe("rendered accessibility output", () => {
     expect(html).not.toContain('aria-label="Rank by view"');
     expect(html).not.toContain("<strong>Rank by</strong>");
     expect(html).not.toContain("Authoritative composite order.");
+  });
+
+
+  it("renders walk comparison and heat evidence in the score presentation", () => {
+    const { html, breakdownHtml } = renderRouteExposureCard();
+
     expect(html).toContain('aria-label="Walk comparison"');
     expect(html).toContain("Shortest walk has 48% covered-walkway ratio (14pp lower than sheltered walk)");
     expect(html).not.toContain("Shortest walk has 48% covered-walkway ratio (14pp lower)</p>");

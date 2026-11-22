@@ -15,8 +15,26 @@ function cssRuleBody(cssSource: string, selector: string): string {
   return match[1];
 }
 
+function readTitleCardSources() {
+  return {
+    source: readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8"),
+    layoutSource: readFileSync(join(__dirname, "../../app/layout.tsx"), "utf-8"),
+    lockedScoreSource: readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8"),
+  };
+}
+
+function readDisplayRowSources() {
+  return {
+    source: readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8"),
+    proposalSource: readFileSync(join(__dirname, "../../section10-presentation-proposal.md"), "utf-8"),
+    subscoreRankingSource: readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8"),
+    weightsYaml: readFileSync(join(__dirname, "../../../pipeline/config/weights.yaml"), "utf-8"),
+  };
+}
+
+
 describe("score card copy", () => {
-  it("distinguishes far connected shelter-map walks from disconnected walks", () => {
+  it("names far connected shelter-map walks explicitly", () => {
     const source = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
 
     expect(source).toContain("Connected walk beyond 1.2 km");
@@ -40,6 +58,12 @@ describe("score card copy", () => {
     expect(source).not.toContain("Transit beyond scoring range");
     expect(source).not.toContain("Transit beyond locked range");
     expect(source).not.toContain("within the 1.2 km scoring range for this postal");
+  });
+
+
+  it("names the nearest connected walk explicitly", () => {
+    const source = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
+
     expect(source).toContain("Closest connected shelter-map walk to ${label} is ${formatDistance(nearestM)}");
     expect(source).toContain("Closest published connected shelter-map walk is about ${formatDistance(nearestM)}");
     expect(source).toContain("No verified published walk to ${label}");
@@ -88,6 +112,12 @@ describe("score card copy", () => {
     expect(source).not.toContain("Shelter-map walk access was not verified");
     expect(source).not.toContain("current walking graph could not connect a route yet");
     expect(source).not.toContain("Transit route not connected yet");
+  });
+
+
+  it("names disconnected walks explicitly", () => {
+    const source = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
+
     expect(source).not.toContain("Transit stops or exits exist, but this shelter-map bundle has no connected shelter-map walk yet.");
     expect(source).not.toContain("Transit stops or exits exist, but this shelter-map bundle has no connected walking route yet.");
     expect(source).not.toContain("Walking route not connected yet");
@@ -230,9 +260,8 @@ describe("score card copy", () => {
     expect(smokeSource).toContain("shelter_map_panel_excerpt");
   });
 
-  it("puts data freshness and heat proxy copy in the title card", () => {
-    const source = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
-    const layoutSource = readFileSync(join(__dirname, "../../app/layout.tsx"), "utf-8");
+  it("puts title and metadata copy in the title card", () => {
+    const { source, layoutSource } = readTitleCardSources();
 
     expect(source).toContain("S.H.I.O.K. Shelter Map");
     expect(source).not.toContain("S.H.I.O.K. Index");
@@ -244,6 +273,12 @@ describe("score card copy", () => {
     expect(layoutSource).toContain('url: "https://sgshiok.vercel.app/"');
     expect(layoutSource).toContain('card: "summary"');
     expect(layoutSource).not.toContain('title: "S.H.I.O.K. Index"');
+  });
+
+
+  it("puts hero and search-form copy in the title card", () => {
+    const { source } = readTitleCardSources();
+
     expect(source).not.toContain("Check how sheltered the walk to transit feels before you pick a place.");
     expect(source).toContain("See how much of the walk to transit is covered, and where it is exposed.");
     expect(source).not.toContain(
@@ -285,6 +320,12 @@ describe("score card copy", () => {
     expect(source).not.toContain("Try S560234");
     expect(source).not.toContain('placeholder="Search address or 6-digit postal"');
     expect(source).not.toContain('aria-label="Search address or 6-digit postal"');
+  });
+
+
+  it("puts OneMap and error copy in the title card", () => {
+    const { source } = readTitleCardSources();
+
     expect(source).toContain("Enter a 6-digit Singapore postal code.");
     expect(source).toContain("No published shelter-map record found for this postal code.");
     expect(source).not.toContain("No OneMap match found. Try a 6-digit postal code.");
@@ -312,6 +353,12 @@ describe("score card copy", () => {
     expect(source).not.toContain(
       "Route evidence as of {formatDataDate(manifest)}; bundle generated {formatGeneratedDate(manifest)}"
     );
+  });
+
+
+  it("puts score-label and public-source-gap copy in the title card", () => {
+    const { source } = readTitleCardSources();
+
     expect(source).toContain("function formatGeneratedDate(manifest: Manifest | null): string");
     expect(source).toContain('timeZone: "Asia/Singapore"');
     expect(source).toContain('return "Date unavailable";');
@@ -366,6 +413,12 @@ describe("score card copy", () => {
     expect(source).toContain(
       "Source-age snapshot: 29 Aug 2026 17:23 UTC source-age check; 11 sources were current, 9 stale, 3 manual, and 1 unknown-age candidate. This was not a live source refresh."
     );
+  });
+
+
+  it("puts source-age snapshot copy in the title card", () => {
+    const { source, layoutSource } = readTitleCardSources();
+
     expect(source).not.toContain("Source-age snapshot: 29 Aug 2026 09:38 UTC source-age check");
     expect(source).not.toContain("Source-age snapshot: 28 Aug 2026 22:21 UTC manifest-only check");
     expect(source).not.toContain("Source-age snapshot: 28 Aug 2026 22:21 UTC source-age check");
@@ -378,6 +431,12 @@ describe("score card copy", () => {
     expect(source).not.toContain("postal-universe seed");
     expect(source).not.toContain("The source policy covers every source in raw/manifest.json");
     expect(source).not.toContain("ACRA, other-UEN");
+  });
+
+
+  it("puts stale-source ordering copy in the title card", () => {
+    const { source, layoutSource } = readTitleCardSources();
+
     expect(source).toContain("Stale sources are ordered by days past their freshness threshold");
     expect(source).toContain(
       "Planning Area Boundaries (MP2019 No Sea), NParks Tracks, NParks Heritage Road Green Buffers, Traffic Signals"
@@ -416,6 +475,12 @@ describe("score card copy", () => {
     expect(source).not.toContain(
       "Data freshness at latest manifest-only check:"
     );
+  });
+
+
+  it("puts data-freshness date copy in the title card", () => {
+    const { source, layoutSource } = readTitleCardSources();
+
     expect(source).not.toContain("Data freshness at the 21 Aug 2026 manifest-only check");
     expect(source).not.toContain(
       "Data freshness: 12 sources current, oldest current source is NParks Leaf Area Index at 112.6 days old;"
@@ -451,6 +516,12 @@ describe("score card copy", () => {
     );
     expect(source).not.toContain("Leaf Area Index is route heat evidence");
     expect(source).not.toContain("route heat evidence uses shelter");
+  });
+
+
+  it("puts locked-score-availability copy in the title card", () => {
+    const { source, lockedScoreSource } = readTitleCardSources();
+
     expect(source).not.toContain('import { formatLockedScoreAvailabilityLine } from "../lib/locked-score-availability";');
     expect(source).not.toContain("formatLockedScoreAvailabilityLine(manifest)");
     expect(source).not.toContain("styles.coverageLine");
@@ -458,32 +529,44 @@ describe("score card copy", () => {
     expect(source).not.toContain("lockedScoreAvailabilityLine={lockedScoreAvailabilityLine}");
     expect(source).not.toContain("{lockedScoreAvailabilityLine && <span>{lockedScoreAvailabilityLine}</span>}");
     expect(source).not.toContain("{lockedScoreAvailabilityLine && <p className={styles.coverageLine}>{lockedScoreAvailabilityLine}</p>}");
-    expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).toContain(
+    expect(lockedScoreSource).toContain(
       "June 2020 address-list records"
     );
-    expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).toContain(
+    expect(lockedScoreSource).toContain(
       "address-list records (${pctText})"
     );
-    expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).not.toContain(
+    expect(lockedScoreSource).not.toContain(
       "of ${formatWholeNumber(recordCount)} records"
     );
-    expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).not.toContain(
+    expect(lockedScoreSource).not.toContain(
       "Locked score coverage:"
     );
+  });
+
+
+  it("puts data-limits copy in the title card", () => {
+    const { source, layoutSource, lockedScoreSource } = readTitleCardSources();
+
     expect(source).not.toContain("<summary>Data limits: frozen v1 addresses; roughly 1 in 4 lack full locked scores</summary>");
     expect(source).not.toContain("<summary>Data limits: frozen v1 addresses; incomplete locked scores</summary>");
     expect(source).not.toContain("<summary>Data limits: frozen v1 address list</summary>");
     expect(source).not.toContain("<summary>Data limits</summary>");
     expect(source).not.toContain("Shelter-map evidence as of {formatDataDate(manifest)}; published data built {formatGeneratedDate(manifest)}");
-    expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).toContain(
+    expect(lockedScoreSource).toContain(
       "missing full scores"
     );
-    expect(readFileSync(join(__dirname, "../locked-score-availability.ts"), "utf-8")).not.toContain(
+    expect(lockedScoreSource).not.toContain(
       "full locked sorting index"
     );
     expect(source).toContain(
       "Sources: LTA/data.gov.sg and OneMap/SLA for official data; OpenStreetMap contributes geometry evidence, not the address registry"
     );
+  });
+
+
+  it("puts attribution and footer copy in the title card", () => {
+    const { source, layoutSource, lockedScoreSource } = readTitleCardSources();
+
     expect(source).toContain("© OpenStreetMap contributors");
     expect(source).not.toContain("Sources: LTA/data.gov.sg, OneMap/SLA, © OpenStreetMap contributors");
     expect(source).toContain("https://opendatacommons.org/licenses/odbl/1-0/");
@@ -544,6 +627,7 @@ describe("score card copy", () => {
     expect(layoutSource).not.toContain("measuring rain shelter, provisional heat proxy, crossing friction");
     expect(layoutSource).not.toContain("Singapore walk-to-transit comfort score");
   });
+
 
   it("keeps the footer as a disclosure rather than another tagline", () => {
     const source = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
@@ -704,9 +788,7 @@ describe("score card copy", () => {
   });
 
   it("shows four display rows without changing the locked weights", () => {
-    const source = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
-    const proposalSource = readFileSync(join(__dirname, "../../section10-presentation-proposal.md"), "utf-8");
-    const weightsYaml = readFileSync(join(__dirname, "../../../pipeline/config/weights.yaml"), "utf-8");
+    const { source, weightsYaml } = readDisplayRowSources();
 
     expect(source).toContain("Shelter-map evidence and locked score");
     expect(source).toContain('aria-label="Shelter-map evidence and locked score breakdown"');
@@ -719,6 +801,19 @@ describe("score card copy", () => {
     expect(source).not.toContain("35% locked access");
     expect(source).not.toContain('"20% locked bus",');
     expect(source).not.toContain("40% locked rain+heat");
+
+
+    expect(weightsYaml).toContain("transit_access: 0.35");
+    expect(weightsYaml).toContain("bus_connectivity: 0.20");
+    expect(weightsYaml).toContain("rain_shelter: 0.25");
+    expect(weightsYaml).toContain("heat_comfort: 0.15");
+    expect(weightsYaml).toContain("crossing_friction: 0.05");
+  });
+
+
+  it("shows preview shelter-map evidence copy in the display rows", () => {
+    const { source } = readDisplayRowSources();
+
     expect(source).toContain("Shelter-map evidence preview");
     expect(source).toContain("Not in published shelter-map data");
     expect(source).not.toContain("Not in published data");
@@ -770,6 +865,12 @@ describe("score card copy", () => {
     expect(source).not.toContain(
       "Partial locked score: one or more component scores are unavailable; locked weights count missing terms as zero."
     );
+  });
+
+
+  it("shows route-evidence negatives and subscore ranking in the display rows", () => {
+    const { source, subscoreRankingSource } = readDisplayRowSources();
+
     expect(source).not.toContain("Route evidence and locked score");
     expect(source).not.toContain('aria-label="Route evidence and locked score breakdown"');
     expect(source).not.toContain('aria-label="Route evidence reasons"');
@@ -779,48 +880,54 @@ describe("score card copy", () => {
     expect(source).not.toContain("Bundle score unavailable");
     expect(source).not.toContain("Bundle score incomplete");
     expect(source).toContain('label: "Locked SHIOK score"');
-    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
+    expect(subscoreRankingSource).toContain(
       '{ id: "overall", label: "Overall locked score" }'
     );
-    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
+    expect(subscoreRankingSource).toContain(
       '{ id: "rain", label: "Covered-walkway evidence" }'
     );
-    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
+    expect(subscoreRankingSource).toContain(
       '{ id: "access", label: "Walk-distance evidence" }'
     );
-    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
+    expect(subscoreRankingSource).toContain(
       '{ id: "bus", label: "Bus service support" }'
     );
-    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
+    expect(subscoreRankingSource).toContain(
       '{ id: "heat", label: "Heat estimate" }'
     );
-    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).toContain(
+    expect(subscoreRankingSource).toContain(
       '{ id: "crossing", label: "Crossing friction" }'
     );
-    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).not.toContain(
+    expect(subscoreRankingSource).not.toContain(
       '{ id: "crossing", label: "Crossing-friction locked term" }'
     );
-    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).not.toContain(
+    expect(subscoreRankingSource).not.toContain(
       '{ id: "overall", label: "Locked SHIOK score" }'
     );
-    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).not.toContain(
+    expect(subscoreRankingSource).not.toContain(
       '{ id: "overall", label: "Locked score order" }'
     );
-    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).not.toContain(
+    expect(subscoreRankingSource).not.toContain(
       '{ id: "rain", label: "Rain-shelter evidence" }'
     );
-    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).not.toContain(
+    expect(subscoreRankingSource).not.toContain(
       '{ id: "rain", label: "Rain covered-walkway evidence" }'
     );
-    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).not.toContain(
+    expect(subscoreRankingSource).not.toContain(
       '{ id: "bus", label: "Bus service-support evidence" }'
     );
-    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).not.toContain(
+    expect(subscoreRankingSource).not.toContain(
       '{ id: "heat", label: "Heat proxy evidence" }'
     );
-    expect(readFileSync(join(__dirname, "../subscore-ranking.ts"), "utf-8")).not.toContain(
+    expect(subscoreRankingSource).not.toContain(
       "score factor"
     );
+  });
+
+
+  it("shows locked-score labels for sorting in the display rows", () => {
+    const { source } = readDisplayRowSources();
+
     expect(source).toContain('?? "Overall locked score"');
     expect(source).toContain('"Locked score for sorting"');
     expect(source).not.toContain('"Sorting-only score"');
@@ -831,6 +938,12 @@ describe("score card copy", () => {
     expect(source).not.toContain("Use this locked score to sort the current bundle");
     expect(source).not.toContain('label: "Overall SHIOK"');
     expect(source).not.toContain("Use this locked composite");
+  });
+
+
+  it("shows nearby address comparison labels in the display rows", () => {
+    const { source } = readDisplayRowSources();
+
     expect(source).toContain('aria-label="Nearby address comparison"');
     expect(source).not.toContain('aria-label="Nearby-address comparison"');
     expect(source).not.toContain('aria-label="Planning-area comparison"');
@@ -875,6 +988,12 @@ describe("score card copy", () => {
     expect(source).toContain("Loading nearby addresses for ${rankSentenceLabel}.");
     expect(source).toContain("available for ${sentenceLabel}.");
     expect(source).not.toContain("Loading planning-area ranks...");
+  });
+
+
+  it("shows nearby comparison empty-state copy in the display rows", () => {
+    const { source } = readDisplayRowSources();
+
     expect(source).toContain("No nearby addresses with full locked scores in this planning area.");
     expect(source).toContain("No comparable nearby addresses for ${rankSentenceMetricLabel(rankMetricLabel)}.");
     expect(source).toContain("No comparable nearby addresses for ${sentenceLabel}.");
@@ -915,6 +1034,12 @@ describe("score card copy", () => {
     );
     expect(source).not.toContain("Direct bus service is shown as fallback evidence");
     expect(source).not.toContain("Shelter-map walk access was not verified");
+  });
+
+
+  it("shows nearby direct bus service copy in the display rows", () => {
+    const { source } = readDisplayRowSources();
+
     expect(source).toContain("Nearby direct bus service without verified shelter-map walk");
     expect(source).not.toContain("Nearby bus service without verified shelter-map walk");
     expect(source).toContain("the straight-line bus estimate is not a verified shelter-map walk");
@@ -961,6 +1086,12 @@ describe("score card copy", () => {
     expect(source).not.toContain('label: "Rain shelter"');
     expect(source).not.toContain('label: "Heat proxy"');
     expect(source).not.toContain('label: "Crossing friction"');
+  });
+
+
+  it("keeps the section-10 presentation reference aligned with the four display rows", () => {
+    const { proposalSource } = readDisplayRowSources();
+
     expect(proposalSource).toContain("# Section 10 Presentation Reference");
     expect(proposalSource).toContain("Status: implemented in P18.");
     expect(proposalSource).toContain("## Implemented State");
@@ -1021,12 +1152,6 @@ describe("score card copy", () => {
     expect(proposalSource).not.toContain("route distance and transit target");
     expect(proposalSource).not.toContain("walk distance and transit target");
     expect(proposalSource).not.toContain("above route exposure");
-
-    expect(weightsYaml).toContain("transit_access: 0.35");
-    expect(weightsYaml).toContain("bus_connectivity: 0.20");
-    expect(weightsYaml).toContain("rain_shelter: 0.25");
-    expect(weightsYaml).toContain("heat_comfort: 0.15");
-    expect(weightsYaml).toContain("crossing_friction: 0.05");
   });
 
   it("keeps the locked score visually secondary to the shelter evidence", () => {

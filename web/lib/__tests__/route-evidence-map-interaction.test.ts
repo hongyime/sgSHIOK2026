@@ -181,8 +181,7 @@ describe("shelter map interactions", () => {
     expect(stopSelectHandler).toContain("setExposureSelection(null);");
   });
 
-  it("keeps arbitrary clicked OneMap routes preview-only and resettable", () => {
-    const pageSource = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
+  it("keeps arbitrary clicked OneMap routes preview-only in live scoring", () => {
     const liveScoringSource = readFileSync(
       join(__dirname, "../../lib/live-route-scoring.ts"),
       "utf-8"
@@ -210,6 +209,11 @@ describe("shelter map interactions", () => {
     expect(liveScoringSource).not.toContain("only the offline pipeline can do");
     expect(liveScoringSource).not.toContain("SHIOK scores come from offline bundle scoring.");
     expect(liveScoringSource).not.toContain("offline pipeline bundle");
+  });
+
+
+  it("keeps arbitrary clicked OneMap routes resettable in the page", () => {
+    const pageSource = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
 
     expect(pageSource).toContain("Preview shelter-map evidence");
     expect(pageSource).not.toContain("Preview shelter-map evidence only");
@@ -277,6 +281,12 @@ describe("shelter map interactions", () => {
 
     expect(pageSource).toContain("params.delete(\"stop\")");
     expect(pageSource).toContain("onClick={backToSavedWalk}");
+  });
+
+
+  it("keeps clicked-route URL updates history-based instead of router-based", () => {
+    const pageSource = readFileSync(join(__dirname, "../../app/home.tsx"), "utf-8");
+
     expect(pageSource).toContain("const resolved = nextStopId && nextStopId !== bestCandidateId ? nextStopId : null");
     expect(pageSource).toContain('import { usePathname } from "next/navigation";');
     expect(pageSource).not.toContain("useRouter");

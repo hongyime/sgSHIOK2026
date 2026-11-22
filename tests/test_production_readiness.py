@@ -25,6 +25,233 @@ from tests.test_export import sample_record
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 
+EXPECTED_RECENT_PUBLIC_SOURCE_GAP_SAMPLE = {
+    "measurement": "P19 v2 28 Aug 2026 public-source gap sample",
+    "generated_at_utc": "2026-08-28T21:15:15.685030+00:00",
+    "currentness": {
+        "status": "runtime_status_required",
+        "fresh_for_current_gap_sizing": False,
+        "dynamic_status_command": "uv run python run.py p19-gap-status",
+        "reason": (
+            "currentness is time-sensitive; call p19-gap-status before using this "
+            "sample for current gap sizing"
+        ),
+    },
+    "cache_status_command": "uv run python run.py p19-gap-status",
+    "cache_status_calls_apis": False,
+    "cache_status_writes_files": False,
+    "cache_status_reports_age_days": True,
+    "cache_status_reports_missing_rows": True,
+    "cache_status_reports_missing_development_clusters": True,
+    "cache_status_reports_hdb_cluster_coordinates": True,
+    "cache_status_reports_mcst_proxy_location_probe": True,
+    "summary_path": "qa/p19/universe_gap_measurement_summary_v2.json",
+    "detail_path": "qa/p19/universe_gap_measurement_detail_v2.json",
+    "mcst_proxy_location_probe": {
+        "command": "uv run python run.py p19-mcst-locations",
+        "command_calls_apis": False,
+        "command_writes_files": False,
+        "cache_path": "qa/p379/p19_mcst_missing_onemap_cache.json",
+        "report_path": "qa/p379/p19_mcst_missing_locations_report.json",
+        "mcst_missing_rows": 2,
+        "located_rows": 0,
+        "unlocated_rows": 2,
+        "conflicting_candidate_postals": {
+            "CANAAN": {
+                "recorded_postal": "378720",
+                "candidate_postals": ["387720"],
+            }
+        },
+        "unlocated_developments": ["CANAAN", "MYRA"],
+        "will_score": False,
+        "will_export": False,
+        "will_mutate_p19": False,
+        "verdict": "MCST proxy rows remain unvalidated; HDB clusters are the coordinate-backed actionable gap",
+    },
+    "source_rows_with_postals": 976,
+    "missing_rows": 8,
+    "evidence_split": {
+        "coordinate_backed_hdb_missing_rows": 6,
+        "unvalidated_mcst_proxy_rows": 2,
+        "confirmed_missing_address_rows": 6,
+        "source_quality_warning_rows": 2,
+    },
+    "missing_postals_by_source": {
+        "hdb_2021_2026_geocoded": ["521400", "522400", "523400", "762936", "763936", "764936"],
+        "mcst_2021_2026": ["378720", "935456"],
+    },
+    "coordinate_backed_hdb_missing_development_clusters": [
+        {
+            "development": "SUN PLAZA SPRING",
+            "missing_postals": ["521400", "522400", "523400"],
+            "missing_rows": 3,
+            "year_completed": 2026,
+            "coordinate_source": "cached_onemap_search_result",
+        },
+        {
+            "development": "YISHUN BEACON",
+            "missing_postals": ["762936", "763936", "764936"],
+            "missing_rows": 3,
+            "year_completed": 2026,
+            "coordinate_source": "cached_onemap_search_result",
+        },
+    ],
+    "missing_pct": 0.819672,
+    "confirmed_missing_pct": 0.614754,
+    "missing_or_source_quality_warning_pct": 0.819672,
+    "directional_scale_if_sample_rate_applied_to_v1": {
+        "basis": (
+            "directional only; applies sampled recent-completion row rates to the "
+            "frozen-v1 distinct postal count, not a measured full-universe gap"
+        ),
+        "v1_distinct_postals": 124443,
+        "confirmed_missing_rows_estimate": 765,
+        "missing_or_source_quality_warning_rows_estimate": 1020,
+    },
+    "v2_build_decision": {
+        "status": "not_approved_from_current_sample",
+        "reason": (
+            "fresh cached sample indicates a small gap; building postal-universe v2 "
+            "requires separate owner approval, candidate-source-first scope, and "
+            "new versioned outputs"
+        ),
+    },
+    "source_window": "2021-2026",
+    "sources": ["HDB completion geocoded rows", "BCA MCST constitution-date proxy rows"],
+    "source_limitations": [
+        "HDB rows use completion year but require OneMap geocoding to obtain postals",
+        "BCA MCST constitution date is private-strata onboarding proxy evidence, not TOP or completion date",
+    ],
+    "verdict": "small sampled current-source gap in frozen v1; v2 remains candidate-source-first if approved",
+}
+
+
+ONEMAP_CACHED_REPORT_ONEMAP_VALIDATION_CACHED_REPORT_20260802 = {
+    "bundle": "generated_old",
+    "gate_passed": False,
+    "sample_size": 2000,
+    "cached_results": 1999,
+    "missing_cache_results": 0,
+    "invalid_cache_results": 1,
+    "median_abs_pct_delta": 11.458,
+    "p95_abs_pct_delta": 94.037,
+    "thresholds": {
+        "median_abs_pct_delta_max": 10.0,
+        "p95_abs_pct_delta_max": 100.0,
+    },
+    "subset_summary": {
+        "graph_routed_mrt_lrt": {
+            "count": 386,
+            "median_abs_pct_delta": 6.679,
+            "p95_abs_pct_delta": 59.114,
+            "median_abs_delta_m": 42.5,
+            "p95_abs_delta_m": 351.5,
+            "thresholds_passed": True,
+        },
+        "endpoint_connector": {
+            "count": 19,
+            "median_abs_pct_delta": 77.358,
+            "p95_abs_pct_delta": 80.206,
+            "median_abs_delta_m": 271.4,
+            "p95_abs_delta_m": 1161.4,
+            "thresholds_passed": False,
+        },
+        "graph_routed_bus_stop": {
+            "count": 123,
+            "median_abs_pct_delta": 15.988,
+            "p95_abs_pct_delta": 76.321,
+            "median_abs_delta_m": 91.2,
+            "p95_abs_delta_m": 812.0,
+            "thresholds_passed": False,
+        },
+        "unused_passed_subset": {
+            "count": 1,
+            "median_abs_pct_delta": 1.0,
+            "p95_abs_pct_delta": 2.0,
+            "thresholds_passed": True,
+        },
+    },
+    "generated_at": "2026-08-02T02:40:10+00:00",
+}
+
+
+ONEMAP_CACHED_REPORT_ONEMAP_VALIDATION_CACHED_REPORT_OLD_ROOT = {
+    "bundle": "generated_old",
+    "gate_passed": False,
+    "sample_size": 2000,
+    "cached_results": 2000,
+    "missing_cache_results": 0,
+    "invalid_cache_results": 0,
+    "median_abs_pct_delta": 99.0,
+    "p95_abs_pct_delta": 99.0,
+    "thresholds": {
+        "median_abs_pct_delta_max": 12.0,
+        "p95_abs_pct_delta_max": 100.0,
+    },
+    "generated_at": "2020-01-01T00:00:00+00:00",
+}
+
+
+ONEMAP_CACHED_REPORT_1 = {
+    "bundle": "generated_test",
+    "gate_passed": False,
+    "sample_size": 95157,
+    "cached_results": 95095,
+    "missing_cache_results": 0,
+    "invalid_cache_results": 62,
+    "median_abs_pct_delta": 11.884,
+    "p95_abs_pct_delta": 69.861,
+    "thresholds": {
+        "median_abs_pct_delta_max": 12.0,
+        "p95_abs_pct_delta_max": 100.0,
+    },
+    "generated_at": "2099-01-01T00:00:00+00:00",
+}
+
+
+ONEMAP_CACHED_REPORT_ONEMAP_VALIDATION_CACHED_REPORT_GENERATED_TEST_OLD = {
+    "bundle": "generated_test",
+    "gate_passed": True,
+    "sample_size": 2000,
+    "cached_results": 2000,
+    "missing_cache_results": 0,
+    "invalid_cache_results": 0,
+    "median_abs_pct_delta": 5.0,
+    "p95_abs_pct_delta": 20.0,
+    "thresholds": {
+        "median_abs_pct_delta_max": 12.0,
+        "p95_abs_pct_delta_max": 100.0,
+    },
+    "generated_at": "2020-01-01T00:00:00+00:00",
+}
+
+
+MANIFEST_ONLY_SOURCES_YAML = [
+    "freshness_defaults:",
+    "  datagov_polldownload:",
+    "    expected_cadence: monthly",
+    "    stale_after_days: 30",
+    "sources:",
+    "  fresh:",
+    "    name: Fresh",
+    "    kind: datagov_polldownload",
+    "  alpha_less_stale:",
+    "    name: Alpha Less Stale",
+    "    kind: datagov_polldownload",
+    "  zeta_more_stale:",
+    "    name: Zeta More Stale",
+    "    kind: datagov_polldownload",
+    "  manual:",
+    "    name: Manual",
+    "    kind: osm_pbf",
+    "    refresh: manual",
+    "  unknown_age:",
+    "    name: Unknown Age",
+    "    kind: datagov_polldownload",
+    "",
+]
+
+
 def write_json(path: Path, payload: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload), encoding="utf-8")
@@ -246,6 +473,77 @@ def legacy_live_bundle_provenance_shape(manifest: dict) -> None:
     }
 
 
+def write_minimal_readiness_inputs(tmp_path: Path) -> dict[str, Path]:
+    """Write the shared universe/params/QA inputs for a readiness report.
+
+    Returns the summary/universe/params/QA/debug paths.
+    """
+    summary_path = tmp_path / "processed" / "postal_universe_candidate_full_registered_summary.json"
+    universe_path = tmp_path / "processed" / "postal_universe_candidate_full_registered.parquet"
+    write_json(
+        summary_path,
+        {
+            "mode": "candidate_full_registered",
+            "total_unique_postals": 1,
+            "ready_to_score": 1,
+            "needs_geocode": 0,
+            "source_stats": [],
+            "source_only_counts": {},
+            "warnings": [],
+        },
+    )
+    write_universe(universe_path, rows=1)
+    params_path = tmp_path / "params.yaml"
+    params_path.write_text("onemap:\n  client_delay_sec: 2.0\n", encoding="utf-8")
+    qa_path = tmp_path / "qa" / "conflation_qa_island.json"
+    debug_path = tmp_path / "qa" / "island_debug.geojson"
+    write_production_island_qa(qa_path)
+    return {
+        "summary_path": summary_path,
+        "universe_path": universe_path,
+        "params_path": params_path,
+        "qa_path": qa_path,
+        "debug_path": debug_path,
+    }
+
+
+def write_minimal_readiness_state(tmp_path: Path) -> dict[str, Path]:
+    """Write the minimal valid readiness state (bundle + inputs).
+
+    Returns all paths a build_readiness_report call needs.
+    """
+    web_dir = tmp_path / "web"
+    write_lamp_overlay_artifact(web_dir)
+    bundle_dir = web_dir / "public" / "data" / "generated_test"
+    export_current_fingerprint_bundle(bundle_dir)
+    write_json(web_dir / "data-bundle.json", {"bundle": "generated_test"})
+    inputs = write_minimal_readiness_inputs(tmp_path)
+    return {
+        "project_root": tmp_path,
+        "web_dir": web_dir,
+        "bundle_dir": bundle_dir,
+        **inputs,
+    }
+
+
+def run_readiness_report(state: dict[str, Path], **overrides):
+    """Call build_readiness_report on a minimal state, with per-test overrides."""
+    kwargs = {
+        "project_root": state["project_root"],
+        "web_dir": state["web_dir"],
+        "bundle_dir": state["bundle_dir"],
+        "summary_path": state["summary_path"],
+        "universe_path": state["universe_path"],
+        "params_path": state["params_path"],
+        "qa_path": state["qa_path"],
+        "debug_path": state["debug_path"],
+        "network_path": state["project_root"] / "unused_network.parquet",
+        "postal_universe_path": state["universe_path"],
+    }
+    kwargs.update(overrides)
+    return build_readiness_report(**kwargs)
+
+
 def test_vercel_readiness_prefers_root_project_settings(tmp_path: Path):
     write_json(
         tmp_path / ".vercel" / "project.json",
@@ -329,35 +627,13 @@ def test_environment_readiness_reports_missing_api_credentials_without_values() 
     assert "owner@example.test" not in json.dumps(present)
 
 
-def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path) -> None:
+def manifest_only_freshness_status(tmp_path: Path) -> dict:
+    """Build the manifest-only sources/manifest state and return its freshness status."""
     sources_path = tmp_path / "pipeline" / "config" / "sources.yaml"
     sources_path.parent.mkdir(parents=True, exist_ok=True)
     sources_path.write_text(
         "\n".join(
-            [
-                "freshness_defaults:",
-                "  datagov_polldownload:",
-                "    expected_cadence: monthly",
-                "    stale_after_days: 30",
-                "sources:",
-                "  fresh:",
-                "    name: Fresh",
-                "    kind: datagov_polldownload",
-                "  alpha_less_stale:",
-                "    name: Alpha Less Stale",
-                "    kind: datagov_polldownload",
-                "  zeta_more_stale:",
-                "    name: Zeta More Stale",
-                "    kind: datagov_polldownload",
-                "  manual:",
-                "    name: Manual",
-                "    kind: osm_pbf",
-                "    refresh: manual",
-                "  unknown_age:",
-                "    name: Unknown Age",
-                "    kind: datagov_polldownload",
-                "",
-            ]
+            MANIFEST_ONLY_SOURCES_YAML
         ),
         encoding="utf-8",
     )
@@ -375,10 +651,18 @@ def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path)
         },
     )
 
+
     status = source_freshness_readiness(
         tmp_path,
         now=datetime(2026, 8, 16, tzinfo=UTC),
     )
+
+    return status
+
+
+def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path) -> None:
+    status = manifest_only_freshness_status(tmp_path)
+
 
     assert status["ok"] is True
     assert status["state"] == "reported"
@@ -409,6 +693,11 @@ def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path)
         "days_until_stale": 29.0,
         "expected_cadence": "monthly",
     }
+
+
+def test_source_freshness_readiness_reports_manifest_only_stale_sources(tmp_path: Path) -> None:
+    status = manifest_only_freshness_status(tmp_path)
+
     assert status["stale_sources"] == [
         {
             "source_key": "zeta_more_stale",
@@ -441,8 +730,6 @@ def test_source_freshness_readiness_reports_manifest_only_status(tmp_path: Path)
         "Stale freshness action: report and plan a versioned refresh; "
         "do not mutate frozen v1 in place."
     )
-
-
 def test_source_freshness_readiness_is_non_blocking_when_manifest_absent(tmp_path: Path) -> None:
     status = source_freshness_readiness(tmp_path)
 
@@ -482,10 +769,11 @@ def test_lamp_overlay_artifact_status_blocks_missing_deploy_artifact(tmp_path: P
     assert "night-lighting" not in status["warning"]
 
 
-def test_build_readiness_report_accepts_minimal_valid_current_state(
+def run_minimal_valid_readiness_report(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
-):
+) -> tuple[bool, dict, list[str], dict[str, Path]]:
+    """Build the minimal valid readiness state and return (ok, report, progress, paths)."""
     from pipeline.batch_plan import RECENT_PUBLIC_SOURCE_GAP_SAMPLE
 
     monkeypatch.setattr(
@@ -493,45 +781,18 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(
         lambda: RECENT_PUBLIC_SOURCE_GAP_SAMPLE,
     )
 
-    web_dir = tmp_path / "web"
-    write_lamp_overlay_artifact(web_dir)
-    bundle_dir = web_dir / "public" / "data" / "generated_test"
-    export_current_fingerprint_bundle(bundle_dir)
-    write_json(web_dir / "data-bundle.json", {"bundle": "generated_test"})
-
-    summary_path = tmp_path / "processed" / "postal_universe_candidate_full_registered_summary.json"
-    universe_path = tmp_path / "processed" / "postal_universe_candidate_full_registered.parquet"
-    write_json(
-        summary_path,
-        {
-            "mode": "candidate_full_registered",
-            "total_unique_postals": 1,
-            "ready_to_score": 1,
-            "needs_geocode": 0,
-            "source_stats": [],
-            "source_only_counts": {},
-            "warnings": [],
-        },
-    )
-    write_universe(universe_path, rows=1)
-    params_path = tmp_path / "params.yaml"
-    params_path.write_text("onemap:\n  client_delay_sec: 2.0\n", encoding="utf-8")
-    qa_path = tmp_path / "qa" / "conflation_qa_island.json"
-    debug_path = tmp_path / "qa" / "island_debug.geojson"
-    write_production_island_qa(qa_path)
+    state = write_minimal_readiness_state(tmp_path)
+    web_dir = state["web_dir"]
+    bundle_dir = state["bundle_dir"]
+    summary_path = state["summary_path"]
+    universe_path = state["universe_path"]
+    params_path = state["params_path"]
+    qa_path = state["qa_path"]
+    debug_path = state["debug_path"]
 
     progress_events: list[str] = []
-    ok, report = build_readiness_report(
-        project_root=tmp_path,
-        web_dir=web_dir,
-        bundle_dir=bundle_dir,
-        summary_path=summary_path,
-        universe_path=universe_path,
-        params_path=params_path,
-        qa_path=qa_path,
-        debug_path=debug_path,
-        network_path=tmp_path / "unused_network.parquet",
-        postal_universe_path=universe_path,
+    ok, report = run_readiness_report(
+        state,
         environment={
             "LTA_DATAMALL_ACCOUNT_KEY": "test-lta",
             "ONEMAP_EMAIL": "owner@example.test",
@@ -540,7 +801,29 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(
         progress=progress_events.append,
     )
 
+
+    return ok, report, progress_events, {
+        "project_root": tmp_path,
+        "web_dir": web_dir,
+        "bundle_dir": bundle_dir,
+        "summary_path": summary_path,
+        "universe_path": universe_path,
+        "params_path": params_path,
+        "qa_path": qa_path,
+        "debug_path": debug_path,
+    }
+
+
+def test_build_readiness_report_accepts_minimal_valid_current_state(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    ok, report, progress_events, state = run_minimal_valid_readiness_report(
+        tmp_path, monkeypatch
+    )
+
     assert ok, report
+
     assert progress_events[0] == "resolving active bundle and QA paths"
     assert "static artifacts: scanning JSON artifact files" in progress_events
     assert any(
@@ -554,6 +837,20 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(
     assert report["release_gate_summary"]["checks"]["infrastructure_readiness"] is True
     assert report["release_gate_summary"]["checks"]["lamp_overlay_artifact"] is True
     assert report["release_gate_summary"]["checks"]["onemap_validation_same_bundle_fresh"] is False
+
+
+def test_build_readiness_report_minimal_state_bundle_sections(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    ok, report, progress_events, state = run_minimal_valid_readiness_report(
+        tmp_path, monkeypatch
+    )
+
+    assert ok, report
+
+    debug_path = state["debug_path"]
+
     assert report["bundle"]["manifest_record_count"] == 1
     assert report["bundle"]["state_total_matches_manifest"] is True
     assert report["bundle"]["score_provenance"]["ok"] is True
@@ -572,6 +869,18 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(
     assert report["lamp_overlay"]["point_count"] == 2
     assert report["environment"]["ready_for_api_collection"] is True
     assert report["environment"]["warnings"] == []
+
+
+def test_build_readiness_report_minimal_state_features_incorporated(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    ok, report, progress_events, state = run_minimal_valid_readiness_report(
+        tmp_path, monkeypatch
+    )
+
+    assert ok, report
+
     assert report["features"]["incorporated"]["bus_as_transit_direct_fallback"] is True
     assert report["features"]["incorporated"]["ura_no_dwelling_units_postal_source"] is True
     assert "124443" in report["features"]["not_incorporated"]["ura_expanded_scores_live"]
@@ -611,6 +920,18 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(
         "72-hour token refresh"
         in report["features"]["not_incorporated"]["postal_universe_v2_source_policy"]
     )
+
+
+def test_build_readiness_report_minimal_state_source_policy_onemap(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    ok, report, progress_events, state = run_minimal_valid_readiness_report(
+        tmp_path, monkeypatch
+    )
+
+    assert ok, report
+
     assert report["features"]["source_policy"]["onemap_search_controls"] == {
         "token_required": True,
         "token_refresh_hours": 72,
@@ -632,105 +953,7 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(
         "confirmed_missing_address_rows": 6,
         "source_quality_warning_rows": 2,
     }
-    assert report["features"]["source_policy"]["recent_public_source_gap_sample"] == {
-        "measurement": "P19 v2 28 Aug 2026 public-source gap sample",
-        "generated_at_utc": "2026-08-28T21:15:15.685030+00:00",
-        "currentness": {
-            "status": "runtime_status_required",
-            "fresh_for_current_gap_sizing": False,
-            "dynamic_status_command": "uv run python run.py p19-gap-status",
-            "reason": (
-                "currentness is time-sensitive; call p19-gap-status before using this "
-                "sample for current gap sizing"
-            ),
-        },
-        "cache_status_command": "uv run python run.py p19-gap-status",
-        "cache_status_calls_apis": False,
-        "cache_status_writes_files": False,
-        "cache_status_reports_age_days": True,
-        "cache_status_reports_missing_rows": True,
-        "cache_status_reports_missing_development_clusters": True,
-        "cache_status_reports_hdb_cluster_coordinates": True,
-        "cache_status_reports_mcst_proxy_location_probe": True,
-        "summary_path": "qa/p19/universe_gap_measurement_summary_v2.json",
-        "detail_path": "qa/p19/universe_gap_measurement_detail_v2.json",
-        "mcst_proxy_location_probe": {
-            "command": "uv run python run.py p19-mcst-locations",
-            "command_calls_apis": False,
-            "command_writes_files": False,
-            "cache_path": "qa/p379/p19_mcst_missing_onemap_cache.json",
-            "report_path": "qa/p379/p19_mcst_missing_locations_report.json",
-            "mcst_missing_rows": 2,
-            "located_rows": 0,
-            "unlocated_rows": 2,
-            "conflicting_candidate_postals": {
-                "CANAAN": {
-                    "recorded_postal": "378720",
-                    "candidate_postals": ["387720"],
-                }
-            },
-            "unlocated_developments": ["CANAAN", "MYRA"],
-            "will_score": False,
-            "will_export": False,
-            "will_mutate_p19": False,
-            "verdict": "MCST proxy rows remain unvalidated; HDB clusters are the coordinate-backed actionable gap",
-        },
-        "source_rows_with_postals": 976,
-        "missing_rows": 8,
-        "evidence_split": {
-            "coordinate_backed_hdb_missing_rows": 6,
-            "unvalidated_mcst_proxy_rows": 2,
-            "confirmed_missing_address_rows": 6,
-            "source_quality_warning_rows": 2,
-        },
-        "missing_postals_by_source": {
-            "hdb_2021_2026_geocoded": ["521400", "522400", "523400", "762936", "763936", "764936"],
-            "mcst_2021_2026": ["378720", "935456"],
-        },
-        "coordinate_backed_hdb_missing_development_clusters": [
-            {
-                "development": "SUN PLAZA SPRING",
-                "missing_postals": ["521400", "522400", "523400"],
-                "missing_rows": 3,
-                "year_completed": 2026,
-                "coordinate_source": "cached_onemap_search_result",
-            },
-            {
-                "development": "YISHUN BEACON",
-                "missing_postals": ["762936", "763936", "764936"],
-                "missing_rows": 3,
-                "year_completed": 2026,
-                "coordinate_source": "cached_onemap_search_result",
-            },
-        ],
-        "missing_pct": 0.819672,
-        "confirmed_missing_pct": 0.614754,
-        "missing_or_source_quality_warning_pct": 0.819672,
-        "directional_scale_if_sample_rate_applied_to_v1": {
-            "basis": (
-                "directional only; applies sampled recent-completion row rates to the "
-                "frozen-v1 distinct postal count, not a measured full-universe gap"
-            ),
-            "v1_distinct_postals": 124443,
-            "confirmed_missing_rows_estimate": 765,
-            "missing_or_source_quality_warning_rows_estimate": 1020,
-        },
-        "v2_build_decision": {
-            "status": "not_approved_from_current_sample",
-            "reason": (
-                "fresh cached sample indicates a small gap; building postal-universe v2 "
-                "requires separate owner approval, candidate-source-first scope, and "
-                "new versioned outputs"
-            ),
-        },
-        "source_window": "2021-2026",
-        "sources": ["HDB completion geocoded rows", "BCA MCST constitution-date proxy rows"],
-        "source_limitations": [
-            "HDB rows use completion year but require OneMap geocoding to obtain postals",
-            "BCA MCST constitution date is private-strata onboarding proxy evidence, not TOP or completion date",
-        ],
-        "verdict": "small sampled current-source gap in frozen v1; v2 remains candidate-source-first if approved",
-    }
+    assert report["features"]["source_policy"]["recent_public_source_gap_sample"] == EXPECTED_RECENT_PUBLIC_SOURCE_GAP_SAMPLE
     assert (
         "candidate-only postal-universe evidence"
         in report["features"]["not_incorporated"]["overture_addresses_sg_candidate"]
@@ -750,6 +973,16 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(
     assert (
         report["features"]["validation_gates"]["onemap_walk_validation"]["state"] == "not_collected"
     )
+
+
+def test_build_readiness_report_minimal_state_source_policy_osm_datamall(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    ok, report, progress_events, state = run_minimal_valid_readiness_report(
+        tmp_path, monkeypatch
+    )
+
     assert report["features"]["source_policy"]["osm_addr_postcode_registry"] == {
         "measurement": "P19 v2 28 Aug 2026 Overpass addr:postcode coverage cross-check",
         "cache_status_command": "uv run python run.py p19-gap-status",
@@ -778,6 +1011,16 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(
         "matched_sources": ["covered_linkway", "overhead_bridge_underpass", "traffic_signals"],
         "verdict": "discovery URLs still match frozen v1; stale payload ages still require a new numbered input version before any refresh",
     }
+
+
+def test_build_readiness_report_minimal_state_source_policy_other_sources(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    ok, report, progress_events, state = run_minimal_valid_readiness_report(
+        tmp_path, monkeypatch
+    )
+
     assert report["features"]["source_policy"]["non_score_reference_sources"] == {
         "leaf_area_index": {
             "role": "source freshness reference table only",
@@ -809,6 +1052,20 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(
         "role": "release context, not a corruption or hash-repair signal",
         "stale_result": "report and plan a versioned refresh; do not mutate frozen v1 in place",
     }
+
+
+
+
+def test_build_readiness_report_minimal_state_batch_plan(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    ok, report, progress_events, state = run_minimal_valid_readiness_report(
+        tmp_path, monkeypatch
+    )
+
+    assert ok, report
+
     assert report["batch_plan"]["full_batch_release_scope"] == {
         "status": "approved_in_principle_not_approved_to_run",
         "owner_approval_required_before_execution": True,
@@ -853,11 +1110,14 @@ def test_build_readiness_report_accepts_minimal_valid_current_state(
 
 
 def test_build_readiness_report_summarizes_failed_onemap_gate(tmp_path: Path):
-    web_dir = tmp_path / "web"
-    write_lamp_overlay_artifact(web_dir)
-    bundle_dir = web_dir / "public" / "data" / "generated_test"
-    export_current_fingerprint_bundle(bundle_dir)
-    write_json(web_dir / "data-bundle.json", {"bundle": "generated_test"})
+    state = write_minimal_readiness_state(tmp_path)
+    web_dir = state["web_dir"]
+    bundle_dir = state["bundle_dir"]
+    summary_path = state["summary_path"]
+    universe_path = state["universe_path"]
+    params_path = state["params_path"]
+    qa_path = state["qa_path"]
+    debug_path = state["debug_path"]
     write_json(
         tmp_path / ".vercel" / "project.json",
         {
@@ -866,77 +1126,10 @@ def test_build_readiness_report_summarizes_failed_onemap_gate(tmp_path: Path):
             "settings": {"rootDirectory": "web"},
         },
     )
-
-    summary_path = tmp_path / "processed" / "postal_universe_candidate_full_registered_summary.json"
-    universe_path = tmp_path / "processed" / "postal_universe_candidate_full_registered.parquet"
-    write_json(
-        summary_path,
-        {
-            "mode": "candidate_full_registered",
-            "total_unique_postals": 1,
-            "ready_to_score": 1,
-            "needs_geocode": 0,
-            "source_stats": [],
-            "source_only_counts": {},
-            "warnings": [],
-        },
-    )
-    write_universe(universe_path, rows=1)
-    params_path = tmp_path / "params.yaml"
-    params_path.write_text("onemap:\n  client_delay_sec: 2.0\n", encoding="utf-8")
-    qa_path = tmp_path / "qa" / "conflation_qa_island.json"
-    debug_path = tmp_path / "qa" / "island_debug.geojson"
-    write_production_island_qa(qa_path)
     debug_path.write_text('{"type":"FeatureCollection","features":[]}', encoding="utf-8")
     write_json(
         tmp_path / "qa" / "onemap_validation_cached_report_20260802.json",
-        {
-            "bundle": "generated_old",
-            "gate_passed": False,
-            "sample_size": 2000,
-            "cached_results": 1999,
-            "missing_cache_results": 0,
-            "invalid_cache_results": 1,
-            "median_abs_pct_delta": 11.458,
-            "p95_abs_pct_delta": 94.037,
-            "thresholds": {
-                "median_abs_pct_delta_max": 10.0,
-                "p95_abs_pct_delta_max": 100.0,
-            },
-            "subset_summary": {
-                "graph_routed_mrt_lrt": {
-                    "count": 386,
-                    "median_abs_pct_delta": 6.679,
-                    "p95_abs_pct_delta": 59.114,
-                    "median_abs_delta_m": 42.5,
-                    "p95_abs_delta_m": 351.5,
-                    "thresholds_passed": True,
-                },
-                "endpoint_connector": {
-                    "count": 19,
-                    "median_abs_pct_delta": 77.358,
-                    "p95_abs_pct_delta": 80.206,
-                    "median_abs_delta_m": 271.4,
-                    "p95_abs_delta_m": 1161.4,
-                    "thresholds_passed": False,
-                },
-                "graph_routed_bus_stop": {
-                    "count": 123,
-                    "median_abs_pct_delta": 15.988,
-                    "p95_abs_pct_delta": 76.321,
-                    "median_abs_delta_m": 91.2,
-                    "p95_abs_delta_m": 812.0,
-                    "thresholds_passed": False,
-                },
-                "unused_passed_subset": {
-                    "count": 1,
-                    "median_abs_pct_delta": 1.0,
-                    "p95_abs_pct_delta": 2.0,
-                    "thresholds_passed": True,
-                },
-            },
-            "generated_at": "2026-08-02T02:40:10+00:00",
-        },
+        ONEMAP_CACHED_REPORT_ONEMAP_VALIDATION_CACHED_REPORT_20260802
     )
 
     ok, report = build_readiness_report(
@@ -988,12 +1181,16 @@ def test_build_readiness_report_summarizes_failed_onemap_gate(tmp_path: Path):
     assert "failing subsets: endpoint_connector, graph_routed_bus_stop" in gate["summary"]
 
 
-def test_build_readiness_report_reads_nested_release_onemap_reports(tmp_path: Path):
-    web_dir = tmp_path / "web"
-    write_lamp_overlay_artifact(web_dir)
-    bundle_dir = web_dir / "public" / "data" / "generated_test"
-    export_current_fingerprint_bundle(bundle_dir)
-    write_json(web_dir / "data-bundle.json", {"bundle": "generated_test"})
+def write_nested_onemap_state(tmp_path: Path) -> tuple[dict[str, Path], Path]:
+    """Build the minimal state plus the nested release OneMap reports."""
+    state = write_minimal_readiness_state(tmp_path)
+    web_dir = state["web_dir"]
+    bundle_dir = state["bundle_dir"]
+    summary_path = state["summary_path"]
+    universe_path = state["universe_path"]
+    params_path = state["params_path"]
+    qa_path = state["qa_path"]
+    debug_path = state["debug_path"]
     write_json(
         tmp_path / ".vercel" / "project.json",
         {
@@ -1002,45 +1199,10 @@ def test_build_readiness_report_reads_nested_release_onemap_reports(tmp_path: Pa
             "settings": {"rootDirectory": "web"},
         },
     )
-
-    summary_path = tmp_path / "processed" / "postal_universe_candidate_full_registered_summary.json"
-    universe_path = tmp_path / "processed" / "postal_universe_candidate_full_registered.parquet"
-    write_json(
-        summary_path,
-        {
-            "mode": "candidate_full_registered",
-            "total_unique_postals": 1,
-            "ready_to_score": 1,
-            "needs_geocode": 0,
-            "source_stats": [],
-            "source_only_counts": {},
-            "warnings": [],
-        },
-    )
-    write_universe(universe_path, rows=1)
-    params_path = tmp_path / "params.yaml"
-    params_path.write_text("onemap:\n  client_delay_sec: 2.0\n", encoding="utf-8")
-    qa_path = tmp_path / "qa" / "conflation_qa_island.json"
-    debug_path = tmp_path / "qa" / "island_debug.geojson"
-    write_production_island_qa(qa_path)
     debug_path.write_text('{"type":"FeatureCollection","features":[]}', encoding="utf-8")
     write_json(
         tmp_path / "qa" / "onemap_validation_cached_report_old_root.json",
-        {
-            "bundle": "generated_old",
-            "gate_passed": False,
-            "sample_size": 2000,
-            "cached_results": 2000,
-            "missing_cache_results": 0,
-            "invalid_cache_results": 0,
-            "median_abs_pct_delta": 99.0,
-            "p95_abs_pct_delta": 99.0,
-            "thresholds": {
-                "median_abs_pct_delta_max": 12.0,
-                "p95_abs_pct_delta_max": 100.0,
-            },
-            "generated_at": "2020-01-01T00:00:00+00:00",
-        },
+        ONEMAP_CACHED_REPORT_ONEMAP_VALIDATION_CACHED_REPORT_OLD_ROOT
     )
     nested_report = (
         tmp_path
@@ -1051,22 +1213,22 @@ def test_build_readiness_report_reads_nested_release_onemap_reports(tmp_path: Pa
     )
     write_json(
         nested_report,
-        {
-            "bundle": "generated_test",
-            "gate_passed": False,
-            "sample_size": 95157,
-            "cached_results": 95095,
-            "missing_cache_results": 0,
-            "invalid_cache_results": 62,
-            "median_abs_pct_delta": 11.884,
-            "p95_abs_pct_delta": 69.861,
-            "thresholds": {
-                "median_abs_pct_delta_max": 12.0,
-                "p95_abs_pct_delta_max": 100.0,
-            },
-            "generated_at": "2099-01-01T00:00:00+00:00",
-        },
+        ONEMAP_CACHED_REPORT_1
     )
+
+
+    return state, nested_report
+
+
+def test_build_readiness_report_reads_nested_release_onemap_reports(tmp_path: Path):
+    state, nested_report = write_nested_onemap_state(tmp_path)
+    web_dir = state["web_dir"]
+    bundle_dir = state["bundle_dir"]
+    summary_path = state["summary_path"]
+    universe_path = state["universe_path"]
+    params_path = state["params_path"]
+    qa_path = state["qa_path"]
+    debug_path = state["debug_path"]
 
     ok, report = build_readiness_report(
         project_root=tmp_path,
@@ -1094,6 +1256,17 @@ def test_build_readiness_report_reads_nested_release_onemap_reports(tmp_path: Pa
     assert report["release_gate_summary"]["checks"]["onemap_validation_waived"] is False
     assert report["release_gate_summary"]["required_owner_approvals"] == ["production_deploy"]
 
+
+def test_build_readiness_report_waives_nested_release_onemap_report(tmp_path: Path):
+    state, nested_report = write_nested_onemap_state(tmp_path)
+    web_dir = state["web_dir"]
+    bundle_dir = state["bundle_dir"]
+    summary_path = state["summary_path"]
+    universe_path = state["universe_path"]
+    params_path = state["params_path"]
+    qa_path = state["qa_path"]
+    debug_path = state["debug_path"]
+
     ok, waived_report = build_readiness_report(
         project_root=tmp_path,
         web_dir=web_dir,
@@ -1119,14 +1292,15 @@ def test_build_readiness_report_reads_nested_release_onemap_reports(tmp_path: Pa
     assert waived_report["release_gate_summary"]["checks"]["onemap_validation_waived"] is True
     assert waived_report["release_gate_summary"]["required_owner_approvals"] == []
     assert waived_report["release_gate_summary"]["owner_approvals"]["production_deploy"] is True
-
-
 def test_build_readiness_report_blocks_stale_same_bundle_onemap_report(tmp_path: Path):
-    web_dir = tmp_path / "web"
-    write_lamp_overlay_artifact(web_dir)
-    bundle_dir = web_dir / "public" / "data" / "generated_test"
-    export_current_fingerprint_bundle(bundle_dir)
-    write_json(web_dir / "data-bundle.json", {"bundle": "generated_test"})
+    state = write_minimal_readiness_state(tmp_path)
+    web_dir = state["web_dir"]
+    bundle_dir = state["bundle_dir"]
+    summary_path = state["summary_path"]
+    universe_path = state["universe_path"]
+    params_path = state["params_path"]
+    qa_path = state["qa_path"]
+    debug_path = state["debug_path"]
     write_json(
         tmp_path / ".vercel" / "project.json",
         {
@@ -1135,45 +1309,10 @@ def test_build_readiness_report_blocks_stale_same_bundle_onemap_report(tmp_path:
             "settings": {"rootDirectory": "web"},
         },
     )
-
-    summary_path = tmp_path / "processed" / "postal_universe_candidate_full_registered_summary.json"
-    universe_path = tmp_path / "processed" / "postal_universe_candidate_full_registered.parquet"
-    write_json(
-        summary_path,
-        {
-            "mode": "candidate_full_registered",
-            "total_unique_postals": 1,
-            "ready_to_score": 1,
-            "needs_geocode": 0,
-            "source_stats": [],
-            "source_only_counts": {},
-            "warnings": [],
-        },
-    )
-    write_universe(universe_path, rows=1)
-    params_path = tmp_path / "params.yaml"
-    params_path.write_text("onemap:\n  client_delay_sec: 2.0\n", encoding="utf-8")
-    qa_path = tmp_path / "qa" / "conflation_qa_island.json"
-    debug_path = tmp_path / "qa" / "island_debug.geojson"
-    write_production_island_qa(qa_path)
     debug_path.write_text('{"type":"FeatureCollection","features":[]}', encoding="utf-8")
     write_json(
         tmp_path / "qa" / "onemap_validation_cached_report_generated_test_old.json",
-        {
-            "bundle": "generated_test",
-            "gate_passed": True,
-            "sample_size": 2000,
-            "cached_results": 2000,
-            "missing_cache_results": 0,
-            "invalid_cache_results": 0,
-            "median_abs_pct_delta": 5.0,
-            "p95_abs_pct_delta": 20.0,
-            "thresholds": {
-                "median_abs_pct_delta_max": 12.0,
-                "p95_abs_pct_delta_max": 100.0,
-            },
-            "generated_at": "2020-01-01T00:00:00+00:00",
-        },
+        ONEMAP_CACHED_REPORT_ONEMAP_VALIDATION_CACHED_REPORT_GENERATED_TEST_OLD
     )
 
     ok, report = build_readiness_report(
@@ -1201,11 +1340,14 @@ def test_build_readiness_report_blocks_stale_same_bundle_onemap_report(tmp_path:
 
 
 def test_build_readiness_report_warns_when_bundle_predates_network(tmp_path: Path):
-    web_dir = tmp_path / "web"
-    write_lamp_overlay_artifact(web_dir)
-    bundle_dir = web_dir / "public" / "data" / "generated_test"
-    export_current_fingerprint_bundle(bundle_dir)
-    write_json(web_dir / "data-bundle.json", {"bundle": "generated_test"})
+    state = write_minimal_readiness_state(tmp_path)
+    web_dir = state["web_dir"]
+    bundle_dir = state["bundle_dir"]
+    summary_path = state["summary_path"]
+    universe_path = state["universe_path"]
+    params_path = state["params_path"]
+    qa_path = state["qa_path"]
+    debug_path = state["debug_path"]
     write_json(
         tmp_path / ".vercel" / "project.json",
         {
@@ -1214,27 +1356,6 @@ def test_build_readiness_report_warns_when_bundle_predates_network(tmp_path: Pat
             "settings": {"rootDirectory": "web"},
         },
     )
-
-    summary_path = tmp_path / "processed" / "postal_universe_candidate_full_registered_summary.json"
-    universe_path = tmp_path / "processed" / "postal_universe_candidate_full_registered.parquet"
-    write_json(
-        summary_path,
-        {
-            "mode": "candidate_full_registered",
-            "total_unique_postals": 1,
-            "ready_to_score": 1,
-            "needs_geocode": 0,
-            "source_stats": [],
-            "source_only_counts": {},
-            "warnings": [],
-        },
-    )
-    write_universe(universe_path, rows=1)
-    params_path = tmp_path / "params.yaml"
-    params_path.write_text("onemap:\n  client_delay_sec: 2.0\n", encoding="utf-8")
-    qa_path = tmp_path / "qa" / "conflation_qa_island.json"
-    debug_path = tmp_path / "qa" / "island_debug.geojson"
-    write_production_island_qa(qa_path)
     debug_path.write_text('{"type":"FeatureCollection","features":[]}', encoding="utf-8")
     network_path = tmp_path / "processed" / "network_island.parquet"
     network_path.write_bytes(b"newer network")
@@ -1287,26 +1408,12 @@ def test_build_readiness_report_warns_when_bundle_manifest_lacks_score_provenanc
         },
     )
 
-    summary_path = tmp_path / "processed" / "postal_universe_candidate_full_registered_summary.json"
-    universe_path = tmp_path / "processed" / "postal_universe_candidate_full_registered.parquet"
-    write_json(
-        summary_path,
-        {
-            "mode": "candidate_full_registered",
-            "total_unique_postals": 1,
-            "ready_to_score": 1,
-            "needs_geocode": 0,
-            "source_stats": [],
-            "source_only_counts": {},
-            "warnings": [],
-        },
-    )
-    write_universe(universe_path, rows=1)
-    params_path = tmp_path / "params.yaml"
-    params_path.write_text("onemap:\n  client_delay_sec: 2.0\n", encoding="utf-8")
-    qa_path = tmp_path / "qa" / "conflation_qa_island.json"
-    debug_path = tmp_path / "qa" / "island_debug.geojson"
-    write_production_island_qa(qa_path)
+    inputs = write_minimal_readiness_inputs(tmp_path)
+    summary_path = inputs["summary_path"]
+    universe_path = inputs["universe_path"]
+    params_path = inputs["params_path"]
+    qa_path = inputs["qa_path"]
+    debug_path = inputs["debug_path"]
     debug_path.write_text('{"type":"FeatureCollection","features":[]}', encoding="utf-8")
 
     ok, report = build_readiness_report(
@@ -1370,26 +1477,12 @@ def test_build_readiness_report_warns_when_bundle_lacks_scoring_fingerprints(
         },
     )
 
-    summary_path = tmp_path / "processed" / "postal_universe_candidate_full_registered_summary.json"
-    universe_path = tmp_path / "processed" / "postal_universe_candidate_full_registered.parquet"
-    write_json(
-        summary_path,
-        {
-            "mode": "candidate_full_registered",
-            "total_unique_postals": 1,
-            "ready_to_score": 1,
-            "needs_geocode": 0,
-            "source_stats": [],
-            "source_only_counts": {},
-            "warnings": [],
-        },
-    )
-    write_universe(universe_path, rows=1)
-    params_path = tmp_path / "params.yaml"
-    params_path.write_text("onemap:\n  client_delay_sec: 2.0\n", encoding="utf-8")
-    qa_path = tmp_path / "qa" / "conflation_qa_island.json"
-    debug_path = tmp_path / "qa" / "island_debug.geojson"
-    write_production_island_qa(qa_path)
+    inputs = write_minimal_readiness_inputs(tmp_path)
+    summary_path = inputs["summary_path"]
+    universe_path = inputs["universe_path"]
+    params_path = inputs["params_path"]
+    qa_path = inputs["qa_path"]
+    debug_path = inputs["debug_path"]
     debug_path.write_text('{"type":"FeatureCollection","features":[]}', encoding="utf-8")
 
     ok, report = build_readiness_report(
